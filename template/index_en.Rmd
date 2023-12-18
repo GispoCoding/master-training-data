@@ -1,0 +1,94 @@
+---
+title: "yaml_title_replace"
+author: "Gispo author_replace"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "abstract_replace"
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+documentclass: book
+---
+
+<!-- Harjoitukset -->
+
+# document_title_replace
+
+## Downloading exercise data
+
+You can download the data used in the exercises from this link:
+
+::: note-box
+[course_directory.zip](data_package_link_replace)
+:::
+
+## Reading Guide
+
+Commands to execute in a **web browser** are displayed as follows:
+
+:::{.note-box}
+http://localhost:8080/geoserver
+:::
+
+Commands to execute in a **command prompt/terminal** are displayed as follows:
+
+::: commandline-box
+``` bash
+sudo lsb_release -a
+```
+:::
+
+**File content** is displayed as follows:
+
+:::{.file-content-box}
+#IPv4 local connections:
+#host all all 127.0.0.1/32 md5
+:::
+
+**HTML and CSS code, SQL- queries and Python-scripts** are displayed as follows:
+
+:::{.code-box}
+``` sql
+SELECT version();
+```
+:::
+
+**Questions, notes and hints** are displayed as follows:
+
+:::{.hint-box}
+Where do you find information about GeoServer? 
+
+GeoServer has its own website.
+:::
+
+
+## Additional information
+
+Here are a few helpful websites:
+
+:::{.note-box} 
+http://www.qgis.org/ 
+:::
+:::{.note-box}
+http://docs.qgis.org/ 
+:::
+:::{.note-box}
+http://gis.stackexchange.com/            
+:::
+:::{.note-box}
+http://www.osgeo.fi
+:::
+
+
+## Mistakes
+
+If you notice mistakes in these course materials, we ask you to report either directly to the trainer or by email us at info@gispo.fi .
+
+## License and permissions
+
+These materials are developed for the "license_title_replace" course by Gispo Ltd.
+The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.

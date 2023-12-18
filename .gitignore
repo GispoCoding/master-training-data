@@ -1,0 +1,10 @@
+*.zip
+.idea
+.vscode/launch.json
+**/_main.Rmd
+*.Rhistory
+.Rhistory
+
+out
+
+**/_book

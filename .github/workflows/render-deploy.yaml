@@ -1,0 +1,44 @@
+name: Render to HTML & Deploy
+on:
+  push:
+    paths:
+      - src/**/*
+
+jobs:
+  check-changes:
+    name: Check if Rmd files changed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Find directories with changed rmd or image files
+        id: changed-files-dir-names
+        uses: tj-actions/changed-files@v39
+        with:
+          files:  |
+            src/G*/*.{rmd,Rmd}
+            src/G*/img/*.{png,gif}
+            src/G*/img/*/*.{png,gif}            
+          dir_names: "true"
+          dir_names_max_depth: 2
+
+      - name: Render modified courses to HTML and move output to docs
+        run: |
+          folder_list="${{ steps.changed-files-dir-names.outputs.all_changed_files }}"
+          IFS=" "
+          read -ra folders <<< "$folder_list"
+
+          export WORKFLOW=true
+
+          for folder in "${folders[@]}"; do
+            code="${folder#src/}"
+            ./render.sh $code
+          done
+
+      - name: Add, Commit & Push
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: "docs/G*"
+          message: "Automatic: Update docs"

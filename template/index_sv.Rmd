@@ -1,0 +1,95 @@
+---
+title: "yaml_title_replace"
+author: "Gispo author_replace"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "abstract_replace"
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+documentclass: book
+---
+
+<!-- Harjoitukset -->
+
+# document_title_replace
+
+## Nedladdning av kursmaterial
+
+Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
+
+::: note-box
+[Kurskatalog.zip](data_package_link_replace)
+:::
+
+## Läshjälp
+
+**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
+
+::: commandline-box
+``` bash
+sudo lsb_release -a
+```
+:::
+
+**Tiedostojen sisältö** on esitetty seuraavasti:
+
+::: file-content-box
+#IPv4 local connections: #host all all 127.0.0.1/32 md5
+:::
+
+**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
+
+::: code-box
+``` sql
+SELECT version();
+```
+:::
+
+**Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
+
+::: hint-box
+Mistä löydät tietoa GeoServeristä?
+
+GeoServerillä on omat kotisivut.
+
+Psst! Tietoa GeoServeristä löydät internetistä.
+:::
+
+## Ytterligare information
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+::: note-box
+<http://www.qgis.org/>
+:::
+
+::: note-box
+<http://docs.qgis.org/>
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>
+:::
+
+::: note-box
+<http://www.osgeo.fi>
+:::
+
+## Misstag
+
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+
+## Licens och Behörigheter
+
+Nämä materiaalit on "license_title_replace"- kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
