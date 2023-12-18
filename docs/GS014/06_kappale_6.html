@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="7 Kappale 6: Kohteiden muokkaus - Quick Field Calculation ja virtuaalikentät | Lausekkeet QGISissä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Ltd." />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="7 Kappale 6: Kohteiden muokkaus - Quick Field Calculation ja virtuaalikentät | Lausekkeet QGISissä">
+
+<title>7 Kappale 6: Kohteiden muokkaus - Quick Field Calculation ja virtuaalikentät | Lausekkeet QGISissä</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Lausekkeet QGISissä</h1></div>
+<div class="abstract-sidebar"><p>QGIS jatkokurssi lausekkeiden hyödyntämisestä.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#tervetuloa-lausekkeet-qgisissä--kurssille"><span class="toc-section-number">1</span> Tervetuloa ‘Lausekkeet QGISissä’- kurssille!</a>
+<ul>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.1</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.2</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.3</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.4</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_kappale_1.html#kappale-1-perusteet"><span class="toc-section-number">2</span> Kappale 1: Perusteet</a>
+<ul>
+<li><a href="01_kappale_1.html#ennen-tehtäviä"><span class="toc-section-number">2.1</span> Ennen tehtäviä</a></li>
+<li><a href="01_kappale_1.html#tehtävä-1.1"><span class="toc-section-number">2.2</span> Tehtävä 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_kappale_2.html#kappale-2-lausekkeiden-kirjoittaminen"><span class="toc-section-number">3</span> Kappale 2: Lausekkeiden kirjoittaminen</a>
+<ul>
+<li><a href="02_kappale_2.html#tehtävä-2.1"><span class="toc-section-number">3.1</span> Tehtävä 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_kappale_3.html#kappale-3-kohteiden-valinta-ja-suodatus"><span class="toc-section-number">4</span> Kappale 3: Kohteiden valinta ja suodatus</a>
+<ul>
+<li><a href="03_kappale_3.html#tehtävä-3.1"><span class="toc-section-number">4.1</span> Tehtävä 3.1</a></li>
+<li><a href="03_kappale_3.html#tehtävä-3.2"><span class="toc-section-number">4.2</span> Tehtävä 3.2</a></li>
+<li><a href="03_kappale_3.html#tehtävä-3.3"><span class="toc-section-number">4.3</span> Tehtävä 3.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_kappale_4.html#kappale-4-kohteiden-muokkaus---field-calculator-osa-1"><span class="toc-section-number">5</span> Kappale 4: Kohteiden muokkaus - Field Calculator (Osa 1)</a>
+<ul>
+<li><a href="04_kappale_4.html#tehtävä-4.1"><span class="toc-section-number">5.1</span> Tehtävä 4.1</a></li>
+<li><a href="04_kappale_4.html#tehtävä-4.2"><span class="toc-section-number">5.2</span> Tehtävä 4.2</a></li>
+<li><a href="04_kappale_4.html#tehtävä-4.3"><span class="toc-section-number">5.3</span> Tehtävä 4.3</a></li>
+<li><a href="04_kappale_4.html#lisätehtävät"><span class="toc-section-number">5.4</span> Lisätehtävät</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_kappale_5.html#kappale-5-kohteiden-muokkaus---field-calculator-osa-2"><span class="toc-section-number">6</span> Kappale 5: Kohteiden muokkaus - Field Calculator (Osa 2)</a>
+<ul>
+<li><a href="05_kappale_5.html#tehtävä-5.1"><span class="toc-section-number">6.1</span> Tehtävä 5.1</a></li>
+<li><a href="05_kappale_5.html#tehtävä-5.2"><span class="toc-section-number">6.2</span> Tehtävä 5.2</a></li>
+<li><a href="05_kappale_5.html#tehtävä-5.3"><span class="toc-section-number">6.3</span> Tehtävä 5.3</a></li>
+<li><a href="05_kappale_5.html#tehtävä-5.4"><span class="toc-section-number">6.4</span> Tehtävä 5.4</a></li>
+<li><a href="05_kappale_5.html#lisätehtävät-1"><span class="toc-section-number">6.5</span> Lisätehtävät</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_kappale_6.html#kappale-6-kohteiden-muokkaus---quick-field-calculation-ja-virtuaalikentät"><span class="toc-section-number">7</span> Kappale 6: Kohteiden muokkaus - Quick Field Calculation ja virtuaalikentät</a>
+<ul>
+<li><a href="06_kappale_6.html#tehtävä-6.1"><span class="toc-section-number">7.1</span> Tehtävä 6.1</a></li>
+<li><a href="06_kappale_6.html#tehtävä-6.2"><span class="toc-section-number">7.2</span> Tehtävä 6.2</a></li>
+<li><a href="06_kappale_6.html#lisätehtävä"><span class="toc-section-number">7.3</span> Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_kappale_7.html#kappale-7-symbologian-kustomointi"><span class="toc-section-number">8</span> Kappale 7: Symbologian kustomointi</a>
+<ul>
+<li><a href="07_kappale_7.html#tehtävä-7.1"><span class="toc-section-number">8.1</span> Tehtävä 7.1</a></li>
+<li><a href="07_kappale_7.html#lisätehtävä-1"><span class="toc-section-number">8.2</span> Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_kappale_8.html#kappale-8-symbologian-kustomointi---lämpökartta-ja-geometry-generator"><span class="toc-section-number">9</span> Kappale 8: Symbologian kustomointi - lämpökartta ja Geometry Generator</a>
+<ul>
+<li><a href="08_kappale_8.html#tehtävä-8.1"><span class="toc-section-number">9.1</span> Tehtävä 8.1</a></li>
+<li><a href="08_kappale_8.html#tehtävä-8.2"><span class="toc-section-number">9.2</span> Tehtävä 8.2</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_kappale_9.html#kappale-9-nimiöiden-kustomointi"><span class="toc-section-number">10</span> Kappale 9: Nimiöiden kustomointi</a>
+<ul>
+<li><a href="09_kappale_9.html#tehtävä-9.1"><span class="toc-section-number">10.1</span> Tehtävä 9.1</a></li>
+<li><a href="09_kappale_9.html#lisätehtävä-2"><span class="toc-section-number">10.2</span> Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_kappale_10.html#kappale-10-karttatulosteen-kustomointi"><span class="toc-section-number">11</span> Kappale 10: Karttatulosteen kustomointi</a>
+<ul>
+<li><a href="10_kappale_10.html#tehtävä-10.1"><span class="toc-section-number">11.1</span> Tehtävä 10.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="11_kappale_11.html#kappale-11-kartta-atlaksen-kustomointi"><span class="toc-section-number">12</span> Kappale 11: Kartta-atlaksen kustomointi</a>
+<ul>
+<li><a href="11_kappale_11.html#tehtävä-11.1"><span class="toc-section-number">12.1</span> Tehtävä 11.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="12_kappale_12.html#kappale-12-python--konsoli"><span class="toc-section-number">13</span> Kappale 12: Python- konsoli</a>
+<ul>
+<li><a href="12_kappale_12.html#tehtävä-12.1"><span class="toc-section-number">13.1</span> Tehtävä 12.1</a></li>
+<li><a href="12_kappale_12.html#tehtävä-12.2"><span class="toc-section-number">13.2</span> Tehtävä 12.2</a></li>
+<li><a href="12_kappale_12.html#lisätehtävä-3"><span class="toc-section-number">13.3</span> Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="13_kappale_13.html#kappale-13-oman-funktion-luominen"><span class="toc-section-number">14</span> Kappale 13: Oman funktion luominen</a>
+<ul>
+<li><a href="13_kappale_13.html#tehtävä-13.1"><span class="toc-section-number">14.1</span> Tehtävä 13.1</a></li>
+<li><a href="13_kappale_13.html#lisätehtävä-4"><span class="toc-section-number">14.2</span> Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="14_kappale_14.html#kappale-14-kotitehtävät"><span class="toc-section-number">15</span> Kappale 14: Kotitehtävät</a>
+<ul>
+<li><a href="14_kappale_14.html#kotitehtävä-1"><span class="toc-section-number">15.1</span> Kotitehtävä 1</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-2"><span class="toc-section-number">15.2</span> Kotitehtävä 2</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-3-haastava"><span class="toc-section-number">15.3</span> Kotitehtävä 3 (haastava)</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-4"><span class="toc-section-number">15.4</span> Kotitehtävä 4</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-5"><span class="toc-section-number">15.5</span> Kotitehtävä 5</a></li>
+</ul></li>
+<li class="has-sub"><a href="15_kappale_15.html#kappale-15-lisätehtävät"><span class="toc-section-number">16</span> Kappale 15: Lisätehtävät</a>
+<ul>
+<li><a href="15_kappale_15.html#lisätehtävä-1-1"><span class="toc-section-number">16.1</span> Lisätehtävä 1</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-2-1"><span class="toc-section-number">16.2</span> Lisätehtävä 2</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-3-1"><span class="toc-section-number">16.3</span> Lisätehtävä 3</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-4-1"><span class="toc-section-number">16.4</span> Lisätehtävä 4</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-5"><span class="toc-section-number">16.5</span> Lisätehtävä 5</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-6"><span class="toc-section-number">16.6</span> Lisätehtävä 6</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-7"><span class="toc-section-number">16.7</span> Lisätehtävä 7</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-8"><span class="toc-section-number">16.8</span> Lisätehtävä 8</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-9"><span class="toc-section-number">16.9</span> Lisätehtävä 9</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-10"><span class="toc-section-number">16.10</span> Lisätehtävä 10</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-11"><span class="toc-section-number">16.11</span> Lisätehtävä 11</a></li>
+<li><a href="15_kappale_15.html#geoprosessointiesimerkki"><span class="toc-section-number">16.12</span> Geoprosessointiesimerkki</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="kappale-6-kohteiden-muokkaus---quick-field-calculation-ja-virtuaalikentät" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Kappale 6: Kohteiden muokkaus - Quick Field Calculation ja virtuaalikentät</h1>
+<div id="tehtävä-6.1" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Tehtävä 6.1</h2>
+<p>Tarkastele hallintoalueaineistoa. Luo uusi virtuaalinen kenttä (anna nimeksi esimerkiksi sama_nimen_pituus), jonka tietotyyppi on <em>boolean</em> (totuusarvo). Kirjoita virtuaaliselle kentälle lauseke, joka on <strong>tosi</strong> jos kunnan suomen- ja ruotsinkielinen nimi on saman pituinen.</p>
+<p><strong>Aineisto</strong>: <code>hallintoalueet.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p>Käytä yhtä kuin- operaattoria (=). Vertaa sarakkeiden <code>Kunta_ni1</code> ja <code>Kunta_ni2</code> arvon pituutta.</p>
+<p>Millä funktiolla saat palautettua merkkijonon pituuden?</p>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb15"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb15-1"><a href="06_kappale_6.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="ot">&quot;Kunta_ni1&quot;</span>) <span class="op">=</span> <span class="fu">length</span>(<span class="ot">&quot;Kunta_ni2&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="tehtävä-6.2" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Tehtävä 6.2</h2>
+<p><strong>Ennen tehtävää: </strong> Tehtävän 4.1 tulee olla tehtynä.</p>
+<p>Tarkastele hallintoalueaineistoa. Päivitä tehtävässä 4.1 luotu kenttä. Hyödynnä samassa tehtävässä käytettyä lauseketta, mutta laske kuntien sijainti Tampereesta 100km säteellä.</p>
+<p><strong>Aineisto</strong>: <code>hallintoalueet.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p><img src="img/kappale_6/image1.png" /></p>
+<ol style="list-style-type: decimal">
+<li>Varmista, että tason editointi on päällä.</li>
+<li>Valitse tehtävässä 4.1 luotu kenttä.</li>
+<li>Klikkaa ikonista syöttääksesi lausekkeen. Käytä pohjana tehtävässä 4.1 käytettyä lauseketta. Jos lauseke on lyhyt ja yksinkertainen sen voi syöttää myös suoraan tekstikenttään.</li>
+<li>Kun lauseke on syötetty, klikkaa lopuksi “Update All” painiketta.</li>
+</ol>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb16-1"><a href="06_kappale_6.html#cb16-1" aria-hidden="true" tabindex="-1"></a>distance(</span>
+<span id="cb16-2"><a href="06_kappale_6.html#cb16-2" aria-hidden="true" tabindex="-1"></a>    centroid(</span>
+<span id="cb16-3"><a href="06_kappale_6.html#cb16-3" aria-hidden="true" tabindex="-1"></a>        $geometry</span>
+<span id="cb16-4"><a href="06_kappale_6.html#cb16-4" aria-hidden="true" tabindex="-1"></a>        ), centroid(</span>
+<span id="cb16-5"><a href="06_kappale_6.html#cb16-5" aria-hidden="true" tabindex="-1"></a>        geometry(</span>
+<span id="cb16-6"><a href="06_kappale_6.html#cb16-6" aria-hidden="true" tabindex="-1"></a>            get_feature(</span>
+<span id="cb16-7"><a href="06_kappale_6.html#cb16-7" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;hallintoalueet&#39;</span>, <span class="st">&#39;Kunta_ni1&#39;</span>, <span class="st">&#39;Tampere&#39;</span></span>
+<span id="cb16-8"><a href="06_kappale_6.html#cb16-8" aria-hidden="true" tabindex="-1"></a>                )</span>
+<span id="cb16-9"><a href="06_kappale_6.html#cb16-9" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb16-10"><a href="06_kappale_6.html#cb16-10" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb16-11"><a href="06_kappale_6.html#cb16-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">&lt;</span> <span class="dv">100000</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> Lisätehtävä</h2>
+<p><a href="15_kappale_15.html#lisätehtävä-8">Lisätehtävä 8</a></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="05_kappale_5.html"><button class="btn btn-default">Previous</button></a>
+<a href="07_kappale_7.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Lausekkeet QGISissä</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

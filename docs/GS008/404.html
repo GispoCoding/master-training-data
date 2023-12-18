@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Page not found | Advanced GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Mikael Vaaltola" />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="Page not found | Advanced GeoServer">
+
+<title>Page not found | Advanced GeoServer</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Advanced GeoServer</h1></div>
+<div class="abstract-sidebar"><p>A course covering advanced GeoServer topics.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#advanced-geoserver"><span class="toc-section-number">1</span> Advanced GeoServer</a>
+<ul>
+<li><a href="index.html#about"><span class="toc-section-number">1.1</span> About</a></li>
+<li><a href="index.html#license-and-permissions"><span class="toc-section-number">1.2</span> License and permissions</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_env.html#training-environment"><span class="toc-section-number">2</span> Training environment</a>
+<ul>
+<li><a href="02_env.html#tools"><span class="toc-section-number">2.1</span> Useful tools to install</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_security.html#security-and-user-management"><span class="toc-section-number">3</span> Security and user management</a>
+<ul>
+<li class="has-sub"><a href="03_security.html#exercise---layer-security"><span class="toc-section-number">3.1</span> Exercise - layer security</a>
+<ul>
+<li><a href="03_security.html#permissions"><span class="toc-section-number">3.1.1</span> Check default permissions</a></li>
+<li><a href="03_security.html#prevent-unauthenticated-access"><span class="toc-section-number">3.1.2</span> Prevent unauthenticated access</a></li>
+<li><a href="03_security.html#verify-rules"><span class="toc-section-number">3.1.3</span> Verify rules</a></li>
+</ul></li>
+<li><a href="03_security.html#extra-service-level-settings"><span class="toc-section-number">3.2</span> Extra — service-level settings</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_raster.html#rasters"><span class="toc-section-number">4</span> Optimising rasters</a>
+<ul>
+<li class="has-sub"><a href="04_raster.html#gdal"><span class="toc-section-number">4.1</span> GDAL</a>
+<ul>
+<li><a href="04_raster.html#setup"><span class="toc-section-number">4.1.1</span> Setup</a></li>
+<li><a href="04_raster.html#gdalinfo"><span class="toc-section-number">4.1.2</span> gdalinfo</a></li>
+</ul></li>
+<li><a href="04_raster.html#exercise-optimising-raster-data-for-geoserver"><span class="toc-section-number">4.2</span> Exercise — Optimising raster data for GeoServer</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_vector.html#vectors"><span class="toc-section-number">5</span> Optimising vector data</a>
+<ul>
+<li class="has-sub"><a href="05_vector.html#exercise---postgis-and-geoserver"><span class="toc-section-number">5.1</span> Exercise - PostGIS and GeoServer</a>
+<ul>
+<li><a href="05_vector.html#loading-data-into-postgis"><span class="toc-section-number">5.1.1</span> Loading data into PostGIS</a></li>
+<li><a href="05_vector.html#indexing"><span class="toc-section-number">5.1.2</span> Indexing</a></li>
+<li><a href="05_vector.html#publish-to-geoserver"><span class="toc-section-number">5.1.3</span> Publish to GeoServer</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_styles.html#styles"><span class="toc-section-number">6</span> Map styles</a>
+<ul>
+<li><a href="06_styles.html#choosing-a-style-format"><span class="toc-section-number">6.1</span> Choosing a style format</a></li>
+<li><a href="06_styles.html#exercise-creating-styles"><span class="toc-section-number">6.2</span> Exercise — creating styles</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_clustering.html#cluster"><span class="toc-section-number">7</span> Clustering</a>
+<ul>
+<li><a href="07_clustering.html#containerisation"><span class="toc-section-number">7.1</span> Containerisation</a></li>
+<li><a href="07_clustering.html#passive-cluster"><span class="toc-section-number">7.2</span> Passive clustering</a></li>
+<li><a href="07_clustering.html#active-cluster"><span class="toc-section-number">7.3</span> Active clustering</a></li>
+<li><a href="07_clustering.html#data-and-configuration-concerns"><span class="toc-section-number">7.4</span> Data and configuration concerns</a></li>
+<li><a href="07_clustering.html#exercise---clustering"><span class="toc-section-number">7.5</span> Exercise - clustering</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_rest.html#rest"><span class="toc-section-number">8</span> GeoServer REST API</a>
+<ul>
+<li><a href="08_rest.html#using-apis"><span class="toc-section-number">8.1</span> Using APIs</a></li>
+<li><a href="08_rest.html#exercise-rest-api"><span class="toc-section-number">8.2</span> Exercise — REST API</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extensions.html#extensions"><span class="toc-section-number">9</span> Extensions</a>
+<ul>
+<li><a href="09_extensions.html#gs-tools"><span class="toc-section-number">9.1</span> Useful tools</a></li>
+<li><a href="09_extensions.html#jmeter"><span class="toc-section-number">9.2</span> Exercise - JMeter</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
+</div>
+<p style="text-align: center;">
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Advanced GeoServer</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

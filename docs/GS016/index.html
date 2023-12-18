@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Paikkatiedon mobiilikeruu QFieldissä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy" />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="Paikkatiedon mobiilikeruu QFieldissä">
+
+<title>Paikkatiedon mobiilikeruu QFieldissä</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Paikkatiedon mobiilikeruu QFieldissä</h1></div>
+<div class="abstract-sidebar"><p>Peruskurssi QField-mobiilisovelluksen ja QGISin QField-lisäosan käytöstä.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#paikkatiedon-mobiilikeruu-qfieldillä"><span class="toc-section-number">1</span> Paikkatiedon mobiilikeruu QFieldillä</a>
+<ul>
+<li><a href="index.html#tervetuloa-qfield-peruskurssille"><span class="toc-section-number">1.1</span> Tervetuloa QField-peruskurssille!</a></li>
+<li><a href="index.html#qfieldin-taustaa"><span class="toc-section-number">1.2</span> QFieldin taustaa</a></li>
+<li><a href="index.html#miksi-qfield"><span class="toc-section-number">1.3</span> Miksi QField?</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.4</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.5</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.6</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.7</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-asennus-ja-käyttöönotto"><span class="toc-section-number">2</span> Harjoitus 1: Asennus ja käyttöönotto</a>
+<ul>
+<li><a href="01_harjoitus_1.html#harjoituksen-sisältö"><span class="toc-section-number">2.0.1</span> Harjoituksen sisältö</a></li>
+<li><a href="01_harjoitus_1.html#harjoituksen-tavoite"><span class="toc-section-number">2.0.2</span> Harjoituksen tavoite</a></li>
+<li><a href="01_harjoitus_1.html#arvioitu-kesto"><span class="toc-section-number">2.0.3</span> Arvioitu kesto</a></li>
+<li><a href="01_harjoitus_1.html#valmistautuminen"><span class="toc-section-number">2.1</span> Valmistautuminen</a></li>
+<li><a href="01_harjoitus_1.html#sovelluksen-asentaminen-google-play--kaupasta"><span class="toc-section-number">2.2</span> Sovelluksen asentaminen Google Play -kaupasta</a></li>
+<li><a href="01_harjoitus_1.html#sovelluksen-avaaminen-ja-käyttöliittymä"><span class="toc-section-number">2.3</span> Sovelluksen avaaminen ja käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qfieldin-käyttöliittymä"><span class="toc-section-number">2.4</span> QFieldin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#selailutila"><span class="toc-section-number">2.5</span> Selailutila</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-qgis-projektin-valmistelu-synkronointi-ja-digitointi"><span class="toc-section-number">3</span> Harjoitus 2: QGIS-projektin valmistelu, synkronointi ja digitointi</a>
+<ul>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö-1"><span class="toc-section-number">3.0.1</span> Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite-1"><span class="toc-section-number">3.0.2</span> Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#arvioitu-kesto-1"><span class="toc-section-number">3.0.3</span> Arvioitu kesto</a></li>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1"><span class="toc-section-number">3.1</span> Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#qgis-projektitiedoston-valmistelu-ja-perusasetukset"><span class="toc-section-number">3.2</span> QGIS-projektitiedoston valmistelu ja perusasetukset</a></li>
+<li><a href="02_harjoitus_2.html#taustakarttojen-lisäys"><span class="toc-section-number">3.3</span> Taustakarttojen lisäys</a></li>
+<li><a href="02_harjoitus_2.html#tasojen-luonti"><span class="toc-section-number">3.4</span> Tasojen luonti</a></li>
+<li><a href="02_harjoitus_2.html#qfield-sync--lisäosan-asentaminen-ja-käyttö"><span class="toc-section-number">3.5</span> QField Sync -lisäosan asentaminen ja käyttö</a></li>
+<li><a href="02_harjoitus_2.html#qgis-projektin-siirto-mobiililaitteeseen"><span class="toc-section-number">3.6</span> QGIS-projektin siirto mobiililaitteeseen</a></li>
+<li><a href="02_harjoitus_2.html#projektin-avaaminen-qfieldissä"><span class="toc-section-number">3.7</span> Projektin avaaminen QFieldissä</a></li>
+<li><a href="02_harjoitus_2.html#digitointitila"><span class="toc-section-number">3.8</span> Digitointitila</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-lomakkeet"><span class="toc-section-number">4</span> Harjoitus 3: Lomakkeet</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-2"><span class="toc-section-number">4.0.1</span> Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-2"><span class="toc-section-number">4.0.2</span> Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#arvioitu-kesto-2"><span class="toc-section-number">4.0.3</span> Arvioitu kesto</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen-2"><span class="toc-section-number">4.1</span> Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#taustatietoja"><span class="toc-section-number">4.2</span> Taustatietoja</a></li>
+<li><a href="03_harjoitus_3.html#ominaisuustietolomakkeen-muokkaus"><span class="toc-section-number">4.3</span> Ominaisuustietolomakkeen muokkaus</a></li>
+<li><a href="03_harjoitus_3.html#ympärysmitta--ja-korkeus--tietokentät"><span class="toc-section-number">4.4</span> Ympärysmitta- ja korkeus -tietokentät</a></li>
+<li><a href="03_harjoitus_3.html#huomiot-tietokenttä"><span class="toc-section-number">4.5</span> Huomiot-tietokenttä</a></li>
+<li><a href="03_harjoitus_3.html#valokuva"><span class="toc-section-number">4.6</span> Valokuva</a></li>
+<li><a href="03_harjoitus_3.html#luoja--ja-muokkaaja--tietokenttien-automatisointi"><span class="toc-section-number">4.7</span> Luoja- ja muokkaaja -tietokenttien automatisointi</a></li>
+<li><a href="03_harjoitus_3.html#luonti--ja-muokkausaika--tietokentät"><span class="toc-section-number">4.8</span> Luonti- ja muokkausaika -tietokentät</a></li>
+<li><a href="03_harjoitus_3.html#kohteen-uuid-kenttä"><span class="toc-section-number">4.9</span> Kohteen uuid-kenttä</a></li>
+<li><a href="03_harjoitus_3.html#lomakkeen-välilehdet"><span class="toc-section-number">4.10</span> Lomakkeen välilehdet</a></li>
+<li><a href="03_harjoitus_3.html#näyttö-ja-kohdelistaus"><span class="toc-section-number">4.11</span> Näyttö ja kohdelistaus</a></li>
+<li><a href="03_harjoitus_3.html#tarttumisen-asetukset"><span class="toc-section-number">4.12</span> Tarttumisen asetukset</a></li>
+<li><a href="03_harjoitus_3.html#lomakkeet-qfieldissä"><span class="toc-section-number">4.13</span> Lomakkeet QFieldissä</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-relaatioiden-käyttö"><span class="toc-section-number">5</span> Harjoitus 4: Relaatioiden käyttö</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-3"><span class="toc-section-number">5.0.1</span> Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-3"><span class="toc-section-number">5.0.2</span> Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#arvioitu-kesto-3"><span class="toc-section-number">5.0.3</span> Arvioitu kesto</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3"><span class="toc-section-number">5.1</span> Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#kasvualusta-taso"><span class="toc-section-number">5.2</span> Kasvualusta-taso</a></li>
+<li><a href="04_harjoitus_4.html#relaatioiden-luonti"><span class="toc-section-number">5.3</span> Relaatioiden luonti</a></li>
+<li><a href="04_harjoitus_4.html#lomakkeen-asetusten-määrittäminen"><span class="toc-section-number">5.4</span> Lomakkeen asetusten määrittäminen</a></li>
+<li><a href="04_harjoitus_4.html#lapsikohteiden-luominen-qfieldissä"><span class="toc-section-number">5.5</span> Lapsikohteiden luominen QFieldissä</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-qfieldin-lisäominaisuudet"><span class="toc-section-number">6</span> Harjoitus 5: QFieldin lisäominaisuudet</a>
+<ul>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-4"><span class="toc-section-number">6.0.1</span> Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-4"><span class="toc-section-number">6.0.2</span> Harjoituksen tavoite</a></li>
+<li><a href="05_harjoitus_5.html#arvioitu-kesto-4"><span class="toc-section-number">6.0.3</span> Arvioitu kesto</a></li>
+<li><a href="05_harjoitus_5.html#valmistautuminen-4"><span class="toc-section-number">6.1</span> Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#haku-toiminnot"><span class="toc-section-number">6.2</span> Haku-toiminnot</a></li>
+<li><a href="05_harjoitus_5.html#laitteen-paikannuksen-käyttäminen"><span class="toc-section-number">6.3</span> Laitteen paikannuksen käyttäminen</a></li>
+<li><a href="05_harjoitus_5.html#tracking--eli-jäljitys-toiminto"><span class="toc-section-number">6.4</span> Tracking- eli jäljitys-toiminto</a></li>
+<li><a href="05_harjoitus_5.html#edistyneemmät-digitointityökalut"><span class="toc-section-number">6.5</span> Edistyneemmät digitointityökalut</a></li>
+<li><a href="05_harjoitus_5.html#tarttuminen-sekä-topologinen-editointi"><span class="toc-section-number">6.6</span> Tarttuminen sekä topologinen editointi</a></li>
+<li><a href="05_harjoitus_5.html#taitepiste--ja-halkaisutyökalut"><span class="toc-section-number">6.7</span> Taitepiste- ja halkaisutyökalut</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-kenttätyöt-ja-tietojen-yhdistäminen"><span class="toc-section-number">7</span> Harjoitus 6: Kenttätyöt ja tietojen yhdistäminen</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoituksen-sisältö-5"><span class="toc-section-number">7.0.1</span> Harjoituksen sisältö</a></li>
+<li><a href="06_harjoitus_6.html#harjoituksen-tavoite-5"><span class="toc-section-number">7.0.2</span> Harjoituksen tavoite</a></li>
+<li><a href="06_harjoitus_6.html#arvioitu-kesto-5"><span class="toc-section-number">7.0.3</span> Arvioitu kesto</a></li>
+<li><a href="06_harjoitus_6.html#valmistautuminen-5"><span class="toc-section-number">7.1</span> Valmistautuminen</a></li>
+<li><a href="06_harjoitus_6.html#lyhyt-ohjeistus-kenttätöihin"><span class="toc-section-number">7.2</span> Lyhyt ohjeistus kenttätöihin</a></li>
+<li><a href="06_harjoitus_6.html#tietojen-synkronoiminen-takaisin-tietokoneelle"><span class="toc-section-number">7.3</span> Tietojen synkronoiminen takaisin tietokoneelle</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!-- This title section is only rendered to index.html -->
+<div id="title-container">
+
+<h1 id="title-header">Paikkatiedon mobiilikeruu QFieldissä</h1>
+
+<h4 class="author">Gispo Oy</h4>
+
+<h4 id="build-date">Version: 2023-12-18</h4>
+
+<div class="abstract"><p>Peruskurssi QField-mobiilisovelluksen ja QGISin QField-lisäosan käytöstä.</p></div>
+
+</div>
+<!-- Harjoitukset -->
+<div id="paikkatiedon-mobiilikeruu-qfieldillä" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Paikkatiedon mobiilikeruu QFieldillä</h1>
+<p><br />
+</p>
+<div id="tervetuloa-qfield-peruskurssille" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Tervetuloa QField-peruskurssille!</h2>
+<p>Tämän kurssin tarkoituksena on opastaa sinut QField–ohjelmiston käyttöön. QField hyödyntää QGIS-ohjelmistoa, ja oletuksena on, että ainakin perusteet QGISista on jo opittu. Muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumiselle. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku muu asia jää epäselväksi.</p>
+<p><br />
+</p>
+</div>
+<div id="qfieldin-taustaa" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> QFieldin taustaa</h2>
+<p>QField mobiililaitteille tarkoitettu avoimen lähdekoodin paikkatieto-ohjelmisto. QFieldin pääkehittäjänä toimii sveitsiläinen yritys nimeltä <a href="https://www.opengis.ch/">OpenGIS.ch</a> ja sovelluksen kehittämisen voidaan katsoa alkaneen jo vuonna 2011. QFieldin toiminnallisuudet ovat kehittyneet viime vuosina huimasti, ja se onkin käytössä paikkatiedon keruun mobiiliratkaisuna maailmalla melko laajasti. QFieldin käyttäjämäärää on melko vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä, sitä voi käyttää useilla laitteilla samanaikaisesti ja jakaa edelleen vapaasti. Arvio kuukausittain QFieldiä käyttävistä on noin pari sataatuhatta käyttäjää, sovelluksen kunkin version latausten määrä liikkuu puolestaan viidessä sadassa tuhannessa kappaleessa</p>
+<p>QField–ohjelmisto on suunniteltu hyvin yhteensopivaksi QGIS-työpöytäohjelmiston kanssa, ja sikäli täydentää senkin käyttäjäkuntaa ja käyttötapauksia. Tämän lyhyen kurssin aikana käsittelemme vain osaa QFieldin kaikista toiminnallisuuksista. Kurssin perusteella sinun tulisi kuitenkin oppia QFieldin käytön perusteet, ja pystyä käyttämämään oppimaasi omaan käyttötarkoitukseesi.</p>
+<p><br />
+</p>
+</div>
+<div id="miksi-qfield" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Miksi QField?</h2>
+<p>Perimmäinen syy QFieldin käyttöön on tietysti paikkatietoaineistojen hyödyntäminen. Paikkatietoja voi hyödyntää monilla avoimen ja suljetun lähdekoodin ohjelmistolla, mutta tässä muutamia perusteluja juuri QField-ohjelmiston käytölle:</p>
+<ul>
+<li><p><strong>QField on ilmainen</strong>. Voit ladata ja asentaa QFieldinilman lisenssi- tai käyttömaksuja. Käyttöön ei sisälly mitään maksuja.</p></li>
+<li><p><strong>QField on vapaa</strong>. Jos tarvitset QFieldiin lisää ominaisuuksia, sinulla on täysi vapaus laajentaa ja muuttaa QFieldiä. Sinun ei tarvitse odottaa seuraavaa versioita ja toivoa, että tarvitsemasi ominaisuudet ovat sisällytetty mukaan. Jos osaat ohjelmoida, voit lisätä ominaisuudet itse. Voit myös rahoittaa uusien ominaisuuksien kehittämistä osaksi QFieldiä.</p></li>
+<li><p><strong>QField kehittyy jatkuvasti</strong>. Kuka tahansa voi lisätä tai rahoittaa uusia ominaisuuksia QFieldiin ja siksi ohjelmisto kehittyy kiihtyvällä vauhdilla. Erilaisten lisäosien avulla on helppo toteuttaa omia prosesseja tukevia toimintoja.</p></li>
+<li><p><strong>QField on hyvin dokumentoitu</strong>. QField sisältää laajan <a href="https://docs.qfield.org/fi/">dokumentaation</a>. Koko ajan kasvava käyttäjäyhteisö auttaa mielellään uusia käyttäjiä ja voit myös kysyä apua suoraan sovelluskehittäjiltä.</p></li>
+<li><p><strong>QGIS on järjestelmäriippumaton</strong>. QFieldiä kehitetään Android-käyttöjärjestelmän ohella Windows-, ja iOS-mobiililaitteille.</p></li>
+<li><p><strong>QField on suomenkielinen</strong>. QField-käyttöliittymä on suomennettu. Myös ruotsinkielinen versio on käytettävissä ilman lisäkustannuksia. Käyttöohjeita, web-sivustoja ja muita materiaaleja kehitetään ja ohjelmaa suomennetaan jatkuvasti.</p></li>
+</ul>
+<p><br />
+</p>
+</div>
+<div id="lukuohje" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Lukuohje</h2>
+<p><strong>Web-selaimessa</strong> suoritettavat komennot on merkitty seuraavasti:</p>
+<div class="note-box">
+<p><a href="http://localhost:8080/geoserver" class="uri">http://localhost:8080/geoserver</a></p>
+</div>
+<p><strong>Komentorivillä</strong> suoritettavat komennot on merkitty seuraavasti:</p>
+<div class="commandline-box">
+<p>sudo lsb_release -a</p>
+</div>
+<p><strong>Tiedostojen sisältö</strong> on esitetty seuraavasti:</p>
+<div class="file-content-box">
+<p>#IPv4 local connections: #host all all 127.0.0.1/32 md5</p>
+</div>
+<p><strong>HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit</strong> on esitetty seuraavasti:</p>
+<div class="code-box">
+<p>SELECT version();</p>
+</div>
+</div>
+<div id="mistä-lisätietoja" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Mistä lisätietoja?</h2>
+<p>Ohessa muutamia web-sivustoja, joista saat lisätietoja:</p>
+<div class="note-box">
+<p><a href="https://qfield.org" class="uri">https://qfield.org</a><br />
+</p>
+</div>
+<div class="note-box">
+<p><a href="https://docs.qfield.org/fi/" class="uri">https://docs.qfield.org/fi/</a><br />
+</p>
+</div>
+<div class="note-box">
+<p><a href="http://gis.stackexchange.com/" class="uri">http://gis.stackexchange.com/</a><br />
+</p>
+</div>
+<div class="note-box">
+<p><a href="http://www.osgeo.fi" class="uri">http://www.osgeo.fi</a><br />
+</p>
+</div>
+<p><br />
+</p>
+</div>
+<div id="virheet" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> Virheet</h2>
+<p>Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla <a href="mailto:info@gispo.fi">info@gispo.fi</a>-osoitteeseen.</p>
+<p><br />
+</p>
+</div>
+<div id="lisenssi-ja-oikeudet" class="section level2" number="1.7">
+<h2><span class="header-section-number">1.7</span> Lisenssi ja oikeudet</h2>
+<p>Nämä materiaalit on “Paikkatiedon mobiilikeruu QFieldillä”-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_harjoitus_1.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Paikkatiedon mobiilikeruu QFieldissä</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

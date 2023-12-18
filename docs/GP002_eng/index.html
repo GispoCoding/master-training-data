@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Introduction to QGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Ltd." />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="Introduction to QGIS">
+
+<title>Introduction to QGIS</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to QGIS</h1></div>
+<div class="abstract-sidebar"><p>Basic course on QGIS</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li><a href="index.html#introduction-to-qgis"><span class="toc-section-number">1</span> Introduction to QGIS</a></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-user-interface-of-qgis"><span class="toc-section-number">2</span> Exercise 1: User interface of QGIS</a>
+<ul>
+<li><a href="01_exercise_1.html#downloading-course-materials"><span class="toc-section-number">2.1</span> Downloading course materials</a></li>
+<li><a href="01_exercise_1.html#qgis-user-interface"><span class="toc-section-number">2.2</span> QGIS user interface</a></li>
+<li><a href="01_exercise_1.html#try-the-tools-yourself"><span class="toc-section-number">2.3</span> Try the tools yourself</a></li>
+<li><a href="01_exercise_1.html#attribute-table"><span class="toc-section-number">2.4</span> Attribute table</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-geographic-data-and-online-data-services"><span class="toc-section-number">3</span> Exercise 2: Geographic data and online data services</a>
+<ul>
+<li><a href="02_exercise_2.html#exercise-content"><span class="toc-section-number">3.1</span> Exercise content</a></li>
+<li><a href="02_exercise_2.html#the-goal-of-the-exercise"><span class="toc-section-number">3.2</span> The goal of the exercise</a></li>
+<li><a href="02_exercise_2.html#preparations"><span class="toc-section-number">3.3</span> Preparations</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wms"><span class="toc-section-number">3.4</span> Connecting to a WMS</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wfs"><span class="toc-section-number">3.5</span> Connecting to a WFS</a></li>
+<li><a href="02_exercise_2.html#bonus-building-sql-query-for-wfs"><span class="toc-section-number">3.6</span> Bonus: Building SQL query for WFS</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-visualizing-and-classifying-geographic-data-sets"><span class="toc-section-number">4</span> Exercise 3: Visualizing and classifying geographic data sets</a>
+<ul>
+<li><a href="03_exercise_3.html#exercise-content-1"><span class="toc-section-number">4.1</span> Exercise content</a></li>
+<li><a href="03_exercise_3.html#the-goal-of-the-exercise-1"><span class="toc-section-number">4.2</span> The goal of the exercise</a></li>
+<li><a href="03_exercise_3.html#preparations-1"><span class="toc-section-number">4.3</span> Preparations</a></li>
+<li><a href="03_exercise_3.html#visualizing-vector-data"><span class="toc-section-number">4.4</span> Visualizing vector data</a></li>
+<li><a href="03_exercise_3.html#visualizing-line-data-sets"><span class="toc-section-number">4.5</span> Visualizing line data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-point-data-sets"><span class="toc-section-number">4.6</span> Visualizing point data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-polygon-data-sets"><span class="toc-section-number">4.7</span> Visualizing polygon data sets</a></li>
+<li><a href="03_exercise_3.html#changing-symbols"><span class="toc-section-number">4.8</span> Changing symbols</a></li>
+<li><a href="03_exercise_3.html#scale-dependent-symbols"><span class="toc-section-number">4.9</span> Scale dependent symbols</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-labeling-and-classifying-geographic-data"><span class="toc-section-number">5</span> Exercise 4: Labeling and classifying geographic data</a>
+<ul>
+<li><a href="04_exercise_4.html#exercise-content-2"><span class="toc-section-number">5.1</span> Exercise content</a></li>
+<li><a href="04_exercise_4.html#the-goal-of-the-exercise-2"><span class="toc-section-number">5.2</span> The goal of the exercise</a></li>
+<li><a href="04_exercise_4.html#preparations-2"><span class="toc-section-number">5.3</span> Preparations</a></li>
+<li><a href="04_exercise_4.html#label-settings"><span class="toc-section-number">5.4</span> Label settings</a></li>
+<li><a href="04_exercise_4.html#styling-label-texts"><span class="toc-section-number">5.5</span> Styling label texts</a></li>
+<li><a href="04_exercise_4.html#labeling-line-layers"><span class="toc-section-number">5.6</span> Labeling line layers</a></li>
+<li><a href="04_exercise_4.html#classifying-vector-data"><span class="toc-section-number">5.7</span> Classifying vector data</a></li>
+<li><a href="04_exercise_4.html#bonus-classifying-raster-data"><span class="toc-section-number">5.8</span> Bonus: Classifying raster data</a></li>
+<li><a href="04_exercise_4.html#bonus-label-rendering"><span class="toc-section-number">5.9</span> Bonus: Label rendering</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-print-layout"><span class="toc-section-number">6</span> Exercise 5: Print layout</a>
+<ul>
+<li><a href="05_exercise_5.html#exercise-content-3"><span class="toc-section-number">6.1</span> Exercise content</a></li>
+<li><a href="05_exercise_5.html#the-goal-of-the-exercise-3"><span class="toc-section-number">6.2</span> The goal of the exercise</a></li>
+<li><a href="05_exercise_5.html#preparations-3"><span class="toc-section-number">6.3</span> Preparations</a></li>
+<li><a href="05_exercise_5.html#print-layout"><span class="toc-section-number">6.4</span> Print layout</a></li>
+<li><a href="05_exercise_5.html#bonus-map-atlas"><span class="toc-section-number">6.5</span> Bonus: Map atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-editing-geographic-data-sets"><span class="toc-section-number">7</span> Exercise 6: Editing geographic data sets</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-content-4"><span class="toc-section-number">7.1</span> Exercise content</a></li>
+<li><a href="06_exercise_6.html#the-goal-of-the-exercise-4"><span class="toc-section-number">7.2</span> The goal of the exercise</a></li>
+<li><a href="06_exercise_6.html#preparations-4"><span class="toc-section-number">7.3</span> Preparations</a></li>
+<li><a href="06_exercise_6.html#creating-a-vector-data-set"><span class="toc-section-number">7.4</span> Creating a vector data set</a></li>
+<li><a href="06_exercise_6.html#editing-and-digitizing-vector-data"><span class="toc-section-number">7.5</span> Editing and digitizing vector data</a></li>
+<li><a href="06_exercise_6.html#adding-geometries"><span class="toc-section-number">7.6</span> Adding geometries</a></li>
+<li><a href="06_exercise_6.html#bonus-adding-attribute-information"><span class="toc-section-number">7.7</span> Bonus: Adding attribute information</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-spatial-analyses"><span class="toc-section-number">8</span> Exercise 7: Spatial analyses</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-content-5"><span class="toc-section-number">8.1</span> Exercise content</a></li>
+<li><a href="07_exercise_7.html#the-goal-of-the-exercise-5"><span class="toc-section-number">8.2</span> The goal of the exercise</a></li>
+<li><a href="07_exercise_7.html#preparations-5"><span class="toc-section-number">8.3</span> Preparations</a></li>
+<li><a href="07_exercise_7.html#vector-analyses"><span class="toc-section-number">8.4</span> Vector analyses</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-plugins-in-qgis"><span class="toc-section-number">9</span> Exercise 8: Plugins in QGIS</a>
+<ul>
+<li><a href="08_exercise_8.html#exercise-content-6"><span class="toc-section-number">9.1</span> Exercise content</a></li>
+<li><a href="08_exercise_8.html#the-goal-of-the-exercise-6"><span class="toc-section-number">9.2</span> The goal of the exercise</a></li>
+<li><a href="08_exercise_8.html#preparations-6"><span class="toc-section-number">9.3</span> Preparations</a></li>
+<li><a href="08_exercise_8.html#plugin-management"><span class="toc-section-number">9.4</span> Plugin management</a></li>
+<li><a href="08_exercise_8.html#quickmapservices"><span class="toc-section-number">9.5</span> QuickMapServices</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2threejs"><span class="toc-section-number">9.6</span> Bonus: Qgis2threejs</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2web"><span class="toc-section-number">9.7</span> Bonus: Qgis2web</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!-- This title section is only rendered to index.html -->
+<div id="title-container">
+
+<h1 id="title-header">Introduction to QGIS</h1>
+
+<h4 class="author">Gispo Ltd.</h4>
+
+<h4 id="build-date">Version: 2023-12-18</h4>
+
+<div class="abstract"><p>Basic course on QGIS</p></div>
+
+</div>
+<!-- Harjoitukset -->
+<div id="introduction-to-qgis" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Introduction to QGIS</h1>
+<p><strong>Welcome to the introductory QGIS course!</strong></p>
+<p>The purpose of this course is to introduce you to the QGIS program. Experience using other GIS software is helpful, but not necessary. Please ask for more information from the trainer if the terminology or anything else is unclear.</p>
+<p><strong>QGIS background</strong></p>
+<p>QGIS (originally called Quantum GIS) is a community developed open source GIS software. Development begun in July 2002, after which over 150 software developers have taken part in development. The number of users is difficult to estimate, since the program doesn’t have to be registered and can be freely distributed. Roughly estimating QGIS has over a million users worldwide. QGIS and its plugins constitute a comprehensive collection of software for collection, modelling, analysing, visualizing and distributing geographic data. During this course we cover only a fraction of all the functions in QGIS.</p>
+<p><strong>Why QGIS?</strong></p>
+<p>The fundamental reason for using QGIS is of course to utilize geographic data sets. This can be done in many other ways too (both with open source and proprietary solutions), but there are certain aspects to QGIS that set it apart from many other available options. Here are a few arguments for using QGIS:</p>
+<ul>
+<li><strong>QGIS is free.</strong> You can download and install QGIS completely free of charge. The usage of the software is completely free as well.</li>
+<li><strong>QGIS is open.</strong> If you want to add more features to QGIS, you have the complete freedom to build upon or change the software. You do not have to wait for the next version and hope the features you need will be included. If you can program, you can develop these features yourself, or, alternatively, you can fund the development of your desired features.</li>
+<li><strong>The development of QGIS is active.</strong> Anyone can develop or fund new features to QGIS, which results in the development of QGIS being extremely (and increasingly) active. New features and additions to QGIS make implementing your own workflows easier.</li>
+<li><strong>QGIS is well documented.</strong> The documentation of QGIS is vast and detailed. The constantly growing community of QGIS users is a great source of help and guidance, and you can also ask the developers themselves for help.</li>
+<li><strong>QGIS is not dependent on an operating system.</strong> You can use QGIS on Windows-, Linux- and Mac operating systems.</li>
+<li><strong>QGIS offers localization.</strong> The user interface of QGIS has been translated to many languages. An increasing amount of guides, web pages and other helpful resources are also available in different languages.</li>
+</ul>
+<p><strong>Reading help</strong></p>
+<p>Commands to execute in a <strong>web browser</strong> are displayed as follows:</p>
+<div class="note-box">
+<p><a href="http://localhost:8080/geoserver" class="uri">http://localhost:8080/geoserver</a></p>
+</div>
+<p>Commands to execute in a <strong>command prompt/terminal</strong> are displayed as follows:</p>
+<div class="commandline-box">
+<p>sudo lsb_release -a</p>
+</div>
+<p><strong>File content</strong> is displayed as follows:</p>
+<div class="file-content-box">
+<p>#IPv4 local connections:
+#host all all 127.0.0.1/32 md5</p>
+</div>
+<p><strong>HTML and CSS code, SQL- queries and Python-scripts</strong> are displayed as follows:</p>
+<div class="code-box">
+<p>SELECT version();</p>
+</div>
+<p><strong>Questions, notes and hints</strong> are displayed as follows:</p>
+<div class="hint-box">
+<p>Where do you find information about GeoServer?</p>
+<p>GeoServer has its own website.</p>
+</div>
+<p><strong>Additional information</strong></p>
+<p>Here are a few helpful websites:</p>
+<div class="note-box">
+<p><a href="http://www.qgis.org/" class="uri">http://www.qgis.org/</a></p>
+</div>
+<div class="note-box">
+<p><a href="http://docs.qgis.org/" class="uri">http://docs.qgis.org/</a></p>
+</div>
+<div class="note-box">
+<p><a href="http://gis.stackexchange.com/" class="uri">http://gis.stackexchange.com/</a></p>
+</div>
+<div class="note-box">
+<p><a href="http://www.osgeo.fi" class="uri">http://www.osgeo.fi</a></p>
+</div>
+<p><strong>Mistakes</strong></p>
+<p>If you notice mistakes in these course materials, we ask you to report either directly to the trainer or by email us at <a href="mailto:info@gispo.fi" class="email">info@gispo.fi</a> .</p>
+<p><strong>License and permissions</strong></p>
+<p>These materials are developed for the “Introduction to QGIS” course by Gispo Ltd.
+The materials are licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a> license.</p>
+<!--
+License and permissions
+These materials are developed for the Introduction to QGIS course by Gispo Ltd.
+The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
+-->
+
+<hr />
+</div>
+<p style="text-align: center;">
+<a href="01_exercise_1.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to QGIS</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Ltd.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

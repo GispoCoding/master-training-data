@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="2 Harjoitus 1: Vektoriaineistojen visualisointi | Kartat ja taitot" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Ltd." />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="2 Harjoitus 1: Vektoriaineistojen visualisointi | Kartat ja taitot">
+
+<title>2 Harjoitus 1: Vektoriaineistojen visualisointi | Kartat ja taitot</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Kartat ja taitot</h1></div>
+<div class="abstract-sidebar"><p>QGISin perusteet karttojen tulostamisen ja taittojen hallinnan näkökulmasta</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#kartat-ja-taitot"><span class="toc-section-number">1</span> Kartat ja taitot</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille"><span class="toc-section-number">1.1</span> Tervetuloa kurssille!</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.2</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.3</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.4</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.5</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-vektoriaineistojen-visualisointi"><span class="toc-section-number">2</span> Harjoitus 1: Vektoriaineistojen visualisointi</a>
+<ul>
+<li><a href="01_harjoitus_1.html#harjoituksen-sisältö"><span class="toc-section-number">2.1</span> Harjoituksen sisältö</a></li>
+<li><a href="01_harjoitus_1.html#harjoituksen-tavoite"><span class="toc-section-number">2.2</span> Harjoituksen tavoite</a></li>
+<li><a href="01_harjoitus_1.html#kurssimateriaalin-lataus"><span class="toc-section-number">2.3</span> Kurssimateriaalin lataus</a></li>
+<li><a href="01_harjoitus_1.html#valmistautuminen"><span class="toc-section-number">2.4</span> Valmistautuminen</a></li>
+<li><a href="01_harjoitus_1.html#aineiston-tuonti-ja-järjestely"><span class="toc-section-number">2.5</span> Aineiston tuonti ja järjestely</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#tasojen-visualisointi"><span class="toc-section-number">2.6</span> Tasojen visualisointi</a>
+<ul>
+<li><a href="01_harjoitus_1.html#polygonien-visualisointi"><span class="toc-section-number">2.6.1</span> Polygonien visualisointi</a></li>
+<li><a href="01_harjoitus_1.html#sääntöpohjainen-visualisointi"><span class="toc-section-number">2.6.2</span> Sääntöpohjainen visualisointi</a></li>
+<li><a href="01_harjoitus_1.html#tieaineisto"><span class="toc-section-number">2.6.3</span> Tieaineisto</a></li>
+<li><a href="01_harjoitus_1.html#rautatie"><span class="toc-section-number">2.6.4</span> Rautatie</a></li>
+<li><a href="01_harjoitus_1.html#pistekohteet"><span class="toc-section-number">2.6.5</span> Pistekohteet</a></li>
+</ul></li>
+<li><a href="01_harjoitus_1.html#lisätehtävä"><span class="toc-section-number">2.7</span> Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-nimiöt"><span class="toc-section-number">3</span> Harjoitus 2: Nimiöt</a>
+<ul>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö-1"><span class="toc-section-number">3.1</span> Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite-1"><span class="toc-section-number">3.2</span> Harjoituksen tavoite</a></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#teiden-nimiöinti"><span class="toc-section-number">3.3</span> Teiden nimiöinti</a>
+<ul>
+<li><a href="02_harjoitus_2.html#vaatekaupat-tason-nimiöinti"><span class="toc-section-number">3.3.1</span> Vaatekaupat-tason nimiöinti</a></li>
+</ul></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-luodaan-nimiö-merikoskelle"><span class="toc-section-number">3.4</span> Lisätehtävä: luodaan nimiö Merikoskelle</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-teemakartta"><span class="toc-section-number">4</span> Harjoitus 3: Teemakartta</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-2"><span class="toc-section-number">4.1</span> Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-2"><span class="toc-section-number">4.2</span> Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-wms-tason-visualisointi"><span class="toc-section-number">4.3</span> Lisätehtävä: WMS-tason visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-taitto"><span class="toc-section-number">5</span> Harjoitus 4: Taitto</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-3"><span class="toc-section-number">5.1</span> Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-3"><span class="toc-section-number">5.2</span> Harjoituksen tavoite</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-kartta-atlas"><span class="toc-section-number">6</span> Harjoitus 5: Kartta-atlas</a>
+<ul>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-4"><span class="toc-section-number">6.1</span> Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-4"><span class="toc-section-number">6.2</span> Harjoituksen tavoite</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-1-vektoriaineistojen-visualisointi" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Harjoitus 1: Vektoriaineistojen visualisointi</h1>
+<div id="harjoituksen-sisältö" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Harjoituksen sisältö</h2>
+<p>Harjoituksessa avataan QGIS ja tuodaan kurssilla käytettävät aineistot
+ohjelmistoon. Tämän jälkeen aineistoja visualisoidaan esimerkkikuvan
+mukaisesti.</p>
+</div>
+<div id="harjoituksen-tavoite" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Harjoituksen tavoite</h2>
+<p>Koulutettava oppii tuomaan GeoPackage-muodossa olevia aineistoja QGISiin
+ja visualisoimaan piste-, viiva- ja polygonikohteita.</p>
+</div>
+<div id="kurssimateriaalin-lataus" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Kurssimateriaalin lataus</h2>
+<p>Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google
+Drivestä linkistä</p>
+<div class="note-box">
+<p><a href="https://drive.google.com/file/d/1dInubc0XceDUzJOV-QhexULHqu8NeQcu/view?usp=drive_link">Kurssihakemisto.zip</a></p>
+</div>
+</div>
+<div id="valmistautuminen" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Valmistautuminen</h2>
+<p>Avaa uusi QGIS-projekti (Projekti &gt; Uusi) ja tallenna se nimellä
+<strong>QGIS-harjoitus 1</strong>. Lisää projektiin seuraavat aineistot:</p>
+<ul>
+<li><strong>…kurssihakemisto/Kartat_ja_taitot.gpkg</strong></li>
+</ul>
+</div>
+<div id="aineiston-tuonti-ja-järjestely" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Aineiston tuonti ja järjestely</h2>
+<p>Kurssimateriaali on koottu yhteen GeoPackageen, joka tuodaan QGISiin.
+Avaa <strong>Tietolähteiden hallinta -&gt; Vektori -&gt; Etsi lataamasi
+Kartat_ja_taitot.gpkg</strong> ja Lisää. Valitse kaikki tasot ja paina vielä
+<strong>Lisää</strong>.</p>
+<p><img src="img/harjoitus1/img1.png" /></p>
+<p>Aineisto sisältää piste- viiva- ja polygonikohteita, Voit tutkia
+minkälaisia tasoja GeoPackagessa on. Helpottaaksemme käsittelyä voimme
+jakaa kunkin aineistotyypin eri kansioihin. Luo piste-, viiva- ja
+polygonikohteille omat kansionsa painamalla <img src="img/harjoitus1/img2.png" />
+Tasot-paneelin yläreunasta. Nimeä tasoryhmä lisäämisvaiheessa kun se on
+aktiivinen, tai klikkaamalla tasoryhmää tasoluettelossa hiiren oikealla
+ja valitsemalla “Nimeä ryhmä”. Kun olet luonut kolme uutta kansiota,
+raahaa pistekohteet omaan kansioonsa, polygonit omaansa ja viivat
+omaansa. Näin saadaan aineisto järkevästi järjesteltyä. Jos kaikki
+kohteet eivät näy kunnolla, vaihda tasojen paikkaa raahaamalla
+esimerkiksi pistetasot polygonien yläpuolelle. QGIS visualisoi kohteet
+sen mukaan, miten ne ovat tasoluettelossa, eli ylimpänä olevat tasot
+ovat päällimmäisenä.</p>
+</div>
+<div id="tasojen-visualisointi" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Tasojen visualisointi</h2>
+<p>Kun tuot uuden vektoriaineiston QGISiin, ohjelma arpoo satunnaiset värit
+kaikille kohteille. Visualisoidaan karttakohteita järkevämmän näköiseksi
+karttakokonaisuudeksi.</p>
+<p>Esimerkkikuva lopputuloksesta:</p>
+<p><img src="img/harjoitus1/img3.png" /></p>
+<div id="polygonien-visualisointi" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Polygonien visualisointi</h3>
+<p>Avaa <strong>Tason tyylit</strong> -paneeli menemällä <strong>Näytä &gt; Paneelit &gt; Tason
+tyylit</strong>. QGISiin avautuu uusi sivupalkki, jossa voit valita tason
+yläreunasta ja muuttaa sen kuvaustekniikkaa.</p>
+<p>Aloitetaan kuvaustekniikan muokkaaminen suurista polygoneista. Valitse
+esimerkiksi meri-taso ensimmäiseksi Tason tyylit-paneelista. Saat
+edistyneet visualisointityökalut auki painamalla Yksinkertainen täyttö
+-kohtaa:</p>
+<p><img src="img/harjoitus1/img4.png" /></p>
+<p>Täältä saat muokattua tarkemmin polygonin väriä ja täyttötyyppiä sekä
+ulkoviivan väriä ja ominaisuuksia. Värivalintaa painamalla saat
+laitettua myös valmiin HTML-koodin valitsimeksi. Vaihda tason täyttöväri
+ja viivan väri itsellesi mieluisiksi.</p>
+<p><img src="img/harjoitus1/img5.png" /></p>
+<p>Alla on esimerkkinä mitä värejä harjoituksen esimerkkikuvassa on
+käytetty. Voit testata myös eri värejä ja katsoa, miten ne toimivat
+kartallasi. <strong>Älä visualisoi rakennuksia vielä</strong>.</p>
+<div class="code-box">
+<p><strong>Esimerkkikuvan värit</strong></p>
+<p><strong>Meri:</strong> täyttöväri: #aae5ea reunaviiva: #94c7cc</p>
+<p><strong>Kuntaraja:</strong> täyttöväri: #dcecbd reunaviiva: #000000</p>
+<p><strong>Rakennus:</strong> täyttöväri: #a2875d reunaviiva: #60564b</p>
+<p><strong>Puisto:</strong> täyttöväri: #a7b882 ei reunaviivaa</p>
+<p><strong>Niitty:</strong> täyttöväri: #fedc8b reunaviiva: #888888</p>
+<p><strong>Järvi:</strong> täyttöväri: #aae5ea reunaviiva: #94c7cc</p>
+</div>
+</div>
+<div id="sääntöpohjainen-visualisointi" class="section level3" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Sääntöpohjainen visualisointi</h3>
+<p>Viivakohteet voivat olla päällekkäisiä tasoja muiden tyyppisten tasojen
+päällä. Aineistossa tiet ja rakennukset menevät usein päällekkäin
+eivätkä toimi kaikilla mittakaavatasoilla sujuvasti yhteen. Tehdään siis
+ensiksi <strong>rakennus</strong>-polygonitasolle siis <strong>sääntöpohjainen
+visualisointi</strong>.</p>
+<p><img src="img/harjoitus1/img6.png" /></p>
+<p>Tasolla on oletuksena yksi sääntö, tuplaklikkaa sitä muokataksesi sitä.</p>
+<p><img src="img/harjoitus1/img7.png" /></p>
+<p>Tarkoituksena on luoda sääntö, jonka perusteella QGIS näyttää
+rakennukset vain 1 : 10 000 -mittakaavassa ja sitä tarkemmissa
+mittakaavatasoissa. Haluamme valita visualisointiin kaikki talot, joten
+valitse suodattimeksi <strong>“Else”</strong>. Suodatuksen lisävalintoihin pääsemme
+tieaineiston parissa. Nyt meille riittää, että laitamme täpän Scale
+range -kohtaan ja täytämme pienimmäksi mittakaavaksi 1:10 000 ja
+suurimmaksi 1:1. Tämä mittakaava on se, jolla monia opaskarttoja
+tarkastellaan.</p>
+<p><img src="img/harjoitus1/img8.png" /></p>
+<p>Nyt kun muutat QGISin näkymässä kartan mittakaavaa (käyttämällä vaikkapa
+hiiren rullaa tai kannettavan tietokoneen hiiren lähennystä ja
+loitonnusta), huomaat että rakennukset tulevat näkyviin ja katoavat
+mittakaavatason mukaan.</p>
+</div>
+<div id="tieaineisto" class="section level3" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> Tieaineisto</h3>
+<p>Tieviiva-aineisto sisältää erityyppisiä teitä. Avaa aineiston
+attribuuttitaulukko ja tarkastele mitä se sisältää.
+Kohdeluokka-sarakkeessa on luokiteltu tiet seitsemään eri luokkaan.
+Kartoissa on kuitenkin usein neljä eri luokkaa tietyypeille, joten
+käytetään samaa luokittelua.</p>
+<div class="hint-box">
+<p>Tässä harjoituksessa käytetyt kohdeluokat perustuvat
+Maanmittauslaitoksen luokitukseen Autotie Ia (12111), Autotie Ib
+(12112), Autotie IIa (12121), Autotie IIb (12122), Autotie IIIa (12131),
+Autotie IIIb (12132), Ajotie (12141). Tarkemmat tiedot aineistosta
+löytyvät:
+<a href="https://www.maanmittauslaitos.fi/sites/maanmittauslaitos.fi/files/attachments/2023/06/Maastotietokohteet_2023_05.pdf" class="uri">https://www.maanmittauslaitos.fi/sites/maanmittauslaitos.fi/files/attachments/2023/06/Maastotietokohteet_2023_05.pdf</a></p>
+</div>
+<p>Jotta saamme luotua mittakaavaperusteisen näkyvyyden aineistolle ja
+tehtyä eri luokille omat visualisointinsa, valitse tieviiva-aineistolle
+sääntöpohjainen visualisointi. Tee uusi sääntö paneelin vasemmasta
+alareunasta <img src="img/harjoitus1/img9.png" /> -painikkeesta. Tästä tulee
+<strong>luokka 1</strong>.</p>
+<p>Lisää suodatin, scale range sekä kaksi visualisointitasoa kohteelle:</p>
+<p><strong>Otsikko:</strong> Luokka 1</p>
+<p><strong>Suodatin</strong>: <code>"kohdeluokka" = 12111 OR "kohdeluokka" =12112</code></p>
+<p><strong>Scale range</strong>: 1:100000000, 1:1</p>
+<p>Valitse aineistolle ensin yksi yksinkertainen täyttö, jossa on haluamasi
+väri. Sen jälkeen paina <img src="img/harjoitus1/img9.png" /> -painiketta ja
+lisää toiseksi väriksi musta.</p>
+<p><img src="img/harjoitus1/img10.png" /></p>
+<p>Jotta saat mustan värin reunaviivaksi ja valitsemasi värin pysymään tien
+päävärinä, aseta musta väri alimmaiseksi painamalla
+<img src="img/harjoitus1/img11.png" /> -painiketta ja asettamalla mustan viivan
+paksuus täyttöväriä isommaksi.</p>
+<div class="code-box">
+<p>Esimerkkikuvan asetukset luokalle 1 olivat:</p>
+<p><strong>Viiva 1 (sisus)</strong>: täyttöväri: #f1a342 paksuus: 2,2 mm</p>
+<p><strong>Viiva 2 (reuna)</strong>: täyttöväri: #000000 paksuus: 2,6 mm</p>
+</div>
+<p>Tee lopuille kolmelle luokalle samalla tavalla sääntöpohjainen
+luokittelu ja mittakaavaperusteinen näkyvyys näillä arvoilla:</p>
+<div class="code-box">
+<p><strong>Luokka 2</strong> “kohdeluokka” =12121 OR “kohdeluokka” =12122</p>
+<p>Scale range: 1:20001, 1:1</p>
+<p>Viiva 1: täyttöväri: #f7e27c paksuus: 2,8 mm</p>
+<p>Viiva 2: täyttöväri: #000000 paksuus: 3,1 mm</p>
+<p><strong>Luokka 3</strong> “kohdeluokka” = 12131 OR “kohdeluokka” = 12132</p>
+<p>Scale range: 1:10001, 1:1</p>
+<p>Viiva 1: täyttöväri: #ffffff paksuus: 1,2</p>
+<p>Viiva 2: täyttöväri: #7e7a7a paksuus 1,6</p>
+<p><strong>Luokka 4</strong> “kohdeluokka” = 12141</p>
+<p>Scale range: 1:10 001, 1:1</p>
+<p>Viiva 1: täyttöväri: #ffffff paksuus: 1,2</p>
+<p>Viiva 2: täyttöväri: #a4a9a2 paksuus: 1,8 Viivan tyyli: pisteviiva</p>
+</div>
+<p>Nyt tiet ovat muuten valmiita, mutta monissa kohdin reunaviivat
+näyttävät menevän väärin. Muutetaan siis vielä teiden piirtojärjestys,
+jotta reunaviivat menevät piiloon. Paina “symbolitasot”:</p>
+<p><img src="img/harjoitus1/img12.png" /></p>
+<p>Määrittele järjestys kuvan mukaisesti klikkaamalla värin kenttää ja
+kirjoittamalla siihen (musta jää 0:ksi, muut värit muutetaan arvoon 1):</p>
+<p><img src="img/harjoitus1/img13.png" /></p>
+<p>Nyt reunaviivat on saatu piiloon. Seuraavaksi vielä asetetaan teiden
+keskinäinen piirtojärjestys niin, että päätiet piirtyvät pikkuteiden
+päälle. Klikkaa alalaidasta “Tason piirto” -kohtaa ja laita täppä “Säädä
+kohteiden piirtojärjestystä” -kohtaan. Tämän jälkeen paina sen vieressä
+olevaa symbolia avataksesi lisäasetukset.</p>
+<p><img src="img/harjoitus1/img14.png" /> <img src="img/harjoitus1/img15.png" /></p>
+<p>Aseta arvot kuten kuvassa (Lauseke: <em>kohdeluokka</em>, Nouseva/laskeva:
+<em>Laskeva</em>). Nyt QGIS järjestää kohteet kohdeluokka-sarakkeen arvojen
+mukaan niin, että isoimman arvon omistavat kohteet tulevat
+päällimmäisiksi. Paina <strong>OK</strong>.</p>
+</div>
+<div id="rautatie" class="section level3" number="2.6.4">
+<h3><span class="header-section-number">2.6.4</span> Rautatie</h3>
+<p>QGISissä on myös valmiita visualisointeja, jotka näkyvät
+visualisointiasetusten alkunäkymässä. Katso symbolikirjaston
+suosikeista, miltä näyttäisivät vaikkapa “topo railway” tai “topo
+steps”. Saat visualisoinnit käyttöön klikkaamalla niitä.</p>
+<p><img src="img/harjoitus1/img16.png" /></p>
+<p>Voit myös ottaa jonkin valmiin symbolin visualisointisi pohjaksi, jota
+alat editoimaan. Esimerkiksi “topo stepsin” alle voit lisätä alle
+vaaleanharmaan yhtenäisen viivan samaan tapaan kuin teissä lisättiin
+musta reunaviiva päävärin alle. Lopputulos näyttää silloin tältä:</p>
+<p><img src="img/harjoitus1/img17.png" /></p>
+</div>
+<div id="pistekohteet" class="section level3" number="2.6.5">
+<h3><span class="header-section-number">2.6.5</span> Pistekohteet</h3>
+<p>Harjoitusaineistossa on kaksi pistekohdetta, kaupat ja vaatekaupat. Emme
+visualisoi kaupat-tasoa, joten jätä se pois näkyvistä. Avaa sen sijaan
+vaatekaupat-taso editoitavaksi <strong>Tason tyylit</strong> -paneeliin.</p>
+<p>Klikkaa “Yksinkertainen pistesymboli” -kohtaa avataksesi edistyneet
+visualisointitoiminnot. Valitse Symbolitason tyyppi -pudotusvalikosta
+“SVG-symbolitaso”.</p>
+<p><img src="img/harjoitus1/img20.png" /></p>
+<p>Nyt voit valita pisteen sijasta jonkin muun symbolin vaatekaupoille.
+Selaa eri kansioita ja hae mielestäsi hyvä symboli. Valitse haluamasi
+symboli klikkaamalla sitä SVG-kuvat-ikkunassa.</p>
+<p><img src="img/harjoitus1/img18.png" /></p>
+<p>Kuvake ei näy vielä välttämättä kovin hyvin, joten muuta sen kokoa niin,
+että se erottuu helposti. Vaihda sille myös uusi täyttöväri halutessasi.</p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon
+pikanäppäimellä <strong>CTRL + S</strong> tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+</div>
+</div>
+<div id="lisätehtävä" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Lisätehtävä</h2>
+<p>Palaa polygonitasoihin ja valitse suot-taso. Luo tasolle toinen
+visualisointitaso painamalla <img src="img/harjoitus1/img9.png" />.</p>
+<p>Tee alemmasta tasosta hieman läpinäkyvä säätämällä sen täyttövärin
+peittävyyttä väriasetuksista 55 prosenttiin.</p>
+<p>täyttöväri:: #0f7c79 täyttövärin läpinäkyvyys 55% reunaviiva: #000000</p>
+<p>Sen jälkeen vaihda päällimmäisen symbolitason tyypiksi <strong>Täyttö
+viivakuosilla</strong>. Vaihda jaottelu täytön kohdalta ja viivan väri ja
+leveys avaamalla viivatason edistyneet visualisointiominaisuudet</p>
+<p>viivakuosi jaottelu 2,400000 viivan leveys 0,10000 viivan väri #335175</p>
+<p><img src="img/harjoitus1/img19.png" /></p>
+<p>Voit halutessasi visualisoida myös puistot niin, että lisäät täytön
+pistekuviolla yksinkertaisen täytön lisäksi. Pistekohteeksi voit
+puolestaan valita SVG-ikonin, esimerkiksi puun. Nyt puistoalueissa on
+vihreä tausta ja vihreitä pieniä puita.</p>
+<p><img src="img/harjoitus1/img21.png" /></p>
+<div class="hint-box">
+<p><strong>Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="index.html"><button class="btn btn-default">Previous</button></a>
+<a href="02_harjoitus_2.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Kartat ja taitot</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

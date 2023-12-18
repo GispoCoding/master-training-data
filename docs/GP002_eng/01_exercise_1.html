@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="2 Exercise 1: User interface of QGIS | Introduction to QGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Ltd." />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="2 Exercise 1: User interface of QGIS | Introduction to QGIS">
+
+<title>2 Exercise 1: User interface of QGIS | Introduction to QGIS</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to QGIS</h1></div>
+<div class="abstract-sidebar"><p>Basic course on QGIS</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li><a href="index.html#introduction-to-qgis"><span class="toc-section-number">1</span> Introduction to QGIS</a></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-user-interface-of-qgis"><span class="toc-section-number">2</span> Exercise 1: User interface of QGIS</a>
+<ul>
+<li><a href="01_exercise_1.html#downloading-course-materials"><span class="toc-section-number">2.1</span> Downloading course materials</a></li>
+<li><a href="01_exercise_1.html#qgis-user-interface"><span class="toc-section-number">2.2</span> QGIS user interface</a></li>
+<li><a href="01_exercise_1.html#try-the-tools-yourself"><span class="toc-section-number">2.3</span> Try the tools yourself</a></li>
+<li><a href="01_exercise_1.html#attribute-table"><span class="toc-section-number">2.4</span> Attribute table</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-geographic-data-and-online-data-services"><span class="toc-section-number">3</span> Exercise 2: Geographic data and online data services</a>
+<ul>
+<li><a href="02_exercise_2.html#exercise-content"><span class="toc-section-number">3.1</span> Exercise content</a></li>
+<li><a href="02_exercise_2.html#the-goal-of-the-exercise"><span class="toc-section-number">3.2</span> The goal of the exercise</a></li>
+<li><a href="02_exercise_2.html#preparations"><span class="toc-section-number">3.3</span> Preparations</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wms"><span class="toc-section-number">3.4</span> Connecting to a WMS</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wfs"><span class="toc-section-number">3.5</span> Connecting to a WFS</a></li>
+<li><a href="02_exercise_2.html#bonus-building-sql-query-for-wfs"><span class="toc-section-number">3.6</span> Bonus: Building SQL query for WFS</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-visualizing-and-classifying-geographic-data-sets"><span class="toc-section-number">4</span> Exercise 3: Visualizing and classifying geographic data sets</a>
+<ul>
+<li><a href="03_exercise_3.html#exercise-content-1"><span class="toc-section-number">4.1</span> Exercise content</a></li>
+<li><a href="03_exercise_3.html#the-goal-of-the-exercise-1"><span class="toc-section-number">4.2</span> The goal of the exercise</a></li>
+<li><a href="03_exercise_3.html#preparations-1"><span class="toc-section-number">4.3</span> Preparations</a></li>
+<li><a href="03_exercise_3.html#visualizing-vector-data"><span class="toc-section-number">4.4</span> Visualizing vector data</a></li>
+<li><a href="03_exercise_3.html#visualizing-line-data-sets"><span class="toc-section-number">4.5</span> Visualizing line data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-point-data-sets"><span class="toc-section-number">4.6</span> Visualizing point data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-polygon-data-sets"><span class="toc-section-number">4.7</span> Visualizing polygon data sets</a></li>
+<li><a href="03_exercise_3.html#changing-symbols"><span class="toc-section-number">4.8</span> Changing symbols</a></li>
+<li><a href="03_exercise_3.html#scale-dependent-symbols"><span class="toc-section-number">4.9</span> Scale dependent symbols</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-labeling-and-classifying-geographic-data"><span class="toc-section-number">5</span> Exercise 4: Labeling and classifying geographic data</a>
+<ul>
+<li><a href="04_exercise_4.html#exercise-content-2"><span class="toc-section-number">5.1</span> Exercise content</a></li>
+<li><a href="04_exercise_4.html#the-goal-of-the-exercise-2"><span class="toc-section-number">5.2</span> The goal of the exercise</a></li>
+<li><a href="04_exercise_4.html#preparations-2"><span class="toc-section-number">5.3</span> Preparations</a></li>
+<li><a href="04_exercise_4.html#label-settings"><span class="toc-section-number">5.4</span> Label settings</a></li>
+<li><a href="04_exercise_4.html#styling-label-texts"><span class="toc-section-number">5.5</span> Styling label texts</a></li>
+<li><a href="04_exercise_4.html#labeling-line-layers"><span class="toc-section-number">5.6</span> Labeling line layers</a></li>
+<li><a href="04_exercise_4.html#classifying-vector-data"><span class="toc-section-number">5.7</span> Classifying vector data</a></li>
+<li><a href="04_exercise_4.html#bonus-classifying-raster-data"><span class="toc-section-number">5.8</span> Bonus: Classifying raster data</a></li>
+<li><a href="04_exercise_4.html#bonus-label-rendering"><span class="toc-section-number">5.9</span> Bonus: Label rendering</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-print-layout"><span class="toc-section-number">6</span> Exercise 5: Print layout</a>
+<ul>
+<li><a href="05_exercise_5.html#exercise-content-3"><span class="toc-section-number">6.1</span> Exercise content</a></li>
+<li><a href="05_exercise_5.html#the-goal-of-the-exercise-3"><span class="toc-section-number">6.2</span> The goal of the exercise</a></li>
+<li><a href="05_exercise_5.html#preparations-3"><span class="toc-section-number">6.3</span> Preparations</a></li>
+<li><a href="05_exercise_5.html#print-layout"><span class="toc-section-number">6.4</span> Print layout</a></li>
+<li><a href="05_exercise_5.html#bonus-map-atlas"><span class="toc-section-number">6.5</span> Bonus: Map atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-editing-geographic-data-sets"><span class="toc-section-number">7</span> Exercise 6: Editing geographic data sets</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-content-4"><span class="toc-section-number">7.1</span> Exercise content</a></li>
+<li><a href="06_exercise_6.html#the-goal-of-the-exercise-4"><span class="toc-section-number">7.2</span> The goal of the exercise</a></li>
+<li><a href="06_exercise_6.html#preparations-4"><span class="toc-section-number">7.3</span> Preparations</a></li>
+<li><a href="06_exercise_6.html#creating-a-vector-data-set"><span class="toc-section-number">7.4</span> Creating a vector data set</a></li>
+<li><a href="06_exercise_6.html#editing-and-digitizing-vector-data"><span class="toc-section-number">7.5</span> Editing and digitizing vector data</a></li>
+<li><a href="06_exercise_6.html#adding-geometries"><span class="toc-section-number">7.6</span> Adding geometries</a></li>
+<li><a href="06_exercise_6.html#bonus-adding-attribute-information"><span class="toc-section-number">7.7</span> Bonus: Adding attribute information</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-spatial-analyses"><span class="toc-section-number">8</span> Exercise 7: Spatial analyses</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-content-5"><span class="toc-section-number">8.1</span> Exercise content</a></li>
+<li><a href="07_exercise_7.html#the-goal-of-the-exercise-5"><span class="toc-section-number">8.2</span> The goal of the exercise</a></li>
+<li><a href="07_exercise_7.html#preparations-5"><span class="toc-section-number">8.3</span> Preparations</a></li>
+<li><a href="07_exercise_7.html#vector-analyses"><span class="toc-section-number">8.4</span> Vector analyses</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-plugins-in-qgis"><span class="toc-section-number">9</span> Exercise 8: Plugins in QGIS</a>
+<ul>
+<li><a href="08_exercise_8.html#exercise-content-6"><span class="toc-section-number">9.1</span> Exercise content</a></li>
+<li><a href="08_exercise_8.html#the-goal-of-the-exercise-6"><span class="toc-section-number">9.2</span> The goal of the exercise</a></li>
+<li><a href="08_exercise_8.html#preparations-6"><span class="toc-section-number">9.3</span> Preparations</a></li>
+<li><a href="08_exercise_8.html#plugin-management"><span class="toc-section-number">9.4</span> Plugin management</a></li>
+<li><a href="08_exercise_8.html#quickmapservices"><span class="toc-section-number">9.5</span> QuickMapServices</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2threejs"><span class="toc-section-number">9.6</span> Bonus: Qgis2threejs</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2web"><span class="toc-section-number">9.7</span> Bonus: Qgis2web</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-1-user-interface-of-qgis" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Exercise 1: User interface of QGIS</h1>
+<p><strong>Exercise content</strong></p>
+<p>This exercise acquaints you to the user interface and basic features of QGIS.</p>
+<p><strong>The goal of the exercise</strong></p>
+<p>After this exercise you know how to use the QGIS user interface.</p>
+<p><strong>Preparations</strong></p>
+<p>Open a website and navigate to the QGIS website</p>
+<div class="note-box">
+<p><a href="http://www.qgis.org/fi/site/" class="uri">http://www.qgis.org/fi/site/</a></p>
+</div>
+<p>On the main page you’ll find a link where you can download QGIS. Download the latest QGIS Long Term Release (LTR). The long term release is the most stable QGIS version, but may lack the newest features. QGIS can be installed on Windows, Linux or Mac operating systems. The differences in QGIS between operating systems is mainly visual and with file paths.</p>
+<div id="downloading-course-materials" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Downloading course materials</h2>
+<p>Datasets used during the course can be downloaded from Google Drive following this link:</p>
+<div class="note-box">
+<p><a href="https://drive.google.com/file/d/1IAdDFktqd7_KoNBAITfyY9WztCME9Ckm/view?usp=share_link">course_directory.zip</a></p>
+</div>
+<p>Open the link above and click <strong>Download</strong>. The data directory is compressed as a .zip- file <strong>course_directory.zip</strong>. Extract the data directory a suitable location on your computer. The directory should be easily found during the exercises. In the following exercises a reference to <strong>../course_directory/</strong> means the file path chosen by you. Ask for instructions if needed.</p>
+</div>
+<div id="qgis-user-interface" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> QGIS user interface</h2>
+<p>Start QGIS. The QGIS user interface may open in a local language different language from English. You can change the language from <strong>Settings → Options → General</strong>, Click <strong>Override System Locale</strong> → <strong>User Interface Translation → American English</strong>. Finally press <strong>OK</strong>.</p>
+<p><img src="img/exercise_1/image1.png" width="693" /></p>
+<p>In order for the language change to take effect you have to restart QGIS. Add the first vector dataset by clicking <strong>Open Data Source Manager</strong>: The same tool can be found in the Layer- menu <strong>Add layer -&gt; Add Vector Layer</strong> (Ctrl+Shift+V). A new window should open. Choose the <strong>Vector- tab</strong> on the left. Add a dataset from the data directory (<strong>..course_directory/geofabrik/</strong>). Choose the <strong>berlin_roads.shp</strong> file. Finally, click the <strong>Add</strong> button and close the window. <img src="img/exercise_1/image2.png" /> The dataset should show up as follows (the color might be different):</p>
+<p><img src="img/exercise_1/image3.png" /></p>
+<p>The QGIS user interface</p>
+<div id="toolbars" class="section level4" number="2.2.0.1">
+<h4><span class="header-section-number">2.2.0.1</span> <strong>1. Toolbars</strong></h4>
+<p>As the name suggests, <strong>Toolbars</strong> include sets of different tools. Your QGIS might have a different number of toolbars compared to the screenshot above. You can hide or view different toolbars by right clicking the toolbar section. You can also drag toolbars to different locations on the screen.</p>
+</div>
+<div id="map-view" class="section level4" number="2.2.0.2">
+<h4><span class="header-section-number">2.2.0.2</span> <strong>2. Map View</strong></h4>
+<p>The <strong>Map View</strong> displays the geographic data sets that are set visible in the <strong>Layers Panel</strong>. You can zoom in and out and pan the map with you mouse (Also try the scroll wheel on your mouse, use CTRL + scroll for more subtle zooming).</p>
+</div>
+<div id="browser-panel" class="section level4" number="2.2.0.3">
+<h4><span class="header-section-number">2.2.0.3</span> <strong>3. Browser Panel</strong></h4>
+<p>We already used the <strong>Browser Panel</strong> briefly. In this panel you can find different file paths and navigate to your data.</p>
+</div>
+<div id="layers-panel" class="section level4" number="2.2.0.4">
+<h4><span class="header-section-number">2.2.0.4</span> <strong>4. Layers Panel</strong></h4>
+<p>The <strong>Layers Panel</strong> displays the data you have added into your project. One set of data is referred to as a <strong>Layer</strong>, so currently we have one layer in our project. In this panel you can for example switch the drawing order of the layers or set them to be included or not included in the <strong>Map View</strong>. </p>
+</div>
+<div id="search" class="section level4" number="2.2.0.5">
+<h4><span class="header-section-number">2.2.0.5</span> <strong>5. Search</strong></h4>
+<p>With the <strong>Search</strong> functionality you can easily find different tools and functionalities.</p>
+</div>
+<div id="status-bar" class="section level4" number="2.2.0.6">
+<h4><span class="header-section-number">2.2.0.6</span> <strong>6. Status Bar</strong></h4>
+<p>In the <strong>Status Bar</strong> you can find the <strong>coordinates</strong> of your mouse cursor (either in meters or in latitude and longitude), the <strong>scale</strong>, the <strong>magnifier</strong>, the <strong>rotation</strong>, the <strong>coordinate reference system</strong> and QGIS’s log <strong>messages</strong>. The status bar is handy for example when you need to quickly change the coordinate reference system of the project.</p>
+</div>
+</div>
+<div id="try-the-tools-yourself" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Try the tools yourself</h2>
+<p>Try at least the following tools in the <strong>Map Navigation Toolbar</strong> and in the <strong>Attributes Toolbar</strong>:</p>
+<p><img src="img/exercise_1/image4.png" /></p>
+<p>Locate these tools from the aforementioned toolbars and recognize their functions:</p>
+<table>
+<colgroup>
+<col width="42%" />
+<col width="57%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><h5 id="zoom-full"><strong>Zoom Full</strong></h5></td>
+<td><img src="img/exercise_1/image5.png" /></td>
+</tr>
+<tr class="even">
+<td><h5 id="zoom-to-layer"><strong>Zoom to Layer</strong></h5></td>
+<td><img src="img/exercise_1/image6.png" /></td>
+</tr>
+<tr class="odd">
+<td><h5 id="identify-features"><strong>Identify Features</strong></h5></td>
+<td><img src="img/exercise_1/image7.png" width="36" /></td>
+</tr>
+<tr class="even">
+<td><h5 id="open-attribute-table"><strong>Open Attribute Table</strong></h5></td>
+<td><img src="img/exercise_1/image8.png" width="42" /></td>
+</tr>
+<tr class="odd">
+<td><h5 id="measure-line-length"><strong>Measure Line Length</strong></h5></td>
+<td><img src="img/exercise_1/image9.png" /></td>
+</tr>
+</tbody>
+</table>
+<p><br />
+Also try the functionalities of the <strong>Status Bar</strong> and the <strong>Layers Panel</strong>.</p>
+<p><img src="img/exercise_1/image10.png" /></p>
+<p>Try the functionalities in the Layers Panel:</p>
+<p><img src="img/exercise_1/image11.png" /></p>
+</div>
+<div id="attribute-table" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Attribute table</h2>
+<p>Choose the <strong>berlin_roads</strong> map layer and open its Attribute Table. You can do this by clicking the icon <img src="img/exercise_1/image12.png" /> or by right clicking with the mouse over the layer and choosing <strong>Open Attribute Table</strong>. You can order the table by any of its fields in to either ascending or descending order.</p>
+<p><img src="img/exercise_1/image13.png" /></p>
+<p>When you’ve inspected the Attribute Table enough, close the table window.</p>
+<p>Finally save the QGIS project in to your data directory and name it <strong>../course_directory/QGIS_exercise_1.qgz</strong>.</p>
+<div class="hint-box">
+<p><strong>Psst! Always save your project file at the end of the exercise.</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="index.html"><button class="btn btn-default">Previous</button></a>
+<a href="02_exercise_2.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to QGIS</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Ltd.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

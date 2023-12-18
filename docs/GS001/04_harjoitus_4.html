@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="5 Harjoitus 4: Animaatiot | Visualisoinnin mestariksi QGISillä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy" />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="5 Harjoitus 4: Animaatiot | Visualisoinnin mestariksi QGISillä">
+
+<title>5 Harjoitus 4: Animaatiot | Visualisoinnin mestariksi QGISillä</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Visualisoinnin mestariksi QGISillä</h1></div>
+<div class="abstract-sidebar"><p>Jatkokurssi QGISin visualisointitekniikoista.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#visualisoinnin-mestariksi-qgisillä"><span class="toc-section-number">1</span> Visualisoinnin mestariksi QGISillä</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille"><span class="toc-section-number">1.1</span> Tervetuloa kurssille!</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.2</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.3</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.4</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.5</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-geometry-generator-tyylitiedostot-ja-sääntöpohjainen-visualisointi"><span class="toc-section-number">2</span> Harjoitus 1: Geometry generator, tyylitiedostot ja sääntöpohjainen visualisointi</a>
+<ul>
+<li><a href="01_harjoitus_1.html#valmistautuminen"><span class="toc-section-number">2.1</span> <strong>Valmistautuminen</strong></a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#polygonin-käyttö-maskina"><span class="toc-section-number">2.2</span> <strong>Polygonin käyttö maskina</strong></a>
+<ul>
+<li><a href="01_harjoitus_1.html#geometry-generator"><span class="toc-section-number">2.2.1</span> <strong>Geometry generator</strong></a></li>
+</ul></li>
+<li><a href="01_harjoitus_1.html#tyylin-tallentaminen-tiedostoon"><span class="toc-section-number">2.3</span> <strong>Tyylin tallentaminen tiedostoon</strong></a></li>
+<li><a href="01_harjoitus_1.html#sääntöpohjainen-visualisointi"><span class="toc-section-number">2.4</span> <strong>Sääntöpohjainen visualisointi</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-luokittelu-heatmap-ja-diagrammit"><span class="toc-section-number">3</span> Harjoitus 2: Luokittelu, heatmap ja diagrammit</a>
+<ul>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1"><span class="toc-section-number">3.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="02_harjoitus_2.html#pistemäisen-aineiston-luokittelu"><span class="toc-section-number">3.2</span> <strong>Pistemäisen aineiston luokittelu</strong></a></li>
+<li><a href="02_harjoitus_2.html#heatmap"><span class="toc-section-number">3.3</span> <strong>Heatmap</strong></a></li>
+<li><a href="02_harjoitus_2.html#diagrammit"><span class="toc-section-number">3.4</span> <strong>Diagrammit</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-3d-visualisointi"><span class="toc-section-number">4</span> Harjoitus 3: 3D-visualisointi</a>
+<ul>
+<li><a href="03_harjoitus_3.html#valmistautuminen-2"><span class="toc-section-number">4.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="03_harjoitus_3.html#d-pylväsdiagrammi-tilastoaineistosta"><span class="toc-section-number">4.2</span> <strong>3D-pylväsdiagrammi tilastoaineistosta</strong></a></li>
+<li><a href="03_harjoitus_3.html#maastomalli-korkeusaineistosta"><span class="toc-section-number">4.3</span> <strong>Maastomalli korkeusaineistosta</strong></a></li>
+<li><a href="03_harjoitus_3.html#d-karttanäkymä"><span class="toc-section-number">4.4</span> <strong>3D-karttanäkymä</strong></a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä"><span class="toc-section-number">4.5</span> <strong>Lisätehtävä</strong></a></li>
+<li><a href="03_harjoitus_3.html#rakennusten-ja-muiden-objektien-3d-visualisointi"><span class="toc-section-number">4.6</span> <strong>Rakennusten ja muiden objektien 3D-visualisointi</strong></a></li>
+<li><a href="03_harjoitus_3.html#karttatuloste"><span class="toc-section-number">4.7</span> <strong>Karttatuloste</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-animaatiot"><span class="toc-section-number">5</span> Harjoitus 4: Animaatiot</a>
+<ul>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3"><span class="toc-section-number">5.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="04_harjoitus_4.html#temporal-controller"><span class="toc-section-number">5.2</span> <strong>Temporal controller</strong></a></li>
+<li><a href="04_harjoitus_4.html#datan-esikäsittely"><span class="toc-section-number">5.3</span> <strong>Datan esikäsittely</strong></a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-4-animaatiot" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Harjoitus 4: Animaatiot</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tutustutaan QGISin Temporal controller -työkaluun ja temporaaliseen dataan.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Koulutettava ymmärtää, millaisesta datasta voi laatia animaatioita, ja hallitsee Temporal controllerin perustoiminnallisuudet.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>60 minuuttia.</p>
+<div id="valmistautuminen-3" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> <strong>Valmistautuminen</strong></h2>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti → Uusi</strong>) ja tallenna se nimellä <strong>"QGIS-harjoitus 4"</strong>. Avaa tausta-aineistoksi jokin taustakartta Suomesta tai lisää esimerkiksi seuraavat tasot QGIS-projektiin:</p>
+<ul>
+<li><p><strong>..kurssihakemisto/kunta1000k_2017.gpkg</strong></p></li>
+<li><p><strong>..kurssihakemisto/MML_YK1M/RautatieViiva.shp</strong></p></li>
+</ul>
+</div>
+<div id="temporal-controller" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> <strong>Temporal controller</strong></h2>
+<p><strong>Temporal controller -työkalulla</strong> voidaan luoda animaatioita mistä tahansa datasta, jossa on aikaleima. Liikkuvat kohteet tallennetaan useimmiten sijaintina tiettynä ajanhetkenä, ja Temporal controller sopiikin parhaiten datalle joka on spatiaalisesti pistemäistä ja temporaalisesti hetkellistä, eli sillä ei ole kestoa.</p>
+<p><img src="img/harjoitus_4/image1.png" /></p>
+<p>Aikaleimakentän on oltava tallennettu sellaisessa muodossa, että QGIS osaa lukea sitä. Hyväksytyt aikaleiman muodot ovat:</p>
+<div class="file-content-box">
+<p>YYYY-MM-DD HH:MM:SS.ssssss<br />
+YYYY-MM-DD HH:MM:SS<br />
+YYYY-MM-DD HH:MM<br />
+YYYY-MM-DD<br />
+YYYY/MM/DD HH:MM:SS.ssssss<br />
+YYYY/MM/DD HH:MM:SS<br />
+YYYY/MM/DD HH:MM<br />
+YYYY/MM/DD<br />
+DD.MM.YYYY HH:MM:SS.ssssss<br />
+DD.MM.YYYY HH:MM:SS<br />
+DD.MM.YYYY HH:MM<br />
+DD.MM.YYYY<br />
+DD-MM-YYYY HH:MM:SS.ssssss<br />
+DD-MM-YYYY HH:MM:SS<br />
+DD-MM-YYYY HH:MM<br />
+DD-MM-YYYY<br />
+DD/MM/YYYY HH:MM:SS.ssssss<br />
+DD/MM/YYYY HH:MM:SS<br />
+DD/MM/YYYY HH:MM<br />
+DD/MM/YYYY<br />
+</p>
+</div>
+<p>Mikäli aineistosi aikaleima ei ole missään näistä muodoista, voit muokata sitä esim. Excelillä tai muulla taulukko-ohjelmalla. Huomaa, että koko aikaleiman on oltava samassa kentässä! Jos siis aineistosi sisältää sekä päivämäärän että kellonajan, ne täytyy ilmoittaa yhdessä ja samassa kentässä.</p>
+</div>
+<div id="datan-esikäsittely" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> <strong>Datan esikäsittely</strong></h2>
+<p>Animaation lähtötiedoksi sopii mikä tahansa vektoriaineisto, jolla on aikaleima. Tässä harjoituksessa käytetään csv-muotoista datasettiä junien liikkeistä Suomessa muutaman tunnin ajanjaksolla. Attribuuttitietona on junan numero sekä sen nopeus kullakin ajanhetkellä. Tuo aineisto (<strong>trainGPS.csv</strong>) QGISiin käyttäen <strong>Merkein eroteltu tekstitiedosto -työkalua</strong>. Valitse <strong>räätälöidyksi erotinmerkiksi</strong> pilkku, anna X- ja Y-koordinaattikentät sekä oikea koordinaattijärjestelmä. Varmista alareunan esikatselusta että data jakaantuu oikein sarakkeisiin.</p>
+<p><img src="img/harjoitus_4/image2.png" /></p>
+<p>Aineisto on varsin suuri, yli 119.000 riviä. Pienennä aineistoa valitsemalla attribuuttien perusteella mukaan vain ne junat, joiden numero (<strong>trainNo</strong>) on <strong>pienempi kuin 100</strong>.</p>
+<p>Vie valittu aineisto uudeksi tiedostoksi GeoPackage-formaatissa. Näin animaatio pyörii sujuvammin kuin suoraan csv.stä käsin. Samalla voit muuntaa aineiston koordinaattijärjestelmän Suomen metriseen tasokoordinaattijärjestelmään ETRS89/TM35FIN (EPSG-koodi: 3067).</p>
+<p>Aseta aineiston kuvaustekniikka mieleiseksesi. Kokeile vaikka aineiston luokittelua eri väreihin junan nopeuden mukaan. Halutessasi voit askarrella myös junien numerot näkyviin <strong>Nimiöt-välilehdeltä</strong>.</p>
+<p><img src="img/harjoitus_4/image3.png" /></p>
+<p>Siirry sitten saman <strong>Layer Properties -ikkunan Temporaalinen -välilehdelle</strong>. Aktivoi toiminto ruksista ja valitse pudotusvalikosta <strong>Single field with Date/Time</strong>. Valitse  aikaleiman sisältävä kenttä. Aineistossa on aikaleimoja sekunnin tarkkuudella, mutta aseta nyt <strong>Event Duration</strong> yhteen <strong>minuuttiin</strong>. Näin kaikki minuutin sisällä tapahtuneet "havainnot" esitetään kartalla samanaikaisesti. Koska haluamme että junat näyttävät liikkuvan kartalla eikä jokainen havaintopiste jää näkyviin, älä ruksi <strong>Accumulate features over time -vaihtoehtoa</strong>. Paina lopuksi <strong>OK</strong>.</p>
+<p><img src="img/harjoitus_4/image4.png" /></p>
+<p>Avaa näkyviin <strong>Temporaalinen säädin -paneeli</strong> joko klikkaamalla ylävalikosta <strong>Näytä &gt; Paneelit</strong> tai klikkaamalla työkalupaneelien päällä hiiren oikealla napilla. Tämä työkalu toimii samalla animaation etenemistä näyttävänä legendana.</p>
+<p>Aktivoi animaatio-ominaisuus klikkaamalla <img src="img/harjoitus_4/image5.png" />. Päivitä animaation aikarajat klikkaamalla <img src="img/harjoitus_4/image6.png" /> ja aseta <strong>Askel</strong> samaan yhteen minuuttiin kuin aineiston <strong>event duration</strong> on. Oikeaan yläkulmaan piilotetulla pienellä <img src="img/harjoitus_4/image7.png" /> <strong>-asetuspainikkeella</strong> voi säätää, kuinka pitkään yksi <strong>frame</strong> eli näkymä on näkyvissä. Tämä vaikuttaa siis animaation nopeuteen ja kokonaiskestoon. Aseta se aluksi  yhteen sekuntiin.</p>
+<p>Nyt voit klikata <strong>Play-nappia</strong> ja katsella liikkuvaa animaatiota kartalla. Huomaa, että yhdenkin minuutin event duration aiheuttaa symboleille pientä venymistä: jos junalle on tallennettu useita sijainteja minuutin aikana, ne kaikki ovat näkyvissä yhtä aikaa ja liikkuvan junan perään jää "häntä". <strong>Event durationia</strong> lyhentämällä ilmiön saa poistettua, mutta animaatio saattaa käydä liian raskaaksi tietokoneen prosessorille.</p>
+<p><img src="img/harjoitus_4/image8.gif" /></p>
+<p>Valmiin animaation voit tallentaa <strong>Export animation -painikkeesta</strong> <img src="img/harjoitus_4/image9.png" /> sarjaksi kuvatiedostoja, joista voit muodostaa vaikka GIF-animaation. Linux- ja Mac-käyttöjärjestelmissä GIFin luominen on mahdollista suoraan QGISissä.</p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+<div class="hint-box">
+<p>Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen tuki@gispo.fi!</p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="03_harjoitus_3.html"><button class="btn btn-default">Previous</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Visualisoinnin mestariksi QGISillä</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

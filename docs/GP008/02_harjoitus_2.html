@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3 Harjoitus 2: Nimiöt | Kartat ja taitot" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Ltd." />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="3 Harjoitus 2: Nimiöt | Kartat ja taitot">
+
+<title>3 Harjoitus 2: Nimiöt | Kartat ja taitot</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Kartat ja taitot</h1></div>
+<div class="abstract-sidebar"><p>QGISin perusteet karttojen tulostamisen ja taittojen hallinnan näkökulmasta</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#kartat-ja-taitot"><span class="toc-section-number">1</span> Kartat ja taitot</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille"><span class="toc-section-number">1.1</span> Tervetuloa kurssille!</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.2</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.3</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.4</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.5</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-vektoriaineistojen-visualisointi"><span class="toc-section-number">2</span> Harjoitus 1: Vektoriaineistojen visualisointi</a>
+<ul>
+<li><a href="01_harjoitus_1.html#harjoituksen-sisältö"><span class="toc-section-number">2.1</span> Harjoituksen sisältö</a></li>
+<li><a href="01_harjoitus_1.html#harjoituksen-tavoite"><span class="toc-section-number">2.2</span> Harjoituksen tavoite</a></li>
+<li><a href="01_harjoitus_1.html#kurssimateriaalin-lataus"><span class="toc-section-number">2.3</span> Kurssimateriaalin lataus</a></li>
+<li><a href="01_harjoitus_1.html#valmistautuminen"><span class="toc-section-number">2.4</span> Valmistautuminen</a></li>
+<li><a href="01_harjoitus_1.html#aineiston-tuonti-ja-järjestely"><span class="toc-section-number">2.5</span> Aineiston tuonti ja järjestely</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#tasojen-visualisointi"><span class="toc-section-number">2.6</span> Tasojen visualisointi</a>
+<ul>
+<li><a href="01_harjoitus_1.html#polygonien-visualisointi"><span class="toc-section-number">2.6.1</span> Polygonien visualisointi</a></li>
+<li><a href="01_harjoitus_1.html#sääntöpohjainen-visualisointi"><span class="toc-section-number">2.6.2</span> Sääntöpohjainen visualisointi</a></li>
+<li><a href="01_harjoitus_1.html#tieaineisto"><span class="toc-section-number">2.6.3</span> Tieaineisto</a></li>
+<li><a href="01_harjoitus_1.html#rautatie"><span class="toc-section-number">2.6.4</span> Rautatie</a></li>
+<li><a href="01_harjoitus_1.html#pistekohteet"><span class="toc-section-number">2.6.5</span> Pistekohteet</a></li>
+</ul></li>
+<li><a href="01_harjoitus_1.html#lisätehtävä"><span class="toc-section-number">2.7</span> Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-nimiöt"><span class="toc-section-number">3</span> Harjoitus 2: Nimiöt</a>
+<ul>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö-1"><span class="toc-section-number">3.1</span> Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite-1"><span class="toc-section-number">3.2</span> Harjoituksen tavoite</a></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#teiden-nimiöinti"><span class="toc-section-number">3.3</span> Teiden nimiöinti</a>
+<ul>
+<li><a href="02_harjoitus_2.html#vaatekaupat-tason-nimiöinti"><span class="toc-section-number">3.3.1</span> Vaatekaupat-tason nimiöinti</a></li>
+</ul></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-luodaan-nimiö-merikoskelle"><span class="toc-section-number">3.4</span> Lisätehtävä: luodaan nimiö Merikoskelle</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-teemakartta"><span class="toc-section-number">4</span> Harjoitus 3: Teemakartta</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-2"><span class="toc-section-number">4.1</span> Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-2"><span class="toc-section-number">4.2</span> Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-wms-tason-visualisointi"><span class="toc-section-number">4.3</span> Lisätehtävä: WMS-tason visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-taitto"><span class="toc-section-number">5</span> Harjoitus 4: Taitto</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-3"><span class="toc-section-number">5.1</span> Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-3"><span class="toc-section-number">5.2</span> Harjoituksen tavoite</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-kartta-atlas"><span class="toc-section-number">6</span> Harjoitus 5: Kartta-atlas</a>
+<ul>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-4"><span class="toc-section-number">6.1</span> Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-4"><span class="toc-section-number">6.2</span> Harjoituksen tavoite</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-2-nimiöt" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Harjoitus 2: Nimiöt</h1>
+<div id="harjoituksen-sisältö-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Harjoituksen sisältö</h2>
+<p>Harjoituksessa lisätään nimiöt tieviivastoon ja pistekohteisiin.</p>
+</div>
+<div id="harjoituksen-tavoite-1" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Harjoituksen tavoite</h2>
+<p>Koulutettava oppii QGISin nimiöiden käyttämisen sekä Nimiöiden työkalupalkin työkalut. Koulutettavalla on ymmärrys QGISin nimiöiden luomisesta ja muokkaamisesta.</p>
+</div>
+<div id="teiden-nimiöinti" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Teiden nimiöinti</h2>
+<p>Valitse Tieviivat-taso ja avaa Tason tyylit -paneelista <strong>“Nimiöt”</strong>. Valitse pudotusvalikosta “Yksinkertainen nimiöinti”. Valitse Arvo-kohtaan “nimi_suomi”</p>
+<p><img src="img/harjoitus2/img1.png" /></p>
+<p>Aivan aluksi valitse itsellesi mieluisa fontti. Valitse myös itsellesi mieluisa fonttikoko ja väri.</p>
+<p>Jos et löydä jotain välilehteä, käytä nuolia paneelin oikeassa laidassa.</p>
+<p><img src="img/harjoitus2/img2.png" /></p>
+<p>Seuraavaksi määritellään tarkemmin nimiöiden sijoittelu. Mene <strong>Sijoittaminen</strong>-välilehdelle. Aseta tilaksi jälleen “Seuraa viivaa”, jolloin nimiö pysyy viivan mukana myös kaarroksissa. Jos haluat nimiöt teiden sisälle, aseta “Sallitut asemoinnit” -kohtaan täppä “Viivalla”. Ota muut valinnat pois, jolloin QGIS sijoittaa nimiöt vain ja ainoastaan viivalle. Jos valitset tässä useamman vaihtoehdon, QGIS sijoittaa nimiön mihin tahansa niistä sen mukaan, mihin nimiö mahtuu.</p>
+<p><img src="img/harjoitus2/img3.png" /></p>
+<p>Seuraavaksi asetetaan jokaiselle tielle näkymään vain yksi nimiö, eli jokaisella tiellä lukee sen nimi vain kerran. Mene **Karttanäyttö*“**-välilehdelle, joka on Sijoittaminen-välilehden oikealla puolella. Rullaa valikkoa alaspäin, kunnes löydät kohdan”Yhdistä kytketyt viivat välttääksesi kopioidut nimiöt”.</p>
+<p><img src="img/harjoitus2/img4.png" /></p>
+<p>Jos fontti ei meinaa erottua taustasta, yksinkertainen kikka on käyttää valkoista väriä fontille ja luoda sille musta tekstivyöhyke. Palaa siis ensimmäiselle välilehdelle. Valitse fontin väriksi valkoinen (#ffffff) ja siirry sitten Vyöhyke-välilehdelle. Laita raksi kohtaan “Piirrä tekstivyöhyke”. Oletuksena vyöhykkeen väri on valkoinen, mutta vaihda se mustaksi (#00000). Tämän jälkeen voit muuttaa vyöhykkeen kokoa niin, että siitä tulee siisti reunaviiva fontille.</p>
+<p><img src="img/harjoitus2/img15.png" /></p>
+<p>Katso mitä löytyy välilehdiltä “Maski” ja “Tausta”. Kokeile taustan ja maskin piirtämistä nimiöihin. Keksitkö näille jotain käyttötarkoitusta omassa työssäsi?</p>
+<div id="vaatekaupat-tason-nimiöinti" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Vaatekaupat-tason nimiöinti</h3>
+<p>Seuraavaksi opettelemme nimiöiden siirtämistä käsin ja tutkimme Nimiöiden työkalupalkkia.</p>
+<p>Valitse vaatekaupat-taso. Mene Nimiöt-välilehdelle ja aseta Yksinkertainen nimiöinti. Laita arvoksi “Name”. Aseta haluamasi fontti, fonttikoko ja väri nimiöille.</p>
+<p>Avaa seuraavaksi Sijoittaminen-välilehti. Huomaat, että se näyttää hieman erilaiselta pistekohteilla.</p>
+<p><img src="img/harjoitus2/img16.png" /></p>
+<p>Oletuksena QGISin sijoittelutila pistekohteiden nimiöille on <strong>Kartografinen</strong>. Tällöin QGIS pyrkii sijoittamaan nimiöt näkyviin automaattisesti kokeilemalla niitä eri puolille pistettä, alkaen ylhäältä oikealta suhteessa pisteeseen. Huono puoli tässä on se, että nimiöt voivat olla jollain mittakaavalla järkevästi näkyvillä, mutta muuttaa sitten paikkaa toisella.</p>
+<div class="hint-box">
+<p>Vinkki! QGISin oletusjärjestys sijoittelulle on ylös oikealle (<strong>TR</strong>), ylös vasemmalle (<strong>TL</strong>), alas oikealle (<strong>BR</strong>), alas vasemmalle (<strong>BL</strong>), keskelle oikealle (<strong>TR</strong>), keskelle vasemmalle (<strong>TL</strong>), ylös hieman oikealle (<strong>TSR</strong>) ja ylös hieman vasemmalle (<strong>TSL</strong>). Tätä voidaan muokata lausekkeella kohdasta Position Priority &gt; Muokkaa. Ohessa myös esimerkkilauseke. Ohjeet lausekkeiden muodostamiseen löydät lausekeikkunan vasemmasta alalaidasta.</p>
+<p><img src="img/harjoitus2/img6.png" /></p>
+</div>
+<p><img src="img/harjoitus2/img7.png" /></p>
+<p>Seuraavaksi tarkastelemme, näkyvätkö kaikkien kohteiden nimiöt ja siirrämme niitä käsin paremmille paikoille. Etsi siis QGISin yläpalkista Nimiöiden työkalupalkki, joka näyttää tältä:</p>
+<p><img src="img/harjoitus2/img8.png" /></p>
+<p>Työkalupalkin toiminnot ovat järjestyksessä vasemmalta oikealle: <em>Korosta kiinnitetyt kohteet, Näytä sijoittamattomat (näkymättömät) nimiöinnit, Kiinnitä/poista kiinnitys, Näytä/poista näkyvistä nimiöinti, Siirrä nimiöintiä, Kierrä nimiöintiä, Muokkaa nimiöinnin ominaisuuksia.</em></p>
+<p>Aloita Nimiöiden työkalupalkin tutkiminen esimerkiksi siirtämällä joitain päällekkäisiä nimiöitä tai näyttämällä sijoittamattomat nimiöinnit. Kun aloitat nimiöiden käsin siirtämisen, QGIS kysyy sinulta mihin kenttään nämä tiedot sidotaan QGIS-projektin sisällä. Valitse “fid”-kenttä. fid on jokaisen kohteen uniikki ID-tunnus, jolloin kun muokkaat yhtä nimiötä, QGIS tallentaa tekemäsi muutokset vain tuohon yhteen kohteeseen. Jos valitsisit jonkin toisen kentän, jossa kahdella tai useammalla eri kohteella olisi sama arvo, yhteen kohteeseen tehdyt muutokset tulisivat voimaan kaikissa näissä kohteissa.</p>
+<div class="hint-box">
+<p>Jos aineistossa ei ole fid kenttää, voit luoda sen kentän arvojen laskimella käyttämällä muuttujaa <code>$id</code></p>
+</div>
+<p><img src="img/harjoitus2/img9.png" /></p>
+<p>Koita saada kaikkien kohteiden nimiöt näkyviin määrittämällä niille käsin jokin paikka. Kysy tarvittaessa kurssin kouluttajalta lisätietoa työkalujen toimintaperiaatteista, tai pidä hiirtä hetki työkalun päällä, jolloin työkalun vinkki tulee näkyviin.</p>
+<p>Kun olet valmis, jotkin nimiöt ovat saattaneet mennä hyvinkin kauas niistä kohteista, joihin ne liittyvät. Piirretään näihin vielä apuviivat selkeyttämään niiden lukemista. Mene Tason tyylit -paneelissa Nimiöt-välilehdelle, ja sieltä Osoitinviivat-välilehdelle. Laita täppä kohtaan “Piirrä osoitinviiva”. Oletuksena osoitinviiva tulee kaikkiin nimiöihin ja kohteisiin, mutta koita muuttaa “Minimipituus”-kohdan arvoa niin, että osoitinviiva tulee vain niiden nimiöiden ja kohteiden väliin, joilla on merkittävä välimatka toisiinsa nähden.</p>
+<p><img src="img/harjoitus2/img10.png" /></p>
+</div>
+</div>
+<div id="lisätehtävä-luodaan-nimiö-merikoskelle" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Lisätehtävä: luodaan nimiö Merikoskelle</h2>
+<p><img src="img/harjoitus2/img11.png" /></p>
+<p>Luo aluksi uusi väliaikainen taso painamalla Luo väliaikainen luonnostaso -painiketta.</p>
+<p><img src="img/harjoitus2/img12.png" /></p>
+<p>Anna tason nimeksi Merikoski, geometriatyypiksi LineString ja koordinaattijärjestelmäksi Projektin koordinaattijärjestelmä (EPSG: 3067). Tämän jälkeen luo uusi kenttä, jonka nimi on “Nimi” ja tyyppi Tekstijono. Kun olet määrittänyt uuden kentän, paina “Lisää kenttälistaan”, jolloin se tulee kenttälistaan.</p>
+<p><img src="img/harjoitus2/img13.png" /></p>
+<p>Paina lopuksi OK. Seuraavaksi lisätään viiva uudelle tasolle. Klikkaa taso aktiiviseksi painamalla sitä kerran tasoluettelossa. Paina päälle tason editointitila painamalla kynäpainiketta. Aloita uuden viivakohteen digitointi painamalla Lisää viivakohde -ikonia.</p>
+<p><img src="img/harjoitus2/img14.png" /></p>
+<p>Nyt klikkaile jokialueelle kaareva viiva siihen kohtaan, mihin haluat joen nimen tulevan. Lopeta digitointi painamalla hiiren oikeaa. Syötä avautuvaan ikkunaan nimen arvoksi “Merikoski”.</p>
+<p><img src="img/harjoitus2/img17.png" /></p>
+<p>Avaa nyt Tason tyylit -paneelista Kuvaustekniikka-välilehti, ja valitse kuvaustekniikaksi “Ei symbolia”. Siirry Nimiöt-välilehdelle ja valitse “Yksinkertainen nimiöinti”. Valitse Arvo-kohtaan nimi-sarake. Nyt aiemmin syötetty Merikoski-teksti tulee näkyviin, vaikka itse viivakohdetta ei näy. Mene Sijoittaminen-välilehdelle ja aseta Tilaksi “Seuraa viivaa” ja sallituksi asemoinniksi “Viivan yllä”.</p>
+<p>Nyt voit vaihtaa halutessasi vielä fonttia vastaamaan muiden kohteiden fonttia. Kokeile myös Muotoilu-välilehdeltä lisätä kirjainväliä.</p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_harjoitus_1.html"><button class="btn btn-default">Previous</button></a>
+<a href="03_harjoitus_3.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Kartat ja taitot</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

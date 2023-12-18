@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="9 Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Ltd." />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="9 Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset">
+
+<title>9 Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Johdanto QGISin käyttöön - Harjoitukset</h1></div>
+<div class="abstract-sidebar"><p>Peruskurssi QGIS-ohjelmiston perusteisiin</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li><a href="index.html#johdanto-qgisin-käyttöön"><span class="toc-section-number">1</span> Johdanto QGISin käyttöön</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-käyttöliittymä"><span class="toc-section-number">2</span> Harjoitus 1: QGISin käyttöliittymä</a>
+<ul>
+<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus"><span class="toc-section-number">2.1</span> Kurssimateriaalien lataus</a></li>
+<li><a href="01_harjoitus_1.html#qgisin-käyttöliittymä"><span class="toc-section-number">2.2</span> QGISin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qgis-käyttöliittymän-osat"><span class="toc-section-number">2.3</span> QGIS-käyttöliittymän osat</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#kokeile-itse"><span class="toc-section-number">2.4</span> Kokeile itse</a>
+<ul>
+<li><a href="01_harjoitus_1.html#attribuuttitaulu"><span class="toc-section-number">2.4.1</span> Attribuuttitaulu</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-paikkatietoaineistot-ja--palvelut"><span class="toc-section-number">3</span> Harjoitus 2: Paikkatietoaineistot ja -palvelut</a>
+<ul>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö"><span class="toc-section-number">3.1</span> Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite"><span class="toc-section-number">3.2</span> Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#valmistautuminen"><span class="toc-section-number">3.3</span> Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#wms-palvelun-lisääminen"><span class="toc-section-number">3.4</span> WMS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#wfs-palvelun-lisääminen"><span class="toc-section-number">3.5</span> WFS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-wfs-rajapintapalvelun-kysely-ja-suodatus-sql-lausekkeella"><span class="toc-section-number">3.6</span> Lisätehtävä: WFS-rajapintapalvelun kysely ja suodatus SQL-lausekkeella</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-paikkatietoaineiston-visualisointi"><span class="toc-section-number">4</span> Harjoitus 3: Paikkatietoaineiston visualisointi</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-1"><span class="toc-section-number">4.1</span> Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-1"><span class="toc-section-number">4.2</span> Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen-1"><span class="toc-section-number">4.3</span> Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#vektoriaineistojen-visualisointi"><span class="toc-section-number">4.4</span> Vektoriaineistojen visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#viiva--ja-monikulmioaineiston-visualisointi"><span class="toc-section-number">4.5</span> Viiva- ja monikulmioaineiston visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-monikulmioaineiston-edistynyt-visualisointi"><span class="toc-section-number">4.6</span> Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-paikkatietoaineiston-nimiöinti-ja-luokittelu"><span class="toc-section-number">5</span> Harjoitus 4: Paikkatietoaineiston nimiöinti ja luokittelu</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-2"><span class="toc-section-number">5.1</span> Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-2"><span class="toc-section-number">5.2</span> Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-2"><span class="toc-section-number">5.3</span> Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#nimiöt"><span class="toc-section-number">5.4</span> Nimiöt</a></li>
+<li><a href="04_harjoitus_4.html#nimiöiden-tyyli--ja-yleisasetukset"><span class="toc-section-number">5.5</span> Nimiöiden tyyli- ja yleisasetukset</a></li>
+<li><a href="04_harjoitus_4.html#nimiön-tekstityyli"><span class="toc-section-number">5.6</span> Nimiön tekstityyli</a></li>
+<li><a href="04_harjoitus_4.html#nimiöinnit-viivatasoilla"><span class="toc-section-number">5.7</span> Nimiöinnit viivatasoilla</a></li>
+<li><a href="04_harjoitus_4.html#vektoriaineiston-luokittelut"><span class="toc-section-number">5.8</span> Vektoriaineiston luokittelut</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-nimiöiden-piirtäminen"><span class="toc-section-number">5.9</span> Lisätehtävä: nimiöiden piirtäminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-karttatuloste"><span class="toc-section-number">6</span> Harjoitus 5: Karttatuloste</a>
+<ul>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-3"><span class="toc-section-number">6.1</span> Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-3"><span class="toc-section-number">6.2</span> Harjoituksen tavoite</a></li>
+<li><a href="05_harjoitus_5.html#valmistautuminen-3"><span class="toc-section-number">6.3</span> Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#karttatuloste"><span class="toc-section-number">6.4</span> Karttatuloste</a></li>
+<li><a href="05_harjoitus_5.html#lisätehtävä-kartta-atlas"><span class="toc-section-number">6.5</span> Lisätehtävä: kartta-atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-paikkatietoaineiston-editointi"><span class="toc-section-number">7</span> Harjoitus 6: Paikkatietoaineiston editointi</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoituksen-sisältö-4"><span class="toc-section-number">7.1</span> Harjoituksen sisältö</a></li>
+<li><a href="06_harjoitus_6.html#harjoituksen-tavoite-4"><span class="toc-section-number">7.2</span> Harjoituksen tavoite</a></li>
+<li><a href="06_harjoitus_6.html#valmistautuminen-4"><span class="toc-section-number">7.3</span> Valmistautuminen</a></li>
+<li><a href="06_harjoitus_6.html#vektoriaineiston-geopackage-luominen"><span class="toc-section-number">7.4</span> Vektoriaineiston (GeoPackage) luominen</a></li>
+<li><a href="06_harjoitus_6.html#pohjakartan-lisääminen"><span class="toc-section-number">7.5</span> Pohjakartan lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#digitoinnin-aloittaminen"><span class="toc-section-number">7.6</span> Digitoinnin aloittaminen</a></li>
+<li><a href="06_harjoitus_6.html#lisätehtävä-cad-digitointi"><span class="toc-section-number">7.7</span> Lisätehtävä: CAD-digitointi</a></li>
+<li><a href="06_harjoitus_6.html#lisätehtävä-ominaisuustietojen-lisääminen"><span class="toc-section-number">7.8</span> Lisätehtävä: ominaisuustietojen lisääminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-paikkatietoanalyysit"><span class="toc-section-number">8</span> Harjoitus 7: Paikkatietoanalyysit</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoituksen-sisältö-5"><span class="toc-section-number">8.1</span> Harjoituksen sisältö</a></li>
+<li><a href="07_harjoitus_7.html#harjoituksen-tavoite-5"><span class="toc-section-number">8.2</span> Harjoituksen tavoite</a></li>
+<li><a href="07_harjoitus_7.html#valmistautuminen-5"><span class="toc-section-number">8.3</span> Valmistautuminen</a></li>
+<li><a href="07_harjoitus_7.html#vektorianalyysit"><span class="toc-section-number">8.4</span> Vektorianalyysit</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-qgisin-lisäosat"><span class="toc-section-number">9</span> Harjoitus 8: QGISin lisäosat</a>
+<ul>
+<li><a href="08_harjoitus_8.html#harjoituksen-sisältö-6"><span class="toc-section-number">9.1</span> Harjoituksen sisältö</a></li>
+<li><a href="08_harjoitus_8.html#harjoituksen-tavoite-6"><span class="toc-section-number">9.2</span> Harjoituksen tavoite</a></li>
+<li><a href="08_harjoitus_8.html#valmistautuminen-6"><span class="toc-section-number">9.3</span> Valmistautuminen</a></li>
+<li><a href="08_harjoitus_8.html#lisäosien-hallinta"><span class="toc-section-number">9.4</span> Lisäosien hallinta</a></li>
+<li><a href="08_harjoitus_8.html#quickmapservices"><span class="toc-section-number">9.5</span> QuickMapServices</a></li>
+<li><a href="08_harjoitus_8.html#quickosm"><span class="toc-section-number">9.6</span> QuickOSM</a></li>
+<li><a href="08_harjoitus_8.html#lisätehtävä-qgis2threejs"><span class="toc-section-number">9.7</span> Lisätehtävä: Qgis2threejs</a></li>
+<li><a href="08_harjoitus_8.html#lisätehtävä-qgis2web"><span class="toc-section-number">9.8</span> Lisätehtävä: Qgis2web</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-8-qgisin-lisäosat" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Harjoitus 8: QGISin lisäosat</h1>
+<div id="harjoituksen-sisältö-6" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> Harjoituksen sisältö</h2>
+<p>Harjoituksessa asennetaan muutama QGIS-lisäosa.</p>
+</div>
+<div id="harjoituksen-tavoite-6" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> Harjoituksen tavoite</h2>
+<p>Koulutettava oppii asentamaan QGIS-lisäosia ja ymmärtää niiden toimintaperiaatteet.</p>
+</div>
+<div id="valmistautuminen-6" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> Valmistautuminen</h2>
+<p>Käynnistä QGIS-ohjelmisto ja avaa uusi QGIS-projekti.</p>
+</div>
+<div id="lisäosien-hallinta" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> Lisäosien hallinta</h2>
+<p>Lisäosia lisätään käyttöön päävalikosta <strong>Lisäosat → Hallitse ja asenna lisäosia…</strong> -valikon kautta.
+Valitse <strong>Asennettu</strong>-välilehti ja saat esille kaikki asennetut lisäosat.
+Huomaa, että suurinta osaa niistä ei ole aktivoitu.
+Lisäosien aktivointi lisää erilaisia valikkoja ja paneeleja QGISin käyttöliittymään.
+Siksi on hyödyllistä piilottaa ne joita ei käytetä.</p>
+</div>
+<div id="quickmapservices" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> QuickMapServices</h2>
+<p><strong>QuickMapServices (QMS) -lisäosan</strong> kautta saat QGISin karttaprojektiin erilaisia taustakarttoja verkosta, kuten OpenStreetMaps, Google Maps tai Bing Maps.
+Avaa <strong>Lisäosat → Hallitse ja asenna lisäosia…</strong>, valitse <strong>Kaikki</strong>-välilehti ja etsi quickmapservices tekstillä:</p>
+<p><img src="img/harjoitus_8/image5.png" /></p>
+<p>Paina vielä <strong>Install plugin</strong> ja paina sen jälkeen <strong>Sulje</strong>.
+Uusi valikko tulee päävalikon <strong>Verkko</strong> alle.
+Valitse <strong>Verkko → QuickMapServices → OSM → OSM Standard</strong>.
+Karttaikkunassa on nyt <strong>OpenStreetMap</strong> taustakarttana.
+Lisää karttoja voit etsiä Valitsemalla <strong>Verkko → QuickMapServices → Search QMS</strong>. Sivupalkkiin avautuu hakuikkuna, josta voit hakea hakusanoilla erilaisia karttoja käyttöösi.
+Testaa etsiä esimerkiksi <strong>Stamen</strong> karttoja tai etsi onko omalla tai naapurikunnallasi karttoja palvelussa!</p>
+<p><img src="img/harjoitus_8/image4.png" /></p>
+</div>
+<div id="quickosm" class="section level2" number="9.6">
+<h2><span class="header-section-number">9.6</span> QuickOSM</h2>
+<p>Etsi ja asenna <strong>QuickOSM</strong>-lisäosa.
+Tällä lisäosalla voit etsiä OpenStreetMapista erilaisia kohteita ja saada ne kartallesi visualisoitavaksi tai analysoitavaksi tasoksi.
+Lisäosan voit avata <strong>Vektori → QuickOSM → QuickOSM</strong>.
+Avautuvassa ikkunassa voit etsiä kohteita avaimen ja arvon kautta.
+Etsitään esimerkiksi Espoon piknik-paikat.
+<strong>Esiasetuksissa</strong> voit etsiä suomeksi, jos aihe löytyy suoraan valikosta.
+Tässä tapauksessa se löytyy ja täyttää suoraan valikkoon oikean avaimen ja arvon.
+Lisää vielä oikea kaupunki ja paina oikealta <strong>“Suorita kysely”</strong></p>
+<p><img src="img/harjoitus_8/image7.png" style="width:70.0%" /></p>
+<p>Kartalle tulee kaksi uutta väliaikaista tasoa: pistemäinen kohde sekä aluekohde piknik-paikoista Espoossa.
+Voit visualisoida tasot miten haluat.
+Muista tallentaa tasot erikseen itsellesi, jos haluat käyttää niitä myöhemmin.
+Paina tasoa hiiren oikealla <strong>Vie → Tallenna kohteet nimellä</strong> ja valitse muoto sekä minne haluat tiedoston tallentaa.</p>
+<p><img src="img/harjoitus_8/image8.png" style="width:70.0%" /></p>
+<p>Tutki, mitä muita kohteita voit löytää OpenStreetMapilta.
+Testaa löytää esimerkiksi golfkentät tai pyörätiet jostain kaupungista.
+Jos esiasetuksista ei löydä haluamaasi tasoa, yritä etsiä se avaimen ja arvon avulla.</p>
+</div>
+<div id="lisätehtävä-qgis2threejs" class="section level2" number="9.7">
+<h2><span class="header-section-number">9.7</span> Lisätehtävä: Qgis2threejs</h2>
+<p>Lisää vielä <strong>Qgis2threejs</strong>-lisäosa.
+Tämä lisäosa mahdollistaa nopean kolmiulotteisen visualisoinnin luomisen web-selaimelle käyttäen threejs-kirjastoa.
+Lisäosan valikko tulee myös <strong>Verkko</strong>-valikkoon.
+Avaa <strong>Qgis2threejs Exporter</strong> ja valitse <strong>DEM Layer -valikosta</strong> korkeusmalliaineisto (tässä L4133B).
+Valitse sen jälkeen <strong>Polygon</strong>-kohdan alta väestötietoruudukkoaineisto ja tuplaklikkaa sitä avataksesi asetukset.
+Aseta Z-coordinate kohdan <strong>Mode-asetukseksi Relative to “L4133B” layer</strong> ja <strong>Height-kentän</strong> arvoksi asukkaita-kentän arvo.</p>
+<p><img src="img/harjoitus_8/image1.png" /></p>
+<p>Voit tarkastella visualisointia esikatseluikkunassa tai exportoida sen html-tiedostoksi jolloin sen voi avata selaimella.</p>
+</div>
+<div id="lisätehtävä-qgis2web" class="section level2" number="9.8">
+<h2><span class="header-section-number">9.8</span> Lisätehtävä: Qgis2web</h2>
+<p>Qgis2web -lisäosa on helppokäyttöinen lisäosa verkkokartan luomista varten.
+Sillä voi tuottaa verkkokarttoja hyödyntäen <strong>Leaflet</strong>- tai <strong>OpenLayers</strong>-kirjastoja.
+Qgis2web on hyödyllinen apuväline näiden kirjastojen opetteluun ja verkkokarttajulkaisujen tekemiseen.
+Avaa Qgis2web valikosta <strong>Verkko → Qgis2web → Create web map</strong>.
+Valitse väestötietoruudukko-aineiston kentille <strong>Popup fields</strong> -kohdan alta <strong>Inline label</strong>, ja klikkaa <strong>Update preview</strong>.
+Kun kartta on päivittynyt, klikkaa ruudukkoa.</p>
+<p><img src="img/harjoitus_8/image2.png" /></p>
+<p>Vaihda <strong>Appearance</strong>-välilehdelle ja muuta asetukset kuvan mukaisesti:</p>
+<p><img src="img/harjoitus_8/image6.png" /></p>
+<p>Paina lopulta <strong>Export</strong> tallentaaksesi kartan HTML-tiedostoon.
+Tiedosto aukeaa automaattisesti selaimelle.
+Kokeile verkkokartassasi etsiä osoitteita ja käyttää mittaustyökalua.</p>
+<div class="note-box">
+<p><strong>Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="07_harjoitus_7.html"><button class="btn btn-default">Previous</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Johdanto QGISin käyttöön - Harjoitukset</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

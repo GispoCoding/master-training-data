@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3 HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ | Johdanto GeoServerin käyttöön" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy" />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="3 HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ | Johdanto GeoServerin käyttöön">
+
+<title>3 HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ | Johdanto GeoServerin käyttöön</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Johdanto GeoServerin käyttöön</h1></div>
+<div class="abstract-sidebar"><p>Johdantokurssi GeoServerin käyttöön.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#johdanto-geoserverin-käyttöön"><span class="toc-section-number">1</span> JOHDANTO GEOSERVERIN KÄYTTÖÖN</a>
+<ul>
+<li><a href="index.html#tervetuloa-geoserver-kurssille"><span class="toc-section-number">1.1</span> Tervetuloa GeoServer-kurssille!</a></li>
+<li><a href="index.html#geoserverin-taustaa"><span class="toc-section-number">1.2</span> GeoServerin taustaa</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.3</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.4</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.5</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.6</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1.1-asennus-ja-käyttöönotto"><span class="toc-section-number">2</span> HARJOITUS 1.1: ASENNUS JA KÄYTTÖÖNOTTO</a>
+<ul>
+<li><a href="01_harjoitus_1.html#valmistautuminen"><span class="toc-section-number">2.1</span> <strong>Valmistautuminen</strong></a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#päävalikko"><span class="toc-section-number">2.2</span> <strong>Päävalikko</strong></a>
+<ul>
+<li><a href="01_harjoitus_1.html#about-geoserver"><span class="toc-section-number">2.2.1</span> <strong>About GeoServer</strong></a></li>
+<li><a href="01_harjoitus_1.html#layer-preview"><span class="toc-section-number">2.2.2</span> <strong>Layer Preview</strong></a></li>
+<li><a href="01_harjoitus_1.html#service-capabilities-palvelutoiminnallisuudet"><span class="toc-section-number">2.2.3</span> <strong>Service Capabilities (palvelutoiminnallisuudet)</strong></a></li>
+<li><a href="01_harjoitus_1.html#demos"><span class="toc-section-number">2.2.4</span> <strong>Demos</strong></a></li>
+<li><a href="01_harjoitus_1.html#demo-requests"><span class="toc-section-number">2.2.5</span> <strong>Demo requests</strong></a></li>
+</ul></li>
+<li><a href="01_harjoitus_1.html#srs-list-ja-reprojection-console"><span class="toc-section-number">2.3</span> <strong>SRS List ja Reprojection console</strong></a></li>
+<li><a href="01_harjoitus_1.html#wcs-request-builder"><span class="toc-section-number">2.4</span> <strong>WCS request builder</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-1.2-geoserverin-web-käyttöliittymä"><span class="toc-section-number">3</span> HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ</a>
+<ul>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1"><span class="toc-section-number">3.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="02_harjoitus_2.html#ylläpitäjän-käyttöliittymä"><span class="toc-section-number">3.2</span> <strong>Ylläpitäjän käyttöliittymä</strong></a></li>
+<li><a href="02_harjoitus_2.html#master--ja-administrator-käyttäjät"><span class="toc-section-number">3.3</span> <strong>Master- ja Administrator-käyttäjät</strong></a></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#about-status--asetukset"><span class="toc-section-number">3.4</span> <strong>About &amp; Status -asetukset</strong></a>
+<ul>
+<li><a href="02_harjoitus_2.html#contact-information"><span class="toc-section-number">3.4.1</span> <strong>Contact Information</strong></a></li>
+<li><a href="02_harjoitus_2.html#server-status"><span class="toc-section-number">3.4.2</span> <strong>Server Status</strong></a></li>
+<li><a href="02_harjoitus_2.html#geoserver-logs"><span class="toc-section-number">3.4.3</span> <strong>GeoServer Logs</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#data-valikko"><span class="toc-section-number">3.5</span> <strong>Data-valikko</strong></a>
+<ul>
+<li><a href="02_harjoitus_2.html#layer-preview-1"><span class="toc-section-number">3.5.1</span> <strong>Layer Preview</strong></a></li>
+<li><a href="02_harjoitus_2.html#workspaces"><span class="toc-section-number">3.5.2</span> <strong>Workspaces</strong></a></li>
+<li><a href="02_harjoitus_2.html#stores"><span class="toc-section-number">3.5.3</span> <strong>Stores</strong></a></li>
+<li><a href="02_harjoitus_2.html#layers"><span class="toc-section-number">3.5.4</span> <strong>Layers</strong></a></li>
+</ul></li>
+<li><a href="02_harjoitus_2.html#layer-groups"><span class="toc-section-number">3.6</span> <strong>Layer Groups</strong></a></li>
+<li><a href="02_harjoitus_2.html#styles"><span class="toc-section-number">3.7</span> <strong>Styles</strong></a></li>
+<li><a href="02_harjoitus_2.html#services-1"><span class="toc-section-number">3.8</span> <strong>Services</strong></a></li>
+<li><a href="02_harjoitus_2.html#settings"><span class="toc-section-number">3.9</span> <strong>Settings</strong></a></li>
+<li><a href="02_harjoitus_2.html#tile-caching-1"><span class="toc-section-number">3.10</span> <strong>Tile Caching</strong></a></li>
+<li><a href="02_harjoitus_2.html#security-1"><span class="toc-section-number">3.11</span> <strong>Security</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-1.3-vektoriaineistot"><span class="toc-section-number">4</span> Harjoitus 1.3: VEKTORIAINEISTOT</a>
+<ul>
+<li><a href="03_harjoitus_3.html#valmistautuminen-2"><span class="toc-section-number">4.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="03_harjoitus_3.html#vektoriaineisto-storen-luominen"><span class="toc-section-number">4.2</span> <strong>Vektoriaineisto Storen luominen</strong></a></li>
+<li><a href="03_harjoitus_3.html#vektoritason-julkaiseminen"><span class="toc-section-number">4.3</span> <strong>Vektoritason julkaiseminen</strong></a></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#data-asetukset"><span class="toc-section-number">4.4</span> <strong>Data asetukset</strong></a>
+<ul>
+<li><a href="03_harjoitus_3.html#coordinate-reference-systems"><span class="toc-section-number">4.4.1</span> <strong>Coordinate Reference Systems</strong></a></li>
+<li><a href="03_harjoitus_3.html#bounding-boxes"><span class="toc-section-number">4.4.2</span> <strong>Bounding Boxes</strong></a></li>
+<li><a href="03_harjoitus_3.html#feature-type-details"><span class="toc-section-number">4.4.3</span> <strong>Feature Type Details</strong></a></li>
+</ul></li>
+<li><a href="03_harjoitus_3.html#helsingin-tiestön-lisääminen"><span class="toc-section-number">4.5</span> <strong>Helsingin tiestön lisääminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-1.4-kuvaustekniikan-perusteet-sld"><span class="toc-section-number">5</span> HARJOITUS 1.4: KUVAUSTEKNIIKAN PERUSTEET (SLD)</a>
+<ul>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3"><span class="toc-section-number">5.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="04_harjoitus_4.html#geoserverin-kuvaustekniikka"><span class="toc-section-number">5.2</span> <strong>GeoServerin kuvaustekniikka</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-kuvaustekniikka"><span class="toc-section-number">5.3</span> <strong>SLD-kuvaustekniikka</strong></a></li>
+<li><a href="04_harjoitus_4.html#uuden-tyylin-luominen"><span class="toc-section-number">5.4</span> <strong>Uuden tyylin luominen</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-kuvaustekniikan-käyttöönotto"><span class="toc-section-number">5.5</span> <strong>SLD-kuvaustekniikan käyttöönotto</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-cookbook"><span class="toc-section-number">5.6</span> <strong>SLD Cookbook</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-kuvaustekniikan-muokkaaminen"><span class="toc-section-number">5.7</span> <strong>SLD-kuvaustekniikan muokkaaminen</strong></a></li>
+<li><a href="04_harjoitus_4.html#tiestön-tyylin-luominen"><span class="toc-section-number">5.8</span> <strong>Tiestön tyylin luominen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-1.5-wms--ja-wcs-palvelut"><span class="toc-section-number">6</span> HARJOITUS 1.5: WMS- JA WCS-PALVELUT</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-4"><span class="toc-section-number">6.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="05_harjoitus_5.html#ogc-standardit"><span class="toc-section-number">6.2</span> <strong>OGC-standardit</strong></a></li>
+<li><a href="05_harjoitus_5.html#yleiset-karttapalveluasetukset"><span class="toc-section-number">6.3</span> <strong>Yleiset karttapalveluasetukset</strong></a></li>
+<li><a href="05_harjoitus_5.html#wms"><span class="toc-section-number">6.4</span> <strong>WMS</strong></a></li>
+<li><a href="05_harjoitus_5.html#workspace-kohtaiset-palvelimen-asetukset"><span class="toc-section-number">6.5</span> <strong>Workspace-kohtaiset palvelimen asetukset</strong></a></li>
+<li><a href="05_harjoitus_5.html#wms-karttapalvelun-kuvan-dpi-resoluutio"><span class="toc-section-number">6.6</span> <strong>WMS-karttapalvelun kuvan DPI-resoluutio</strong></a></li>
+<li><a href="05_harjoitus_5.html#wcs"><span class="toc-section-number">6.7</span> <strong>WCS</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-1.6-rasteriaineistot"><span class="toc-section-number">7</span> HARJOITUS 1.6: RASTERIAINEISTOT</a>
+<ul>
+<li><a href="06_harjoitus_6.html#valmistautuminen-5"><span class="toc-section-number">7.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="06_harjoitus_6.html#rasteriaineiston-lisääminen"><span class="toc-section-number">7.2</span> <strong>Rasteriaineiston lisääminen</strong></a></li>
+<li><a href="06_harjoitus_6.html#ilmakuvan-lisääminen"><span class="toc-section-number">7.3</span> <strong>Ilmakuvan lisääminen</strong></a></li>
+<li><a href="06_harjoitus_6.html#image-mosaic"><span class="toc-section-number">7.4</span> <strong>Image Mosaic</strong></a></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#layer-groups-1"><span class="toc-section-number">7.5</span> <strong>Layer Groups</strong></a>
+<ul>
+<li><a href="06_harjoitus_6.html#ryhmätasojen-julkaisemisen-muoto"><span class="toc-section-number">7.5.1</span> <strong>Ryhmätasojen julkaisemisen muoto</strong></a></li>
+<li><a href="06_harjoitus_6.html#muiden-wms-palvelujen-hyödyntäminen-cascading-wms"><span class="toc-section-number">7.5.2</span> <strong>Muiden WMS-palvelujen hyödyntäminen (cascading WMS)</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-1.7-paikkatietokannat"><span class="toc-section-number">8</span> HARJOITUS 1.7: PAIKKATIETOKANNAT</a>
+<ul>
+<li><a href="07_harjoitus_7.html#valmistautuminen-6"><span class="toc-section-number">8.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="07_harjoitus_7.html#yhteyden-muodostaminen-paikkatietokantaan"><span class="toc-section-number">8.2</span> <strong>Yhteyden muodostaminen paikkatietokantaan</strong></a></li>
+<li><a href="07_harjoitus_7.html#postgis-tason-lisääminen"><span class="toc-section-number">8.3</span> <strong>PostGIS-tason lisääminen</strong></a></li>
+<li><a href="07_harjoitus_7.html#monikulmio--ja-viiva-tason-lisääminen-postgis-tietokannasta"><span class="toc-section-number">8.4</span> <strong>Monikulmio- ja viiva-tason lisääminen PostGIS-tietokannasta</strong></a></li>
+<li><a href="07_harjoitus_7.html#tasojen-oletustyylien-asettaminen"><span class="toc-section-number">8.5</span> <strong>Tasojen oletustyylien asettaminen</strong></a></li>
+<li><a href="07_harjoitus_7.html#sql-näkymät"><span class="toc-section-number">8.6</span> <strong>SQL-näkymät</strong></a></li>
+<li><a href="07_harjoitus_7.html#paikkatietotoiminnot-sql-näkymien-kautta"><span class="toc-section-number">8.7</span> <strong>Paikkatietotoiminnot SQL-näkymien kautta</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-2.1-wfs-palvelut"><span class="toc-section-number">9</span> HARJOITUS 2.1: WFS-PALVELUT</a>
+<ul>
+<li><a href="08_harjoitus_8.html#valmistautuminen-7"><span class="toc-section-number">9.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="08_harjoitus_8.html#ogc-standardit-1"><span class="toc-section-number">9.2</span> <strong>OGC-standardit</strong></a></li>
+<li><a href="08_harjoitus_8.html#wfs-asetukset"><span class="toc-section-number">9.3</span> <strong>WFS-asetukset</strong></a></li>
+<li><a href="08_harjoitus_8.html#tietomäärä-pyynnöissä"><span class="toc-section-number">9.4</span> <strong>Tietomäärä pyynnöissä</strong></a></li>
+<li><a href="08_harjoitus_8.html#useiden-koordinaattijärjestelmien-määrittäminen"><span class="toc-section-number">9.5</span> <strong>Useiden koordinaattijärjestelmien määrittäminen</strong></a></li>
+<li><a href="08_harjoitus_8.html#service-levels"><span class="toc-section-number">9.6</span> <strong>Service Levels</strong></a></li>
+<li><a href="08_harjoitus_8.html#gml-asetukset"><span class="toc-section-number">9.7</span> <strong>GML-asetukset</strong></a></li>
+<li><a href="08_harjoitus_8.html#workspace-kohtaiset-asetukset"><span class="toc-section-number">9.8</span> <strong>Workspace kohtaiset asetukset</strong></a></li>
+<li><a href="08_harjoitus_8.html#editointi-wfs-t-palvelun-kautta"><span class="toc-section-number">9.9</span> <strong>Editointi WFS-T-palvelun kautta</strong></a></li>
+<li><a href="08_harjoitus_8.html#muiden-wfs-palvelujen-hyödyntäminen-cascading-wfs"><span class="toc-section-number">9.10</span> <strong>Muiden WFS-palvelujen hyödyntäminen (cascading WFS)</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="09_harjoitus_9.html#harjoitus-2.2-karttatiilipalvelut"><span class="toc-section-number">10</span> HARJOITUS 2.2: KARTTATIILIPALVELUT</a>
+<ul>
+<li><a href="09_harjoitus_9.html#valmistautuminen-8"><span class="toc-section-number">10.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="09_harjoitus_9.html#tile-caching-2"><span class="toc-section-number">10.2</span> <strong>Tile Caching</strong></a></li>
+<li><a href="09_harjoitus_9.html#geowebcache-käyttöliittymä"><span class="toc-section-number">10.3</span> <strong>GeoWebCache-käyttöliittymä</strong></a></li>
+<li><a href="09_harjoitus_9.html#tasokohtaiset-asetukset"><span class="toc-section-number">10.4</span> <strong>Tasokohtaiset asetukset</strong></a></li>
+<li><a href="09_harjoitus_9.html#karttatiilien-esiluominen"><span class="toc-section-number">10.5</span> <strong>Karttatiilien esiluominen</strong></a></li>
+<li><a href="09_harjoitus_9.html#karttatiilien-kovalevyn-käyttö"><span class="toc-section-number">10.6</span> <strong>Karttatiilien kovalevyn käyttö</strong></a></li>
+<li><a href="09_harjoitus_9.html#karttatiiliruudukot"><span class="toc-section-number">10.7</span> <strong>Karttatiiliruudukot</strong></a></li>
+<li><a href="09_harjoitus_9.html#jhs180-mukainen-karttatiiliruudukko"><span class="toc-section-number">10.8</span> <strong>JHS180 mukainen karttatiiliruudukko</strong></a></li>
+<li><a href="09_harjoitus_9.html#uuden-karttatiiliruudukon-luominen"><span class="toc-section-number">10.9</span> <strong>Uuden karttatiiliruudukon luominen</strong></a></li>
+<li><a href="09_harjoitus_9.html#suomen-openstreetmap-tiestö"><span class="toc-section-number">10.10</span> <strong>Suomen OpenStreetMap-tiestö</strong></a></li>
+<li><a href="09_harjoitus_9.html#oman-karttatiiliruudukon-käyttöönotto"><span class="toc-section-number">10.11</span> <strong>Oman karttatiiliruudukon käyttöönotto</strong></a></li>
+<li><a href="09_harjoitus_9.html#paikallisen-karttatiiliruudukon-muodostaminen"><span class="toc-section-number">10.12</span> <strong>Paikallisen karttatiiliruudukon muodostaminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="10_harjoitus_10.html#harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto"><span class="toc-section-number">11</span> HARJOITUS 2.3: ARKKITEHTUURI JA KÄYTTÖÖNOTTO</a>
+<ul>
+<li><a href="10_harjoitus_10.html#valmistautuminen-9"><span class="toc-section-number">11.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="10_harjoitus_10.html#yleistiedot-geoserverin-palvelimesta"><span class="toc-section-number">11.2</span> <strong>Yleistiedot GeoServerin palvelimesta</strong></a></li>
+<li><a href="10_harjoitus_10.html#image-processing--asetukset"><span class="toc-section-number">11.3</span> <strong>Image Processing -asetukset</strong></a></li>
+<li><a href="10_harjoitus_10.html#raster-access"><span class="toc-section-number">11.4</span> <strong>Raster Access</strong></a></li>
+<li><a href="10_harjoitus_10.html#geoserverin-loki"><span class="toc-section-number">11.5</span> <strong>GeoServerin loki</strong></a></li>
+<li><a href="10_harjoitus_10.html#rest-apin-toimintaa"><span class="toc-section-number">11.6</span> <strong>REST API:n toimintaa</strong></a></li>
+<li><a href="10_harjoitus_10.html#monitor-lisäosan-käyttö"><span class="toc-section-number">11.7</span> <strong>Monitor-lisäosan käyttö</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="11_harjoitus_11.html#harjoitus-2.4-css-kuvaustekniikka"><span class="toc-section-number">12</span> HARJOITUS 2.4: CSS-KUVAUSTEKNIIKKA</a>
+<ul>
+<li><a href="11_harjoitus_11.html#valmistautuminen-10"><span class="toc-section-number">12.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#css-tyylit"><span class="toc-section-number">12.2</span> <strong>CSS-tyylit</strong></a></li>
+<li><a href="11_harjoitus_11.html#tyylin-luominen"><span class="toc-section-number">12.3</span> <strong>Tyylin luominen</strong></a></li>
+<li><a href="11_harjoitus_11.html#aineiston-luokittelu"><span class="toc-section-number">12.4</span> <strong>Aineiston luokittelu</strong></a></li>
+<li><a href="11_harjoitus_11.html#tyylin-virittäminen"><span class="toc-section-number">12.5</span> <strong>Tyylin virittäminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#luokkien-nimeäminen"><span class="toc-section-number">12.6</span> <strong>Luokkien nimeäminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#mittakaavaperusteinen-näkyvyys"><span class="toc-section-number">12.7</span> <strong>Mittakaavaperusteinen näkyvyys</strong></a></li>
+<li><a href="11_harjoitus_11.html#tekstityksen-lisääminen"><span class="toc-section-number">12.8</span> <strong>Tekstityksen lisääminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#kuvaustekniikan-soveltaminen"><span class="toc-section-number">12.9</span> <strong>Kuvaustekniikan soveltaminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="12_harjoitus_12.html#harjoitus-2.5-pääsynhallinta"><span class="toc-section-number">13</span> HARJOITUS 2.5: PÄÄSYNHALLINTA</a>
+<ul>
+<li><a href="12_harjoitus_12.html#geoserverin-yleiset-turvallisuusasetukset"><span class="toc-section-number">13.1</span> <strong>GeoServerin yleiset turvallisuusasetukset</strong></a></li>
+<li><a href="12_harjoitus_12.html#tunnistautuminen"><span class="toc-section-number">13.2</span> <strong>Tunnistautuminen</strong></a></li>
+<li><a href="12_harjoitus_12.html#uuden-roolin-ja-käyttäjän-luominen"><span class="toc-section-number">13.3</span> <strong>Uuden roolin ja käyttäjän luominen</strong></a></li>
+<li><a href="12_harjoitus_12.html#aineiston-käyttöoikeuksien-rajoittaminen"><span class="toc-section-number">13.4</span> <strong>Aineiston käyttöoikeuksien rajoittaminen</strong></a></li>
+<li><a href="12_harjoitus_12.html#aineiston-käyttäjäkohtaiset-käyttöoikeudet"><span class="toc-section-number">13.5</span> <strong>Aineiston käyttäjäkohtaiset käyttöoikeudet</strong></a></li>
+<li><a href="12_harjoitus_12.html#karttapalvelukohtaiset-oikeudet"><span class="toc-section-number">13.6</span> <strong>Karttapalvelukohtaiset oikeudet</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="13_harjoitus_13.html#harjoitus-2.6-suodattimet"><span class="toc-section-number">14</span> HARJOITUS 2.6: SUODATTIMET</a>
+<ul>
+<li><a href="13_harjoitus_13.html#valmistautuminen-11"><span class="toc-section-number">14.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="13_harjoitus_13.html#ominaisuustietosuodattimet"><span class="toc-section-number">14.2</span> <strong>Ominaisuustietosuodattimet</strong></a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-1.2-geoserverin-web-käyttöliittymä" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tutustutaan tarkemmin GeoServerin päätoimintoihin käyttöliittymän kautta. Käydään läpi käyttöliittymän eri osioiden päävalintoja ja tärkeimpiä ominaisuuksia.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija ymmärtää GeoServerin toimintaa ja eri osioiden hallintatyökaluja.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>35 minuuttia.</p>
+<div id="valmistautuminen-1" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> <strong>Valmistautuminen</strong></h2>
+<p>Edellisessä harjoituksessa kävimme läpi osan GeoServerin web-käyttöliittymän valikoista. Näiden valikoiden ja toimintojen käyttäminen ei vaatinut sisäänkirjautumista. Tässä harjoituksessa kirjaudumme sisään GeoServerin web-käyttöliittymään ylläpitäjinä, jolloin meille avautuu enemmän valikkoja ja toimintoja.</p>
+</div>
+<div id="ylläpitäjän-käyttöliittymä" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> <strong>Ylläpitäjän käyttöliittymä</strong></h2>
+<p>Tähän asti käyttöliittymällä on ollut näkyvissä vain kaikille avoimet toiminnallisuudet ja aineistot (ilman tunnistautumista). Näitä voidaan rajoittaa käyttäjäkohtaisesti eri pääsynhallinta-asetusten kautta. Pääsynhallinnan perusteisiin tutustutaan myöhemmin kurssilla.</p>
+<p>Kirjaudu nyt palvelimeen käyttäen tunnuksena <strong>admin</strong> ja salasanana <strong>gispo</strong>.</p>
+<div class="hint-box">
+<p>Psst! GeoServerin oletusasennuksessa salasana on ‘geoserver’, mutta koulutusta varten tämä on turvallisuussyistä vaihdettu.</p>
+</div>
+<p>Ylläpitäjän näkymä muistuttaa äsken nähtyä käyttöliittymää. Sen rakenne on sama, mutta toiminnallisuuksia ja nähtävillä olevia tietoja on huomattavasti enemmän.</p>
+<p>Päävalikosta löytyviä GeoServerin toimintoja on ryhmitelty niiden käyttötarkoituksen mukaan ryhmiin:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="74%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><h5 id="about-status"><strong>About &amp; Status</strong></h5></td>
+<td>Yleistä tietoa GeoServerin asennuksesta ja tilasta</td>
+</tr>
+<tr class="even">
+<td><h5 id="data"><strong>Data</strong></h5></td>
+<td>Sisältää aineiston lataamisen, määrittämisen ja kuvaustekniikan toimintoja</td>
+</tr>
+<tr class="odd">
+<td><h5 id="services"><strong>Services</strong></h5></td>
+<td>Valikossa voi määritellä eri paikkatietopalvelujen ominaisuuksia</td>
+</tr>
+<tr class="even">
+<td><h5 id="tile-caching"><strong>Tile Caching</strong></h5></td>
+<td>Karttatiilipalvelujen asetukset</td>
+</tr>
+<tr class="odd">
+<td><h5 id="security"><strong>Security</strong></h5></td>
+<td>Pääsynhallintaan liittyviä asetuksia</td>
+</tr>
+<tr class="even">
+<td><h5 id="demos-1"><strong>Demos</strong></h5></td>
+<td>Demo-toimintoja GeoServer-palvelujen testaamiseen</td>
+</tr>
+<tr class="odd">
+<td><h5 id="tools"><strong>Tools</strong></h5></td>
+<td>Palvelimen lisätyökaluja</td>
+</tr>
+</tbody>
+</table>
+<p>Näiden lisäksi Geoserverin laajennokset voivat lisätä valikkoja käyttöliittymään.</p>
+<p><strong>Päävalikossa</strong> on nyt uusia valikoita ja toiminnallisuuksia. </p>
+<p>Äskettäin läpikäydyt valikot ovat myös muuttaneet muotoaan. Niissä on nyt enemmän tietoa ja ne tarjoavat mahdollisuuden muokata erilaisia tietoja ja asetuksia.</p>
+<p><img src="img/harjoitus_2/image1.png" /></p>
+<div class="hint-box">
+<p>Psst! Huomaa, että nyt käyttöliittymän keskiosassa lukee myös “No Strong cryptography available…”. Riippuen asennuksesta vahva salaus (strong cryptography)-toiminnallisuuden mahdollistaminen saattaa tarvita erillisen asennuksen (Java policy jar tiedostot).</p>
+</div>
+</div>
+<div id="master--ja-administrator-käyttäjät" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> <strong>Master- ja Administrator-käyttäjät</strong></h2>
+<p>GeoServerin oletusasennuksessa on kaksi käyttäjäprofiilia, <strong>master</strong> ja <strong>admin</strong>. Salasanat on vaihdettu oletuksesta seuraavalla tavalla:</p>
+<p><strong>Master</strong> →  gispogispo</p>
+<p><strong>Admin</strong> →   gispo</p>
+<div class="hint-box">
+<p>Psst! Ero master ja admin-käyttäjien välillä on se, että admin-käyttäjä on tarkoitettu käytettäväksi web-käyttöliittymän hallinnassa. Itse palvelimen asetusten muokkaamiseen käytetään master-käyttäjää, jolla on oikeudet päästä hallitsemaan GeoServerin root-asetuksia sekä suoraan palvelimella että web-käyttöliittymän kautta. Vältä näiden tunnusten käyttöä tuotannollisten palvelimien ylläpidossa.</p>
+</div>
+<p>Näiden käyttäjien salasanat voi vaihtaa tarvittaessa pääsynhallinnan työkaluilla (<strong>Security</strong>-valikko).</p>
+</div>
+<div id="about-status--asetukset" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> <strong>About &amp; Status -asetukset</strong></h2>
+<p><img src="img/harjoitus_2/image2.png" /></p>
+<div id="contact-information" class="section level3" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> <strong>Contact Information</strong></h3>
+<p>Aloitetaan päivittämällä yhteystiedot. Valitse päävalikosta <strong>About &amp; Status → Contact Information</strong>.</p>
+<p>Täytä omilla tiedoilla ainakin kentät <strong>Contact</strong>, <strong>Organization</strong> ja <strong>Email</strong>.</p>
+<p><img src="img/harjoitus_2/image3.png" /></p>
+<p>Palataksesi <strong>Welcome</strong>-näkymään voit aina painaa <strong>GeoServer-logoa</strong> sivun vasemmasta yläreunasta.</p>
+</div>
+<div id="server-status" class="section level3" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> <strong>Server Status</strong></h3>
+<p>Server Status -sivulla on tietoa erilaisista GeoServerin asetuksista ja tilasta. Huomaa esimerkiksi <strong>Data directory</strong> -kansion sijainti.</p>
+<p>Kirjoita omiin muistiinpanoihisi (harjoituksen viimeinen sivu) palvelimesi <strong>Data directory</strong>:n sijainti.<br />
+</p>
+<p><img src="img/harjoitus_2/image4.png" /></p>
+</div>
+<div id="geoserver-logs" class="section level3" number="3.4.3">
+<h3><span class="header-section-number">3.4.3</span> <strong>GeoServer Logs</strong></h3>
+<p>GeoServer Logs -valinnan kautta voit katsoa palvelimen lokitietoja. </p>
+<p><img src="img/harjoitus_2/image5.png" /></p>
+</div>
+</div>
+<div id="data-valikko" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> <strong>Data-valikko</strong></h2>
+<p>Tämä valikko sisältää GeoServerin tärkeimmät toiminnot. Aineistot lisätään ja määritellään näiden toimintojen avulla. Myös aineistojen esikatselu tapahtuu täällä olevia toimintoja käyttäen. Huomaa yhteydet valikon ja kuvassa esitellyn aineistojen järjestäytymisen välillä.</p>
+<p><img src="img/harjoitus_2/image6.png" /></p>
+<p><strong>Styles</strong> kohdassa määritellään tasoille (<strong>Layers</strong>) kuvaustekniikka, visualisointi. </p>
+<p><strong>Styles</strong> (kuvaustekniikka) käytetään aina kun tasoja julkaistaan WMS-palveluna. Kuvaustekniikka ei ole riippuvainen tasoista: samaa kuvaustekniikkaa voidaan käyttää useilla tasoilla ja niillä voi olla useita valinnaisia kuvaustekniikoita.</p>
+<div id="layer-preview-1" class="section level3" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> <strong>Layer Preview</strong></h3>
+<p>Tämän valikon avulla on mahdollista esikatsella GeoServerillä julkaistuja karttatasoja.</p>
+<p>Geoserverin oletusasennuksessa on julkaistu muutama demotaso, joita voi heti käyttää ja esikatsella.</p>
+<p><img src="img/harjoitus_2/image7.png" /></p>
+<p>Tasojen lähtöaineisto voi olla rasteri tai vektori, formaatti on kuvattu näillä kuvakkeilla:</p>
+<p> <img src="img/harjoitus_2/image8.png" /> Rasteri</p>
+<p> <img src="img/harjoitus_2/image9.png" /> Piste (vektori)                                  <img src="img/harjoitus_2/image10.png" /> Monikulmio (vektori)</p>
+<p> <img src="img/harjoitus_2/image11.png" /> Viiva (vektori)                                  <img src="img/harjoitus_2/image12.png" /> Tasoryhmä</p>
+<p>Tason esikatselu aukenee OpenLayers-karttaikkunana uuteen selainikkunaan. Huomaa, että aineiston <strong>OpenLayers</strong>-esikatselussa on käytössä kuvaustekniikka, joka on määritelty GeoServerilla oletukseksi. Kuvaustekniikka-teemaan tutustutaan myöhemmin lisää.</p>
+<p>Käyttämällä alasvetovalikkoa (<strong>Select one</strong>), voit myös ladata kyseisen tason eri tiedostomuodoissa (GeoTIFF, csv, shapefile...).</p>
+</div>
+<div id="workspaces" class="section level3" number="3.5.2">
+<h3><span class="header-section-number">3.5.2</span> <strong>Workspaces</strong></h3>
+<p><strong>Workspace</strong> on GeoServerin tapa säilyttää ja järjestää viittaukset aineistoihin (<strong>Stores</strong>). Aineistot itse on tallennettu hakemistoon (tai tietokantaan), johon GeoServerillä on käyttöoikeudet.</p>
+<p>Tyypillisesti samassa workspace:ssa pidetään samanlaisia ja/tai samasta lähteestä saatuja aineistoja. Esimerkiksi organisaation aineistot voidaan järjestää teemojen mukaan workspacen avulla (ymparisto, kaavoitus, vaesto, terveys, jne.)</p>
+<p>Avaa <strong>Workspaces</strong>-valikko, muutama workspace on valmiiksi luotu GeoServerille:</p>
+<p><img src="img/harjoitus_2/image13.png" /></p>
+<p>Paina <strong>Add new workspace</strong>.</p>
+<p>Luo uusi workspace, jota käytetään jatkossa koulutuksessa, anna sille nimi <strong>helsinki</strong> ja kirjoita <strong>Namespace URI</strong> -kohtaan <a href="http://gispo.fi/geoserver/helsinki"><strong>http://gispo.fi/geoserver/helsinki</strong></a>:</p>
+<p><img src="img/harjoitus_2/image14.png" /></p>
+<p>Rastita vielä <strong>Default Workspace</strong>, niin jatkossa juuri luomasi workspace on oletuksena lisättäessä aineistoja ja tasoja GeoServeriin.</p>
+<div class="hint-box">
+<p>Psst! URI (Uniform Resource Identifier) on teksti, joka määrittelee tietyn resurssin nimen. Se voi olla nettiosoite tai vaikka suhteellinen hakemisto kovalevystä. Ainoa vaatimus on se, että URI:n arvo on yksilöivä. Voit viitata esimerkiksi osoitteeseen tai kansioon, jossa on säilytetty workspaceen liittyvää dokumentaatiota.</p>
+</div>
+<p>Paina <strong>Submit</strong> ja olet nyt lisännyt uuden workspacen Geoserverille.</p>
+<p>Avaa äsken tekemäsi workspace painamalla <strong>helsinki</strong>-workspace <strong>Workspace Name</strong> -kohdan alta ja huomaa, että lisää valintoja on nyt saatavilla. Palataan niihin myöhemmin säädettäessä workspace-kohtaisia asetuksia.</p>
+<p><img src="img/harjoitus_2/image15.png" /></p>
+<p>Palaa <strong>Workspace</strong>-näkymään painamalla <strong>Cancel</strong>.</p>
+<p>Workspaceja voidaan poistaa valitsemalla yksi tai useampi workspace ja painamalla <strong>Remove selected workspace(s)</strong> -toimintoa.</p>
+</div>
+<div id="stores" class="section level3" number="3.5.3">
+<h3><span class="header-section-number">3.5.3</span> <strong>Stores</strong></h3>
+<p>Geoserverillä viitataan aineistolähteisiin <strong>Storesien</strong> avulla. Aineistolähteinä voivat olla yksittäiset tiedostot, tiedostoryhmät, hakemistot, tietokannat tai rajapintapalvelut.</p>
+<p>Oletusasennuksessa on valmiina <strong>Store</strong>-viittauksia esimerkkiaineistoihin:</p>
+<p><img src="img/harjoitus_2/image16.png" /></p>
+<p>Jokaisen Storen vieressä on kuvake joka viittaa aineiston tyyppiin:</p>
+<p>Tutustu muutamaan storen asetuksiin. Esimerkiksi <strong>sfdem</strong> viittaa rasteriaineistoon (huomaa kuvake) ja <strong>taz_shapes</strong> viittaa vektoriaineistoon.</p>
+<p><img src="img/harjoitus_2/image17.png" /></p>
+<p>Avaa sfdem-store ja taz_shapes-store. Kirjoita muistiinpanoihisi ylös vastaukset seuraaviin kysymyksiin:</p>
+<div class="hint-box">
+<p>Mihin aineistoon sfdem-store viittaa?</p>
+</div>
+<div class="hint-box">
+<p>Mihin aineistoon taz_shapes-store viittaa?</p>
+</div>
+<p>Huomaa, että <a href="file:data/" class="uri"><strong>file:data/</strong></a> viittaa Geoserverin Data Directory -hakemistoon. Hakemiston sijainti levyjärjestelmässä löytyy <strong>About &amp; Status → Server Status</strong> -valikon kautta.</p>
+<p>Store <strong>taz_shapes</strong> viittaa hakemistoon, jossa on useampia vektoriaineistoja, tässä tapauksessa .shp-tiedostoja.</p>
+<p>Avaa vielä <strong>taz_shapes</strong>-store ja huomaa, että asetuksissa on rastittu <strong>Enabled</strong>. Se määrittää onko aineisto käytettävissä palvelimelta tai ei.</p>
+<p><img src="img/harjoitus_2/image18.png" /></p>
+<p>Toisin sanoen haluttaessa estää jonkin aineiston käyttöä GeoServerin kautta, ei tarvitse muuta kun jättää rastittamatta <strong>Enabled</strong>-valinta joko layer-, store- tai jopa workspace-valikossa.<br />
+</p>
+<p><img src="img/harjoitus_2/image19.png" /></p>
+</div>
+<div id="layers" class="section level3" number="3.5.4">
+<h3><span class="header-section-number">3.5.4</span> <strong>Layers</strong></h3>
+<p>Tasot (<strong>Layers</strong>) määrittelevät yhden aineistolähteen (<strong>Store</strong>) julkaisemisen ominaisuudet, kuten kuvaustekniikan, koordinaattijärjestelmän, metatiedot, palvelun ominaisuudet, karttatiilipalvelun (tile caching) määrittelyt jne.</p>
+<p>Yksi taso vastaa yhtä aineistoa. Aineisto voidaan julkaista useisiin eri tasoihin, esimerkiksi eri kuvaustekniikoilla tms.</p>
+<p><strong>Layers</strong>-näkymässä on mahdollista muokata, lisätä tai poistaa tasoja. <strong>Layers</strong>-näkymän taulukossa on nähtävissä muutama taso ja niiden nimet (<strong>Name</strong>). Taulukossa lukee myös tason otsikko (<strong>Title</strong>) ja missä <strong>Store</strong>:ssa aineistot sijaitsevat.</p>
+<p>Sarake <strong>Enabled</strong> näyttää tiedon siitä, onko taso käytettävissä palvelimelta vai ei. Huomaa, että käytettävyyden voi määritellä koko storelle (eli aineistolähteelle) tai erikseen tasoille (aineiston näkymille). Myös tason alkuperäinen koordinaattijärjestelmä on ilmoitettu taulukossa, <strong>Native SRS</strong>.</p>
+<p><img src="img/harjoitus_2/image20.png" /></p>
+<p>Avaa <strong>Manhattan (NY) landmarks</strong> -tason asetusten näkymä painamalla tason otsikkoa (<strong>Title</strong>) tai nimeä (<strong>Name</strong>) sarakkeesta. </p>
+<p>Tasoon liittyvät asetukset ovat laajat ja siksi ne on jaettu välilehtiin <strong>Data</strong>, <strong>Publishing</strong>, <strong>Dimensions</strong> ja <strong>Tile Caching</strong>. </p>
+<p>Tutustu nyt eri välilehtien asetuksiin saadaksesi kuvan siitä, miten tasot määritellään GeoServerillä. Keskustele niistä kouluttajan kanssa.</p>
+<p><img src="img/harjoitus_2/image21.png" /></p>
+<p>Tutustumme tarkemmin tasoasetuksiin myöhemmin, kun lisäämme omia aineistoja GeoServerille.</p>
+</div>
+</div>
+<div id="layer-groups" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> <strong>Layer Groups</strong></h2>
+<p><strong>Layer Groups</strong> -toiminnolla muodostetaan tasoryhmiä. Tasoryhmien avulla on muodostetaan useammasta karttatasosta yhdistettyjä karttatasoja. Tasoryhmiin voidaan lisätä sekä karttatasoja että tasoryhmiä. Muun muassa tasojen järjestystä ja kuvaustekniikoita voidaan määrittää tasoryhmän asetuksissa.</p>
+</div>
+<div id="styles" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> <strong>Styles</strong></h2>
+<p>Avaa <strong>Styles</strong>-valikko, saat näkyviin listan GeoServerilla olevista kuvaustekniikoista.</p>
+<p><img src="img/harjoitus_2/image22.png" /></p>
+<p>Avaa <strong>giant_polygon</strong>-tyyli ja tutustu GeoServerin käyttämään kuvaustekniikkaformaattiin. Tasojen kuvaustekniikka määritellään käyttäen Styled Layer Descriptor (SLD) -kieltä.</p>
+<p><img src="img/harjoitus_2/image23.png" /></p>
+<p>Kuvaustekniikka on hyvin laaja aihe; siihen tutustutaan erikseen myöhemmin. Kuvaustekniikan toteuttamista voi helpottaa käyttämällä CSS-laajennosta, tätäkin käsitellään myöhemmin koulutuksessa.</p>
+</div>
+<div id="services-1" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> <strong>Services</strong></h2>
+<p>GeoServerin rajapintapalvelujen (WFS, WMS ja WCS) yleisasetukset määritellään <strong>Services</strong>-valikon kautta; näihin tutustutaan tarkemmin myöhemmin.</p>
+<p><img src="img/harjoitus_2/image24.png" /></p>
+</div>
+<div id="settings" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> <strong>Settings</strong></h2>
+<p>Tämä valikko sisältää erilaisia asetuksia kuten:</p>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="66%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Global</strong></td>
+<td>Rajapintapalvelujen asetuksia ja lokitietojen asetuksia</td>
+</tr>
+<tr class="even">
+<td><strong>Image Processing &amp; Raster Access</strong></td>
+<td>Asetukset kuvien ja raakakuva-aineiston (coverage) käsittelyyn palvelimessa</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tile-caching-1" class="section level2" number="3.10">
+<h2><span class="header-section-number">3.10</span> <strong>Tile Caching</strong></h2>
+<p>Tämän valikon kautta määritellään karttatiilipalvelujen (tile caching) asetuksia. Karttatiilipalveluihin tutustutaan tarkemmin myöhemmin.</p>
+<p><img src="img/harjoitus_2/image25.png" /></p>
+</div>
+<div id="security-1" class="section level2" number="3.11">
+<h2><span class="header-section-number">3.11</span> <strong>Security</strong></h2>
+<p>Valikko sisältää GeoServerin pääsynhallintaan liittyvät asetukset. Huomaa, että muun muassa pääsynhallinta voidaan määrittää sekä käyttäjä-, ryhmä- ja roolikohtaisesti että aineisto- ja palvelukohtaisesti. Vilkaise nyt <strong>Users</strong>, <strong>Groups, and Roles</strong> -valikkoon.</p>
+<p><img src="img/harjoitus_2/image26.png" /></p>
+<p>Pääsynhallintaa käsitellään tarkemmin myöhemmin.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_harjoitus_1.html"><button class="btn btn-default">Previous</button></a>
+<a href="03_harjoitus_3.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Johdanto GeoServerin käyttöön</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

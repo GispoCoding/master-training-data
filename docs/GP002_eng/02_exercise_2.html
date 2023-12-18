@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3 Exercise 2: Geographic data and online data services | Introduction to QGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Ltd." />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="3 Exercise 2: Geographic data and online data services | Introduction to QGIS">
+
+<title>3 Exercise 2: Geographic data and online data services | Introduction to QGIS</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to QGIS</h1></div>
+<div class="abstract-sidebar"><p>Basic course on QGIS</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li><a href="index.html#introduction-to-qgis"><span class="toc-section-number">1</span> Introduction to QGIS</a></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-user-interface-of-qgis"><span class="toc-section-number">2</span> Exercise 1: User interface of QGIS</a>
+<ul>
+<li><a href="01_exercise_1.html#downloading-course-materials"><span class="toc-section-number">2.1</span> Downloading course materials</a></li>
+<li><a href="01_exercise_1.html#qgis-user-interface"><span class="toc-section-number">2.2</span> QGIS user interface</a></li>
+<li><a href="01_exercise_1.html#try-the-tools-yourself"><span class="toc-section-number">2.3</span> Try the tools yourself</a></li>
+<li><a href="01_exercise_1.html#attribute-table"><span class="toc-section-number">2.4</span> Attribute table</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-geographic-data-and-online-data-services"><span class="toc-section-number">3</span> Exercise 2: Geographic data and online data services</a>
+<ul>
+<li><a href="02_exercise_2.html#exercise-content"><span class="toc-section-number">3.1</span> Exercise content</a></li>
+<li><a href="02_exercise_2.html#the-goal-of-the-exercise"><span class="toc-section-number">3.2</span> The goal of the exercise</a></li>
+<li><a href="02_exercise_2.html#preparations"><span class="toc-section-number">3.3</span> Preparations</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wms"><span class="toc-section-number">3.4</span> Connecting to a WMS</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wfs"><span class="toc-section-number">3.5</span> Connecting to a WFS</a></li>
+<li><a href="02_exercise_2.html#bonus-building-sql-query-for-wfs"><span class="toc-section-number">3.6</span> Bonus: Building SQL query for WFS</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-visualizing-and-classifying-geographic-data-sets"><span class="toc-section-number">4</span> Exercise 3: Visualizing and classifying geographic data sets</a>
+<ul>
+<li><a href="03_exercise_3.html#exercise-content-1"><span class="toc-section-number">4.1</span> Exercise content</a></li>
+<li><a href="03_exercise_3.html#the-goal-of-the-exercise-1"><span class="toc-section-number">4.2</span> The goal of the exercise</a></li>
+<li><a href="03_exercise_3.html#preparations-1"><span class="toc-section-number">4.3</span> Preparations</a></li>
+<li><a href="03_exercise_3.html#visualizing-vector-data"><span class="toc-section-number">4.4</span> Visualizing vector data</a></li>
+<li><a href="03_exercise_3.html#visualizing-line-data-sets"><span class="toc-section-number">4.5</span> Visualizing line data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-point-data-sets"><span class="toc-section-number">4.6</span> Visualizing point data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-polygon-data-sets"><span class="toc-section-number">4.7</span> Visualizing polygon data sets</a></li>
+<li><a href="03_exercise_3.html#changing-symbols"><span class="toc-section-number">4.8</span> Changing symbols</a></li>
+<li><a href="03_exercise_3.html#scale-dependent-symbols"><span class="toc-section-number">4.9</span> Scale dependent symbols</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-labeling-and-classifying-geographic-data"><span class="toc-section-number">5</span> Exercise 4: Labeling and classifying geographic data</a>
+<ul>
+<li><a href="04_exercise_4.html#exercise-content-2"><span class="toc-section-number">5.1</span> Exercise content</a></li>
+<li><a href="04_exercise_4.html#the-goal-of-the-exercise-2"><span class="toc-section-number">5.2</span> The goal of the exercise</a></li>
+<li><a href="04_exercise_4.html#preparations-2"><span class="toc-section-number">5.3</span> Preparations</a></li>
+<li><a href="04_exercise_4.html#label-settings"><span class="toc-section-number">5.4</span> Label settings</a></li>
+<li><a href="04_exercise_4.html#styling-label-texts"><span class="toc-section-number">5.5</span> Styling label texts</a></li>
+<li><a href="04_exercise_4.html#labeling-line-layers"><span class="toc-section-number">5.6</span> Labeling line layers</a></li>
+<li><a href="04_exercise_4.html#classifying-vector-data"><span class="toc-section-number">5.7</span> Classifying vector data</a></li>
+<li><a href="04_exercise_4.html#bonus-classifying-raster-data"><span class="toc-section-number">5.8</span> Bonus: Classifying raster data</a></li>
+<li><a href="04_exercise_4.html#bonus-label-rendering"><span class="toc-section-number">5.9</span> Bonus: Label rendering</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-print-layout"><span class="toc-section-number">6</span> Exercise 5: Print layout</a>
+<ul>
+<li><a href="05_exercise_5.html#exercise-content-3"><span class="toc-section-number">6.1</span> Exercise content</a></li>
+<li><a href="05_exercise_5.html#the-goal-of-the-exercise-3"><span class="toc-section-number">6.2</span> The goal of the exercise</a></li>
+<li><a href="05_exercise_5.html#preparations-3"><span class="toc-section-number">6.3</span> Preparations</a></li>
+<li><a href="05_exercise_5.html#print-layout"><span class="toc-section-number">6.4</span> Print layout</a></li>
+<li><a href="05_exercise_5.html#bonus-map-atlas"><span class="toc-section-number">6.5</span> Bonus: Map atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-editing-geographic-data-sets"><span class="toc-section-number">7</span> Exercise 6: Editing geographic data sets</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-content-4"><span class="toc-section-number">7.1</span> Exercise content</a></li>
+<li><a href="06_exercise_6.html#the-goal-of-the-exercise-4"><span class="toc-section-number">7.2</span> The goal of the exercise</a></li>
+<li><a href="06_exercise_6.html#preparations-4"><span class="toc-section-number">7.3</span> Preparations</a></li>
+<li><a href="06_exercise_6.html#creating-a-vector-data-set"><span class="toc-section-number">7.4</span> Creating a vector data set</a></li>
+<li><a href="06_exercise_6.html#editing-and-digitizing-vector-data"><span class="toc-section-number">7.5</span> Editing and digitizing vector data</a></li>
+<li><a href="06_exercise_6.html#adding-geometries"><span class="toc-section-number">7.6</span> Adding geometries</a></li>
+<li><a href="06_exercise_6.html#bonus-adding-attribute-information"><span class="toc-section-number">7.7</span> Bonus: Adding attribute information</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-spatial-analyses"><span class="toc-section-number">8</span> Exercise 7: Spatial analyses</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-content-5"><span class="toc-section-number">8.1</span> Exercise content</a></li>
+<li><a href="07_exercise_7.html#the-goal-of-the-exercise-5"><span class="toc-section-number">8.2</span> The goal of the exercise</a></li>
+<li><a href="07_exercise_7.html#preparations-5"><span class="toc-section-number">8.3</span> Preparations</a></li>
+<li><a href="07_exercise_7.html#vector-analyses"><span class="toc-section-number">8.4</span> Vector analyses</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-plugins-in-qgis"><span class="toc-section-number">9</span> Exercise 8: Plugins in QGIS</a>
+<ul>
+<li><a href="08_exercise_8.html#exercise-content-6"><span class="toc-section-number">9.1</span> Exercise content</a></li>
+<li><a href="08_exercise_8.html#the-goal-of-the-exercise-6"><span class="toc-section-number">9.2</span> The goal of the exercise</a></li>
+<li><a href="08_exercise_8.html#preparations-6"><span class="toc-section-number">9.3</span> Preparations</a></li>
+<li><a href="08_exercise_8.html#plugin-management"><span class="toc-section-number">9.4</span> Plugin management</a></li>
+<li><a href="08_exercise_8.html#quickmapservices"><span class="toc-section-number">9.5</span> QuickMapServices</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2threejs"><span class="toc-section-number">9.6</span> Bonus: Qgis2threejs</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2web"><span class="toc-section-number">9.7</span> Bonus: Qgis2web</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-2-geographic-data-and-online-data-services" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Exercise 2: Geographic data and online data services</h1>
+<div id="exercise-content" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Exercise content</h2>
+<p>In this exercise you will add different geographic datasets and connections to online data services in QGIS.</p>
+</div>
+<div id="the-goal-of-the-exercise" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> The goal of the exercise</h2>
+<p>After this exercise you know how to add geographic data and connect to online data services in QGIS.</p>
+</div>
+<div id="preparations" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Preparations</h2>
+<p>Open the project used in the previous exercise and save it as (<strong>Project -&gt; Save As</strong>) “<strong>QGIS_exercise_2</strong>”.</p>
+<div class="hint-box">
+<p><strong>Psst! Remember to save the project consistently during the exercises.</strong></p>
+</div>
+</div>
+<div id="connecting-to-a-wms" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Connecting to a WMS</h2>
+<p>First we will connect to a <strong>WMS</strong> (Web Map Service). Through this WMS connection we will add our first <strong>raster</strong> data to our project. Open the <strong>Data Source Manager</strong> and choose the <strong>WMS/WMTS</strong> tab.</p>
+<p><img src="img/exercise_2/image1.png" /></p>
+<p>A window for defining and using WMS resources opens. Your QGIS might already have some predefined WMS resources. You can find them in the drop-down menu at the top of the window. Let’s add a new  WMS resource by clicking <strong>New</strong>. The <strong>Create a New WMS/WMTS Connection</strong> dialog box is now open. Let’s first type a name for our new WMS resource in the <strong>Name</strong> field.</p>
+<div class="hint-box">
+<p>Psst! Give online data resources informative name, for example based on the data provider. You could name this WMS as NASA, as we will be connecting to a WMS that hosts their earth observation data.</p>
+</div>
+<p>Copy the address of the WMS (<a href="https://neo.gsfc.nasa.gov/wms/wms?version=1.1.0">https://neo.gsfc.nasa.gov/wms/wms?version=1.1.0)</a> to the URL field. Some data resources might require a sign in to the service, but when the data is open credentials are rarely needed. For this WMS you can leave <strong>No Authentication</strong> selected.</p>
+<p><img src="img/exercise_2/image2.png" /></p>
+<p>Once you have set the connection details, press <strong>OK</strong>. In the <strong>Data Source Manager</strong> press <strong>Connect</strong>. QGIS will now connect to the online data resource, and after a short wait a list of the available data appears. Notice that the list has subcategories. In the future QGIS will remember saved connections.</p>
+<p><img src="img/exercise_2/image3.png" /></p>
+<p>Let’s add a WMS layer depicting land surface temperatures. First, make the <strong>Title</strong> column wider by dragging the line between it and the <strong>Abstract</strong> column. This way you can read the titles and navigate the data efficiently. Once you can see the titles, select <strong>Average Land Surface Temperature [Day] &gt; Average Land Surface temperature [DAY] (1 month)</strong> <strong>&gt;</strong> <strong>RGB Style</strong>.</p>
+<p>RGB style means that the layer is drawn in color, but it is not the most descriptive layer name to use in the project. You can specify a custom name for the data in the <strong>Layer name</strong> field. Finally, press <strong>Add</strong>, and QGIS adds the layer to the project.</p>
+<p><img src="img/exercise_2/image4.png" /></p>
+<p>There might be a slight delay while the data is downloaded from the server. You can now close the <strong>Data Source Manager</strong> and return to the map view. A colored raster map with information about land surface temperatures should be visible.</p>
+<p><img src="img/exercise_2/image5.png" /></p>
+<p>You can now add more WMS resources. Feel free to experiment with the below examples of international WMS resources:</p>
+<ul>
+<li><p><strong>Bathymetry and topography data by GEBCO</strong>:<br />
+<a href="https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv" class="uri">https://www.gebco.net/data_and_products/gebco_web_services/web_map_service/mapserv</a></p></li>
+<li><p><strong>OpenStreetMap as a WMS by Terrestris<br />
+</strong><a href="http://ows.terrestris.de/osm-gray/service" class="uri">http://ows.terrestris.de/osm-gray/service</a></p></li>
+<li><p><strong>Drought frequency change in europe by European Environment Agency</strong>:<br />
+<a href="https://climate.discomap.eea.europa.eu/arcgis/services/ClimateChange/Drought_Frequency_change/MapServer/WmsServer" class="uri">https://climate.discomap.eea.europa.eu/arcgis/services/ClimateChange/Drought_Frequency_change/MapServer/WmsServer</a></p></li>
+<li><p><strong>High resolution satellite imagery of europe by European Environment Agency (the image layer might take a while to load and display due to size):<br />
+<a href="https://image.discomap.eea.europa.eu/arcgis/services/GioLand/Core01Cov2_2012/MapServer/WmsServer" class="uri">https://image.discomap.eea.europa.eu/arcgis/services/GioLand/Core01Cov2_2012/MapServer/WmsServer</a></strong></p></li>
+</ul>
+<p>You can navigate between different WMS resources in the <strong>Data Source Manager</strong>. Simply select the <strong>WMS</strong> tab and choose the service you want to connect to from the drop-down menu.</p>
+<p><img src="img/exercise_2/image6.png" /></p>
+<p><img src="img/exercise_2/image7.png" /></p>
+<p>Once you have chosen a WMS resource that you want to connect to, remember to click <strong>Connect</strong> right below the drop-down menu. WMS data is not loaded to QGIS just by selecting the server, you need to connect to the server too. </p>
+</div>
+<div id="connecting-to-a-wfs" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> Connecting to a WFS</h2>
+<p>Next we will connect to a <strong>WFS</strong> (Web Feature Service). WFS resources are used to get <strong>vector</strong> data to QGIS. Connecting to a WFS happens much like connecting to a WMS: the only difference is that instead of the <strong>WMS/WMTS</strong> tabyou have to choose the <strong>WFS</strong> tab in the <strong>Data Source Manager</strong>. So, let’s open up the <strong>Data Source Manager</strong> and select the <strong>WFS</strong> tab(or click the <strong>Add WFS Layer</strong> <img src="img/exercise_2/image8.png" /> icon from the <strong>Manage Layers Toolbar</strong>) .</p>
+<p><img src="img/exercise_2/image9.png" /></p>
+<div class="hint-box">
+<p>Psst! When using a WFS you can either download whole data sets or just parts of them. Selecting which parts to download is done with different queries.</p>
+</div>
+<p>As an example, use this URL (<a href="https://mrdata.usgs.gov/wfs/hi" class="uri">https://mrdata.usgs.gov/wfs/hi</a>) to connect to a WFS that hosts a geological map of Hawaii. This open service and data is provided by USGS (United States Geological Survey). If you are curious you can also search the internet for other WFS resources (Your local data providers most likely have some, for example).</p>
+<p>Once you have added the details of the new WFS connection to QGIS, you can connect to it the same way we connected to a WMS. When you are connected, try adding Hawaii’s geologic map to the project (the name of the map layer in the WFS is <strong>ms:units</strong>). Notice how, instead of a raster image, vector polygons are being loaded to your project. Downloading the whole data set takes a while, so be prepared to wait for about 10-20 seconds. If you want to edit the data you have downloaded from a WFS, you have to save the data locally on your own computer.</p>
+</div>
+<div id="bonus-building-sql-query-for-wfs" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Bonus: Building SQL query for WFS</h2>
+<p>You can filter datasets using a SQL query in QGIS. This functionality is found in the same window where WFS- connections are added. First add a new connection to a GNS Science (New Zealand Research Institute) WFS:</p>
+<div class="note-box">
+<p><a href="https://maps.gns.cri.nz/gns/wfs" class="uri">https://maps.gns.cri.nz/gns/wfs</a></p>
+</div>
+<p>Search for the <strong>geol_units</strong> layer. We can then filter the features by area with an SQL query. In the next animation this is demonstrated:</p>
+<p><img src="img/exercise_2/image10.gif" /></p>
+<div class="hint-box">
+<p><strong>Psst! Always save your project file at the end of the exercise.</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_exercise_1.html"><button class="btn btn-default">Previous</button></a>
+<a href="03_exercise_3.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to QGIS</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Ltd.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

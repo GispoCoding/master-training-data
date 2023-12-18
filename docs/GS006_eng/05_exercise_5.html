@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="6 EXERCISE 1.5: WMS AND WCS SERVICES | Introduction to GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy" />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="6 EXERCISE 1.5: WMS AND WCS SERVICES | Introduction to GeoServer">
+
+<title>6 EXERCISE 1.5: WMS AND WCS SERVICES | Introduction to GeoServer</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to GeoServer</h1></div>
+<div class="abstract-sidebar"><p>A course covering basic GeoServer topics.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#introduction-to-geoserver"><span class="toc-section-number">1</span> INTRODUCTION TO GEOSERVER</a>
+<ul>
+<li><a href="index.html#welcome-to-this-geoserver-course"><span class="toc-section-number">1.1</span> Welcome to this GeoServer Course!</a></li>
+<li><a href="index.html#background-of-geoserver"><span class="toc-section-number">1.2</span> Background of GeoServer</a></li>
+<li><a href="index.html#how-to-read"><span class="toc-section-number">1.3</span> How to read</a></li>
+<li><a href="index.html#additional-information"><span class="toc-section-number">1.4</span> Additional information</a></li>
+<li><a href="index.html#mistakes"><span class="toc-section-number">1.5</span> Mistakes</a></li>
+<li><a href="index.html#license-and-permissions"><span class="toc-section-number">1.6</span> License and permissions</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1.1-installation-and-commissioning"><span class="toc-section-number">2</span> EXERCISE 1.1: INSTALLATION AND COMMISSIONING</a>
+<ul>
+<li><a href="01_exercise_1.html#preparation"><span class="toc-section-number">2.1</span> <strong>Preparation</strong></a></li>
+<li class="has-sub"><a href="01_exercise_1.html#main-menu"><span class="toc-section-number">2.2</span> <strong>Main menu</strong></a>
+<ul>
+<li><a href="01_exercise_1.html#about-geoserver"><span class="toc-section-number">2.2.1</span> <strong>About GeoServer</strong></a></li>
+<li><a href="01_exercise_1.html#layer-preview"><span class="toc-section-number">2.2.2</span> <strong>Layer Preview</strong></a></li>
+<li><a href="01_exercise_1.html#service-capabilities"><span class="toc-section-number">2.2.3</span> <strong>Service Capabilities</strong></a></li>
+<li><a href="01_exercise_1.html#demos"><span class="toc-section-number">2.2.4</span> <strong>Demos</strong></a></li>
+<li><a href="01_exercise_1.html#demo-requests"><span class="toc-section-number">2.2.5</span> <strong>Demo requests</strong></a></li>
+</ul></li>
+<li><a href="01_exercise_1.html#srs-list-ja-reprojection-console"><span class="toc-section-number">2.3</span> <strong>SRS List ja Reprojection console</strong></a></li>
+<li><a href="01_exercise_1.html#wcs-request-builder"><span class="toc-section-number">2.4</span> <strong>WCS request builder</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-1.2-geoserver-web-interface"><span class="toc-section-number">3</span> EXERCISE 1.2: GEOSERVER WEB INTERFACE</a>
+<ul>
+<li><a href="02_exercise_2.html#preparation-1"><span class="toc-section-number">3.1</span> <strong>Preparation</strong></a></li>
+<li><a href="02_exercise_2.html#administrators-interface"><span class="toc-section-number">3.2</span> <strong>Administrator’s interface</strong></a></li>
+<li><a href="02_exercise_2.html#master-and-administrator-users"><span class="toc-section-number">3.3</span> <strong>Master and Administrator users</strong></a></li>
+<li class="has-sub"><a href="02_exercise_2.html#about-status-settings"><span class="toc-section-number">3.4</span> <strong>About &amp; Status settings</strong></a>
+<ul>
+<li><a href="02_exercise_2.html#contact-information"><span class="toc-section-number">3.4.1</span> <strong>Contact Information</strong></a></li>
+<li><a href="02_exercise_2.html#server-status"><span class="toc-section-number">3.4.2</span> <strong>Server Status</strong></a></li>
+<li><a href="02_exercise_2.html#geoserver-logs"><span class="toc-section-number">3.4.3</span> <strong>GeoServer Logs</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#data-menu"><span class="toc-section-number">3.5</span> <strong>Data menu</strong></a>
+<ul>
+<li><a href="02_exercise_2.html#layer-preview-1"><span class="toc-section-number">3.5.1</span> <strong>Layer Preview</strong></a></li>
+<li><a href="02_exercise_2.html#workspaces"><span class="toc-section-number">3.5.2</span> <strong>Workspaces</strong></a></li>
+<li><a href="02_exercise_2.html#stores"><span class="toc-section-number">3.5.3</span> <strong>Stores</strong></a></li>
+<li><a href="02_exercise_2.html#layers"><span class="toc-section-number">3.5.4</span> <strong>Layers</strong></a></li>
+</ul></li>
+<li><a href="02_exercise_2.html#layer-groups"><span class="toc-section-number">3.6</span> <strong>Layer Groups</strong></a></li>
+<li><a href="02_exercise_2.html#styles"><span class="toc-section-number">3.7</span> <strong>Styles</strong></a></li>
+<li><a href="02_exercise_2.html#settings"><span class="toc-section-number">3.8</span> <strong>Settings</strong></a></li>
+<li><a href="02_exercise_2.html#tile-caching-1"><span class="toc-section-number">3.9</span> <strong>Tile Caching</strong></a></li>
+<li><a href="02_exercise_2.html#security-1"><span class="toc-section-number">3.10</span> <strong>Security</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-1.3-vector-data"><span class="toc-section-number">4</span> Exercise 1.3: VECTOR DATA</a>
+<ul>
+<li><a href="03_exercise_3.html#preparation-2"><span class="toc-section-number">4.1</span> <strong>Preparation</strong></a></li>
+<li><a href="03_exercise_3.html#creating-vector-data-store"><span class="toc-section-number">4.2</span> <strong>Creating vector data store</strong></a></li>
+<li><a href="03_exercise_3.html#publishing-vector-layer"><span class="toc-section-number">4.3</span> <strong>Publishing vector layer</strong></a></li>
+<li class="has-sub"><a href="03_exercise_3.html#data-settings"><span class="toc-section-number">4.4</span> <strong>Data settings</strong></a>
+<ul>
+<li><a href="03_exercise_3.html#coordinate-reference-systems"><span class="toc-section-number">4.4.1</span> <strong>Coordinate Reference Systems</strong></a></li>
+<li><a href="03_exercise_3.html#bounding-boxes"><span class="toc-section-number">4.4.2</span> <strong>Bounding Boxes</strong></a></li>
+<li><a href="03_exercise_3.html#feature-type-details"><span class="toc-section-number">4.4.3</span> <strong>Feature Type Details</strong></a></li>
+</ul></li>
+<li><a href="03_exercise_3.html#add-helsinki-road-network"><span class="toc-section-number">4.5</span> <strong>Add Helsinki road network</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-1.4-basics-of-styling-sld"><span class="toc-section-number">5</span> EXERCISE 1.4: BASICS OF STYLING (SLD)</a>
+<ul>
+<li><a href="04_exercise_4.html#preparation-3"><span class="toc-section-number">5.1</span> <strong>Preparation</strong></a></li>
+<li><a href="04_exercise_4.html#geoserverin-styling-technique"><span class="toc-section-number">5.2</span> <strong>GeoServerin styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#sld-styling"><span class="toc-section-number">5.3</span> <strong>SLD-styling</strong></a></li>
+<li><a href="04_exercise_4.html#creating-a-new-style"><span class="toc-section-number">5.4</span> <strong>Creating a new style</strong></a></li>
+<li><a href="04_exercise_4.html#deployment-of-sld-styling-technique"><span class="toc-section-number">5.5</span> <strong>Deployment of SLD styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#sld-cookbook"><span class="toc-section-number">5.6</span> <strong>SLD Cookbook</strong></a></li>
+<li><a href="04_exercise_4.html#editing-sld-styling-technique"><span class="toc-section-number">5.7</span> <strong>Editing SLD styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#create-a-road-style"><span class="toc-section-number">5.8</span> <strong>Create a road style</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-1.5-wms-and-wcs-services"><span class="toc-section-number">6</span> EXERCISE 1.5: WMS AND WCS SERVICES</a>
+<ul>
+<li><a href="05_exercise_5.html#preparation-4"><span class="toc-section-number">6.1</span> <strong>Preparation</strong></a></li>
+<li><a href="05_exercise_5.html#ogc-standards"><span class="toc-section-number">6.2</span> <strong>OGC-standards</strong></a></li>
+<li><a href="05_exercise_5.html#general-map-service-settings"><span class="toc-section-number">6.3</span> <strong>General map service settings</strong></a></li>
+<li><a href="05_exercise_5.html#wms"><span class="toc-section-number">6.4</span> <strong>WMS</strong></a></li>
+<li><a href="05_exercise_5.html#workspace-specific-server-settings"><span class="toc-section-number">6.5</span> <strong>Workspace-specific server settings</strong></a></li>
+<li><a href="05_exercise_5.html#dpi-resolution-of-the-wms-map-service-image"><span class="toc-section-number">6.6</span> <strong>DPI resolution of the WMS map service image</strong></a></li>
+<li><a href="05_exercise_5.html#wcs"><span class="toc-section-number">6.7</span> <strong>WCS</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-1.6-raster-data"><span class="toc-section-number">7</span> EXERCISE 1.6: RASTER DATA</a>
+<ul>
+<li><a href="06_exercise_6.html#preparation-5"><span class="toc-section-number">7.1</span> <strong>Preparation</strong></a></li>
+<li><a href="06_exercise_6.html#adding-raster-data"><span class="toc-section-number">7.2</span> <strong>Adding raster data</strong></a></li>
+<li><a href="06_exercise_6.html#adding-an-aerial-image"><span class="toc-section-number">7.3</span> <strong>Adding an aerial image</strong></a></li>
+<li><a href="06_exercise_6.html#image-mosaic"><span class="toc-section-number">7.4</span> <strong>Image Mosaic</strong></a></li>
+<li class="has-sub"><a href="06_exercise_6.html#layer-groups-1"><span class="toc-section-number">7.5</span> <strong>Layer Groups</strong></a>
+<ul>
+<li><a href="06_exercise_6.html#form-of-publication-of-group-layers"><span class="toc-section-number">7.5.1</span> <strong>Form of publication of group layers</strong></a></li>
+<li><a href="06_exercise_6.html#use-of-external-wms-services-cascading-wms"><span class="toc-section-number">7.5.2</span> <strong>Use of external WMS services (cascading WMS)</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-1.7-spatial-databases"><span class="toc-section-number">8</span> EXERCISE 1.7: SPATIAL DATABASES</a>
+<ul>
+<li><a href="07_exercise_7.html#preparation-6"><span class="toc-section-number">8.1</span> <strong>Preparation</strong></a></li>
+<li><a href="07_exercise_7.html#connecting-to-the-geodatabase"><span class="toc-section-number">8.2</span> <strong>Connecting to the geodatabase</strong></a></li>
+<li><a href="07_exercise_7.html#adding-a-postgis-layer"><span class="toc-section-number">8.3</span> <strong>Adding a PostGIS layer</strong></a></li>
+<li><a href="07_exercise_7.html#adding-a-polygon-and-line-layer-from-postgis-database"><span class="toc-section-number">8.4</span> <strong>Adding a polygon and line layer from PostGIS database</strong></a></li>
+<li><a href="07_exercise_7.html#setting-default-styles-for-layers"><span class="toc-section-number">8.5</span> <strong>Setting default styles for layers</strong></a></li>
+<li><a href="07_exercise_7.html#sql-views"><span class="toc-section-number">8.6</span> <strong>SQL views</strong></a></li>
+<li><a href="07_exercise_7.html#geographical-data-functions-via-sql-views"><span class="toc-section-number">8.7</span> <strong>Geographical data functions via SQL views</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-2.1-wfs-services"><span class="toc-section-number">9</span> EXERCISE 2.1: WFS SERVICES</a>
+<ul>
+<li><a href="08_exercise_8.html#preparation-7"><span class="toc-section-number">9.1</span> <strong>Preparation</strong></a></li>
+<li><a href="08_exercise_8.html#ogc-standards-1"><span class="toc-section-number">9.2</span> <strong>OGC-standards</strong></a></li>
+<li><a href="08_exercise_8.html#wfs-settings"><span class="toc-section-number">9.3</span> <strong>WFS settings</strong></a></li>
+<li><a href="08_exercise_8.html#number-of-data-requested"><span class="toc-section-number">9.4</span> <strong>Number of data requested</strong></a></li>
+<li><a href="08_exercise_8.html#specifying-several-coordinate-systems"><span class="toc-section-number">9.5</span> <strong>Specifying several coordinate systems</strong></a></li>
+<li><a href="08_exercise_8.html#service-levels"><span class="toc-section-number">9.6</span> <strong>Service Levels</strong></a></li>
+<li><a href="08_exercise_8.html#gml-settings"><span class="toc-section-number">9.7</span> <strong>GML settings</strong></a></li>
+<li><a href="08_exercise_8.html#workspace-specific-settings"><span class="toc-section-number">9.8</span> <strong>Workspace specific settings</strong></a></li>
+<li><a href="08_exercise_8.html#editing-via-wfs-t-service"><span class="toc-section-number">9.9</span> <strong>Editing via WFS-T service</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="09_exercise_9.html#exercise-2.2-map-tile-services"><span class="toc-section-number">10</span> EXERCISE 2.2: MAP TILE SERVICES</a>
+<ul>
+<li><a href="09_exercise_9.html#preparation-8"><span class="toc-section-number">10.1</span> <strong>Preparation</strong></a></li>
+<li><a href="09_exercise_9.html#tile-caching-2"><span class="toc-section-number">10.2</span> <strong>Tile Caching</strong></a></li>
+<li><a href="09_exercise_9.html#geowebcache-user-interface"><span class="toc-section-number">10.3</span> <strong>GeoWebCache user interface</strong></a></li>
+<li><a href="09_exercise_9.html#layer-specific-settings"><span class="toc-section-number">10.4</span> <strong>Layer-specific settings</strong></a></li>
+<li><a href="09_exercise_9.html#pre-creation-of-map-tiles"><span class="toc-section-number">10.5</span> <strong>Pre-creation of map tiles</strong></a></li>
+<li><a href="09_exercise_9.html#using-the-hard-disk-of-the-map-tiles"><span class="toc-section-number">10.6</span> <strong>Using the hard disk of the map tiles</strong></a></li>
+<li><a href="09_exercise_9.html#map-tile-grids"><span class="toc-section-number">10.7</span> <strong>Map tile grids</strong></a></li>
+<li><a href="09_exercise_9.html#map-tile-grid-according-to-jhs180"><span class="toc-section-number">10.8</span> <strong>Map tile grid according to JHS180</strong></a></li>
+<li><a href="09_exercise_9.html#creating-a-new-gridset"><span class="toc-section-number">10.9</span> <strong>Creating a new gridset</strong></a></li>
+<li><a href="09_exercise_9.html#finlands-openstreetmap-road-network"><span class="toc-section-number">10.10</span> <strong>Finland’s OpenStreetMap road network</strong></a></li>
+<li><a href="09_exercise_9.html#using-your-own-map-tile-grid"><span class="toc-section-number">10.11</span> <strong>Using your own map tile grid</strong></a></li>
+<li><a href="09_exercise_9.html#create-a-local-map-tile-grid"><span class="toc-section-number">10.12</span> <strong>Create a local map tile grid</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="10_exercise_10.html#exercise-2.3-architecture-and-deployment"><span class="toc-section-number">11</span> EXERCISE 2.3: ARCHITECTURE AND DEPLOYMENT</a>
+<ul>
+<li><a href="10_exercise_10.html#preparation-9"><span class="toc-section-number">11.1</span> <strong>Preparation</strong></a></li>
+<li><a href="10_exercise_10.html#general-information-about-the-geoserver-server"><span class="toc-section-number">11.2</span> <strong>General information about the GeoServer server</strong></a></li>
+<li><a href="10_exercise_10.html#image-processing-settings"><span class="toc-section-number">11.3</span> <strong>Image Processing Settings</strong></a></li>
+<li><a href="10_exercise_10.html#raster-access"><span class="toc-section-number">11.4</span> <strong>Raster Access</strong></a></li>
+<li><a href="10_exercise_10.html#geoservers-log"><span class="toc-section-number">11.5</span> <strong>GeoServer’s log</strong></a></li>
+<li><a href="10_exercise_10.html#rest-api-functionality"><span class="toc-section-number">11.6</span> <strong>REST API functionality</strong></a></li>
+<li><a href="10_exercise_10.html#using-the-monitor-plugin-tarkista-nämä-vielä"><span class="toc-section-number">11.7</span> <strong>Using the Monitor plugin (tarkista nämä vielä)</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="11_exercise_11.html#exercise-2.4-css-styling"><span class="toc-section-number">12</span> EXERCISE 2.4: CSS-STYLING</a>
+<ul>
+<li><a href="11_exercise_11.html#preparation-10"><span class="toc-section-number">12.1</span> <strong>Preparation</strong></a></li>
+<li><a href="11_exercise_11.html#css-styles"><span class="toc-section-number">12.2</span> <strong>CSS-styles</strong></a></li>
+<li><a href="11_exercise_11.html#creating-a-style"><span class="toc-section-number">12.3</span> <strong>Creating a style</strong></a></li>
+<li><a href="11_exercise_11.html#classification-of-data"><span class="toc-section-number">12.4</span> <strong>Classification of data</strong></a></li>
+<li><a href="11_exercise_11.html#tuning-the-style"><span class="toc-section-number">12.5</span> <strong>Tuning the style</strong></a></li>
+<li><a href="11_exercise_11.html#category-naming"><span class="toc-section-number">12.6</span> <strong>Category naming</strong></a></li>
+<li><a href="11_exercise_11.html#multi-scale-visibility"><span class="toc-section-number">12.7</span> <strong>Multi-scale visibility</strong></a></li>
+<li><a href="11_exercise_11.html#adding-subtitles"><span class="toc-section-number">12.8</span> <strong>Adding subtitles</strong></a></li>
+<li><a href="11_exercise_11.html#application-of-styling-technology"><span class="toc-section-number">12.9</span> <strong>Application of styling technology</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="12_exercise_12.html#exercise-2.5-access-control"><span class="toc-section-number">13</span> EXERCISE 2.5: ACCESS CONTROL</a>
+<ul>
+<li><a href="12_exercise_12.html#geoserver-general-security-settings"><span class="toc-section-number">13.1</span> <strong>GeoServer general security settings</strong></a></li>
+<li><a href="12_exercise_12.html#identification"><span class="toc-section-number">13.2</span> <strong>Identification</strong></a></li>
+<li><a href="12_exercise_12.html#create-a-new-role-and-user"><span class="toc-section-number">13.3</span> <strong>Create a new role and user</strong></a></li>
+<li><a href="12_exercise_12.html#limiting-access-rights-to-the-data"><span class="toc-section-number">13.4</span> <strong>Limiting access rights to the data</strong></a></li>
+<li><a href="12_exercise_12.html#user-specific-access-rights-for-the-data"><span class="toc-section-number">13.5</span> <strong>User-specific access rights for the data</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="13_exercise_13.html#exercise-2.6-filtering"><span class="toc-section-number">14</span> EXERCISE 2.6: FILTERING</a>
+<ul>
+<li><a href="13_exercise_13.html#filtering-with-attributes"><span class="toc-section-number">14.1</span> Filtering with attributes</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-1.5-wms-and-wcs-services" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> EXERCISE 1.5: WMS AND WCS SERVICES</h1>
+<p><strong>Content of the exercise</strong></p>
+<p>This exercise introduces you to the settings of the WMS and WCS services in GeoServer.</p>
+<p><strong>Aim of the exercise</strong></p>
+<p>After the exercise, the student will understand the different map services and be able to modify their basic settings.</p>
+<p><strong>Estimated duration</strong></p>
+<p>50 minutes.</p>
+<div id="preparation-4" class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> <strong>Preparation</strong></h2>
+<p>In previous exercises, a layer <strong>Buildings</strong> has been created and a new styling definition (buildings) has been created for this layer.</p>
+</div>
+<div id="ogc-standards" class="section level2" number="6.2">
+<h2><span class="header-section-number">6.2</span> <strong>OGC-standards</strong></h2>
+<p>For all layers added to GeoServer, different interface services can be published.</p>
+<p>The most common interface service is the <strong>Web Map Service</strong> (<strong>WMS</strong>). GeoServer can be used to produce a WMS service using different spatial data sets and styling techniques.</p>
+<p>Other interface services include the <strong>Web Coverage Service</strong> (<strong>WCS</strong>), which enables the publication of raw raster data, and the <strong>Web Feature Service</strong> (<strong>WFS</strong>), which is used as an interface service for vector data.</p>
+</div>
+<div id="general-map-service-settings" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> <strong>General map service settings</strong></h2>
+<p>The general settings for the various interface services can be found in the <strong>Services</strong> section of the main menu. These general settings are used by default whenever data is published via GeoServer.</p>
+<p>In practice, all previously added data are already published as interface services, because all three services (WMS, WCS and WFS) are activated in the default installation of the training GeoServer.</p>
+<p>For example, we have used the WMS map service whenever we have previewed a layer in the browser.</p>
+<p>Open <strong>Services → WMS view</strong>.</p>
+<p>At the top of the settings page you will find <strong>Service Metadata</strong> information.</p>
+<p>Check that the <strong>Enable WMS</strong> option is checked. If this option is checked, the GeoServer server will provide a WMS map service. If this option is not checked, no data is available as WMS map service. The availability of interface services can also be managed on a workspace-by-workspace basis.</p>
+<p>The functionality and server settings of all map services can also be configured according to the <strong>Maintainer</strong>, <strong>Online resource</strong>, <strong>Title</strong>, <strong>Abstract</strong>, <strong>Fees</strong>, <strong>Access Constraints</strong> and <strong>Keywords</strong> settings to specify information about the service and its administrator.</p>
+<div class="hint-box">
+<p>Psst! These metadata settings are also similar for WFS and WCS services.</p>
+</div>
+<p>Configure this information for the WMS service. You can write the notes on the last page of the exercise.</p>
+<p><img src="img/harjoitus_5/image1.2.png" /></p>
+</div>
+<div id="wms" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> <strong>WMS</strong></h2>
+<p>The <strong>Web Map Services</strong> (<strong>WMS</strong>) map service produces georeferenced map images.</p>
+<div class="hint-box">
+<p>Psst! Map images are always created when GeoServer receives WMS requests from the interface. In addition, GeoServer makes use of existing map images in the server cache. GeoServer receives requests whenever the server is connected to, but also when the map is zoomed in or out or moved from one location to another.</p>
+</div>
+<p>Open <strong>Services → WMS</strong> again.</p>
+<p>In addition to the basic information, each map service has its own regulations that define the functionality of the map service. There are many of these for the WMS service. For example, to create images, you can select <strong>Nearest Neighbor</strong>, <strong>Bilinear</strong> or <strong>Bicubic</strong> as the interpolation method in <strong>Raster Rendering Options</strong>. The default <strong>Nearest neighbor</strong> method is the recommended choice for basic raster visualization.</p>
+<p>One interesting setting for the WMS service is the use of watermarks. Watermarks can be added to WMS map images from <strong>Watermark Settings</strong>. Note, however, that the WMS settings in the main menu define defaults for all GeoServer data. Layer-specific watermarks cannot be defined, but watermarks can be defined per workspace.</p>
+<p>Let’s try watermarking the server’s WMS service with the GeoServer logo.</p>
+<p>Open <strong>Services → WMS</strong> and look for <strong>Watermark Settings</strong> and make sure <strong>Enable watermark</strong> is checked.</p>
+<p><img src="img/harjoitus_5/image2.png" /></p>
+<p>Then use <strong>Browse...</strong> to select the GeoServer logo (<strong>/training/GeoServer_100.png)</strong></p>
+<p>Set the transparency to <strong>30</strong> and the position to <strong>Bottom right</strong>.</p>
+<p>Now press <strong>Submit</strong> to save the changes to the WMS service. All maps received via the WMS service map should now contain a watermark.</p>
+<p>Open <strong>Data → Layer Preview</strong>, and preview some layers. Check that the watermark appears in all WMS requests.</p>
+<p>For example, the <strong>states</strong> layer will look like this in the OpenLayers preview view: <img src="img/harjoitus_5/image3.png" /></p>
+<p>Try the other map layers and notice that all of them now have the GeoServer logo watermark visible and it stays there when you move the map. States data is vector data.</p>
+<div class="hint-box">
+<p>Which GeoServer service (WMS, WFS or WCS) uses OpenLayers? Psst! You should have a look at your browser address.</p>
+</div>
+<p>The WMS web map is produced from the original data and styles on the server and transmitted as an image via the browser. Vector data, raster data and their combinations (as group layers) can be transmitted via the WMS service.</p>
+</div>
+<div id="workspace-specific-server-settings" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> <strong>Workspace-specific server settings</strong></h2>
+<p>A watermark was just configured for the WMS map service in general. You can also configure settings on a workspace-specific basis. This is done in the workspace settings view.</p>
+<p>Open <strong>Data → Workspaces</strong>.</p>
+<p>Next, let’s edit the settings of the <strong>helsinki</strong> workspace. Select it under <strong>Workspace Names</strong>.</p>
+<p>Then check <strong>Settings → Enabled</strong> and from the right <strong>Services</strong> → <strong>WMS</strong>.</p>
+<p>You can now fill in this workspace-specific contact information to describe the Helsinki WMS map service.</p>
+<p><img src="img/harjoitus_5/image4.2.png" /> <img src="img/harjoitus_5/image4.3.png" /></p>
+<p>Scroll down and press <strong>Save</strong>.</p>
+<p>Now the other WMS map services on your GeoServer server will contain the default information (defined in <strong>About &amp; Status → Contact Information</strong>), while the <strong>helsinki</strong>-workspace WMS service will have the information that was just defined.</p>
+<p>You can check the information with a GetCapabilities request as follows:</p>
+<ul>
+<li><p>Helsinki-workspace: <a href="http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=Getcapabilities">http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=GetCapabilities</a></p></li>
+<li><p>Tiger-workspace: <a href="http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=Getcapabilities">http://xx.xx.xx.xx/geoserver/tiger/wms?REQUEST=GetCapabilities</a></p></li>
+<li><p>GeoServer default: <a href="http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=Getcapabilities">http://xx.xx.xx.xx/geoserver/wms?REQUEST=GetCapabilities</a></p></li>
+</ul>
+<p><img src="img/harjoitus_5/image5.2.png" /> <img src="img/harjoitus_5/image5.3.png" /></p>
+</div>
+<div id="dpi-resolution-of-the-wms-map-service-image" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> <strong>DPI resolution of the WMS map service image</strong></h2>
+<p>Map servers return images at the default image resolution set by the OGC to <strong>90 DPI</strong> (Dots Per Inch). This DPI value is quite low, but suitable for the most common use contexts, i.e. on a computer or smartphone. A higher map image resolution is necessary, for example, when using workstation location software to produce map output with WMS layers.</p>
+<div class="hint-box">
+<p>Psst! The DPI value is set low by default to avoid overloading the server and to allow seamless map services.</p>
+</div>
+<p>It is possible to specify other screen resolutions for services by modifying the parameters of WMS map requests.</p>
+<p>Now try to preview <strong>poly_landmarks-</strong> as a JPEG image. You can easily find the layer in the <strong>Layer preview</strong> view: <img src="img/harjoitus_5/image6.png" /></p>
+<p>The result is a map image in JPEG format at the default resolution of 90 DPI:<br />
+<img src="img/harjoitus_5/image7.png" /></p>
+<p>If you enlarge the image in your browser (or save it to your hard drive and view it in a photo/image viewer) you will notice that the resolution is quite poor.</p>
+<p><img src="img/harjoitus_5/image8.png" /></p>
+<p>Select and copy the full text of the address in the browser. Open a text editor and paste the text into it. It is an http request to your GeoServer server and resembles the following text:</p>
+<div class="note-box">
+<p><a href="http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap%20&amp;layers=tiger:poly_landmarks&amp;styles=&amp;bbox=-74.047185,40.679648,-73.90782,40.882078%20&amp;width=528&amp;height=768&amp;srs=EPSG:4326&amp;format=image%2Fjpeg">http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap &amp;layers=tiger:poly_landmarks&amp;styles=&amp;bbox=-74.047185,40.679648,-73.90782,40.882078 <strong>&amp;width=528&amp;height=768</strong>&amp;srs=EPSG:4326<strong>&amp;format=image%2Fjpeg</strong></a></p>
+</div>
+<p>The text highlights the most important parameters concerning the WMS image. They can be interpreted as follows:</p>
+<ul>
+<li><p><strong>&amp;width</strong> and <strong>&amp;height</strong>: image size is 528*768 pixels and</p></li>
+<li><p><strong>&amp;format</strong>: the format is JPEG</p></li>
+<li><p>The resolution of the image is not mentioned in the request, so the default resolution is used.</p></li>
+</ul>
+<p>To specify the image resolution, you can add the following parameter to the end of the http request: <strong>&amp;format_options=dpi:300</strong>. So add it to the end of your WMS request, and now copy and paste it in its entirety into the new browser window for comparison. Press <strong>enter</strong> to create a new image: <img src="img/harjoitus_5/image9.png" /></p>
+<p>It is noted that the styles do not match the previous ones. This is because the request also needs to edit the image size, which is calculated to fit the default resolution. However, now the JPEG image produced by the WMS map service is already produced at a higher resolution than before.</p>
+<p>Resolutions can be checked if desired by saving both images to a hard disk and comparing them by zooming in using the image previewer of the operating system you are using.</p>
+<p>As I said, the styles don’t look correct now, because the default request has the image size calculated to 90 DPI resolution. So now we need to modify the values of the <strong>&amp;width</strong> and <strong>&amp;height</strong> parameters to match the new resolution of <strong>300 DPI</strong> using the following equation: <img src="img/harjoitus_5/image10.png" /></p>
+<p><img src="img/harjoitus_5/image11.png" /></p>
+<ul>
+<li><p>new_width = image_defaultwidth * (new_resolution/90)</p></li>
+<li><p>new_length = image_defaultlenght * (new_resolution/90)</p></li>
+</ul>
+<p>So in our case:</p>
+<ul>
+<li><p>new_width = 528 * (300/90) → <strong>&amp;width=1760</strong></p></li>
+<li><p>new_length = 768 * (300/90) → <strong>&amp;height=2560</strong></p></li>
+</ul>
+<p>Go back to your text editor and edit your wms request with the above information. When you try the new request in your browser, the image size, resolution and styles will be correct: <img src="img/harjoitus_5/image12.png" /></p>
+<p>Software that uses WMS services, such as QGIS, automatically builds requests according to the process described above, for example in a map (output map), saving the user from having to manually specify the image size and resolution value.</p>
+</div>
+<div id="wcs" class="section level2" number="6.7">
+<h2><span class="header-section-number">6.7</span> <strong>WCS</strong></h2>
+<p>Open <strong>Services → WCS</strong>.</p>
+<p>As usual, you can decide whether you want GeoServer to produce a raw raster map. This is defined by the <strong>Enable WCS</strong> option. The sharing of raw raster data should be carefully considered. The service may cause high data transfer volumes on the network connection. Furthermore, in practice only classified raster data, aerial and satellite imagery are suitable for the WCS service. </p>
+<p>Under <strong>Coverage processing</strong> you will find the settings for the WCS service. Activating the <strong>Use subsampling</strong> option reduces the amount of data to be processed, which is useful when using data at a lower resolution than the original.</p>
+<p>Similarly, the <strong>Overview policy</strong> option allows the use of overviews of the data (if they exist on the server), which contributes to reducing the amount of data to be transferred (fewer gigabytes). The assumption is that the overview is not used. Note that overviews of data sets must be created separately.</p>
+<p>The <strong>Resource Consumption Limits</strong> option allows the administrator to set resource consumption limits when processing raw raster data. The size of raw resources can be very large (tens or hundreds of gigabytes by default) and the server can become overloaded when processing requests.</p>
+<p><img src="img/harjoitus_5/image13.png" /></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="04_exercise_4.html"><button class="btn btn-default">Previous</button></a>
+<a href="06_exercise_6.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to GeoServer</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Ltd.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

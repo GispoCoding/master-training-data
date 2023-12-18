@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="2 Harjoitus 1: Digitoinnin perusteet | Suunnittelu ja editointi QGISillä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy." />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="2 Harjoitus 1: Digitoinnin perusteet | Suunnittelu ja editointi QGISillä">
+
+<title>2 Harjoitus 1: Digitoinnin perusteet | Suunnittelu ja editointi QGISillä</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Suunnittelu ja editointi QGISillä</h1></div>
+<div class="abstract-sidebar"><p>Syventäväkurssi datan tuottamisesta QGISissä.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#suunnittelu-ja-editointi-qgisillä"><span class="toc-section-number">1</span> Suunnittelu ja editointi QGISillä</a>
+<ul>
+<li><a href="index.html#tervetuloa-syventävälle-qgis-kurssille"><span class="toc-section-number">1.1</span> Tervetuloa Syventävälle QGIS-kurssille!</a></li>
+<li><a href="index.html#kurssimateriaalien-lataaminen"><span class="toc-section-number">1.2</span> Kurssimateriaalien lataaminen</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.3</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.4</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.5</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.6</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-digitoinnin-perusteet"><span class="toc-section-number">2</span> Harjoitus 1: Digitoinnin perusteet</a>
+<ul>
+<li><a href="01_harjoitus_1.html#valmistautuminen"><span class="toc-section-number">2.1</span> Valmistautuminen</a></li>
+<li><a href="01_harjoitus_1.html#muokkauksen-yleisasetukset"><span class="toc-section-number">2.2</span> Muokkauksen yleisasetukset</a></li>
+<li><a href="01_harjoitus_1.html#editoinnin-valmistelu"><span class="toc-section-number">2.3</span> Editoinnin valmistelu</a></li>
+<li><a href="01_harjoitus_1.html#geopackagen-luonti"><span class="toc-section-number">2.4</span> GeoPackagen luonti</a></li>
+<li><a href="01_harjoitus_1.html#aloita-geometrioiden-editointi"><span class="toc-section-number">2.5</span> Aloita geometrioiden editointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-edistyneet-digitointiominaisuudet"><span class="toc-section-number">3</span> Harjoitus 2: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1"><span class="toc-section-number">3.1</span> Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode"><span class="toc-section-number">3.2</span> Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
+<li><a href="02_harjoitus_2.html#rakentamistila"><span class="toc-section-number">3.3</span> Rakentamistila</a></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#rakennuksen-piirto-apuviivojen-avulla"><span class="toc-section-number">3.4</span> Rakennuksen piirto apuviivojen avulla</a>
+<ul>
+<li><a href="02_harjoitus_2.html#sitten-vain-harjoittelemaan."><span class="toc-section-number">3.4.1</span> Sitten vain harjoittelemaan….</a></li>
+</ul></li>
+<li><a href="02_harjoitus_2.html#suorakulmaisen-polygonin-piirtäminen"><span class="toc-section-number">3.5</span> Suorakulmaisen polygonin piirtäminen</a></li>
+<li><a href="02_harjoitus_2.html#tehtävä-rakennus-3540-m-tontin-rajan-suuntaisesti-etäisyys-rajaan-15-m"><span class="toc-section-number">3.6</span> Tehtävä: “Rakennus 35×40 m tontin rajan suuntaisesti, etäisyys rajaan 15 m”</a></li>
+<li><a href="02_harjoitus_2.html#case-rakennusala-tontille-polygonin-kopiointi-toiseksi-itseään-pienemmäksi"><span class="toc-section-number">3.7</span> Case rakennusala tontille: polygonin kopiointi toiseksi itseään pienemmäksi</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-lisää-rakennukset-tasolle-funktio-jolla-pinta-ala-tieto-päivittyy-automaattisesti"><span class="toc-section-number">3.8</span> Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti</a></li>
+<li><a href="02_harjoitus_2.html#lopuksi"><span class="toc-section-number">3.9</span> Lopuksi</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-georeferointi"><span class="toc-section-number">4</span> Harjoitus 3: Georeferointi</a>
+<ul>
+<li class="has-sub"><a href="03_harjoitus_3.html#valmistautuminen-2"><span class="toc-section-number">4.1</span> Valmistautuminen</a>
+<ul>
+<li><a href="03_harjoitus_3.html#section"><span class="toc-section-number">4.1.1</span> </a></li>
+</ul></li>
+<li><a href="03_harjoitus_3.html#aineistojen-valmistelu---georeferoija-lisäosan-aktivointi"><span class="toc-section-number">4.2</span> Aineistojen valmistelu <strong>-</strong> Georeferoija lisäosan aktivointi</a></li>
+<li><a href="03_harjoitus_3.html#georeferoija-lisäosan-toiminta"><span class="toc-section-number">4.3</span> Georeferoija-lisäosan toiminta</a></li>
+<li><a href="03_harjoitus_3.html#panosta-vastinpisteisiin"><span class="toc-section-number">4.4</span> Panosta vastinpisteisiin</a></li>
+<li><a href="03_harjoitus_3.html#vastinpisteiden-tarkastelu-ja-varsinainen-georeferointi"><span class="toc-section-number">4.5</span> Vastinpisteiden tarkastelu ja varsinainen georeferointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-topologia-ja-geometria"><span class="toc-section-number">5</span> Harjoitus 4: Topologia ja geometria</a>
+<ul>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3"><span class="toc-section-number">5.1</span> Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#virheellisen-aineiston-tuonti-qgisiin"><span class="toc-section-number">5.2</span> Virheellisen aineiston tuonti QGISiin</a></li>
+<li><a href="04_harjoitus_4.html#tarkista-kelpoisuus-check-validity"><span class="toc-section-number">5.3</span> Tarkista kelpoisuus (Check validity)</a></li>
+<li><a href="04_harjoitus_4.html#topologian-tarkastaja-topology-checker"><span class="toc-section-number">5.4</span> Topologian tarkastaja (Topology checker)</a></li>
+<li><a href="04_harjoitus_4.html#tarkista-geometriat-geometry-checker"><span class="toc-section-number">5.5</span> Tarkista geometriat (Geometry checker)</a></li>
+<li><a href="04_harjoitus_4.html#geometrian-ja-topologian-validointi-tasoa-muokattaessa"><span class="toc-section-number">5.6</span> Geometrian ja topologian validointi tasoa muokattaessa</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-geokoodaus"><span class="toc-section-number">6</span> Harjoitus 5: Geokoodaus</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-4"><span class="toc-section-number">6.1</span> Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#geocoding--lisäosa"><span class="toc-section-number">6.2</span> GeoCoding -lisäosa</a></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#digitransit.fi-geocoder"><span class="toc-section-number">6.3</span> DigiTransit.fi Geocoder</a>
+<ul>
+<li><a href="05_harjoitus_5.html#digitransit.fi---alkuvalmistelut"><span class="toc-section-number">6.3.1</span> DigiTransit.fi - alkuvalmistelut</a></li>
+<li><a href="05_harjoitus_5.html#digitransit.fi---geocoder-aktivointi"><span class="toc-section-number">6.3.2</span> DigiTransit.fi - Geocoder aktivointi</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-1-digitoinnin-perusteet" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Harjoitus 1: Digitoinnin perusteet</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa luodaan vektoriaineisto hyödyntäen digitoinnin perustyökaluja.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen osallistuja osaa lisätä ja luoda tasoja QGISiin.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>30 minuuttia.</p>
+<div id="valmistautuminen" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Valmistautuminen</h2>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä “<strong>QGIS-harjoitus 1</strong>”.</p>
+</div>
+<div id="muokkauksen-yleisasetukset" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Muokkauksen yleisasetukset</h2>
+<p>Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa <strong>Asetukset &gt; Valinnat &gt; Digitointi</strong>. Jos et esimerkiksi halua, että ominaisuustietojen muokkausikkuna tulee esiin jokaisen polygonin piirtämisen jälkeen niin rastita <strong>Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen</strong>. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri keltaiseksi (<strong>Kuminauha</strong>) ja <strong>Taitepisteen</strong> symbolin tyyli ja koko. Paina <strong>OK</strong>, niin asetukset tulevat voimaan.</p>
+<p><img src="img/harjoitus_1/image1.png" /></p>
+</div>
+<div id="editoinnin-valmistelu" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Editoinnin valmistelu</h2>
+<p>Aloitetaan tekemällä editointia helpottavia valmisteluja. Ensimmäisenä aktivoi omaan projektiisi <strong>Työkalut-valikosta</strong> seuraavat työkalut:</p>
+<ul>
+<li><p>Digitoinnin työkalupalkki</p></li>
+<li><p>Digitoinnin lisätyökalujen palkki</p></li>
+<li><p>Tarttumisen työkalut<br />
+</p></li>
+</ul>
+<p><img src="img/harjoitus_1/image2.png" /></p>
+<p>Usein ensimmäinen operaatio aineistojen luomisessa on taustakartan lisääminen. Taustakartta helpottaa liikkumista ja aineistojen tarkistusta. Uudemmissa QGISin versioissa on OpenStreetMapin taustakarttatasot saatavilla valmiina. Lisää taustakartta projektiin vasemmalta tuplaklikkaamalla  <strong>Selain-paneelista XYZ Tiles &gt; OpenStreetMap</strong>.</p>
+<p><img src="img/harjoitus_1/image3.png" /></p>
+<p>Zoomaa kartta Suomen kohdalle ja koska haluamme tehdä tarkkaa editointia oikeassa koordinaattijärjestelmässä, muutetaan projektin koordinaattijärjestelmä Suomen kansalliseen <strong>EUREF-FIN 3067</strong>. Klikkaa projektin oikeasta alakulmasta, jossa lukee tällä hetkellä EPSG:3857, jonka QGIS on asettanut taustakartan perusteella.</p>
+<p>Paina tämän jälkeen <strong>OK,</strong> jonka jälkeen avautuva ikkuna kysyy sinulta koordinaattimuunnoksesta. Valitse uudestaan <strong>OK</strong> ja nyt projektisi on oikeassa koordinaattijärjestelmässä.</p>
+</div>
+<div id="geopackagen-luonti" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> GeoPackagen luonti</h2>
+<p>Luo uusi GeoPackage-taso valitsemalla päävalikosta <strong>Tasot &gt; Luo taso &gt; Uusi Geopackage-taso</strong>.</p>
+<p><img src="img/harjoitus_1/image4.png" /></p>
+<p>GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi <strong>“Aluesuunnitelma”</strong> ja luotavan tason nimeksi <strong>“Alueet”</strong>. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi <strong>3067</strong>. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:</p>
+<ul>
+<li><p>Nimi: Alueen_nimi / Tyyppi: teksti</p></li>
+<li><p>Nimi: Rakennusala / Tyyppi: kokonaisluku</p></li>
+<li><p>Nimi: Pinta-ala / Tyyppi: desimaalinumero</p></li>
+</ul>
+<p><img src="img/harjoitus_1/image5.png" /></p>
+<p>Muista aina klikata <strong>Lisää kenttälistaan -painiketta</strong>, jotta jokainen kenttä ilmestyy listaukseen.</p>
+<div class="hint-box">
+<p>Integer, 32bit integer vai Integer 64 bit? Tässä tapauksessa valitsemme kentän tyypiksi Integerin, mutta mistä tietää jatkossa, kumman valitsee?<br />
+<br />
+Ensin käyttötarkoitus: mitä lukuja kenttään tallennetaan?<br />
+<br />
+16-bit unsigned integer voi sisältää luvun väliltä -32 768 - 32 767<br />
+Signed: 0 - 65 535.<br />
+32-bit unsigned integer voi sisältää luvun välillä −2 147 483 648 - 2 147 483 647<br />
+Signed: 0 - 4 294 967 295.<br />
+64-bit unsigned integer voi sisältää luvunvälillä −9 223 372 036 854 775 808 - 9 223 372 036 854 775 807<br />
+Signed: 0 - 18 446 744 073 709,55.<br />
+<br />
+QGIS:issä (versioissa 3.10+) integerit ovat oletuksena signed-tyyppisiä, ellei toisin mainita.<br />
+Toisakseen tulee harkittavaksi, mihin tuota tietoa tallennetaan: Geopackage, PostgreSQL vai joku muu? Mitä enemmän käytetään bittejä, sitä suuremmaksi kasvaa tiedostojen koot (myös PostgreSQL:ssä on tiedostoja tietokannan takana). Mitä suuremmat tiedostot, sitä hitaammin asiat sujuvat.<br />
+<br />
+Kolmanneksi pitäisi ottaa huomioon, että siirretäänkö kyseistä aineistoa johonkin toiseen järjestelmään / tiedostoformaattiin. Tuleeko tilanteita, joissa 64bit tallennettu tieto pitääkin viedä tiedostoon, joka ei salli noin suuria numeroita (kuten Shapefile).<br />
+</p>
+</div>
+</div>
+<div id="aloita-geometrioiden-editointi" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Aloita geometrioiden editointi</h2>
+<p>Siirrytään editointialueelle hyödyntämällä <strong>sijaintikirjanmerkkejä</strong>. Valitse ylävalikosta <strong>Näytä &gt; Paneelit &gt; Sijaintikirjanmerkkien hallinta</strong>, jolloin QGIS-työtilaasi ilmestyy uusi paneeli (yleensä Selain-paneelin ja Tasot-paneelin väliin).</p>
+<p><img src="img/harjoitus_1/image6.png" /><img src="img/harjoitus_1/image7.png" /></p>
+<p>Tuo kurssihakemistoon tallennettu kirjanmerkki Editointialue.xml QGIS-projektiin klikkaamalla <strong>Vie/tuo kirjanmerkit -painiketta Sijaintikirjanmerkkien hallinta -paneelissa</strong>.</p>
+<p><img src="img/harjoitus_1/image8.png" /></p>
+<p>Listaan ilmestyy tuotu <strong>Editointialue-sijaintikirjanmerkki</strong>. Pääset sijaintikirjanmerkin osoittamalle alueelle klikkaamalla <strong>Zoomaa kirjanmerkkiin -painiketta</strong> <img src="img/harjoitus_1/image9.png" />.</p>
+<p><img src="img/harjoitus_1/image10.png" /></p>
+<p>Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla <strong>Tason muokkaus päälle/pois -painiketta</strong> <img src="img/harjoitus_1/image11.png" />. Huomaa, että <strong>Digitoinnin työkalupalkin</strong> työkalut aktivoituvat.</p>
+<p><img src="img/harjoitus_1/image12.png" /></p>
+<p>Valitse työkaluksi <strong>Lisää polygonikohde</strong> ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, niin napauta hiiren oikeaa näppäintä, uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.</p>
+<p><img src="img/harjoitus_1/image13.png" /></p>
+<p>Kun editointi on valmis, QGISiin avautuu <strong>Alueet - Kohteen attribuutit -ikkuna</strong>. Laita <strong>Alueen_nimi-kohtaan “Aluerajaus”</strong>. Muihin kenttiin ei vielä tarvitse täyttää mitään.</p>
+<p><img src="img/harjoitus_1/image14.png" /></p>
+<p>Luodaan seuraavaksi uusi GeoPackage-taso, mutta kokonaan uuden tietokannan luomisen sijaan teemme aikaisemmin luotuun <strong>Aluesuunnitelma-GeoPackageen</strong> vain uuden tason. Anna taulun nimeksi <strong>“Kulkureitit”</strong> ja lisää siihen seuraavat kentät:</p>
+<ul>
+<li><p>Nimi: Reitin_nimi / Tyyppi: teksti</p></li>
+<li><p>Nimi: Pituus / Tyyppi: desimaalinumero</p></li>
+</ul>
+<p><img src="img/harjoitus_1/image15.png" /></p>
+<p>Kun klikkaat <strong>OK</strong>, QGIS kysyy, haluatko korvata olemassa olevan GeoPackage-tiedoston (ja sen taulut) tällä tiedostolla vai lisätä tiedostoon/tietokantaan uuden tason. Valitse <strong>Lisää uusi taso</strong>, jolloin projektiin lisätään jälleen uusi taso.</p>
+<p><img src="img/harjoitus_1/image16.png" /></p>
+<p>Laita nyt vuorostaan tämän juuri luodun tason editointi päälle klikkaamalla <strong>Tason muokkaus päälle/pois -kuvaketta</strong> (kynäikoni). Koska haluamme että kulkureittien editointi alkaa aivan alueen reunasta, on kytkettävä <strong>Tarttuminen (snapping)</strong> päälle. Voit tehdä tämän klikkaamalla <strong>Ota tarttuminen käyttöön -painiketta</strong> <img src="img/harjoitus_1/image17.png" />. Valitse ensimmäisestä alasvetovalikosta <strong>Kaikki tasot</strong> ja toisesta valikosta kuvan mukaisesti <strong>Piste</strong> ja <strong>segmentti</strong>. Aseta <strong>tarttumisherkkyydeksi</strong> 12 pikseliä (oletusherkkyys).</p>
+<p><img src="img/harjoitus_1/image18.png" /></p>
+<p>Luodaan seuraavaksi kulkureitti, joka kulkee alueen läpi kuvan mukaisesti. Anna tälle kulkureitille nimeksi <strong>“Raitiotie”</strong>. Jätä pituus-kenttä vielä tyhjäksi.</p>
+<p><img src="img/harjoitus_1/image19.png" /></p>
+<p>Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot <strong>Kentän arvojen laskin -työkalun</strong> avulla. Avaa laskin klikkaamalla <strong>Ominaisuustietojen työkalupalkista</strong> <strong>Avaa kentän arvojen laskin -painiketta</strong> <img src="img/harjoitus_1/image20.png" /> <img src="img/harjoitus_1/image21.png" /></p>
+<p>Klikkaa avautuvasta ikkunasta <strong>Päivitä olemassa oleva kenttä</strong> ja valitse alasvetovalikosta <strong>Pituus-kenttä</strong>. Kirjoita <strong>Lauseke-kenttään</strong> lauseke, joka laskee viivamaisen kohteen pituuden sekä pyöristää sen yhden desimaalin tarkkuudelle:</p>
+<div class="code-box">
+<p>round($length, 1)</p>
+</div>
+<p><img src="img/harjoitus_1/image22.png" /></p>
+<p>Laita lopuksi molempien tasojen tason muokkaus pois päältä klikkaamalla kynäkuvaketta. Tallenna kaikki muutokset tasoihin. Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> (englanninkielisessä QGISissä <strong>CTRL + S</strong>) tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+<div class="hint-box">
+<p>Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti tuki@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.</p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="index.html"><button class="btn btn-default">Previous</button></a>
+<a href="02_harjoitus_2.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Suunnittelu ja editointi QGISillä</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

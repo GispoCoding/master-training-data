@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3 Harjoitus 2: Paikkatietoaineistot ja -palvelut | QGIS perusteet kunnille" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Ltd." />
+
+<meta name="date" content="2023-12-18" />
+
+
+<meta name="description" content="3 Harjoitus 2: Paikkatietoaineistot ja -palvelut | QGIS perusteet kunnille">
+
+<title>3 Harjoitus 2: Paikkatietoaineistot ja -palvelut | QGIS perusteet kunnille</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS perusteet kunnille</h1></div>
+<div class="abstract-sidebar"><p>Peruskurssi kunnille QGIS-ohjelmiston perusteisiin</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-perusteet-kunnille"><span class="toc-section-number">1</span> QGIS perusteet kunnille</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille"><span class="toc-section-number">1.1</span> Tervetuloa kurssille!</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.2</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.3</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.4</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.5</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-käyttöliittymä"><span class="toc-section-number">2</span> Harjoitus 1: QGISin käyttöliittymä</a>
+<ul>
+<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus"><span class="toc-section-number">2.1</span> Kurssimateriaalien lataus</a></li>
+<li><a href="01_harjoitus_1.html#qgisin-käyttöliittymä"><span class="toc-section-number">2.2</span> QGISin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qgis-käyttöliittymän-osat"><span class="toc-section-number">2.3</span> QGIS-käyttöliittymän osat</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#kokeile-itse"><span class="toc-section-number">2.4</span> Kokeile itse</a>
+<ul>
+<li><a href="01_harjoitus_1.html#attribuuttitaulu"><span class="toc-section-number">2.4.1</span> Attribuuttitaulu</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-paikkatietoaineistot-ja--palvelut"><span class="toc-section-number">3</span> Harjoitus 2: Paikkatietoaineistot ja -palvelut</a>
+<ul>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö"><span class="toc-section-number">3.1</span> Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite"><span class="toc-section-number">3.2</span> Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#valmistautuminen"><span class="toc-section-number">3.3</span> Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#wms-palvelun-lisääminen"><span class="toc-section-number">3.4</span> WMS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#wfs-palvelun-lisääminen"><span class="toc-section-number">3.5</span> WFS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#aineistojen-lisääminen-mml-rajapinnoilta"><span class="toc-section-number">3.6</span> Aineistojen lisääminen MML rajapinnoilta</a></li>
+<li><a href="02_harjoitus_2.html#wfs-rajapintapalvelun-kysely-ja-suodatus-sql-lausekkeella"><span class="toc-section-number">3.7</span> WFS-rajapintapalvelun kysely ja suodatus SQL-lausekkeella</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-api-avaimen-lisääminen-qgisiin"><span class="toc-section-number">3.8</span> Lisätehtävä: API-avaimen lisääminen QGISiin</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-paikkatietoaineiston-visualisointi"><span class="toc-section-number">4</span> Harjoitus 3: Paikkatietoaineiston visualisointi</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-1"><span class="toc-section-number">4.1</span> Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-1"><span class="toc-section-number">4.2</span> Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen-1"><span class="toc-section-number">4.3</span> Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#vektoriaineistojen-visualisointi"><span class="toc-section-number">4.4</span> Vektoriaineistojen visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#monikulmioaineiston-edistynyt-visualisointi"><span class="toc-section-number">4.5</span> Monikulmioaineiston edistynyt visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-paikkatietoaineiston-nimiöinti-ja-luokittelu"><span class="toc-section-number">5</span> Harjoitus 4: Paikkatietoaineiston nimiöinti ja luokittelu</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-2"><span class="toc-section-number">5.1</span> Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-2"><span class="toc-section-number">5.2</span> Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-2"><span class="toc-section-number">5.3</span> Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#nimiöt"><span class="toc-section-number">5.4</span> Nimiöt</a></li>
+<li><a href="04_harjoitus_4.html#nimiöiden-tyyli--ja-yleisasetukset"><span class="toc-section-number">5.5</span> Nimiöiden tyyli- ja yleisasetukset</a></li>
+<li><a href="04_harjoitus_4.html#nimiön-tekstityyli"><span class="toc-section-number">5.6</span> Nimiön tekstityyli</a></li>
+<li><a href="04_harjoitus_4.html#nimiöinnit-viivatasoilla"><span class="toc-section-number">5.7</span> Nimiöinnit viivatasoilla</a></li>
+<li><a href="04_harjoitus_4.html#vektoriaineiston-luokittelut"><span class="toc-section-number">5.8</span> Vektoriaineiston luokittelut</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-nimiöiden-piirtäminen"><span class="toc-section-number">5.9</span> Lisätehtävä: nimiöiden piirtäminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-digitoinnin-perusteet"><span class="toc-section-number">6</span> Harjoitus 5: Digitoinnin perusteet</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-3"><span class="toc-section-number">6.1</span> Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#muokkauksen-yleisasetukset"><span class="toc-section-number">6.2</span> Muokkauksen yleisasetukset</a></li>
+<li><a href="05_harjoitus_5.html#editoinnin-valmistelu"><span class="toc-section-number">6.3</span> Editoinnin valmistelu</a></li>
+<li><a href="05_harjoitus_5.html#geopackagen-luonti"><span class="toc-section-number">6.4</span> GeoPackagen luonti</a></li>
+<li><a href="05_harjoitus_5.html#aloita-geometrioiden-editointi"><span class="toc-section-number">6.5</span> Aloita geometrioiden editointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-edistyneet-digitointiominaisuudet"><span class="toc-section-number">7</span> Harjoitus 6: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="06_harjoitus_6.html#valmistautuminen-4"><span class="toc-section-number">7.1</span> Valmistautuminen</a></li>
+<li><a href="06_harjoitus_6.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode"><span class="toc-section-number">7.2</span> Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
+<li><a href="06_harjoitus_6.html#rakentamistila"><span class="toc-section-number">7.3</span> Rakentamistila</a></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#rakennuksen-piirto-apuviivojen-avulla"><span class="toc-section-number">7.4</span> Rakennuksen piirto apuviivojen avulla</a>
+<ul>
+<li><a href="06_harjoitus_6.html#sitten-vain-harjoittelemaan."><span class="toc-section-number">7.4.1</span> Sitten vain harjoittelemaan….</a></li>
+</ul></li>
+<li><a href="06_harjoitus_6.html#suorakulmaisen-polygonin-piirtäminen"><span class="toc-section-number">7.5</span> Suorakulmaisen polygonin piirtäminen</a></li>
+<li><a href="06_harjoitus_6.html#rakennustilan-hyödyntäminen-rakennuksen-piirtämisessä"><span class="toc-section-number">7.6</span> Rakennustilan hyödyntäminen rakennuksen piirtämisessä</a></li>
+<li><a href="06_harjoitus_6.html#lisätehtävä-lisää-rakennukset-tasolle-funktio-jolla-pinta-ala-tieto-päivittyy-automaattisesti"><span class="toc-section-number">7.7</span> Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti</a></li>
+<li><a href="06_harjoitus_6.html#lopuksi"><span class="toc-section-number">7.8</span> Lopuksi</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-karttatuloste"><span class="toc-section-number">8</span> Harjoitus 7: Karttatuloste</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoituksen-sisältö-3"><span class="toc-section-number">8.1</span> Harjoituksen sisältö</a></li>
+<li><a href="07_harjoitus_7.html#harjoituksen-tavoite-3"><span class="toc-section-number">8.2</span> Harjoituksen tavoite</a></li>
+<li><a href="07_harjoitus_7.html#valmistautuminen-5"><span class="toc-section-number">8.3</span> Valmistautuminen</a></li>
+<li><a href="07_harjoitus_7.html#karttatuloste"><span class="toc-section-number">8.4</span> Karttatuloste</a></li>
+<li><a href="07_harjoitus_7.html#lisätehtävä-kartta-atlas"><span class="toc-section-number">8.5</span> Lisätehtävä: kartta-atlas</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-2-paikkatietoaineistot-ja--palvelut" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Harjoitus 2: Paikkatietoaineistot ja -palvelut</h1>
+<div id="harjoituksen-sisältö" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Harjoituksen sisältö</h2>
+<p>Harjoituksessa lisätään erilaisia paikkatietoaineistoja ja -palveluita QGIS-ohjelmistoon.</p>
+</div>
+<div id="harjoituksen-tavoite" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Harjoituksen tavoite</h2>
+<p>Koulutettava oppii lisäämään erilaisia paikkatietoaineistoja ja -palveluja QGIS-projektiin.</p>
+</div>
+<div id="valmistautuminen" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Valmistautuminen</h2>
+<p>Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (<strong>Projekti → Tallenna nimellä…</strong>) “<strong>QGIS_harjoitus_2</strong>”.</p>
+<div class="hint-box">
+<p><strong>Psst! Muista tallentaa QGIS-projekti säännöllisesti harjoituksen etenemisen yhteydessä.</strong></p>
+</div>
+</div>
+<div id="wms-palvelun-lisääminen" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> WMS-palvelun lisääminen</h2>
+<p>Seuraavaksi lisäämme WMS (Web Map Service) -palveluiden avulla muutaman aineiston projektiin. Valitse WMS-palveluiden lisäystyökalu <strong>Tietolähteiden hallinta</strong> -ikkunan välilehdeltä.</p>
+<p><img src="img/harjoitus_2/image6.png" /></p>
+<p>Tämä työkalu avaa WMS-palvelujen käyttö- ja määrityslomakkeen. Koneessasi saattaa olla jo määriteltynä useita WMS-palveluja. Saat ne auki alasvetovalikosta. Tässä harjoituksessa lisäämme muutaman uuden WMS-palvelun, joten valitse <strong>Uusi</strong> avautuneesta ikkunasta:</p>
+<p><img src="img/harjoitus_2/image2.png" /></p>
+<p>Määrittele seuraavassa ikkunassa haluamasi nimi WMS-palvelulle. On tärkeää, että muistat itse, mikä nimi vastaa mitäkin aineistoa, mutta paras on tietysti olla johdonmukainen ja kuvata esimerkiksi tietyn kaupungin palvelurajapintaa kyseisen kaupungin nimeä hyödyntäen (kts. esim. alla). URL-kentälle laitetaan WMS-palvelun osoite sekä tarvittaessa käyttäjänimi ja salasana. Luo uusi yhteys Helsingin WMS-palveluun: <a href="http://kartta.hel.fi/ws/geoserver/avoindata/wms" class="uri">http://kartta.hel.fi/ws/geoserver/avoindata/wms</a></p>
+<p><img src="img/harjoitus_2/image4.png" /></p>
+<p>Palvelun määrityksen jälkeen paina <strong>OK</strong>. Paina vielä <strong>Yhdistä</strong>. Näin otamme yhteyden WMS-palveluun ja saamme alle listan palvelusta saatavilla olevista karttatasoista. Valitse <strong>Ajantasa_asemakaava</strong> tai haluamasi muu karttataso ja paina <strong>Lisää</strong>. Huomaa, että voit joutua odottamaan hetken, kun karttatasoa ladataan palvelimelta.</p>
+<p><img src="img/harjoitus_2/image3.png" style="width:70.0%" /></p>
+<p>Luo nyt muutama WMS-palveluyhteys lisää. Voit hakea ja kopioida suoraan niin WMS- kuin WFS-palveluiden URL-osoitteita Gispon ylläpitämässä vapaasti käytettävästä rajapintaluettelosta seuraavan osoitteen takaa (<a href="https://www.gispo.fi/blogi/avoimen-datan-wms-ja-wfs-karttapalveluita/" class="uri">https://www.gispo.fi/blogi/avoimen-datan-wms-ja-wfs-karttapalveluita/</a>). Listaamme myös alle muutaman WMS-palvelun URL-osoitteen:</p>
+<ul>
+<li><a href="https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/WMTSCapabilities.xml" class="uri">https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/WMTSCapabilities.xml</a></li>
+<li><a href="https://avoinapi.vaylapilvi.fi/vaylatiedot/ows?service=wms&amp;request=getCapabilities" class="uri">https://avoinapi.vaylapilvi.fi/vaylatiedot/ows?service=wms&amp;request=getCapabilities</a></li>
+<li><a href="http://opaskartta.turku.fi/TeklaOgcWeb/WMS.ashx" class="uri">http://opaskartta.turku.fi/TeklaOgcWeb/WMS.ashx</a></li>
+<li><a href="http://tiles.kartat.kapsi.fi/peruskartta" class="uri">http://tiles.kartat.kapsi.fi/peruskartta</a></li>
+</ul>
+<p><strong>Yhdistä-painikkeen</strong> yläpuolisesta alasvetovalikosta voit valita haluamasi yhteyden ja ladata sieltä haluamasi tasot. Valitse siis ensin palvelu alasvetovalikosta ja paina sitten <strong>Yhdistä</strong>. Selaa aineistoja ja lataa vielä pari paikkatietoaineistoa eri palveluista. Voit valita aineistoja oman kiinnostuksesi mukaan. Kun olet löytänyt haluamasi aineiston, valitse se (voit valita useita kerrallaan) ja paina <strong>Lisää</strong>, niin aineisto latautuu ja tulee käyttöön QGISissä.</p>
+</div>
+<div id="wfs-palvelun-lisääminen" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> WFS-palvelun lisääminen</h2>
+<p>Seuraavaksi lisäämme QGISiin WFS (Web Feature Service) -palveluja käyttöömme. Muistamme luento-osuudesta, että WFS-palvelu mahdollistaa itse paikkatietokohteiden kyselyn ja lataamisen vektorimuodossa asiakasohjelmaan (eli tapauksessamme QGISiin). Valitse WFS-palveluiden lisäystyökalu seuraavasta pikakuvakkeesta: <img src="img/harjoitus_2/image1.png" /></p>
+<p>WFS-palvelujen yhdistäminen toimii samalla logiikalla kuin edellä määritellyt WMS-palvelut.</p>
+<p>Lisää taas muutama WFS-palvelu ja nimeä ne haluamallasi tavalla. Jos et vielä avannut mainittua Gispon ylläpitämää WMS- ja WFS-rajapintojen listaa verkosta, avaa se nyt. Hae sieltä haluamasi WFS-palvelun URL tai lisää seuraavasta listasta WFS-palveluita:</p>
+<ul>
+<li><a href="https://avoinapi.vaylapilvi.fi/vaylatiedot/ows?service=wfs&amp;request=getCapabilities" class="uri">https://avoinapi.vaylapilvi.fi/vaylatiedot/ows?service=wfs&amp;request=getCapabilities</a></li>
+<li><a href="https://avoinapi.vaylapilvi.fi/vaylatiedot/digiroad/ows?service=wfs&amp;request=getCapabilities" class="uri">https://avoinapi.vaylapilvi.fi/vaylatiedot/digiroad/ows?service=wfs&amp;request=getCapabilities</a></li>
+<li><a href="https://kartta.hel.fi/ws/geoserver/avoindata/wfs" class="uri">https://kartta.hel.fi/ws/geoserver/avoindata/wfs</a></li>
+<li><a href="http://geo.stat.fi/geoserver/tilastointialueet/wfs?version=1.0.0" class="uri">http://geo.stat.fi/geoserver/tilastointialueet/wfs?version=1.0.0</a></li>
+</ul>
+<p>Jos haluat käyttää tiedossasi olevaa suljettua (salasanaa vaativaa) palvelua, niin lisää käyttäjätunnus ja salasana palveluyhteyden luomisen aikana. Käyttäjätunnuksia kysytään automaattisesti, jos valitut karttatasot niin on määritetty. Kun olet luonut muutaman WFS-palveluyhteyden, voit ottaa niihin yhteyden samalla tavalla kuin WMS-palveluiden yhteydessä. Valitse taas oman kiinnostuksesi mukaan aineistoja lisättäväksi QGISiin. Kuten sanottu, huomataan, että tällä kertaa aineistot ovat vektoriaineistomuodossa. Tutki niiden geometrioita ja ominaisuustietoja QGISissa. Kokeile valita muutamia kohteita ja tallentaa ne paikallisesti kurssihakemistoosi.</p>
+<p>Kun olet luonut muutaman WFS-palveluyhteyden, voit ottaa niihin yhteyden samalla tavalla kuin WMS-palveluiden yhteydessä. Valitse taas oman kiinnostuksen mukaan aineistoja lisättäväksi QGISiin. Nyt kun sinulla on enemmän tasoja tasoluettelossa, voit ryhmittää tasoja, jotta sinun on helpompi hallita tasoja yhdessä. Hyödynnä myös muita tasoluettelon pikanäppäimiä tasoluettelon yläpuolelta:</p>
+<p><img src="img/harjoitus_2/image10.png" /></p>
+<p>Yllä olevassa kuvassa näkyy vain yksi taso, mutta sinulla on varmasti jo useampi taso luettelossasi. Tee esimerkiksi omat ryhmät WFS- ja WMS-tasoille.</p>
+</div>
+<div id="aineistojen-lisääminen-mml-rajapinnoilta" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> Aineistojen lisääminen MML rajapinnoilta</h2>
+<p>Maanmittauslaitoksen WMS ja WFS rajapintojen käyttämiseen tarvitsee API-avaimen. Voit luoda oman API-avaimen MML:n OmaTili-palvelussa.</p>
+<ol style="list-style-type: decimal">
+<li><p>Rekisteröidy OmaTili-palveluun täällä <a href="https://omatili.maanmittauslaitos.fi/user/new/avoimet-rajapintapalvelut?lang=fi" class="uri">https://omatili.maanmittauslaitos.fi/user/new/avoimet-rajapintapalvelut?lang=fi</a>. Tarvitset rekisteröitymiseen oman sähköpostisi, Maanmittauslaitos lähettää sinulle sähköpostiisi tilisi salasanan.</p></li>
+<li><p>Rekisteröitymisen jälkeen voi kirjautua MML:n OmaTili-palveluun sähköpostiosoitteellasi ja saamallasi salasanalla.</p></li>
+<li><p>Sisäänkirjautumisen jälkeen näet käyttäjätietosi ja voit luoda uuden API-avaimen. Voit nyt muuttaa tietojasi, jos haluat. Mutta tärkeintä on nyt tehdä itsellesi API-avain painamalla “Luo API-avain” -painiketta. API-avaimesi ilmestyy nyt sivulle ja voit kopioida sen talteen. <strong>Jätä tämä sivu auki API-avaimen kopioimista varten.</strong></p></li>
+</ol>
+<p>Muita huomioita: OmaTili-sivun kautta voit myös poistaa API-avaimesi tai käyttäjätunnuksesi. Mutta: “jos poistat API-avaimen käytöstä, et saa enää käyttöösi rajapintoja, jotka hyödyntävät API-avaintasi toimiakseen. API-avaimen poistamista ei voi peruuttaa, mutta voit milloin vain luoda uuden API-avaimen OmaTili-palvelussa. Uusi API-avain on otettava käyttöön niissä rajapinnoissa, joissa vanha API-avain on ollut käytössä.”</p>
+<p>Mikäli unohdit salasanasi MML:n OmaTili-palveluun, voit pyytää uuden salasanan täältä: <a href="https://omatili.maanmittauslaitos.fi/user/password/avoimet-rajapintapalvelut" class="uri">https://omatili.maanmittauslaitos.fi/user/password/avoimet-rajapintapalvelut</a></p>
+<p>Nyt voit tehdä yhteyden Maanmittauslaitoksen WMS ja WFS palvelimiin. Valitse yksinkertainen todennus välilehti ja kopioi API-avaimesi käyttäjätunnukseksi. API-avain tallentuu palvelinyhteyteen eikä poistu sieltä ellet poista yhteyttä.</p>
+<p><img src="img/harjoitus_2/image11.png" /></p>
+<p>API-avaimen voi myös tallentaa QGISiin, jolloin sinun ei tarvitse hakea ja kopioida API-avainta uudestaan kun teet uusia tietokantayhteyksiä. Tämän harjoituksen lopussa lisätehtävässä on ohjeet API-avaimen tallentamiseen ja käyttöön.</p>
+</div>
+<div id="wfs-rajapintapalvelun-kysely-ja-suodatus-sql-lausekkeella" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> WFS-rajapintapalvelun kysely ja suodatus SQL-lausekkeella</h2>
+<p>Voit myös kysellä ja filtteröidä rajapintapalveluita QGISin SQL-lauseke-toiminnolla. Toiminto löytyy samasta ikkunasta, josta WFS-tasoja voidaan lisätä kunkin palveluyhteyden osalta. Seuraavassa animaatiossa ladataan Tilastokeskuksen ylläpitämästä paikkatietopalvelusta vain vakavuuden “2” liikenneonnettomuudet vuodelta 2015 QGISiin.</p>
+<p>Lisää Tilastokeskuksen tieliikenteen <strong>WFS-rajapinnasta</strong> <a href="http://geo.stat.fi/geoserver/tieliikenne/wfs" class="uri">http://geo.stat.fi/geoserver/tieliikenne/wfs</a> vektoritaso <strong>Tieliikenneonnettomuudet 2017</strong>.</p>
+<p><img src="img/harjoitus_2/image5.png" /></p>
+<p>Datan lataamiseksi tuotamme SQL-kyselyn, joka etsii ‘2’-tiedon meillä jo tiedossa olevasta sarakkeesta. Avaamme ensin <strong>SQL-kyselyikkunan</strong> ja muodostamme kyselyn:</p>
+<p><img src="img/harjoitus_2/image7.gif" /></p>
+<p>Sitten lisäämme tason QGISiin ja varmistamme, että SQL-kyselymme tuotti toivotun tuloksen:</p>
+<p><img src="img/harjoitus_2/image9.gif" /></p>
+</div>
+<div id="lisätehtävä-api-avaimen-lisääminen-qgisiin" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> Lisätehtävä: API-avaimen lisääminen QGISiin</h2>
+<p>Mene ylävalikosta <strong>Asetukset &gt; Valinnat</strong> ja avaa Autentikointi-välilehti.
+QGIS saattaa ensin kysyä pääkäyttäjäsalasanaa, jos et ole luonut sellaista aiemmin. Valitse salasanaksi joku, jonka muistat hyvin, sitä ei voi palauttaa myöhemmin. Kun olet luonut salasanan, pääset jatkamaan API-avaimen lisäämistä.</p>
+<p><img src="img/harjoitus_2/image12.png" />
+Paina aluksi <strong>+</strong>-symbolia välilehden oikeasta ylänurkasta.
+Vaihda pudotusvalikosta autentikoinniksi <strong>Basic authentication</strong> valinta. Syötä aukeavaan ikkunaan salasanan nimi (esim. “MML”) ja lisää API-avaimesi <strong>Käyttäjänimi</strong>-kenttään. Muut kentät voit jättää tyhjiksi. Paina lopuksi <strong>Tallenna</strong> ja asetukset ikkunasta <strong>OK</strong>. API avain on nyt tallennettu ja voit käyttää sitä tehdessäsi WMS tai WFS yhteyttä.</p>
+<p><img src="img/harjoitus_2/image13.png" /></p>
+<div class="hint-box">
+<p><strong>Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_harjoitus_1.html"><button class="btn btn-default">Previous</button></a>
+<a href="03_harjoitus_3.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS perusteet kunnille</h5>
+<span class="footer-version">v2023-12-18</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-contact-info">Kumpulantie 3, 3 krs
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
