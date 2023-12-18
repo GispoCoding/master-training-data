@@ -1,0 +1,90 @@
+---
+title: "Johdanto GeoServerin käyttöön"
+author: "Gispo Oy"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "Johdantokurssi GeoServerin käyttöön."
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+documentclass: book
+---
+
+<!-- Harjoitukset -->
+
+# JOHDANTO GEOSERVERIN KÄYTTÖÖN
+
+## Tervetuloa GeoServer-kurssille!
+Tämän kurssin tarkoituksena on opastaa sinut GeoServerin käyttöön. Paikkatietojen tai muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumisel­le. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku asia jää epäselväksi.
+
+## GeoServerin taustaa
+GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitellä ja hallinnoida geospatiaalista dataa. GeoServer on ollut toiminnassa vuodesta 2001 alkaen “The Open Planning Project”-hankkeen kautta. Vuonna 2014 GeoServer siirtyi OSGeo-projektin alle. GeoServeriä päivitetään puolen vuoden välein ja ohjelmiston käyttäjäkunta on varsin vilkas ja aktiivinen.
+
+
+## Lukuohje
+
+**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
+
+::: commandline-box
+sudo lsb_release -a
+:::
+
+**Tiedostojen sisältö** on esitetty seuraavasti:
+
+::: file-content-box
+#IPv4 local connections: #host all all 127.0.0.1/32 md5
+:::
+
+**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
+
+::: code-box
+SELECT version();
+:::
+
+**Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
+
+::: hint-box
+Mistä löydät tietoa GeoServeristä?
+
+GeoServerillä on omat kotisivut.
+
+Psst! Tietoa GeoServeristä löydät internetistä.
+:::
+
+## Mistä lisätietoja?
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+::: note-box
+<http://www.qgis.org/>
+:::
+
+::: note-box
+<http://docs.qgis.org/>
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>
+:::
+
+::: note-box
+<http://www.osgeo.fi>
+:::
+
+## Virheet
+
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+
+## Lisenssi ja oikeudet
+
+Nämä materiaalit on "Johdanto GeoServerin käyttöön"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

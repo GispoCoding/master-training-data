@@ -1,0 +1,105 @@
+---
+title: "Paikkatiedon mobiilikeruu Mergin Mapsilla"
+author: "Gispo Oy"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "Peruskurssi mergin maps-lisäosan ja mobiilisovelluksen käytöstä."
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+documentclass: book
+---
+
+<!-- Harjoitukset -->
+
+# **Paikkatiedon mobiilikeruu Mergin Mapsilla**
+
+![](img/Kansi/image1.png)
+
+## **Tervetuloa paikkatiedon mobiilikeruun peruskurssille!**
+
+Tämän kurssin tarkoituksena on opastaa sinut Input--ohjelmiston käyttöön. Mergin Mapsin Input hyödyntää QGIS-ohjelmistoa, ja oletuksena on, että ainakin perusteet QGISista on jo opittu. Muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumiselle. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku muu asia jää epäselväksi.
+
+## **Mergin Maps Inputin taustaa**
+
+Mergin Maps on mobiililaitteille tarkoitettu avoimen lähdekoodin paikkatieto-ohjelmisto. Pääkehittäjänä toimii Englantilainen yritys nimeltä Lutra Consulting. Mergin Mapsin toiminnallisuudet ovat kehittyneet viime vuosina huimasti, ja se onkin käytössä paikkatiedon keruun mobiiliratkaisuna maailmalla laajasti. Mergin Mapsin käyttäjämäärää on melko vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä, sitä voi käyttää useilla laitteilla samanaikaisesti ja jakaa edelleen vapaasti. Heidän oma arvio käyttäjistä on yli 45 000 käyttäjää.
+
+Mergin Maps--ohjelmisto on suunniteltu hyvin yhteensopivaksi QGIS-työpöytäohjelmiston kanssa, ja sikäli täydentää senkin käyttäjäkuntaa ja käyttötapauksia. Tämän lyhyen kurssin aikana käsittelemme vain osaa Mergin Mapsin kaikista toiminnallisuuksista. Kurssin perusteella sinun tulisi kuitenkin oppia Mergin Mapsin käytön perusteet, ja pystyä käyttämään oppimaasi omaan käyttötarkoitukseesi.
+
+## **Miksi Mergin Maps?**
+
+Perimmäinen syy Mergin Mapsin käyttöön on tietysti paikkatietoaineistojen hyödyntäminen. Paikkatietoja voi hyödyntää monilla avoimen ja suljetun lähdekoodin ohjelmistolla, mutta tässä muutamia perusteluja juuri Mergin Maps-ohjelmiston käytölle:
+
+-   **Mergin Maps** on ilmainen. Voit ladata ja asentaa sen ilman lisenssi- tai käyttömaksuja. Käyttöön ei sisälly mitään maksuja.
+
+-   **Mergin Maps on vapaa**. Jos tarvitset Merginiin lisää ominaisuuksia, sinulla on täysi vapaus laajentaa ja muuttaa Mergin Mapsia. Sinun ei tarvitse odottaa seuraavaa versioita ja toivoa, että tarvitsemasi ominaisuudet ovat sisällytetty mukaan. Jos osaat ohjelmoida, voit lisätä ominaisuudet itse. Voit myös rahoittaa uusien ominaisuuksien kehittämistä osaksi Merginiä.
+
+-   **Mergin Maps kehittyy jatkuvasti**. Kuka tahansa voi lisätä tai rahoittaa uusia ominaisuuksia Mergin Mapsiin ja siksi ohjelmisto kehittyy kiihtyvällä vauhdilla. Erilaisten lisäosien avulla on helppo toteuttaa omia prosesseja tukevia toimintoja.
+
+-   **Mergin Maps on hyvin dokumentoitu**. Mergin Maps sisältää laajan dokumentaation. Koko ajan kasvava käyttäjäyhteisö auttaa mielellään uusia käyttäjiä ja voit myös kysyä apua suoraan sovelluskehittäjiltä.
+
+-   **QGIS on järjestelmäriippumaton**. Mergin Mapsia kehitetään Android-käyttöjärjestelmän ohella Windows-, iOS- ja Huawei Map Galleria- laitteille.
+
+-   **Mergin Maps on suomenkielinen**. Käyttöliittymä on suomennettu. Myös ruotsinkielinen versio on käytettävissä ilman lisäkustannuksia. Käyttöohjeita, web-sivustoja ja muita materiaaleja kehitetään ja suomennetaan jatkuvasti.
+
+## **Lukuohje**
+
+**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
+
+::: commandline-box
+``` bash
+sudo lsb_release -a
+```
+:::
+
+**Tiedostojen sisältö** on esitetty seuraavasti:
+
+::: file-content-box
+#IPv4 local connections: #host all all 127.0.0.1/32 md5
+:::
+
+**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
+
+::: code-box
+``` sql
+SELECT version();
+```
+:::
+
+## **Mistä lisätietoja?**
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+::: note-box
+<https://merginmaps.com>\
+:::
+
+::: note-box
+<https://merginmaps.com/docs/>\
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>\
+:::
+
+::: note-box
+<http://www.osgeo.fi>\
+:::
+
+## **Virheet**
+
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla info\@gispo.fi-osoitteeseen.
+
+## **Lisenssi ja oikeudet**
+
+Nämä materiaalit ovat "Paikkatiedon mobiilikeruu Mergin Mapsilla"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

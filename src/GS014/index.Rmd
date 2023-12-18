@@ -1,0 +1,89 @@
+---
+title: "Lausekkeet QGISissä"
+author: "Gispo Ltd."
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "QGIS jatkokurssi lausekkeiden hyödyntämisestä."
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+documentclass: book
+---
+
+# Tervetuloa 'Lausekkeet QGISissä'- kurssille! 
+
+Kurssilla perehdytään siihen, miten paljon enemmän QGIS-paikkatieto-ohjelmistosta saa irti hyödyntämällä erilaisia lausekkeita ja pieniä skriptejä. Kurssilla koulutettava oppii sekä kirjoittamaan lausekkeita että löytämään paikat, joihin sijoitettuna lausekkeiden käytöstä voi saada kouriintuntuvaa hyötyä. Kurssin jälkeen koulutettava osaa sekä analysoida kohteiden ominaisuustietoja että hyödyntää QGISin lausekkeenmuodostajaikkunaa uuden tiedon tuottamiseen, luoda omia lausekkeita ja funktiota, kustomoida karttatason kuvaustekniikkaa tai nimiöitä, hyödyntää lausekkeita karttatuotteiden ja kartta-atlasten yhteydessä ja hyödyntää lyhyitä skriptejä mm. QGISin Python-konsolin kautta. Kurssilla pyrimme muodostamaan yleiskuvan siitä, millaisissa tilanteissa on parasta käskyttää QGISiä lausekkeella, milloin luoda uusi funktio, ja milloin kääntyä QGISin Python-konsolin tai Prosessointikehyksen puoleen.
+
+Kurssille osallistuvien tulee tuntea paikkatiedon ja QGIS-paikkatieto-ohjelmiston perusteet. Kurssi sopii etenkin niille, jotka ovat haluavat laajentaa omaa QGIS-osaamistaan seuraavalle tasolle. Huolimatta siitä, että kurssilla tutustutaan QGISin kustomointiin lausekkeiden, omien funktiomäärittelyjen ja lyhyiden skriptien avulla, kyseessä ei ole sovelluskehityskurssi; pikemminkin kelle tahansa QGIS-käyttäjälle soveltuva syventävä kurssi.
+
+## Lukuohje
+
+**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
+
+::: commandline-box
+``` bash
+sudo lsb_release -a
+```
+:::
+
+**Tiedostojen sisältö** on esitetty seuraavasti:
+
+::: file-content-box
+#IPv4 local connections: #host all all 127.0.0.1/32 md5
+:::
+
+**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
+
+::: code-box
+``` sql
+SELECT version();
+```
+:::
+
+**Kysymykset ja lisätiedot** on esitetty seuraavasti:
+
+::: hint-box
+Mistä löydät tietoa GeoServeristä?
+
+GeoServerillä on omat kotisivut.
+
+Psst! Tietoa GeoServeristä löydät internetistä.
+:::
+
+## Mistä lisätietoja?
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+::: note-box
+<http://www.qgis.org/>
+:::
+
+::: note-box
+<http://docs.qgis.org/>
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>
+:::
+
+::: note-box
+<http://www.osgeo.fi>
+:::
+
+## Virheet
+
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi](mailto:info@gispo.fi-osoitteeseen){.email}-osoitteeseen.
+
+## Lisenssi ja oikeudet
+
+Nämä materiaalit on "Lausekkeet QGISissä"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

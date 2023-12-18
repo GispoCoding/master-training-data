@@ -1,0 +1,83 @@
+# Harjoitus 2: Paikkatietoaineistot ja -palvelut
+
+## Harjoituksen sisältö
+
+Harjoituksessa lisätään erilaisia paikkatietoaineistoja ja -palveluita QGIS-ohjelmistoon.
+
+## Harjoituksen tavoite
+
+Koulutettava oppii lisäämään erilaisia paikkatietoaineistoja ja -palveluja QGIS-projektiin.
+
+## Valmistautuminen
+
+Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_2**".
+
+::: hint-box
+**Psst! Muista tallentaa QGIS-projekti säännöllisesti harjoituksen etenemisen yhteydessä.**
+:::
+
+## WMS-palvelun lisääminen
+
+Seuraavaksi lisäämme WMS (Web Map Service) -palveluiden avulla muutaman aineiston projektiin. Valitse WMS-palveluiden lisäystyökalu **Tietolähteiden hallinta** -ikkunan välilehdeltä.
+
+![](img/harjoitus_2/image6.png)
+
+Tämä työkalu avaa WMS-palvelujen käyttö- ja määrityslomakkeen. Koneessasi saattaa olla jo määriteltynä useita WMS-palveluja. Saat ne auki alasvetovalikosta. Tässä harjoituksessa lisäämme muutaman uuden WMS-palvelun, joten valitse **Uusi** avautuneesta ikkunasta:
+
+![](img/harjoitus_2/image2.png)
+
+Määrittele seuraavassa ikkunassa haluamasi nimi WMS-palvelulle. On tärkeää, että muistat itse, mikä nimi vastaa mitäkin aineistoa, mutta paras on tietysti olla johdonmukainen ja kuvata esimerkiksi tietyn kaupungin palvelurajapintaa kyseisen kaupungin nimeä hyödyntäen (kts. esim. alla). URL-kentälle laitetaan WMS-palvelun osoite sekä tarvittaessa käyttäjänimi ja salasana. Luo uusi yhteys Helsingin WMS-palveluun: <http://kartta.hel.fi/ws/geoserver/avoindata/wms>
+
+![](img/harjoitus_2/image4.png)
+
+Palvelun määrityksen jälkeen paina **OK**. Paina vielä **Yhdistä**. Näin otamme yhteyden WMS-palveluun ja saamme alle listan palvelusta saatavilla olevista karttatasoista. Valitse **Ajantasa_asemakaava** tai haluamasi muu karttataso ja paina **Lisää**. Huomaa, että voit joutua odottamaan hetken, kun karttatasoa ladataan palvelimelta.
+
+![](img/harjoitus_2/image3.png){width="70%"}
+
+Luo nyt muutama WMS-palveluyhteys lisää. Voit hakea ja kopioida suoraan niin WMS- kuin WFS-palveluiden URL-osoitteita Gispon ylläpitämässä vapaasti käytettävästä rajapintaluettelosta seuraavan osoitteen takaa (<https://www.gispo.fi/blogi/avoimen-datan-wms-ja-wfs-karttapalveluita/>). Listaamme myös alle muutaman WMS-palvelun URL-osoitteen:
+
+-   <http://opaskartta.turku.fi/TeklaOgcWeb/WMS.ashx>
+-   <http://tiles.kartat.kapsi.fi/peruskartta>
+-   <https://avoinapi.vaylapilvi.fi/vaylatiedot/ows?service=wms&request=getCapabilities>
+
+**Yhdistä-painikkeen** yläpuolisesta alasvetovalikosta voit valita haluamasi yhteyden ja ladata sieltä haluamasi tasot. Valitse siis ensin palvelu alasvetovalikosta ja paina sitten **Yhdistä**. Selaa aineistoja ja lataa vielä pari paikkatietoaineistoa eri palveluista. Voit valita aineistoja oman kiinnostuksesi mukaan. Kun olet löytänyt haluamasi aineiston, valitse se (voit valita useita kerrallaan) ja paina **Lisää**, niin aineisto latautuu ja tulee käyttöön QGISissä.
+
+## WFS-palvelun lisääminen
+
+Seuraavaksi lisäämme QGISiin WFS (Web Feature Service) -palveluja käyttöömme. Muistamme luento-osuudesta, että WFS-palvelu mahdollistaa itse paikkatietokohteiden kyselyn ja lataamisen vektorimuodossa asiakasohjelmaan (eli tapauksessamme QGISiin). Valitse WFS-palveluiden lisäystyökalu seuraavasta pikakuvakkeesta: ![](img/harjoitus_2/image1.png)
+
+WFS-palvelujen yhdistäminen toimii samalla logiikalla kuin edellä määritellyt WMS-palvelut.
+
+Lisää taas muutama WFS-palvelu ja nimeä ne haluamallasi tavalla. Jos et vielä avannut mainittua Gispon ylläpitämää WMS- ja WFS-rajapintojen listaa verkosta, avaa se nyt. Hae sieltä haluamasi WFS-palvelun URL tai lisää seuraavasta listasta WFS-palveluita:
+
+-   <https://kartta.hel.fi/ws/geoserver/avoindata/wfs>
+-   <http://lipas.cc.jyu.fi/geoserver/lipas/ows?>
+-   <http://geo.stat.fi/geoserver/tilastointialueet/wfs?version=1.0.0>
+
+Jos haluat käyttää tiedossasi olevaa suljettua (salasanaa vaativaa) palvelua, niin lisää käyttäjätunnus ja salasana palveluyhteyden luomisen aikana. Käyttäjätunnuksia kysytään automaattisesti, jos valitut karttatasot niin on määritetty. Kun olet luonut muutaman WFS-palveluyhteyden, voit ottaa niihin yhteyden samalla tavalla kuin WMS-palveluiden yhteydessä. Valitse taas oman kiinnostuksesi mukaan aineistoja lisättäväksi QGISiin. Kuten sanottu, huomataan, että tällä kertaa aineistot ovat vektoriaineistomuodossa. Tutki niiden geometrioita ja ominaisuustietoja QGISissa. Kokeile valita muutamia kohteita ja tallentaa ne paikallisesti kurssihakemistoosi.
+
+Kun olet luonut muutaman WFS-palveluyhteyden, voit ottaa niihin yhteyden samalla tavalla kuin WMS-palveluiden yhteydessä. Valitse taas oman kiinnostuksen mukaan aineistoja lisättäväksi QGISiin. Nyt kun sinulla on enemmän tasoja tasoluettelossa, voit ryhmittää tasoja, jotta sinun on helpompi hallita tasoja yhdessä. Hyödynnä myös muita tasoluettelon pikanäppäimiä tasoluettelon yläpuolelta:
+
+![](img/harjoitus_2/image10.png)
+
+Yllä olevassa kuvassa näkyy vain yksi taso, mutta sinulla on varmasti jo useampi taso luettelossasi. Tee esimerkiksi omat ryhmät WFS- ja WMS-tasoille.
+
+## Lisätehtävä: WFS-rajapintapalvelun kysely ja suodatus SQL-lausekkeella
+
+Voit myös kysellä ja filtteröidä rajapintapalveluita QGISin SQL-lauseke-toiminnolla. Toiminto löytyy samasta ikkunasta, josta WFS-tasoja voidaan lisätä kunkin palveluyhteyden osalta. Seuraavassa animaatiossa ladataan Tilastokeskuksen ylläpitämästä paikkatietopalvelusta vain vakavuuden "2" liikenneonnettomuudet vuodelta 2015 QGISiin.
+
+Lisää Tilastokeskuksen tieliikenteen **WFS-rajapinnasta** <http://geo.stat.fi/geoserver/tieliikenne/wfs> vektoritaso **Tieliikenneonnettomuudet 2017**.
+
+![](img/harjoitus_2/image5.png)
+
+Datan lataamiseksi tuotamme SQL-kyselyn, joka etsii '2'-tiedon meillä jo tiedossa olevasta sarakkeesta. Avaamme ensin **SQL-kyselyikkunan** ja muodostamme kyselyn:
+
+![](img/harjoitus_2/image7.gif)
+
+Sitten lisäämme tason QGISiin ja varmistamme, että SQL-kyselymme tuotti toivotun tuloksen:
+
+![](img/harjoitus_2/image9.gif)
+
+::: hint-box
+**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
+:::

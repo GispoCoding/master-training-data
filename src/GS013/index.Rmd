@@ -1,0 +1,97 @@
+---
+title: "Tilastot ja analyysit QGISillä"
+author: "Gispo Oy."
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "Jatkokurssi QGISin käytöstä."
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+documentclass: book
+---
+
+<!-- Harjoitukset -->
+
+# Tilastot ja analyysit QGISillä
+
+## Tervetuloa QGIS-jatkokurssille!
+
+Kurssilla syvennytään QGIS-paikkatieto-ohjelmiston tilastoihin ja analyyseihin. Kurssilla koulutettava oppii mm. tuomaan QGISiin erilaista taulukkomuotoista dataa, hyödyntämään Tilastot-paneelia ja DataPlotlyä sekä käyttämään QGISin sisäänrakennettua graafista mallintajaa. Kurssin jälkeen koulutettava osaa hyödyntää ja jatkojalostaa erilaisia taulukkoaineistoja sekä ymmärtää QGISin tilastoihin liittyvien lisäosien toimintaperiaatteet. Kurssillä käydään läpi myös erilaisia vektorianalyysejä. 
+
+Kurssille osallistuvien tulee tuntea paikkatiedon ja QGIS-paikkatieto-ohjelmiston perusteet. Kurssi sopii etenkin niille, jotka käsittelevät paljon erilaisia tilastoja/taulukkoja ja haluavat automatisoida prosessejaan. 
+
+## Kurssimateriaalien lataaminen
+
+Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
+
+::: note-box
+[Kurssihakemisto.zip](https://drive.google.com/uc?id=1bzHWPauYUZq_pju6hPMRWGHA8Uv26gVp&export=download)
+:::
+
+## Lukuohje
+
+**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
+
+::: commandline-box
+sudo lsb_release -a
+:::
+
+**Tiedostojen sisältö** on esitetty seuraavasti:
+
+::: file-content-box
+#IPv4 local connections: #host all all 127.0.0.1/32 md5
+:::
+
+**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
+
+::: code-box
+SELECT version();
+:::
+
+**Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
+
+::: hint-box
+Mistä löydät tietoa GeoServeristä?
+
+GeoServerillä on omat kotisivut.
+
+Psst! Tietoa GeoServeristä löydät internetistä.
+:::
+
+## Mistä lisätietoja?
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+::: note-box
+<http://www.qgis.org/>
+:::
+
+::: note-box
+<http://docs.qgis.org/>
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>
+:::
+
+::: note-box
+<http://www.osgeo.fi>
+:::
+
+## Virheet
+
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+
+## Lisenssi ja oikeudet
+
+Nämä materiaalit on "Tilastot ja analyysit QGISillä"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

@@ -1,0 +1,225 @@
+# Kappale 5
+
+## Luento 5
+
+
+## Harjoitus 5: Paikkatietoaineiston visualisointi ja nimiöinti
+
+**Harjoituksen sisältö**
+
+Harjoituksessa tutustutaan eri rasteri- ja vektoriaineistoihin ja niiden perusvisualisointitekniikoihin sekä vektoriaineistojen nimiöintitoimintoihin.
+
+**Harjoituksen tavoite**
+
+Harjoituksen jälkeen opiskelija tuntee eri paikkatietoaineistojen visualisoinnin perustyökalut ja osaa lisätä vektoriaineistoon haluamansa nimiöt.
+
+**Arvioitu kesto**
+
+60 minuuttia.
+
+**Valmistautuminen**
+
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **"QGIS-harjoitus 5"**. Lisää projektiin seuraavat aineistot:
+
+-   **..kurssihakemisto/5. Harjoitus/Yleiskarttarasteri_1milj.png**
+
+-   **..kurssihakemisto/5. Harjoitus/TieViiva.shp**
+
+-   **..kurssihakemisto/5. Harjoitus/ne_10m_populated_places_suomi.shp**
+
+-   **..kurssihakemisto/5. Harjoitus/Naturakohde_ma.shp**
+
+## Rasteriaineistojen visualisointi
+
+Tutustutaan ensin **Yleiskarttarasteri_1milj**-rasteriaineistoon. Tämä rasteriaineisto on Maanmittauslaitoksen tuottama taustakartta, johon on sisällytetty Suomen tiet, kaupungit ja muita yleiskartan tarkoitusta ajavia aineistoja. Aineistossa käytetty visualisointi on tuttu paperikartoilta. Piilota nyt kaikki muut avaamasi aineistot näkyvistä **Tasot**-paneelista.
+
+![](img/harjoitus_5/image1.png)
+
+![](img/harjoitus_5/image2.png)
+
+Jos **Yleiskarttarasteri_1milj**-tason kohdalla tasoluettelossa näkyy ![](img/harjoitus_5/image3.png) -ikoni, eikä taso tule näkyviin kartalle, tulee aineistolle ensin määrittää koordinaattijärjestelmä. Klikkaa tason kohdalla hiiren oikeaa painiketta ja valitse **Ominaisuudet...**, jolloin QGISiin avautuu **Tason ominaisuudet** -ikkuna. Tästä ikkunasta löydät tason ominaisuudet jaoteltuna aihekohtaisesti.
+
+![](img/harjoitus_5/image4.png)
+
+Valitse ikkunasta **Lähde**-välilehti, josta löydät tiedot aineiston koordinaattijärjestelmästä. Voit huomata, että **Aseta koordinaattijärjestelmä** -alasvetovalikon kohdalla lukee **virheellinen projektio**. Klikkaa vieressä olevaa **Valitse koordinaattijärjestelmä** -painiketta ja aseta tason koordinaattijärjestelmäksi **ETRS89/TM35FIN (EPSG:3067)**. Paina lopuksi **OK** ja **OK**. Aineisto on nyt projisoitu valittuun koordinaattijärjestelmään.
+
+![](img/harjoitus_5/image5.png)
+
+::: hint-box
+**Psst! Muista tarkistaa myös tason koordinaattijärjestelmä!**
+:::
+
+Mene takaisin **Tason ominaisuudet** -ikkunaan ja valitse nyt **Kuvaustekniikka-välilehti**. Pääset muokkaamaan tason tyyliominaisuuksia tästä välilehdestä. Voit avata saman välilehden myös suoraan näkyviin QGIS-työtilaasi valitsemalla päävalikosta **Näytä \> Paneelit \> Kuvaustekniikka** tai pikanäppäimellä **F7**.
+
+![](img/harjoitus_5/image6.png)
+
+**Kanavan piirto** sisältää erilaisia rasteriaineistojen visualisointikeinoja, esimerkiksi **Monikanavainen väri** -visualisointitavassa käytetään kolmea eri näkyvän valon kanavaa (R = red, G = green, B = blue eli RGB) rasterikuvan visualisoimiseen. Väriarvoja muokkaamalla voidaan muokata tapaa, jolla rasterikuvan pikselit näkyvät kartalla. Käyttämämme rasteriaineiston (yleiskarttarasteri) visualisointi on asetettu siten, että se näyttää parhaimmalta, jos kanavat asetetaan seuraavalla tavalla:
+
+Punainen kanava = Kanava 1
+
+Vihreä kanava = Kanava 2
+
+Sininen kanava = Kanava 3
+
+On tärkeää hahmottaa tapa ja logiikka, jolla rasteriaineistoja visualisoidaan.
+
+![](img/harjoitus_5/image7.png)
+
+Kokeile nyt vaihtaa kanavien järjestystä. Kun painat **Käytä** voit tarkistaa tehdyt muutokset. Näin voit testailla eri asetuksia sulkematta **Tason ominaisuudet** -ikkunaa. Kun olet testaillut tarpeeksi, klikkaa **OK**.
+
+## Vektoriaineistojen visualisointi
+
+Siirrytään nyt visualisoimaan vektoriaineistoja. Tarkastele kaikkia QGIS-projektiin avaamiasi vektoriaineistoja. Voit huomata, että jokaisen tason vasemmalla puolella on muoto, joka kuvastaa kyseisen tason vektorityyppiä. **TieViiva** on viiva-aineisto, **ne_10m_populated_places_suomi** on pisteaineisto ja **NaturaKohde_ma** on polygoniaineisto.
+
+![](img/harjoitus_5/image8.png)
+
+## Viiva-aineiston visualisointi
+
+Aseta **TieViiva**-aineisto näkyviin ja piilota muut aineistot. Avaa TieViiva-aineiston **Tason ominaisuudet** samalla tavalla kuin rasteriaineistollakin. Voit huomata, että vektoritason ominaisuudet ovat moniulotteisemmat kuin rasteritason. Myös **Kuvaustekniikka-välilehti** on täysin erinäköinen kuin rasteriaineistolla.
+
+![](img/harjoitus_5/image9.png)
+
+Vaihda TieViiva-aineiston **Väri ja Leveys** haluamaksesi ja paina lopuksi **Käytä**. Näin voit tarkastella tekemiäsi muutoksia sulkematta **Tason ominaisuudet** -ikkunaa - aivan kuten rasteriaineistossakin. Avaa vielä jokin symbolikirjasto, esimerkiksi **Suosikit**, ja muuta viivan tyyliksi jokin sinua miellyttävä tyyli. Paina lopuksi **OK**, jolloin ikkuna sulkeutuu ja TieViiva-taso näkyy nyt määrittämälläsi kuvaustekniikalla.
+
+![](img/harjoitus_5/image10.png)
+
+Muut paikkatietoaineistojen visualisoinnin työkalut saa käyttöön samalla tavalla: avaamalla hiiren oikealla painikkeella **Tason ominaisuudet** ja valitsemalla sivupalkista **Kuvaustekniikka**. Eri vektoriaineistotyypeillä (piste, viiva, polygoni) on erilaiset kuvaustekniikan työkalut, vaikkakin ne muistuttavat paljon toisiaan. Esimerkiksi pistetasolle ei voida tehdä samoja tyylittelyjä kuin viiva- tai polygonitasolle.
+
+## Pisteaineiston visualisointi
+
+Visualisoidaan seuraavaksi piste-aineistoa. Aseta **ne_10m_populated_places_suomi**-aineisto näkyviin yhdessä TieViiva-aineiston kanssa ja piilota muut aineistot. Tämä aineisto sisältää Natural Earth -kaupunkiaineiston Suomesta. Avaa tason **Kuvaustekniikka**-välilehti samalla tavalla kuin äsken viivatason yhteydessä. Huomaa erot viiva- ja pisteaineiston ominaisuuksissa. Vaihda aineiston **Väri ja Koko** ja paina taas **Käytä**. Vaihda myös symbolia ja kokeile, miten kierto vaikuttaa symbolin näkymiseen.
+
+![](img/harjoitus_5/image11.png)
+
+Pisteaineistosi voi näyttää yhdessä viiva-aineiston kanssa esimerkiksi tältä:
+
+![](img/harjoitus_5/image12.png)
+
+## Polygoniaineiston visualisointi
+
+Visualisoidaan vielä polygoniaineisto. Aseta **NaturaKohde_ma**-aineisto näkyviin yhdessä **TieViiva**-aineiston ja **ne_10m_populated_places_suomi**-aineiston kanssa ja piilota muut aineistot. Avaa NaturaKohde_ma-aineiston **Kuvaustekniikka**-välilehti ja huomaa erot verrattuna viiva- ja pisteaineistojen kuvaustekniikkaan. Vaihda tason **Väri** ja valitse tasolle eri symboli. Voit myös kokeilla erilaisia **Peittävyys**-arvoja. Kun olet testannut tarpeeksi, paina **OK**.
+
+![](img/harjoitus_5/image13.png)
+
+Saattaa olla, että aineistotasot peittävät toisensa vaikka siten, että polygoniaineisto peittää muut sen alle jäävät aineistot. Voit muuttaa tasojen järjestystä ja siten tasojen näkymistä raahaamalla/vetämällä tasot uuteen järjestykseen **Tasot**-paneelissa. Usein polygoniaineistot on hyvä jättää alimmiksi tasoiksi. Jos kartalla halutaan visualisoida jotakin rasterikuvaa, kannattaa se/ne yleensä pitää myös alimpina tasoina. Uudelleen järjestettynä karttasi tulisi näyttää tältä:
+
+![](img/harjoitus_5/image14.png)
+
+## Symbolien muokkaaminen
+
+Seuraavaksi muutamme polygonien symboleja. Avaa uudelleen **Naturakohde_ma**-tason **Tason ominaisuudet** -ikkuna. Valitse **Kuvaustekniikka**-välilehdeltä ensin **Yksinkertainen täyttö (Simple fill)** -rivi oheisen kuvan mukaisesti:
+
+![](img/harjoitus_5/image15.png)
+
+Valitse sen jälkeen **Viivan tyyli** -asetukseksi **Katkonainen pisteviiva**. Voit määritellä viivan leveyden haluamaksesi. Lopuksi voit vielä muuttaa **Peittävyys**-asetukseksi 70 % (**Tason piirto** -asetuksista).
+
+## Mittakaavan käyttö symboleissa
+
+Seuraavaksi määrittelemme mittakaavarajat **Tieviiva**-tasolle. Valitse tason **Ominaisuudet \> Karttanäyttö** ja rastita **Scale Dependent Visibility** (mittakaavaperusteinen näkyvyys). Muuta sitten **Pienimmäksi mittakaavaksi 1:3 000 000**. Tämä tarkoittaa sitä, että kun kartan mittakaava on pienempi kuin 1:3 000 000, niin karttatasoa ei piirretä.
+
+![](img/harjoitus_5/image16.png)
+
+Ota muutokset käyttöön painamalla joko **Käytä** tai **OK**. Jälkimmäinen visualisoinnin käyttöönoton lisäksi sulkee **Ominaisuudet -ikkunan**. Kokeile nyt karttaikkunassa tason näkymistä eri mittakaavoilla. Mittakaavaa saat muutettua lähentämällä tai loitontamalla karttaa (esim. hiiren scroll-toiminnolla). Voit myös syöttää mittakaavan lukuna QGISin alaosassa sijaitsevassa **Tilapalkissa**.
+
+## Symbolitasojen muokkaaminen
+
+Seuraavaksi muokkaamme visualisointityyliämme hieman pidemmälle. Symbologiat voivat QGISissä koostua yhdestä tai useammasta symbolitasosta (kuvassa **Täyttö**-kohdan alla). Esimerkiksi monikulmioiden symbolitasojen hyödyntäminen voi tuottaa hyvinkin hienovaraisen visualisoinnin. Symbolitasojen avulla voidaan määrittää monikulmion täyttämisen värit ja tyylit (esim. pistetäyttö).
+
+Lisää uusi symbolitaso **NaturaKohde_ma**-tasolle. Avaa tason **Kuvaustekniikka**-asetukset (**Tason ominaisuudet -ikkunasta**) ja lisää uusi symbolitaso painamalla plussa-kuvaketta.
+
+![](img/harjoitus_5/image17.png)
+
+Muuta lisätyn symbolitason tyypiksi **Täyttö viivakuosilla** ja määrittele viivakuvioinnin kulma ja etäisyys haluamallasi tavalla. Voit myös määritellä viivakuvioinnissa käytetyn viivan leveyden ja värin valitsemalla **Viiva**-symbolitason tyylitasoluettelosta. Tarkista lopputulos.
+
+![](img/harjoitus_5/image18.png)
+
+## Nimiöinti eli 'tekstitys'
+
+Avaa **NaturaKohde_ma-tason Tason ominaisuudet -ikkuna** ja valitse **Nimiöt-välilehti**. Valitse **Yksittäinen nimiö** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi. Paina **Käytä**, niin kohteille syntyy nimiöt. Tämä nähdään nyt karttaikkunasta, johon nimiöt ovat päivittyneet.
+
+![](img/harjoitus_5/image19.png)
+
+## Nimiöiden tyyli- ja yleisasetukset
+
+Nimiöiden tekstien näkymistä kartalla voi määrittää monella eri tavalla. Alla kuvaukset QGISin nimiöiden muokkaamisen alateemoista:
+
+|                   |                                                                                         |
+|------------------|------------------------------------------------------|
+| **Teksti**        | Määritellään tekstin tyyli, väri ja muita yleisiä ominaisuuksia.                        |
+| **Muotoilu**      | Voit muodostaa useampirivisiä tekstejä, keskittää tekstiä ja määritellä lukujen muotoa. |
+| **Vyöhyke**       | Luodaan tekstiä korostavat puskurit (tekstin reunukset).                                |
+| **Tausta**        | Tekstin taustalle voi piirtää suorakulmion tai muun muodon.                             |
+| **Varjo**         | Teksteille voidaan muodostaa varjo.                                                     |
+| **Sijoittaminen** | Määrittelee tekstien sijoittumista kohteiden suhteen.                                   |
+| **Piirtäminen**   | Määrittelee tekstien mittakaavarajoja ja muita tekstien näkyvyyteen liittyviä asioita.  |
+
+## Nimiön tekstityyli
+
+![](img/harjoitus_5/image20.png)
+
+Nimiöiden tekstien tyyleille voit asettaa esimerkiksi haluamasi fontin, tyylin ja koon. Kokeile erilaisia tekstityylejä. Kokeile nimiöiden varjostamista, minkä avulla voimme korostaa nimiöitä taustalla olevista muista karttaelementeistä. Valitse **Varjo**-alateema ja rastita sitten **Piirrä heittovarjo**. Paina **Käytä**, jotta näkisit tulokset kartalla. Kokeile vaihtaa asetuksia kuten siirtymä, sumennussäde, peittävyys sekä väri, ja katso miten ne vaikuttavat nimiöinnin varjoon. Huomaat muutokset kartalta tai **Esimerkki tekstistä** -kentästä.
+
+Toinen työkalu tekstin korostamiseen on tekstiä ympyröivä vyöhyke. Valitse **Vyöhyke**-alateema ja lisää tekstille haluamasi puskuri rastimalla **Piirrä tekstivyöhyke**. Näin saat nimiöt erottumaan kartasta vielä paremmin. Kokeile erilaisia vyöhykkeen kokoja, värejä ja läpinäkyvyyttä.
+
+Avaa vielä **Sijoittaminen**-alateema ja valitse **Using perimeter (käyttäen kehää)**. Valitse **Sallitut asemoinnit** -kohdassa **Viivan alla**. Huomaa, että **Sallitut asemoinnit** -kohdassa tulee aina olla vähintään yksi kohta valittuna. Jos useampi kohta on valittu, QGIS valitsee automaattisesti parhaan vaihtoehdon jokaiselle kohteelle. Paina **OK**, ja huomaa, että nyt nimiöt seuraavat monikulmioiden rajoja.
+
+![](img/harjoitus_5/image21.png)
+
+Tulos voi näyttää oudolta, etenkin jos karttaikkunan mittakaavaa on asetettu ison alueen kattavaksi. Lähennä karttaa, jotta nimiöt näkyisivät johdonmukaisemmin ja pohdi, missä tapauksessa tämänkaltainen nimiöinti olisi sopivinta. Etsi vielä **Sijoittaminen \> Prioriteett**i ja määritä se **Korkeaksi**. Tällä tavalla annat preferenssin muokkaamasi tason nimiöille suhteessa muiden tasojen nimiöihin ja voit näin järjestää tärkeimpien ja ei niin tärkeiden tasojen nimiöintiä. Paina vielä **OK**.
+
+::: hint-box
+Psst! Yksi hyödyllinen tapa rajata nimiöitä on **Piirtäminen \> Kohteen valinnat** ja asettaa kohtaan **Häivytä nimiöinti kohteilta, jotka ovat pienempiä kuin**-kohtaan jokin arvo. Näin QGIS näyttää vain isoimpien kohteiden nimiöinnit.
+:::
+
+## Nimiöinnit viivatasoilla
+
+Samalla tavalla kuin juuri määritimme nimiöinnin monikulmiotasolle, voidaan niitä määrittää muillekin vektoriaineistoille. Avaa **TieViiva-tason Tason ominaisuudet** -ikkuna ja aktivoi nimiöiden käyttö päälle edellisessä harjoituksessa oppimallasi tavalla. Valitse **Nimiöiden perustan** -kohdan alavalikosta käytettäväksi nimiöintisarakkeeksi **Tienumero**. Paina **Käytä**, ja katso muutokset. Avaa vielä nimiöiden **Sijoittaminen**-alateema ja rastita **Seuraa viivaa** -toiminto päälle. Paina **Käytä**, ja tarkista, että nimiöinti toimii odotetulla tavalla. Katso esimerkkiasetukset kuvasta:
+
+![](img/harjoitus_5/image22.png)
+
+Nyt nimiöt seuraavat viivoja paremmin. Huomaa myös, että kaikki nimiöt eivät nyt tule piirretyksi. Vaihda **Maksimikulma kaarevien merkkien välillä** -kohdan arvoja, niin pystyt muokkaamaan tekstin kaarevuuden reunaehtoja. Voit sulkea **Tason ominaisuudet**-ikkunan totuttuun tapaan painamalla **OK**.
+
+## Nimiöiden piirtäminen
+
+Zoomaa karttanäkymä näyttämään koko aineisto klikkaamalla **Zoomaa täydeksi** -painiketta ![](img/harjoitus_5/image23.png) . Odota hetki, että nimiöt piirtyvät. Nimiöitä on nyt liikaa karttaikkunassa, mikä vaikeuttaa kartan hahmottamista. Olisi hyödyllistä määrittää nimiöt eri mittakaavoille erikseen. Avaa taas **NaturaKohde_ma-tason** ominaisuudet ja valitse **Nimiöt** sivupalkista ja **Karttanäyttö-alateema**. Rastita **Näytä kaikki tämän tason nimiöt (myös päällekkäiset nimiöt)** ja paina **Käytä**. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä mittakaavalla. Rastita tämä asetus pois päältä ja paina **Käytä**. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt.
+
+Rastita päälle **Mittakaavaperusteinen näkyvyys** ja laita **Minimimittakaava-kentän** arvoksi **500 000**. Paina **OK**. Natura-kohteiden nimiöt eivät enää näy 1:500 000 mittakaavan ulkopuolella. Lähennä karttaan, kunnes nimiöt näkyvät uudelleen. Muuta samalla tavalla **TieViiva-tason** piirtäminen siten, että sen nimiöt näkyvät vasta kun mittakaava on pienempi kuin **1:200 000**.
+
+![](img/harjoitus_5/image24.png)
+
+## Edistyneet ominaisuudet
+
+Voit myös testata tekstien edistyneitä ominaisuuksia **NaturaKohde_ma** -tasolla. Voit ohjata nimiöiden tekstejä lausekepohjaisesti QGISin **Lausekkeen muokkaus** -työkalulla. Saat lausekkeen muodostajan auki **Nimiöiden perustana -alasvetolaatikon** vieressä olevasta painikkeesta:
+
+![](img/harjoitus_5/image25.png)
+
+Tehdään nyt nimiö, joka yhdistää tietoa useammasta kentästä. Klikkaa kuvassa näkyvästä **Lausekkeen muodostaja** -painikkeesta. **Lausekkeen muokkaus -työkalu** aukeaa.
+
+![](img/harjoitus_5/image26.png)
+
+Lausekkeen muokkaus on tehokas työkalu, jota voidaan käyttää nimiöiden muokkaamisen lisäksi myös muihin tarkoituksiin. Lauseke-kentässä on tällä hetkellä nimi, sillä valitsimme **Nimi**-kentän aikaisemmin **Nimiöiden perustana** -alasvetovalikosta. Aineistossa on myös kenttä **NaturaTunn**, joka sisältää alueen tunnuksen. Tehdään lauseke, joka yhdistää alueen nimen ja tunnuksen.
+
+Kirjoita Lauseke-kenttään seuraava lauseke:
+
+::: code-box
+NaturaTunn \|\| '\n' \|\| Nimi
+:::
+
+Lausekkeessa esiintyy kentän nimien **NaturaTunn** ja **Nimi** lisäksi myös rivinvaihtosymboli **'**\n' ja kaksi **\|\|** -merkkiä, jotka yhdistävät merkkijonot yhdeksi tekstiksi.
+
+![](img/harjoitus_5/image27.png)
+
+::: hint-box
+Psst! Voit lisätä rivinvaihtosymbolin lausekkeeseen painamalla **Lauseke**-ikkunan päällä olevaa painiketta. Samalla tavalla voit lisätä aineistossa olevia kenttiä lausekkeeseen laajentamalla kentät ja arvot -valikon ja kaksoisklikkaamalla kentän nimeä.
+:::
+
+Kirjoita edellä mainittu lauseke ja paina **OK**. Klikkaa **Tason ominaisuudet** -valikossa **Käytä** ja katso kartalta, miltä alueiden nimiöinti näyttää.
+
+Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (tai **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
+
+::: hint-box
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [tuki\@gispo.fi](mailto:tuki@gispo.fi){.email}!**
+:::
+
+## Testaa tietosi...
+

@@ -1,0 +1,114 @@
+---
+title: "Johdanto QGISin käyttöön - Harjoitukset"
+author: "Gispo Ltd."   
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "Peruskurssi QGIS-ohjelmiston perusteisiin"
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+documentclass: book
+---
+
+
+
+
+
+<!-- Harjoitukset -->
+# Johdanto QGISin käyttöön
+
+**Tervetuloa QGIS-peruskurssille!**
+
+Tämän kurssin tarkoituksena on opastaa sinut QGIS–ohjelmiston käyttöön. Muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumisel­le. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku muu asia jää epäselväksi.
+
+**QGISin taustaa**
+
+QGIS (alkuperäiseltä nimeltään Quantum GIS) on yhteisöllisesti kehitetty avoimen lähdekoodin paikkatieto-ohjelmisto. QGISin kehittäminen on alkanut heinäkuussa 2002, jonka jälkeen kehitystyöhön on osallistunut yli 150 sovelluskehittäjää. QGISin käyttäjämäärää on hyvin vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä ja sitä voi jakaa edelleen vapaasti. Karkeasti arvioiden voidaan kuitenkin todeta, että QGIS-ohjelmiston eri versioilla on yli miljoona käyttäjää maailmanlaajuisesti.
+QGIS–ohjelmisto ja sen lisäosat muodostavat kattavan ohjelmistoperheen paikkatietojen keräämiseen, mallintamiseen, analysointiin, visualisointiin ja jakeluun. Tämän kurssin aikana käsittelemme vain murto-osaa QGISin kaikista toiminnallisuuksista.
+
+**Miksi QGIS?**
+
+Perimmäinen syy QGISin käyttöön on tietysti paikkatietoaineistojen hyödyntäminen. Paikkatietoja voi hyödyntää monilla avoimen ja suljetun lähdekoodin ohjelmistolla, mutta tässä muutamia perusteluja juuri QGIS-ohjelmiston käytölle:
+
+* **QGIS on ilmainen.** Voit ladata ja asentaa QGIS ilman lisenssi- tai käyttömaksuja. Käyttöön ei sisälly mitään maksuja.
+* **QGIS on vapaa.** Jos tarvitset QGISiin lisää ominaisuuksia, sinulla on täysi vapaus laajentaa ja muuttaa QGISiä. Sinun ei tarvitse odottaa seuraavaa versioita ja toivoa, että tarvitsemasi ominaisuudet ovat sisällytetty mukaan. Jos osaat ohjelmoida, voit lisätä ominaisuudet itse. Voit myös rahoittaa uusien ominaisuuksien kehittämistä osaksi QGISiä.
+* **QGIS kehittyy jatkuvasti.** Kuka tahansa voi lisätä tai rahoittaa uusia ominaisuuksia QGISiin ja siksi ohjelmisto kehittyy kiihtyvällä vauhdilla. Erilaisten lisäosien avulla on helppo toteuttaa omia prosesseja tukevia toimintoja.
+* **QGIS on hyvin dokumentoitu.** QGIS sisältää laajan dokumentaation. Koko ajan kasvava käyttäjäyhteisö auttaa mielellään uusia käyttäjiä ja voit myös kysyä apua suoraan sovelluskehittäjiltä.
+* **QGIS on järjestelmäriippumaton.** QGISiä voi käyttää Windows-, Linux- ja Mac-käyttöjärjestelmissä.
+* **QGIS on suomenkielinen.** QGIS-käyttöliittymä on suomennettu. Myös ruotsinkielinen versio on käytettävissä ilman lisäkustannuksia. Käyttöohjeita, web-sivustoja ja muita materiaaleja kehitetään ja suomennetaan jatkuvasti.
+
+**Lukuohje**
+
+**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+
+:::{.note-box}
+http://localhost:8080/geoserver
+:::
+
+**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
+
+:::{.commandline-box}
+sudo lsb_release -a
+:::
+
+**Tiedostojen sisältö** on esitetty seuraavasti:
+
+:::{.file-content-box}
+#IPv4 local connections:
+#host all all 127.0.0.1/32 md5
+:::
+
+**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
+
+:::{.code-box}
+SELECT version();
+:::
+
+**Kysymykset, lisätiedot ja vihjeet**  on esitetty seuraavasti:
+
+:::{.hint-box}
+Mistä löydät tietoa GeoServeristä? 
+
+GeoServerillä on omat kotisivut.
+
+Psst! Tietoa GeoServeristä löydät internetistä.
+:::
+
+
+**Mistä lisätietoja?**
+
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+:::{.note-box} 
+http://www.qgis.org/ 
+:::
+:::{.note-box}
+http://docs.qgis.org/ 
+:::
+:::{.note-box}
+http://gis.stackexchange.com/            
+:::
+:::{.note-box}
+http://www.osgeo.fi
+:::
+
+
+**Virheet**
+
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla osoitteeseen info@gispo.fi .
+
+**Lisenssi ja oikeudet**
+
+Nämä materiaalit on kehittänyt "Johdanto QGISin käyttöön"-kurssille Gispo Oy. Materiaalit on lisensoitu
+seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) 
+
+<!--
+License and permissions
+These materials are developed for the Introduction to QGIS course by Gispo Ltd.
+The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
+-->

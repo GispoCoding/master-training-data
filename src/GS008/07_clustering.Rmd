@@ -1,0 +1,133 @@
+# Clustering {#cluster}
+
+Clustering is a common way to improve the performance and/or availability of a GeoServer deployment by scaling out.
+While a cluster can run on a single machine by running multiple GeoServers on different ports, it's typically done by deploying GS on separate server machines/VMs.
+Performance can be increased by running multiple GeoServer instances in parallel, thus decreasing the computational stress on a single server machine.
+On the other hand, availability can be improved by maintaining one or many fallback instances that take over when the active GS instance fails.
+In demanding situations even a hybrid approach can be considered, with multiple instances running in parallel but with a set of fallback instances ready to replace them on failure.
+
+:::{.note-box}
+**Note:** while clustering is an effective way to increase the performance of GeoServer, it's still important to remember to optimise the data first.
+Even the biggest and most powerful GS cluster will struggle with poorly optimised rasters or vector data stored in the wrong format.
+*Always* make sure to optimise data first before considering other ways to improve performance.
+:::
+
+Theoretically, there are two methods to implement a GeoServer cluster.
+These are referred to as active and passive clustering.
+Both methods are explained in further detail below in Chapters \@ref(passive-cluster) and \@ref(active-cluster).
+
+Both active and passive clustering provide the same result, a cluster of 2 … N GeoServer instances, but vary in technical details and implementation.
+The main difference is in how the GeoServer configuration, also called the catalog, is shared between the instances in the cluster.
+Nearly all GeoServer configuration, including layers, security settings, workspaces, and stores, is kept in the GeoServer data directory.
+One of the main challenges of clustering is propagating changes to the configuration to other GeoServer instances and keeping the configuration synchronised between multiple instances.
+
+While both active and passive clustering are viable solutions to the clustering problem with their own use cases, active clustering is technically more complex
+This makes it more prone to failure compared to passive clustering.
+An active cluster also introduces additional software dependencies and therefore requires more maintenance work.
+Passive clustering is sufficient for a majority of use cases, and should be preferred by default unless the situation demands the use of active clustering.
+
+No matter which approach is taken, a GS cluster needs a load-balancer to function efficiently.
+The load balancer is tasked with distributing incoming requests evenly to instances in the cluster.
+There's many ways to spread the requests, and the simplest option is to spread an even number of requests per instance.
+However, not all requests are equal, e.g., processing a GetMap render request takes significantly more resources than returning a capabilities document.
+An ideal solution would involve the load balancer having access to CPU load or similar metrics to accurately assess which instance has the lowest current load.
+
+## Containerisation
+
+Clustering typically requires running GeoServer on multiple server machines.
+While ideally these machines are running the same OS and software, there's no guarantee the environments are homogenous.
+A GS installation has various software dependencies, including Java and a Java application server such as Tomcat or Jetty.
+The installation procedure for these dependencies varies by environment, and there may be differences in which software versions are available for each platform.
+
+To make cluster maintenance easier, it's recommended to run GeoServer inside software containers.
+Containers pack software and its dependencies inside a standardised, isolated environment.
+However, compared to full-fledged virtual machines, containers require significantly less system resources.
+These properties make containers a popular modern solution for scaling out various applications.
+They are also a good fit for creating a GeoServer cluster, as they reduce the burden of maintaining and updating GS software dependencies across multiple systems.
+
+Docker and Podman are the most popular solutions for software containerisation.
+Podman is newer and less popular, but has some advantages over Docker especially in security.
+Kubernetes (K8S) is an open-source container orchestration system designed to facilitate deploying and maintaining containers on multiple machines.
+This makes K8S a great solution for running a container-based GeoServer cluster that can self-heal and scale in or out based on current load.
+
+## Passive clustering {#passive-cluster}
+
+The passive clustering approach is based on multiple GeoServer instances sharing a common data directory.
+This can be implemented in various ways, but the most simple solution is to set up a shared network drive to contain the data directory.
+On startup, GeoServer loads the configuration stored in the data directory to memory.
+This in-memory configuration is called the catalog, and it defines how GeoServer functions.
+
+During operation, GeoServer does not watch the data directory contents, meaning any changes to files in the data directory are not automatically picked up until next restart.
+This means that when multiple GS instances share a data directory, changes made on one server are not automatically applied to other instances until they are restarted.
+To avoid having to constantly restart the server on file changes, GeoServer has a catalog reload function that triggers a complete update of the catalog by reading files from the data directory.
+
+Catalog reloads can be triggered using the GS REST API, discussed later in Chapter \@ref(rest).
+Passive clustering can be implemented by running a small program/script that watches for changes in the data directory and triggers a catalog reload for all GS instances in the cluster via the REST API.
+To avoid concurrency issues where multiple GeoServer instances edit the data directory at the same time, one GS instance is typically picked as the main instance that is used to make **all** configuration changes.
+The web UI of the other instances can be completely disabled/blocked to enforce this policy.
+
+## Active clustering {#active-cluster}
+
+Active clustering is based on the [JMS based clustering extension](https://docs.geoserver.org/stable/en/user/community/jms-cluster/index.html).
+Unlike in the passive clustering approach, each instance has its own private data directory.
+A Message Oriented Middleware (MOM) written in Java synchronises configuration changes between the primary instances and replicas.
+There can be one or many primary instances, which are used to edit the configuration, and replicas, which simply replicate the primary instance configuration based on messages from the MOM.
+The active approach relies on the MOM for catalog synchronisation, meaning catalog reloads should never be issued on primary instances.
+
+Compared to passive clustering, the active clustering approach is more prone to failure.
+While the active approach has its own benefits, including helping with data synchronisation when multiple configuration changes are made simultaneously, there are ways to circumvent these issues in the relatively simple passive clustering approach.
+On the other hand, the MOM adds another layer of complexity and is an additional piece of software that needs to be updated and maintained.
+While both active and passive clustering are perfectly valid approaches to the same issue, passive clustering is likely a better fit for most use cases.
+
+## Data and configuration concerns
+
+Sharing a configuration between multiple GeoServer instances requires some special considerations.
+For example, all data used in published layers must be available for every instance in the cluster.
+If for example one instance in a cluster cannot access data, end users of the GS cluster will encounter seemingly random errors and render failures.
+
+A simple way to ensure all instances have access to data is to store the data on the same network drive or storage platform as the shared data directory.
+While this is an easy way to ensure access to data, it's a good practice to keep data separate from configuration.
+A good way to approach the GS config is to treat it the same as software source code.
+If spatial data is stored in the GS data directory, the size of the data directory may become inconveniently large.
+This makes it difficult to e.g., store the data directory in a version control system such as Git.
+
+With GeoServer, it's often a good idea to take the separation of data and source code (configuration) one step further, by keeping data on a completely separate storage platform.
+Both should also be separated from the underlying operating system.
+The spatial data published with GeoServer has a tendency to accumulate as users upload more data to publish new layers and use services such as WMTS that keep tile caches on disk.
+Unless working with cloud storage, it's not unlikely for the available space to run out at some point.
+This may result in unexpected issues if the data shares a common location with the OS and/or GeoServer.
+For example, a completely full disk prevents applications from writing to log files, which may result in the service crashing.
+Setting up monitoring and alerts can help warn administrators of the impending disk space shortage, but in a production environment it's always best to play it safe and avoid as many potential breakers of the system as possible.
+
+Not all spatial data is stored on a network filesystem, or even in files.
+Vector data is commonly kept in spatial databases, and raster data may be stored on a cloud storage platform such as AWS S3.
+Depending on the architecture of the GeoServer cluster, you may prefer to use multiple data backends in the same cluster.
+For example, imagine a global cluster deployed on a cloud platform, with servers in Europe, America, and Asia to minimise latency.
+It does not make sense for all instances of such a cluster to share the same PostGIS database.
+Another example would be setting up a staging environment that shares the same configuration with production but uses a different staging database.
+Logging presents its own challenge — multiple GS instances cannot write their logging output to the same log file at the same time.
+
+Fortunately, the GeoServer configuration supports [catalog setting parametrisation](https://docs.geoserver.org/latest/en/user/datadirectory/configtemplate.html).
+Parameters are defined in the GS configuration XML files using a `${parameter_name}` syntax.
+Parameter values are defined in a `geoserver-environment.properties` file, and parameters in configuration file are replaced on GS startup.
+This means that any changes to the properties file require a full GS restart to take effect.
+
+:::{.note-box}
+**Note:** variables that you want to parametrise can also be set via the GS web UI.
+It's not necessary to go edit the XML files directly, although you can do so if you prefer.
+:::
+
+## Exercise - clustering
+
+The goal of this exercise is to start planning how to implement a GeoServer cluster that fits your or your organisation's needs.
+While a cluster could be implemented on a single computer by running multiple GS instances on the same machine, we unfortunately don't have sufficient access to the training environment.
+Actually implementing the cluster would also require more time than we have available for a single exercise.
+Instead of implementing a cluster, think about your or your organisation's needs for GeoServer.
+
+Try to answer the following questions:
+
+- Do you need to implement clustering now or in the future? Why, or why not?
+- If you don't need clustering now, are there potential scenarios where you would need to scale out your GS implementation with clustering?
+- Which clustering approach/implementation would suit your needs better, active or passive?
+- How would you share data between instances?
+- Would you need to parametrise the configuration file?

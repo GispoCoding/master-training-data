@@ -1,0 +1,110 @@
+---
+title: "Introduction to QGIS"
+author: "Gispo Ltd."   
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "Basic course on QGIS"
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd       
+documentclass: book
+---
+
+
+
+
+
+<!-- Harjoitukset -->
+# Introduction to QGIS
+
+**Welcome to the introductory QGIS course!**
+
+The purpose of this course is to introduce you to the QGIS program. Experience using other GIS software is helpful, but not necessary. Please ask for more information from the trainer if the terminology or anything else is unclear.
+
+**QGIS background**
+
+QGIS (originally called Quantum GIS) is a community developed open source GIS software. Development begun in July 2002, after which over 150 software developers have taken part in development. The number of users is difficult to estimate, since the program doesn't have to be registered and can be freely distributed. Roughly estimating QGIS has over a million users worldwide. QGIS and its plugins constitute a comprehensive collection of software for collection, modelling, analysing, visualizing and distributing geographic data. During this course we cover only a fraction of all the functions in QGIS.
+
+**Why QGIS?**
+
+The fundamental reason for using QGIS is of course to utilize geographic data sets. This can be done in many other ways too (both with open source and proprietary solutions), but there are certain aspects to QGIS that set it apart from many other available options. Here are a few arguments for using  QGIS:
+
+* **QGIS is free.** You can download and install QGIS completely free of charge. The usage of the software is completely free as well.
+* **QGIS is open.** If you want to add more features to QGIS, you have the complete freedom to build upon or change the software. You do not have to wait for the next version and hope the features you need will be included. If you can program, you can develop these features yourself, or, alternatively, you can fund the development of your desired features.
+* **The development of QGIS is active.** Anyone can develop or fund new features to QGIS, which results in the development of QGIS being extremely (and increasingly) active. New features and additions to QGIS make implementing your own workflows easier.
+* **QGIS is well documented.** The documentation of QGIS is vast and detailed. The constantly growing community of QGIS users is a great source of help and guidance, and you can also ask the developers themselves for help.
+* **QGIS is not dependent on an operating system.** You can use QGIS on Windows-, Linux- and Mac operating systems.
+* **QGIS offers localization.** The user interface of QGIS has been translated to many languages. An increasing amount of guides, web pages and other helpful resources are also available in different languages. 
+
+**Reading help**
+
+Commands to execute in a **web browser** are displayed as follows:
+
+:::{.note-box}
+http://localhost:8080/geoserver
+:::
+
+Commands to execute in a **command prompt/terminal** are displayed as follows:
+
+:::{.commandline-box}
+sudo lsb_release -a
+:::
+
+**File content** is displayed as follows:
+
+:::{.file-content-box}
+#IPv4 local connections:
+#host all all 127.0.0.1/32 md5
+:::
+
+**HTML and CSS code, SQL- queries and Python-scripts** are displayed as follows:
+
+:::{.code-box}
+SELECT version();
+:::
+
+**Questions, notes and hints** are displayed as follows:
+
+:::{.hint-box}
+Where do you find information about GeoServer? 
+
+GeoServer has its own website.
+:::
+
+
+**Additional information**
+
+Here are a few helpful websites:
+
+:::{.note-box} 
+http://www.qgis.org/ 
+:::
+:::{.note-box}
+http://docs.qgis.org/ 
+:::
+:::{.note-box}
+http://gis.stackexchange.com/            
+:::
+:::{.note-box}
+http://www.osgeo.fi
+:::
+
+
+**Mistakes**
+
+If you notice mistakes in these course materials, we ask you to report either directly to the trainer or by email us at info@gispo.fi .
+
+**License and permissions**
+
+These materials are developed for the "Introduction to QGIS" course by Gispo Ltd.
+The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
+
+<!--
+License and permissions
+These materials are developed for the Introduction to QGIS course by Gispo Ltd.
+The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
+-->

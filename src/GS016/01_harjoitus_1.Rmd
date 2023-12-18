@@ -1,0 +1,79 @@
+# Harjoitus 1: Asennus ja käyttöönotto
+
+### Harjoituksen sisältö
+
+Harjoituksessa asennetaan QField-ohjelmisto mobiililaitteelle ja tutustutaan sen käyttöliittymään.
+
+### Harjoituksen tavoite
+
+Tavoite on, että koulutettava saa asennettua QField-mobiilisovelluksen käyttövalmiiksi laitteelleen, oppii sen käyttöliittymän eri osiot sekä osaa tarkastella karttanäkymää ja paikkatietoja sovelluksen avulla.
+
+### Arvioitu kesto
+
+30 minuuttia.
+
+## Valmistautuminen
+
+Android-käyttöliittymällä (versio uudempi kuin 5) varustettu mobiililaite tulee olla käyttövalmiina sekä yhdistettynä internetiin.
+
+Harjoitusohjeet on tehty QFieldin suomenkieliselle käyttöliittymälle, joten olisi tarvittaessa hyvä vaihtaa mobiililaitteen käyttöliittymän kieli suomeksi, jolloin. QFieldinkin kieli on suomi. Tämä käy esimerkiksi englanninkielisessä Android-käyttöjärjestelmässä seuraavasti: **Settings ("Ratas"-kuvake) \> System \> Languages & input \> Languages**, ja raahaamalla kieli **Suomi (Suomi)** luettelon ensimmäiseksi (kieli on mahdollisesti ensin lisättävä kohdasta **Add a language**). Kysy tarvittaessa apua kouluttajalta. Toki QFieldin käyttöliittymän kielen saa myöhemmin vaihdettua suomeksi myös sovelluksen asetuksista.
+
+## Sovelluksen asentaminen Google Play -kaupasta
+
+Avaa mobiililaitteesi Play Kauppa -sovellus klikkaamalla ja kirjoita yläosan haku-palkkiin esimerkiksi "**QField**". 1. Hakutuloksen pitäisi olla **QField 4 QGIS** -sovellus. Klikkaa Asenna-painiketta asentaaksesi ohjelmiston. Mikäli laitteeltasi löytyy jo aiempi versio sovelluksesta, vaihtoehtona on tällöin ainoastaan **Päivitä.** Klikkaa sitä.
+
+::: hint-box
+Huomautus 1: Haulla löytyy myös sovellus nimeltä "QField for QGIS - Unstable", julkaisijana myös tälle on OPENGIS.ch. Kyseessä on kuitenkin QField-sovelluksen kehitysversio, joka sisältää kaikki viimeisimmät ominaisuudet testattavaksi. Sen ei kuitenkaan voi olettaa olevan käytössä yhtä vakaa kuin varsinaisen julkaisuversion, jota siis tällä kurssilla käytämme. Tämän voi kuitenkin halutessaan asentaa QFieldin lisäksi, ja käyttää eri versioita samalla laitteella. Kokeellisen version nimi laitteella on QField Dev ja sen ikoni on musta, erotuksena normaalin QField-julkaisuversion vihreästä ikonista.
+:::
+
+::: hint-box
+Huomautus 2: Mikäli ei halua käyttää Googlen Play -sovelluskauppaa sovelluksen asentamiseen, julkaisija tarjoaa myös vaihtoehdon ladata apk-paketti (Android application package) Github-repositoriosta ([linkki](https://github.com/opengisch/QField/releases/)). Emme kuitenkaan paneudu tähän vaihtoehtoon tällä kurssilla enempää. \|
+:::
+
+## Sovelluksen avaaminen ja käyttöliittymä
+
+Avataan nyt QField-sovellus (jos QField kysyy hyväksytäänkö paikallisten tiedostojen käyttö ja paikannus, valitse salli), jolloin sinulle pitäisi ilmestyä alla olevan kuvan mukainen etusivu. Siinä näet oletusvaihtoehtoja projektien avaamiseksi. Nyt **Viimeisimmät projektit** -kohdassa on asennuksen mukana tulevia demoprojekteja, joilla voi tutustua QFieldin käyttöön ilman, että pitää valmistella ensin oma projekti QGISin avulla. Myöhemmin tähän tulee edellisellä kerralla käyttämiäsi projekteja, joita klikkaamalla pääset nopeammin niihin käsiksi.
+
+![](img/harjoitus_1/image1.png)
+
+## QFieldin käyttöliittymä
+
+Tutustutaan aluksi QFieldin käyttöliittymään ja sen paikkatietojen tarkasteluun sillä. Käytämme nyt aluksi valmista demoprojektia ennen kuin ryhdymme varsinaiseen paikkatietojen mobiilikeruuseen ja muokkaukseen omaa projektia käyttäen. Klikkaa siis sovelluksen etusivulla **Bee Farming Demo** -kohtaa, jolloin kyseisen projektin karttanäkymä avautuu.
+
+Sovelluksen yläreunan vasemmalta puolelta löytyy **Valikko**, jota klikkaamalla saat näkyviin mm. QGIS-projektin tasot ja muut asetukset. Yläreunan oikealta puolelta löytyy **Haku**, jonka avulla voit hakea sekä kohteita projektin vektoritasoista että sijainteja esimerkiksi koordinaattien tai osoitteen perusteella. Toistaiseksi osoitehaku toimii vain osoitteille Suomen alueelta (ominaisuus ollut versiosta 1.9 "Taivaskero" lähtien). Osoitteet perustuvat Digiroadiin.
+
+Käyttöliittymän oikealta sivulta löytyy **Zoomaus-painikkeet**,mutta toki zoomaus toimii myös kahden sormen eleitä käyttämällä kuten mobiililaitteiden karttasovellukset yleensäkin. Näytön alareunasta löytyy **Mittakaava** sekä **Paikannus**. Kun aktivoit paikannuksen, karttapohja seuraa sijaintiasi ja keskittää siihen.
+
+![](img/harjoitus_1/image2.png)
+
+Keskitytään ensimmäiseksi **Valikkoon** -- klikkaa **Valikko** auki vasemmasta yläreunasta. Täältä löydät listauksen QFieldissä avatun QGIS-projektin tasoista. Valikko-näkymän yläreunasta löytyy lisäksi kolme muuta toiminnallisuutta: **Asetukset** sekä **Vaihda selailu-/digitointitila**. Selailutilaa vastaa taitetun kartan näköinen kuvake, kun taas digitointitilaa sen vieressä oleva kynä-ikoni. Käytössä olevaa käyttömoodia eli -tilaa vastaava kuvake on kirkkaana. Demo-projektien avulla pystyy testaamaan myös digitointia, mutta keskitytään nyt aluksi vain aivan peruskäyttöön, joten jätetään selailutila päälle.
+
+![](img/harjoitus_1/image3.png)
+
+Valitse sen sijaan ensiksi **Asetukset (rattaan kuva) \> Asetukset** ja tutustu välilehtien sisältöön. Erityisesti **Yleistä**-välilehdellä voit konfiguroida QFieldin käyttöliittymää sopivaksi. Täältä saat myös valittua QFieldin käyttöliittymän kielen mobiililaitteen käyttöliittymän kielestä riippumattomasti. Mikäli käytössäsi on kännykkä tai muuten pieninäyttöinen mobiililaite, laita **Laajin attribuuttilomake** -asetus päälle klikkaamalla liukukytkimestä. Tällöin digitoidessa tietojen syöttölomake täyttää koko näytön pelkän alalaidan sijaan.
+
+Siirrytään tämän jälkeen oikeanpuolimmaiseen **Muuttujat**-välilehteen, joka keskittyy sekä tiettyihin QGISin versio- ym. muuttujiin että mobiililaitteen käyttöliittymän muuttujiin. Täällä voi myös määritellä omia muuttujia. Klikkaa alareunan **Lisää uusi muuttuja**, ja anna muuttujalle nimeksi **username** sekä arvoksi oma nimesi. Käytämme tätä myöhemmin harjoituksissa tallentamaan muokkaajatiedot tason kohteille.
+
+Palaa sitten vielä keskimmäiselle **Paikannus**-välilehdelle. Välilehdellä pystyy määrittämään paikannukseen ja sen näyttämiseen liittyviä asetuksia, esimerkiksi käyttämään ulkoista paikannuslaitetta ja huomioimaan antennin korkeuden vaikutuksen. Käytetään oletuksena kuitenkin nyt mobiililaitteen omaa paikannusta (**Sisäinen laite**). Sen sijaan voit halutessasi aktivoida **Näytä sijainnin tiedot** ja **Aktivoi tarkkuusindikaattori** saadaksesi tietoa koordinaateista ja paikannuksen tarkkuudesta. Sulje **Asetukset** klikkaamalla vasemmasta yläkulmasta, kun olet tarkastellut tarpeeksi.
+
+::: hint-box
+Valikossa (rattaan kuva) pääsee myös tarkastelemaan QField-sovelluksen perustietoja (Lisätietoja QFieldistä) ja viestilokia (Viestiloki). Takaisin sovelluksen etusivulle pääset valitsemalla Avaa projekti. Valikosta löytyy myös lisätoimintoja mittaustyökalun ja PDF-karttatulosteen muodossa. Osaa näistä toiminnoista käsittelemme lisää myöhemmin. \|
+:::
+
+## Selailutila
+
+Tarkastellaan nyt demoprojektiin tallennettuja paikkatietoja. Avaa jälleen valikko, jolloin näet projektiin lisätyt tasot ryhmiteltynä Apiary- ja Fields-ryhmätasoihin (mehiläistarhat ja pellot). Lisäksi taustakarttana on rajapinnasta haettuna OpenStreetMap. Ryhmien edessä näkyy minkätyyppisestä geometriasta on kyse (tässä piste- ja polygonivektoritasot sekä taustakartan rasteritaso). Samaten nähdään tasoille QGISin puolella määritetyt kuvaustyylit sekä tason kohteiden lukumäärä nimen perässä hakasulkeissa.
+
+![](img/harjoitus_1/image4.png)
+
+Pitkä painallus tason tai ryhmän kohdalta avaa näihin liittyviä valintoja ja  toimintoja. Kokeile tätä ensiksi OpenStreetMap-tason kohdalta. Valittavia toimintoja on nyt **Näytä kartalla** -valintalaatikko, jolla tason näkyvyyttä voi hallita, sekä **Zoomaa tasolle** -nappi. Voit kokeilla jälkimmäistä, jolloin karttaikkunaan piirtyy koko maailmankartan laajuiseksi, jolloin voi helpommin huomata tasojen sijainnin suhteessa käyttäjään. Kokeile nyt vastaavasti jotakin vektoritasoa, esimerkiksi **Buckfast bee** -tasoa. Tällöin vaihtoehtona on lisäksi **Näytä kohdelista**, jolla voi tarkastella tason kohteiden listaa ja yksittäisten kohteiden attribuutteja. Listanäkymästä pääsee pois klikkaamalla vasemman ylänurkan nuolta. 
+
+Kohteita pystyy tarkastelemaan myös suoraan karttanäkymästä kohteita klikkaamalla. Tehdäänkin nyt näin, eli siirry karttanäkymään ja klikkaa jotakin pistemäistä kohdetta. Tällöinkin aukeaa ensin listausikkuna, jossa tyypillisesti on ainoastaan pelkästään klikattu kohde (tai lähekkäisiä/päällekkäisiä kohteita). Klikkaamalla listassa olevaa kohdetta avautuu kohteen tietolomake (kuvassa alla). Huomaa lomakkeen muutama eri välilehti (**General, Picture, Issues, jne.**), joiden välillä pääsee liikkumaan joko sivulle liu'uttamalla tai  otsikosta klikkaamalla.
+
+![](img/harjoitus_1/image5.png)
+
+Tarkastele nyt lomakkeen tietoja. Huomaat, että tiedot on harmaalla ja vaikka tietojen syöttötapa (esimerkiksi tekstilaatikko tai vetovalikko) on näkyvissä niitä ei pysty muokkaamaan. Valmiiden kohteiden muokkaaminen onnistuu kuitenkin myös QFieldin selaus-moodissa. Klikkaa lomakkeen tietojen editointi aktiiviseksi lomakkeen yläpalkin kuvakkeeta jossa on kynä sekä A-kirjain, kohteen nimen oikealta puolelta. Tämän jälkeen arvojen muuttaminen onnistuu. Muokatut arvot voi joko tallentaa tai hylätä nyt yläpalkin kulmista, joko oikein-merkkiä tai ruksia painamalla. Kokeile muuttaa jonkin kohteen kaikkia ominaisuuksia, mukaan lukien valokuvaa. Sulje tämän jälkeen ominaisuustietolomake, joko liu'uttamalla lomake ylälaidasta alas, tai näytön alalaidasta "takaisin"-nuolta painamalla. Tämän jälkeen voit sulkea projektin sekä sovelluksen. Se puolestaan onnistuu klikkaamalla alalaidan "takaisin"-nuolta kahdesti.
+
+::: hint-box
+Huomaa myös kohteen attribuuttilomakkeen yläpalkin oikeasta reunasta löytyvä lisävalintoja-painike. Painikkeesta aukeavasta valikosta löydät mm. kehys-kuvakkeen, joka kohdistaa karttanäkymän kohteeseen. Attribuuttilomakkeen yläpalkin vasemmanpuoleisilla nuolipainikkeilla pystyy puolestaan siirtymään kohdelistauksessa mahdollisesti oleviin edellisiin ja seuraaviin kohteisiin. \|
+:::

@@ -1,0 +1,49 @@
+# Training environment
+
+First, let's ensure access to the GeoServer training environment.
+If you are following these materials while participating on the Advanced GeoServer course, you are provided your own virtual machine hosted on Amazon Web Services (AWS).
+The base URL of this instance is provided to you by your course instructor, this is referred to later on as base-url.
+To access GeoServer, navigate to `http://<base-url>/geoserver` with your web browser of choice.
+You can log in to your GeoServer instance as an administrator with the following credentials:
+
+```
+username: admin
+password: gispotraining
+```
+
+---
+
+Alternatively, you can also install GeoServer on your local machine.
+An easy way to do this is to use Docker, we recommend using the latest version of the [kartoza/geoserver](https://hub.docker.com/r/kartoza/geoserver) image.
+Start a new container with the command:
+
+```
+docker run --name geoserver\
+-e SAMPLE_DATA=true\
+-e GEOSERVER_ADMIN_PASSWORD=gispotraining\
+--rm kartoza/geoserver:latest
+```
+
+After startup, GS is accessible at [http://localhost:8080/](http://localhost:8080/geoserver) and you can log in with the credentials above.
+
+If you don't have Docker available, another option is to install and set up Apache Tomcat 9 and OpenJDK 11.
+Download the Web Archive (.war) of the latest GS version on [geoserver.org](https://geoserver.org) and place it in the Tomcat webapps directory.
+Restart Tomcat, after which GeoServer should be accessible.
+
+## Useful tools to install {#tools}
+
+Parts of this course will cover optimising raster and vector spatial data.
+For these parts, it is useful to have some tools locally available.
+It's also highly useful to have a desktop GIS installed to act as a client application to test the various services provided by GeoServer.
+
+QGIS is a free open-source desktop GIS that can be easily installed on Linux, Windows, and Mac.
+You can use QGIS as a WMS/WFS client to see how the different services provided by GS work.
+Download and install the latest version of QGIS at [qgis.org](https://qgis.org).
+
+Alternatively, you can also use other GIS software with WMS/WFS support.
+If you don't have access to GIS software, you can still rely on the Layer Preview functionality of GeoServer to view data.
+
+GDAL and OGR are libraries that provide useful tools for processing raster and vector spatial data, respectively.
+The easiest way to install GDAL/OGR on Windows is to simply install QGIS.
+A standard QGIS installation should also install the OSGeo4W Shell.
+Opening the OSGeo4W shell from the Start menu brings up a new terminal window where GDAL and OGR commands are available to be used.

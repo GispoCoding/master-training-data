@@ -1,0 +1,111 @@
+---
+title: "Paikkatiedon mobiilikeruu QFieldissä"
+author: "Gispo Oy"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "Peruskurssi QField-mobiilisovelluksen ja QGISin QField-lisäosan käytöstä."
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+documentclass: book
+---
+
+<!-- Harjoitukset -->
+
+# Paikkatiedon mobiilikeruu QFieldillä
+
+\
+
+## Tervetuloa QField-peruskurssille!
+
+Tämän kurssin tarkoituksena on opastaa sinut QField--ohjelmiston käyttöön. QField hyödyntää QGIS-ohjelmistoa, ja oletuksena on, että ainakin perusteet QGISista on jo opittu. Muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumiselle. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku muu asia jää epäselväksi.
+
+\
+
+## QFieldin taustaa
+
+QField mobiililaitteille tarkoitettu avoimen lähdekoodin paikkatieto-ohjelmisto. QFieldin pääkehittäjänä toimii sveitsiläinen yritys nimeltä [OpenGIS.ch](https://www.opengis.ch/) ja sovelluksen kehittämisen voidaan katsoa alkaneen jo vuonna 2011. QFieldin toiminnallisuudet ovat kehittyneet viime vuosina huimasti, ja se onkin käytössä paikkatiedon keruun mobiiliratkaisuna maailmalla melko laajasti. QFieldin käyttäjämäärää on melko vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä, sitä voi käyttää useilla laitteilla samanaikaisesti ja jakaa edelleen vapaasti. Arvio kuukausittain QFieldiä käyttävistä on noin pari sataatuhatta käyttäjää, sovelluksen kunkin version latausten määrä liikkuu puolestaan viidessä sadassa tuhannessa kappaleessa
+
+QField--ohjelmisto on suunniteltu hyvin yhteensopivaksi QGIS-työpöytäohjelmiston kanssa, ja sikäli täydentää senkin käyttäjäkuntaa ja käyttötapauksia. Tämän lyhyen kurssin aikana käsittelemme vain osaa QFieldin kaikista toiminnallisuuksista. Kurssin perusteella sinun tulisi kuitenkin oppia QFieldin käytön perusteet, ja pystyä käyttämämään oppimaasi omaan käyttötarkoitukseesi.
+
+\
+
+## Miksi QField?
+
+Perimmäinen syy QFieldin käyttöön on tietysti paikkatietoaineistojen hyödyntäminen. Paikkatietoja voi hyödyntää monilla avoimen ja suljetun lähdekoodin ohjelmistolla, mutta tässä muutamia perusteluja juuri QField-ohjelmiston käytölle:
+
+-   **QField on ilmainen**. Voit ladata ja asentaa QFieldinilman lisenssi- tai käyttömaksuja. Käyttöön ei sisälly mitään maksuja.
+
+-   **QField on vapaa**. Jos tarvitset QFieldiin lisää ominaisuuksia, sinulla on täysi vapaus laajentaa ja muuttaa QFieldiä. Sinun ei tarvitse odottaa seuraavaa versioita ja toivoa, että tarvitsemasi ominaisuudet ovat sisällytetty mukaan. Jos osaat ohjelmoida, voit lisätä ominaisuudet itse. Voit myös rahoittaa uusien ominaisuuksien kehittämistä osaksi QFieldiä.
+
+-   **QField kehittyy jatkuvasti**. Kuka tahansa voi lisätä tai rahoittaa uusia ominaisuuksia QFieldiin ja siksi ohjelmisto kehittyy kiihtyvällä vauhdilla. Erilaisten lisäosien avulla on helppo toteuttaa omia prosesseja tukevia toimintoja.
+
+-   **QField on hyvin dokumentoitu**. QField sisältää laajan [dokumentaation](https://docs.qfield.org/fi/). Koko ajan kasvava käyttäjäyhteisö auttaa mielellään uusia käyttäjiä ja voit myös kysyä apua suoraan sovelluskehittäjiltä.
+
+-   **QGIS on järjestelmäriippumaton**. QFieldiä kehitetään Android-käyttöjärjestelmän ohella Windows-, ja iOS-mobiililaitteille.
+
+-   **QField on suomenkielinen**. QField-käyttöliittymä on suomennettu. Myös ruotsinkielinen versio on käytettävissä ilman lisäkustannuksia. Käyttöohjeita, web-sivustoja ja muita materiaaleja kehitetään ja ohjelmaa suomennetaan jatkuvasti.
+
+\
+
+## Lukuohje
+
+**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
+
+::: commandline-box
+sudo lsb_release -a
+:::
+
+**Tiedostojen sisältö** on esitetty seuraavasti:
+
+::: file-content-box
+#IPv4 local connections: #host all all 127.0.0.1/32 md5
+:::
+
+**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
+
+::: code-box
+SELECT version();
+:::
+
+## Mistä lisätietoja?
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+::: note-box
+<https://qfield.org>\
+:::
+
+::: note-box
+<https://docs.qfield.org/fi/>\
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>\
+:::
+
+::: note-box
+<http://www.osgeo.fi>\
+:::
+
+\
+
+## Virheet
+
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla <a href="mailto:info@gispo.fi">info@gispo.fi</a>-osoitteeseen.
+
+\
+
+## Lisenssi ja oikeudet
+
+Nämä materiaalit on "Paikkatiedon mobiilikeruu QFieldillä"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

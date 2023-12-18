@@ -1,0 +1,89 @@
+---
+title: "Introduction to GeoServer"
+author: "Gispo Oy"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "A course covering basic GeoServer topics."
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+documentclass: book
+---
+
+# INTRODUCTION TO GEOSERVER
+
+## Welcome to this GeoServer Course!
+
+The purpose of this course is to introduce you into using GeoServer. Exprience with spatial data or other GIS software is not a necessary prerequisite for attending, although it is useful. Don't hesitate to ask for additional information from the trainer if any of the terminology or topics is left unclear.
+
+## Background of GeoServer
+
+GeoServer is an open source server software where one can share, process and manage geospatial data. GeoServer has existed since the year 2001 through "The Open Planning Project". In the year 2014 GeoServer was included under the OSGeo- project. GeoServer is updated every half a year and the userbase is quite active.
+
+## How to read
+
+Commands to execute in a **web browser** are displayed as follows:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+Commands to execute in a **command prompt/terminal** are displayed as follows:
+
+::: commandline-box
+sudo lsb_release -a
+:::
+
+**File content** is displayed as follows:
+
+::: file-content-box
+#IPv4 local connections: #host all all 127.0.0.1/32 md5
+:::
+
+**HTML and CSS code, SQL- queries and Python-scripts** are displayed as follows:
+
+::: code-box
+SELECT version();
+:::
+
+**Questions, notes and hints** are displayed as follows:
+
+::: hint-box
+Where do you find information about GeoServer? 
+
+GeoServer has its own website.
+:::
+
+## Additional information
+
+Here are a few helpful websites:
+
+::: note-box
+<https://geoserver.org/>
+:::
+
+::: note-box
+<https://docs.geoserver.org/>
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>
+:::
+
+::: note-box
+<http://www.osgeo.fi>
+:::
+
+## Mistakes
+
+If you notice mistakes in these course materials, we ask you to report either directly to the trainer or by email us at info@gispo.fi .
+
+
+## License and permissions
+
+These materials are developed for the "Introduction to GeoServer" course by Gispo Ltd.
+The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.

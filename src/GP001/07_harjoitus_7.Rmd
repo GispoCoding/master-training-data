@@ -1,0 +1,158 @@
+# Kappale 7
+
+## Luento 7
+
+
+## Harjoitus 7: Karttatuloste ja kartta-atlas
+
+**Harjoituksen sisältö**
+
+Harjoituksessa tehdään karttatuloste sekä kartta-atlas.
+
+**Harjoituksen tavoite**
+
+Opiskelija osaa laatia karttatulosteen halutussa mittakaavassa sekä tehdä tulosteesta PDF-tiedoston.
+
+**Arvioitu kesto**
+
+40 minuuttia.
+
+**Valmistautuminen**
+
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **\"QGIS-harjoitus 7\"**. Lisää projektiin seuraavat aineistot:
+
+-   **../kurssihakemisto/7. Harjoitus/HSY_vaestotietoruudukko.gpkg**
+
+-   **../kurssihakemisto/7. Harjoitus/HSY_postinumeroalueet.gpkg**
+
+-   **Haluamasi taustakartta, esimerkiksi Selain \> XYZ Tiles \> OpenStreetMap**
+
+ 
+![](img/harjoitus_7/image1.png)
+
+## Karttatuloste
+
+Piilota HSY_postinumeroalueet-aineisto karttaikkunastasi ja jätä **HSY_vaestotietoruudukko**-aineisto ja **OpenStreetMap**-aineisto näkyviin. Visualisoi HSY_vaestotietoruudukko-aineisto haluamallasi tavalla - voit esimerkiksi luokitella aineiston asvaljyys-kentän mukaisesti. Voit visualisoida myös OpenStreetMap-rasteriaineistoa halutessasi. Karttasi voi näyttää esimerkiksi tältä:
+
+![](img/harjoitus_7/image2.png)
+
+Uuden tulosteen muodostaminen voidaan aloittaa kahdella tavalla, joko valitsemalla **Projekti \> Uusi taitto** tai klikkaamalla **Uusi taitto** -työkalua ![](img/harjoitus_7/image3.png) . Kaikkia taittoja voidaan hallinnoida **Näytä taittojen hallinta** -työkalulla ![](img/harjoitus_7/image4.png). Luo uusi taitto ja anna taitolle jokin sitä kuvaava nimi, jonka jälkeen uusi taitto avautuu **Tulosteen muodostaja** -ikkunaan. Tästä ikkunasta löytyy hieman erilaisia työkaluja kuin QGISin normaalista työtilasta.
+
+Klikkaa ensimmäiseksi tulostusalueella hiiren oikealla painikkeella ja valitse **Sivun ominaisuudet**. Valitse oikealta **Elementin ominaisuudet** -välilehti ja aseta **sivun kooksi A4 ja suunnaksi Vaaka**. Valitse sitten **Taitto**-välilehti ja tarkista, että viennin **resoluutio on 300 dpi**.
+
+![](img/harjoitus_7/image5.png) ![](img/harjoitus_7/image6.png)
+
+Nyt taiton pohjatyöt on tehty ja varsinainen taittotyö voidaan aloittaa. Lisätään taittoon ensimmäiseksi karttaikkuna. Klikkaa vasemmasta työkalupalkista **Lisää Kartta -työkalua** ![](img/harjoitus_7/image7.png) . Vedä tulosalueelle haluamasi kokoinen suorakulmio, minkä jälkeen kartta piirtyy suorakulmion sisään.
+
+![](img/harjoitus_7/image8.png)
+
+Valitse sitten **Valitse/siirrä elementtiä -työkalu** ![](img/harjoitus_7/image9.png) vasemmasta työkalupalkista ja klikkaa karttaelementti aktiiviseksi. Valitse **Elementin ominaisuudet -välilehti**. Muuta kartan parametrejä seuraavasti:
+
+-   Kartan mittakaava 1:250 000
+
+-   Valitse **Kehys** aktiiviseksi, jolloin karttaelementille piirtyy reunat
+
+![](img/harjoitus_7/image10.png) ![](img/harjoitus_7/image11.png)
+
+Siirrä karttaelementin sisältöä **Siirrä elementtiä -työkalulla** ![](img/harjoitus_7/image12.png) . Karttaelementin tulee olla aktiivinen, jotta Siirrä elementtiä -työkalu toimii. Karttatuloste voi näyttää tällä hetkellä esimerkiksi tältä:
+
+![](img/harjoitus_7/image13.png)
+
+Myös muut alla listatut työkalut ovat hyödyllisiä:
+
+![](img/harjoitus_7/image9.png) Valitse/siirrä elementtiä
+
+![](img/harjoitus_7/image12.png) Siirrä elementin sisältöä (esimerkiksi kartan sisältöä)
+
+![](img/harjoitus_7/image14.png) Zoomaa taiton näkymässä
+
+Lisää taittoosi nyt otsikko **Lisää Otsikko -työkalulla** ![](img/harjoitus_7/image15.png) . **Elementin ominaisuudet** -välilehdeltä voit muokata otsikon ominaisuuksia tekstinkäsittelyohjelmista tutuilla työkaluilla. Aseta tekstin vaaka- ja pystykohdistukseksi **Keskellä**. Voit muuttaa muitakin otsikkoelementin asetuksia halutessasi.
+
+![](img/harjoitus_7/image16.png) ![](img/harjoitus_7/image17.png)
+
+Lisää seuraavaksi taittoon selite **Lisää Selite -työkalulla** ![](img/harjoitus_7/image18.png) . Voit huomata, että selitteeseen tulee kaikki QGIS-työtilan puolella olevat tasot sekä tasojen ei-niin-silmää-miellyttävät nimet.
+
+![](img/harjoitus_7/image19.png)
+
+Klikkaa selite aktiiviseksi ja mene **Elementin ominaisuudet \> Selitteen merkinnät** -kohtaan. Ota ensimmäiseksi rasti pois **Päivitä automaattisesti** -kohdasta, jotta voit muokata selitteessä näkyviä tasoja vapaasti. Aseta rasti kohtaan **Only show items inside linked map**, jolloin selitteessä näytetään vain ne aineistot, jotka näkyvät karttaelementissä. Klikkaa hiiren oikealla painikkeella **HSY_vaestotietoruudukko**-aineistoa ja aktivoi kohta **Piilotettu**. Tämä asetus piilottaa tason nimen. Tee sama **OpenStreetMap**-aineiston kohdalla.
+
+![](img/harjoitus_7/image20.png) ![](img/harjoitus_7/image21.png)
+
+::: hint-box
+**Psst! Mikäli aineiston piilotus selitteestä ei onnistu, aineistoja voi poistaa selitteestä myös miinus-merkistä.**
+:::
+
+Nyt selitteen pitäisi näyttää jo paremmalta. Lisää selitteelle otsikko **Tärkeimmät ominaisuudet** -kohdasta. Voit lisäksi muotoilla selitettä haluamasi näköiseksi kohdista **Fontit ja tekstin muotoilu, Symboli** sekä **Jaottelu**. Aseta selitteelle samanlainen reuna kuin karttaelementille.
+
+![](img/harjoitus_7/image22.png)
+
+Lisää taittoosi mittakaava **Lisää Mittakaavajana -työkalulla** ![](img/harjoitus_7/image23.png) . Mene jälleen **Elementin ominaisuudet** -välilehdelle ja tarkastele eri ominaisuuksia. Vaihda **Tyyli**-kohtaan **Jana, jakoviivat yläpuolella**. Muuta visualisointia haluamaksesi.
+
+Lisätään karttatulosteeseen lopuksi myös pohjoisnuoli työkalulla ![](img/harjoitus_7/image24.png). Pohjoisnuoli on hyödyllinen, jos jostain syystä pohjoinen on jossakin muualla kuin ylhäällä. Aseta **Elementin ominaisuudet** -välilehdellä pohjoisnuolesi kierto ruksimalla kohta **Synkronoi kartan kanssa**. Jos nyt kierrät karttaelementtiä, pohjoisnuoli kiertyy mukana.
+
+Voit lisätä pohjoisnuolen (tai minkä tahansa muun symbolin/kuvan) myös **Lisää uusi kuva taittoon -työkalulla** ![](img/harjoitus_7/image25.png) . Vedä taittoon kohta, johon haluat pohjoisnuolen sijoittuvan. Valitse sen jälkeen **Elementin ominaisuudet** -välilehdeltä **Hakemistopolut**-kohdasta haluamasi pohjoisnuoli (selaa sisältöä alaspäin, jos et heti näe nuolia). Tyylittele nuoli haluamallasi tavalla. Jos haluat lisätä tulosteelle jonkin oman kuvatiedostosi (esimerkiksi yrityksen logon), vaihda täppä **Rasterikuva** -kohtaan ja etsi haluamasi kuva resurssinhallinnan kautta.
+
+![](img/harjoitus_7/image26.png)
+
+Valmis karttatuloste voi näyttää esimerkiksi tältä:
+
+![](img/harjoitus_7/image27.png)
+
+Halutessasi voit tallentaa käyttämäsi taittomallin **Tallenna malliksi** -työkalulla ![](img/harjoitus_7/image28.png) ja hyödyntää sitä jatkossa seuraavien karttatulosteiden tekemiseen. Voit esimerkiksi muotoilla karttatulostemallin organisaatiollesi (logot, värit, tekstin paikka...). Karttatulosteen voi viedä kuvaksi (PNG/JPEG), muodoksi (SVG), digitulosteeksi (PDF) tai lähettää fyysiseen tulostimeen tulostettavaksi.
+
+![](img/harjoitus_7/image29.png)
+
+Voit halutessasi tallentaa karttatulosteesi kuvatiedostoksi esimerkiksi kurssihakemistoon. Sopiva resoluutio karttatulosteellesi riippuu kartan käyttötarkoituksesta, mutta oletusarvoinen 300 dpi tallentaa resoluutioltaan hyvinkin tarkkoja kuvia.
+
+## Kartta-atlas
+
+QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Seuraavassa esimerkissä tuotetaan kartta-atlas Helsingin postinumeroalueista tutkien niitä väestön jakautumisen näkökulmasta. Tavoitteenamme on tuottaa 173 karttaa, jotka kattavat kaikki pääkaupunkiseudun postinumeroalueet. Aseta nyt **HSY_postinumeroalueet-aineisto** näkyväksi yhdessä HSY_vaestotietoruudukko-aineiston sekä OpenStreetMapin kanssa. Visualisoi postinumeroaineisto niin, että polygonin täyttö on läpinäkyvä ja rajat näkyvät hyvin.
+
+![](img/harjoitus_7/image30.png)
+
+Luo uusi taitto. Lisää taittoon karttaelementti, johon piirtyvät karttaikkunassa näkyvät projektin tasot. Lisää taittoon otsikko, selite, mittakaava ja muita haluamiasi graafisia tai kartografisia elementtejä (kuten logo tai pohjoisnuoli). Karttaelementin mittakaava kannattaa asettaa yhden postinumeroalueen laajuiseksi (esimerkiksi 1:25 000), sillä lopputuloksessa kartta-atlaksen karttalehdet kohdentuvat automaattisesti postinumeroalueiden kokoon. Karttatuloste voi tässä vaiheessa näyttää esimerkiksi tältä:
+
+![](img/harjoitus_7/image40.png)
+
+Sitten aloitetaan kartta-atlaksen tuottaminen. Kartta-atlas-ominaisuus on aktivoitava, ennen kuin sitä voidaan hyödyntää QGISin tulosteen muodostajassa. Valitse ylävalikosta **Atlas \> Atlaksen asetukset**. Oikealle ilmestyy uusi **Atlas-välilehti**, josta aktivoidaan kohta **Luo atlas**. Aseta **Coverage layer** -kohtaan se taso, jonka alueisiin kartta-atlas perustuu - tässä tapauksessa se on **HSY_postinumeroalueet**.
+
+![](img/harjoitus_7/image32.png)
+
+Varmista, että karttakomponentti on valittuna: valitse **Valitse/Siirrä elementtiä -työkalu** vasemmasta työkalupalkista ja klikkaa kartta aktiiviseksi. Muokkaa kartta-atlasasetuksia oikean puolen sivupalkissa **Elementin ominaisuudet \> Atlas ohjaa tätä**.
+
+![](img/harjoitus_7/image33.png)
+
+Painikkeella ![](img/harjoitus_7/image0.png) saat auki leikkausasetukset. Voit leikata joko osan karttasi tasoista tai kaikki tasot atlaksen kulloisenkin kohteen mukaisesti.
+
+![](img/harjoitus_7/image34.png) ![](img/harjoitus_7/image35.png)
+
+Tämän jälkeen voimme esikatsella kartta-atlastamme valitsemalla ylävalikosta **Atlas \> Esikatsele Atlasta**. Esikatselun avulla voit vilkaista, miltä kartta-atlas näyttää tulostaessa. Käytä nuolia esikatselu-työkalupalkista. Huomaa, että voit tehdä samanaikaisesti muutoksia karttatulosteen tyyliasetuksiin tai vaikkapa tason luokitteluväreihin.
+
+![](img/harjoitus_7/image36.png)
+
+Lisää karttatulosteeseen yleiskatsauskarttanäkymä eli indeksikartta valitsemalla **Lisää uusi kartta taittoon** -työkalu ja lisäämällä pienempi karttaelementti isomman viereen. Indeksikartta näyttää, millä alueella liikutaan. Valitse indeksikarttaelementti aktiiviseksi ja mene **Elementin omaisuudet \> Yleiskatsaukset** ja lisää yleiskatsaus plussasta. Määritä asetukset kuvan mukaisesti:
+
+![](img/harjoitus_7/image37.png)
+
+Voit halutessasi myös muuttaa yleiskatsauskartan kehyksen tyylin. Kokeile atlaksen esikatselua niin huomaat, että yleiskatsauskartan kehys liikkuu pääkartan mukana. Kun olet valmis, voit tulostaa kartta-atlaksen halutessasi **Vie atlas** -työkalulla. Huomaa, että jokaisesta kartta-atlaksen sivusta syntyy kuva, joten tallentaminen voi viedä aikaa.
+
+![](img/harjoitus_7/image38.png)
+
+Voit tulostaa atlaksen yksittäisinä kuvina tai yhteen tiedostoon PDF-formaatissa. Yhteen tiedostoon tallentaminen onnistuu aktivoimalla **Yhden tiedoston vienti, jos mahdollista** -asetuksen Atlas-välilehdellä.
+
+![](img/harjoitus_7/image39.png)
+
+Valmiin kartta-atlaksen sivu voi näyttää esimerkiksi tältä:
+
+![](img/harjoitus_7/image31.png)
+
+Huomaa, kuinka yleiskarttanäkymän neliö vaihtaa paikkaa kun kohdennetun kartan alue vaihtuu.
+
+Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
+
+::: hint-box
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [tuki\@gispo.fi](mailto:tuki@gispo.fi){.email}!**
+:::
+
+## Testaa tietosi...
+

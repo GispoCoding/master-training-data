@@ -1,0 +1,263 @@
+# Optimising rasters {#rasters}
+
+GeoServer is often used to distribute spatial raster data, typically using either WMS or WCS.
+Typical use cases for raster data are aerial and satellite imagery and various coverages.
+Raster datasets are often large, and poorly optimised raster data can result in significant decrease in GeoServer's performance.
+Checking if raster data is correctly optimised is therefore one of the first steps that should be performed when encountering performance issues with raster layers.
+
+Chapters \@ref(rasters) and \@ref(vectors) discuss optimising raster and vector datasets to achieve better performance with GeoServer.
+However, it's important to realise certain performance limitations exist.
+For example, it's nearly impossible to optimise WMS query response times beyond a certain point.
+To process each GetMap query, GeoServer must fetch the data from the source, render the data using a (sometimes complex) style definition, and transfer the output image over HTTP.
+Each step of this process introduces its own delays and can form a performance bottleneck.
+If WMS performance is still insufficient even after optimising the input data, instead of WMS, consider using WMTS or other services that pre-render map tiles to a cache.
+
+## GDAL
+
+This exercise is based on using [GDAL](https://gdal.org/).
+The GDAL library provides a set of command-line tools for reading and manipulating raster data.
+As the tools are command-line based, they are ideal for use in scripts and automated processes.
+
+### Setup
+
+:::{.note-box}
+**Note:** if you are on Windows and have QGIS installed, you don't need to install GDAL separately, simply open the OSGeo4W shell from the start menu.
+:::
+
+An easy way to check if you already have GDAL installed and available is opening up a terminal (prefer powershell on Windows) and running the following command:
+
+```
+gdalinfo --version
+```
+
+This should result in output resembling the following:
+
+```
+GDAL 3.3.1, released 2021/06/28
+```
+
+If instead you get an "unknown command" error message or something similar, GDAL is not installed/available.
+You can follow the instructions in Chapter \@ref(tools) to install GDAL on your machine.
+
+Even if GDAL cannot be installed, you can still read along the exercise and simply skip running the commands.
+
+### gdalinfo
+
+The gdalinfo command is a highly useful tool to explore the properties of a raster file.
+It's also very easy to use, simply open a terminal and run:
+
+```
+gdalinfo <your_dataset>
+```
+
+The tool provides all the information needed to see if the raster file in question has been optimised for use with GeoServer.
+For `L4133A.tif` the output looks like this:
+
+```
+$ gdalinfo geoserver/nlsfi/ortokuvat/L4133A.tif
+Driver: GTiff/GeoTIFF
+Files: L4133A.tif
+Size is 12000, 12000
+Coordinate System is:
+PROJCRS["ETRS89 / TM35FIN(E,N)",
+    BASEGEOGCRS["ETRS89",
+        ENSEMBLE["European Terrestrial Reference System 1989 ensemble",
+            MEMBER["European Terrestrial Reference Frame 1989"],
+            MEMBER["European Terrestrial Reference Frame 1990"],
+            MEMBER["European Terrestrial Reference Frame 1991"],
+            MEMBER["European Terrestrial Reference Frame 1992"],
+            MEMBER["European Terrestrial Reference Frame 1993"],
+            MEMBER["European Terrestrial Reference Frame 1994"],
+            MEMBER["European Terrestrial Reference Frame 1996"],
+            MEMBER["European Terrestrial Reference Frame 1997"],
+            MEMBER["European Terrestrial Reference Frame 2000"],
+            MEMBER["European Terrestrial Reference Frame 2005"],
+            MEMBER["European Terrestrial Reference Frame 2014"],
+            ELLIPSOID["GRS 1980",6378137,298.257222101,
+                LENGTHUNIT["metre",1]],
+            ENSEMBLEACCURACY[0.1]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433]],
+        ID["EPSG",4258]],
+    CONVERSION["TM35FIN",
+        METHOD["Transverse Mercator",
+            ID["EPSG",9807]],
+        PARAMETER["Latitude of natural origin",0,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8801]],
+        PARAMETER["Longitude of natural origin",27,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8802]],
+        PARAMETER["Scale factor at natural origin",0.9996,
+            SCALEUNIT["unity",1],
+            ID["EPSG",8805]],
+        PARAMETER["False easting",500000,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8806]],
+        PARAMETER["False northing",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8807]]],
+    CS[Cartesian,2],
+        AXIS["(E)",east,
+            ORDER[1],
+            LENGTHUNIT["metre",1]],
+        AXIS["(N)",north,
+            ORDER[2],
+            LENGTHUNIT["metre",1]],
+    USAGE[
+        SCOPE["Engineering survey, topographic mapping."],
+        AREA["Finland - onshore and offshore."],
+        BBOX[58.84,19.08,70.09,31.59]],
+    ID["EPSG",3067]]
+Data axis to CRS axis mapping: 1,2
+Origin = (380000.000000000000000,6672000.000000000000000)
+Pixel Size = (0.500000000000000,-0.500000000000000)
+Metadata:
+  AREA_OR_POINT=Area
+  TIFFTAG_RESOLUTIONUNIT=3 (pixels/cm)
+  TIFFTAG_XRESOLUTION=0.393677
+  TIFFTAG_YRESOLUTION=0.393677
+Image Structure Metadata:
+  COMPRESSION=YCbCr JPEG
+  INTERLEAVE=PIXEL
+  JPEGTABLESMODE=1
+  JPEG_QUALITY=75
+  SOURCE_COLOR_SPACE=YCbCr
+Corner Coordinates:
+Upper Left  (  380000.000, 6672000.000) ( 24d50'14.71"E, 60d10' 2.02"N)
+Lower Left  (  380000.000, 6666000.000) ( 24d50'27.43"E, 60d 6'48.21"N)
+Upper Right (  386000.000, 6672000.000) ( 24d56'43.68"E, 60d10' 8.21"N)
+Lower Right (  386000.000, 6666000.000) ( 24d56'55.76"E, 60d 6'54.38"N)
+Center      (  383000.000, 6669000.000) ( 24d53'35.40"E, 60d 8'28.24"N)
+Band 1 Block=256x256 Type=Byte, ColorInterp=Red
+  Overviews: 6000x6000, 3000x3000, 1500x1500, 750x750
+Band 2 Block=256x256 Type=Byte, ColorInterp=Green
+  Overviews: 6000x6000, 3000x3000, 1500x1500, 750x750
+Band 3 Block=256x256 Type=Byte, ColorInterp=Blue
+  Overviews: 6000x6000, 3000x3000, 1500x1500, 750x750
+```
+
+Some things to look out for in particular:
+
+- `Driver: GTiff/GeoTIFF`
+  - this tells you the file is a GeoTIFF (the .tif file extension does not necessarily guarantee this).
+- `Files: L4133A.tif`
+  - Note: GDAL can read raster datasets from one or multiple files (called a mosaic).
+- `Size is 12000, 12000`: tells you the size of the raster in px.
+- `Coordinate System is: ...ID["EPSG",3067]]`
+  - Tells you the CRS of the raster, in this case ETRS-TM35FIN (EPSG:3067).
+  - Especially useful information for debugging rasters that get drawn in the wrong place.
+- `Origin = (380000.000000000000000,6672000.000000000000000)`
+  - The upper-left corner of the raster (origin of the raster coordinates).
+- `Pixel Size = (0.500000000000000,-0.500000000000000)`
+  - The size of one pixel in CRS coordinates, in this case a pixel is 0.5 meters.
+  - The -0.5 indicates the raster coordinates run in the opposite direction to the CRS Y-axis.
+    - In this case, increasing the raster Y-coordinate results in moving towards *south*.
+- `COMPRESSION=YCbCr JPEG`: Type of image compression used.
+  - `JPEG_QUALITY=75`: Quality used for JPEG compression.
+- `Corner Coordinates: ...`: bounding box of the raster.
+- `Band 1 ... Band 2 ... Band 3`
+  - Lists all the bands of the raster, and further detailed information for each band.
+- `Block=256x256`
+  - The (internal) tiling used for the band.
+- `Type=Byte`
+  - The data type for the band.
+- `Overviews: 6000x6000, 3000x3000, 1500x1500, 750x750`
+  - The (internal) overviews calculated for the band.
+
+As you can see, the gdalinfo output contains a ton of useful information and metadata about the raster.
+
+## Exercise — Optimising raster data for GeoServer
+
+The idea of this exercise is to use and optimise raster datasets that you already have.
+This way you process and explore the properties of data that is already meaningful to you.
+
+:::{.note-box}
+**Note:** if you do not have any raster data available, you can use sample data from your GS instance.
+Open the URL `http://<base-url>/data/` in a web browser to view available datasets and download a raster dataset, such as `geoserver/nlsfi/ortokuvat/L4133A.tif`.
+:::
+
+Run `gdalinfo` on your own raster datasets and try to answer the questions:
+
+- what is the filetype?
+- is the raster compressed?
+- does the raster have internal tiling and/or overviews?
+
+These details are needed in the next part.
+
+In general, optimising raster data for GeoServer means processing the raster data to be as efficient as possible to read for GS.
+Typically, the process consists of the following steps:
+
+1. Convert, merge and/or split the data to a suitable format and filesize.
+2. Add internal tiling and overviews.
+4. Compress if necessary.
+
+The first step in raster optimisation is picking a suitable format.
+Many describe the GeoTIFF format as a "swiss army knife" — that is, highly useful for many situations, but better choices may be available.
+GeoTIFF is perfectly fine for most use cases, and should be used unless you have specific reasons for using another format.
+
+With 64 bit offsets (BigTIFF), GeoTIFF files can grow beyond 4 GB.
+As a rule of thumb, as long as your (uncompressed) GeoTIFF files stay below 10 GB, everything should be fine.
+In fact, in many cases, combining multiple smaller files to a single, larger GeoTIFF can actually improve performance.
+As your GeoTIFF file sizes approach 10 GB, it's time to start thinking about splitting instead of merging.
+Fortunately, publishing raster datasets split to multiple files with GeoServer is easy to do using the ImageMosaic store.
+
+---
+
+Converting from one filetype to another and merging/splitting rasters can be done with GDAL using `gdal_translate`.
+It's a powerful tool that requires some familiarisation, so it may be useful to check out the [gdal_translate documentation](https://gdal.org/programs/gdal_translate.html) first.
+Raster files can be converted to GeoTIFF with the following command:
+
+```
+gdal_translate in.file out.tif -co TILED=YES
+```
+
+The `TILED=YES` option instructs GDAL to add internal tiling to the output file (out.tif).
+By default, internal tiles are 256×256 pixels, but a different tile size can be specified using the options `-co BLOCKXSIZE=n -co BLOCKYSIZE=n`.
+
+Internal tiles let client software read the raster only partially.
+For example, without tiles, viewing a small 100×100px subsection in the top-left corner of a 1000×1000px raster requires reading the first 100 rows of the raster completely — that's 100 rows × 1000 pixels/row = 100000 pixels.
+With 256×256px tiles, only one 256×256px sub-tile has to be read, i.e., 65536 pixels — a decrease of ~35%.
+Naturally, the larger the raster is, the greater the difference becomes.
+
+Try to convert some raster files to GeoTIFF format with 512×512px internal tiling.
+Verify the results with gdalinfo.
+
+---
+
+Overviews are lower resolution versions of the original raster that are created by downsampling the original data.
+A single raster can have multiple overview levels.
+For example, a 1000×1000px raster can have overviews of 500×500px, 250×250px, and 125×125px.
+
+Tiling and overviews follow the same concept: try to minimise the amount of read data.
+Monitors have a finite resolution, and rendering every pixel of a 10000×10000px raster on a 1920×1080px screen is impossible.
+When attempting to render a raster that is beyond the screen resolution, one of two things happens:
+
+1. The raster is cropped to a subsection that is the size of the screen, or
+2. The entire raster is rendered after downsampling.
+
+Tiling helps with option #1, while overviews are designed to improve the performance of option #2.
+Downsampling an image requires computational resources, and the original image must be read to memory completely.
+Pre-generating downsampled overviews means downsampling is nto required during rendering, meaning less data is read and computing resources consumed.
+
+GeoTIFF supports creating "internal" overviews that are stored in the same file as the original raster.
+The GDAL `gdaladdo` tool can be used to generate overviews in the following manner:
+
+```
+gdaladdo file.tif 2 4 8 16 32
+```
+
+The numbers after file.tif represent the different overview levels to generate.
+These are provided as a factor of the original raster shape, i.e., "two times smaller", "four times smaller", etc.
+A downsampling algorithm can be specified with the option `-r {nearest, average, gauss, average_mp, average_magphase, mode}`.
+Each algorithm has its own advantages and disadvantages, and the correct algorithm depends on the use case.
+Overviews can also be forced to be generated externally by adding the `-ro` (read-only) flag.
+
+Try to add overviews to a raster file.
+Extra: find out how to *remove* existing overviews from a file using gdaladdo.
+Pay attention to the filesize before and after computing/removing overviews.
+How is filesize affected, and why?
+
+:::{.hint-box}
+**Hint:** see the [gdaladdo](https://gdal.org/programs/gdaladdo.html) documentation.
+:::

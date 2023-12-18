@@ -1,0 +1,194 @@
+# Harjoitus 6: Edistyneet digitointiominaisuudet
+
+**Harjoituksen sisältö**
+
+Harjoituksessa tehdään edistyneitä digitoinnin operaatioita QGISillä.
+
+**Harjoituksen tavoite**
+
+Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin QGISin editoinnin ominaisuuksia.
+
+**Arvioitu kesto**
+
+45 minuuttia.
+
+## Valmistautuminen
+
+Voit jatkaa samalla projektilla, jonka teit edellisessä harjoituksessa.
+
+## Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)
+
+Tässä harjoitukksessa teemme rakennuksia rakennuspaikoille. Luo **Aluesuunnitelma-GeoPackageen** uusi taso rakennuksia varten seuraavasti:
+
+Aloita valitsemalla työkalupalkista jälleen **Uusi GeoPackage-taso**. Tällä kertaa kuitenkin valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun Aluesuunnitelma-Geopackagen, jolloin uusi taso tuleelisätyiksi siihen. Kun olet valinnut Aluesuunnitelma.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja täytä tason tiedot kuten alla olevassa kuvassa:
+
+![](img/harjoitus_6/image9.png)
+
+Tallennettaessa QGIS kysyy, korvataanko aiemmin luotu GeoPackage vai lisätäänkö uusi taso siihen. Valitse Lisää uusi taso.
+
+![](img/harjoitus_6/image10.png)
+
+Seuraavaksi laita **Tarttuminen** ![](img/harjoitus_6/image11.png), **Seuraaminen** ![](img/harjoitus_6/image12.png) **ja Self-snapping ![](img/harjoitus_6/image13.png)**päälle **Tarttumisen työkalut -paneelista**. Aseta muut tarttumisasetukset seuraavan kuvan mukaisiksi:
+
+![](img/harjoitus_6/image14.png)
+
+Valinnat järjestyksessä vasemmalta oikealle:
+
+-   Tarttuminen
+
+-   Kaikki tasot (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
+
+-   Taitepiste (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
+
+-   10
+
+-   px (pikseliä)
+
+-   Ei käytössä
+
+-   Ei käytössä
+
+-   Ei käytössä
+
+-   Ota seuraaminen käyttöön
+
+-   Self snapping (tarttuminen työn alla olevaan digitoitavaan kohteeseen)
+
+## Rakentamistila
+
+Jos piirtämisen apuna tarvitaan etäisyyttä tietystä pisteestä tai tiettyä kulmaa johonkin olemassa olevaan linjaan, rakentamistilan avulla saa näkyville apuviivoja piirtämisen tueksi. Rakentamistilan ollessa aktiivisena ei voi piirtää, mutta sen avulla voidaan hakea näkyviin tarvittavia apuviivoja esim. etäisyyden tai kulman suhteen. Rakentamistilaa voi käyttää ennen tai kesken piirtämisen.
+
+Rakentamistila aktivoidaan laajennetun digitoinnin paneelista löytyvästä ![](img/harjoitus_6/image17.png)![]()-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla **C**.
+
+**Huom!** Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä ![](img/harjoitus_6/image19.png) tai **C**-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.
+
+## Rakennuksen piirto apuviivojen avulla
+
+Lisätyökalujen avulla voi saada näkyville apuviivat ja tarttumisasetukset tiettyihin kulmiin, esimerkiksi 45 tai 90 asteen välein. Toiminnon saa päälle laajennetun digitoinnin paneelista (ikkunan vasemmassa laidassa) ![](img/harjoitus_6/snap_common_angles.png)-nappulasta. Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen alettua kulma lasketaan viimeisen piirretyn viivan mukaan ja näkyviin tulee tukiviivoja haluttujen kulmien kohdalle.
+
+
+### Sitten vain harjoittelemaan....
+
+Aseta **Rakennukset-tason** editointi päälle kynäkuvakkeesta. Kun valitset **Lisää polygonikohde -työkalun**, **Laajennettu digitointi -kuvake** aktivoituu ![](img/harjoitus_6/image15.png). Klikkaa kuvaketta niin saat **Laajennettu digitointi -hallintapaneeliin** QGISiin.
+
+![](img/harjoitus_6/image16.png)
+
+Laita vielä **Snap to common angles/tartu yleismpiin kulmiin --\> 90.0, 180.0, 270.0, 360.0** päälle![](img/harjoitus_6/snap_common_angles.png)
+
+Aloita nyt **Rakennukset-tason** editointi.
+
+1.  Harjoittele ensin rakennuksien piirtämistä apuviivojen avulla alla olevan kuvan mukaisesti
+
+    ![](img/harjoitus_6/tarttumisen_apuviivat.gif)
+
+2.  Seuraavaksi harjoitellaan alueen reunaviivan suuntaisesti rakennuksen piirtämistä. Toimi seuraavasti:
+
+-   Varmista, että laajennettu digitointi ![](img/harjoitus_6/image15.png){width="26" height="25"} on päällä.
+
+-   Piirrä piste kartalle haluamaasi kohtaan. Laajennetun digitoinnin valikossa aktivoituvat kohtisuoruustyökalu ![](img/harjoitus_6/image18.png) ja rinnakkainentyökalu ![](img/harjoitus_6/yhdensuuntaisuus_tyokalu.png).
+
+-   Valitse haluamasi työkalu (kohtisuoruus tai rinnakkainen):
+
+    -   
+
+        a)  painamalla sen nappia hiirellä, tai
+
+    -   
+
+        b)  paina **P** yhdestä kolmeen kertaa aktivoidaksesi työkaluja järjestyksessä: kohtisuoruus -\> yhdensuuntaisuus -\> vapaapiirto.
+
+-   Kun jompi kumpi työkalu on valittuna, klikkaa viivaa, jonka suhteen haluat yhdensuuntaisuutta tai kohtisuoruutta. Huom! tämä klikkaus ei piirrä pistettä, vaan valitsee työkalulle peilauskohteen. Näkyviin tulee valitusta työkalusta riippuen joko yhdensuuntainen tai kohtisuora apuviiva.
+
+-   Klikkaa toinen piste kartalle apuviivan avulla haluamaasi kohtaan. Jos haluat, voit määrittää etäisyyden painamalla **D** (fokus etäisyyden syöttökenttään), syöttämällä etäisyyden metreinä ja painamalla **enter**.
+
+-   Jatka piirtämistä haluamallasi tavalla. Kohtisuoruutta ja yhdensuuntaisuutta voi käyttää piirtämisen aikana toistamalla askelia
+
+## Suorakulmaisen polygonin piirtäminen
+
+1.  Laita tarttumisen työkalu (työtilan yläosassa) päälle **self-snapping** ![](img/harjoitus_6/image13.png).
+
+2.  Laita asteen mukaiset tukiviivat ja tarttuminen päälle laajennetun digitoinnin paneelista ![](img/harjoitus_6/snap_common_angles.png). Riittävä tarkkuus on tässä *"90, 180, 270, 360 astetta"*.
+
+3.  Aloita piirtäminen piirtämällä ensimmäiset kaksi pistettä haluttuihin kohtiin.
+
+4.  Kolmannen pisteen piirtämistä helpottamaan näkyville tulee apuviiva kohtisuoraan jo piirrettyyn viivaan. Piirrä tämän avulla kolmas piste haluttuun kohtaan.
+
+5.  Hae seuraava kohtisuora apuviiva näkyviin liikuttamalla hiirtä kohti neljättä pistettä, mutta ÄLÄ paina hiiren nappulaa. Kun apuviiva on näkyvissä ja laajennetun digitoinnin paneelissa näkyy kulman arvona 90 astetta paina **CTRL+ A** lukitaksesi kulman arvo. ÄLÄ klikkaa neljättä pistettä kartalle.
+
+6.  Vie hiiri suorakulmion aloituspisteeseen ja kun osoitin tarttuu pisteeseen, **klikkaa sitä hiirellä**. 
+
+7.  Saadaksesi piirtämisen päätökseen, **klikkaa vielä hiiren oikealla** **näppäimellä.** Suorakulmio on valmis.
+
+![](img/harjoitus_6/Suorakulmaisen_polygonin_piirtaminen.gif)
+
+## Rakennustilan hyödyntäminen rakennuksen piirtämisessä
+
+Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 30 metriä, sen voi tehdä laajennetun digitoinnin työkaluja hyödyntäen mm. seuraavasti:
+
+1.  Valitse **Rakennukset** taso aktiiviseksi.
+
+2.  Laita **editointi** päälle ![](img/harjoitus_6/toggle_editing.png){width="26" height="24"} **Rakennukset**- tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_6/monikulmio_kohde.png) sekä l**aajennetun digitoinnin työkalut** aktiivisiksi ![](img/harjoitus_6/image15.png){width="26" height="24"}.
+
+3.  **Laita laajennetun digitoinnin** paneelista (vasen reuna) **rakentamistila** päälle ![](img/harjoitus_6/image19.png) (tai painamalla **C**).
+
+4.  Aseta halutun kiinteistönraja nollakulmaksi valitsemalla rajalta kaksi pistettä.
+
+5.  Valitse haluttu tukikulma 90 astetta painamalla **A** (kerran tai kahdesti, niin että fokus siirtyy laajennetun digitointipaneelin kohtaan a(ngle)) ja syötetään luku 90. Painetaan **enter**. Käyttöön tulee apuviiva kohtisuorasti kiinteistönrajaan. Huom! Jos kulma-asteiden apuviivat ovat käytössä (![](img/harjoitus_6/snap_common_angles.png)-valikosta), saat automaattisesti apuviivoja piirtämisen avuksi eikä kulman arvoa tarvitse syöttää erikseen.
+
+6.  Valitse haluttu etäisyys 15 metriä painamalla **D** (fokus siirtyy kohtaan d(istance)). Syötetään **luku 15**. Painetaan **enter**. Käyttöön tulee säde 15 m etäisyydelle kiinteistönrajaan piirretyn jälkimmäisen apupisteen mukaan. HUOM! Mitään ei ole vielä piirretty.
+
+7.  Aloita piirtäminen poistamalla **rakentamistila** käytöstä ![](img/harjoitus_6/image19.png) (tai painamalla **C**).
+
+8.  **Piirrä** ensimmäinen piste kohtisuoraa apuviivaa ja -sädettä hyödyntäen.
+
+9.  Suora kulma pysyy valittuna, mutta etäisyys halutaan muuttaa 35 metriin (rakennuksen 1. seinän mitta). Paina **D**, syötä arvoksi 35 ja paina **enter**. Apusäde muuttuu 35 metriin. Piirrä rakennuksen seuraava nurkka.
+
+10. Vaihda etäisyydeksi 45 painamalla jälleen, syöttämällä arvo ja painamalla **enter**. Ympyrä kasvaa ja piirtäminen voidaan tehdä sen ja kohtisuoran apuviivan avulla. Etäisyys ja kulma pysyvät samana: piirrä kolmas nurkkapiste.
+
+11. Toista kohta 8.
+
+12. Paina lopuksi hiiren oikeaa näppäintä, jolloin alue sulkeutuu. Rakennus on valmis.
+
+![*Rakennuksen piirtäminen käyttämällä aluksi rakennustilaa apuna etäisyyden määrittämiseen alueen rajasta. Tämän jälkeen rakennuksen mitat annetaan painamalla D ja antamalla seinän mitta, jolloin piirtämisen avuksi tulee ympyrä annetun etäisyyden säteellä.*](img/harjoitus_6/Rakennus_tontin_rajan_suuntaisesti.gif)
+
+Tämän jälkeen digitoi aineistoon rakennuksia vähintään kolme kappaletta hyödyntäen laajennetun digitoinnin ominaisuuksia. Koita myös kääntää rakennuksia 45 astetta hyödyntäen **Kierrä kohteita -työkalua** ![](img/harjoitus_6/image21.png). **CTRL+hiiren klikkaus** asettaa käännökselle kulmapisteen, jonka mukaan kääntö suoritetaan.
+
+Voit myös testata pienentää tai suurentaa tekemiäsi polygoneja. Voit kopioida jo tekemäsi rakennuspolygonin. Valitse haluamasi polygoni **valintatyökalulla** ![]()![](img/harjoitus_6/valintatyokalu.png) ja kopioi se näppäinkomennolla **CTRL+C** tai painamalla hiirellä valikosta **Kopioi kohteet** ![](img/harjoitus_6/kopioi_kohteet.png). Liitä haluamallesi tasolle **CTRL+V** tai **Liitä kohteet** ![](img/harjoitus_6/liita_kohteet.png). Valitse Advanced Digitizing -valikosta **"Tee yhdensuuntaissiirtymä"** -työkalu (Offset curve) ![](img/harjoitus_6/offset_curve.png). Klikkaa kerran johonkin polygonin pisteeseen. Ruudun oikeaan yläkulmaan ilmestyy **Siirtymä**-asetusvalikko (Offset), johon voi syöttää halutun etäisyyden alkuperäisen polygonin viivasta (esim. -5 tekee tuo polygonin reunoja 5 metriä sisäänpäin aluperäisestä). Valikossa voi valita myös kulmien muodot ![](img/harjoitus_6/kulmien_muodot_asetus.png)-nappia painamalla.
+
+![Pienennetyn tai suurennetun polygonin kulmien muotoa voi muokata valikosta.](img/harjoitus_6/Polygonin_kulma-asetukset.png)
+
+Ota lopuksi tason editointi pois päältä ja tallenna tasoon tehdyt muutokset.
+
+Ja sitten ei kun harjoittelemaan käyttöä! Esitellyt työkalut voivat tuntua hankalilta ensialkuun, mutta jo pienelläkin harjoituksella ja toistoilla käytännöt tulevat tutuksi ja työskentely jouhevoituu.
+
+Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä](https://gispo.fi/blogi/cad-aineistot-ja-qgis/).
+
+## Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti
+
+1.  Avaa Rakennukset-tason ominaisuudet. Mene kohtaan Attribuuttilomake
+
+2.  Valitse kentistä Pinta-ala ja selaa kohtaan Oletusarvot.
+
+3.  Avaa oikean reunan funktio-painikkeesta auki lausekkeen muokkaus -ikkuna.
+
+4.  Valitse Geometrian alta `$area`. Funktion voi myös itse kirjoittaa suoraan oletusarvot -kenttään.
+
+5.  Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella lauseke on `round($area,2)`
+
+6.  **Lopuksi muista laittaa täppä tuohon "Käytä oletusarvoa päivityksessä" kohtaan**, niin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
+
+    ![](img/harjoitus_6/Attribuuttilomake.png)![](img/harjoitus_6/Lauseke.png){width="519"}
+
+## Lopuksi
+
+Avaa **Kuvaustekniikka-paneeli** tai mene tason ominaisuuksien kautta **Kuvaustekniikka-välilehdelle** ja muokkaa editoitujen kohteiden värit vastaamaan taustakartan värejä **Värin valitsin -työkalua** hyödyntäen.
+
+Voit vielä hyödyntää alueen reunaa käyttäen **Seuraaminen-ominaisuutta**:
+
+ <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#automatic-tracing>
+
+Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
+
+::: hint-box
+Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti tuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+:::

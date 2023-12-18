@@ -1,0 +1,41 @@
+# Map styles {#styles}
+
+Styles define how GeoServer renders spatial data to maps.
+The GeoServer render engine uses SLD, but other styling languages such as (Geo)CSS are supported via extensions.
+All styling language extensions work functionally the same — they convert style definitions written in another syntax to SLD that the render engine can use.
+GeoServer also supports its own SLD extensions and vendor-options, described in the [GeoServer documentation](https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html).
+These extensions provide users many new and powerful options, such as performing on-the-fly [geometry translations](), and creating dynamic styles by allowing [SLD variable substitution].
+
+A more novel approach to styling is distributing map styles to clients.
+This is especially useful when distributing vector data — either through WFS or WMTS (vector tiles).
+Distributing map styles along with spatial vector data lets client software render the data in a meaningful way.
+This lowers the barrier for consuming vector data, as clients don't have to "know" anything about the data or its properties to render it.
+
+## Choosing a style format
+
+One of the main issues with distributing map styles is the lack of globally used standards.
+Many formats have been developed for storing style information, and it seems nearly every software uses its own implementation.
+While the SLD standard is commonly supported, it's very flexible and allows vendor-options and other extensions that cause incompatibilities between software.
+In practice, this often means styles that are created in QGIS and exported to SLD may not work in GeoServer, despite using a common style definition language.
+
+:::{.note-box}
+**Note:** while the SLD produced by QGIS is not guaranteed to be consumable by GeoServer, progress in ensuring compatibility has been made over the recent years.
+Most issues arise from the use of special QGIS rendering options, such as shapeburst symbologies, and more complex styles such as expression based symbology.
+See the [GeoServer documentation](https://docs.geoserver.org/master/en/user/styling/qgis/index.html) for more information on converting QGIS SLD to GeoServer.
+:::
+
+Selecting a suitable style format for distribution therefore requires some knowledge of the (intended) client software.
+If you are planning to use GeoServer as a backend for your mobile application written in MapBox GL, it makes sense to utilise the [MBStyles extension](https://docs.geoserver.org/master/en/user/styling/mbstyle/index.html).
+
+On the other hand, if you want to stick to SLD and ensure maximum compatibility between software, consider installing the [GeoStyler Extension](https://docs.geoserver.org/master/en/user/community/geostyler/index.html).
+The extension adds a new graphical style editor tab to the GeoServer style editor, allowing users to generate GeoServer-compatible SLD with relative ease.
+
+## Exercise — creating styles
+
+Try creating styles for your own vector data in GeoStyler on the [GeoStyler demo page](https://geostyler.github.io/geostyler-demo/).
+
+![GeoStyler graphical style editor](img/geostyler-demo.png)
+
+Next, pick a new [GeoServer SLD extension](https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html) you haven't used before and try creating a new style with it.
+Use the GeoServer [SLD](https://docs.geoserver.org/latest/en/user/styling/sld/cookbook/index.html), [CSS](https://docs.geoserver.org/latest/en/user/styling/css/cookbook/index.html), and [YSLD](https://docs.geoserver.org/master/en/user/styling/ysld/cookbook/index.html) cookbooks as reference.
+Think about the benefits and use cases for your chosen styling extension, but also try to assess potential issues such as impact on rendering performance and compatibility with other software.

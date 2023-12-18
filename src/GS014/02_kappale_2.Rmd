@@ -1,0 +1,34 @@
+# Kappale 2: Lausekkeiden kirjoittaminen
+
+## Tehtävä 2.1
+
+Tutki alla olevaa lauseketta. Pohdi mitä eri funktiot tekevät ja mikä voisi olla funktion lopputulos? Avaa tarvittaessa QGISista lausekkeen muodostaja ja tutki funktioiden dokumentaatiota.
+
+::: code-box
+``` sql
+upper(
+	concat(
+		replace(
+			'Matti Matthias Meikäläinen', 'Matthias', 'Matias'
+			), ': Syntymävuosi ', '1975'
+		)
+	)
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+Lähde tutkimaan lauseketta palasittain. Lähde liikkeelle sisimmästä funktiosta ( ```replace() ```). Sen tulosta käytetään ```concat()```- funktiossa ja lopuksi sen tulosta käytetään vielä ```upper()```- funktiota. 
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+``` replace() ``` - Etsii löytyykö annetusta merkkijonosta 'Matti Matthias Meikäläinen' alamerkkijono 'Matthias' ja jos löytyy korvaa sen merkkijonolla 'Matias'.
+
+``` concat() ``` - Yhdistää useamman merkkijonon yhdeksi merkkijonoksi.
+
+``` upper() ``` - Muuntaa merkkijonon isoiksi kirjaimiksi.
+
+:::

@@ -1,0 +1,54 @@
+# Kappale 9: Nimiöiden kustomointi
+
+## Tehtävä 9.1
+
+Tarkastele lentokenttäaineistoa. Muodosta lentokenttäkohteille niiden nimeä vastaava nimiö. Luo nimiö vain niille kohteille, jotka sijaitsevat Suomessa, Ruotsissa tai Norjassa. Mikäli lentokenttä sijaitsee Suomessa, aseta tekstin väriksi sininen ja käytä fonttikokoa 8. Mikäli lentokenttä sijaitsee Ruotsissa tai Norjassa, aseta nimiön väriksi harmaa ja kooksi 5. Kaikissa muissa tapauksissa aseta nimiön kooksi nolla.
+
+**Aineisto**: ```lentokentat.gpkg```
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+Käytä CASE WHEN ... - rakennetta.
+
+**Koon määrittäminen**:
+
+- Valitse ```country```- sarakkeesta Suomi, Ruotsi ja Norja ja aseta niille tehtävänannossa kerrottu fonttikoko.
+
+**Värin määrittäminen**:
+
+- Valitse ```country```- sarakkeesta Suomi, Ruotsi ja Norja.
+- Väri määritetään:
+  - joko RGB (red, green, blue)- muodossa jossa luku 0-255 määrittää kunkin värin arvon, 
+  - tai hexadesimaaliformaatissa (esim. '#000000')
+  - tai osa väreistä voidaan kirjoittaa sanana ('red', 'blue') jne.
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+``` sql
+-- Koon määrittäminen
+CASE
+WHEN "country" = 'Finland'
+THEN 8
+WHEN "country" in ('Sweden', 'Norway')
+THEN 5
+ELSE 0
+END
+
+-- Värin määrittäminen
+CASE
+WHEN "country"='Finland'
+THEN '0, 0, 255'
+WHEN "country" in ('Sweden', 'Norway')
+THEN '150, 150, 150'
+END
+```
+:::
+:::
+
+## Lisätehtävä
+
+[Lisätehtävä 10](15_kappale_15.html#lisätehtävä-10)
