@@ -25,22 +25,24 @@ else {
 }
 
 
-docker run -it --rm -v "$(pwd)/src:/app" -v "$(pwd)/out:/out" -v "$(pwd)/docs/assets:/assets" -e COURSE=$arg1 gispo/bookdown:latest bash -c '
+docker run -it --rm -v "${pwd}/src:/app" -v "${pwd}/out:/out" -e COURSE=$arg1 gispo/bookdown:latest bash -c '
     set -e
-    rm -rf /out/*
 
     if [ "$COURSE" = "all" ]; then
         courses=(/app/*/)
+        rm -rf /out/*
     else
         courses=("/app/$COURSE/")
+        rm -rf /out/$COURSE
     fi
 
     for course_dir in "${courses[@]}"; do
         folder_name=$(basename "$course_dir")
+        echo "$course_dir"
         mkdir /out/"$folder_name"
         Rscript /app/knit.R "$course_dir"
-        mv "$course_dir"_book/* /out/"$folder_name"
-        rm -r "$course_dir"_book
+        mv "$course_dir"/_book/* /out/"$folder_name"
+        rm -r "$course_dir"/_book
     done
     chmod --recursive 777 /out
 '
