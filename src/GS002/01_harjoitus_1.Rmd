@@ -80,17 +80,17 @@ Kolmanneksi pitäisi ottaa huomioon, että siirretäänkö kyseistä aineistoa j
 
 ## Aloita geometrioiden editointi
 
-Siirrytään editointialueelle hyödyntämällä **sijaintikirjanmerkkejä**. Valitse ylävalikosta **Näytä \> Paneelit \> Sijaintikirjanmerkkien hallinta**, jolloin QGIS-työtilaasi ilmestyy uusi paneeli (yleensä Selain-paneelin ja Tasot-paneelin väliin).
+Etsitään editoitava alue kartalla hyödyntäen QGISin hakutoimintoa OSM-kartan kanssa. QGISin alapalkissa vasemmalla on upotettu Etsi-toiminto, johon on sisäänrakennettu esimerkiksi OpenStreetMapin aineistoon perustuva Nominatim Geocoder, jonka avulla voimme etsiä osoitteita.
 
-![](img/harjoitus_1/image6.png)![](img/harjoitus_1/image7.png)
+![](img/harjoitus_3/image25.png)
 
-Tuo kurssihakemistoon tallennettu kirjanmerkki Editointialue.xml QGIS-projektiin klikkaamalla **Vie/tuo kirjanmerkit -painiketta Sijaintikirjanmerkkien hallinta -paneelissa**.
+Etsiminen tapahtuu kirjoittamalla `>` jonka perään osoite. Tässä harjoituksessa editoimme Vallilanlaakson aluetta Kumpulassa, joten kirjoitamme hakukenttään `> Vallilanlaakso`
 
-![](img/harjoitus_1/image8.png)
+::: hint-box
+Jos QGISis versio on vanhempi voi olla että tarvitset Nominatim Locator Filter- lisäosan. Asenna se Lisäosat välilehden kautta. Kun olet asentanut lisäosan, hae kohdetta muutoin samaan tapaan mutta aloita haettava osoite `osm` -sanalla eli kirjoita Etsi- laatikkoon `osm Vallilaanlaakso`
 
-Listaan ilmestyy tuotu **Editointialue-sijaintikirjanmerkki**. Pääset sijaintikirjanmerkin osoittamalle alueelle klikkaamalla **Zoomaa kirjanmerkkiin -painiketta** ![](img/harjoitus_1/image9.png).
-
-![](img/harjoitus_1/image10.png)
+Huomaa että Vallilanlaakso -sanan jälkeen on lisättävä vielä välilyönti jotta haku tapahtuu.
+:::
 
 Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla **Tason muokkaus päälle/pois -painiketta** ![](img/harjoitus_1/image11.png). Huomaa, että **Digitoinnin työkalupalkin** työkalut aktivoituvat.
 
