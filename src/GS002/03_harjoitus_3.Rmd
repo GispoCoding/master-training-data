@@ -34,11 +34,12 @@ Toimi siis seuraavasti:
 
 ![](img/harjoitus_3/image23.png)
 
-4\. Paina Enter tai klikkaa \"Suorita komento\" -nappulaa ![](img/harjoitus_3/image24.png){width="35" height="31"}
+4\. Paina Enter tai klikkaa "Suorita komento" -nappulaa ![](img/harjoitus_3/image24.png){width="35" height="31"}
 
 Nyt käytössäsi pitäisi olla lisää taustakarttoja selainikkunan XYZ Tiles -kohdassa.
 
 ### 
+
 Lisää taustakarttoja - QuickMapServices -lisäosa
 
 Laajemman valikoiman erilaisia taustakarttoja saat käyttöösi lisäosalla nimeltä **QuickMapServices**. Asenna se yläpalkin Lisäosat-valikosta ja avaa sen jälkeen Verkko-valikosta **Search QMS**. Avautuvasta paneelista voit etsiä erilaisia taustakarttoja ja satelliittikuvia, suodattaa niitä sijaintisi perusteella, ja saada tarvittaessa lisätietoja (esim. käyttöoikeuksista) kartasta. Vihreä pallo kertoo, että kartta on saatavilla. Etsi vaikkapa Stamen-nimellä eri tarkoituksiin sopivia taustakarttoja.
@@ -79,19 +80,19 @@ Tarkista, että muunnoksen tyyppi on **Lineaarinen**, menetelmä **Nearest Neigh
 
 Ikkunassa on täpättävät kohdat (Output Settings -kohta) myös vastinpisteiden (GCP-pisteet) tallentamiseksi, ns. ESRI World -tiedoston luomiseksi varsinaisen georeferoinnin toteuttamisen sijaan ja nolla-arvojen määrittämiseksi läpinäkyviksi. Lisäksi valittavissa on kohta oman vapaavalintaisen spatiaalisen resoluution asettamiseksi muunnoksen yhteydessä luotavalle kuvalle.
 
-Muunnoksesta on mahdollista saada ulos myös kartta ja raportti (Reports-kohta); näiden tallennuspaikat määritellään tarvittaessa. Varmista myös, että ikkunan alareunasta löytyvä \"Avaa tulosrasteri QGISissä kun valmis\" täppä on aktiivisena. Näin saat suoraan valmiin georeferoidun rasterin auki QGISin karttaikkunaan georeferoinnin jälkeen.
+Muunnoksesta on mahdollista saada ulos myös kartta ja raportti (Reports-kohta); näiden tallennuspaikat määritellään tarvittaessa. Varmista myös, että ikkunan alareunasta löytyvä "Avaa tulosrasteri QGISissä kun valmis" täppä on aktiivisena. Näin saat suoraan valmiin georeferoidun rasterin auki QGISin karttaikkunaan georeferoinnin jälkeen.
 
 ![Kuva 5. Muunnoksen asetukset -ikkuna halutuilla asetuksilla (Transformation Settings)](img/harjoitus_3/image29.png)
 
 ## Panosta vastinpisteisiin
 
-Kun muunnoksen asetukset on onnistuneesti määritelty, paina asetusikkunasta \"OK\". Nyt voidaan siirtyä määrittelemään vastinpisteitä. Homma lähtee liikkeelle valitsemalla työkaluriviltä löytyvä Add Point -työkalu (kuva 6). Ko. painikkeen vierestä oikealta löytyvät tarvittaessa painikkeet jo määriteltyjen vastinpisteiden poistamiseen ja muokkaamiseen. Lisää piste -painikkeen painaminen aktivoi työkalun, jolla osoitetaan georeferoitavalta kuvalta piste.
+Kun muunnoksen asetukset on onnistuneesti määritelty, paina asetusikkunasta "OK". Nyt voidaan siirtyä määrittelemään vastinpisteitä. Homma lähtee liikkeelle valitsemalla työkaluriviltä löytyvä Add Point -työkalu (kuva 6). Ko. painikkeen vierestä oikealta löytyvät tarvittaessa painikkeet jo määriteltyjen vastinpisteiden poistamiseen ja muokkaamiseen. Lisää piste -painikkeen painaminen aktivoi työkalun, jolla osoitetaan georeferoitavalta kuvalta piste.
 
 ![Kuva 6: Georeferointi aloitetaan lisäämällä rasterukuvalle oikaisupisteitä](img/harjoitus_3/image30.png)
 
-Kun Lisää piste -työkalulla on osoitettu piste georeferoitavalta kuvalta, avautuu Kirjoita karttakoordinaatit (Enter Map Coordinates) -ikkuna (kuva 7). Ikkunaan voi halutessaan syöttää koordinaattitiedot käsin, mutta huomattavasti kätevämpi tapa on poimia ne QGIS-paikkatietosovelluksen pääikkunasta painamalla \"Karttaikkunasta\"-painiketta.
+Kun Lisää piste -työkalulla on osoitettu piste georeferoitavalta kuvalta, avautuu Kirjoita karttakoordinaatit (Enter Map Coordinates) -ikkuna (kuva 7). Ikkunaan voi halutessaan syöttää koordinaattitiedot käsin, mutta huomattavasti kätevämpi tapa on poimia ne QGIS-paikkatietosovelluksen pääikkunasta painamalla "Karttaikkunasta"-painiketta.
 
-Usean näyttöruudun käsittävä setup helpottaa merkittävästi vastinpisteiden napsuttelua. Mikäli tällaista järjestelyä ei ole käytettävissä (esim. operoitaessa pienellä kannettavan ruudulla), voidaan elämää helpottaa täppäämällä \"Piilota goereferoinnin ikkuna automaattisesti\" -kohta. Tällöin Georeferencer sukeltaa automaattisesti piiloon Karttaikkunasta -painiketta painettaessa.
+Usean näyttöruudun käsittävä setup helpottaa merkittävästi vastinpisteiden napsuttelua. Mikäli tällaista järjestelyä ei ole käytettävissä (esim. operoitaessa pienellä kannettavan ruudulla), voidaan elämää helpottaa täppäämällä "Piilota goereferoinnin ikkuna automaattisesti" -kohta. Tällöin Georeferencer sukeltaa automaattisesti piiloon Karttaikkunasta -painiketta painettaessa.
 
 ![Kuva 7: Oikaisupisteen tiedot annetaan Kirjoita karttakoordinaatit -ikkunassa](img/harjoitus_3/image31.png)
 
@@ -107,7 +108,7 @@ Kun vastinpisteen tiedot ovat Kirjoita karttakoordinaatit -ikkunassa ja oikea ko
 
 ![Kuva 9: Jos huomaat että haluat poistaa jonkun vastinpisteen, voit sen tehdä Poista piste -työkalulla. Aktivoi työkalu ja klikkaa sillä georeferoint-ikkunassa näkyvää pientä punaista pistettä (vastinpiste)](img/harjoitus_3/image33.png)
 
-![Kuva 10: Poistaminen voidaan tehdä myös muunnospistetaulussa klikkaamalla haluttua riviä hiiren oikealla ja valitsemalla \"Poista\"](img/harjoitus_3/image34.png)
+![Kuva 10: Poistaminen voidaan tehdä myös muunnospistetaulussa klikkaamalla haluttua riviä hiiren oikealla ja valitsemalla "Poista"](img/harjoitus_3/image34.png)
 
 ## Vastinpisteiden tarkastelu ja varsinainen georeferointi
 
@@ -127,7 +128,17 @@ Kun tarvittava määrä vastinpisteitä on määritelty ja ne on todettu hyviksi
 
 ![Kuva 13: Georeferointi käynnistetään Start Georeferencing -painikkeesta](img/harjoitus_3/image37.png)
 
-Mikäli Muunnoksen asetukset (Transformation Settings) -ikkunassa on laitettu täppä kohtaan \"Load in QGIS when done\", avautuu georeferoitu kuva automaattisesti QGISiin georeferoinnin jälkeen. Mikäli täppää ei ole laitettu, voi kuvan lisätä myös manuaalisesti Open Data Source Manager -toiminnon kautta.
+Mikäli Muunnoksen asetukset (Transformation Settings) -ikkunassa on laitettu täppä kohtaan "Load in QGIS when done", avautuu georeferoitu kuva automaattisesti QGISiin georeferoinnin jälkeen. Mikäli täppää ei ole laitettu, voi kuvan lisätä myös manuaalisesti Open Data Source Manager -toiminnon kautta.
+
+## Lisätehtävä: Lataa QGIS-lisäosa MapSwipe Tool
+
+Kätevä työkalu kahden tason vertaamiseen on QGISin lisäosa MapSwipe Tool. Tällä lisäosalla voit verrata kahden tason näkymää olipa tason formaatti mikä tahansa.
+
+Asentamisen jälkeen ylätyökalu-palkkiin pitäisi ilmestyä seuraava ikoni ![](img/harjoitus_3/image39.png)
+
+Klikkaa ikonia ja sen jälkeen voit joko vaakatasossa tai pystytasossa "swaippailla". Suunta määräytyy sen mukaan mikä on hiiren suunta.
+
+![](img/harjoitus_3/image38.gif)
 
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
