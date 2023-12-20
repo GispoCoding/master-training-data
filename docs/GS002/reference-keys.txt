@@ -29,6 +29,7 @@ aineistojen-valmistelu---georeferoija-lisäosan-aktivointi
 georeferoija-lisäosan-toiminta
 panosta-vastinpisteisiin
 vastinpisteiden-tarkastelu-ja-varsinainen-georeferointi
+lisätehtävä-lataa-qgis-lisäosa-mapswipe-tool
 harjoitus-4-topologia-ja-geometria
 valmistautuminen-3
 virheellisen-aineiston-tuonti-qgisiin
