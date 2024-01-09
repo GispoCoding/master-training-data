@@ -15,7 +15,7 @@ jobs:
 
       - name: Find directories with changed rmd or image files
         id: changed-files-dir-names
-        uses: tj-actions/changed-files@v39
+        uses: tj-actions/changed-files@v41
         with:
           files:  |
             src/G*/*.{rmd,Rmd}
