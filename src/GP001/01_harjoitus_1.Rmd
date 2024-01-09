@@ -2,7 +2,7 @@
 
 ## Luento 1
 
-
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR6Eqd3utpUNSdodRMEYndvTuhD6lzDXElzgLG9i2AwvBCmlGRr2kYMCtIv67rBstypbEYbX7LM356r/embed?start=false&loop=true&slide=id.gbbbac47bb2_1_157" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="width: 70vw; height: 41.65vw;"></iframe>
 
 ## Harjoitus 1: Koulutusympäristön valmistaminen
 
@@ -48,3 +48,5 @@ Avaa yllä oleva linkki ja klikkaa **Lataa**. Tämä lataa aineistot kokonaisuud
 Pura kurssimateriaalit omalle tietokoneellesi haluamaasi kansioon niin, että löydät ne helposti harjoituksia tehdessä. Kun kurssimateriaalissa viitataan **../kurssihakemisto/**, tarkoitetaan itse määrittelemääsi kurssihakemiston polkua. Kysy tarvittaessa apua kouluttajalta.
 
 ## Testaa tietosi...
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczOaGQeWWavP2MLoTjnC_hBWj4eRCglmKqmAyME8If76ZAxg/viewform?embedded=true" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0"></iframe>
