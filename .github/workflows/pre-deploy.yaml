@@ -35,12 +35,12 @@ jobs:
         if: steps.changed-rmd.outputs.any_changed == 'true'
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           event-type: render-deploy
 
       - name: Deploy if asset files changed
         if: steps.changed-assets.outputs.any_changed == 'true'
         uses: peter-evans/repository-dispatch@v1
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           event-type: update-assets
