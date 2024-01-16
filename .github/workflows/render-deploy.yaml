@@ -1,12 +1,11 @@
 name: Render to HTML & Deploy
 on:
-  push:
-    paths:
-      - src/**/*
+  repository_dispatch:
+    types: [render-deploy]
 
 jobs:
   check-changes:
-    name: Check if Rmd files changed
+    name: Check if Rmd or image files changed
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

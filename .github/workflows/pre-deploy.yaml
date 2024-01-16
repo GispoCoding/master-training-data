@@ -1,0 +1,46 @@
+name: Pre-deploy
+on:
+    push:
+        paths:
+            - src/**/*
+            - assets/*
+
+jobs:
+  check-changes:
+    name: Check if Rmd files changed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Find changed rmd or image files
+        id: changed-rmd
+        uses: tj-actions/changed-files@v41
+        with:
+            files:  |
+                src/G*/*.{rmd,Rmd}
+                src/G*/img/*.{png,gif}
+                src/G*/img/*/*.{png,gif}  
+
+      - name: Find changed asset files
+        id: changed-assets
+        uses: tj-actions/changed-files@v41
+        with:
+            files:  |
+                assets/*.{html,css,js}
+                assets/**/*.{html,css,js}
+
+      - name: Deploy if rmd or image files changed
+        if: steps.changed-rmd.outputs.any_changed == 'true'
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          event-type: render-deploy
+
+      - name: Deploy if asset files changed
+        if: steps.changed-assets.outputs.any_changed == 'true'
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          event-type: update-assets
