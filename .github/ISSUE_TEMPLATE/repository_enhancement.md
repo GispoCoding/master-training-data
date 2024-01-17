@@ -1,6 +1,6 @@
 ---
 name: Repositorion kehitysidea
-about: Ilmoita kehitysidea repositorion prosesseihin
+about: Ilmoita kehitysidea repositorioon
 title: ''
 labels: enhancement
 assignees: ''

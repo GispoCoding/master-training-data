@@ -1,6 +1,6 @@
 ---
 name: Bugi repositoriossa
-about: Ilmoita bugista jossain repositorion prosessissa
+about: Ilmoita bugista repositoriossa
 title: ''
 labels: bug
 assignees: ''
