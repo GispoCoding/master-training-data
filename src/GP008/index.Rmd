@@ -15,8 +15,6 @@ output:
 documentclass: book
 ---
 
-<!-- Harjoitukset -->
-
 # Kartat ja taitot
 
 ## Tervetuloa kurssille!
@@ -34,8 +32,9 @@ Tämän kurssin tarkoituksena on oppia visualisoimaan aineistoja QGISillä monip
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
+``` shell
 sudo lsb_release -a
-:::
+```:::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:
 
@@ -46,7 +45,9 @@ sudo lsb_release -a
 **HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
 
 ::: code-box
+``` sql
 SELECT version();
+```
 :::
 
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:

@@ -15,8 +15,6 @@ output:
 documentclass: book
 ---
 
-<!-- Harjoitukset -->
-
 # **Paikkatiedon mobiilikeruu Mergin Mapsilla**
 
 ![](img/Kansi/image1.png)

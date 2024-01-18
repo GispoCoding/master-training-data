@@ -15,8 +15,6 @@ output:
 documentclass: book
 ---
 
-<!-- Harjoitukset -->
-
 # Suunnittelu ja editointi QGISillä
 
 ## Tervetuloa Syventävälle QGIS-kurssille!
@@ -44,8 +42,9 @@ Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
+``` shell
 sudo lsb_release -a
-:::
+```:::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:
 
@@ -56,7 +55,9 @@ sudo lsb_release -a
 **HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
 
 ::: code-box
+``` sql
 SELECT version();
+```
 :::
 
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:

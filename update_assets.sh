@@ -16,6 +16,14 @@ find "$src_folder" -type d -name "G*" -print0 | while IFS= read -r -d '' folder;
     fi
 done
 
+docs_folder="docs"
+
+find "$docs_folder" -type d -name "G*" -print0 | while IFS= read -r -d '' folder; do
+    cp assets/css -r $folder
+    cp assets/js -r $folder
+    cp assets/custom.css $folder
+done
+
 template_folder="template"
 
 cp assets/css -r $template_folder

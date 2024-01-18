@@ -15,6 +15,7 @@ output:
 documentclass: book
 ---
 
+
 # Advanced GeoServer
 
 Welcome to the Advanced GeoServer course by [Gispo Ltd.](https://gispo.fi)!

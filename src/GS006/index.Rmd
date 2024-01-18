@@ -15,8 +15,6 @@ output:
 documentclass: book
 ---
 
-<!-- Harjoitukset -->
-
 # JOHDANTO GEOSERVERIN KÄYTTÖÖN
 
 ## Tervetuloa GeoServer-kurssille!
@@ -37,8 +35,9 @@ GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitell
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
+``` shell
 sudo lsb_release -a
-:::
+```:::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:
 
@@ -49,7 +48,9 @@ sudo lsb_release -a
 **HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
 
 ::: code-box
+``` sql
 SELECT version();
+```
 :::
 
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:

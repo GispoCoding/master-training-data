@@ -15,8 +15,6 @@ output:
 documentclass: book
 ---
 
-<!-- Harjoitukset -->
-
 # Template
 
 ## Tervetuloa kurssille!
@@ -34,7 +32,9 @@ Kurssilla tehdään ja opitaan niitä ja näitä.
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
+``` shell
 sudo lsb_release -a
+```
 :::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:

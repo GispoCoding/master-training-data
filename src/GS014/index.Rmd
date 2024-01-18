@@ -32,7 +32,7 @@ Kurssille osallistuvien tulee tuntea paikkatiedon ja QGIS-paikkatieto-ohjelmisto
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
-``` bash
+``` shell
 sudo lsb_release -a
 ```
 :::

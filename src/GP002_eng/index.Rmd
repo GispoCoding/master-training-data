@@ -15,11 +15,6 @@ output:
 documentclass: book
 ---
 
-
-
-
-
-<!-- Harjoitukset -->
 # Introduction to QGIS
 
 **Welcome to the introductory QGIS course!**
@@ -52,7 +47,9 @@ http://localhost:8080/geoserver
 Commands to execute in a **command prompt/terminal** are displayed as follows:
 
 :::{.commandline-box}
+``` shell
 sudo lsb_release -a
+```
 :::
 
 **File content** is displayed as follows:
@@ -65,7 +62,9 @@ sudo lsb_release -a
 **HTML and CSS code, SQL- queries and Python-scripts** are displayed as follows:
 
 :::{.code-box}
+``` sql
 SELECT version();
+```
 :::
 
 **Questions, notes and hints** are displayed as follows:
