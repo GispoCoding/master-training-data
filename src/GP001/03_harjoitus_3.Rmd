@@ -100,4 +100,6 @@ Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä 
 
 ## Testaa tietosi...
 
+```{=html}
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd_auuC6qnUoYGoOcL1sZjQY8_jpLOEUFSLoOD9tM7B98zAuA/viewform?embedded=true" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+```

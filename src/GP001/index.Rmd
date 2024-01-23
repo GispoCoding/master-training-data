@@ -100,43 +100,6 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
 
-```{=html}
-<!--# Introduction to QGIS
-
-Welcome to the Introduction to QGIS course by [Gispo Ltd.](https://gispo.fi)!
-
-These course materials are designed to be used during the two-day Introduction to QGIS course.
-
-Todo: add some more materials here
-
-## About
-
-When working through the material, try to follow along the exercises as well as you can.
-Even if you cannot complete an exercise, you learn much more by at least trying.
-
-The materials contain notes and hints that help with completing the exercises.
-These are placed in special boxes.
-Hints look like this:
-
-:::{.hint-box}
-**Hint:** these boxes contain useful tips for completing exercises.
-:::
-
-While notes look like this:
-
-:::{.note-box}
-**Note:** these boxes contain various things that should to keep in mind and consider.
-::: 
--->
-```
 ## Lisenssi ja oikeudet
 
 Nämä materiaalit on "Johdanto paikkatietoon ja QGISin käyttöön"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
-
-```{=html}
-<!--
-License and permissions
-These materials are developed for the Introduction to QGIS course by Gispo Ltd.
-The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
--->
-```

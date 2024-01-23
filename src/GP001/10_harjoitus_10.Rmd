@@ -102,4 +102,6 @@ Kokeile verkkokartassasi etsiä osoitteita ja käyttää mittaustyökalua.
 
 ## Testaa tietosi...
 
+```{=html}
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczOaGQeWWavP2MLoTjnC_hBWj4eRCglmKqmAyME8If76ZAxg/viewform?embedded=true" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+```

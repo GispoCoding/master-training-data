@@ -18,8 +18,6 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **\"QGIS-
 
 -   **..kurssihakemisto/6. Harjoitus/HSY_vaestotietoruudukko.gpkg**
 
--   **..kurssihakemisto/6. Harjoitus/L4133B.asc**
-
 ## Vektoriaineiston luokittelut
 
 Tarkastellaan aluksi **HSY_vaestotietoruudukko-vektoriaineistoa**, joten piilota muut aineistot näkyvistä. **HSY_vaestotietoruudukko-aineisto** on **GeoPackage-formaatissa**. Tutustu aineistoon avaamalla sen attribuuttitaulu (klikkaa hiiren oikeaa painiketta tason päällä ja valitse **Avaa attribuuttitaulu**). QGISiin avautuu attribuuttitauluikkuna, joka esittelee tason ominaisuuksia ja on erittäin tärkeä osa paikkatietoaineistoa. Kaikilla vektoriaineistoilla on attribuuttitaulu.
@@ -62,30 +60,6 @@ Muuta vielä symbolin tyyliä. Avaa uudelleen tason ominaisuustiedot ja klikkaa 
 
 ![](img/harjoitus_6/image9.png)
 
-## Rasteriaineiston luokittelut
-
-Aseta nyt **L4133B-rasteriaineisto** näkyväksi ja piilota muut aineistot. L4133B.asc on Maanmittauslaitoksen avoin korkeusmalliaineisto, joka sisältää osan Helsingistä. Jos aineisto avautuu tuntemattomassa koordinaattijärjestelmässä (= virheellisessä projektiossa), aseta tasolle koordinaattijärjestelmäksi **ETRS89/TM35FIN (EPSG:3067)**. Muista tarkistaa myös projektin koordinaattijärjestelmä. Oletuksena korkeusmalli näyttää tällaiselta:
-
-![](img/harjoitus_6/image10.png)
-
-Huomaa, että QGIS on tunnistanut, että aineisto sisältää jatkuvia arvoja ja on visualisoinut ne yksittäisenä harmaana kanavana. Oletusvärityksellä onnistut erottamaan Pasilan ratapihan oikeassa yläkulmassa.
-
-![](img/harjoitus_6/image11.png)
-
-Zoomaa Pasilan harmaana näkyvään alueeseen ja huomaa, että yksittäiset raiteet eivät erotu. Avaa tason **Kuvaustekniikka-asetukset**, kuten aiemmin teit vektoriaineiston yhteydessä. Muista, että rasteriaineistojen kuvaustekniikkatyökalut ovat erilaiset kuin vektoriaineistoilla. Voit vaihtaa harmaasävyesityksen **pseudoväreiksi**. Voit kokeilla myös **rinnevarjostetta**.
-
-![](img/harjoitus_6/image12.png)
-
-Luokittele aineisto uudelleen niin, että Pasilasta erottuu tarkempia yksityiskohtia. Aseta mittakaavaksi 1:5000 (QGIS-työtilan alapalkista) ja vieritä karttaa tasaisen sävyisenä näkyvään ratapihan alueeseen. Klikkaa auki **Min/Max arvojen asetukset** ja muokkaa asetuksia niin, että kuva käyttää Min/Max-arvoja ja **Tilastojen laajuus** -arvoksi on määritelty **Nykyinen karttaikkuna**. Katso mallia kuvasta:
-
-![](img/harjoitus_6/image13.png)
-
-Paina sitten **Käytä** ja lopuksi **Luokittele** arvot uudestaan.
-
-![](img/harjoitus_6/image14.png){width="50%"} ![](img/harjoitus_6/image15.png){width="50%"}
-
-Vasemmanpuoleisessa kuvassa on ratapihan alue pseudoväreillä esitettynä. Oikeanpuoleisessa kuvassa on sama alue sen jälkeen, kun väriliukuma on luokiteltu uudelleen näkyvän karttaikkunan alueen Min/Max-arvojen mukaisesti. Voit myös testata **Tila**-kohdasta eri jaottelumuotoja. Kvanttiili-valinnassa muodot näkyvät yksivärisenäkin vielä voimakkaammin.
-
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
@@ -94,4 +68,6 @@ Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä 
 
 ## Testaa tietosi...
 
+```{=html}
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlBcOH7YQVS8-yONN4zpa6iKBMBIOAswTOKV_JOkXH5UcBkA/viewform?embedded=true" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+```
