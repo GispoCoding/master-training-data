@@ -1,9 +1,4 @@
-# Kappale 8
-
-## Luento 8
-
-
-## Harjoitus 8: Paikkatietoaineiston digitointi/editointi
+# Harjoitus 8: Paikkatietoaineiston digitointi/editointi
 
 **Harjoituksen sisältö**
 
@@ -151,3 +146,6 @@ Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä 
 
 ## Testaa tietosi...
 
+```{=html}
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNMlPNBC2O5bVFh3z-u_NIQVajU-gpv-j091FO2Rq1GVSJog/viewform?embedded=true" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+```
