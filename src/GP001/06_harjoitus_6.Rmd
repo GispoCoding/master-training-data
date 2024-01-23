@@ -1,9 +1,4 @@
-# Kappale 6
-
-## Luento 6
-
-
-## Harjoitus 6: Paikkatietoaineiston luokittelu
+# Harjoitus 6: Paikkatietoaineiston luokittelu
 
 **Harjoituksen sisältö**
 
@@ -99,3 +94,4 @@ Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä 
 
 ## Testaa tietosi...
 
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdlBcOH7YQVS8-yONN4zpa6iKBMBIOAswTOKV_JOkXH5UcBkA/viewform?embedded=true" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0"></iframe>

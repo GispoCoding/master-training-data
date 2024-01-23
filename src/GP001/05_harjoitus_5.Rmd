@@ -1,9 +1,4 @@
-# Kappale 5
-
-## Luento 5
-
-
-## Harjoitus 5: Paikkatietoaineiston visualisointi ja nimiöinti
+# Harjoitus 5: Paikkatietoaineiston visualisointi ja nimiöinti
 
 **Harjoituksen sisältö**
 
@@ -223,3 +218,4 @@ Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä 
 
 ## Testaa tietosi...
 
+<iframe src="e src="https://docs.google.com/forms/d/e/1FAIpQLSc49QLiPPf5Spu7oSlkcNXLF4opnHGN5UVCfw8RRVIXoDUCxQ/viewform?embedded=true" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0"></iframe>
