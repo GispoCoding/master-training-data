@@ -23,15 +23,15 @@ Lisää projektiin seuraavat tasot:
 
 Voit asettaa HallintoAlue-monikulmion täytevärin pois ja saada siten NaturaKohde-aineiston paremmin näkyviin:
 
-![](img/harjoitus_9/image22.gif)
+![](img/harjoitus_9/image1.gif)
 
 Karttanäkymä näyttää nyt kunkin väriasetuksia lukuunottamatta tältä:
 
-![](img/harjoitus_9/image18.png)
+![](img/harjoitus_9/image2.png)
 
 Tarkista projektisi koordinaattijärjestelmän asetukset **Projekti → Ominaisuudet → Koordinaattijärjestelmä** -välilehdessä tai klikkaamalla QGISin oikeasta alareunasta, jossa on kirjaimet EPSG ja nelinumeroinen koodi.
 
-![](img/harjoitus_9/image2.png)
+![](img/harjoitus_9/image3.png)
 
 Molemmilla tavoilla saat auki projektin koordinaattijärjestelmän määrityslomakkeen.
 Tarkista, että järjestelmä on ETRS89 / ETRS-TM35FIN.
@@ -64,13 +64,13 @@ Lyhyesti harjoituksen kulku on:
 
 Seuraavaksi lähdemme käsittelemään aineistoja **Vektori**-ylämenusta, josta löytyvät ensisijaiset työkalut vektorianalyysien toteuttamiseen:
 
-![](img/harjoitus_9/image10.png)
+![](img/harjoitus_9/image4.png)
 
 Käynnistä **Ristiinleikkaus (intersection...)**-työkalu **Geoprosessointi**-valikosta.
-Määrittele syötetasoksi NaturaKohde ja leikkaavaksi tasoksi HallintoAlue-aineisto. Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista. Paina syötetason vierestä Asetukset ![](img/harjoitus_9/image23.png) ja valitse **Invalid feature filtering** asetukseksi "Skip (Ignore) features with invalid geometries. Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
+Määrittele syötetasoksi NaturaKohde ja leikkaavaksi tasoksi HallintoAlue-aineisto. Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista. Paina syötetason vierestä Asetukset ![](img/harjoitus_9/image5.png) ja valitse **Invalid feature filtering** asetukseksi "Skip (Ignore) features with invalid geometries. Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
 Teemme tälle aineistolle vielä toisen analyysin, joten voit luoda tilapäisen tason:
 
-![](img/harjoitus_9/image15.png)
+![](img/harjoitus_9/image6.png)
 
 Suorita analyysi painamalla Suorita ja paina sen jälkeen **Sulje**.
 Analyysi luo uuden väliaikaisen tulostason nimeltä **Ristiinleikkaus (intersection)**.
@@ -82,22 +82,22 @@ Voit aktivoida myös **Näytä kohteiden lukumäärä** -toiminnon (paina hiiren
 
 Analyysin tuloksena ristiinleikatussa aineistossa tulisi olla enemmän kohteita ja ominaisuustietotaulukossa HallintoAlue-aineiston sarakkeet lisänä.
 
-![](img/harjoitus_9/image24.gif)
+![](img/harjoitus_9/image7.gif)
 
 Koska saman kunnan alueella voi olla usempia eri Natura-alueita, seuraavaksi siis yhdistämme eri kuntien alueella olevat alueet **Sulauta**-työkalun avulla.
 Valitse työkalu **Vektori → Geoprosessointi → Sulauta**.
 
-Valitse syötetasoksi aiemmin tehty Ristiinleikkaus-taso ja valitse sulautuksen perusteena oleva sarake painamalla Dissolve fields kohdasta ![](img/harjoitus_9/image21.png).
+Valitse syötetasoksi aiemmin tehty Ristiinleikkaus-taso ja valitse sulautuksen perusteena oleva sarake painamalla Dissolve fields kohdasta ![](img/harjoitus_9/image8.png).
 Valitse ja laita täppä **Kunta** sarakkeeseen ja paina oikealta **OK**.
 Sarakkeen pitäisi tulla harmaana Dissolve fields valinnaksi.
 
-![](img/harjoitus_9/image16.png)
+![](img/harjoitus_9/image9.png)
 
 Paina **Suorita** ja sitten **Sulje**.
 Tarkista taas kuinka paljon aineistossa on kohteita.
 Voit myös visualisoida aineiston esimerkiksi maakunnittain avaamalla **kuvaustekniikan** ja valitsemalla symbolin tyypiksi **Luokiteltu**, vaihda arvokenttään **"Maaku_ni1"** ja paina alareunasta **Luokittele** ja **OK**.
 
-![](img/harjoitus_9/image19.png)
+![](img/harjoitus_9/image10.png)
 
 Lopuksi voimme laskea, kuinka monta neliömetriä kullakin kunnalla on suojeltu Natura-alueena.
 Avaa sulautetun tason ominaisuustietotaulukko ja laita taso editoitavaksi.
@@ -107,7 +107,7 @@ Voit laskea pinta-alan neliökilometreinä jakolaskun avulla jakamalla funktion 
 
 Missä kunnassa tai maakunnassa on eniten suojeltuja alueita?
 
-![](img/harjoitus_9/image20.png)
+![](img/harjoitus_9/image11.png)
 
 ::: hint-box
 **Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [tuki\@gispo.fi](mailto:tuki@gispo.fi){.email}!**

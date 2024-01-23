@@ -29,7 +29,7 @@ Siksi on hyödyllistä piilottaa ne joita ei käytetä.
 **QuickMapServices (QMS) -lisäosan** kautta saat QGISin karttaprojektiin erilaisia taustakarttoja verkosta, kuten OpenStreetMaps, Google Maps tai Bing Maps.
 Avaa **Lisäosat → Hallitse ja asenna lisäosia...**, valitse **Kaikki**-välilehti ja etsi quickmapservices tekstillä:
 
-![](img/harjoitus_10/image5.png)
+![](img/harjoitus_10/image1.png)
 
 Paina vielä **Install plugin** ja paina sen jälkeen **Sulje**.
 Uusi valikko tulee päävalikon **Verkko** alle.
@@ -38,7 +38,7 @@ Karttaikkunassa on nyt **OpenStreetMap** taustakarttana.
 Lisää karttoja voit etsiä Valitsemalla **Verkko → QuickMapServices → Search QMS**. Sivupalkkiin avautuu hakuikkuna, josta voit hakea hakusanoilla erilaisia karttoja käyttöösi.
 Testaa etsiä esimerkiksi **Stamen** karttoja tai etsi onko omalla tai naapurikunnallasi karttoja palvelussa!
 
-![](img/harjoitus_10/image4.png)
+![](img/harjoitus_10/image2.png)
 
 ## QuickOSM
 
@@ -51,14 +51,14 @@ Etsitään esimerkiksi Espoon piknik-paikat.
 Tässä tapauksessa se löytyy ja täyttää suoraan valikkoon oikean avaimen ja arvon.
 Lisää vielä oikea kaupunki ja paina oikealta **"Suorita kysely"**
 
-![](img/harjoitus_10/image7.png){width="70%"}
+![](img/harjoitus_10/image3.png){width="70%"}
 
 Kartalle tulee kaksi uutta väliaikaista tasoa: pistemäinen kohde sekä aluekohde piknik-paikoista Espoossa.
 Voit visualisoida tasot miten haluat.
 Muista tallentaa tasot erikseen itsellesi, jos haluat käyttää niitä myöhemmin.
 Paina tasoa hiiren oikealla **Vie → Tallenna kohteet nimellä** ja valitse muoto sekä minne haluat tiedoston tallentaa.
 
-![](img/harjoitus_10/image8.png){width="70%"}
+![](img/harjoitus_10/image4.png){width="70%"}
 
 Tutki, mitä muita kohteita voit löytää OpenStreetMapilta.
 Testaa löytää esimerkiksi golfkentät tai pyörätiet jostain kaupungista.
@@ -73,7 +73,7 @@ Avaa **Qgis2threejs Exporter** ja valitse **DEM Layer -valikosta** korkeusmallia
 Valitse sen jälkeen **Polygon**-kohdan alta väestötietoruudukkoaineisto ja tuplaklikkaa sitä avataksesi asetukset.
 Aseta Z-coordinate kohdan **Mode-asetukseksi Relative to "L4133B" layer** ja **Height-kentän** arvoksi asukkaita-kentän arvo.
 
-![](img/harjoitus_10/image1.png)
+![](img/harjoitus_10/image5.png)
 
 Voit tarkastella visualisointia esikatseluikkunassa tai exportoida sen html-tiedostoksi jolloin sen voi avata selaimella.
 
@@ -86,11 +86,11 @@ Avaa Qgis2web valikosta **Verkko → Qgis2web → Create web map**.
 Valitse väestötietoruudukko-aineiston kentille **Popup fields** -kohdan alta **Inline label**, ja klikkaa **Update preview**.
 Kun kartta on päivittynyt, klikkaa ruudukkoa.
 
-![](img/harjoitus_10/image2.png)
+![](img/harjoitus_10/image6.png)
 
 Vaihda **Appearance**-välilehdelle ja muuta asetukset kuvan mukaisesti:
 
-![](img/harjoitus_10/image6.png)
+![](img/harjoitus_10/image7.png)
 
 Paina lopulta **Export** tallentaaksesi kartan HTML-tiedostoon.
 Tiedosto aukeaa automaattisesti selaimelle.
