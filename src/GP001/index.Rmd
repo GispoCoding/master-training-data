@@ -11,10 +11,9 @@ output:
         template: custom.html
         css: custom.css
         split_by: rmd
+        number_sections: false
 documentclass: book
 ---
-
-<!-- Harjoitukset -->
 
 # Johdanto paikkatietoon ja QGISin käyttöön
 
@@ -48,7 +47,9 @@ Perimmäinen syy QGISin käyttöön on tietysti paikkatietoaineistojen hyödynt�
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
+``` shell
 sudo lsb_release -a
+```
 :::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:
@@ -60,7 +61,9 @@ sudo lsb_release -a
 **HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
 
 ::: code-box
+``` sql
 SELECT version();
+```
 :::
 
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:

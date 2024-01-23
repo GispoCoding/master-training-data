@@ -11,7 +11,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="8 EXERCISE 1.7: SPATIAL DATABASES | Introduction to GeoServer" />
+<meta property="og:title" content="EXERCISE 1.7: SPATIAL DATABASES | Introduction to GeoServer" />
 <meta property="og:type" content="book" />
 
 
@@ -20,15 +20,81 @@
 
 <meta name="author" content="Gispo Oy" />
 
-<meta name="date" content="2023-12-18" />
+<meta name="date" content="2024-01-18" />
 
 
-<meta name="description" content="8 EXERCISE 1.7: SPATIAL DATABASES | Introduction to GeoServer">
+<meta name="description" content="EXERCISE 1.7: SPATIAL DATABASES | Introduction to GeoServer">
 
-<title>8 EXERCISE 1.7: SPATIAL DATABASES | Introduction to GeoServer</title>
+<title>EXERCISE 1.7: SPATIAL DATABASES | Introduction to GeoServer</title>
 
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="custom.css" type="text/css" />
 
@@ -65,169 +131,169 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <nav class="sidebar-nav">
 <div id="TOC" class="toc">
 <ul>
-<li class="has-sub"><a href="index.html#introduction-to-geoserver"><span class="toc-section-number">1</span> INTRODUCTION TO GEOSERVER</a>
+<li class="has-sub"><a href="index.html#introduction-to-geoserver">INTRODUCTION TO GEOSERVER</a>
 <ul>
-<li><a href="index.html#welcome-to-this-geoserver-course"><span class="toc-section-number">1.1</span> Welcome to this GeoServer Course!</a></li>
-<li><a href="index.html#background-of-geoserver"><span class="toc-section-number">1.2</span> Background of GeoServer</a></li>
-<li><a href="index.html#how-to-read"><span class="toc-section-number">1.3</span> How to read</a></li>
-<li><a href="index.html#additional-information"><span class="toc-section-number">1.4</span> Additional information</a></li>
-<li><a href="index.html#mistakes"><span class="toc-section-number">1.5</span> Mistakes</a></li>
-<li><a href="index.html#license-and-permissions"><span class="toc-section-number">1.6</span> License and permissions</a></li>
+<li><a href="index.html#welcome-to-this-geoserver-course">Welcome to this GeoServer Course!</a></li>
+<li><a href="index.html#background-of-geoserver">Background of GeoServer</a></li>
+<li><a href="index.html#how-to-read">How to read</a></li>
+<li><a href="index.html#additional-information">Additional information</a></li>
+<li><a href="index.html#mistakes">Mistakes</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
 </ul></li>
-<li class="has-sub"><a href="01_exercise_1.html#exercise-1.1-installation-and-commissioning"><span class="toc-section-number">2</span> EXERCISE 1.1: INSTALLATION AND COMMISSIONING</a>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1.1-installation-and-commissioning">EXERCISE 1.1: INSTALLATION AND COMMISSIONING</a>
 <ul>
-<li><a href="01_exercise_1.html#preparation"><span class="toc-section-number">2.1</span> <strong>Preparation</strong></a></li>
-<li class="has-sub"><a href="01_exercise_1.html#main-menu"><span class="toc-section-number">2.2</span> <strong>Main menu</strong></a>
+<li><a href="01_exercise_1.html#preparation"><strong>Preparation</strong></a></li>
+<li class="has-sub"><a href="01_exercise_1.html#main-menu"><strong>Main menu</strong></a>
 <ul>
-<li><a href="01_exercise_1.html#about-geoserver"><span class="toc-section-number">2.2.1</span> <strong>About GeoServer</strong></a></li>
-<li><a href="01_exercise_1.html#layer-preview"><span class="toc-section-number">2.2.2</span> <strong>Layer Preview</strong></a></li>
-<li><a href="01_exercise_1.html#service-capabilities"><span class="toc-section-number">2.2.3</span> <strong>Service Capabilities</strong></a></li>
-<li><a href="01_exercise_1.html#demos"><span class="toc-section-number">2.2.4</span> <strong>Demos</strong></a></li>
-<li><a href="01_exercise_1.html#demo-requests"><span class="toc-section-number">2.2.5</span> <strong>Demo requests</strong></a></li>
+<li><a href="01_exercise_1.html#about-geoserver"><strong>About GeoServer</strong></a></li>
+<li><a href="01_exercise_1.html#layer-preview"><strong>Layer Preview</strong></a></li>
+<li><a href="01_exercise_1.html#service-capabilities"><strong>Service Capabilities</strong></a></li>
+<li><a href="01_exercise_1.html#demos"><strong>Demos</strong></a></li>
+<li><a href="01_exercise_1.html#demo-requests"><strong>Demo requests</strong></a></li>
 </ul></li>
-<li><a href="01_exercise_1.html#srs-list-ja-reprojection-console"><span class="toc-section-number">2.3</span> <strong>SRS List ja Reprojection console</strong></a></li>
-<li><a href="01_exercise_1.html#wcs-request-builder"><span class="toc-section-number">2.4</span> <strong>WCS request builder</strong></a></li>
+<li><a href="01_exercise_1.html#srs-list-ja-reprojection-console"><strong>SRS List ja Reprojection console</strong></a></li>
+<li><a href="01_exercise_1.html#wcs-request-builder"><strong>WCS request builder</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="02_exercise_2.html#exercise-1.2-geoserver-web-interface"><span class="toc-section-number">3</span> EXERCISE 1.2: GEOSERVER WEB INTERFACE</a>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-1.2-geoserver-web-interface">EXERCISE 1.2: GEOSERVER WEB INTERFACE</a>
 <ul>
-<li><a href="02_exercise_2.html#preparation-1"><span class="toc-section-number">3.1</span> <strong>Preparation</strong></a></li>
-<li><a href="02_exercise_2.html#administrators-interface"><span class="toc-section-number">3.2</span> <strong>Administrator’s interface</strong></a></li>
-<li><a href="02_exercise_2.html#master-and-administrator-users"><span class="toc-section-number">3.3</span> <strong>Master and Administrator users</strong></a></li>
-<li class="has-sub"><a href="02_exercise_2.html#about-status-settings"><span class="toc-section-number">3.4</span> <strong>About &amp; Status settings</strong></a>
+<li><a href="02_exercise_2.html#preparation-1"><strong>Preparation</strong></a></li>
+<li><a href="02_exercise_2.html#administrators-interface"><strong>Administrator’s interface</strong></a></li>
+<li><a href="02_exercise_2.html#master-and-administrator-users"><strong>Master and Administrator users</strong></a></li>
+<li class="has-sub"><a href="02_exercise_2.html#about-status-settings"><strong>About &amp; Status settings</strong></a>
 <ul>
-<li><a href="02_exercise_2.html#contact-information"><span class="toc-section-number">3.4.1</span> <strong>Contact Information</strong></a></li>
-<li><a href="02_exercise_2.html#server-status"><span class="toc-section-number">3.4.2</span> <strong>Server Status</strong></a></li>
-<li><a href="02_exercise_2.html#geoserver-logs"><span class="toc-section-number">3.4.3</span> <strong>GeoServer Logs</strong></a></li>
+<li><a href="02_exercise_2.html#contact-information"><strong>Contact Information</strong></a></li>
+<li><a href="02_exercise_2.html#server-status"><strong>Server Status</strong></a></li>
+<li><a href="02_exercise_2.html#geoserver-logs"><strong>GeoServer Logs</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="02_exercise_2.html#data-menu"><span class="toc-section-number">3.5</span> <strong>Data menu</strong></a>
+<li class="has-sub"><a href="02_exercise_2.html#data-menu"><strong>Data menu</strong></a>
 <ul>
-<li><a href="02_exercise_2.html#layer-preview-1"><span class="toc-section-number">3.5.1</span> <strong>Layer Preview</strong></a></li>
-<li><a href="02_exercise_2.html#workspaces"><span class="toc-section-number">3.5.2</span> <strong>Workspaces</strong></a></li>
-<li><a href="02_exercise_2.html#stores"><span class="toc-section-number">3.5.3</span> <strong>Stores</strong></a></li>
-<li><a href="02_exercise_2.html#layers"><span class="toc-section-number">3.5.4</span> <strong>Layers</strong></a></li>
+<li><a href="02_exercise_2.html#layer-preview-1"><strong>Layer Preview</strong></a></li>
+<li><a href="02_exercise_2.html#workspaces"><strong>Workspaces</strong></a></li>
+<li><a href="02_exercise_2.html#stores"><strong>Stores</strong></a></li>
+<li><a href="02_exercise_2.html#layers"><strong>Layers</strong></a></li>
 </ul></li>
-<li><a href="02_exercise_2.html#layer-groups"><span class="toc-section-number">3.6</span> <strong>Layer Groups</strong></a></li>
-<li><a href="02_exercise_2.html#styles"><span class="toc-section-number">3.7</span> <strong>Styles</strong></a></li>
-<li><a href="02_exercise_2.html#settings"><span class="toc-section-number">3.8</span> <strong>Settings</strong></a></li>
-<li><a href="02_exercise_2.html#tile-caching-1"><span class="toc-section-number">3.9</span> <strong>Tile Caching</strong></a></li>
-<li><a href="02_exercise_2.html#security-1"><span class="toc-section-number">3.10</span> <strong>Security</strong></a></li>
+<li><a href="02_exercise_2.html#layer-groups"><strong>Layer Groups</strong></a></li>
+<li><a href="02_exercise_2.html#styles"><strong>Styles</strong></a></li>
+<li><a href="02_exercise_2.html#settings"><strong>Settings</strong></a></li>
+<li><a href="02_exercise_2.html#tile-caching-1"><strong>Tile Caching</strong></a></li>
+<li><a href="02_exercise_2.html#security-1"><strong>Security</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="03_exercise_3.html#exercise-1.3-vector-data"><span class="toc-section-number">4</span> Exercise 1.3: VECTOR DATA</a>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-1.3-vector-data">Exercise 1.3: VECTOR DATA</a>
 <ul>
-<li><a href="03_exercise_3.html#preparation-2"><span class="toc-section-number">4.1</span> <strong>Preparation</strong></a></li>
-<li><a href="03_exercise_3.html#creating-vector-data-store"><span class="toc-section-number">4.2</span> <strong>Creating vector data store</strong></a></li>
-<li><a href="03_exercise_3.html#publishing-vector-layer"><span class="toc-section-number">4.3</span> <strong>Publishing vector layer</strong></a></li>
-<li class="has-sub"><a href="03_exercise_3.html#data-settings"><span class="toc-section-number">4.4</span> <strong>Data settings</strong></a>
+<li><a href="03_exercise_3.html#preparation-2"><strong>Preparation</strong></a></li>
+<li><a href="03_exercise_3.html#creating-vector-data-store"><strong>Creating vector data store</strong></a></li>
+<li><a href="03_exercise_3.html#publishing-vector-layer"><strong>Publishing vector layer</strong></a></li>
+<li class="has-sub"><a href="03_exercise_3.html#data-settings"><strong>Data settings</strong></a>
 <ul>
-<li><a href="03_exercise_3.html#coordinate-reference-systems"><span class="toc-section-number">4.4.1</span> <strong>Coordinate Reference Systems</strong></a></li>
-<li><a href="03_exercise_3.html#bounding-boxes"><span class="toc-section-number">4.4.2</span> <strong>Bounding Boxes</strong></a></li>
-<li><a href="03_exercise_3.html#feature-type-details"><span class="toc-section-number">4.4.3</span> <strong>Feature Type Details</strong></a></li>
+<li><a href="03_exercise_3.html#coordinate-reference-systems"><strong>Coordinate Reference Systems</strong></a></li>
+<li><a href="03_exercise_3.html#bounding-boxes"><strong>Bounding Boxes</strong></a></li>
+<li><a href="03_exercise_3.html#feature-type-details"><strong>Feature Type Details</strong></a></li>
 </ul></li>
-<li><a href="03_exercise_3.html#add-helsinki-road-network"><span class="toc-section-number">4.5</span> <strong>Add Helsinki road network</strong></a></li>
+<li><a href="03_exercise_3.html#add-helsinki-road-network"><strong>Add Helsinki road network</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="04_exercise_4.html#exercise-1.4-basics-of-styling-sld"><span class="toc-section-number">5</span> EXERCISE 1.4: BASICS OF STYLING (SLD)</a>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-1.4-basics-of-styling-sld">EXERCISE 1.4: BASICS OF STYLING (SLD)</a>
 <ul>
-<li><a href="04_exercise_4.html#preparation-3"><span class="toc-section-number">5.1</span> <strong>Preparation</strong></a></li>
-<li><a href="04_exercise_4.html#geoserverin-styling-technique"><span class="toc-section-number">5.2</span> <strong>GeoServerin styling technique</strong></a></li>
-<li><a href="04_exercise_4.html#sld-styling"><span class="toc-section-number">5.3</span> <strong>SLD-styling</strong></a></li>
-<li><a href="04_exercise_4.html#creating-a-new-style"><span class="toc-section-number">5.4</span> <strong>Creating a new style</strong></a></li>
-<li><a href="04_exercise_4.html#deployment-of-sld-styling-technique"><span class="toc-section-number">5.5</span> <strong>Deployment of SLD styling technique</strong></a></li>
-<li><a href="04_exercise_4.html#sld-cookbook"><span class="toc-section-number">5.6</span> <strong>SLD Cookbook</strong></a></li>
-<li><a href="04_exercise_4.html#editing-sld-styling-technique"><span class="toc-section-number">5.7</span> <strong>Editing SLD styling technique</strong></a></li>
-<li><a href="04_exercise_4.html#create-a-road-style"><span class="toc-section-number">5.8</span> <strong>Create a road style</strong></a></li>
+<li><a href="04_exercise_4.html#preparation-3"><strong>Preparation</strong></a></li>
+<li><a href="04_exercise_4.html#geoserverin-styling-technique"><strong>GeoServerin styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#sld-styling"><strong>SLD-styling</strong></a></li>
+<li><a href="04_exercise_4.html#creating-a-new-style"><strong>Creating a new style</strong></a></li>
+<li><a href="04_exercise_4.html#deployment-of-sld-styling-technique"><strong>Deployment of SLD styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#sld-cookbook"><strong>SLD Cookbook</strong></a></li>
+<li><a href="04_exercise_4.html#editing-sld-styling-technique"><strong>Editing SLD styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#create-a-road-style"><strong>Create a road style</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="05_exercise_5.html#exercise-1.5-wms-and-wcs-services"><span class="toc-section-number">6</span> EXERCISE 1.5: WMS AND WCS SERVICES</a>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-1.5-wms-and-wcs-services">EXERCISE 1.5: WMS AND WCS SERVICES</a>
 <ul>
-<li><a href="05_exercise_5.html#preparation-4"><span class="toc-section-number">6.1</span> <strong>Preparation</strong></a></li>
-<li><a href="05_exercise_5.html#ogc-standards"><span class="toc-section-number">6.2</span> <strong>OGC-standards</strong></a></li>
-<li><a href="05_exercise_5.html#general-map-service-settings"><span class="toc-section-number">6.3</span> <strong>General map service settings</strong></a></li>
-<li><a href="05_exercise_5.html#wms"><span class="toc-section-number">6.4</span> <strong>WMS</strong></a></li>
-<li><a href="05_exercise_5.html#workspace-specific-server-settings"><span class="toc-section-number">6.5</span> <strong>Workspace-specific server settings</strong></a></li>
-<li><a href="05_exercise_5.html#dpi-resolution-of-the-wms-map-service-image"><span class="toc-section-number">6.6</span> <strong>DPI resolution of the WMS map service image</strong></a></li>
-<li><a href="05_exercise_5.html#wcs"><span class="toc-section-number">6.7</span> <strong>WCS</strong></a></li>
+<li><a href="05_exercise_5.html#preparation-4"><strong>Preparation</strong></a></li>
+<li><a href="05_exercise_5.html#ogc-standards"><strong>OGC-standards</strong></a></li>
+<li><a href="05_exercise_5.html#general-map-service-settings"><strong>General map service settings</strong></a></li>
+<li><a href="05_exercise_5.html#wms"><strong>WMS</strong></a></li>
+<li><a href="05_exercise_5.html#workspace-specific-server-settings"><strong>Workspace-specific server settings</strong></a></li>
+<li><a href="05_exercise_5.html#dpi-resolution-of-the-wms-map-service-image"><strong>DPI resolution of the WMS map service image</strong></a></li>
+<li><a href="05_exercise_5.html#wcs"><strong>WCS</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="06_exercise_6.html#exercise-1.6-raster-data"><span class="toc-section-number">7</span> EXERCISE 1.6: RASTER DATA</a>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-1.6-raster-data">EXERCISE 1.6: RASTER DATA</a>
 <ul>
-<li><a href="06_exercise_6.html#preparation-5"><span class="toc-section-number">7.1</span> <strong>Preparation</strong></a></li>
-<li><a href="06_exercise_6.html#adding-raster-data"><span class="toc-section-number">7.2</span> <strong>Adding raster data</strong></a></li>
-<li><a href="06_exercise_6.html#adding-an-aerial-image"><span class="toc-section-number">7.3</span> <strong>Adding an aerial image</strong></a></li>
-<li><a href="06_exercise_6.html#image-mosaic"><span class="toc-section-number">7.4</span> <strong>Image Mosaic</strong></a></li>
-<li class="has-sub"><a href="06_exercise_6.html#layer-groups-1"><span class="toc-section-number">7.5</span> <strong>Layer Groups</strong></a>
+<li><a href="06_exercise_6.html#preparation-5"><strong>Preparation</strong></a></li>
+<li><a href="06_exercise_6.html#adding-raster-data"><strong>Adding raster data</strong></a></li>
+<li><a href="06_exercise_6.html#adding-an-aerial-image"><strong>Adding an aerial image</strong></a></li>
+<li><a href="06_exercise_6.html#image-mosaic"><strong>Image Mosaic</strong></a></li>
+<li class="has-sub"><a href="06_exercise_6.html#layer-groups-1"><strong>Layer Groups</strong></a>
 <ul>
-<li><a href="06_exercise_6.html#form-of-publication-of-group-layers"><span class="toc-section-number">7.5.1</span> <strong>Form of publication of group layers</strong></a></li>
-<li><a href="06_exercise_6.html#use-of-external-wms-services-cascading-wms"><span class="toc-section-number">7.5.2</span> <strong>Use of external WMS services (cascading WMS)</strong></a></li>
+<li><a href="06_exercise_6.html#form-of-publication-of-group-layers"><strong>Form of publication of group layers</strong></a></li>
+<li><a href="06_exercise_6.html#use-of-external-wms-services-cascading-wms"><strong>Use of external WMS services (cascading WMS)</strong></a></li>
 </ul></li>
 </ul></li>
-<li class="has-sub"><a href="07_exercise_7.html#exercise-1.7-spatial-databases"><span class="toc-section-number">8</span> EXERCISE 1.7: SPATIAL DATABASES</a>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-1.7-spatial-databases">EXERCISE 1.7: SPATIAL DATABASES</a>
 <ul>
-<li><a href="07_exercise_7.html#preparation-6"><span class="toc-section-number">8.1</span> <strong>Preparation</strong></a></li>
-<li><a href="07_exercise_7.html#connecting-to-the-geodatabase"><span class="toc-section-number">8.2</span> <strong>Connecting to the geodatabase</strong></a></li>
-<li><a href="07_exercise_7.html#adding-a-postgis-layer"><span class="toc-section-number">8.3</span> <strong>Adding a PostGIS layer</strong></a></li>
-<li><a href="07_exercise_7.html#adding-a-polygon-and-line-layer-from-postgis-database"><span class="toc-section-number">8.4</span> <strong>Adding a polygon and line layer from PostGIS database</strong></a></li>
-<li><a href="07_exercise_7.html#setting-default-styles-for-layers"><span class="toc-section-number">8.5</span> <strong>Setting default styles for layers</strong></a></li>
-<li><a href="07_exercise_7.html#sql-views"><span class="toc-section-number">8.6</span> <strong>SQL views</strong></a></li>
-<li><a href="07_exercise_7.html#geographical-data-functions-via-sql-views"><span class="toc-section-number">8.7</span> <strong>Geographical data functions via SQL views</strong></a></li>
+<li><a href="07_exercise_7.html#preparation-6"><strong>Preparation</strong></a></li>
+<li><a href="07_exercise_7.html#connecting-to-the-geodatabase"><strong>Connecting to the geodatabase</strong></a></li>
+<li><a href="07_exercise_7.html#adding-a-postgis-layer"><strong>Adding a PostGIS layer</strong></a></li>
+<li><a href="07_exercise_7.html#adding-a-polygon-and-line-layer-from-postgis-database"><strong>Adding a polygon and line layer from PostGIS database</strong></a></li>
+<li><a href="07_exercise_7.html#setting-default-styles-for-layers"><strong>Setting default styles for layers</strong></a></li>
+<li><a href="07_exercise_7.html#sql-views"><strong>SQL views</strong></a></li>
+<li><a href="07_exercise_7.html#geographical-data-functions-via-sql-views"><strong>Geographical data functions via SQL views</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="08_exercise_8.html#exercise-2.1-wfs-services"><span class="toc-section-number">9</span> EXERCISE 2.1: WFS SERVICES</a>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-2.1-wfs-services">EXERCISE 2.1: WFS SERVICES</a>
 <ul>
-<li><a href="08_exercise_8.html#preparation-7"><span class="toc-section-number">9.1</span> <strong>Preparation</strong></a></li>
-<li><a href="08_exercise_8.html#ogc-standards-1"><span class="toc-section-number">9.2</span> <strong>OGC-standards</strong></a></li>
-<li><a href="08_exercise_8.html#wfs-settings"><span class="toc-section-number">9.3</span> <strong>WFS settings</strong></a></li>
-<li><a href="08_exercise_8.html#number-of-data-requested"><span class="toc-section-number">9.4</span> <strong>Number of data requested</strong></a></li>
-<li><a href="08_exercise_8.html#specifying-several-coordinate-systems"><span class="toc-section-number">9.5</span> <strong>Specifying several coordinate systems</strong></a></li>
-<li><a href="08_exercise_8.html#service-levels"><span class="toc-section-number">9.6</span> <strong>Service Levels</strong></a></li>
-<li><a href="08_exercise_8.html#gml-settings"><span class="toc-section-number">9.7</span> <strong>GML settings</strong></a></li>
-<li><a href="08_exercise_8.html#workspace-specific-settings"><span class="toc-section-number">9.8</span> <strong>Workspace specific settings</strong></a></li>
-<li><a href="08_exercise_8.html#editing-via-wfs-t-service"><span class="toc-section-number">9.9</span> <strong>Editing via WFS-T service</strong></a></li>
+<li><a href="08_exercise_8.html#preparation-7"><strong>Preparation</strong></a></li>
+<li><a href="08_exercise_8.html#ogc-standards-1"><strong>OGC-standards</strong></a></li>
+<li><a href="08_exercise_8.html#wfs-settings"><strong>WFS settings</strong></a></li>
+<li><a href="08_exercise_8.html#number-of-data-requested"><strong>Number of data requested</strong></a></li>
+<li><a href="08_exercise_8.html#specifying-several-coordinate-systems"><strong>Specifying several coordinate systems</strong></a></li>
+<li><a href="08_exercise_8.html#service-levels"><strong>Service Levels</strong></a></li>
+<li><a href="08_exercise_8.html#gml-settings"><strong>GML settings</strong></a></li>
+<li><a href="08_exercise_8.html#workspace-specific-settings"><strong>Workspace specific settings</strong></a></li>
+<li><a href="08_exercise_8.html#editing-via-wfs-t-service"><strong>Editing via WFS-T service</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="09_exercise_9.html#exercise-2.2-map-tile-services"><span class="toc-section-number">10</span> EXERCISE 2.2: MAP TILE SERVICES</a>
+<li class="has-sub"><a href="09_exercise_9.html#exercise-2.2-map-tile-services">EXERCISE 2.2: MAP TILE SERVICES</a>
 <ul>
-<li><a href="09_exercise_9.html#preparation-8"><span class="toc-section-number">10.1</span> <strong>Preparation</strong></a></li>
-<li><a href="09_exercise_9.html#tile-caching-2"><span class="toc-section-number">10.2</span> <strong>Tile Caching</strong></a></li>
-<li><a href="09_exercise_9.html#geowebcache-user-interface"><span class="toc-section-number">10.3</span> <strong>GeoWebCache user interface</strong></a></li>
-<li><a href="09_exercise_9.html#layer-specific-settings"><span class="toc-section-number">10.4</span> <strong>Layer-specific settings</strong></a></li>
-<li><a href="09_exercise_9.html#pre-creation-of-map-tiles"><span class="toc-section-number">10.5</span> <strong>Pre-creation of map tiles</strong></a></li>
-<li><a href="09_exercise_9.html#using-the-hard-disk-of-the-map-tiles"><span class="toc-section-number">10.6</span> <strong>Using the hard disk of the map tiles</strong></a></li>
-<li><a href="09_exercise_9.html#map-tile-grids"><span class="toc-section-number">10.7</span> <strong>Map tile grids</strong></a></li>
-<li><a href="09_exercise_9.html#map-tile-grid-according-to-jhs180"><span class="toc-section-number">10.8</span> <strong>Map tile grid according to JHS180</strong></a></li>
-<li><a href="09_exercise_9.html#creating-a-new-gridset"><span class="toc-section-number">10.9</span> <strong>Creating a new gridset</strong></a></li>
-<li><a href="09_exercise_9.html#finlands-openstreetmap-road-network"><span class="toc-section-number">10.10</span> <strong>Finland’s OpenStreetMap road network</strong></a></li>
-<li><a href="09_exercise_9.html#using-your-own-map-tile-grid"><span class="toc-section-number">10.11</span> <strong>Using your own map tile grid</strong></a></li>
-<li><a href="09_exercise_9.html#create-a-local-map-tile-grid"><span class="toc-section-number">10.12</span> <strong>Create a local map tile grid</strong></a></li>
+<li><a href="09_exercise_9.html#preparation-8"><strong>Preparation</strong></a></li>
+<li><a href="09_exercise_9.html#tile-caching-2"><strong>Tile Caching</strong></a></li>
+<li><a href="09_exercise_9.html#geowebcache-user-interface"><strong>GeoWebCache user interface</strong></a></li>
+<li><a href="09_exercise_9.html#layer-specific-settings"><strong>Layer-specific settings</strong></a></li>
+<li><a href="09_exercise_9.html#pre-creation-of-map-tiles"><strong>Pre-creation of map tiles</strong></a></li>
+<li><a href="09_exercise_9.html#using-the-hard-disk-of-the-map-tiles"><strong>Using the hard disk of the map tiles</strong></a></li>
+<li><a href="09_exercise_9.html#map-tile-grids"><strong>Map tile grids</strong></a></li>
+<li><a href="09_exercise_9.html#map-tile-grid-according-to-jhs180"><strong>Map tile grid according to JHS180</strong></a></li>
+<li><a href="09_exercise_9.html#creating-a-new-gridset"><strong>Creating a new gridset</strong></a></li>
+<li><a href="09_exercise_9.html#finlands-openstreetmap-road-network"><strong>Finland’s OpenStreetMap road network</strong></a></li>
+<li><a href="09_exercise_9.html#using-your-own-map-tile-grid"><strong>Using your own map tile grid</strong></a></li>
+<li><a href="09_exercise_9.html#create-a-local-map-tile-grid"><strong>Create a local map tile grid</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="10_exercise_10.html#exercise-2.3-architecture-and-deployment"><span class="toc-section-number">11</span> EXERCISE 2.3: ARCHITECTURE AND DEPLOYMENT</a>
+<li class="has-sub"><a href="10_exercise_10.html#exercise-2.3-architecture-and-deployment">EXERCISE 2.3: ARCHITECTURE AND DEPLOYMENT</a>
 <ul>
-<li><a href="10_exercise_10.html#preparation-9"><span class="toc-section-number">11.1</span> <strong>Preparation</strong></a></li>
-<li><a href="10_exercise_10.html#general-information-about-the-geoserver-server"><span class="toc-section-number">11.2</span> <strong>General information about the GeoServer server</strong></a></li>
-<li><a href="10_exercise_10.html#image-processing-settings"><span class="toc-section-number">11.3</span> <strong>Image Processing Settings</strong></a></li>
-<li><a href="10_exercise_10.html#raster-access"><span class="toc-section-number">11.4</span> <strong>Raster Access</strong></a></li>
-<li><a href="10_exercise_10.html#geoservers-log"><span class="toc-section-number">11.5</span> <strong>GeoServer’s log</strong></a></li>
-<li><a href="10_exercise_10.html#rest-api-functionality"><span class="toc-section-number">11.6</span> <strong>REST API functionality</strong></a></li>
-<li><a href="10_exercise_10.html#using-the-monitor-plugin-tarkista-nämä-vielä"><span class="toc-section-number">11.7</span> <strong>Using the Monitor plugin (tarkista nämä vielä)</strong></a></li>
+<li><a href="10_exercise_10.html#preparation-9"><strong>Preparation</strong></a></li>
+<li><a href="10_exercise_10.html#general-information-about-the-geoserver-server"><strong>General information about the GeoServer server</strong></a></li>
+<li><a href="10_exercise_10.html#image-processing-settings"><strong>Image Processing Settings</strong></a></li>
+<li><a href="10_exercise_10.html#raster-access"><strong>Raster Access</strong></a></li>
+<li><a href="10_exercise_10.html#geoservers-log"><strong>GeoServer’s log</strong></a></li>
+<li><a href="10_exercise_10.html#rest-api-functionality"><strong>REST API functionality</strong></a></li>
+<li><a href="10_exercise_10.html#using-the-monitor-plugin-tarkista-nämä-vielä"><strong>Using the Monitor plugin (tarkista nämä vielä)</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="11_exercise_11.html#exercise-2.4-css-styling"><span class="toc-section-number">12</span> EXERCISE 2.4: CSS-STYLING</a>
+<li class="has-sub"><a href="11_exercise_11.html#exercise-2.4-css-styling">EXERCISE 2.4: CSS-STYLING</a>
 <ul>
-<li><a href="11_exercise_11.html#preparation-10"><span class="toc-section-number">12.1</span> <strong>Preparation</strong></a></li>
-<li><a href="11_exercise_11.html#css-styles"><span class="toc-section-number">12.2</span> <strong>CSS-styles</strong></a></li>
-<li><a href="11_exercise_11.html#creating-a-style"><span class="toc-section-number">12.3</span> <strong>Creating a style</strong></a></li>
-<li><a href="11_exercise_11.html#classification-of-data"><span class="toc-section-number">12.4</span> <strong>Classification of data</strong></a></li>
-<li><a href="11_exercise_11.html#tuning-the-style"><span class="toc-section-number">12.5</span> <strong>Tuning the style</strong></a></li>
-<li><a href="11_exercise_11.html#category-naming"><span class="toc-section-number">12.6</span> <strong>Category naming</strong></a></li>
-<li><a href="11_exercise_11.html#multi-scale-visibility"><span class="toc-section-number">12.7</span> <strong>Multi-scale visibility</strong></a></li>
-<li><a href="11_exercise_11.html#adding-subtitles"><span class="toc-section-number">12.8</span> <strong>Adding subtitles</strong></a></li>
-<li><a href="11_exercise_11.html#application-of-styling-technology"><span class="toc-section-number">12.9</span> <strong>Application of styling technology</strong></a></li>
+<li><a href="11_exercise_11.html#preparation-10"><strong>Preparation</strong></a></li>
+<li><a href="11_exercise_11.html#css-styles"><strong>CSS-styles</strong></a></li>
+<li><a href="11_exercise_11.html#creating-a-style"><strong>Creating a style</strong></a></li>
+<li><a href="11_exercise_11.html#classification-of-data"><strong>Classification of data</strong></a></li>
+<li><a href="11_exercise_11.html#tuning-the-style"><strong>Tuning the style</strong></a></li>
+<li><a href="11_exercise_11.html#category-naming"><strong>Category naming</strong></a></li>
+<li><a href="11_exercise_11.html#multi-scale-visibility"><strong>Multi-scale visibility</strong></a></li>
+<li><a href="11_exercise_11.html#adding-subtitles"><strong>Adding subtitles</strong></a></li>
+<li><a href="11_exercise_11.html#application-of-styling-technology"><strong>Application of styling technology</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="12_exercise_12.html#exercise-2.5-access-control"><span class="toc-section-number">13</span> EXERCISE 2.5: ACCESS CONTROL</a>
+<li class="has-sub"><a href="12_exercise_12.html#exercise-2.5-access-control">EXERCISE 2.5: ACCESS CONTROL</a>
 <ul>
-<li><a href="12_exercise_12.html#geoserver-general-security-settings"><span class="toc-section-number">13.1</span> <strong>GeoServer general security settings</strong></a></li>
-<li><a href="12_exercise_12.html#identification"><span class="toc-section-number">13.2</span> <strong>Identification</strong></a></li>
-<li><a href="12_exercise_12.html#create-a-new-role-and-user"><span class="toc-section-number">13.3</span> <strong>Create a new role and user</strong></a></li>
-<li><a href="12_exercise_12.html#limiting-access-rights-to-the-data"><span class="toc-section-number">13.4</span> <strong>Limiting access rights to the data</strong></a></li>
-<li><a href="12_exercise_12.html#user-specific-access-rights-for-the-data"><span class="toc-section-number">13.5</span> <strong>User-specific access rights for the data</strong></a></li>
+<li><a href="12_exercise_12.html#geoserver-general-security-settings"><strong>GeoServer general security settings</strong></a></li>
+<li><a href="12_exercise_12.html#identification"><strong>Identification</strong></a></li>
+<li><a href="12_exercise_12.html#create-a-new-role-and-user"><strong>Create a new role and user</strong></a></li>
+<li><a href="12_exercise_12.html#limiting-access-rights-to-the-data"><strong>Limiting access rights to the data</strong></a></li>
+<li><a href="12_exercise_12.html#user-specific-access-rights-for-the-data"><strong>User-specific access rights for the data</strong></a></li>
 </ul></li>
-<li class="has-sub"><a href="13_exercise_13.html#exercise-2.6-filtering"><span class="toc-section-number">14</span> EXERCISE 2.6: FILTERING</a>
+<li class="has-sub"><a href="13_exercise_13.html#exercise-2.6-filtering">EXERCISE 2.6: FILTERING</a>
 <ul>
-<li><a href="13_exercise_13.html#filtering-with-attributes"><span class="toc-section-number">14.1</span> Filtering with attributes</a></li>
+<li><a href="13_exercise_13.html#filtering-with-attributes">Filtering with attributes</a></li>
 </ul></li>
 </ul>
 </div>
@@ -238,21 +304,21 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="exercise-1.7-spatial-databases" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> EXERCISE 1.7: SPATIAL DATABASES</h1>
+<div id="exercise-1.7-spatial-databases" class="section level1">
+<h1>EXERCISE 1.7: SPATIAL DATABASES</h1>
 <p><strong>Content of the exercise</strong></p>
 <p>The exercise involves adding data to GeoServer from a database source.</p>
 <p><strong>Aim of the exercise</strong></p>
 <p>After the exercise, the student will be able to connect geodatabase data to GeoServer and publish their data there.</p>
 <p><strong>Estimated duration</strong></p>
 <p>30 minutes.</p>
-<div id="preparation-6" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> <strong>Preparation</strong></h2>
+<div id="preparation-6" class="section level2">
+<h2><strong>Preparation</strong></h2>
 <p>Start a web browser on your computer and log in for your practice session.</p>
 <p>The PostgreSQL database and its PostGIS extension are installed on the server machine. The database is pre-loaded with a variety of vector data.</p>
 </div>
-<div id="connecting-to-the-geodatabase" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> <strong>Connecting to the geodatabase</strong></h2>
+<div id="connecting-to-the-geodatabase" class="section level2">
+<h2><strong>Connecting to the geodatabase</strong></h2>
 <p>GeoServer supports most spatial databases, including PostGIS, ArcSDE, Oracle and Microsoft SQL Server.</p>
 <p>PostGIS spatial databases can be automatically accessed through GeoServer’s default settings. Support for other databases is installed via plugins.</p>
 <p>A PostGIS database is pre-installed in the training environment, with a variety of vector datasets ready for use. The data are from <strong>Helsinki Region Infoshare</strong>, <strong>University of Jyväskylä open data services</strong> and <strong>OpenStreetMap map data</strong> (from geofabrik.de).</p>
@@ -301,8 +367,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>In the same way as before, the new layer creation view will appear automatically after creating a store. This view lists all the layers that can be found in that database.</p>
 <p>The data is now referenced via the <strong>hki_lipas</strong> store and you can see what data it contains: <img src="img/harjoitus_7/image3.png" /></p>
 </div>
-<div id="adding-a-postgis-layer" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> <strong>Adding a PostGIS layer</strong></h2>
+<div id="adding-a-postgis-layer" class="section level2">
+<h2><strong>Adding a PostGIS layer</strong></h2>
 <p>You can publish a layer immediately after creating a store by pressing <strong>Publish</strong>. Now publish the <strong>pisteet (points)</strong> layer. Lipas is a national geographic information system for physical education managed by the University of Jyväskylä.</p>
 <div class="hint-box">
 <p>Psst! When you later want to publish other layers from the hki_HRI-store, you can do it from the main menu Data → Layers → Add a new layers and select the desired store.</p>
@@ -315,8 +381,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Finally, press <strong>Save</strong>. You can preview the new layer via <strong>Layer Preview</strong>.<br />
 <img src="img/harjoitus_7/image6.png" /></p>
 </div>
-<div id="adding-a-polygon-and-line-layer-from-postgis-database" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> <strong>Adding a polygon and line layer from PostGIS database</strong></h2>
+<div id="adding-a-polygon-and-line-layer-from-postgis-database" class="section level2">
+<h2><strong>Adding a polygon and line layer from PostGIS database</strong></h2>
 <p>Add two more layers from the PostGIS database in the same way:</p>
 <ul>
 <li><p><strong>alueet (areas)</strong></p></li>
@@ -327,8 +393,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Which steps are mandatory to publish a layer? What are the coordinate systems of the layers and their scopes?</p>
 </div>
 </div>
-<div id="setting-default-styles-for-layers" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> <strong>Setting default styles for layers</strong></h2>
+<div id="setting-default-styles-for-layers" class="section level2">
+<h2><strong>Setting default styles for layers</strong></h2>
 <p>Finally, change the default styles for those layers using GeoServer’s default styles. You can change the layer style from the main menu <strong>Data → Layers</strong> and open the layer you want to change. The styles are defined in the <strong>Publish</strong> tab. Use the following styles:</p>
 <table style="width:44%;">
 <colgroup>
@@ -356,8 +422,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </table>
 <p>Finally, you can make the data into a group layer. In the picture, the Helsinki background map group layer and the lipas data have been combined into one map service layer: <img src="img/harjoitus_7/image7.png" /></p>
 </div>
-<div id="sql-views" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> <strong>SQL views</strong></h2>
+<div id="sql-views" class="section level2">
+<h2><strong>SQL views</strong></h2>
 <p>GeoServer also allows SQL queries to be used to share spatial data sets.</p>
 <p>Let’s add again <strong>lipas_kaikki_reitit</strong> data as a new layer on the server. The goal is to create a layer where only data from Helsinki is displayed.</p>
 <p>I will name it <strong>lipas_kaikki_reitit_helsinki</strong>.</p>
@@ -381,8 +447,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Then press <strong>Save</strong>.</p>
 <p>Next, define the dimensions of the layer (Bounding Box) and press <strong>Save</strong>. You can now preview the Helsinki liikuntareitit layer. <img src="img/harjoitus_7/image12.png" /></p>
 </div>
-<div id="geographical-data-functions-via-sql-views" class="section level2" number="8.7">
-<h2><span class="header-section-number">8.7</span> <strong>Geographical data functions via SQL views</strong></h2>
+<div id="geographical-data-functions-via-sql-views" class="section level2">
+<h2><strong>Geographical data functions via SQL views</strong></h2>
 <p>You can also use spatial functions in SQL queries. The zone function (ST_Buffer) is used as an example.</p>
 <p>Reopen layer <strong>lipas_kaikki_reitit_helsinki</strong> (<strong>Data → Layers</strong>)</p>
 <p>In the <strong>Data</strong> tab, scroll to the bottom of the page. There you will find the <strong>Edit SQL view</strong> function.</p>
@@ -410,13 +476,13 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Introduction to GeoServer</h5>
-<span class="footer-version">v2023-12-18</span>
+<span class="footer-version">v2024-01-18</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
 <div class="footer-info">
 <h5 class="footer-title footer-company">Gispo Ltd.
-<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-copyright-year">© 2024</span></h5>
 <span class="footer-contact-info">Kumpulantie 3, 3 krs
 <br>00520 Helsinki, Finland
 <br>info@gispo.fi

@@ -11,7 +11,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="6 Harjoitus 5: QFieldin lisäominaisuudet | Paikkatiedon mobiilikeruu QFieldissä" />
+<meta property="og:title" content="Harjoitus 5: QFieldin lisäominaisuudet | Paikkatiedon mobiilikeruu QFieldissä" />
 <meta property="og:type" content="book" />
 
 
@@ -20,15 +20,81 @@
 
 <meta name="author" content="Gispo Oy" />
 
-<meta name="date" content="2023-12-18" />
+<meta name="date" content="2024-01-18" />
 
 
-<meta name="description" content="6 Harjoitus 5: QFieldin lisäominaisuudet | Paikkatiedon mobiilikeruu QFieldissä">
+<meta name="description" content="Harjoitus 5: QFieldin lisäominaisuudet | Paikkatiedon mobiilikeruu QFieldissä">
 
-<title>6 Harjoitus 5: QFieldin lisäominaisuudet | Paikkatiedon mobiilikeruu QFieldissä</title>
+<title>Harjoitus 5: QFieldin lisäominaisuudet | Paikkatiedon mobiilikeruu QFieldissä</title>
 
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="custom.css" type="text/css" />
 
@@ -65,92 +131,92 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <nav class="sidebar-nav">
 <div id="TOC" class="toc">
 <ul>
-<li class="has-sub"><a href="index.html#paikkatiedon-mobiilikeruu-qfieldillä"><span class="toc-section-number">1</span> Paikkatiedon mobiilikeruu QFieldillä</a>
+<li class="has-sub"><a href="index.html#paikkatiedon-mobiilikeruu-qfieldillä">Paikkatiedon mobiilikeruu QFieldillä</a>
 <ul>
-<li><a href="index.html#tervetuloa-qfield-peruskurssille"><span class="toc-section-number">1.1</span> Tervetuloa QField-peruskurssille!</a></li>
-<li><a href="index.html#qfieldin-taustaa"><span class="toc-section-number">1.2</span> QFieldin taustaa</a></li>
-<li><a href="index.html#miksi-qfield"><span class="toc-section-number">1.3</span> Miksi QField?</a></li>
-<li><a href="index.html#lukuohje"><span class="toc-section-number">1.4</span> Lukuohje</a></li>
-<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.5</span> Mistä lisätietoja?</a></li>
-<li><a href="index.html#virheet"><span class="toc-section-number">1.6</span> Virheet</a></li>
-<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.7</span> Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#tervetuloa-qfield-peruskurssille">Tervetuloa QField-peruskurssille!</a></li>
+<li><a href="index.html#qfieldin-taustaa">QFieldin taustaa</a></li>
+<li><a href="index.html#miksi-qfield">Miksi QField?</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
 </ul></li>
-<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-asennus-ja-käyttöönotto"><span class="toc-section-number">2</span> Harjoitus 1: Asennus ja käyttöönotto</a>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-asennus-ja-käyttöönotto">Harjoitus 1: Asennus ja käyttöönotto</a>
 <ul>
-<li><a href="01_harjoitus_1.html#harjoituksen-sisältö"><span class="toc-section-number">2.0.1</span> Harjoituksen sisältö</a></li>
-<li><a href="01_harjoitus_1.html#harjoituksen-tavoite"><span class="toc-section-number">2.0.2</span> Harjoituksen tavoite</a></li>
-<li><a href="01_harjoitus_1.html#arvioitu-kesto"><span class="toc-section-number">2.0.3</span> Arvioitu kesto</a></li>
-<li><a href="01_harjoitus_1.html#valmistautuminen"><span class="toc-section-number">2.1</span> Valmistautuminen</a></li>
-<li><a href="01_harjoitus_1.html#sovelluksen-asentaminen-google-play--kaupasta"><span class="toc-section-number">2.2</span> Sovelluksen asentaminen Google Play -kaupasta</a></li>
-<li><a href="01_harjoitus_1.html#sovelluksen-avaaminen-ja-käyttöliittymä"><span class="toc-section-number">2.3</span> Sovelluksen avaaminen ja käyttöliittymä</a></li>
-<li><a href="01_harjoitus_1.html#qfieldin-käyttöliittymä"><span class="toc-section-number">2.4</span> QFieldin käyttöliittymä</a></li>
-<li><a href="01_harjoitus_1.html#selailutila"><span class="toc-section-number">2.5</span> Selailutila</a></li>
+<li><a href="01_harjoitus_1.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="01_harjoitus_1.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="01_harjoitus_1.html#arvioitu-kesto">Arvioitu kesto</a></li>
+<li><a href="01_harjoitus_1.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="01_harjoitus_1.html#sovelluksen-asentaminen-google-play--kaupasta">Sovelluksen asentaminen Google Play -kaupasta</a></li>
+<li><a href="01_harjoitus_1.html#sovelluksen-avaaminen-ja-käyttöliittymä">Sovelluksen avaaminen ja käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qfieldin-käyttöliittymä">QFieldin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#selailutila">Selailutila</a></li>
 </ul></li>
-<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-qgis-projektin-valmistelu-synkronointi-ja-digitointi"><span class="toc-section-number">3</span> Harjoitus 2: QGIS-projektin valmistelu, synkronointi ja digitointi</a>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-qgis-projektin-valmistelu-synkronointi-ja-digitointi">Harjoitus 2: QGIS-projektin valmistelu, synkronointi ja digitointi</a>
 <ul>
-<li><a href="02_harjoitus_2.html#harjoituksen-sisältö-1"><span class="toc-section-number">3.0.1</span> Harjoituksen sisältö</a></li>
-<li><a href="02_harjoitus_2.html#harjoituksen-tavoite-1"><span class="toc-section-number">3.0.2</span> Harjoituksen tavoite</a></li>
-<li><a href="02_harjoitus_2.html#arvioitu-kesto-1"><span class="toc-section-number">3.0.3</span> Arvioitu kesto</a></li>
-<li><a href="02_harjoitus_2.html#valmistautuminen-1"><span class="toc-section-number">3.1</span> Valmistautuminen</a></li>
-<li><a href="02_harjoitus_2.html#qgis-projektitiedoston-valmistelu-ja-perusasetukset"><span class="toc-section-number">3.2</span> QGIS-projektitiedoston valmistelu ja perusasetukset</a></li>
-<li><a href="02_harjoitus_2.html#taustakarttojen-lisäys"><span class="toc-section-number">3.3</span> Taustakarttojen lisäys</a></li>
-<li><a href="02_harjoitus_2.html#tasojen-luonti"><span class="toc-section-number">3.4</span> Tasojen luonti</a></li>
-<li><a href="02_harjoitus_2.html#qfield-sync--lisäosan-asentaminen-ja-käyttö"><span class="toc-section-number">3.5</span> QField Sync -lisäosan asentaminen ja käyttö</a></li>
-<li><a href="02_harjoitus_2.html#qgis-projektin-siirto-mobiililaitteeseen"><span class="toc-section-number">3.6</span> QGIS-projektin siirto mobiililaitteeseen</a></li>
-<li><a href="02_harjoitus_2.html#projektin-avaaminen-qfieldissä"><span class="toc-section-number">3.7</span> Projektin avaaminen QFieldissä</a></li>
-<li><a href="02_harjoitus_2.html#digitointitila"><span class="toc-section-number">3.8</span> Digitointitila</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#arvioitu-kesto-1">Arvioitu kesto</a></li>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#qgis-projektitiedoston-valmistelu-ja-perusasetukset">QGIS-projektitiedoston valmistelu ja perusasetukset</a></li>
+<li><a href="02_harjoitus_2.html#taustakarttojen-lisäys">Taustakarttojen lisäys</a></li>
+<li><a href="02_harjoitus_2.html#tasojen-luonti">Tasojen luonti</a></li>
+<li><a href="02_harjoitus_2.html#qfield-sync--lisäosan-asentaminen-ja-käyttö">QField Sync -lisäosan asentaminen ja käyttö</a></li>
+<li><a href="02_harjoitus_2.html#qgis-projektin-siirto-mobiililaitteeseen">QGIS-projektin siirto mobiililaitteeseen</a></li>
+<li><a href="02_harjoitus_2.html#projektin-avaaminen-qfieldissä">Projektin avaaminen QFieldissä</a></li>
+<li><a href="02_harjoitus_2.html#digitointitila">Digitointitila</a></li>
 </ul></li>
-<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-lomakkeet"><span class="toc-section-number">4</span> Harjoitus 3: Lomakkeet</a>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-lomakkeet">Harjoitus 3: Lomakkeet</a>
 <ul>
-<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-2"><span class="toc-section-number">4.0.1</span> Harjoituksen sisältö</a></li>
-<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-2"><span class="toc-section-number">4.0.2</span> Harjoituksen tavoite</a></li>
-<li><a href="03_harjoitus_3.html#arvioitu-kesto-2"><span class="toc-section-number">4.0.3</span> Arvioitu kesto</a></li>
-<li><a href="03_harjoitus_3.html#valmistautuminen-2"><span class="toc-section-number">4.1</span> Valmistautuminen</a></li>
-<li><a href="03_harjoitus_3.html#taustatietoja"><span class="toc-section-number">4.2</span> Taustatietoja</a></li>
-<li><a href="03_harjoitus_3.html#ominaisuustietolomakkeen-muokkaus"><span class="toc-section-number">4.3</span> Ominaisuustietolomakkeen muokkaus</a></li>
-<li><a href="03_harjoitus_3.html#ympärysmitta--ja-korkeus--tietokentät"><span class="toc-section-number">4.4</span> Ympärysmitta- ja korkeus -tietokentät</a></li>
-<li><a href="03_harjoitus_3.html#huomiot-tietokenttä"><span class="toc-section-number">4.5</span> Huomiot-tietokenttä</a></li>
-<li><a href="03_harjoitus_3.html#valokuva"><span class="toc-section-number">4.6</span> Valokuva</a></li>
-<li><a href="03_harjoitus_3.html#luoja--ja-muokkaaja--tietokenttien-automatisointi"><span class="toc-section-number">4.7</span> Luoja- ja muokkaaja -tietokenttien automatisointi</a></li>
-<li><a href="03_harjoitus_3.html#luonti--ja-muokkausaika--tietokentät"><span class="toc-section-number">4.8</span> Luonti- ja muokkausaika -tietokentät</a></li>
-<li><a href="03_harjoitus_3.html#kohteen-uuid-kenttä"><span class="toc-section-number">4.9</span> Kohteen uuid-kenttä</a></li>
-<li><a href="03_harjoitus_3.html#lomakkeen-välilehdet"><span class="toc-section-number">4.10</span> Lomakkeen välilehdet</a></li>
-<li><a href="03_harjoitus_3.html#näyttö-ja-kohdelistaus"><span class="toc-section-number">4.11</span> Näyttö ja kohdelistaus</a></li>
-<li><a href="03_harjoitus_3.html#tarttumisen-asetukset"><span class="toc-section-number">4.12</span> Tarttumisen asetukset</a></li>
-<li><a href="03_harjoitus_3.html#lomakkeet-qfieldissä"><span class="toc-section-number">4.13</span> Lomakkeet QFieldissä</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-2">Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-2">Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#arvioitu-kesto-2">Arvioitu kesto</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#taustatietoja">Taustatietoja</a></li>
+<li><a href="03_harjoitus_3.html#ominaisuustietolomakkeen-muokkaus">Ominaisuustietolomakkeen muokkaus</a></li>
+<li><a href="03_harjoitus_3.html#ympärysmitta--ja-korkeus--tietokentät">Ympärysmitta- ja korkeus -tietokentät</a></li>
+<li><a href="03_harjoitus_3.html#huomiot-tietokenttä">Huomiot-tietokenttä</a></li>
+<li><a href="03_harjoitus_3.html#valokuva">Valokuva</a></li>
+<li><a href="03_harjoitus_3.html#luoja--ja-muokkaaja--tietokenttien-automatisointi">Luoja- ja muokkaaja -tietokenttien automatisointi</a></li>
+<li><a href="03_harjoitus_3.html#luonti--ja-muokkausaika--tietokentät">Luonti- ja muokkausaika -tietokentät</a></li>
+<li><a href="03_harjoitus_3.html#kohteen-uuid-kenttä">Kohteen uuid-kenttä</a></li>
+<li><a href="03_harjoitus_3.html#lomakkeen-välilehdet">Lomakkeen välilehdet</a></li>
+<li><a href="03_harjoitus_3.html#näyttö-ja-kohdelistaus">Näyttö ja kohdelistaus</a></li>
+<li><a href="03_harjoitus_3.html#tarttumisen-asetukset">Tarttumisen asetukset</a></li>
+<li><a href="03_harjoitus_3.html#lomakkeet-qfieldissä">Lomakkeet QFieldissä</a></li>
 </ul></li>
-<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-relaatioiden-käyttö"><span class="toc-section-number">5</span> Harjoitus 4: Relaatioiden käyttö</a>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-relaatioiden-käyttö">Harjoitus 4: Relaatioiden käyttö</a>
 <ul>
-<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-3"><span class="toc-section-number">5.0.1</span> Harjoituksen sisältö</a></li>
-<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-3"><span class="toc-section-number">5.0.2</span> Harjoituksen tavoite</a></li>
-<li><a href="04_harjoitus_4.html#arvioitu-kesto-3"><span class="toc-section-number">5.0.3</span> Arvioitu kesto</a></li>
-<li><a href="04_harjoitus_4.html#valmistautuminen-3"><span class="toc-section-number">5.1</span> Valmistautuminen</a></li>
-<li><a href="04_harjoitus_4.html#kasvualusta-taso"><span class="toc-section-number">5.2</span> Kasvualusta-taso</a></li>
-<li><a href="04_harjoitus_4.html#relaatioiden-luonti"><span class="toc-section-number">5.3</span> Relaatioiden luonti</a></li>
-<li><a href="04_harjoitus_4.html#lomakkeen-asetusten-määrittäminen"><span class="toc-section-number">5.4</span> Lomakkeen asetusten määrittäminen</a></li>
-<li><a href="04_harjoitus_4.html#lapsikohteiden-luominen-qfieldissä"><span class="toc-section-number">5.5</span> Lapsikohteiden luominen QFieldissä</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-3">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-3">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#arvioitu-kesto-3">Arvioitu kesto</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#kasvualusta-taso">Kasvualusta-taso</a></li>
+<li><a href="04_harjoitus_4.html#relaatioiden-luonti">Relaatioiden luonti</a></li>
+<li><a href="04_harjoitus_4.html#lomakkeen-asetusten-määrittäminen">Lomakkeen asetusten määrittäminen</a></li>
+<li><a href="04_harjoitus_4.html#lapsikohteiden-luominen-qfieldissä">Lapsikohteiden luominen QFieldissä</a></li>
 </ul></li>
-<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-qfieldin-lisäominaisuudet"><span class="toc-section-number">6</span> Harjoitus 5: QFieldin lisäominaisuudet</a>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-qfieldin-lisäominaisuudet">Harjoitus 5: QFieldin lisäominaisuudet</a>
 <ul>
-<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-4"><span class="toc-section-number">6.0.1</span> Harjoituksen sisältö</a></li>
-<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-4"><span class="toc-section-number">6.0.2</span> Harjoituksen tavoite</a></li>
-<li><a href="05_harjoitus_5.html#arvioitu-kesto-4"><span class="toc-section-number">6.0.3</span> Arvioitu kesto</a></li>
-<li><a href="05_harjoitus_5.html#valmistautuminen-4"><span class="toc-section-number">6.1</span> Valmistautuminen</a></li>
-<li><a href="05_harjoitus_5.html#haku-toiminnot"><span class="toc-section-number">6.2</span> Haku-toiminnot</a></li>
-<li><a href="05_harjoitus_5.html#laitteen-paikannuksen-käyttäminen"><span class="toc-section-number">6.3</span> Laitteen paikannuksen käyttäminen</a></li>
-<li><a href="05_harjoitus_5.html#tracking--eli-jäljitys-toiminto"><span class="toc-section-number">6.4</span> Tracking- eli jäljitys-toiminto</a></li>
-<li><a href="05_harjoitus_5.html#edistyneemmät-digitointityökalut"><span class="toc-section-number">6.5</span> Edistyneemmät digitointityökalut</a></li>
-<li><a href="05_harjoitus_5.html#tarttuminen-sekä-topologinen-editointi"><span class="toc-section-number">6.6</span> Tarttuminen sekä topologinen editointi</a></li>
-<li><a href="05_harjoitus_5.html#taitepiste--ja-halkaisutyökalut"><span class="toc-section-number">6.7</span> Taitepiste- ja halkaisutyökalut</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-4">Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-4">Harjoituksen tavoite</a></li>
+<li><a href="05_harjoitus_5.html#arvioitu-kesto-4">Arvioitu kesto</a></li>
+<li><a href="05_harjoitus_5.html#valmistautuminen-4">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#haku-toiminnot">Haku-toiminnot</a></li>
+<li><a href="05_harjoitus_5.html#laitteen-paikannuksen-käyttäminen">Laitteen paikannuksen käyttäminen</a></li>
+<li><a href="05_harjoitus_5.html#tracking--eli-jäljitys-toiminto">Tracking- eli jäljitys-toiminto</a></li>
+<li><a href="05_harjoitus_5.html#edistyneemmät-digitointityökalut">Edistyneemmät digitointityökalut</a></li>
+<li><a href="05_harjoitus_5.html#tarttuminen-sekä-topologinen-editointi">Tarttuminen sekä topologinen editointi</a></li>
+<li><a href="05_harjoitus_5.html#taitepiste--ja-halkaisutyökalut">Taitepiste- ja halkaisutyökalut</a></li>
 </ul></li>
-<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-kenttätyöt-ja-tietojen-yhdistäminen"><span class="toc-section-number">7</span> Harjoitus 6: Kenttätyöt ja tietojen yhdistäminen</a>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-kenttätyöt-ja-tietojen-yhdistäminen">Harjoitus 6: Kenttätyöt ja tietojen yhdistäminen</a>
 <ul>
-<li><a href="06_harjoitus_6.html#harjoituksen-sisältö-5"><span class="toc-section-number">7.0.1</span> Harjoituksen sisältö</a></li>
-<li><a href="06_harjoitus_6.html#harjoituksen-tavoite-5"><span class="toc-section-number">7.0.2</span> Harjoituksen tavoite</a></li>
-<li><a href="06_harjoitus_6.html#arvioitu-kesto-5"><span class="toc-section-number">7.0.3</span> Arvioitu kesto</a></li>
-<li><a href="06_harjoitus_6.html#valmistautuminen-5"><span class="toc-section-number">7.1</span> Valmistautuminen</a></li>
-<li><a href="06_harjoitus_6.html#lyhyt-ohjeistus-kenttätöihin"><span class="toc-section-number">7.2</span> Lyhyt ohjeistus kenttätöihin</a></li>
-<li><a href="06_harjoitus_6.html#tietojen-synkronoiminen-takaisin-tietokoneelle"><span class="toc-section-number">7.3</span> Tietojen synkronoiminen takaisin tietokoneelle</a></li>
+<li><a href="06_harjoitus_6.html#harjoituksen-sisältö-5">Harjoituksen sisältö</a></li>
+<li><a href="06_harjoitus_6.html#harjoituksen-tavoite-5">Harjoituksen tavoite</a></li>
+<li><a href="06_harjoitus_6.html#arvioitu-kesto-5">Arvioitu kesto</a></li>
+<li><a href="06_harjoitus_6.html#valmistautuminen-5">Valmistautuminen</a></li>
+<li><a href="06_harjoitus_6.html#lyhyt-ohjeistus-kenttätöihin">Lyhyt ohjeistus kenttätöihin</a></li>
+<li><a href="06_harjoitus_6.html#tietojen-synkronoiminen-takaisin-tietokoneelle">Tietojen synkronoiminen takaisin tietokoneelle</a></li>
 </ul></li>
 </ul>
 </div>
@@ -161,26 +227,26 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="harjoitus-5-qfieldin-lisäominaisuudet" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> Harjoitus 5: QFieldin lisäominaisuudet</h1>
-<div id="harjoituksen-sisältö-4" class="section level3" number="6.0.1">
-<h3><span class="header-section-number">6.0.1</span> Harjoituksen sisältö</h3>
+<div id="harjoitus-5-qfieldin-lisäominaisuudet" class="section level1">
+<h1>Harjoitus 5: QFieldin lisäominaisuudet</h1>
+<div id="harjoituksen-sisältö-4" class="section level3">
+<h3>Harjoituksen sisältö</h3>
 <p>Harjoituksessa syvennytään QFieldin edistyneempiin ominaisuuksiin joita ei vielä ole käsitelty, ja jotka voivat olla hyödyllisiä paikkatietojen mobiilikeruun tehostamiseksi käytännössä</p>
 </div>
-<div id="harjoituksen-tavoite-4" class="section level3" number="6.0.2">
-<h3><span class="header-section-number">6.0.2</span> Harjoituksen tavoite</h3>
+<div id="harjoituksen-tavoite-4" class="section level3">
+<h3>Harjoituksen tavoite</h3>
 <p>Koulutettava oppii käyttämään etenkin mobiililaitteen paikannusta mobiilikeruun tehostamiseksi QFieldin kanssa toimiessa. |</p>
 </div>
-<div id="arvioitu-kesto-4" class="section level3" number="6.0.3">
-<h3><span class="header-section-number">6.0.3</span> Arvioitu kesto</h3>
+<div id="arvioitu-kesto-4" class="section level3">
+<h3>Arvioitu kesto</h3>
 <p>30 min.</p>
 </div>
-<div id="valmistautuminen-4" class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Valmistautuminen</h2>
+<div id="valmistautuminen-4" class="section level2">
+<h2>Valmistautuminen</h2>
 <p>Avaa QField, ja klikkaa sen etusivulta viimeisin versio QField-kurssiprojektista. Tämän harjoituksen aikana voi helpottaa jos pystyt hieman liikkumaan lähiympäristössä. Varaudu siis tarvittaessa käymään lyhyesti esimerkiksi ulkona.</p>
 </div>
-<div id="haku-toiminnot" class="section level2" number="6.2">
-<h2><span class="header-section-number">6.2</span> Haku-toiminnot</h2>
+<div id="haku-toiminnot" class="section level2">
+<h2>Haku-toiminnot</h2>
 <p>QFieldin karttanäkymän oikeassa yläkulmassa on suurennuslasin kuva. Klikkaa sitä, jolloin aukeaa hakukenttä ja näppäimistö. Haku toimii automaattisesti monella tavalla. Sillä pystyy hakemaan:</p>
 <ul>
 <li><p>Projektissa olevista vektoritasoista, mikäli hakeminen tasoista on sallittu (tämän voi konfiguroida QGISissa: Projekti &gt; Ominaisuudet… &gt; Tietolähteet-välilehti &gt; Etsittävissä oleva). Hakutuloksissa voi klikata joko kohteen nimeä (display name), jolloin kartta kohdistuu kyseiseen kohteeseen, tai sen oikealla puolella attribuuttilomake-ikoniin, jolloin kohteen attribuutti-tiedot aukeavat.</p></li>
@@ -195,8 +261,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </p></li>
 </ul>
 </div>
-<div id="laitteen-paikannuksen-käyttäminen" class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> Laitteen paikannuksen käyttäminen</h2>
+<div id="laitteen-paikannuksen-käyttäminen" class="section level2">
+<h2>Laitteen paikannuksen käyttäminen</h2>
 <p>Kun paikannus laitteen GPS:llä on sallittu, pystyy kartan keskittämään omaan sijaintiin oikean alareunan paikannus-napilla. Tätä voi hyödyntää myös lisättäessä tasoille uusia kohteita. Kun digitointi-tila on päällä, tulee paikannus-napin yläpuolelle toinen, samankaltainen valkoharmaa tähtäinristikon näköinen painike. Painamalla tätä kohteen lisäämiseen tarkoitettu painike lukittuu seuraamaan käyttäjän sijaintia tämän liikkuessakin, jolloin tähtäinristikkoa ei tarvitse joka kerta asettaa käsin kohteita lisättäessä, vaan riittää että siirtyy siihen kohtaan johon piste (tai taitepiste) on lisättävä. Painamalla samaa painiketta uudelleen, tähtäin ei ole enää paikannuksen kanssa lukkiutunut, vaan näytön keskellä.</p>
 <p>Testaa nyt näiden kahden paikannusnapin käyttöä, jotta niiden sujuva käyttö kenttätöissä (seuraava harjoitus) onnistuu. Varsinkin tähtäinristikon lukittumisen toteamiseksi joutunet liikkumaan hieman esimerkiksi ulkona rakennuksesta tms. Voit käyttää tähän n. 5 minuuttia.</p>
 <p>Tarkastellaan tämän jälkeen vielä paikannusasetuksia. Avaa valikko ja sieltä rattaan näköisestä kuvakkeesta Asetukset, josta puolestaan Paikannus-välilehti. Aseta aktiivisiksi valinnat (jos ei ennen valittu):</p>
@@ -206,8 +272,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </ul>
 <p>Huonon ja hyvän paikannustarkkuuden arvot voit pitää oletusarvoissa (Hyvä/Huono tarkkuus alla/yllä). Jos lisäksi aktivoit kohdan “Ota käyttöön tarkkuusvaatimus”, QField ei digitoidessa suostu lisäämään pistettä tai taitepistettä mikäli GPS:n tai vastaavan tarkkuus on liian huono (huono tarkkuus -ehto). Voit nyt testata tätä (esimerkiksi sisätiloissa), mutta jätä tämä tarkkuusvaatimus lopulta ottamatta käyttöön. Kun palaat karttanäkymään, näkyy alareunassa tiedot koordinaateista, paikannuksen tarkkuudesta sekä nopeudesta.</p>
 </div>
-<div id="tracking--eli-jäljitys-toiminto" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> Tracking- eli jäljitys-toiminto</h2>
+<div id="tracking--eli-jäljitys-toiminto" class="section level2">
+<h2>Tracking- eli jäljitys-toiminto</h2>
 <p>Kun laitteen sisäisen tai siihen mahdollisesti yhdistetyn ulkoisen GNSS-laitteen paikannustoiminto on sallittu, voidaan viiva- ja monikulmio-tasojen yhteydessä käyttää jäljitys-toimintoa. Sen avulla pystytään esimerkiksi kuljettu reitti tallentamaan automaattisesti tai monikulmio-kohde muodostamaan yksinkertaisesti kulkemalla alueen rajaviiva ympäri.</p>
 <p>Avaa nyt vasemman yläkulman valikko ja tee pitkä painallus <strong>Reitti</strong>-tasolle (viiva-geometria). Tällöin aukeaa ikkuna lisätoiminnoille. Listassa alimpana on <strong>Aseta seuranta</strong>. Klikkaa sitä. Aukeaa ikkuna, jossa voidaan määrittää seuraavat asetukset</p>
 <ul>
@@ -222,18 +288,18 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Aseta nyt minimiaika -asetukseksi 10 s, merkkaa asetuksen valintalaatikosta asetus aktiiviseksi mutta jätä minimietäisyys-asetus valitsematta. Sulje jäljityksen asetukset painamalla <strong>Aloita jäljitys</strong>. Tämän jälkeen QField pyytää syöttämään Reitti-tasolle lisättävän kohteen tiedot, jonka jälkeen reitin muodostuminen jäljitys-menetelmällä voi alkaa. Kirjoita kohteen tyyppi-kenttään vaikkapa “testi”. Voit jättää muut kentät tyhjiksi ja klikata jälleen ikkunan vasenta yläkulmaa kohteen lisäämiseksi. Seuranta alkaa. Näet valikon tasolistauksessa <strong>Reitti</strong>-tason perässä vilkkuvan kävelijähahmon. Paikantamalla itsesi kartalla, zoomaamalla reilusti karttaa huomaat kuinka viivatasoon lisätään taitepiste n. 10 sekunnin välein. Tässä kohtaa tietysti auttaa, jos pystyt liikkumaan jonkin verran paikasta toiseen, esimerkiksi ulkona. Huomaa, että seurannan ollessa käynnissä pystyt kuitenkin samalla digitoimaan myös muita tasoja, esimerkiksi lisäämään kohteen <strong>Puut</strong>-tasolle tai vaikkapa toisen kohteen itse <strong>Reitti</strong>-tasolle. Testattuasi seurantaa jonkin aikaa, avaa jälleen valikko, tee <strong>Reitti</strong>-tason kohdalla pitkä painallus jolloin tason lisätoimintojen valinnat aukeaa. Nyt listan alimpana on <strong>Lopeta jäljitys</strong>. Paina sitä jolloin seuranta lakkaa ja kuljettu reitti tallentuu tasolle.</p>
 <p>Voit toistaa prosessin <strong>Alueet</strong>-tasolle. Ainoa oleellinen ero on, että nyt piirretty kohde on monikulmio.</p>
 </div>
-<div id="edistyneemmät-digitointityökalut" class="section level2" number="6.5">
-<h2><span class="header-section-number">6.5</span> Edistyneemmät digitointityökalut</h2>
+<div id="edistyneemmät-digitointityökalut" class="section level2">
+<h2>Edistyneemmät digitointityökalut</h2>
 <p>Edellä käsitelly jäljitys-toiminnon lisäksi, QFieldissä on mukana useita QGISista tuttuja toiminnallisuuksia, jotka ovat hyödyllisiä etenkin viiva- ja monikulmiotasoja editoidessa: tarttuminen, topologinen editointi, taitepistetyökalu sekä halkaisu-, uudelleenmuotoilu- ja Täytä piiri -työkalut. Tutustutaan nyt näistä yleisempiin.</p>
 </div>
-<div id="tarttuminen-sekä-topologinen-editointi" class="section level2" number="6.6">
-<h2><span class="header-section-number">6.6</span> Tarttuminen sekä topologinen editointi</h2>
+<div id="tarttuminen-sekä-topologinen-editointi" class="section level2">
+<h2>Tarttuminen sekä topologinen editointi</h2>
 <p>Määritimme harjoituksessa 3 QGIS-projektissa tarttumisen asetukset (etäisyys 15 px jne.). Nämä asetukset ovat tulevat nyt voimaan suoraan QFieldissäkin. Avaa siis QFieldissä valikko, laita editointi-moodi päälle ja Alueet-taso aktiiviseksi. Sulje valikko. Rupea nyt digitoimaan Alueet-tasolle monikulmiokohdetta, esimerkiksi aluerajausta alueelle, jossa tulet suorittamaan puutietojen keräystä seuraavassa harjoituksessa. Lisää siis tarvittavat taitepisteet aluemaiselle kohteelle oikean alakulman mustasta “ristikko”-symbolista. Kun tarvittavat kulmapisteet on lisätty, klikkaa viereisestä vihreästä ruksista ja lisää ominaisuustiedot kohteelle. Tässä vaiheessa riittää lisätä ainoastaan <strong>“Nimi”</strong>-kenttään esimerkiksi <strong>“1. alue”</strong>.</p>
 <p>Koitetaan nyt luoda toinen monikulmio, (“2. alue”) edellisen kylkeen. Klikataan ensinnäkin Topologinen editointi käyttöön vasemmasta yläkulmasta, valikon alapuolelta, jotta luodut monikulmiot ovat topologisesti eheitä, eikä niiden väliin esimerkiksi jää pieniä koloja. Tarttuminen puolestaan voidaan todeta asemoimalla näytön keskellä oleva ristikkotähtäin lähelle äsken luotua 1. aluetta. Tarpeeksi lähelle päästyä tähtäin kutistuu ja muuttuu violetin väriseksi, QGISin vastaavan toiminnallisuuden tapaan. Lisäämällä toisen alueen taitepiste nyt, voimme varmistua että se tulee 1. alueeseen kiinni. Digitoi 2. monikulmio loppuun.</p>
 <p><img src="img/harjoitus_5/image1.png" /></p>
 </div>
-<div id="taitepiste--ja-halkaisutyökalut" class="section level2" number="6.7">
-<h2><span class="header-section-number">6.7</span> Taitepiste- ja halkaisutyökalut</h2>
+<div id="taitepiste--ja-halkaisutyökalut" class="section level2">
+<h2>Taitepiste- ja halkaisutyökalut</h2>
 <p>Luotujen kohteiden geometriaa pystyy jälkikäteen muokkaamaan edellä mainituilla työkaluilla. Nämä työkalut saat käyttöösi valitsemalla geometrian, jota haluat muokata, eli:</p>
 <ul>
 <li><p>Klikkaamalla kohdetta kartalla (esimerkiksi monikulmiota “1. alue”)</p></li>
@@ -261,13 +327,13 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Paikkatiedon mobiilikeruu QFieldissä</h5>
-<span class="footer-version">v2023-12-18</span>
+<span class="footer-version">v2024-01-18</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
 <div class="footer-info">
 <h5 class="footer-title footer-company">Gispo Oy.
-<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-copyright-year">© 2024</span></h5>
 <span class="footer-contact-info">Kumpulantie 3, 3 krs
 <br>00520 Helsinki, Finland
 <br>info@gispo.fi

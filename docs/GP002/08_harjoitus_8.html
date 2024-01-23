@@ -11,7 +11,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="9 Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset" />
+<meta property="og:title" content="Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset" />
 <meta property="og:type" content="book" />
 
 
@@ -20,15 +20,81 @@
 
 <meta name="author" content="Gispo Ltd." />
 
-<meta name="date" content="2023-12-18" />
+<meta name="date" content="2024-01-18" />
 
 
-<meta name="description" content="9 Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset">
+<meta name="description" content="Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset">
 
-<title>9 Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset</title>
+<title>Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset</title>
 
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="custom.css" type="text/css" />
 
@@ -65,83 +131,83 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <nav class="sidebar-nav">
 <div id="TOC" class="toc">
 <ul>
-<li><a href="index.html#johdanto-qgisin-käyttöön"><span class="toc-section-number">1</span> Johdanto QGISin käyttöön</a></li>
-<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-käyttöliittymä"><span class="toc-section-number">2</span> Harjoitus 1: QGISin käyttöliittymä</a>
+<li><a href="index.html#johdanto-qgisin-käyttöön">Johdanto QGISin käyttöön</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-käyttöliittymä">Harjoitus 1: QGISin käyttöliittymä</a>
 <ul>
-<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus"><span class="toc-section-number">2.1</span> Kurssimateriaalien lataus</a></li>
-<li><a href="01_harjoitus_1.html#qgisin-käyttöliittymä"><span class="toc-section-number">2.2</span> QGISin käyttöliittymä</a></li>
-<li><a href="01_harjoitus_1.html#qgis-käyttöliittymän-osat"><span class="toc-section-number">2.3</span> QGIS-käyttöliittymän osat</a></li>
-<li class="has-sub"><a href="01_harjoitus_1.html#kokeile-itse"><span class="toc-section-number">2.4</span> Kokeile itse</a>
+<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus">Kurssimateriaalien lataus</a></li>
+<li><a href="01_harjoitus_1.html#qgisin-käyttöliittymä">QGISin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qgis-käyttöliittymän-osat">QGIS-käyttöliittymän osat</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#kokeile-itse">Kokeile itse</a>
 <ul>
-<li><a href="01_harjoitus_1.html#attribuuttitaulu"><span class="toc-section-number">2.4.1</span> Attribuuttitaulu</a></li>
+<li><a href="01_harjoitus_1.html#attribuuttitaulu">Attribuuttitaulu</a></li>
 </ul></li>
 </ul></li>
-<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-paikkatietoaineistot-ja--palvelut"><span class="toc-section-number">3</span> Harjoitus 2: Paikkatietoaineistot ja -palvelut</a>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-paikkatietoaineistot-ja--palvelut">Harjoitus 2: Paikkatietoaineistot ja -palvelut</a>
 <ul>
-<li><a href="02_harjoitus_2.html#harjoituksen-sisältö"><span class="toc-section-number">3.1</span> Harjoituksen sisältö</a></li>
-<li><a href="02_harjoitus_2.html#harjoituksen-tavoite"><span class="toc-section-number">3.2</span> Harjoituksen tavoite</a></li>
-<li><a href="02_harjoitus_2.html#valmistautuminen"><span class="toc-section-number">3.3</span> Valmistautuminen</a></li>
-<li><a href="02_harjoitus_2.html#wms-palvelun-lisääminen"><span class="toc-section-number">3.4</span> WMS-palvelun lisääminen</a></li>
-<li><a href="02_harjoitus_2.html#wfs-palvelun-lisääminen"><span class="toc-section-number">3.5</span> WFS-palvelun lisääminen</a></li>
-<li><a href="02_harjoitus_2.html#lisätehtävä-wfs-rajapintapalvelun-kysely-ja-suodatus-sql-lausekkeella"><span class="toc-section-number">3.6</span> Lisätehtävä: WFS-rajapintapalvelun kysely ja suodatus SQL-lausekkeella</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#wms-palvelun-lisääminen">WMS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#wfs-palvelun-lisääminen">WFS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-wfs-rajapintapalvelun-kysely-ja-suodatus-sql-lausekkeella">Lisätehtävä: WFS-rajapintapalvelun kysely ja suodatus SQL-lausekkeella</a></li>
 </ul></li>
-<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-paikkatietoaineiston-visualisointi"><span class="toc-section-number">4</span> Harjoitus 3: Paikkatietoaineiston visualisointi</a>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-paikkatietoaineiston-visualisointi">Harjoitus 3: Paikkatietoaineiston visualisointi</a>
 <ul>
-<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-1"><span class="toc-section-number">4.1</span> Harjoituksen sisältö</a></li>
-<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-1"><span class="toc-section-number">4.2</span> Harjoituksen tavoite</a></li>
-<li><a href="03_harjoitus_3.html#valmistautuminen-1"><span class="toc-section-number">4.3</span> Valmistautuminen</a></li>
-<li><a href="03_harjoitus_3.html#vektoriaineistojen-visualisointi"><span class="toc-section-number">4.4</span> Vektoriaineistojen visualisointi</a></li>
-<li><a href="03_harjoitus_3.html#viiva--ja-monikulmioaineiston-visualisointi"><span class="toc-section-number">4.5</span> Viiva- ja monikulmioaineiston visualisointi</a></li>
-<li><a href="03_harjoitus_3.html#lisätehtävä-monikulmioaineiston-edistynyt-visualisointi"><span class="toc-section-number">4.6</span> Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#vektoriaineistojen-visualisointi">Vektoriaineistojen visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#viiva--ja-monikulmioaineiston-visualisointi">Viiva- ja monikulmioaineiston visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-monikulmioaineiston-edistynyt-visualisointi">Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</a></li>
 </ul></li>
-<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-paikkatietoaineiston-nimiöinti-ja-luokittelu"><span class="toc-section-number">5</span> Harjoitus 4: Paikkatietoaineiston nimiöinti ja luokittelu</a>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-paikkatietoaineiston-nimiöinti-ja-luokittelu">Harjoitus 4: Paikkatietoaineiston nimiöinti ja luokittelu</a>
 <ul>
-<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-2"><span class="toc-section-number">5.1</span> Harjoituksen sisältö</a></li>
-<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-2"><span class="toc-section-number">5.2</span> Harjoituksen tavoite</a></li>
-<li><a href="04_harjoitus_4.html#valmistautuminen-2"><span class="toc-section-number">5.3</span> Valmistautuminen</a></li>
-<li><a href="04_harjoitus_4.html#nimiöt"><span class="toc-section-number">5.4</span> Nimiöt</a></li>
-<li><a href="04_harjoitus_4.html#nimiöiden-tyyli--ja-yleisasetukset"><span class="toc-section-number">5.5</span> Nimiöiden tyyli- ja yleisasetukset</a></li>
-<li><a href="04_harjoitus_4.html#nimiön-tekstityyli"><span class="toc-section-number">5.6</span> Nimiön tekstityyli</a></li>
-<li><a href="04_harjoitus_4.html#nimiöinnit-viivatasoilla"><span class="toc-section-number">5.7</span> Nimiöinnit viivatasoilla</a></li>
-<li><a href="04_harjoitus_4.html#vektoriaineiston-luokittelut"><span class="toc-section-number">5.8</span> Vektoriaineiston luokittelut</a></li>
-<li><a href="04_harjoitus_4.html#lisätehtävä-nimiöiden-piirtäminen"><span class="toc-section-number">5.9</span> Lisätehtävä: nimiöiden piirtäminen</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-2">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-2">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#nimiöt">Nimiöt</a></li>
+<li><a href="04_harjoitus_4.html#nimiöiden-tyyli--ja-yleisasetukset">Nimiöiden tyyli- ja yleisasetukset</a></li>
+<li><a href="04_harjoitus_4.html#nimiön-tekstityyli">Nimiön tekstityyli</a></li>
+<li><a href="04_harjoitus_4.html#nimiöinnit-viivatasoilla">Nimiöinnit viivatasoilla</a></li>
+<li><a href="04_harjoitus_4.html#vektoriaineiston-luokittelut">Vektoriaineiston luokittelut</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-nimiöiden-piirtäminen">Lisätehtävä: nimiöiden piirtäminen</a></li>
 </ul></li>
-<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-karttatuloste"><span class="toc-section-number">6</span> Harjoitus 5: Karttatuloste</a>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-karttatuloste">Harjoitus 5: Karttatuloste</a>
 <ul>
-<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-3"><span class="toc-section-number">6.1</span> Harjoituksen sisältö</a></li>
-<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-3"><span class="toc-section-number">6.2</span> Harjoituksen tavoite</a></li>
-<li><a href="05_harjoitus_5.html#valmistautuminen-3"><span class="toc-section-number">6.3</span> Valmistautuminen</a></li>
-<li><a href="05_harjoitus_5.html#karttatuloste"><span class="toc-section-number">6.4</span> Karttatuloste</a></li>
-<li><a href="05_harjoitus_5.html#lisätehtävä-kartta-atlas"><span class="toc-section-number">6.5</span> Lisätehtävä: kartta-atlas</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-3">Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-3">Harjoituksen tavoite</a></li>
+<li><a href="05_harjoitus_5.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="05_harjoitus_5.html#lisätehtävä-kartta-atlas">Lisätehtävä: kartta-atlas</a></li>
 </ul></li>
-<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-paikkatietoaineiston-editointi"><span class="toc-section-number">7</span> Harjoitus 6: Paikkatietoaineiston editointi</a>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-paikkatietoaineiston-editointi">Harjoitus 6: Paikkatietoaineiston editointi</a>
 <ul>
-<li><a href="06_harjoitus_6.html#harjoituksen-sisältö-4"><span class="toc-section-number">7.1</span> Harjoituksen sisältö</a></li>
-<li><a href="06_harjoitus_6.html#harjoituksen-tavoite-4"><span class="toc-section-number">7.2</span> Harjoituksen tavoite</a></li>
-<li><a href="06_harjoitus_6.html#valmistautuminen-4"><span class="toc-section-number">7.3</span> Valmistautuminen</a></li>
-<li><a href="06_harjoitus_6.html#vektoriaineiston-geopackage-luominen"><span class="toc-section-number">7.4</span> Vektoriaineiston (GeoPackage) luominen</a></li>
-<li><a href="06_harjoitus_6.html#pohjakartan-lisääminen"><span class="toc-section-number">7.5</span> Pohjakartan lisääminen</a></li>
-<li><a href="06_harjoitus_6.html#digitoinnin-aloittaminen"><span class="toc-section-number">7.6</span> Digitoinnin aloittaminen</a></li>
-<li><a href="06_harjoitus_6.html#lisätehtävä-cad-digitointi"><span class="toc-section-number">7.7</span> Lisätehtävä: CAD-digitointi</a></li>
-<li><a href="06_harjoitus_6.html#lisätehtävä-ominaisuustietojen-lisääminen"><span class="toc-section-number">7.8</span> Lisätehtävä: ominaisuustietojen lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#harjoituksen-sisältö-4">Harjoituksen sisältö</a></li>
+<li><a href="06_harjoitus_6.html#harjoituksen-tavoite-4">Harjoituksen tavoite</a></li>
+<li><a href="06_harjoitus_6.html#valmistautuminen-4">Valmistautuminen</a></li>
+<li><a href="06_harjoitus_6.html#vektoriaineiston-geopackage-luominen">Vektoriaineiston (GeoPackage) luominen</a></li>
+<li><a href="06_harjoitus_6.html#pohjakartan-lisääminen">Pohjakartan lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#digitoinnin-aloittaminen">Digitoinnin aloittaminen</a></li>
+<li><a href="06_harjoitus_6.html#lisätehtävä-cad-digitointi">Lisätehtävä: CAD-digitointi</a></li>
+<li><a href="06_harjoitus_6.html#lisätehtävä-ominaisuustietojen-lisääminen">Lisätehtävä: ominaisuustietojen lisääminen</a></li>
 </ul></li>
-<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-paikkatietoanalyysit"><span class="toc-section-number">8</span> Harjoitus 7: Paikkatietoanalyysit</a>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-paikkatietoanalyysit">Harjoitus 7: Paikkatietoanalyysit</a>
 <ul>
-<li><a href="07_harjoitus_7.html#harjoituksen-sisältö-5"><span class="toc-section-number">8.1</span> Harjoituksen sisältö</a></li>
-<li><a href="07_harjoitus_7.html#harjoituksen-tavoite-5"><span class="toc-section-number">8.2</span> Harjoituksen tavoite</a></li>
-<li><a href="07_harjoitus_7.html#valmistautuminen-5"><span class="toc-section-number">8.3</span> Valmistautuminen</a></li>
-<li><a href="07_harjoitus_7.html#vektorianalyysit"><span class="toc-section-number">8.4</span> Vektorianalyysit</a></li>
+<li><a href="07_harjoitus_7.html#harjoituksen-sisältö-5">Harjoituksen sisältö</a></li>
+<li><a href="07_harjoitus_7.html#harjoituksen-tavoite-5">Harjoituksen tavoite</a></li>
+<li><a href="07_harjoitus_7.html#valmistautuminen-5">Valmistautuminen</a></li>
+<li><a href="07_harjoitus_7.html#vektorianalyysit">Vektorianalyysit</a></li>
 </ul></li>
-<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-qgisin-lisäosat"><span class="toc-section-number">9</span> Harjoitus 8: QGISin lisäosat</a>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-qgisin-lisäosat">Harjoitus 8: QGISin lisäosat</a>
 <ul>
-<li><a href="08_harjoitus_8.html#harjoituksen-sisältö-6"><span class="toc-section-number">9.1</span> Harjoituksen sisältö</a></li>
-<li><a href="08_harjoitus_8.html#harjoituksen-tavoite-6"><span class="toc-section-number">9.2</span> Harjoituksen tavoite</a></li>
-<li><a href="08_harjoitus_8.html#valmistautuminen-6"><span class="toc-section-number">9.3</span> Valmistautuminen</a></li>
-<li><a href="08_harjoitus_8.html#lisäosien-hallinta"><span class="toc-section-number">9.4</span> Lisäosien hallinta</a></li>
-<li><a href="08_harjoitus_8.html#quickmapservices"><span class="toc-section-number">9.5</span> QuickMapServices</a></li>
-<li><a href="08_harjoitus_8.html#quickosm"><span class="toc-section-number">9.6</span> QuickOSM</a></li>
-<li><a href="08_harjoitus_8.html#lisätehtävä-qgis2threejs"><span class="toc-section-number">9.7</span> Lisätehtävä: Qgis2threejs</a></li>
-<li><a href="08_harjoitus_8.html#lisätehtävä-qgis2web"><span class="toc-section-number">9.8</span> Lisätehtävä: Qgis2web</a></li>
+<li><a href="08_harjoitus_8.html#harjoituksen-sisältö-6">Harjoituksen sisältö</a></li>
+<li><a href="08_harjoitus_8.html#harjoituksen-tavoite-6">Harjoituksen tavoite</a></li>
+<li><a href="08_harjoitus_8.html#valmistautuminen-6">Valmistautuminen</a></li>
+<li><a href="08_harjoitus_8.html#lisäosien-hallinta">Lisäosien hallinta</a></li>
+<li><a href="08_harjoitus_8.html#quickmapservices">QuickMapServices</a></li>
+<li><a href="08_harjoitus_8.html#quickosm">QuickOSM</a></li>
+<li><a href="08_harjoitus_8.html#lisätehtävä-qgis2threejs">Lisätehtävä: Qgis2threejs</a></li>
+<li><a href="08_harjoitus_8.html#lisätehtävä-qgis2web">Lisätehtävä: Qgis2web</a></li>
 </ul></li>
 </ul>
 </div>
@@ -152,30 +218,30 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="harjoitus-8-qgisin-lisäosat" class="section level1" number="9">
-<h1><span class="header-section-number">9</span> Harjoitus 8: QGISin lisäosat</h1>
-<div id="harjoituksen-sisältö-6" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Harjoituksen sisältö</h2>
+<div id="harjoitus-8-qgisin-lisäosat" class="section level1">
+<h1>Harjoitus 8: QGISin lisäosat</h1>
+<div id="harjoituksen-sisältö-6" class="section level2">
+<h2>Harjoituksen sisältö</h2>
 <p>Harjoituksessa asennetaan muutama QGIS-lisäosa.</p>
 </div>
-<div id="harjoituksen-tavoite-6" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Harjoituksen tavoite</h2>
+<div id="harjoituksen-tavoite-6" class="section level2">
+<h2>Harjoituksen tavoite</h2>
 <p>Koulutettava oppii asentamaan QGIS-lisäosia ja ymmärtää niiden toimintaperiaatteet.</p>
 </div>
-<div id="valmistautuminen-6" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Valmistautuminen</h2>
+<div id="valmistautuminen-6" class="section level2">
+<h2>Valmistautuminen</h2>
 <p>Käynnistä QGIS-ohjelmisto ja avaa uusi QGIS-projekti.</p>
 </div>
-<div id="lisäosien-hallinta" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Lisäosien hallinta</h2>
+<div id="lisäosien-hallinta" class="section level2">
+<h2>Lisäosien hallinta</h2>
 <p>Lisäosia lisätään käyttöön päävalikosta <strong>Lisäosat → Hallitse ja asenna lisäosia…</strong> -valikon kautta.
 Valitse <strong>Asennettu</strong>-välilehti ja saat esille kaikki asennetut lisäosat.
 Huomaa, että suurinta osaa niistä ei ole aktivoitu.
 Lisäosien aktivointi lisää erilaisia valikkoja ja paneeleja QGISin käyttöliittymään.
 Siksi on hyödyllistä piilottaa ne joita ei käytetä.</p>
 </div>
-<div id="quickmapservices" class="section level2" number="9.5">
-<h2><span class="header-section-number">9.5</span> QuickMapServices</h2>
+<div id="quickmapservices" class="section level2">
+<h2>QuickMapServices</h2>
 <p><strong>QuickMapServices (QMS) -lisäosan</strong> kautta saat QGISin karttaprojektiin erilaisia taustakarttoja verkosta, kuten OpenStreetMaps, Google Maps tai Bing Maps.
 Avaa <strong>Lisäosat → Hallitse ja asenna lisäosia…</strong>, valitse <strong>Kaikki</strong>-välilehti ja etsi quickmapservices tekstillä:</p>
 <p><img src="img/harjoitus_8/image5.png" /></p>
@@ -187,8 +253,8 @@ Lisää karttoja voit etsiä Valitsemalla <strong>Verkko → QuickMapServices �
 Testaa etsiä esimerkiksi <strong>Stamen</strong> karttoja tai etsi onko omalla tai naapurikunnallasi karttoja palvelussa!</p>
 <p><img src="img/harjoitus_8/image4.png" /></p>
 </div>
-<div id="quickosm" class="section level2" number="9.6">
-<h2><span class="header-section-number">9.6</span> QuickOSM</h2>
+<div id="quickosm" class="section level2">
+<h2>QuickOSM</h2>
 <p>Etsi ja asenna <strong>QuickOSM</strong>-lisäosa.
 Tällä lisäosalla voit etsiä OpenStreetMapista erilaisia kohteita ja saada ne kartallesi visualisoitavaksi tai analysoitavaksi tasoksi.
 Lisäosan voit avata <strong>Vektori → QuickOSM → QuickOSM</strong>.
@@ -207,8 +273,8 @@ Paina tasoa hiiren oikealla <strong>Vie → Tallenna kohteet nimellä</strong> j
 Testaa löytää esimerkiksi golfkentät tai pyörätiet jostain kaupungista.
 Jos esiasetuksista ei löydä haluamaasi tasoa, yritä etsiä se avaimen ja arvon avulla.</p>
 </div>
-<div id="lisätehtävä-qgis2threejs" class="section level2" number="9.7">
-<h2><span class="header-section-number">9.7</span> Lisätehtävä: Qgis2threejs</h2>
+<div id="lisätehtävä-qgis2threejs" class="section level2">
+<h2>Lisätehtävä: Qgis2threejs</h2>
 <p>Lisää vielä <strong>Qgis2threejs</strong>-lisäosa.
 Tämä lisäosa mahdollistaa nopean kolmiulotteisen visualisoinnin luomisen web-selaimelle käyttäen threejs-kirjastoa.
 Lisäosan valikko tulee myös <strong>Verkko</strong>-valikkoon.
@@ -218,8 +284,8 @@ Aseta Z-coordinate kohdan <strong>Mode-asetukseksi Relative to “L4133B” laye
 <p><img src="img/harjoitus_8/image1.png" /></p>
 <p>Voit tarkastella visualisointia esikatseluikkunassa tai exportoida sen html-tiedostoksi jolloin sen voi avata selaimella.</p>
 </div>
-<div id="lisätehtävä-qgis2web" class="section level2" number="9.8">
-<h2><span class="header-section-number">9.8</span> Lisätehtävä: Qgis2web</h2>
+<div id="lisätehtävä-qgis2web" class="section level2">
+<h2>Lisätehtävä: Qgis2web</h2>
 <p>Qgis2web -lisäosa on helppokäyttöinen lisäosa verkkokartan luomista varten.
 Sillä voi tuottaa verkkokarttoja hyödyntäen <strong>Leaflet</strong>- tai <strong>OpenLayers</strong>-kirjastoja.
 Qgis2web on hyödyllinen apuväline näiden kirjastojen opetteluun ja verkkokarttajulkaisujen tekemiseen.
@@ -250,13 +316,13 @@ Kokeile verkkokartassasi etsiä osoitteita ja käyttää mittaustyökalua.</p>
 
 <div class="footer-info">
 <h5 class="footer-title">Johdanto QGISin käyttöön - Harjoitukset</h5>
-<span class="footer-version">v2023-12-18</span>
+<span class="footer-version">v2024-01-18</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
 <div class="footer-info">
 <h5 class="footer-title footer-company">Gispo Oy.
-<span class="footer-copyright-year">© 2023</span></h5>
+<span class="footer-copyright-year">© 2024</span></h5>
 <span class="footer-contact-info">Kumpulantie 3, 3 krs
 <br>00520 Helsinki, Finland
 <br>info@gispo.fi

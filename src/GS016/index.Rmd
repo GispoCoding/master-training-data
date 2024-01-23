@@ -11,10 +11,9 @@ output:
         template: custom.html
         css: custom.css
         split_by: rmd
+        number_sections: false
 documentclass: book
 ---
-
-<!-- Harjoitukset -->
 
 # Paikkatiedon mobiilikeruu QFieldillä
 
@@ -63,7 +62,9 @@ Perimmäinen syy QFieldin käyttöön on tietysti paikkatietoaineistojen hyödyn
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
+``` shell
 sudo lsb_release -a
+```
 :::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:
@@ -75,7 +76,9 @@ sudo lsb_release -a
 **HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
 
 ::: code-box
+``` sql
 SELECT version();
+```
 :::
 
 ## Mistä lisätietoja?
