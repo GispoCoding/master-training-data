@@ -27,7 +27,7 @@ for input in "$input_folder"/*.html; do
 
         output="$output_folder/${input_basename}.pdf"
 
-        /bin/wkhtmltopdf -q -s A4 -O Landscape --enable-local-file-access $input $output
+        /bin/wkhtmltopdf -q -s A3 -O Portrait --enable-local-file-access $input $output
     fi
 done
 
