@@ -1,0 +1,4 @@
+# Pohja
+
+Tähän kansioon voi tallentaa vanhoja harjoituksia, joita voi hyödyntää myöhemmin esimerkiksi räätälöidyissä koulutukissa.
+Tallenna kukin harjoitus omaan .Rmd- tiedostoon.

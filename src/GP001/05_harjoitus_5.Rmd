@@ -35,9 +35,11 @@ Tasojen visualisointia ja nimiöintiä määritetään QGISin kuvaustekniikkaval
 2. Avaamalla **Tyylipaneeli**:
 
     2.1 Klikkaa Tasot- paneelista **"Avaa tason tyylit- paneeli"**
+    
     ![](img/harjoitus_5/image2.png)
   
     2.2 Tämän pitäisi avata tyylipaneeli, yleensä QGIS- ikkunan oikeaan reunaan:
+    
     ![](img/harjoitus_5/image3.png)
 
 Molemmilla tavoilla saat saman valikon auki. Tyylipaneelissa on oletusvaihtoehtona "Automaattinen päivitys", joka tarkoittaa että kuvaustekniikkaan tehdyt muutokset näkyvät välittömästi kartalle. Kun valikon avaa **Tason ominaisuudet**- valikon kautta, tulee tyyli erikseen päivittää **Käytä** painikkeesta, sekä hyväksyäksesi muutokset tulee lopuksi klikata **OK**- painiketta.
@@ -124,7 +126,7 @@ Muuta lisätyn symbolitason tyypiksi **Täyttö viivakuosilla** ja määrittele 
 
 ![](img/harjoitus_5/image17.png)
 
-## Nimiöinti eli 'tekstitys'
+## Nimiöinti
 
 Avaa **NaturaKohde_ma-tason** kuvaustekniikka- valikko ja valitse **Nimiöt-välilehti**. Valitse **Yksittäinen nimiö** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi. Nimiöt nähdään nyt karttaikkunasta, johon ne ovat päivittyneet.
 
