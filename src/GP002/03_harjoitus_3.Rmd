@@ -2,7 +2,7 @@
 
 ## Harjoituksen sisältö
 
-Harjoituksessa tehdään visualisoinnit sekä vektori- että rasteriaineistosta.
+Harjoituksessa harjoitellaan vektoriaineiston visualisoitia
 
 ## Harjoituksen tavoite
 

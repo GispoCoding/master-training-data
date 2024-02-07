@@ -4,13 +4,13 @@ editor_options:
     wrap: sentence
 ---
 
-# Harjoitus 8: QGISin lisäosat
+# QGISin lisäosat
 
-## Harjoituksen sisältö
+## Sisältö
 
-Harjoituksessa asennetaan muutama QGIS-lisäosa.
+Asennetaan ja tutustutaan QGISin lisäosiin
 
-## Harjoituksen tavoite
+## Tavoite
 
 Koulutettava oppii asentamaan QGIS-lisäosia ja ymmärtää niiden toimintaperiaatteet.
 
