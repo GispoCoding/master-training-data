@@ -10,24 +10,12 @@ Opiskelija oppii kuinka paikkatietoaineistoja tuotetaan ja editoidaan.
 ## Valmistautuminen
 Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä…**) “**QGIS_harjoitus_6**”.
 
-## Vektoriaineiston (GeoPackage) luominen
-Luodaan uusi GeoPackage-aineisto valitsemalla työkalupalkista Uusi **GeoPackage-taso…**
-
-![](img/harjoitus_6/image21.png)
-
-Tee alla näkyvät valinnat **GeoPackage-ikkunaan**. Muista nimetä aineisto sopivalla tavalla (tässä esim. alueet), valitse **Geometriatyyppi-kohtaan MultiPolygoni** ja valitse koordinaattijärjestelmäksi ETRS89 / TM35FIN(E,N) EPSG:3067. Lisää lopuksi Nimi-attribuutti **Lisää ominaisuustietolistaan -toiminnolla**. Paina **OK**.
-
-![](img/harjoitus_6/image14.png)
-
-Avaa juuri luomasi tason attribuuttitaulukko ja tarkista, että se on tyhjä. Tarkista myös, että määrittelemäsi kentät näkyvät sarakkeina.
-
-![](img/harjoitus_6/image4.png)
-
-**Fid-kenttä** muodostuu automaattisesti ja **Nimi-kentän** loimme itse äskeisessä määrittelyikkunassa.
 
 
-## Pohjakartan lisääminen
-Voit käyttää digitoinnin pohjana Maanmittauslaitoksen ilmakuvia. Lisää nyt ortoilmakuva **L4131F.jp2-rasteritiedosto** kansiosta **.../Harjoitus 6/L4131F** QGISiin. Muista, että myös rasteriaineistot saat käyttöösi helposti raahaamalla tiedoston karttaikkunaan tai **Tasot-paneeliin**. 
+## Aineistojen lisääminen
+
+Tuo kurssihakemistosta tyhjä taso digitointia varten: **.../Harjoitus 6/Espoo.gpkg**. Aineisto näkyy QGISin tasot-paneelissa nimellä Espoo - Alueet.
+Digitointia varten tarvitset pohjakartan, jonka perusteella voit tehdä alueita aiemmin tuotuun GeoPackageen. Voit käyttää digitoinnin pohjana Maanmittauslaitoksen ilmakuvia. Lisää nyt ortoilmakuva **L4131F.jp2-rasteritiedosto** kansiosta **.../Harjoitus 6/L4131F** QGISiin. Muista, että myös rasteriaineistot saat käyttöösi helposti raahaamalla tiedoston karttaikkunaan tai **Tasot-paneeliin**. 
 
 ![](img/harjoitus_6/image13.png)
 
@@ -49,48 +37,36 @@ Asetuksissa määritetään tarttumiseen käytettävä yksikkö (metri) ja etäi
 
 Klikkaa seuraavaksi **Lisää monikulmiokohde -työkalua**  ![](img/harjoitus_6/image17.png)  ja aloita digitointi. 
 
-Muista, että voit muokata **Tarttumisen asetuksia** palaamalla yllä kuvattuun ikkunaan ja jättämällä se ikkunan sivuun muokataksesi asetuksia nopeasti. Digitoi nyt 5-8 polygonia. Kun olet valmis, klikkaa jälleen kynä-ikonia lopettaaksesi ja tallentaaksesi editoinnin. 
+Digitoi nyt 5-8 polygonia. Voit tehdä rakennuksia, metsä- tai peltoalueita haluamasi mukaan. Jos haluat tehdä vierekkäisiä kohteita, tarkista, että sinulla on tarttuminen **punaisesta magneetista** päällä. Kun digitoit, työkalu tarttuu kiinni viereisen polygonin kulmaan, kun olet tarpeeksi lähellä. Viereisen polygonin kulmaan tulee pieni pinkki neliö, joka tarkoittaa että työkalu tarttuu tähän pisteeseen. Tee jokaiselle vierekkäiselle kulmalle sama, niin saat tehtyä vierekkäiset polygonit helposti. Alla tästä vielä animaatio.
 
 ![](img/harjoitus_6/image18.gif)
 
-Päällekkäisten kohteiden syntymisen voi myös välttää alla olevan animaation tavalla.
 
-![](img/harjoitus_6/image19.gif)
+Kun olet valmis, klikkaa jälleen kynä-ikonia lopettaaksesi ja tallentaaksesi editoinnin. 
 
-Tämän saavuttaaksesi voit aktivoida **Vältä leikkauksia -valinnan** päälle **Avaa tarttumisen asetukset... -valikosta**. Avaa ensin **Tarttumisen työkalut -paneelista Avaa tarttumisen asetukset**.
 
-![](img/harjoitus_6/image12.png)
-
-Näin sinulle aukeaa alla olevan mukainen tarttumisen asetukset määrittelyikkuna, jossa voit tehdä määrityksiä muun muassa leikkausten suhteen. Leikkauksilla viitataan tässä kohteiden niin sanottuihin intersektioihin.
-
-![](img/harjoitus_6/image16.png)
 
 > Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.
 
+
+## Lisätehtävä: Tarttumisen työkalut
+
+Tarttumisen työkaluissa on myös muita ominaisuuksia, joita voi hyödyntää digitoinnissa. Viereiseen polygoniin tarttumisen sijasta voit välttää päällekkäisten kohteiden syntymisen voi myös välttää asetuksilla. Aktivoi tarttumisen työkalupalkista **Vältä päällekkäisyyttä aktiivisella tasolla** painamalla päällekkäisyys kuvakkeen oikeasta alareunasta pientä mustaa nuolta. 
+
+![](img/harjoitus_6/image22.png)
+Nyt kun digitoit tasolle uuden polygonin, joka menee aiempien tekemiesi polygonien päälle, QGIS leikkaa automaattisesti uuden polygonin reunat aikaisempien mukaisesti.
+
+![](img/harjoitus_6/image19.gif)
+
+
+
 ## Lisätehtävä: CAD-digitointi
 Voit kokeilla myös CAD-pohjaista digitointia, joka on kehittynyt verrattain paljon QGISin uudessa versiossa. Työkalut saat esiin lisäämällä **Digitoinnin lisätyökalut** -ylämenusta **Näytä → Työkalut → Digitoinnin lisätyökalut**. 
-Kokeile erilaisia työkaluja, esimerkiksi Täytä piiri -työkalua. Tätä voit hyödyntää esimerkkitapauksena peltoja digitoidessa. Kuvitellaan, että peltojen sisään jää aina välillä pieniä metsäsaarekkeita, jotka olisi digitoitava 
+Kokeile erilaisia työkaluja, esimerkiksi Täytä piiri -työkalua. Tätä voit hyödyntää esimerkkitapauksena peltoja digitoidessa. Kuvitellaan, että peltojen sisään jää aina välillä pieniä metsäsaarekkeita, jotka olisi digitoitava metsä-kohteiksi.
 
 ![](img/harjoitus_6/image8.png)
 
-metsä-kohteiksi. **Täytä piiri -työkalulla** pystyt irrottamaan alueen omaksi objektiksi (ks. kuva alla).
+ **Täytä piiri -työkalulla** pystyt irrottamaan alueen omaksi objektiksi (ks. kuva alla).
 
 ![](img/harjoitus_6/image2.png)
-
-## Lisätehtävä: ominaisuustietojen lisääminen
-Seuraavaksi laskemme pinta-alan ominaisuustietoja edellä muodostettuun paikkatietoaineistoon. Avaa Alueet-tason ominaisuustietotaulu (attribuuttitaulu).
-
-![](img/harjoitus_6/image15.png)
-
-Laita muokkaustila taas päälle kynäikonista  ja muokkaa muutamaa Nimi-kentän alueen nimeä samalla tavalla kun tekisit laskentataulussa (tuplaklikkaamalla). Huomaa, että muokkaaminen on mahdollista vain jos muokkaustila on päällä.
-Avaa nyt **Kentän arvojen laskin -työkalu** seuraavan pikakuvakkeen avulla: 
-![](img/harjoitus_6/image5.jpg)
-
-Tällä toiminnolla voimme luoda uusia tai päivittää jo olemassa olevia ominaisuustietotaulun kenttiä.  Pinta-alan laskentaa varten muunnetaan neliömetrit neliökilmetreiksi jakamalla pinta-ala 1 000 000:lla. Kirjoitetaan **Lauseke-kenttään** kaava **$area / 1000000**.
-
-![](img/harjoitus_6/image10.jpg)
-
-Painamalla **OK** saat laskettua kunkin alueen pinta-alan omaan kenttäänsä:
-
-![](img/harjoitus_6/image20.jpg)
 

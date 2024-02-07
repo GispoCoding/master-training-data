@@ -68,24 +68,7 @@ Avaa vielä **Sijoittaminen-alateema** ja valitse **Using perimeter** (käyttäe
 
 Tulos voi näyttää oudolta, etenkin jos karttaikkunan mittakaavaa on asetettu ison alueen kattavaksi. Lähennä karttaa, jotta nimiöt näkyisivät johdonmukaisemmin ja pohdi, missä tapauksessa tämänkaltainen nimiöinti olisi sopivinta.
 
-Etsi vielä **Sijoittaminen → Prioriteetti** ja määritä se **Korkeaksi**.
 
-![](img/harjoitus_4/image16.png)
-
-Tällä tavalla annat preferenssin muokkaamasi tason nimiöille suhteessa muiden tasojen nimiöihin ja voit näin järjestää tärkeimpien ja ei niin tärkeiden tasojen nimiöintiä. Paina vielä **OK**.
-
-## Nimiöinnit viivatasoilla
-
-Samalla tavalla kuin juuri määritimme nimiöinnin monikulmiotasolle, voidaan niitä määrittää muillekin vektoriaineistoille.  Avaa TieViiva-tason **Ominaisuudet-ikkuna** ja aktivoi nimiöiden käyttö päälle edellisessä harjoituksessa oppimallasi tavalla. Valitse **Nimiöiden perustana -kohdan** alavalikosta käytettäväksi nimiöintisarakkeeksi Tienumero. Paina **Käytä**, ja katso muutokset.
-Avaa vielä nimiöiden **Sijoittaminen-alateema**, ja rastita **Seuraa viivaa** ja **Viivan päällä -toiminnot** päälle. Paina **Käytä**, ja tarkista, että nimiöinti toimii odotetulla tavalla. 
-Katso esimerkkiasetukset kuvasta:
-
-![](img/harjoitus_4/image13.png)
-
-Nyt nimiöt seuraavat viivoja paremmin. Huomaa myös, että kaikki nimiöt eivät nyt tule piirretyksi. Vaihda **Maksimikulma kaarevien merkkien välillä -kohdan** arvoja, niin pystyt muokkaamaan tekstin kaarevuuden reunaehtoja. Voit sulkea **Ominaisuudet-ikkunan** totuttuun tapaan painamalla **OK**.
-Rastita vielä päälle **Yhdistä kytketyt viivat** välttääksesi kopioidut nimiöt (tämä löytyy Karttanäyttö-alateeman Kohteen valinnat -kohdan alta).
-
-![](img/harjoitus_4/image2.png)
 
 ## Vektoriaineiston luokittelut 
 
