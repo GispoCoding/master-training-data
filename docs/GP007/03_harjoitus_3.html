@@ -20,7 +20,7 @@
 
 <meta name="author" content="Gispo Ltd." />
 
-<meta name="date" content="2024-01-18" />
+<meta name="date" content="2024-02-07" />
 
 
 <meta name="description" content="Harjoitus 3: Paikkatietoaineiston visualisointi | QGIS perusteet kunnille">
@@ -166,7 +166,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="03_harjoitus_3.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
 <li><a href="03_harjoitus_3.html#valmistautuminen-1">Valmistautuminen</a></li>
 <li><a href="03_harjoitus_3.html#vektoriaineistojen-visualisointi">Vektoriaineistojen visualisointi</a></li>
-<li><a href="03_harjoitus_3.html#monikulmioaineiston-edistynyt-visualisointi">Monikulmioaineiston edistynyt visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#viiva--ja-monikulmioaineiston-visualisointi">Viiva- ja monikulmioaineiston visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-monikulmioaineiston-edistynyt-visualisointi">Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</a></li>
 </ul></li>
 <li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-paikkatietoaineiston-nimiöinti-ja-luokittelu">Harjoitus 4: Paikkatietoaineiston nimiöinti ja luokittelu</a>
 <ul>
@@ -223,7 +224,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <h1>Harjoitus 3: Paikkatietoaineiston visualisointi</h1>
 <div id="harjoituksen-sisältö-1" class="section level2">
 <h2>Harjoituksen sisältö</h2>
-<p>Harjoituksessa tehdään visualisoinnit sekä vektori- että rasteriaineistosta.</p>
+<p>Harjoituksessa harjoitellaan vektoriaineiston visualisoitia</p>
 </div>
 <div id="harjoituksen-tavoite-1" class="section level2">
 <h2>Harjoituksen tavoite</h2>
@@ -232,31 +233,44 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <div id="valmistautuminen-1" class="section level2">
 <h2>Valmistautuminen</h2>
 <p>Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (<strong>Projekti → Tallenna nimellä…</strong>) “<strong>QGIS_harjoitus_3</strong>”.</p>
+<p>Lisää projektiin seuraavat aineistot:</p>
+<ul>
+<li><p><strong>…/Harjoitus 3/TieViiva.shp</strong></p></li>
+<li><p><strong>…/Harjoitus 3/NaturaKohde_ma.shp</strong></p></li>
+<li><p><strong>…/Harjoitus 3/ne_10m_populated_places.shp</strong></p></li>
+</ul>
 </div>
 <div id="vektoriaineistojen-visualisointi" class="section level2">
 <h2>Vektoriaineistojen visualisointi</h2>
-<p>Aloita tutkimalla edellisessä harjoituksessa avattua tiestötasoa. Jos teit uuden QGIS-projektitiedoston, lisää taso painamalla <strong>Lisää vektoritaso -painiketta</strong> ja selaamalla tiedostoon <strong>…/kurssihakemisto/Harjoitus 3/TieViiva.shp</strong>. Paina hiiren oikealla painikkeella tason nimeä (TieViiva) tasoluettelossa. Valitse valikosta <strong>Ominaisuudet</strong>:</p>
+<p>Aloita tutkimalla ne_10m_populated_places -tasoa, joka sisältää Natural Earth kaupunkiaineiston Suomesta. Jos et näe pisteitä kartallasi, vedä taso muiden tasojen päälle painamalla hiiren vasenta painiketta ja raahaa taso ylimmäksi listauksessa. Paina hiiren oikealla painikkeella tason nimeä (ne_10m_populated_places) tasoluettelossa. Valitse valikosta <strong>Ominaisuudet</strong>:</p>
 <p><img src="img/harjoitus_3/image4.png" /></p>
-<p><strong>Tason ominaisuudet</strong> -ikkuna aukeaa. Huomaa vasemmalla oleva sivupalkki, josta löytyy eri ominaisuudet jaoteltuna aihekohtaisesti. Samaisessa sivupalkissa on <strong>Kuvaustekniikka-alamenu</strong>, jonka valittuasi pääset muokkaamaan tason tyyliominaisuuksia:</p>
+<p><strong>Tason ominaisuudet</strong> -ikkuna aukeaa. Huomaa vasemmalla oleva sivupalkki, josta löytyy eri ominaisuudet jaoteltuna aihekohtaisesti. Samaisessa sivupalkissa on <strong>Kuvaustekniikka-alavalikko</strong>, jonka valittuasi pääset muokkaamaan tason tyyliominaisuuksia:</p>
+<p><img src="img/harjoitus_3/image_20.png" style="width:70.0%" /></p>
+<p>Vaihda <strong>Väri- ja koko-arvot</strong>, ja paina <strong>Käytä</strong>. Sillä tavalla saat näkyviin tekemäsi muutokset sulkematta <strong>Tason ominaisuudet -ikkunaa</strong>. Avaa vielä jokin <strong>symbolikirjasto</strong>, esimerkiksi <strong>Suosikit</strong>, ja muuta pisteen tyyliksi jokin sinua miellyttävä tyyli. Voit myös kiertää symbolia vaihtamalla <strong>kierto-arvon</strong> astelukua. Paina sitten <strong>OK</strong>, ikkuna sulkeutuu ja kaupunkitaso näkyy nyt määrittämäsi visualisointityylin tavalla.</p>
+<p>Saat avattua edistyneet visualisointiasetukset painamalla <strong>Yksinkertainen pistesymboli</strong> valintaa. Täältä saat muokattua symbolin lisäksi esimerkiksi reunojen väriä, paksuutta sekä viivan tyyliä. Voit myös poistaa ääriviivat tai symbolin värityksen kokonaan jättäen vain ääriviivat. Muut paikkatietoaineistojen visualisoinnin työkalut saa käyttöön samalla tavalla, avaamalla hiiren oikealla <strong>Ominaisuudet</strong> ja sivupalkista <strong>Kuvaustekniikka</strong>. Klikkaamalla sivellintä Tasot-paneelin yläreunasta tai pikanäppäimellä <strong>F7</strong> saat avatuksi <strong>Tason tyylit -ikkunan</strong>, joka on jatkuvasti avoinna karttaikkunan oikeassa laidassa. Tällöin voit helposti vaihtaa kaikkien tasojen kuvaustekniikkaa ja näet heti, miltä uusi tyyli näyttää.</p>
+<p>Eri vektoriaineistotyypeillä (piste, viiva, monikulmio) on erilaiset kuvaustekniikan työkalut, vaikkakin ne muistuttavat paljon toisiaan. Esimerkiksi pistetasolle ei voida tehdä samoja tyylittelyjä kuin viiva- tai monikulmiotasolle. Rasteriaineistojen työkalut taas eroavat melko paljon vektoriaineistojen työkaluista.</p>
+</div>
+<div id="viiva--ja-monikulmioaineiston-visualisointi" class="section level2">
+<h2>Viiva- ja monikulmioaineiston visualisointi</h2>
+<p>Kokeile nyt itse muokata viiva- ja monikulmioaineistoja haluamaksesi. Avaa aiemmin lisätty tiestötason kuvaustekniikkaikkuna samalla tavalla kuin äsken pistetason yhteydessä. Huomaa erot viiva- ja pistetason kuvaustekniikan määrittelyissä:</p>
 <p><img src="img/harjoitus_3/image12.png" style="width:70.0%" /></p>
-<p>Vaihda <strong>Väri- ja Leveys-arvot</strong>, ja paina <strong>Käytä</strong>. Sillä tavalla saat näkyviin tekemäsi muutokset sulkematta <strong>Tason ominaisuudet -ikkunaa</strong>. Avaa vielä jokin <strong>symbolikirjasto</strong>, esimerkiksi <strong>Suosikit</strong>, ja muuta viivan tyyliksi jokin sinua miellyttävä tyyli. Paina sitten <strong>OK</strong>, ikkuna sulkeutuu ja tiestö-taso näkyy nyt määrittämäsi visualisointityylin tavalla. Muut paikkatietoaineistojen visualisoinnin työkalut saa käyttöön samalla tavalla, avaamalla hiiren oikealla <strong>Ominaisuudet</strong> ja sivupalkista <strong>Kuvaustekniikka</strong>. Eri vektoriaineistotyypeillä (piste, viiva, monikulmio) on erilaiset kuvaustekniikan työkalut, vaikkakin ne muistuttavat paljon toisiaan. Esimerkiksi pistetasolle ei voida tehdä samoja tyylittelyjä kuin viiva- tai monikulmiotasolle. Rasteriaineistojen työkalut taas eroavat melko paljon vektoriaineistojen työkaluista. Katsomme näitä myöhemmin tässä harjoituksessa.</p>
-<p>Lisätään nyt toinen vektorimuotoinen aineisto QGIS-projektiimme. Käytä samaa työkalua kuin edellisessä harjoituksessa: avaa siis uusi taso painamalla <strong>Lisää vektoritaso</strong> -näppäintä. Etsi <strong>…/kurssihakemisto/Harjoitus 3/ne_10m_populated_places/</strong> hakemistosta aineisto nimellä <strong>ne_10m_populated_places_suomi.shp</strong>. Tämä aineisto sisältää NaturalEarth-kaupunkiaineiston Suomesta. Avaa pistetason kuvaustekniikkaikkuna samalla tavalla kuin äsken viivatason yhteydessä. Huomaa erot viiva- ja pistetason kuvaustekniikan määrittelyissä:</p>
-<p><img src="img/harjoitus_3/image7.png" style="width:70.0%" /></p>
-<p>Vaihda pisteen <strong>Väri</strong> ja <strong>Koko</strong> ja paina taas <strong>Käytä</strong>. Pikanäppäimellä <strong>F7</strong> saat avatuksi <strong>Tason tyylit -ikkunan</strong>, joka on jatkuvasti avoinna karttaikkunan oikeassa laidassa. Tällöin voit helposti vaihtaa kaikkien tasojen kuvaustekniikkaa ja näet heti, miltä uusi tyyli näyttää. Vaihda symbolia ja kokeile myös, miten <strong>Kierto</strong> vaikuttaa symbolin näkymiseen.</p>
-<p>Toistetaan samat asiat vielä monikulmiotason kanssa. Avaa nyt Suomen Natura-alueet, <strong>Harjoitus 3</strong>-hakemistosta <strong>NaturaKohde_ma.shp</strong></p>
-<p><img src="img/harjoitus_3/image1.png" style="width:70.0%" /></p>
-<p>ja lisää aineisto projektiin. Avaa sen kuvaustekniikkaikkuna ja huomaa erot verrattuna piste- ja viiva-aineistojen ominaisuuksiin. Muokkaa tason väriä <strong>Väri-kohdasta</strong> ja valitse tasolle jokin symboli haluamastasi kirjastosta. Voit myös kokeilla eri <strong>Peittävyys-arvoja</strong>. Paina Käytä ja kun olet testannut tarpeeksi, paina <strong>OK</strong>.</p>
+<p>Vaihda viivan <strong>Väri</strong> ja <strong>Leveys</strong> ja paina taas <strong>Käytä</strong>. Tutki mitä valmiita tyylejä QGISiin on tallennettu ja testaa miltä ne näyttävät oman karttasi visualisoinnissa.</p>
+<p>Visualisoi vielä monikulmioaineisto haluamallasi tavalla. Avaa NaturaKohde_ma kuvaustekniikkaikkuna ja huomaa erot verrattuna piste- ja viiva-aineistojen ominaisuuksiin. Muokkaa tason väriä <strong>Väri-kohdasta</strong> ja valitse tasolle jokin symboli haluamastasi kirjastosta. Voit myös kokeilla eri <strong>Peittävyys-arvoja</strong>. Paina Käytä ja kun olet testannut tarpeeksi, paina <strong>OK</strong>.</p>
 <p>Saattaa olla, että aineistotasot peittävät toisensa vaikka siten, että monikulmio aineisto peittää muut sen alle jäävät aineistot. Kokeile muuttaa tasojen keskinäistä järjestystä ja siten tasojen näkymistä raahaamalla/vetämällä tasot uuteen järjestykseen <strong>Tasoluettelossa</strong>. Useimmiten monikulmiotasot on hyvä jättää alimmiksi tasoiksi. Jos kartalla halutaan visualisoida jotakin rasterikuvaa, kannattaa se/ne yleensä pitää myös alimpina tasoina. Uudelleen järjestettynä karttasi näyttää tältä:</p>
-<p><img src="img/harjoitus_3/image2.png" /></p>
+<p><img src="img/harjoitus_3/image_23.png" /></p>
 <p>Voit myös piilottaa tai näyttää tasoja painamalla tason nimen vasemmalla puolella olevaa ruutua.</p>
 </div>
-<div id="monikulmioaineiston-edistynyt-visualisointi" class="section level2">
-<h2>Monikulmioaineiston edistynyt visualisointi</h2>
-<p>Ensimmäiseksi muutamme vektoriaineiston väriä. Avaa tason <strong>Ominaisuudet → Kuvaustekniikka</strong> ja klikkaa <strong>Väri-kohdassa</strong> olevaa väripalkkia. Valitse haluamasi väri vektoriaineistolle. Huomaa, että voit määritellä värit arvo <strong>HSV-</strong> (Hue, Saturation, Value) tai <strong>RGB-arvoilla</strong> (Red, Green, Blue). <strong>Peittävyys-arvolla</strong> säädät värin läpinäkyvyyttä. Kokeile myös <strong>Värikarttaa</strong>, <strong>Väripyörää</strong> ja <strong>Liukuväri</strong> (välilehdet). Valittuasi sopivan värin, paina <strong>OK</strong>. Paina sen jälkeen <strong>Ominaisuudet-ikkunasta Käytä</strong>. Näin <strong>Ominaisuudet-ikkuna</strong> pysyy auki ja voit katsoa tyylien muutoksia karttanäkymässä. Kun olet valinnut haluamasi värin, paina <strong>OK</strong>.</p>
+<div id="lisätehtävä-monikulmioaineiston-edistynyt-visualisointi" class="section level2">
+<h2>Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</h2>
+<p>Visualisointeihin voi tehdä myös useampia tasoja monipuolisemman kuvaustekniikan saavuttamiseksi. Muokataan <strong>NaturaKohde_ma</strong>-aineiston visualisointia. Tavoitteena on saada kutakuinkin tällainen visualisointi tasolle:</p>
+<p><img src="img/harjoitus_3/image_24.png" /></p>
+<p>Ensimmäiseksi muutamme vektoriaineiston väriä. Avaa tason <strong>Ominaisuudet → Kuvaustekniikka</strong> ja klikkaa <strong>Väri-kohdassa</strong> olevaa väripalkkia. Valitse haluamasi väri vektoriaineistolle. Huomaa, että voit määritellä värit arvo <strong>HSV-</strong> (Hue, Saturation, Value) tai <strong>RGB-arvoilla</strong> (Red, Green, Blue). <strong>Peittävyys-arvolla</strong> säädät värin läpinäkyvyyttä. Kokeile myös <strong>Värikarttaa</strong>, <strong>Väripyörää</strong> ja <strong>Liukuväriä</strong> (välilehdet). Valittuasi sopivan värin, paina <strong>OK</strong>. Paina sen jälkeen <strong>Ominaisuudet-ikkunasta Käytä</strong>.</p>
 <p><img src="img/harjoitus_3/image5.png" style="width:70.0%" /></p>
-<p>Avaa uudelleen tason <strong>Ominaisuudet-ikkuna</strong>. <strong>Kuvaustekniikka-asetuksista</strong>, valitse ensin <strong>Simple fill</strong> oheisen kuvan mukaisesti:</p>
-<p><img src="img/harjoitus_3/image9.png" style="width:70.0%" /></p>
-<p>Sen jälkeen valitse reunaviiva katkoviivaksi kohdasta <strong>Piirron tyyli</strong>. Viivan paksuudeksi voit määritellä 0,8 millimetriä. Lopuksi voit vielä määritellä <strong>Tason piirto -kohdasta</strong> (valikko aukeaa pientä nuolta klikkaamalla) <strong>Peittävyys-kohtaan</strong> arvoksi 70%.</p>
+<p>Avaa edistyneet visualisointityökalut painamalla <strong>Yksinkertainen täyttö</strong>. Lisää toinen visualisointitaso täyttöön painamalla vihreää <img src="img/harjoitus_3/image_25.png" /> nappia oikeasta reunasta. Tason tyyppiä voi vaihtaa <strong>Symbolitason tyyppi</strong> valikosta. Vaihda tason tyyliksi <strong>Täyttö viivakuosilla</strong>. Täyttöön tulee lisää valintoja, viivakuosin valinnat sekä itse viivoituksen muokkaamisen mahdollisuus.</p>
+<p><img src="img/harjoitus_3/image_29.png" style="width:60.0%" /></p>
+<p>Voit muokata viivoituksen kiertoa, jaottelua ja siirtymää <strong>Täyttö viivakuosilla</strong>. Kierron voit asettaa esimerkiksi 45 °. Testaa mikä sopii sinun visualisointiinsi parhaiten painamalla <strong>Käytä</strong> ja katsomalla miltä karttasi näyttää. Viivan ominaisuuksia saa muokattua avaamalla viivan edistyneet visualisoinnit. Voit muokata viivan väriä, leveyttä sekä tyyliä.</p>
+<p><img src="img/harjoitus_3/image_26.png" style="width:70.0%" /></p>
+<p>Muuta vielä aineiston reunaviiva katkoviivaksi kohdasta <strong>Piirron tyyli</strong>. Viivan paksuudeksi voit määritellä 0,8 millimetriä. Lopuksi voit vielä määritellä <strong>Tason piirto -kohdasta</strong> (valikko aukeaa pientä nuolta klikkaamalla) <strong>Peittävyys-kohtaan</strong> arvoksi 70%.</p>
 <div class="hint-box">
 <p><strong>Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.</strong></p>
 </div>
@@ -276,7 +290,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">QGIS perusteet kunnille</h5>
-<span class="footer-version">v2024-01-18</span>
+<span class="footer-version">v2024-02-07</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 

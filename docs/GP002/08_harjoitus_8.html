@@ -11,7 +11,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset" />
+<meta property="og:title" content="QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset" />
 <meta property="og:type" content="book" />
 
 
@@ -20,12 +20,12 @@
 
 <meta name="author" content="Gispo Ltd." />
 
-<meta name="date" content="2024-01-23" />
+<meta name="date" content="2024-02-07" />
 
 
-<meta name="description" content="Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset">
+<meta name="description" content="QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset">
 
-<title>Harjoitus 8: QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset</title>
+<title>QGISin lisäosat | Johdanto QGISin käyttöön - Harjoitukset</title>
 
 
 
@@ -168,7 +168,6 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="04_harjoitus_4.html#nimiöt">Nimiöt</a></li>
 <li><a href="04_harjoitus_4.html#nimiöiden-tyyli--ja-yleisasetukset">Nimiöiden tyyli- ja yleisasetukset</a></li>
 <li><a href="04_harjoitus_4.html#nimiön-tekstityyli">Nimiön tekstityyli</a></li>
-<li><a href="04_harjoitus_4.html#nimiöinnit-viivatasoilla">Nimiöinnit viivatasoilla</a></li>
 <li><a href="04_harjoitus_4.html#vektoriaineiston-luokittelut">Vektoriaineiston luokittelut</a></li>
 <li><a href="04_harjoitus_4.html#lisätehtävä-nimiöiden-piirtäminen">Lisätehtävä: nimiöiden piirtäminen</a></li>
 </ul></li>
@@ -185,11 +184,10 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="06_harjoitus_6.html#harjoituksen-sisältö-4">Harjoituksen sisältö</a></li>
 <li><a href="06_harjoitus_6.html#harjoituksen-tavoite-4">Harjoituksen tavoite</a></li>
 <li><a href="06_harjoitus_6.html#valmistautuminen-4">Valmistautuminen</a></li>
-<li><a href="06_harjoitus_6.html#vektoriaineiston-geopackage-luominen">Vektoriaineiston (GeoPackage) luominen</a></li>
-<li><a href="06_harjoitus_6.html#pohjakartan-lisääminen">Pohjakartan lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#aineistojen-lisääminen">Aineistojen lisääminen</a></li>
 <li><a href="06_harjoitus_6.html#digitoinnin-aloittaminen">Digitoinnin aloittaminen</a></li>
+<li><a href="06_harjoitus_6.html#lisätehtävä-tarttumisen-työkalut">Lisätehtävä: Tarttumisen työkalut</a></li>
 <li><a href="06_harjoitus_6.html#lisätehtävä-cad-digitointi">Lisätehtävä: CAD-digitointi</a></li>
-<li><a href="06_harjoitus_6.html#lisätehtävä-ominaisuustietojen-lisääminen">Lisätehtävä: ominaisuustietojen lisääminen</a></li>
 </ul></li>
 <li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-paikkatietoanalyysit">Harjoitus 7: Paikkatietoanalyysit</a>
 <ul>
@@ -198,10 +196,10 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="07_harjoitus_7.html#valmistautuminen-5">Valmistautuminen</a></li>
 <li><a href="07_harjoitus_7.html#vektorianalyysit">Vektorianalyysit</a></li>
 </ul></li>
-<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-qgisin-lisäosat">Harjoitus 8: QGISin lisäosat</a>
+<li class="has-sub"><a href="08_harjoitus_8.html#qgisin-lisäosat">QGISin lisäosat</a>
 <ul>
-<li><a href="08_harjoitus_8.html#harjoituksen-sisältö-6">Harjoituksen sisältö</a></li>
-<li><a href="08_harjoitus_8.html#harjoituksen-tavoite-6">Harjoituksen tavoite</a></li>
+<li><a href="08_harjoitus_8.html#sisältö">Sisältö</a></li>
+<li><a href="08_harjoitus_8.html#tavoite">Tavoite</a></li>
 <li><a href="08_harjoitus_8.html#valmistautuminen-6">Valmistautuminen</a></li>
 <li><a href="08_harjoitus_8.html#lisäosien-hallinta">Lisäosien hallinta</a></li>
 <li><a href="08_harjoitus_8.html#quickmapservices">QuickMapServices</a></li>
@@ -218,14 +216,14 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="harjoitus-8-qgisin-lisäosat" class="section level1">
-<h1>Harjoitus 8: QGISin lisäosat</h1>
-<div id="harjoituksen-sisältö-6" class="section level2">
-<h2>Harjoituksen sisältö</h2>
-<p>Harjoituksessa asennetaan muutama QGIS-lisäosa.</p>
+<div id="qgisin-lisäosat" class="section level1">
+<h1>QGISin lisäosat</h1>
+<div id="sisältö" class="section level2">
+<h2>Sisältö</h2>
+<p>Asennetaan ja tutustutaan QGISin lisäosiin</p>
 </div>
-<div id="harjoituksen-tavoite-6" class="section level2">
-<h2>Harjoituksen tavoite</h2>
+<div id="tavoite" class="section level2">
+<h2>Tavoite</h2>
 <p>Koulutettava oppii asentamaan QGIS-lisäosia ja ymmärtää niiden toimintaperiaatteet.</p>
 </div>
 <div id="valmistautuminen-6" class="section level2">
@@ -316,7 +314,7 @@ Kokeile verkkokartassasi etsiä osoitteita ja käyttää mittaustyökalua.</p>
 
 <div class="footer-info">
 <h5 class="footer-title">Johdanto QGISin käyttöön - Harjoitukset</h5>
-<span class="footer-version">v2024-01-23</span>
+<span class="footer-version">v2024-02-07</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
