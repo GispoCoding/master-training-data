@@ -1,0 +1,65 @@
+name: Generate and serve changed course html files
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - src/G*/*
+
+jobs:
+  build-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: Find directories with changed rmd or image files
+        id: changed-files-dir-names
+        uses: tj-actions/changed-files@v41
+        with:
+          files:  |
+            src/G*/*.{rmd,Rmd}
+            src/G*/img/*.{png,gif}
+            src/G*/img/*/*.{png,gif}            
+          dir_names: "true"
+          dir_names_max_depth: 2
+
+
+      - name: Render modified courses to HTML and move output to docs
+        run: |
+          folder_list="${{ steps.changed-files-dir-names.outputs.all_changed_files }}"
+          IFS=" "
+          read -ra folders <<< "$folder_list"
+
+          export ARTIFACT=true
+
+          for folder in "${folders[@]}"; do
+            code="${folder#src/}"
+            ./render.sh $code
+          done
+      
+      - name: Upload artifacts
+        id: upload-artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview_changed_docs
+          path: artifact
+          retention-days: 7
+
+      - name: Add Comment
+        uses: actions/github-script@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const body = "Preview changes [here](${{ steps.upload-artifacts.outputs.artifact-url }})."
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+        
