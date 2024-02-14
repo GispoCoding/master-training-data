@@ -20,7 +20,7 @@
 
 <meta name="author" content="Gispo Ltd." />
 
-<meta name="date" content="2024-01-31" />
+<meta name="date" content="2024-02-14" />
 
 
 <meta name="description" content="Harjoitus 5: Paikkatietoaineiston visualisointi ja nimiöinti | Johdanto paikkatietoon ja QGISin käyttöön">
@@ -353,19 +353,27 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <td>Luodaan tekstiä korostavat puskurit (tekstin reunukset).</td>
 </tr>
 <tr class="even">
+<td><strong>Maski</strong></td>
+<td>Asetetaan maski tekstin ympärille valituilla tasoilla (katso myös Maski-välilehti)</td>
+</tr>
+<tr class="odd">
 <td><strong>Tausta</strong></td>
 <td>Tekstin taustalle voi piirtää suorakulmion tai muun muodon.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Varjo</strong></td>
 <td>Teksteille voidaan muodostaa varjo.</td>
+</tr>
+<tr class="odd">
+<td><strong>Osoitinviiva</strong></td>
+<td>Piirretään viivaa kohteesta tekstille.</td>
 </tr>
 <tr class="even">
 <td><strong>Sijoittaminen</strong></td>
 <td>Määrittelee tekstien sijoittumista kohteiden suhteen.</td>
 </tr>
 <tr class="odd">
-<td><strong>Piirtäminen</strong></td>
+<td><strong>Karttanäyttö</strong></td>
 <td>Määrittelee tekstien mittakaavarajoja ja muita tekstien näkyvyyteen liittyviä asioita.</td>
 </tr>
 </tbody>
@@ -380,7 +388,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p><img src="img/harjoitus_5/image20.png" /></p>
 <p>Tulos voi näyttää oudolta, etenkin jos karttaikkunan mittakaavaa on asetettu ison alueen kattavaksi. Lähennä karttaa, jotta nimiöt näkyisivät johdonmukaisemmin ja pohdi, missä tapauksessa tämänkaltainen nimiöinti olisi sopivinta. Etsi vielä <strong>Sijoittaminen &gt; Prioriteett</strong>i ja määritä se <strong>Korkeaksi</strong>. Tällä tavalla annat preferenssin muokkaamasi tason nimiöille suhteessa muiden tasojen nimiöihin ja voit näin järjestää tärkeimpien ja ei niin tärkeiden tasojen nimiöintiä. Paina vielä <strong>OK</strong>.</p>
 <div class="hint-box">
-<p>Psst! Yksi hyödyllinen tapa rajata nimiöitä on <strong>Piirtäminen &gt; Kohteen valinnat</strong> ja asettaa kohtaan <strong>Häivytä nimiöinti kohteilta, jotka ovat pienempiä kuin</strong>-kohtaan jokin arvo. Näin QGIS näyttää vain isoimpien kohteiden nimiöinnit.</p>
+<p>Psst! Yksi hyödyllinen tapa rajata nimiöitä on <strong>Karttanäyttö &gt; Kohteen valinnat</strong> ja asettaa kohtaan <strong>Häivytä nimiöinti kohteilta, jotka ovat pienempiä kuin</strong>-kohtaan jokin arvo. Näin QGIS näyttää vain isoimpien kohteiden nimiöinnit.</p>
 </div>
 </div>
 <div id="nimiöinnit-viivatasoilla" class="section level2">
@@ -404,7 +412,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Lausekkeen muokkaus on tehokas työkalu, jota voidaan käyttää nimiöiden muokkaamisen lisäksi myös muihin tarkoituksiin. Lauseke-kentässä on tällä hetkellä nimi, sillä valitsimme <strong>Nimi</strong>-kentän aikaisemmin <strong>Nimiöiden perustana</strong> -alasvetovalikosta. Aineistossa on myös kenttä <strong>NaturaTunn</strong>, joka sisältää alueen tunnuksen. Tehdään lauseke, joka yhdistää alueen nimen ja tunnuksen.</p>
 <p>Kirjoita Lauseke-kenttään seuraava lauseke:</p>
 <div class="code-box">
-<p>NaturaTunn || ‘’ || Nimi</p>
+<p>NaturaTunn || '\n' || Nimi</p>
 </div>
 <p>Lausekkeessa esiintyy kentän nimien <strong>NaturaTunn</strong> ja <strong>Nimi</strong> lisäksi myös rivinvaihtosymboli <strong>’</strong>’ ja kaksi <strong>||</strong> -merkkiä, jotka yhdistävät merkkijonot yhdeksi tekstiksi.</p>
 <p><img src="img/harjoitus_5/image26.png" /></p>
@@ -436,7 +444,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Johdanto paikkatietoon ja QGISin käyttöön</h5>
-<span class="footer-version">v2024-01-31</span>
+<span class="footer-version">v2024-02-14</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 

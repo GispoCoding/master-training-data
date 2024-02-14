@@ -20,7 +20,7 @@
 
 <meta name="author" content="Gispo Ltd." />
 
-<meta name="date" content="2024-01-31" />
+<meta name="date" content="2024-02-14" />
 
 
 <meta name="description" content="Harjoitus 6: Paikkatietoaineiston luokittelu | Johdanto paikkatietoon ja QGISin käyttöön">
@@ -257,7 +257,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Attribuuttitietojen ymmärtämiseksi on hyvä tarkastella taulun sisältöä sekä tutustua samalla aineiston metatietoihin. Metatiedot löytyvät usein aineistontuottajan nettisivuilta tai paikkatietojen löytämiseen tarkoitetuista hakemistoista. Metatiedot kertovat mm. kuka aineiston on tuottanut, mihin tarkoitukseen, millä mittakaavalla ja missä koordinaattijärjestelmässä se on tehty. HSY_vaestotietoruudukko-aineiston on tuottanut Helsingin seudun ympäristöpalvelut ja sen metatiedot löytyvät saman kansion <strong>HSY_vaestotietoruudukko.pdf-tiedostosta</strong>. Avaa tiedosto ja tutustu eri kenttien (= sarakkeiden) kuvauksiin.</p>
 <p>Attribuuttitauluissa sarakkeiden nimet ovat usein lyhennetyssä muodossa, minkä vuoksi sarakkeiden merkitystä on tyypillisesti vaikea päätellä lyhenteistä. <strong>HSY_vaestotietoruudukko</strong>-aineistossa silmiinpistävää on myös se, että taulukossa toistuu luku 99 useaan otteeseen. Metatietojen avulla voimme kuitenkin selvittää muun muassa sen, miten asukkaita-sarakkeen tiedot on laskettu sekä millä tavalla tiedot on poistettu ruuduissa, joissa asuu 0-4 asukasta. <strong>Ika-sarakkeet</strong> sisältävät asukkaiden määrät ikäluokittain, mutta niille on annettu arvo 99 aina kun ruudukon asukasmäärä on ollut alle 100. Tarkastele aineistoa myös kartalla. Huomaatko yhden ruudun, joka näyttää sijaitsevan kaukana kaakossa keskellä merta?</p>
 <p><img src="img/harjoitus_6/image2.png" /></p>
-<p>Irralliseen ruutuun on tässä aineistossa sijoitettu kaikki ne pk-seudun asukkaat, joilla ei ole vakituista kotiosoitetta. <strong>Näytä kohteen tiedot</strong> -työkalulla nähdään, että tämän ruudun asukasmäärä on kymmenkertaisesti suurempi kuin minkään muun aineiston ruudun. Se siis vääristää luokittelua ja aineistosta laskettuja tilastoja (mm. keskimääräinen asukastiheys ruutua kohti). Suodatetaan tämä ruutu pois aineistosta: klikkaa tason nimeä hiiren oikealla ja valitse <strong>Suodata…</strong> Kirjoita (tai valitse tietokentistä ja operaattoreista klikkaamalla) suodatuslausekkeeksi <strong>“asukkaita” &lt; 5000</strong>. Voit testata suodatuksen toimivuutta klikkaamalla <strong>Testaa</strong>.</p>
+<p>Irralliseen ruutuun on tässä aineistossa sijoitettu kaikki ne pk-seudun asukkaat, joilla ei ole vakituista kotiosoitetta. <strong>Näytä kohteen tiedot</strong> -työkalulla nähdään, että tämän ruudun asukasmäärä on kymmenkertaisesti suurempi kuin minkään muun aineiston ruudun. Se siis vääristää luokittelua ja aineistosta laskettuja tilastoja (mm. keskimääräinen asukastiheys ruutua kohti). Suodatetaan tämä ruutu pois aineistosta: klikkaa tason nimeä hiiren oikealla ja valitse <strong>Suodata…</strong> Kirjoita (tai valitse tietokentistä ja operaattoreista klikkaamalla) suodatuslausekkeeksi <strong>"asukkaita" &lt; 5000</strong>. Voit testata suodatuksen toimivuutta klikkaamalla <strong>Testaa</strong>.</p>
 <p><img src="img/harjoitus_6/image3.png" /></p>
 <p>Nyt QGIS näyttää aineistostasi vain ne ruudut, jotka täyttävät annetun ehdon eli joiden kokonaisasukasmäärä on alle 5000.</p>
 <p>Paikkatietoineiston ymmärtäminen ennen sen käsittelyä on välttämätöntä. Voimme nyt esimerkiksi päättää, että haluamme tuottaa teemakartan asukkaita-sarakkeen tietojen pohjalta. Näin pystymme myös paremmin tulkitsemaan karttaa ja valitsemaan visualisointia varten sopivat asetukset.</p>
@@ -296,7 +296,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Johdanto paikkatietoon ja QGISin käyttöön</h5>
-<span class="footer-version">v2024-01-31</span>
+<span class="footer-version">v2024-02-14</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
