@@ -30,7 +30,7 @@ Attribuuttitauluissa sarakkeiden nimet ovat usein lyhennetyssä muodossa, minkä
 
 ![](img/harjoitus_6/image2.png)
 
-Irralliseen ruutuun on tässä aineistossa sijoitettu kaikki ne pk-seudun asukkaat, joilla ei ole vakituista kotiosoitetta. **Näytä kohteen tiedot** -työkalulla nähdään, että tämän ruudun asukasmäärä on kymmenkertaisesti suurempi kuin minkään muun aineiston ruudun. Se siis vääristää luokittelua ja aineistosta laskettuja tilastoja (mm. keskimääräinen asukastiheys ruutua kohti). Suodatetaan tämä ruutu pois aineistosta: klikkaa tason nimeä hiiren oikealla ja valitse **Suodata...** Kirjoita (tai valitse tietokentistä ja operaattoreista klikkaamalla) suodatuslausekkeeksi **"asukkaita" \< 5000**. Voit testata suodatuksen toimivuutta klikkaamalla **Testaa**.
+Irralliseen ruutuun on tässä aineistossa sijoitettu kaikki ne pk-seudun asukkaat, joilla ei ole vakituista kotiosoitetta. **Näytä kohteen tiedot** -työkalulla nähdään, että tämän ruudun asukasmäärä on kymmenkertaisesti suurempi kuin minkään muun aineiston ruudun. Se siis vääristää luokittelua ja aineistosta laskettuja tilastoja (mm. keskimääräinen asukastiheys ruutua kohti). Suodatetaan tämä ruutu pois aineistosta: klikkaa tason nimeä hiiren oikealla ja valitse **Suodata...** Kirjoita (tai valitse tietokentistä ja operaattoreista klikkaamalla) suodatuslausekkeeksi **\"asukkaita\" \< 5000**. Voit testata suodatuksen toimivuutta klikkaamalla **Testaa**.
 
 ![](img/harjoitus_6/image3.png)
 

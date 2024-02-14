@@ -42,11 +42,11 @@ Huomaa, että voit joutua odottamaan hetken, kun karttatasoa ladataan palvelimel
 
 ![](img/harjoitus_3/image5.png)
 
-Luo nyt muutama WMS-paikkatietopalveluyhteys lisää. Voit käyttää hyväksesi Gispon ylläpitämää listausta avoimista paikkatietopalveluista osoitteessa <https://gispohelp.zendesk.com/hc/fi/articles/208159815>. Lisää esimerkiksi seuraavat yleishyödylliset WMS-palvelut QGIS-projektiisi:
+Luo nyt muutama WMS-paikkatietopalveluyhteys lisää. Voit käyttää hyväksesi Gispon ylläpitämää listausta avoimista paikkatietopalveluista osoitteessa <https://www.gispo.fi/blogi/avoimen-datan-wms-ja-wfs-karttapalveluita/>. Lisää esimerkiksi seuraavat yleishyödylliset WMS-palvelut QGIS-projektiisi:
 
 **Tilastokeskus (väestöruutuaineisto)**: <http://geo.stat.fi/geoserver/vaestoruutu/wms>
 
-**Väylävirasto**: <https://julkinen.vayla.fi/inspirepalvelu/avoin/wms>
+**Väylävirasto**: <https://avoinapi.vaylapilvi.fi/vaylatiedot/ows>
 
 **SYKE**: <https://paikkatieto.ymparisto.fi/ArcGIS/services/INSPIRE/SYKE_Maanpeite/MapServer/WMSServer>
 
@@ -70,9 +70,9 @@ Luo uusi yhteys alla listattuihin WFS-paikkatietopalveluihin tai valitse haluama
 
 -   **Tilastokeskus (väestöruutuaineisto)**: <http://geo.stat.fi/geoserver/vaestoruutu/wfs>
 
--   **Väylävirasto**: <https://julkinen.vayla.fi/inspirepalvelu/avoin/wfs>
+-   **Väylävirasto**: <https://avoinapi.vaylapilvi.fi/vaylatiedot/ows>
 
--   **Jyväskylän yliopisto (liikuntapaikat)**: <http://lipas.cc.jyu.fi/geoserver/lipas/ows>
+-   **Jyväskylän yliopisto (liikuntapaikat)**: <https://lipas.fi/geoserver/lipas/ows>
 
 Kun olet lisännyt WFS-paikkatietopalvelun tiedot QGISiin, voit ottaa siihen yhteyden samalla tavalla kuin WMS-palveluiden yhteydessä. Kun lisäät aineistoja WFS-palveluista QGIS-projektiisi, voit huomata, että aineistot ovat vektorimuotoisia. Jos haluat käsitellä WFS-palvelun kautta lisäämääsi aineistoa (esimerkiksi editoida kohteita), täytyy se tallentaa lokaalisti omalle tietokoneellesi.
 

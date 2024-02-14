@@ -116,7 +116,7 @@ Digitoi muutama alue ja muista tallentaa digitoinnin tulokset aina välillä **N
 
 ![](img/harjoitus_8/image25.png)
 
-Kun olet digitoinut 5-8 uutta kohdetta poistu muokkaustilasta painamalla uudelleen lyijykynä-työkalua. Tallenna muutokset ja määrittele kuvaustekniikka polygoneille. Luokittelu tyypin mukaan voisi olla järkevä visualisointikeino arvoluettelokohteille. Alempana on esimerkkikuva digitoiduista alueilta, mutta voit valita vapaasti digitoitavat kohteesi: 
+Kun olet digitoinut 5–8 uutta kohdetta poistu muokkaustilasta painamalla uudelleen lyijykynä-työkalua. Tallenna muutokset ja määrittele kuvaustekniikka polygoneille. Luokittelu tyypin mukaan voisi olla järkevä visualisointikeino arvoluettelokohteille. Alempana on esimerkkikuva digitoiduista alueilta, mutta voit valita vapaasti digitoitavat kohteesi: 
 
 ![](img/harjoitus_8/image26.png)
 
