@@ -50,7 +50,7 @@ Paina sitten **OK**, niin uusi kenttä tulee listalle. Klikkaa kynäikonista uud
 
 ## Tietorakenteen valmistelu ja editointiasetukset
 
-QGISin automaattisesti luoma fid-kenttä antaa jokaiselle digitoitavalle kohteelle oman uniikin tunnisteen. Digitoijan ei tule kajota tähän kenttään lainkaan, joten estetään sen muokkaus. Mene **Tason ominaisuudet** -ikkunassa **Attribuuttilomake-välilehdelle** ja valitse **Tietokentät-listasta** fid. Mene oikealle puolelle **Yleistä**-kohtaan ja poista valinta kohdasta **Muokattava**. Nyt kyseistä kenttää ei voi vahingossakaan muokata.
+QGISin automaattisesti luoma fid-kenttä antaa jokaiselle digitoitavalle kohteelle oman uniikin tunnisteen. Digitoijan ei tule kajota tähän kenttään lainkaan, joten estetään sen muokkaus. Mene **Tason ominaisuudet** -ikkunassa **Attribuuttilomake-välilehdelle** ja valitse **Fields-listasta** fid. Mene oikealle puolelle **Yleistä**-kohtaan ja poista valinta kohdasta **Muokattava**. Nyt kyseistä kenttää ei voi vahingossakaan muokata.
 
 ![](img/harjoitus_8/image8.png)
 
