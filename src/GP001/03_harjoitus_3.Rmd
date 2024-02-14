@@ -42,7 +42,7 @@ Huomaa, että voit joutua odottamaan hetken, kun karttatasoa ladataan palvelimel
 
 ![](img/harjoitus_3/image5.png)
 
-Luo nyt muutama WMS-paikkatietopalveluyhteys lisää. Voit käyttää hyväksesi Gispon ylläpitämää listausta avoimista paikkatietopalveluista osoitteessa <https://gispohelp.zendesk.com/hc/fi/articles/208159815>. Lisää esimerkiksi seuraavat yleishyödylliset WMS-palvelut QGIS-projektiisi:
+Luo nyt muutama WMS-paikkatietopalveluyhteys lisää. Voit käyttää hyväksesi Gispon ylläpitämää listausta avoimista paikkatietopalveluista osoitteessa <https://www.gispo.fi/blogi/avoimen-datan-wms-ja-wfs-karttapalveluita/>. Lisää esimerkiksi seuraavat yleishyödylliset WMS-palvelut QGIS-projektiisi:
 
 **Tilastokeskus (väestöruutuaineisto)**: <http://geo.stat.fi/geoserver/vaestoruutu/wms>
 
