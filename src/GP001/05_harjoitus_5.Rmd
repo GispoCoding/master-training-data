@@ -140,11 +140,13 @@ Nimiöiden tekstien näkymistä kartalla voi määrittää monella eri tavalla. 
 |------------------|------------------------------------------------------|
 | **Teksti**        | Määritellään tekstin tyyli, väri ja muita yleisiä ominaisuuksia.                        |
 | **Muotoilu**      | Voit muodostaa useampirivisiä tekstejä, keskittää tekstiä ja määritellä lukujen muotoa. |
-| **Vyöhyke**       | Luodaan tekstiä korostavat puskurit (tekstin reunukset).                                |
+| **Vyöhyke**       | Luodaan tekstiä korostavat puskurit (tekstin reunukset).
+| **Maski**       | Asetetaan maski tekstin ympärille valituilla tasoilla (katso myös Maski-välilehti)|
 | **Tausta**        | Tekstin taustalle voi piirtää suorakulmion tai muun muodon.                             |
 | **Varjo**         | Teksteille voidaan muodostaa varjo.                                                     |
+| **Osoitinviiva**         | Piirretään viivaa kohteesta tekstille.                                                     |
 | **Sijoittaminen** | Määrittelee tekstien sijoittumista kohteiden suhteen.                                   |
-| **Piirtäminen**   | Määrittelee tekstien mittakaavarajoja ja muita tekstien näkyvyyteen liittyviä asioita.  |
+| **Karttanäyttö**   | Määrittelee tekstien mittakaavarajoja ja muita tekstien näkyvyyteen liittyviä asioita.  |
 
 ## Nimiön tekstityyli
 
