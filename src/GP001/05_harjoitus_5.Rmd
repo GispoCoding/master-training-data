@@ -163,7 +163,7 @@ Avaa vielä **Sijoittaminen**-alateema ja valitse **Using perimeter (käyttäen 
 Tulos voi näyttää oudolta, etenkin jos karttaikkunan mittakaavaa on asetettu ison alueen kattavaksi. Lähennä karttaa, jotta nimiöt näkyisivät johdonmukaisemmin ja pohdi, missä tapauksessa tämänkaltainen nimiöinti olisi sopivinta. Etsi vielä **Sijoittaminen \> Prioriteett**i ja määritä se **Korkeaksi**. Tällä tavalla annat preferenssin muokkaamasi tason nimiöille suhteessa muiden tasojen nimiöihin ja voit näin järjestää tärkeimpien ja ei niin tärkeiden tasojen nimiöintiä. Paina vielä **OK**.
 
 ::: hint-box
-Psst! Yksi hyödyllinen tapa rajata nimiöitä on **Piirtäminen \> Kohteen valinnat** ja asettaa kohtaan **Häivytä nimiöinti kohteilta, jotka ovat pienempiä kuin**-kohtaan jokin arvo. Näin QGIS näyttää vain isoimpien kohteiden nimiöinnit.
+Psst! Yksi hyödyllinen tapa rajata nimiöitä on **Karttanäyttö \> Kohteen valinnat** ja asettaa kohtaan **Häivytä nimiöinti kohteilta, jotka ovat pienempiä kuin**-kohtaan jokin arvo. Näin QGIS näyttää vain isoimpien kohteiden nimiöinnit.
 :::
 
 ## Nimiöinnit viivatasoilla
@@ -197,7 +197,7 @@ Lausekkeen muokkaus on tehokas työkalu, jota voidaan käyttää nimiöiden muok
 Kirjoita Lauseke-kenttään seuraava lauseke:
 
 ::: code-box
-NaturaTunn \|\| '\n' \|\| Nimi
+NaturaTunn \|\| \'\\n\' \|\| Nimi
 :::
 
 Lausekkeessa esiintyy kentän nimien **NaturaTunn** ja **Nimi** lisäksi myös rivinvaihtosymboli **'**\n' ja kaksi **\|\|** -merkkiä, jotka yhdistävät merkkijonot yhdeksi tekstiksi.
