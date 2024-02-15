@@ -13,10 +13,10 @@
 .in-view {
   background-color: #edc949;
 
-  padding-left: 2em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  padding-right: 2em;
+  padding-left: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-right: 10%;
 
   border-radius: 0.5em;
 }
@@ -488,3 +488,4 @@ code span {
 @media (max-width: 767px) {
     .level1 { padding: 60px 10px; }
 }
+
