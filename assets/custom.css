@@ -4,12 +4,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 
-/* test */
-
 /* to-do */
 .todo {
     background-color: red;
     color:#eeeeee;
+}
+
+.in-view {
+  background-color: #edc949;
+
+  padding-left: 2em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 2em;
+
+  border-radius: 0.5em;
 }
 
 /* Generics */
