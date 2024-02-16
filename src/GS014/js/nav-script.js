@@ -26,7 +26,7 @@ const headers = document.querySelectorAll(
 );
 
 
-// // Jump to to current document's title in the sidebar
+// Jump to to current document's title in the sidebar
 
 document.addEventListener('DOMContentLoaded', function() {
   var pageTitle = document.title;
