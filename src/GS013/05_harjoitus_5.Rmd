@@ -18,7 +18,7 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä \"**QGIS-
 
 -   **..kurssihakemisto/kuntien ikärakenne 2019.gpkg (tasot: \"kuntien ikärakenne 2019\" ja \"keskipisteet\")**
 
-## **Pistemäisen aineiston luokittelu**
+## Pistemäisen aineiston luokittelu
 
 Hyödynnetään pistemäisen aineiston luokittelua attribuuttitiedon perusteella. Avaa **Keskipisteet-tason Kuvaustekniikka** ja aseta kuvaustekniikaksi **Porrastettu**. Valitse sarake, jonka mukaan luokitellaan (esimerkkiaineistossa **Asukasluku 2019**). Vaihda metodiksi **Koko**. Luokittelumenetelmien valinta ja histogrammin tarkastelu toimii täysin samoin kuin aluemaisilla aineistoilla.
 
