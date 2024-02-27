@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - src/*G/*
+      - src/G*/*
       - assets/*
 
 jobs:
