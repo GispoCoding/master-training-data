@@ -222,9 +222,11 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Erilaisia paikkatietoaineistoja pitää välillä yhdistää ominaisuuksiensa tai sijainnin perusteella. Tässä harjoituksessa tutustuaan, miten ominaisuustietoja voidaan yhdistää eri tavoin. Harjoituksessa käytetään Helsingin kaupungin avointa aineistoa rajapinnalta ja lasketaan, kuinka paljon huoneistoja on eri Helsingin osa-alueilla.</p>
 <p>Tee yhteys Helsingin kaupungin WFS-osoitteeseen:</p>
 <p><a href="https://kartta.hel.fi/ws/geoserver/avoindata/wfs?request=getCapabilities" class="uri">https://kartta.hel.fi/ws/geoserver/avoindata/wfs?request=getCapabilities</a></p>
-<p>Lisää projektiisi rajapinnalta:
-- <strong>Piirijako_osaalue</strong>
-- <strong>Rakennukset_piste_rekisteritiedot</strong></p>
+<p>Lisää projektiisi rajapinnalta:</p>
+<ul>
+<li><strong>Piirijako_osaalue</strong></li>
+<li><strong>Rakennukset_piste_rekisteritiedot</strong></li>
+</ul>
 <p>Pisteaineisto on melko iso, joten sen lataamisessa voi kestää hetki. Aineistossa on jokainen rakennus pisteenä ja ominaisuustiedoissa huoneistojen lukumäärä kussakin rakennuksessa sarakkeessa <strong>i_huoneistojen_lkm</strong>. Liitetään tieto huoneistojen lukumäärästä Helsingin piirijakoon sijainnin perusteella. Avaa <strong>Vektori -&gt; Tiedonhallinta -&gt; Yhdistä attribuutit sijainnin perusteella</strong>. Valitse yhdistettäväksi tasoksi Piirijako_osaalue ja vertailukohteeksi Rakennukset_piste_rekisteritiedot.
 <strong>Fields to add</strong> kohdassa valitse listasta <strong>i_huoneistojen_lkm</strong>. Jos kenttä jää tyhjäksi niin kaikki Rakennus-tason sarakkeet lisätään. Tarkista vielä, että Join type on <strong>Create separate feature for each matching feature (one-to-many)</strong>, jotta jokainen piste huomiodaan uudessa tasossa.</p>
 <p><img src="img/harjoitus_3/image31.png" />
