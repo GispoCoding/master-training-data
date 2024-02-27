@@ -28,7 +28,7 @@ Huomaa, että voit asettaa symboliksi muunkin kuin pyöreän pisteen. Lisäksi v
 
 ![](img/harjoitus_5/image2.png)
 
-## **Heatmap**
+## Heatmap
 
 Heatmap eli lämpökartta kuvaa pistemäisten kohteiden tihentymiä ja jakaumaa spatiaalisesti. Heatmapia voi myös painottaa jonkin attribuuttitiedon mukaan.
 
