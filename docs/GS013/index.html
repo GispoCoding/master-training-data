@@ -20,7 +20,7 @@
 
 <meta name="author" content="Gispo Oy." />
 
-<meta name="date" content="2024-01-18" />
+<meta name="date" content="2024-02-27" />
 
 
 <meta name="description" content="Tilastot ja analyysit QGISillä">
@@ -162,13 +162,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="03_harjoitus_3.html#valmistautuminen-2">Valmistautuminen</a></li>
 <li><a href="03_harjoitus_3.html#vektorianalyysi">Vektorianalyysi</a></li>
 <li><a href="03_harjoitus_3.html#tilastot">Tilastot</a></li>
-<li><a href="03_harjoitus_3.html#valinta-toisen-tason-sijainnin-perusteella">Valinta toisen tason sijainnin perusteella</a></li>
-<li><a href="03_harjoitus_3.html#dataplotly-lisäosa">DataPlotly-lisäosa</a></li>
-<li><a href="03_harjoitus_3.html#kohteiden-etäisyys-toisen-tason-pisteistä">Kohteiden etäisyys toisen tason pisteistä</a></li>
-<li><a href="03_harjoitus_3.html#pisteiden-lukumäärä">Pisteiden lukumäärä</a></li>
-<li><a href="03_harjoitus_3.html#aggregointi-ja-sulautus">Aggregointi ja sulautus</a></li>
-<li><a href="03_harjoitus_3.html#uusien-kenttien-laskeminen">Uusien kenttien laskeminen</a></li>
-<li><a href="03_harjoitus_3.html#päivittyvät-arvot">Päivittyvät arvot</a></li>
+<li><a href="03_harjoitus_3.html#alueellisten-summien-laskeminen-ja-aggregointi">Alueellisten summien laskeminen ja aggregointi</a></li>
+<li><a href="03_harjoitus_3.html#vaaralliset-tieristeykset">Vaaralliset tieristeykset</a></li>
 <li><a href="03_harjoitus_3.html#etsi-omia-analyysityökaluja">Etsi omia analyysityökaluja</a></li>
 </ul></li>
 <li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-graafinen-mallintaja">Harjoitus 4: Graafinen mallintaja</a>
@@ -178,12 +173,12 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="04_harjoitus_4.html#prosessin-laatiminen-ja-testaus">Prosessin laatiminen ja testaus</a></li>
 <li><a href="04_harjoitus_4.html#tallennetun-prosessin-käyttöönotto">Tallennetun prosessin käyttöönotto</a></li>
 </ul></li>
-<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-python-konsoli">Harjoitus 5: Python-konsoli</a>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-luokittelu-heatmap-ja-diagrammit">Harjoitus 5: Luokittelu, heatmap ja diagrammit</a>
 <ul>
 <li><a href="05_harjoitus_5.html#valmistautuminen-4">Valmistautuminen</a></li>
-<li><a href="05_harjoitus_5.html#python-konsolin-perusteet">Python-konsolin perusteet</a></li>
-<li><a href="05_harjoitus_5.html#python-skriptien-ajaminen-globe-builder--lisäosan-komentojen-hyödyntäminen">Python-skriptien ajaminen: Globe Builder -lisäosan komentojen hyödyntäminen</a></li>
-<li><a href="05_harjoitus_5.html#tee-bufferi-hyödyntäen-python-skriptiä">Tee bufferi hyödyntäen Python-skriptiä</a></li>
+<li><a href="05_harjoitus_5.html#pistemäisen-aineiston-luokittelu">Pistemäisen aineiston luokittelu</a></li>
+<li><a href="05_harjoitus_5.html#heatmap">Heatmap</a></li>
+<li><a href="05_harjoitus_5.html#diagrammit">Diagrammit</a></li>
 </ul></li>
 </ul>
 </div>
@@ -201,7 +196,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <h4 class="author">Gispo Oy.</h4>
 
-<h4 id="build-date">Version: 2024-01-18</h4>
+<h4 id="build-date">Version: 2024-02-27</h4>
 
 <div class="abstract"><p>Jatkokurssi QGISin käytöstä.</p></div>
 
@@ -210,14 +205,14 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <h1>Tilastot ja analyysit QGISillä</h1>
 <div id="tervetuloa-qgis-jatkokurssille" class="section level2">
 <h2>Tervetuloa QGIS-jatkokurssille!</h2>
-<p>Kurssilla syvennytään QGIS-paikkatieto-ohjelmiston tilastoihin ja analyyseihin. Kurssilla koulutettava oppii mm. tuomaan QGISiin erilaista taulukkomuotoista dataa, hyödyntämään Tilastot-paneelia ja DataPlotlyä sekä käyttämään QGISin sisäänrakennettua graafista mallintajaa. Kurssin jälkeen koulutettava osaa hyödyntää ja jatkojalostaa erilaisia taulukkoaineistoja sekä ymmärtää QGISin tilastoihin liittyvien lisäosien toimintaperiaatteet. Kurssillä käydään läpi myös erilaisia vektorianalyysejä.</p>
+<p>Kurssilla syvennytään QGIS-paikkatieto-ohjelmiston tilastoihin ja analyyseihin. Kurssilla koulutettava oppii mm. tuomaan QGISiin erilaista taulukkomuotoista dataa, hyödyntämään Tilastot-paneelia sekä käyttämään QGISin sisäänrakennettua graafista mallintajaa. Kurssin jälkeen koulutettava osaa hyödyntää ja jatkojalostaa erilaisia taulukkoaineistoja sekä ymmärtää QGISin tilastoihin liittyvien lisäosien toimintaperiaatteet. Kurssillä käydään läpi myös erilaisia vektorianalyysejä.</p>
 <p>Kurssille osallistuvien tulee tuntea paikkatiedon ja QGIS-paikkatieto-ohjelmiston perusteet. Kurssi sopii etenkin niille, jotka käsittelevät paljon erilaisia tilastoja/taulukkoja ja haluavat automatisoida prosessejaan.</p>
 </div>
 <div id="kurssimateriaalien-lataaminen" class="section level2">
 <h2>Kurssimateriaalien lataaminen</h2>
 <p>Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:</p>
 <div class="note-box">
-<p><a href="https://drive.google.com/uc?id=1bzHWPauYUZq_pju6hPMRWGHA8Uv26gVp&amp;export=download">Kurssihakemisto.zip</a></p>
+<p><a href="https://drive.google.com/uc?export=download&amp;id=1t1fDvLnEG0zs7HxmmUW6Iuf3HKNU1vLC">Kurssihakemisto.zip</a></p>
 </div>
 </div>
 <div id="lukuohje" class="section level2">
@@ -283,7 +278,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Tilastot ja analyysit QGISillä</h5>
-<span class="footer-version">v2024-01-18</span>
+<span class="footer-version">v2024-02-27</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
