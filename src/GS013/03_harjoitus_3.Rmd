@@ -48,6 +48,7 @@ Tee yhteys Helsingin kaupungin WFS-osoitteeseen:
 <https://kartta.hel.fi/ws/geoserver/avoindata/wfs?request=getCapabilities>
 
 Lisää projektiisi rajapinnalta:
+
 -   **Piirijako_osaalue**
 -   **Rakennukset_piste_rekisteritiedot**
 
