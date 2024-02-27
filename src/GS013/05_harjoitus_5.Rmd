@@ -1,111 +1,71 @@
-# Harjoitus 5: Python-konsoli
+# Harjoitus 5: Luokittelu, heatmap ja diagrammit
 
 **Harjoituksen sisältö**
 
-Harjoituksessa tutustutaan QGISin toiminnallisuuksien laajentamiseen Python-konsolin avulla.
+Harjoituksessa laaditaan teemakartta ordinaalisiin arvoihin perustuen symbolin koon avulla. Kokeillaan myös heatmapin laatimista ja piirakkadiagrammin tekoa.
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii hyödyntämään Python-konsolia ja etsiä verkosta ohjelmointikoodeja siihen.
+Koulutettava oppii tekemään teemakartan valinnat siten, että ne kuvaavat käsiteltävää ilmiötä ja tuovat esiin aineiston ominaispiirteet.
 
 **Arvioitu kesto**
 
-30 minuuttia.
+60 minuuttia.
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **"QGIS-harjoitus 5"**. Lisää projektiin seuraavat aineistot:
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä \"**QGIS-harjoitus 5**\". Lisää projektiin seuraavat aineistot:
 
--   **..kurssihakemisto/HSY/HSY_vaestotietoruudukko_2019.gpkg**
+-   **..kurssihakemisto/kuntien ikärakenne 2019.gpkg (tasot: \"kuntien ikärakenne 2019\" ja \"keskipisteet\")**
 
-## Python-konsolin perusteet
+## Pistemäisen aineiston luokittelu
 
-QGISin Python-konsolin avulla voit automatisoida useita paikkatietoprosesseja QGISissä. Käytännössä pystyt nopeuttamaan useiden paikkatietoprosessien toimittamista opiskelemalla Python-ohjelmointikieltä sekä QGIS-kohtaisten PyQGIS-komentojen käyttöä.
+Hyödynnetään pistemäisen aineiston luokittelua attribuuttitiedon perusteella. Avaa **Keskipisteet-tason Kuvaustekniikka** ja aseta kuvaustekniikaksi **Porrastettu**. Valitse sarake, jonka mukaan luokitellaan (esimerkkiaineistossa **Asukasluku 2019**). Vaihda metodiksi **Koko**. Luokittelumenetelmien valinta ja histogrammin tarkastelu toimii täysin samoin kuin aluemaisilla aineistoilla.
 
-Python on ohjelmointikieli, joka on paikkatieto-ohjelmistojen lisäksi kasvavasti käytössä eri toimialoilla. Pythonia kutsutaankin niin sanotusti lingua francaksi, sillä sen käyttötapaukset ulottuvat niin laajalle ja sen käyttöönotto ohjelmointikielenä on verrattain nopeaa. QGISissä Pythonia voi hyödyntää eri tavoilla. Niistä tärkeimmät alla:
+![](img/harjoitus_5/image1.png)
 
--   Python-kielen avulla voidaan **automatisoida** monia paikkatiedon prosessointiin ja analysointiin liittyviä **toimintoja**. Tämä nopeuttaa, helpottaa ja parantaa paikkatiedon käsittelyä.
-
--   Python-kielen avulla voidaan lisätä **toistettavuutta** paikkatietoprosesseissa. Näin Python-komentoja seuraamalla kuka vain voi toistaa paikkatietoprosessin jälkikäteen.  
-
--   Python-kielen avulla voidaan tuottaa **QGIS-lisäosia** (eng. plugins) organisaation tai laajempien työprosessien ratkaisemiksi.
-
--   Python-kielen avulla voidaan tuottaa **prosessointialgoritmeja** (eng. processing algorithms). Näillä algoritmeilla viitataan Python-skripteihin, jotka tallennetaan QGISiin ja niistä tulee omia pientyökaluja esim. paikkatietojen prosessoinnin tehtävien toteuttamiseen.
-
-QGISissa Pythonin käyttö pohjautuu ennen kaikkea QGISin Python-konsoliin, jolla voidaan ajaa Python-komentoja. Avaa konsoli klikkaamalla ![](img/harjoitus_5/image1.png) tai valikosta menemällä **Lisäosat \> Python-konsoli**.
+Huomaa, että voit asettaa symboliksi muunkin kuin pyöreän pisteen. Lisäksi voit määrittää, minkä kokoinen on aineiston suurin ja pienin symboli. Tällä, samoin kuin luokittelumenetelmällä, on merkittävä vaikutus siihen miten luokkien välinen vaihtelu koetaan. Käytännöllistä on asettaa pienin piste vähintään 3-4 pikselin kokoiseksi, jotta se erottuu taustasta. Suurimman pisteen taas täytyy pysyä riittävän pienenä, jotta se ei peitä taustaa tai muita kohteita sillä zoomaustasolla, jolla karttaa on tarkoitus tarkastella.
 
 ![](img/harjoitus_5/image2.png)
 
-Konsoli aukenee karttaikkunan alapuolelle.
+## Heatmap
+
+Heatmap eli lämpökartta kuvaa pistemäisten kohteiden tihentymiä ja jakaumaa spatiaalisesti. Heatmapia voi myös painottaa jonkin attribuuttitiedon mukaan.
+
+Heatmap-visualisointitoiminto löytyy **Kuvaustekniikka-ikkunasta** yhtenä vaihtoehtona muiden joukossa. Vaihda **Keskipisteet-tasosi** kuvaustekniikka **Heatmapiksi**. Valitse väriliukuma sekä vaikutussäde. Huomaa, että syntyvä heatmap-pinta peittää alleen kaiken, jos et säädä toisen ääripään väriä läpinäkyväksi. Testaa, miten vaikutussäteen muuttaminen vaikuttaa heatmapiisi. Jos säde on annettu **millimetreinä** näytöllä, heatmap tarkentuu kun zoomaat karttaa. Jos vaihdat säteen yksiköiksi **karttayksiköt**, heatmap pysyy saman näköisenä.
 
 ![](img/harjoitus_5/image3.png)
 
-**Python-konsolissa** voit ajaa normaalia Python-koodia. Syötä ja aja ensimmäiseksi seuraava koodi:
+Painota vielä heatmapia aineiston **Asukasluku 2019** -kentän tiedoilla, jolloin saadaan todellinen väestöntiheyskartta.
 
-::: code-box
-print('Gispo loves FOSS4G')
-:::
+## Diagrammit
 
-![](img/harjoitus_5/image4.png)
+QGISillä on helppo tehdä myös esimerkiksi piirakkadiagrammeja aineiston arvojen jakaumasta. Jotta kartta ei ruuhkautuisi liikaa, suodata ensin **Keskipisteet-tasosta** näkyviin vain 20 suurinta kaupunkia (yli 51.000 asukasta). 
 
-## Python-skriptien ajaminen: Globe Builder -lisäosan komentojen hyödyntäminen
-
-Käyttötapauksissa, joissa nähdään hyödylliseksi Python-ohjelmointikielen hyödyntäminen QGISissä, voidaan etsiä verkosta hakukoneen avulla (esim. Google) valmiita Python-skriptejä QGISiin.
-
-Ajetaan nyt yksi Python-skripti, niin näet miten Python-skriptejä voi ajaa QGISissä. Tässä haluamme nopeuttaa työprosessia, joten hyödynnämme Python-skriptiä tuottamaan karttavisualisoinnin QGISissä. Olet ehkä jo nähnyt Gispon toteuttaman [Globe Builder -lisäosan](https://github.com/GispoCoding/GlobeBuilder), jota kokeilemme nyt Python-konsolin kautta.
+Aseta **Kuvaustekniikka-välilehdellä** symbolit kokonaan pois näkyvistä ja siirry **Kaaviot-välilehdelle**. valitse pudotusvalikosta **Ympyräkaavio -vaihtoehto**. **Attribuutit-rivillä** valitaan, mitkä attribuuttitietokentät yhdessä muodostavat halutun arvojoukon. Valitse siis eri ikäryhmät ja siirrä ne oikeanpuoleiseen ikkunaan ![](img/harjoitus_2/image4.png)-painikkeella. Huom! Älä valitse **Asukasluku 2019 -kenttää**, koska silloin se muodostaisi puolet piirakkakaaviosta ja eri ikäryhmät toisen puolen.
 
 ![](img/harjoitus_5/image5.png)
 
-Lisäosaa käytetään pääasiallisesti lisäosan käyttöliittymän avulla. Käyttöliittymässä määritetään valintoja visualisaation tuottamiseksi. Haluamme nyt tuottaa maapallon muotoisen karttavisualisoinnin hyödyntäen Python-skriptiä käyttämättä lisäosan käyttöliittymää. Näin voimme mahdollisesti nopeuttaa toimiamme. Tämä olisi myös hyödyllistä mikäli tekisimme usean iteraation karttavisualisaation toteuttamiseksi tai jos hyödyntäisimme lisäosan toiminnallisuuksia osana jotakin muuta tietojärjestelmää, joka komentopohjaisesti voisi komentaa QGISiä toteuttamaan karttavisualisoinnin. Näin voisimme automatisoida työprosessejamme, minkä lisäksi kuka tahansa voi toistaa komentopohjaisen työprosessimme.
+Voit vaihtaa eri sektoreiden värejä klikkaamalla värisymbolia sekä sektoreiden järjestystä raahaamalla attribuuttirivejä. **Karttanäyttö-rivillä** voit vaihtaa esim. piirakkakaavion reunaviivojen väriä sekä piirakan muodostumisen suuntaa ja aloituskohtaa.
 
-Voimme nähdä haluamme koodin [GitHubista](https://gist.github.com/Joonalai/7b8693ef904df75cb15cb9af0e82c032), mutta se löytyy myös kurssihakemistosta **Muuta-kansion** alta nimellä **globeBuilder.py**. Kyseessä on tekstitiedosto, johon on tallennettu Python-ohjelmointikielellä muutama toiminallisuus GlobeBuilderiin liittyen.
-
-Avaa nyt kyseinen tiedosto QGISissä Python-konsoliin, konsolin koodi-editorin puolelle eli oikealle:
+**Koko-rivillä** voidaan asettaa kaavion koko indikoimaan esimerkiksi kokonaisasukaslukua. Valitse koon määräävä attribuutti, klikkaa Hae ja aseta kaavion minimi- ja maksimikoko samaan tapaan kuin pistesymbolien kanssa. Kokeile miten mittakaavan vaihtaminen **Alueesta** **Läpimittaan** vaikuttaa lopulliseen teemakarttaasi.
 
 ![](img/harjoitus_5/image6.png)
 
-Kyseessä on lista erilaisia Python-komentoja, jotka tallennamme QGISiin ajamalla tekstitiedoston sisällön ![](img/harjoitus_5/image7.png)-painikkeesta. Klikkaa painiketta, joka ajaa koko komentosarjan kertaheitolla:
+**Tulosteenmuodostaja ja kaavion selite**
+
+Ympyräkaavion selite (kaavioiden suhteellinen koko) tulee vielä muodostaa erikseen, jotta se tulee näkyviin tulosteelle. Valitse **Selite** -välilehti ja aseta merkinnät mieleiseksesi esim. oheisen kuvan mukaisesti. Voit asettaa muutaman kokoluokan manuaalisesti tai käyttää valmiita luokkia.
+
+![](img/harjoitus_5/image7.png)
+
+Avaa sitten **Tulosteenmuodostaja** ja uusi taitto. Aseta paperi pystysuuntaiseksi (löydät sivun asetukset klikkaamalla tyhjää paperia hiiren oikealla painikkeella). Voit myös asettaa sivun taustavärin täysin läpikuultavaksi; tällöin valmis tulosteesi ei sisällä valkoista suorakaiteen muotoista taustaa vaan ainoastaan siihen tuodut elementit.
+
+Tuo taittoon karttaelementti sekä selite. Voit muokata selitteen merkintöjä, kun poistat ruksin ruudusta **Päivitä automaattisesti**. Lisää halutessasi kartalle otsikko.
 
 ![](img/harjoitus_5/image8.png)
-
-Aja nyt tiedoston omien ohjeiden (keltaisella) mukaisesti **load_natural_earth_data()-komento** konsolin puolella:
-
-![](img/harjoitus_5/image9.png)
-
-Huomaa: hyödynnettäesi load_natural_earth_data()-komentoa QGIS lataa ikään kuin automaattisesti verkosta datan ja visualisoi sen suoraan QGISissäsi. Näin näemmekin karttanäkymässämme metodin lataaman **Natural Earth -aineiston**:
-
-![](img/harjoitus_5/image10.png)
-
-Kokeile myös lisäosan muita toiminnallisuuksia suoraan Python-konsolista. Tutkittuasi kyseistä tekstitiedostoa löydät useamman eri toiminnallisuuden, joita tutkimalla opit hiukan Pythonin hyödyntämisestä QGISissä. Kokeile esim. vaihtaa karttanäkymän taustaväriä mustaksi:
-
-::: code-box
-change_background_color(color=QtCore.Qt.black)
-:::
-
-Lue lisää komentojen hyödyntämisestä ja esimerkeistä [lisäosan GitHub-repositoriosta](https://github.com/GispoCoding/GlobeBuilder).
-
-## Tee bufferi hyödyntäen Python-skriptiä
-
-Kuvittele nyt toinen paikkatiedon käyttötapaus, jossa haluat tehdä väestötietoruudukolle sisäisen bufferin seuraavan näytönkaappauksen mukaisesti:
-
-![](img/harjoitus_5/image11.png)
-
-Skriptin avulla voidaan tuottaa sisäinen buffer-taso väestötietoruudukolle tai jollekin muulle polygon-aineistolle käyttämättä erinäisiä käyttöliittymään pohjautuvia työkaluja bufferin toteuttamiseen. Lisäksi voi nähdä mahdollisuutena kuvitella monivaiheisen paikkatietoprosessin, jonka yhdessä vaiheessa on toteutettava sisäinen buffer aineistolle. Myös tämänkaltaisissa työprosesseissa kyseisestä skriptistä olisi huomattavasti hyötyä.
-
-Avaa **buffer.py-tiedosto Muuta-kansion** alta:
-
-![](img/harjoitus_5/image12.png)
-
-Tarkastele koodia ja huomioi, että tiedostopolut viittaavat kurssikansioosi. Koodissa on kommentteina eri komentojen toiminnot, lue ne ja kysy kouluttajalta tarvittaessa lisätietoa.
-
-Ennen skriptin ajamista varmista, että sinulla on **vaestotietoruudukko_2019-taso** valittuna tasoluettelossa ja koodin alussa oikea tuloshakemisto valittuna. Sinun pitää muokata tuloshakemisto oman kansiorakenteesi mukaiseksi. 
-
-![](img/harjoitus_5/image13.png)
-
-Aja koodi nyt painamalla editorin yllä olevaa **Suorita-painiketta**. Varmista, että viimeinen komento suoritetaan painamalla rivinvaihtoa. Lopputulos on koodin määrittelemällä paksuudella laskettu puskuritaso.
 
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen tuki\@gispo.fi!
+Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi!
 :::

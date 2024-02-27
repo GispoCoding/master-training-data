@@ -10,7 +10,7 @@ Koulutettava oppii tuomaan sekä geometrian sisältäviä että puhtaita attribu
 
 **Arvioitu kesto**
 
-40 minuuttia.
+30 minuuttia.
 
 ## Valmistautuminen
 
@@ -26,15 +26,6 @@ Paina sitten **OK**.
 
 Koska aineiston koordinaatit on tallennettu asteina WGS84-koordinaattijärjestelmässä, Helsinki näyttää hieman litistyneeltä. Vaihda projektin koordinaattijärjestelmäksi **ETRS89/TM35FIN (EPSG:3067)**. Nyt kartan muoto on tutumpi, ja karttayksiköt ovat metrejä asteiden sijaan.
 
-Valitse **Ominaisuudet \> Kuvaustekniikka**. Vaihda pudotusvalikosta kuvaustapa "single symbol":sta "heatmap":ksi. Valitse väriliukuma mieleiseksesi. (Muista, että nyt aineiston spatiaaliset tihentymät kuvaavat niitä paikkoja, joihin tuulivoimala parhaiten sopisi!) Voit valita, kuinka suuri on yksittäisen pisteen vaikutussäde. Tämä vaikuttaa siihen, miten pienipiirteinen valmiista heatmapistasi tulee. Jos valitset säteen yksiköiksi "karttayksiköt", kartta pysyy saman näköisenä zoomatessa. Jos valitset yksiköksi millimetrit tai pikselit, kartan yksityiskohtaisuus muuttuu zoomaustason muuttuessa. Paina **Apply** ja tarkastele heatmapia.
-
-![](img/harjoitus_2/image2.png)
-
-Säädä vielä heatmap-taso läpinäkyväksi (n. 50 %) ja lisää taustakartta (esim. OpenStreetMap).
-
-::: hint-box
-Missä ovat helsinkiläisten mielestä hyväksyttävimmät alueet tuulivoimalalle?
-:::
 
 ## Ilman geometriaa olevan taulukon tuominen
 
@@ -81,5 +72,5 @@ Liitettyjä kenttiä voi käyttää aineiston visualisointiin ja valintatyökalu
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen tuki\@gispo.fi!
+Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi!
 :::

@@ -14,29 +14,21 @@ Koulutettava osaa etsiä ja hyödyntää tarkoitukseensa sopivia analyysityökal
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 3**". Avaa projektiisi kurssihakemiston kansiosta seuraavat aineistot:
-
--   **TaajamaPiste.shp**
-
--   **LentokenttaPiste.shp**
-
--   **HallintoAlue.shp**
-
--   **HSY_vaestotietoruudukko_2019.gpkg**
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 3**".
 
 ## Vektorianalyysi
 
 Tässä harjoituksessa tehdään joitakin vektorianalyyseja ja perehdytään monipuolisten analyysityökalujen maailmaan. Yleisimmin käytetyt analyysityökalut löytyvät päävalikon kohdasta **Vektori**, mutta kattavimman kokoelman QGISin, GRASSin, SAGAn ja GDALin analyysityökaluja saat näkyviin valitsemalla päävalikosta **Prosessointi \> Työkalut**. Tämä avaa Prosessointityökalut-paneelin QGISiin (yleensä oikealle puolelle käyttöliittymää), jonka kautta voit hakea erilaisia analyysejä.
 
 ::: hint-box
-Psst! QGIS kehittyy jatkuvasti ja suomennos ei aina pysy kaikkien uusien työkalujen perässä. Työkalun nimi saattaa joskus löytyä vain englanninkielisenä.
+Psst! QGIS kehittyy jatkuvasti ja suomennos ei aina pysy kaikkien uusien työkalujen perässä. Työkalun nimi tai sen selitys saattaa joskus löytyä vain englanninkielisenä.
 :::
 
 ![](img/harjoitus_3/image1.png)
 
 Useimmat QGISin vektori- ja rasterianalyysityökalut toimivat samalla periaatteella: käyttäjä valitsee projektin tasoista haluamansa lähtötiedot ja muokkaa erilaisia parametreja tarvittaessa. Lopulta analyysin tuloksena syntyy uusi tulostaso. Käyttäjä voi valita tallennetaanko tulos **tilapäiseksi tasoksi** vai **pysyväksi tasoksi**. Tilapäiset tulostasot ovat olemassa auki olevassa QGIS-projektissa vain siihen saakka, kun ohjelma suljetaan. Tilapäisen tulostason voi halutessaan tallentaa myöhemminkin pysyväksi tasoksi. Suurilla aineistoilla jotkin analyysiprosessit voivat kestää pitkään. Tällöin on hyvä valita vaihtoehto **Aja eräajona**, jolloin ohjelman käyttöä voi jatkaa, ja analyysin laskentaan käytetään vain osa tietokoneen kapasiteetista.
 
-Joskus käytettävissä aineistot eivät ole laadultaan täydellisiä. Esimerkiksi virheelliset geometriat eivät aina näy aineistosta päällepäin, mutta voivat estää geometriaan perustuvien analyysien suorittamisen. Tätä voi estää valitsemalla **Prosessointityökalut-paneelista** seuraava vaihtoehto: Asetukset ![](img/harjoitus_3/image2.png) \> Prosessointi \> Yleinen \> Epäkelpo kohteiden suodatus **\> Ohita kohteet joilla on virheellinen geometria**.
+Joskus käytettävissä aineistot eivät ole laadultaan täydellisiä. Esimerkiksi virheelliset geometriat eivät aina näy aineistosta päällepäin, mutta voivat estää geometriaan perustuvien analyysien suorittamisen. Tätä voi estää valitsemalla **Prosessointityökalut-paneelista** seuraava vaihtoehto: Asetukset ![](img/harjoitus_3/image2.png) -> Prosessointi -> Yleinen -> Epäkelpo kohteiden suodatus **-> Ohita kohteet joilla on virheellinen geometria**.
 
 ![](img/harjoitus_3/image3.png)
 
@@ -46,97 +38,79 @@ QGISin **Tilastot-paneelilla** voit tarkastella aineistosi arvojen tilastollista
 
 ![](img/harjoitus_3/image5.png)
 
-## Valinta toisen tason sijainnin perusteella
 
-Valitse **Hallintoalue-tasosta** yksi pääkaupunkiseudun kunta (esim. Espoo). Avaa päävalikosta **Vektori \> Tutkimuksen työkalut \> Valitse sijainnin perusteella**. Aseta parametrit: valitse ne väestötietoruudukon kohteet, jotka leikkaavat HallintoAlue-tason valittujen kohteiden kanssa. Klikkaa **Suorita**.
+## Alueellisten summien laskeminen ja aggregointi
 
-![](img/harjoitus_3/image6.png)
+Erilaisia paikkatietoaineistoja pitää välillä yhdistää ominaisuuksiensa tai sijainnin perusteella. Tässä harjoituksessa tutustuaan, miten ominaisuustietoja voidaan yhdistää eri tavoin. Harjoituksessa käytetään Helsingin kaupungin avointa aineistoa rajapinnalta ja lasketaan, kuinka paljon huoneistoja on eri Helsingin osa-alueilla.
 
-Nyt voit katsella **Tilastot-paneelissa** Espoon alueen väestötietoruutujen tilastoja.
+Tee yhteys Helsingin kaupungin WFS-osoitteeseen: 
 
-![](img/harjoitus_3/image7.png)
+<https://kartta.hel.fi/ws/geoserver/avoindata/wfs?request=getCapabilities>
 
-**Tilastot-paneeli** voi näyttää myös muita kuin suoraan attribuuttitaulussa näkyviä lukuja. Lausekkeen muokkaus -toiminnolla ![](img/harjoitus_3/image8.png) voit laatia monimutkaisempia tilastollisia tunnuslukuja, vaikkapa laskea asukastiheyden asukasluvun ja alueen koon perusteella.
+Lisää projektiisi rajapinnalta:
+-   **Piirijako_osaalue**
+-   **Rakennukset_piste_rekisteritiedot**
 
-## DataPlotly-lisäosa
+Pisteaineisto on melko iso, joten sen lataamisessa voi kestää hetki. Aineistossa on jokainen rakennus pisteenä ja ominaisuustiedoissa huoneistojen lukumäärä kussakin rakennuksessa sarakkeessa **i_huoneistojen_lkm**. Liitetään tieto huoneistojen lukumäärästä Helsingin piirijakoon sijainnin perusteella. Avaa **Vektori -> Tiedonhallinta -> Yhdistä attribuutit sijainnin perusteella**. Valitse yhdistettäväksi tasoksi Piirijako_osaalue ja vertailukohteeksi Rakennukset_piste_rekisteritiedot. 
+**Fields to add** kohdassa valitse listasta **i_huoneistojen_lkm**. Jos kenttä jää tyhjäksi niin kaikki Rakennus-tason sarakkeet lisätään. Tarkista vielä, että Join type on **Create separate feature for each matching feature (one-to-many)**, jotta jokainen piste huomiodaan uudessa tasossa.
 
-QGISin **DataPlotly-lisäosa** piirtää aineistostasi hajontakuvaajia, pylväsdiagrammeja ja monia muita datavisualisoinnista tuttuja esityksiä. Etsi DataPlotly **Lisäosat-valikosta** ja asenna se. Asennuksen jälkeen voit käynnistää sen **Lisäosat-valikosta**.
+![](img/harjoitus_3/image31.png)
+Paina Suorita, tasoluetteloon pitäisi tulla uusi taso nimeltään “Yhdistetty taso”. Voit tarkistaa onko yhdistys tehty oikein tarkistamalla kohteiden lukumäärän. Klikkaa tasoa hiiren oikealla ja valitse “Näytä kohteiden lukumäärä” täppä aktiiviseksi. Tee sama Rakennukset_piste -tasolle. Jos lukumäärä on sama, yhdistys on onnistunut! Attribuuttitaulukossa on sarake kaikista huoneistojen lukumääristä piirijaon attribuuttien lisäksi.
 
-![](img/harjoitus_3/image9.png)
+Seuraavaksi tasot yhdistetään osa-alueittain aggregoimalla taso piirijaon mukaisesti. Aggregoimalla voidaan yhdistää sarakkeita jonkun ominaisuustiedon perusteella ja päättää, miten muut sarakkeet yhdistyvät toisiinsa. Etsi Prosessointityökaluista **Aggregaatti**. Valitse syötetasoksi aiemmin tehty Yhdistetty taso, ryhmittelylauseeksi tunnus. 
+Kokoomat lehdellä on kaikki aineiston sarakkeet ja voit valita miten sarakkeet yhdistyvät toisiinsa. Valitse teksti-sarakkeisiin esimerkiksi first_value, jolloin vain ensimmäinen alueen arvo tulee sarakkeeseen. Voit myös poistaa ylimääräisiä sarakkeita vasemmalta puolelta ![](img/harjoitus_3/image33.png) -napista.
+Tarkista, että i_huoneistojen_lkm sarakkeessa aggregaattifunktio on **sum**, jotta saamme huoneistojen yhteismäärän alueittain. 
 
-Laadi **Scatter Plot -kuvaaja Väestötietoruudukko-aineiston** kentistä **ASUKKAITA** ja **ASVALJYYS**. Klikkaa alareunasta **Create Plot** luodaksesi kuvaajan.
+![](img/harjoitus_3/image32.png)
 
-![](img/harjoitus_3/image10.png)![](img/harjoitus_3/image11.png)
+Paina vielä Suorita, ajossa kestää hetki ja uusi Aggregated-taso ilmestyy projektiisi. Avaa tason attribuuttitaulukko, jokaisella osa-alueella on summattuna alueella olevien huoneistojen määrä. Voit visualisoida aineiston esimerkiksi valitsemalla kuvaustekniikaksi esimerkiksi porrastettu ja etsimällä aineistoon sopivat luokkavälit.
 
-Jos palaat **Asetukset-välilehdelle** muokkaamaan kuvaajaa ja klikkaat **Update Plot**, uusi kuvaaja lisätään edelliseen. Valitse **Clean Plot Canvas**, jos haluat kokonaan uuden kuvaajan.
 
-![](img/harjoitus_3/image12.png)
 
-Klikkaamalla yhtä kuvaajan kohdetta sitä vastaava ruutu korostuu karttaikkunassa. Näin näet helposti esim. PK-seudun väkirikkaimman väestötietoruudun sijainnin. Jos valitset kuvaajasta osan piirtämällä hiirellä laatikon, kuvaaja zoomautuu kyseiselle alueelle. Tuplaklikkaus palauttaa koko aineiston näkyviin. 
+## Vaaralliset tieristeykset
 
-![](img/harjoitus_3/image13.png)
+Tässä harjoituksessa tehdään tyypillinen monivaihenen paikkatietoanalyysi, jossa selvitetään Uudenmaan alueella vaaralliset tieristeykset. 
 
-## Kohteiden etäisyys toisen tason pisteistä
+Tieliikenneonnettomuudet vuosittain on saatavilla Tilastokeskuksen WFS-palvelusta. Tee WFS-yhteys osoitteeseen:
 
-Esimerkkinä vektorianalyysistä lasketaan kaikille taajamille etäisyys lähimpään lentokenttään. Etsi **Prosessointityökalut-paneelista** työkalu **Distance to nearest hub (points)** ja avaa se tuplaklikkauksella. Laita avautuvaan ikkunaan seuraavat parametrit:
+<http://geo.stat.fi/geoserver/tieliikenne/wfs>
 
-![](img/harjoitus_3/image14.png)
+Lisää projektiisi minkä tahansa vuoden tieliikenneonnettomuudet.
+Lisää vielä kurssihakemistosta projektiisi aineistot:
 
-Klikkaa sitten **Suorita**. Projektiisi syntyy uusi taso, jonka geometriat vastaavat lähtöaineistona ollutta **TaajamaPiste-tasoa**. Avaa sen attribuuttitaulu: on syntynyt uusi kenttä nimeltä **HubDist**, joka ilmoittaa etäisyyden lähimpään lentokenttään (kilometreinä). Nyt voimme vaikkapa visualisoida taajamat etäisyyden perusteella tai etsiä ne taajamat, jotka ovat kaikista kauimpana lentokentästä. Toinen samankaltainen prosessointityökalu laskee viivamaisten kohteiden etäisyydet piste-hubeihin.
+-   **TieViiva.shp**
+-   **Uusimaa.gpkg**
 
-![](img/harjoitus_3/image15.png)
+ 
+Leikkaa ensin TieViiva aineisto vastaamaan tutkimusaluetta, eli Uudenmaan aluetta. Avaa leikkaustyökalu **Vektori -> Geoprosessointi -> Leikkaa (clip)** . Syötetasoksi tulee TieViiva ja peitetasoksi Uusimaa. Tarkista, että aineistojen koordinaattijärjestelmät vastaavat toisiaan. Jos koordinaattijärjestelmät eivät ole samat, analyysin tiedot eivät välttämättä ole luotettavia.
 
-## Pisteiden lukumäärä
+![](img/harjoitus_3/image26.png)
 
-Seuraavaksi lasketaan kunkin kunnan sisällä olevien taajamapisteiden lukumäärä. Valitse ylävalikosta **Vektori \> Analyysit \> Laske polygonin sisällä olevien pisteiden lkm**. Anna taas lähtöaineistot: **HallintoAlue** ja **TaajamaPiste**. Lue myös prosessin kuvaus dialogi-ikkunasta: voit painottaa laskuria jollain pisteaineiston attribuutilla tai laskea pisteaineistossa esiintyvien eri luokkien määrän. Huomaa, että voit myös asettaa uuden lukumäärä-kentän nimen. Klikkaa **Suorita**. Eniten taajamia on Lapin suurissa kunnissa, erityisesti Rovaniemellä. Syntyneen **NUMPOINTS-kentän** perusteella voit nyt tehdä vaikka teemakartan.
+Tee vielä sama tieonnettomuus-aineistolle. Voit nimetä leikatut tasot uudelleen tunnistamisen helpottamiseksi painamalla tasoa hiiren oikealla ja painamalla **Nimeä taso**. Voit nimetä leikatun TieViiva-aineiston esimerkiksi **tiet_uusimaa**.
 
-![](img/harjoitus_3/image16.png)![](img/harjoitus_3/image17.png)
+Seuraavaksi lasketaan TieViiva-aineistolle risteysalueet. TieViiva-aineisto koostuu pienistä tiepätkistä, jotka katkeavat jokaisen risteyksen kohdalla, joten saamme risteysalueet laskettua suoraan aineistolle.
 
-## Aggregointi ja sulautus
+Avaa seuraavaksi **Vektori -> Analyysit -> Viivan risteämispisteet**. Valitse syötetasoksi sekä leikkaavaksi tasoksi leikattu tieviiva-aineisto. Muut kohdat voit työkalussa jättää tyhjäksi.
 
-**Aggregointi-työkalulla** voidaan "leipoa" yhteen kohteet, joilla on jokin yhteinen ominaisuustieto ja laskea samalla muista ominaisuustiedoista yhteisiä tunnuslukuja. 
+![](img/harjoitus_3/image27.png)
 
-Lisää itsellesi WFS-yhteys Tilastokeskuksen Paavo-postinumeroalueaineistoon:
+Tulokseksi tästä tulee pistetaso, jossa on jokainen tieristeys omana kohteenaan.
 
-<http://geo.stat.fi/geoserver/postialue/wfs?version=1.0.0>
+![](img/harjoitus_3/image28.png)
 
-Lisää projektiisi taso **Paavo-tilastoaineisto ja -postinumeroalueet 2021**
+Seuraavaksi voit laskea tienristeyksille vyöhykkeet, joiden avulla voidaan tutkia risteysalueiden lähellä olevia tieliikenneonnettomuuksia. Avaa **Vektori -> Geoprosessointi -> Vyöhyke**. Syötetasoksi määritetään juuri lasketut tienristeykset, eli Leikkaukset-taso. Tässä vaiheessa voit määrittää, kuinka suuren vyöhykkeen ja tarkastelualueen haluat määrittää risteyksien ympärille. Määritä **Etäisyys** kohtaan esimerkiksi 200 metriä, jolloin algoritmi laskee 200m pituisella säteellä ympyrän risteyksen ympärille.
 
-Tutki tason ominaisuustietoja. Tilastossa on postinumeroaluekohtaiset tarkat tilastot mm. asukkaiden ikäjakaumasta, koulutusasteesta jne. Voit tutustua aineiston kuvaukseen täällä: <https://www.stat.fi/static/media/uploads/tup/paavo/paavo2021_pitkakuvaus_fi.pdf>
+![](img/harjoitus_3/image29.png)
 
-Muodostetaan postinumeroalueiden perusteella kuntapolygonit ja lasketaan niille kuntakohtaiset tilastot. Olemme erityisen kiinnostuneita asukkaiden pääasiallisesta toiminnasta (kategoria PT). Avaa **Prosessointityökalut** - valikosta **Aggregaatti**.
+Kun vyöhykkeet risteysalueille on luotu, pitää vielä selvittää, mitkä liikenneonnettomuudet osuvat tähän 200m vyöhykkeen sisään. Valitaan kaikki näihin alueisiin osuvat tieliikenneonnettomuudet. Avaa **Vektori -> Tutkimuksen työkalut -> Valitse sijainnin perusteella**
 
-Valitse syötetaso ja ryhmittele Kunta-kentän perusteella. Kokoomat -ikkunassa voit määritellä, mitä kaikkia ominaisuustietoja uuteen, alueet yhdistävään tasoon viedään, ja miten ne lasketaan muodostaja-alueiden arvojen perusteella. Poista tarpeettomat kentät ![](img/harjoitus_3/image18.png) -painikkeella ja valitse säilytettäviin kenttiin oikea muodostajalauseke. Huomaa, että voit myös määritellä, mikä on uusien kenttien tyyppi.
 
-![](img/harjoitus_3/image19.png)
+![](img/harjoitus_3/image30.png)
+Ensimmäiseen kohtaan määritä Uudenmaan tieliikenneonnettomuudet. Tältä tasolta valinta tehdään. Vertailutasoksi voit valita luomasi vyöhykkeet **Vyöhyke luotu**. Tarkista, että valitset kohteet, jotka **leikkaavat** vyöhykkeitä ja että teet uuden valinnan tästä joukosta.
 
-Syntyneet kuntapolygonit saavat määrittelemäsi ominaisuustiedot. 
+Suorittamisen jälkeen onnettomuudet_uusimaa -tasolta on valittuna kaikki kohteet, jotka osuvat määrittämillesi risteysalueille.. Tallenna valinta uutena tasona klikkaamalla tasoa hiiren oikealla -> Vie -> Tallenna valitut kohteet nimellä. Tallenna taso uutena GeoPackagena haluamaasi paikkaan. Tallentamisen jälkeen taso tulee uutena tasona QGISiisi. Tarkastele, missä tienristeyksissä on eniten onnettomuuksia. Voit myös visualisoida onnettomuudet esimerkiksi vakavuuden perusteella valitsemalla kuvaustekniikasta luokittelun.
 
-Huomaa, että postinumeroalueet eivät aina täysin noudata kuntarajoja, joten yhdistelmä ei ole täydellinen. Myöskään aineiston tunnusluvut he_vakiy (väkiluku yhteensä) ja pt_vakiy (pääasiallinen toiminta, väkiluku yhteensä) eivät täsmää!
 
-![](img/harjoitus_3/image20.png)
-
-Jos et ole kiinnostunut ominaisuustiedoista, vaan haluat vain sulauttaa geometrioita yhteen, yksinkertaisempi työkalu on **Sulauta (dissolve)**. Se muodostaa samanlaisen omainaisuustietotaulukon kuin lähtöaineistossa, mutta valitsee vain satunnaisesti jonkin muodostajan tiedot kaikkiin kenttiin.
-
-## Uusien kenttien laskeminen
-
-Olemassa olevien attribuuttikenttien perusteella voi laskea uusia. Tähän käytetään **Kentän arvojen laskin** -työkalua ![](img/harjoitus_3/image21.png). Lasketaan äsken muodostetulle aggregoidulle kunta-aineistolle poligonigeometrian ja asukasluvun perusteella asukastiheys. 
-
-![](img/harjoitus_3/image22.png)
-
-## Päivittyvät arvot
-
-Kentän arvojen laskin laskee arvot annetulla kaavalla olemassa olevien tietojen perusteella. Se on kuitenkin kertaluonteinen toimenpide, ja jos myöhemmin jokin muodostajana olleista arvoista muuttuu, ei kenttä päivity.
-
-Kun halutaan mahdollistaa kentän arvojen päivittyminen lähtötietojen muuttuessa, asetetaan tason **ominaisuudet** -ikkunan **Attribuuttilomake**-välilehdellä oletusarvo. Syötä **Oletusarvo** -kenttään sama lauseke, jolla laskit kentän arvon alunperin, ja ruksi kohta **Käytä oletusarvoa päivityksessä**.
-
-![](img/harjoitus_3/image23.png)
-
-Testaa lausekkeen toimintaa. Tutki jonkin polygonin ominaisuustietoja, muokkaa sitten polygonin geometriaa ja tarkista, muuttuuko asukastiheys.
-
-![](img/harjoitus_3/image24.png)
-
-![](img/harjoitus_3/image25.png)
 
 ## Etsi omia analyysityökaluja
 
@@ -145,5 +119,5 @@ Tutustu **Prosessointityökalut-paneelin** toimintoihin. Se mm. muistaa viimeksi
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen tuki\@gispo.fi!
+Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi!
 :::

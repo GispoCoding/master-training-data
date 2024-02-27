@@ -19,7 +19,7 @@ documentclass: book
 
 ## Tervetuloa QGIS-jatkokurssille!
 
-Kurssilla syvennytään QGIS-paikkatieto-ohjelmiston tilastoihin ja analyyseihin. Kurssilla koulutettava oppii mm. tuomaan QGISiin erilaista taulukkomuotoista dataa, hyödyntämään Tilastot-paneelia ja DataPlotlyä sekä käyttämään QGISin sisäänrakennettua graafista mallintajaa. Kurssin jälkeen koulutettava osaa hyödyntää ja jatkojalostaa erilaisia taulukkoaineistoja sekä ymmärtää QGISin tilastoihin liittyvien lisäosien toimintaperiaatteet. Kurssillä käydään läpi myös erilaisia vektorianalyysejä. 
+Kurssilla syvennytään QGIS-paikkatieto-ohjelmiston tilastoihin ja analyyseihin. Kurssilla koulutettava oppii mm. tuomaan QGISiin erilaista taulukkomuotoista dataa, hyödyntämään Tilastot-paneelia sekä käyttämään QGISin sisäänrakennettua graafista mallintajaa. Kurssin jälkeen koulutettava osaa hyödyntää ja jatkojalostaa erilaisia taulukkoaineistoja sekä ymmärtää QGISin tilastoihin liittyvien lisäosien toimintaperiaatteet. Kurssillä käydään läpi myös erilaisia vektorianalyysejä. 
 
 Kurssille osallistuvien tulee tuntea paikkatiedon ja QGIS-paikkatieto-ohjelmiston perusteet. Kurssi sopii etenkin niille, jotka käsittelevät paljon erilaisia tilastoja/taulukkoja ja haluavat automatisoida prosessejaan. 
 
@@ -28,7 +28,7 @@ Kurssille osallistuvien tulee tuntea paikkatiedon ja QGIS-paikkatieto-ohjelmisto
 Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
 
 ::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/uc?id=1bzHWPauYUZq_pju6hPMRWGHA8Uv26gVp&export=download)
+[Kurssihakemisto.zip](https://drive.google.com/uc?export=download&id=1t1fDvLnEG0zs7HxmmUW6Iuf3HKNU1vLC)
 :::
 
 ## Lukuohje
