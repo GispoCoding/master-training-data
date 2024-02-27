@@ -16,52 +16,62 @@ Koulutettava oppii laatimaan monivaiheisen analyysiprosessin graafisen mallintaj
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 4**". Avaa projektiisi kurssihakemistosta aineistot 
 
--   **HallintoAlue.shp**
+-   **TieViiva.shp**
 
--   **SuojeluAlue.shp**
+-   **Hallintoalue.shp**
+
+-   **NaturaKohde.shp**
+
+
 
 ## Graafisen mallintajan toiminnot
 
 Graafisella mallintajalla voit automatisoida ja tallentaa usein toistuvia, monivaiheisia analyysiprosesseja. Prosessin voi jakaa muille käyttäjille, ja sitä käytettäessä valitaan lähtöaineistot aina uudelleen. Prosessinmallintaja avataan yläpalkin valikosta **Prosessointi \> Graafinen mallintaja...** 
+Harjoituksessa käytettävässä aineistossa on muutamia geometriavirheitä, niin varmista, että olet laittanut QGISin asetuksista päälle epäkelpojen kohteiden suodatuksen edellisen harjoituksen alun ohjeiden mukaisesti.
 
 ![](img/harjoitus_4/image1.png)
 
 Aukeavassa ikkunassa on vasemman reunan paneelissa kaksi välilehteä: **Inputs** ja **Algoritmit**. Näistä valitaan prosessin lähtötiedot ja työkalut, ja ne viedään kaaviomaisen esityksen laatikoiksi ikkunaan raahaamalla tai tuplaklikkaamalla.
 
-![](img/harjoitus_4/image2.png)
+![](img/harjoitus_4/image12.png)
 
 ## Prosessin laatiminen ja testaus
 
-Anna ensimmäiseksi prosessillesi nimi, esimerkiksi "Suojelualueet kunnissa". Valitse **Inputs-välilehdeltä Vektoritaso** ja anna sille nimeksi **Kunnat**. Aseta tason geometriatyypiksi **Monikulmio** ja ruksi **Pakollinen**. Lisää toinenkin vektoritaso, anna sille nimeksi **Suojelualueet**,  geometriatyypiksi **Monikulmio** ja ruksi **Pakollinen**.
+Tehdään graafisessa mallintajassa prosessi, jossa lasketaan suojelualueiden lähellä olevat tiet. Prosessissa tarvitaan useampia eri vektorityökaluja, joten mallintajalla saat tehtyä helposti toistettavan ja  myöhemminkin muokattavan prosessin ja työkalun.
 
-![](img/harjoitus_4/image3.png)
 
-Siirry nyt **Algoritmit-välilehdelle**. Etsi työkalu **Painopisteet**, lisää se malliin ja anna sille syötetasoksi **Suojelualueet**. Huomaa, että voit siirrellä **Input-** ja **Algoritmilaatikoita** ja järjestää ne siistiksi prosessiksi.
+Anna ensimmäiseksi prosessillesi nimi, esimerkiksi "Luonnonsuojelualueet teiden lähellä". Valitse **Inputs-välilehdeltä Vektoritaso** ja anna sille nimeksi **Luonnonsuojelualueet**. Aseta tason geometriatyypiksi **Polygoni** ja ruksi **Pakollinen**. Lisää vielä kaksi vektoritasoa, jotka voit nimetä **Hallintoalueet** ja geometriatyypiksi **Polygoni**. Toiselle uudelle tasolle voit antaa nimeksi **Tiestö** ja antaa geometriaksi **Viiva**.
 
-![](img/harjoitus_4/image4.png)
+![](img/harjoitus_4/image13.png)
 
-Lisää seuraava työkalu: etsi algoritmi **Laske polygonin sisällä olevien pisteiden lkm** ja anna sille lähtötasoiksi **Kunnat** (alueet) sekä äsken laskettu **Painopisteet**. Anna lisäksi tulostason nimi.
+Tehdään ensin tiestölle vyöhykkeet, joiden alueelta etsimme niille osuvia luonnonsuojelualueita. Siirry nyt **Algoritmit-välilehdelle**. Etsi työkalu **Vyöhyke**, lisää se malliin ja anna sille syötetasoksi **Tiestö** ja vyöhykkeen etäisyydeksi 200m. Koska tiestö koostuu pienistä risteyksiin päättyvistä osioista, sulautetaan vielä vyöhykkeet toisiinsa. Valitse vyöhykkeen asetuksista **Yhdistä päällekkäiset** osioon Kyllä. 
+Huomaa, että voit siirrellä **Input-** ja **Algoritmilaatikoita** ja järjestää ne siistiksi prosessiksi.
 
-![](img/harjoitus_4/image5.png)
+![](img/harjoitus_4/image14.png)
 
-Nyt mallisi määrittää suojelualueiden painopisteet, laskee kuinka monta pistettä kunkin kunnan sisällä on, ja luo uuden aluemaisen tulostason kunnista, joka sisältää tiedon suojelualueiden lukumäärästä.  
+Seuraavaksi leikataan luonnonsuojelualueet tehdyllä vyöhykkeellä. Etsi työkalu **Leikkaa (clip)**. Valitse syötetasoksi Luonnonsuojelualue. Peitetasoon vaihda tason asetuksista ![](img/harjoitus_4/image16.png) vaihtoehdoksi **Algorithm output** ja tasoksi Vyöhyke luotu.
 
-Testaa malliasi klikkaamalla **Suorita malli -painiketta** ![](img/harjoitus_4/image6.png). Käynnistyvä prosessi kysyy lähtöaineistoja: valitse Kunnat-tasoksi **HallintoAlue** ja Suojelualueet-tasoksi **SuojeluAlue**. Nämä ovat valmiiksi avattuina projektissasi. Kun klikkaat **Suorita**, laatimasi prosessi käynnistyy ja tulostiedosto ilmestyy tasoluetteloon. Tallenna toimiva prosessi ![](img/harjoitus_4/image7.png)-painikkeella graafisen mallintajan ikkunassa. Tallenna myös QGIS-projektisi.
+![](img/harjoitus_4/image15.png)
+
+Lopuksi lisätään tieden lähellä oleviin luonnonsuojelualueisiin tieto alueen maakunnasta. Etsi siis vielä työkalu **Ristiinleikkaus (intersection)**, jolla saamme yhdistettyä tiedot hallintoalueista. Valitse syötetasoon asetuksista ![](img/harjoitus_4/image16.png) taas **Algorithm output** ja tasoksi Leikattu. Peitetasoksi tulee Hallintoalue. Koska tämä on mallissa lopullinen tulos, lisää lopputuloksen nimi ristiinleikkauksen asetuksissa ![](img/harjoitus_4/image17.png) jälkeen. Voit nimetä tason esimerkiksi: Teiden lähellä olevat luonnonsuojelualueet.
+
+Testaa malliasi klikkaamalla **Suorita malli -painiketta** ![](img/harjoitus_4/image6.png). Käynnistyvä prosessi kysyy lähtöaineistoja: valitse kutakin syötetasoa vastaava taso, niistä jotka lisäsit aiemmin projektiisi. Kun klikkaat **Suorita**, laatimasi prosessi käynnistyy ja tulostiedosto ilmestyy tasoluetteloon. Tallenna toimiva prosessi ![](img/harjoitus_4/image7.png)-painikkeella graafisen mallintajan ikkunassa. Tallenna myös QGIS-projektisi.
+
+Valmiista tulostasosta voit laskea vielä esimerkiksi teiden varsille osuvien suojelualueiden pinta-alan avaamalla attribuuttitaulukon ja lisäämällä sinne uuden sarakkeen. Pinta-aloja voit tarkastella tilastollisesti maakunnittain esimerkiksi Prosessointityökaluista löytyvällä **Tilastotiedot ryhmiteltynä luokittain**. Valitse kentäksi, josta tilastot lasketaan juuri tekemäsi pinta-ala ja kategoriatiedon sisältävä kenttä listasta esimerkiksi **Maaku_ni1** ja paina Suorita. Voit tulleesta taulukkoaineistosta tarkastella pinta-alan tärkeimpiä tunnuslukuja maakunnittain.
+
 
 ## Tallennetun prosessin käyttöönotto
 
-Avaa uusi, tyhjä QGIS-projekti. Löydät laatimasi prosessin **Prosessointityökalut-paneelista** omalta välilehdeltään.
+Avaa uusi, tyhjä QGIS-projekti. Saat hyödynnettyä myös muiden tekemiä malleja graafisen mallintajan kautta. Edellisessä harjoituksessa laskimme vaarallisia tieristeyksiä Uusimaalla. Kurssihakemistosta löytyy samaan prosessimalli. Lisää se itsellesi Prosessointityökaluista painamalla ![](img/harjoitus_4/image16.png) ja **Lisää malli työkaluihin**. Navigoi kurssihakemistoosi ja lisää Vaaralliset tieristeykset.model3.
 
 ![](img/harjoitus_4/image8.png)
 
-Avaa äsken luomasi malli ja käynnistä se ![](img/harjoitus_4/image9.png)-painikkeella. Valitse nyt lähtöaineistot ![](img/harjoitus_4/image10.png)-kohdasta, koska projektissa ei ole mitään tasoja avoinna. Valitse kunnat-aineistoksi tällä kertaa kurssihakemistosta **Kunta1000k_2017.shp** ja suojelualueet-aineistoksi **NaturaKohde_ma.shp**. Klikkaa **Suorita**.![](img/harjoitus_4/image11.png)
+Avaa tallennetut mallisi Prosessointityökalupalkista Mallit-kohdasta. Voit valita lähtöaineistot kurssihakemistosta suoraan  ![](img/harjoitus_4/image10.png)-kohdasta, koska projektissa ei ole mitään tasoja avoinna. Kurssihakemistossa on valmiina vuoden 2021 tieliikenneonnettomuudet, joita voit hyödyntää. Paina vielä suorita.[](img/harjoitus_4/image11.png)
 
-Onnistunut prosessi luo uuden tulostason, jossa kuntageometrioilla on lisätietona kunnan sisällä olevien Natura-alueiden lukumäärä. Lähtötietona olleet aineistot eivät avaudu QGISiin lainkaan. 
-
-Tätä prosessia voi siis käyttää minkä tahansa aluemaisten kohteiden painopisteiden laskurina toisten alueiden sisällä. Annoimme tässä harjoituksessa lähtötiedoille melko yksiselitteiset nimet, mutta ne voi myös nimetä yleisemminkin, esim. "rajaavat alueet" ja "sisältyvät alueet".
+Onnistunut prosessi luo uuden tulostason, jossa on samalla tavalla vaaralliset tieristeykset pistetasona.. Lähtötietona olleet aineistot eivät avaudu QGISiin lainkaan. 
 
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen tuki\@gispo.fi!
+Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi!
 :::
