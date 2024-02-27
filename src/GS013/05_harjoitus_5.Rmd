@@ -12,7 +12,7 @@ Koulutettava oppii tekemään teemakartan valinnat siten, että ne kuvaavat käs
 
 60 minuuttia.
 
-## **Valmistautuminen**
+## Valmistautuminen
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä \"**QGIS-harjoitus 5**\". Lisää projektiin seuraavat aineistot:
 
