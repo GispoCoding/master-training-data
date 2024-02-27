@@ -38,7 +38,7 @@ Heatmap-visualisointitoiminto löytyy **Kuvaustekniikka-ikkunasta** yhtenä vaih
 
 Painota vielä heatmapia aineiston **Asukasluku 2019** -kentän tiedoilla, jolloin saadaan todellinen väestöntiheyskartta.
 
-## **Diagrammit**
+## Diagrammit
 
 QGISillä on helppo tehdä myös esimerkiksi piirakkadiagrammeja aineiston arvojen jakaumasta. Jotta kartta ei ruuhkautuisi liikaa, suodata ensin **Keskipisteet-tasosta** näkyviin vain 20 suurinta kaupunkia (yli 51.000 asukasta). 
 
