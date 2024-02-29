@@ -38,7 +38,7 @@ Uusi valikko tulee päävalikon **Verkko** alle.
 Valitse **Verkko → QuickMapServices → OSM → OSM Standard**.
 Karttaikkunassa on nyt **OpenStreetMap** taustakarttana.
 Lisää karttoja voit etsiä Valitsemalla **Verkko → QuickMapServices → Search QMS**. Sivupalkkiin avautuu hakuikkuna, josta voit hakea hakusanoilla erilaisia karttoja käyttöösi.
-Testaa etsiä esimerkiksi **Stamen** karttoja tai etsi onko omalla tai naapurikunnallasi karttoja palvelussa!
+Testaa etsiä esimerkiksi **Kapsi** ortoilmakuvia tai etsi onko omalla tai naapurikunnallasi karttoja palvelussa!
 
 ![](img/harjoitus_8/image4.png)
 

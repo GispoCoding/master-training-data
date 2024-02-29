@@ -58,7 +58,7 @@ Helpoin tapa lisätä OpenStreetMap-kartta on etsiä se **Selain-paneelista XYZ 
 
 ![](img/harjoitus_1/image4.png)
 
-Laajemman valikoiman erilaisia taustakarttoja saat käyttöösi lisäosalla nimeltä QuickMapServices. Asenna se yläpalkin **Lisäosat-valikosta** ja avaa sen jälkeen **Verkko-valikosta Search QMS**. Avautuvasta paneelista voit etsiä erilaisia taustakarttoja ja satelliittikuvia, suodattaa niitä sijaintisi perusteella, ja saada tarvittaessa lisätietoja (esim. käyttöoikeuksista) kartasta. Vihreä pallo kertoo että kartta on saatavilla. Etsi vaikkapa Stamen-nimellä eri tarkoituksiin sopivia taustakarttoja.
+Laajemman valikoiman erilaisia taustakarttoja saat käyttöösi lisäosalla nimeltä QuickMapServices. Asenna se yläpalkin **Lisäosat-valikosta** ja avaa sen jälkeen **Verkko-valikosta Search QMS**. Avautuvasta paneelista voit etsiä erilaisia taustakarttoja ja satelliittikuvia, suodattaa niitä sijaintisi perusteella, ja saada tarvittaessa lisätietoja (esim. käyttöoikeuksista) kartasta. Vihreä pallo kertoo että kartta on saatavilla. Etsi vaikkapa Kapsi-nimellä ortoilmakuvia:
 
 ![](img/harjoitus_1/image5.png)
 
