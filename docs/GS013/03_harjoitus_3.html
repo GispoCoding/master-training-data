@@ -20,7 +20,7 @@
 
 <meta name="author" content="Gispo Oy." />
 
-<meta name="date" content="2024-02-27" />
+<meta name="date" content="2024-02-29" />
 
 
 <meta name="description" content="Harjoitus 3: Vektorianalyysi | Tilastot ja analyysit QGISillä">
@@ -229,8 +229,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </ul>
 <p>Pisteaineisto on melko iso, joten sen lataamisessa voi kestää hetki. Aineistossa on jokainen rakennus pisteenä ja ominaisuustiedoissa huoneistojen lukumäärä kussakin rakennuksessa sarakkeessa <strong>i_huoneistojen_lkm</strong>. Liitetään tieto huoneistojen lukumäärästä Helsingin piirijakoon sijainnin perusteella. Avaa <strong>Vektori -&gt; Tiedonhallinta -&gt; Yhdistä attribuutit sijainnin perusteella</strong>. Valitse yhdistettäväksi tasoksi Piirijako_osaalue ja vertailukohteeksi Rakennukset_piste_rekisteritiedot.
 <strong>Fields to add</strong> kohdassa valitse listasta <strong>i_huoneistojen_lkm</strong>. Jos kenttä jää tyhjäksi niin kaikki Rakennus-tason sarakkeet lisätään. Tarkista vielä, että Join type on <strong>Create separate feature for each matching feature (one-to-many)</strong>, jotta jokainen piste huomiodaan uudessa tasossa.</p>
-<p><img src="img/harjoitus_3/image31.png" />
-Paina Suorita, tasoluetteloon pitäisi tulla uusi taso nimeltään “Yhdistetty taso”. Voit tarkistaa onko yhdistys tehty oikein tarkistamalla kohteiden lukumäärän. Klikkaa tasoa hiiren oikealla ja valitse “Näytä kohteiden lukumäärä” täppä aktiiviseksi. Tee sama Rakennukset_piste -tasolle. Jos lukumäärä on sama, yhdistys on onnistunut! Attribuuttitaulukossa on sarake kaikista huoneistojen lukumääristä piirijaon attribuuttien lisäksi.</p>
+<p><img src="img/harjoitus_3/image31.png" /></p>
+<p>Paina Suorita, tasoluetteloon pitäisi tulla uusi taso nimeltään “Yhdistetty taso”. Voit tarkistaa onko yhdistys tehty oikein tarkistamalla kohteiden lukumäärän. Klikkaa tasoa hiiren oikealla ja valitse “Näytä kohteiden lukumäärä” täppä aktiiviseksi. Tee sama Rakennukset_piste -tasolle. Jos lukumäärä on sama, yhdistys on onnistunut! Attribuuttitaulukossa on sarake kaikista huoneistojen lukumääristä piirijaon attribuuttien lisäksi.</p>
 <p>Seuraavaksi tasot yhdistetään osa-alueittain aggregoimalla taso piirijaon mukaisesti. Aggregoimalla voidaan yhdistää sarakkeita jonkun ominaisuustiedon perusteella ja päättää, miten muut sarakkeet yhdistyvät toisiinsa. Etsi Prosessointityökaluista <strong>Aggregaatti</strong>. Valitse syötetasoksi aiemmin tehty Yhdistetty taso, ryhmittelylauseeksi tunnus.
 Kokoomat lehdellä on kaikki aineiston sarakkeet ja voit valita miten sarakkeet yhdistyvät toisiinsa. Valitse teksti-sarakkeisiin esimerkiksi first_value, jolloin vain ensimmäinen alueen arvo tulee sarakkeeseen. Voit myös poistaa ylimääräisiä sarakkeita vasemmalta puolelta <img src="img/harjoitus_3/image33.png" /> -napista.
 Tarkista, että i_huoneistojen_lkm sarakkeessa aggregaattifunktio on <strong>sum</strong>, jotta saamme huoneistojen yhteismäärän alueittain.</p>
@@ -286,7 +286,7 @@ Ensimmäiseen kohtaan määritä Uudenmaan tieliikenneonnettomuudet. Tältä tas
 
 <div class="footer-info">
 <h5 class="footer-title">Tilastot ja analyysit QGISillä</h5>
-<span class="footer-version">v2024-02-27</span>
+<span class="footer-version">v2024-02-29</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
