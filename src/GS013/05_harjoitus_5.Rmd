@@ -42,7 +42,7 @@ Painota vielä heatmapia aineiston **Asukasluku 2019** -kentän tiedoilla, jollo
 
 QGISillä on helppo tehdä myös esimerkiksi piirakkadiagrammeja aineiston arvojen jakaumasta. Jotta kartta ei ruuhkautuisi liikaa, suodata ensin **Keskipisteet-tasosta** näkyviin vain 20 suurinta kaupunkia (yli 51.000 asukasta). 
 
-Aseta **Kuvaustekniikka-välilehdellä** symbolit kokonaan pois näkyvistä ja siirry **Kaaviot-välilehdelle**. valitse pudotusvalikosta **Ympyräkaavio -vaihtoehto**. **Attribuutit-rivillä** valitaan, mitkä attribuuttitietokentät yhdessä muodostavat halutun arvojoukon. Valitse siis eri ikäryhmät ja siirrä ne oikeanpuoleiseen ikkunaan ![](img/harjoitus_2/image4.png)-painikkeella. Huom! Älä valitse **Asukasluku 2019 -kenttää**, koska silloin se muodostaisi puolet piirakkakaaviosta ja eri ikäryhmät toisen puolen.
+Aseta **Kuvaustekniikka-välilehdellä** symbolit kokonaan pois näkyvistä ja siirry **Kaaviot-välilehdelle**. valitse pudotusvalikosta **Ympyräkaavio -vaihtoehto**. **Attribuutit-rivillä** valitaan, mitkä attribuuttitietokentät yhdessä muodostavat halutun arvojoukon. Valitse siis eri ikäryhmät ja siirrä ne oikeanpuoleiseen ikkunaan ![](img/harjoitus_5/image4.png)-painikkeella. Huom! Älä valitse **Asukasluku 2019 -kenttää**, koska silloin se muodostaisi puolet piirakkakaaviosta ja eri ikäryhmät toisen puolen.
 
 ![](img/harjoitus_5/image5.png)
 
