@@ -79,5 +79,5 @@ Sitten lisäämme tason QGISiin ja varmistamme, että SQL-kyselymme tuotti toivo
 ![](img/harjoitus_2/image9.gif)
 
 ::: hint-box
-**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
 :::

@@ -110,7 +110,7 @@ Missä kunnassa tai maakunnassa on eniten suojeltuja alueita?
 ![](img/harjoitus_9/image11.png)
 
 ::: hint-box
-**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [tuki\@gispo.fi](mailto:tuki@gispo.fi){.email}!**
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
 :::
 
 ## Testaa tietosi...

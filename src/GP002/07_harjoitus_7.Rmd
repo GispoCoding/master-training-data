@@ -111,6 +111,6 @@ Missä kunnassa tai maakunnassa on eniten suojeltuja alueita?
 
 ![](img/harjoitus_7/image20.png)
 
-::: note-box
-**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
+::: hint-box
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
 :::

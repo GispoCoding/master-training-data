@@ -122,9 +122,10 @@ Voit testata nyt miltä lomake näyttää tehdyillä muutoksilla. Päivitä proj
 
 ![](img/harjoitus_3/image9.png)
 
-::: hint-box
-**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen tuki\@gispo.fi!**
+::: hintbox
+Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi! \|
 :::
+
 
 \
 \

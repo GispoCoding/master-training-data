@@ -83,3 +83,7 @@ Avaa jälleen kurssiprojekti viimeisine muutoksineen puhelimen Mergin Mapsissa. 
 ![](img/harjoitus_4/image7.png)![](img/harjoitus_4/image8.png)![](img/harjoitus_4/image9.png)
 \
 \
+
+::: hintbox
+Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi! \|
+:::

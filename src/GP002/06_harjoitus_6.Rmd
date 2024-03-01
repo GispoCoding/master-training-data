@@ -70,3 +70,6 @@ Kokeile erilaisia työkaluja, esimerkiksi Täytä piiri -työkalua. Tätä voit 
 
 ![](img/harjoitus_6/image2.png)
 
+::: hint-box
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
+:::

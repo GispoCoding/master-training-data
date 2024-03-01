@@ -95,7 +95,7 @@ Voit valita aukeavassa **Hallitse yhteyksiä** -ikkunassa erikseen yhteydet, jot
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (tai **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [tuki\@gispo.fi](mailto:tuki@gispo.fi){.email}!**
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
 :::
 
 ## Testaa tietosi...

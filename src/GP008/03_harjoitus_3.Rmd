@@ -61,5 +61,5 @@ Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan
 ![](img/harjoitus3/img7.png)
 
 ::: hint-box
-**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
 :::

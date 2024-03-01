@@ -102,5 +102,6 @@ Voit testata nyt miltä lomake näyttää tehdyillä muutoksilla. Tutki lomakett
 ![](img/harjoitus_3/image7.png)\
 
 ::: hintbox
-Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen tuki\@gispo.fi! \|
+Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi! \|
 :::
+
