@@ -26,15 +26,19 @@ As the tools are command-line based, they are ideal for use in scripts and autom
 
 An easy way to check if you already have GDAL installed and available is opening up a terminal (prefer powershell on Windows) and running the following command:
 
-```
+:::{.commandline-box}
+```bash
 gdalinfo --version
 ```
+:::
 
 This should result in output resembling the following:
 
-```
+:::{.commandline-box}
+```bash
 GDAL 3.3.1, released 2021/06/28
 ```
+:::
 
 If instead you get an "unknown command" error message or something similar, GDAL is not installed/available.
 You can follow the instructions in Chapter \@ref(tools) to install GDAL on your machine.
@@ -46,14 +50,17 @@ Even if GDAL cannot be installed, you can still read along the exercise and simp
 The gdalinfo command is a highly useful tool to explore the properties of a raster file.
 It's also very easy to use, simply open a terminal and run:
 
-```
+:::{.commandline-box}
+```bash
 gdalinfo <your_dataset>
 ```
+:::
 
 The tool provides all the information needed to see if the raster file in question has been optimised for use with GeoServer.
 For `L4133A.tif` the output looks like this:
 
-```
+:::{.commandline-box}
+```bash
 $ gdalinfo geoserver/nlsfi/ortokuvat/L4133A.tif
 Driver: GTiff/GeoTIFF
 Files: L4133A.tif
@@ -136,6 +143,7 @@ Band 2 Block=256x256 Type=Byte, ColorInterp=Green
 Band 3 Block=256x256 Type=Byte, ColorInterp=Blue
   Overviews: 6000x6000, 3000x3000, 1500x1500, 750x750
 ```
+:::
 
 Some things to look out for in particular:
 
@@ -208,9 +216,11 @@ Converting from one filetype to another and merging/splitting rasters can be don
 It's a powerful tool that requires some familiarisation, so it may be useful to check out the [gdal_translate documentation](https://gdal.org/programs/gdal_translate.html) first.
 Raster files can be converted to GeoTIFF with the following command:
 
+:::{.commandline-box}
 ```
 gdal_translate in.file out.tif -co TILED=YES
 ```
+:::
 
 The `TILED=YES` option instructs GDAL to add internal tiling to the output file (out.tif).
 By default, internal tiles are 256×256 pixels, but a different tile size can be specified using the options `-co BLOCKXSIZE=n -co BLOCKYSIZE=n`.
@@ -243,9 +253,11 @@ Pre-generating downsampled overviews means downsampling is nto required during r
 GeoTIFF supports creating "internal" overviews that are stored in the same file as the original raster.
 The GDAL `gdaladdo` tool can be used to generate overviews in the following manner:
 
+:::{.commandline-box}
 ```
 gdaladdo file.tif 2 4 8 16 32
 ```
+:::
 
 The numbers after file.tif represent the different overview levels to generate.
 These are provided as a factor of the original raster shape, i.e., "two times smaller", "four times smaller", etc.

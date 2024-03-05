@@ -22,10 +22,18 @@ While this is not a PostGIS course, it's highly useful to learn how to load data
 Let's examine the database using pgAdmin 4, a browser-based database management tool for PostgreSQL.
 To access pgAdmin, open the url `http://<base-url>/pgadmin4`.
 Log in with the following credentials:
-```
-username: training@gispo.fi
-password: gispotraining
-```
+
+Username:
+
+:::{.code-box}
+training@gispo.fi
+:::
+
+Password:
+
+:::{.code-box}
+gispotraining
+:::
 
 :::{.note-box}
 **Note:** if not using the training machine, PostgreSQL/PostGIS and pgAdmin can be installed locally with a small effort using Docker.
@@ -39,6 +47,7 @@ After logging in to pgAdmin, add a new database connection by clicking on Object
 Give the new server a name, and switch over to the Connection tab.
 Input the following details:
 
+:::{.note.box}
 ```
 host name/address: postgres
 port: 5432
@@ -46,6 +55,7 @@ maintenance database: postgres
 username: postgres
 password: gispotraining
 ```
+:::
 
 After clicking save, you should now have the server visible in the sidebar.
 Click on the small arrow next to the server name to see more details.
@@ -75,6 +85,7 @@ Loading data with QGIS is simple.
 First, add a new database connection.
 The connection parameters are mostly the same as before, but with a few notable exceptions.
 
+:::{.note-box}
 ```
 host: <base-url> (without http:// prefix)
 port: 5432
@@ -82,6 +93,7 @@ database: training
 username: postgres
 password: gispotraining
 ```
+:::
 
 :::{.hint-box}
 **Hint:** make sure to check store next to username and password.
@@ -113,9 +125,11 @@ If you have QGIS installed on Windows, ogr2ogr is available from the OSGeo4W she
 If you already added the RautatieViiva layer using QGIS, you can try loading another dataset from the `geoserver/nlsfi/YK_1M` directory.
 For example, to load `PeltoAlue.shp` to the training database using ogr2ogr, run the following command:
 
+:::{.commandline-box}
 ```
 ogr2ogr -f "PostgreSQL" "PG:host=<base-url> user=postgres dbname=training password=gispotraining" PeltoAlue.shp
 ```
+:::
 
 Replace <base-url> with the address of your training machine, without the `http://` prefix or the final `/`.
 
@@ -151,11 +165,13 @@ The documentation also contains an explanation on how spatial indexing works and
 
 Create a new spatial index with:
 
-```
+:::{.code-box}
+```sql
 CREATE INDEX peltoalue_geom_idx
 ON public.peltoalue
 USING GIST (wkb_geometry);
 ```
+:::
 
 :::{.note-box}
 **Note:** you may have to change the table name (public.peltoalue) and/or column name (wkb_geometry) to match the names in your database.

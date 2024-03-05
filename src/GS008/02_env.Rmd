@@ -6,10 +6,16 @@ The base URL of this instance is provided to you by your course instructor, this
 To access GeoServer, navigate to `http://<base-url>/geoserver` with your web browser of choice.
 You can log in to your GeoServer instance as an administrator with the following credentials:
 
-::: hint-box
-username: admin
+Username:
 
-password: gispotraining
+:::{.code-box}
+`admin`
+:::
+
+Password:
+
+:::{.code-box}
+gispotraining
 :::
 
 ---
@@ -18,7 +24,7 @@ Alternatively, you can also install GeoServer on your local machine.
 An easy way to do this is to use Docker, we recommend using the latest version of the [kartoza/geoserver](https://hub.docker.com/r/kartoza/geoserver) image.
 Start a new container with the command:
 
-::: code-box
+:::{.code-box}
 ``` bash
 docker run --name geoserver\
 -e SAMPLE_DATA=true\
