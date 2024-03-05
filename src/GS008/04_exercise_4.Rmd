@@ -47,7 +47,7 @@ After logging in to pgAdmin, add a new database connection by clicking on Object
 Give the new server a name, and switch over to the Connection tab.
 Input the following details:
 
-:::{.note.box}
+:::{.note-box}
 ```
 host name/address: postgres
 port: 5432
