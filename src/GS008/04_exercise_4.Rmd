@@ -1,4 +1,4 @@
-# Optimising vector data {#vectors}
+# 4. Optimising vector data {#vectors}
 
 While vector datasets are typically smaller compared to rasters, they can still grow to a size where optimisations are needed.
 The single most important performance optimisation for vector data is indexing.
@@ -14,7 +14,7 @@ PostGIS is a spatial extension to the open-source PostgreSQL RDBMS.
 It provides a suite of database functions and data types to handle and process spatial data.
 The following exercise is focused on utilising PostGIS as a primary vector data store for GeoServer.
 
-## Exercise - PostGIS and GeoServer
+## 4.1 Exercise - PostGIS and GeoServer
 
 Besides GeoServer, the training machine provided to you has a PostGIS database for training purposes.
 While this is not a PostGIS course, it's highly useful to learn how to load data to PostGIS and publish it using GeoServer.
@@ -64,7 +64,7 @@ Click on the small arrow next to the server name to see more details.
 
 Take note of the different databases on the server and what schemas and tables they contain.
 
-### Loading data into PostGIS
+### 4.1.1 Loading data into PostGIS
 
 The `training` PostGIS database on the training machine contains no data, so the first order of business is to add some.
 Pick any vector dataset you have on your own machine, or download a sample dataset from `http://<base-url>/data`.
@@ -139,7 +139,7 @@ If this happens, you may have to explicitly set the geometry type using the `-nl
 See the [ogr2ogr documentation](https://gdal.org/programs/ogr2ogr.html#cmdoption-ogr2ogr-nlt) for more details.
 :::
 
-### Indexing
+### 4.1.2 Indexing
 
 By now, you should have loaded some data into the training database.
 Open pgAdmin again, right-click on the server on the Browser panel, and select Refresh.
@@ -188,7 +188,7 @@ Optional: try adding a non-spatial index to the id column of a table.
 Non-spatial indexes can significantly increase database query performance when filtering or sorting by the indexed column.
 See the [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-createindex.html) for instructions.
 
-### Publish to GeoServer
+### 4.1.3 Publish to GeoServer
 
 After adding data to PostGIS and adding spatial indexes, it's time to publish using GeoServer.
 Log in to GS using your admin account and add a new PostGIS store.

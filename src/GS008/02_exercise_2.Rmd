@@ -1,4 +1,4 @@
-# Security and user management
+# 2. Security and user management
 
 GeoServer can be used to serve private information and spatial data to authenticated users.
 One of the key functions of GS Layer security is preventing unauthorized access to such data.
@@ -6,11 +6,11 @@ One of the key functions of GS Layer security is preventing unauthorized access 
 A common measure to prevent accidental data leaks is to set up strict default security rules that block unauthenticated users from reading any data.
 Read access can then be explicitly granted to specific workspaces or layers.
 
-## Exercise - layer security
+## 2.1 Exercise - layer security
 
 This exercise focuses on securing data access in GS.
 
-### Check default permissions {#permissions}
+### 2.1.1 Check default permissions {#permissions}
 
 Open a new incognito browser window (Ctrl+Shift+N in Chrome).
 This is an easy way to test the behaviour of GS as an unauthenticated user.
@@ -66,7 +66,7 @@ You should see a list of queries made by QGIS in the Debugging/Development Tools
 
 Right-click a query and select "Open URL" to open the query in a browser window, you should see an image.
 
-### Prevent unauthenticated access
+### 2.1.2 Prevent unauthenticated access
 
 Now it's time to create strict default rules to prevent access to any workspace.
 
@@ -75,7 +75,7 @@ to secure every layer and workspace from unauthenticated users.
 After setting the default rules, select 2 or 3 layers that you want to make publicly available.
 Create or modify layer security rules to publish these layers.
 
-### Verify rules
+### 2.1.3 Verify rules
 
 After setting layer security rules, it's time to test if they work.
 Open another incognito browser window, open the URL of your GS instance, and try to open the WMS Capabilities document.
@@ -93,7 +93,7 @@ Finally, make an authenticated GetMap query.
 This is easiest to do using QGIS by modifying the WMS data source (or adding a new one), and adding a username and password.
 Then try to add a private layer to the map, you should see an output image.
 
-## Extra — service-level settings
+## 2.2 Extra — service-level settings
 
 Access can be granted not only to layers but also services, and even to only specific service requests.
 Try allowing public access to WMS, but prevent unauthenticated users from accessing the GetFeatureInfo request.

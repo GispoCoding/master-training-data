@@ -1,4 +1,4 @@
-# Extensions {#extensions}
+# 8. Extensions {#extensions}
 
 The functionalities of GeoServer can be expanded using various extensions.
 These extensions are divided to two categories: extensions, which are officially supported plug-ins, and community modules, which are more experimental in nature.
@@ -22,7 +22,7 @@ Pick 2-3 interesting extensions from the documentation page and try to answer th
 - What possible use cases do you have for it?
 - How to install the extension?
 
-## Useful tools {#gs-tools}
+## 8.1 Useful tools {#gs-tools}
 
 There are many useful tools for managing, monitoring, and configuring GeoServer.
 [GeoHealthCheck](https://geohealthcheck.org/) is a Quality-of-Services (QoS) monitor for geospatial web services written in Python.
@@ -47,7 +47,7 @@ Most services also require you to provide credit card details before being able 
 For this reason, the following exercise \@ref(jmeter) focuses exclusively on JMeter.
 :::
 
-## Exercise - JMeter {#jmeter}
+## 8.2 Exercise - JMeter {#jmeter}
 
 Download and install the latest binary release of Apache JMeter in a zip archive from the [download page](https://jmeter.apache.org/download_jmeter.cgi).
 Extract the archive and try opening the JMeter GUI by running the file `jmeter.bat` (on Windows), located inside the `bin` directory.

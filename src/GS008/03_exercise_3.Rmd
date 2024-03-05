@@ -1,4 +1,4 @@
-# Optimising rasters {#rasters}
+# 3. Optimising rasters {#rasters}
 
 GeoServer is often used to distribute spatial raster data, typically using either WMS or WCS.
 Typical use cases for raster data are aerial and satellite imagery and various coverages.
@@ -12,13 +12,13 @@ To process each GetMap query, GeoServer must fetch the data from the source, ren
 Each step of this process introduces its own delays and can form a performance bottleneck.
 If WMS performance is still insufficient even after optimising the input data, instead of WMS, consider using WMTS or other services that pre-render map tiles to a cache.
 
-## GDAL
+## 3.1 GDAL
 
 This exercise is based on using [GDAL](https://gdal.org/).
 The GDAL library provides a set of command-line tools for reading and manipulating raster data.
 As the tools are command-line based, they are ideal for use in scripts and automated processes.
 
-### Setup
+### 3.1.1 Setup
 
 :::{.note-box}
 **Note:** if you are on Windows and have QGIS installed, you don't need to install GDAL separately, simply open the OSGeo4W shell from the start menu.
@@ -45,7 +45,7 @@ You can follow the instructions in Chapter \@ref(tools) to install GDAL on your 
 
 Even if GDAL cannot be installed, you can still read along the exercise and simply skip running the commands.
 
-### gdalinfo
+### 3.1.2 gdalinfo
 
 The gdalinfo command is a highly useful tool to explore the properties of a raster file.
 It's also very easy to use, simply open a terminal and run:
@@ -175,7 +175,7 @@ Some things to look out for in particular:
 
 As you can see, the gdalinfo output contains a ton of useful information and metadata about the raster.
 
-## Exercise — Optimising raster data for GeoServer
+## 3.2 Exercise — Optimising raster data for GeoServer
 
 The idea of this exercise is to use and optimise raster datasets that you already have.
 This way you process and explore the properties of data that is already meaningful to you.

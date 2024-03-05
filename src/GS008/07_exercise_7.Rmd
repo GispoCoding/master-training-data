@@ -1,4 +1,4 @@
-# GeoServer REST API {#rest}
+# 7. GeoServer REST API {#rest}
 
 The GeoServer REST API can be used to perform the same actions that are available in the GeoServer web UI.
 The [GeoServer REST API documentation](https://docs.geoserver.org/stable/en/user/rest/index.html) is a good resource for getting started with using the REST API.
@@ -19,7 +19,7 @@ There may also be a data payload, such as an error message, which is again typic
 The GeoServer REST API of the training machines can be accessed on `http://<base-url>/geoserver/rest`.
 The `geoserver/rest` endpoint is often called the *base URL* of the GeoServer REST API.
 
-## Using APIs
+## 7.1 Using APIs
 
 Many tools exist for calling REST APIs.
 Two popular GUI tools are [Postman](https://www.postman.com/) and [Insomnia](https://insomnia.rest/).
@@ -41,18 +41,20 @@ These include the command-line tool curl, that's not as intuitive to use compare
 Many text editors and IDEs such as Visual Studio Code and IntelliJ IDEA support defining and making API calls in `.rest` files.
 The GS API can also be called from various programming languages.
 
-## Exercise — REST API
+## 7.2 Exercise — REST API
 
 The examples in this exercise are based on [Insomnia](https://insomnia.rest), a free tool for designing and testing APIs that can be [installed](https://docs.insomnia.rest/insomnia/install) on most operating systems.
 While installing Insomnia is not strictly required to complete the exercise, it's a highly useful tool especially for those unfamiliar with REST APIs.
 If using Insomnia, start by creating a new Request Collection called gs-training from the Create button in the top-right corner of the dashboard window.
 Then edit the base configuration with the keyboard shortcut `Ctrl + E` (or clicking No environment → Manage environments near the top-left corner) and fill in the following:
 
-```
+:::{.code-box}
+```json
 {
   "base_url": "http://<base-url>/geoserver/rest"
 }
 ```
+:::
 
 Replacing `<base-url>` with the URL of your training machine.
 Click done.

@@ -1,4 +1,4 @@
-# Training environment
+# 1. Training environment
 
 First, let's ensure access to the GeoServer training environment.
 If you are following these materials while participating on the Advanced GeoServer course, you are provided your own virtual machine hosted on Amazon Web Services (AWS).
@@ -39,7 +39,7 @@ If you don't have Docker available, another option is to install and set up Apac
 Download the Web Archive (.war) of the latest GS version on [geoserver.org](https://geoserver.org) and place it in the Tomcat webapps directory.
 Restart Tomcat, after which GeoServer should be accessible.
 
-## Useful tools to install {#tools}
+## 1.1 Useful tools to install {#tools}
 
 Parts of this course will cover optimising raster and vector spatial data.
 For these parts, it is useful to have some tools locally available.

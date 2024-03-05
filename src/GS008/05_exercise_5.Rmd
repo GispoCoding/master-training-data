@@ -1,4 +1,4 @@
-# Map styles {#styles}
+# 5. Map styles {#styles}
 
 Styles define how GeoServer renders spatial data to maps.
 The GeoServer render engine uses SLD, but other styling languages such as (Geo)CSS are supported via extensions.
@@ -11,7 +11,7 @@ This is especially useful when distributing vector data — either through WFS o
 Distributing map styles along with spatial vector data lets client software render the data in a meaningful way.
 This lowers the barrier for consuming vector data, as clients don't have to "know" anything about the data or its properties to render it.
 
-## Choosing a style format
+## 5.1 Choosing a style format
 
 One of the main issues with distributing map styles is the lack of globally used standards.
 Many formats have been developed for storing style information, and it seems nearly every software uses its own implementation.
@@ -30,7 +30,7 @@ If you are planning to use GeoServer as a backend for your mobile application wr
 On the other hand, if you want to stick to SLD and ensure maximum compatibility between software, consider installing the [GeoStyler Extension](https://docs.geoserver.org/master/en/user/community/geostyler/index.html).
 The extension adds a new graphical style editor tab to the GeoServer style editor, allowing users to generate GeoServer-compatible SLD with relative ease.
 
-## Exercise — creating styles
+## 5.2 Exercise — creating styles
 
 Try creating styles for your own vector data in GeoStyler on the [GeoStyler demo page](https://geostyler.github.io/geostyler-demo/).
 
