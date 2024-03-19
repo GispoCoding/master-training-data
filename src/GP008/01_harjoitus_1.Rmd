@@ -190,7 +190,7 @@ Tee lopuille kolmelle luokalle samalla tavalla sääntöpohjainen
 luokittelu ja mittakaavaperusteinen näkyvyys näillä arvoilla:
 
 ::: code-box
-**Luokka 2** "kohdeluokka" =12121 OR "kohdeluokka" =12122
+**Luokka 2** \"kohdeluokka\" =12121 OR \"kohdeluokka\" =12122
 
 Scale range: 1:20001, 1:1
 
@@ -198,7 +198,7 @@ Viiva 1: täyttöväri: #f7e27c paksuus: 2,8 mm
 
 Viiva 2: täyttöväri: #000000 paksuus: 3,1 mm
 
-**Luokka 3** "kohdeluokka" = 12131 OR "kohdeluokka" = 12132
+**Luokka 3** \"kohdeluokka\" = 12131 OR \"kohdeluokka\" = 12132
 
 Scale range: 1:10001, 1:1
 
@@ -206,7 +206,7 @@ Viiva 1: täyttöväri: #ffffff paksuus: 1,2
 
 Viiva 2: täyttöväri: #7e7a7a paksuus 1,6
 
-**Luokka 4** "kohdeluokka" = 12141
+**Luokka 4** \"kohdeluokka\" = 12141
 
 Scale range: 1:10 001, 1:1
 
