@@ -6,7 +6,7 @@ Harjoituksessa tehdään koropleettikartta, joka kuvaa kauppojen keskittymistä 
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii luomaan heksagoniruudukon, laskemaan pisteet polygoneista ja käyttämään luokittelutyyliä visualisointiin. Hän tietää myös, pistä QGISin eri väripaletit löytyvät.
+Koulutettava oppii luomaan heksagoniruudukon, laskemaan pisteet polygoneista ja käyttämään luokittelutyyliä visualisointiin. Hän tietää myös, mistä QGISin eri väripaletit löytyvät.
 
 Tässä harjoituksessa tehdään koropleettikartta, joka perustuu OpenStreetMapin kauppakohteisiin.
 
