@@ -56,7 +56,7 @@ Kokeile miltä aineisto näyttää, jos sinulla olisi yksivärinen taustakartta.
 
 Tuplaklikkaa avautuvasta listasta **OpenStreetMapia**. Nyt QGIS tuo sinulle uuden taustakartan. Aseta tasoista ainoastaan se ja luomasi Lkm-taso näkyviin.
 
-Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan yksiväriseksi laittamalla täpän kohtaan "Väritys". Hae sitten heksagoneihin valitsemaasi väripalettiin sopiva väri, jolla värität taustakartan. Pyri siihen, että taustakartta jää taka-alalle ja nostaa selkeästi heksagoniaineiston näkyviin. Voit muuttaa kirkkaus-, kylläisyys- ja kontrastiasetuksia sekä gamma-asetusta. Voit myös säätää värityksen vahvuutta.
+Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan yksiväriseksi laittamalla täpän kohtaan "Väritä". Hae sitten heksagoneihin valitsemaasi väripalettiin sopiva väri, jolla värität taustakartan. Pyri siihen, että taustakartta jää taka-alalle ja nostaa selkeästi heksagoniaineiston näkyviin. Voit muuttaa kirkkaus-, kylläisyys- ja kontrastiasetuksia sekä gamma-asetusta. Voit myös säätää värityksen vahvuutta.
 
 ![](img/harjoitus3/img7.png)
 
