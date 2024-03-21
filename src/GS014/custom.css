@@ -390,11 +390,15 @@ table td {
 .code-box {
     position: relative;
     background: #e8ecf3;
-    padding-bottom: 0px;
     padding-top: 0.1rem;
-    padding-left: 1.3rem;
+    padding-bottom: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border: none;
+    display: flex;
+    align-items: center;
     margin-bottom: 1rem;
+    min-height: 2.5rem;
 }
 
 code span {
@@ -403,7 +407,7 @@ code span {
 
 .code-box p {
     color: #444444;
-    font-family: 'Courier', sans-serif !important;
+    font-family: 'Source Code Pro', sans-serif !important;
     margin: 0 !important;
 }
 
@@ -422,15 +426,19 @@ code span {
 .commandline-box {
     position: relative;
     background: #f9edf3;
-    padding-bottom: 0.01rem;
-    padding-top: 1rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
     padding-left: 1rem;
+    padding-right: 1rem;
     border: none;
+    display: flex;
+    align-items: center;
     margin-bottom: 1rem;
+    min-height: 2.5rem;
 }
 
 .commandline-box p {
-    color: #fbfbfb;
+    font-family: 'Source Code Pro', monospace;
     margin: 0 !important;
 }
 
