@@ -82,7 +82,7 @@ Luo aluksi uusi väliaikainen taso painamalla Luo väliaikainen luonnostaso -pai
 
 ![](img/harjoitus2/img12.png)
 
-Anna tason nimeksi Merikoski, geometriatyypiksi LineString ja koordinaattijärjestelmäksi Projektin koordinaattijärjestelmä (EPSG: 3067). Tämän jälkeen luo uusi kenttä, jonka nimi on "Nimi" ja tyyppi Tekstijono. Kun olet määrittänyt uuden kentän, paina "Lisää kenttälistaan", jolloin se tulee kenttälistaan.
+Anna tason nimeksi Merikoski, geometriatyypiksi LineString ja koordinaattijärjestelmäksi Projektin koordinaattijärjestelmä (EPSG: 3067). Tämän jälkeen luo uusi kenttä, jonka nimi on "Nimi" ja tyyppi Teksti (merkkijono). Kun olet määrittänyt uuden kentän, paina "Lisää kenttälistaan", jolloin se tulee kenttälistaan.
 
 ![](img/harjoitus2/img13.png)
 
