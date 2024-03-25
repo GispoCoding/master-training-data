@@ -8,7 +8,7 @@ Koulutettava oppii luomaan valmiita väripaletteja QGISiin ja käyttämään Tyy
 
 ## Väripalettien luominen
 
-Voit luoda oman väripaletin kohdasta **Asetukset /-> Valinnat /-> Värit**. Voit luoda ja nimetä uusia väripaletteja painamalla  ja lisätä olemassaoleviin uusia värejä. Jos sinulla on valmiiksi määritettyjä värejä (RGB- tai HTLM-koodeilla), voit käyttää niitä värien poimimiseen tai valita ne manuaalisesti värikartalta hiirellä.
+Voit luoda oman väripaletin kohdasta **Asetukset /-> Valinnat /-> Värit**. Voit luoda ja nimetä uusia väripaletteja painamalla  ja lisätä olemassaoleviin uusia värejä. Jos sinulla on valmiiksi määritettyjä värejä (RGB- tai HTML-koodeilla), voit käyttää niitä värien poimimiseen tai valita ne manuaalisesti värikartalta hiirellä.
 
 Painamalla ![](img/harjoitus6/img1.png) voit luoda ja nimetä uuden väripaletin. Värien lisääminen tapahtuu -symbolista.
  
