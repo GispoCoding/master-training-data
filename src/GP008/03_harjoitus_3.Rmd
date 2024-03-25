@@ -6,7 +6,7 @@ Harjoituksessa tehdään koropleettikartta, joka kuvaa kauppojen keskittymistä 
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii luomaan heksagoniruudukon, laskemaan pisteet polygoneista ja käyttämään luokittelutyyliä visualisointiin. Hän tietää myös, mistä QGISin eri väripaletit löytyvät.
+Koulutettava oppii luomaan heksagoniruudukon, laskemaan pisteet polygoneista ja käyttämään luokittelutyyliä visualisointiin. Hän tietää myös, pistä QGISin eri väripaletit löytyvät.
 
 Tässä harjoituksessa tehdään koropleettikartta, joka perustuu OpenStreetMapin kauppakohteisiin.
 
@@ -30,7 +30,9 @@ Seuraavaksi visualisoidaan Lkm-taso. Aseta tällä kertaa Yksittäinen symboli -
 
 ![](img/harjoitus3/img4.png)
 
-Liukuvärinä on oletuksena Random colors. Klikkaa sen vieressä olevasta nuolesta lisää valintoja auki. Huomaa, että kohdasta **Kaikki liukuvärit** saat näkyviin vielä lisää väriskaaloja. Voit myös klikata **Luo uusi liukuväri**. Kohdista "katalogi: cpt-city" ja "katalogi: ColorBrewer" saat auki vielä lisää valmiita värimäärityksiä. Gradientti-valinnalla voit luoda itse oman liukuvärin määrittämällä alku- ja loppuvärin. Color presets mahdollistaa uusien väripalettien määrittelyn itse ja niiden tallentamisen/tuomisen. Tutki nyt itse QGISin väripaletteja ja valitse mieleisesi paletti tähän tarkoitukseen.
+Liukuvärinä on oletuksena Random colors. Klikkaa sen vieressä olevasta nuolesta lisää valintoja auki. Kohdasta **Kaikki liukuvärit** saat näkyviin vielä lisää väriskaaloja. Voit myös klikata **Luo uusi liukuväri**. Kohdista "katalogi: cpt-city" ja "katalogi: ColorBrewer" saat auki vielä lisää valmiita värimäärityksiä. ColorBrewer-katalogissa ovat kaikki <https://colorbrewer2.org/> -sivustolla olevat väriskaalat.
+
+Gradientti-valinnalla voit luoda itse oman liukuvärin määrittämällä alku- ja loppuvärin. Color presets mahdollistaa uusien väripalettien määrittelyn itse ja niiden tallentamisen/tuomisen. Tutki nyt itse QGISin väripaletteja ja valitse mieleisesi paletti tähän tarkoitukseen.
 
 Tutki myös Tila-kohdassa olevaa oletusta **Equal count**. Miten visualisointi muuttuu, jos valitset jonkin toisen luokittelutavan tai muutat luokkien määrää? Voit tarkastella aineistoa myös "Pylväskaavio"-välilehdellä. Paina "Lataa arvot" -painiketta, jos mitään ei näy.
 
@@ -56,10 +58,12 @@ Kokeile miltä aineisto näyttää, jos sinulla olisi yksivärinen taustakartta.
 
 Tuplaklikkaa avautuvasta listasta **OpenStreetMapia**. Nyt QGIS tuo sinulle uuden taustakartan. Aseta tasoista ainoastaan se ja luomasi Lkm-taso näkyviin.
 
-Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan yksiväriseksi laittamalla täpän kohtaan "Väritä". Hae sitten heksagoneihin valitsemaasi väripalettiin sopiva väri, jolla värität taustakartan. Pyri siihen, että taustakartta jää taka-alalle ja nostaa selkeästi heksagoniaineiston näkyviin. Voit muuttaa kirkkaus-, kylläisyys- ja kontrastiasetuksia sekä gamma-asetusta. Voit myös säätää värityksen vahvuutta.
+Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan yksiväriseksi laittamalla täpän kohtaan "Väritys". Hae sitten heksagoneihin valitsemaasi väripalettiin sopiva väri, jolla värität taustakartan. Pyri siihen, että taustakartta jää taka-alalle ja nostaa selkeästi heksagoniaineiston näkyviin. Voit muuttaa kirkkaus-, kylläisyys- ja kontrastiasetuksia sekä gamma-asetusta. Voit myös säätää värityksen vahvuutta. Kokeile myös harmaasävyjen käyttöä!
 
 ![](img/harjoitus3/img7.png)
 
+![](img/harjoitus3/wms.png)
+
 ::: hint-box
-**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
+**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
 :::
