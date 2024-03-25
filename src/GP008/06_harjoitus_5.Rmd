@@ -8,21 +8,26 @@ editor_options:
 
 ## Harjoituksen sisältö
 
-Harjoituksessa luodaan kartta-atlas käyttäen aiemmin luotuja oppeja.
+Harjoituksessa luodaan kartta-atlas käyttäen aiemmin opittua.
 
 ## Harjoituksen tavoite
 
 Koulutettava oppii luomaan karttalehtijaon ja tekemään sen pohjalta kartta-atlaksen.
 
+## Kartta-atlaksen tekeminen
+
 QGIS mahdollistaa myös kartta-atlaksen tekemisen.
-Kartta-atlas on ns.
-karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta.
+Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta.
 Seuraavassa esimerkissä tuotamme kartta-atlaksen Oulusta, jossa jokainen karttalehti perustuu käyttäjän itse tekemään karttalehtijakoon.
 
 Avaa QGISin pääikkuna.
-Luo uusi väliaikainen luonnostaso, jonka tyyppi on polygoni.
+Luo uusi väliaikainen luonnostaso menemällä **Tasot /> Uusi taso /> Uusi väliaikainen luonnostaso**. 
+Aseta tason geometriatyypiksi polygoni ja koordinaattijärjestelmäksi projektin koordinaattijärjestelmä (EPSG:3067).
 Nimeksi voit laittaa "Karttalehtijako".
 Tasolle ei tarvitse lisätä uusia kenttiä, paina vain **OK**.
+
+![](img/harjoitus5/karttalehtijako.png)
+
 Taso ilmestyy nyt tasovalikkoon ja siinä on editointitila päällä.
 Aloita uusien polygonien piirtäminen painamalla ![](img/harjoitus5/img1.png).
 Piirrä eri puolille Oulua kolme suorakulmiota.
@@ -87,5 +92,5 @@ Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä 
 :::
 
 ::: hint-box
-**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
+**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
 :::
