@@ -33,8 +33,10 @@ Tämän kurssin tarkoituksena on oppia visualisoimaan aineistoja QGISillä monip
 
 ::: commandline-box
 ``` shell
+
 sudo lsb_release -a
-```:::
+```
+:::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:
 
@@ -46,6 +48,7 @@ sudo lsb_release -a
 
 ::: code-box
 ``` sql
+
 SELECT version();
 ```
 :::

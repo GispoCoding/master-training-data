@@ -102,7 +102,7 @@ QGIS luo siis ensin leveän mustan viivan, jonka päälle tulee toisella
 värillä hieman kapeampi viiva - lopputulos saa tieaineiston näyttämään
 tiealueelta, jolla on reunaviiva.
 
-::: code-box
+::: hint-box
 Esimerkkikuvan asetukset luokalle 1 olivat:
 
 **Viiva 1 (sisus)**: täyttöväri: #f1a342 paksuus: 2,2 mm
@@ -113,7 +113,7 @@ Esimerkkikuvan asetukset luokalle 1 olivat:
 Tee lopuille kolmelle luokalle samalla tavalla sääntöpohjainen
 luokittelu ja mittakaavaperusteinen näkyvyys näillä arvoilla:
 
-::: code-box
+::: hint-box
 **Luokka 2** "kohdeluokka" =12121 OR "kohdeluokka" =12122
 
 Scale range: 1:20001, 1:1
