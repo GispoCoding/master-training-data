@@ -1,4 +1,4 @@
-Lisäharjoitus: Oman väripaletin ja oletusfontin lisääminen
+#Lisäharjoitus: Oman väripaletin ja oletusfontin lisääminen
 
 ## Harjoituksen sisältö
 Harjoituksessa tehdään oma väripaletti ja oletusfontti.
