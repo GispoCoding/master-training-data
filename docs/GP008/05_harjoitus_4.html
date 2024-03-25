@@ -11,7 +11,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Page not found | Kartat ja taitot" />
+<meta property="og:title" content="Harjoitus 4: Taitto | Kartat ja taitot" />
 <meta property="og:type" content="book" />
 
 
@@ -23,9 +23,9 @@
 <meta name="date" content="2024-03-25" />
 
 
-<meta name="description" content="Page not found | Kartat ja taitot">
+<meta name="description" content="Harjoitus 4: Taitto | Kartat ja taitot">
 
-<title>Page not found | Kartat ja taitot</title>
+<title>Harjoitus 4: Taitto | Kartat ja taitot</title>
 
 
 
@@ -213,13 +213,200 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="harjoitus-4-taitto" class="section level1">
+<h1>Harjoitus 4: Taitto</h1>
+<div id="harjoituksen-sisältö-4" class="section level2">
+<h2>Harjoituksen sisältö</h2>
+<p>Harjoituksessa tehdään valmiista kartasta taitto.</p>
+</div>
+<div id="harjoituksen-tavoite-4" class="section level2">
+<h2>Harjoituksen tavoite</h2>
+<p>Koulutettava oppii käyttämään QGISin taittotyökaluja monipuolisesti ja
+tekemään informatiivisen karttataiton.</p>
+</div>
+<div id="uuden-taiton-luominen-ja-sijoittelua-helpottavat-työkalut" class="section level2">
+<h2>Uuden taiton luominen ja sijoittelua helpottavat työkalut</h2>
+<p>Tehdään kartasta taitto, johon sommitellaan kartan selite, mittakaava,
+pohjoisnuoli sekä tiedot aineistosta. Esimerkkikuva lopputuloksesta:</p>
+<p><img src="img/harjoitus4/img1.png" /></p>
+<p>Avaa uusi taitto joko <strong>Projekti -&gt; Uusi taitto</strong> tai painamalla
+<img src="img/harjoitus4/img2.png" /> työkalupalkissasi. Anna taitolle kuvaava
+nimi, esimerkiksi Oulun opaskartta ja paina <strong>OK</strong>.</p>
+<p>Paina tulosalueella hiiren oikealla näppäimellä ja valitse <strong>Sivun
+ominaisuudet</strong>. Oletuksena <strong>Elementin ominaisuudet</strong> -välilehdestä
+oikeassa paneelissa on paperin kokona A4 ja suunta vaaka. Muutetaan
+taiton kokoa 200 x 200 mm. Tarkista Taitto-välilehdestä, että viennin
+resoluutio on 300 dpi, joka varmistaa sen, että lopputuote on tarpeeksi
+tarkka ja hyvälaatuinen lähetettäväksi vaikka painofirmalle.</p>
+<p><img src="img/harjoitus4/img3.png" /> <img src="img/harjoitus4/img4.png" /></p>
+<p>Ennen kuin lisäämme mitään karttakuvaa taittoon, luodaan elementtien
+sijoittelun helpottamiseksi ruudukko ja reunamarginaalit. Mene
+ylävalikoista <strong>Näytä &gt; Ruudukko</strong>. Valitse myös <strong>Näytä &gt; Tartu
+ruudukkoon</strong>. Taitto-välilehdeltä oikean reunan paneelista voit asettaa
+ruudukon välien koon, esimerkiksi 10mm.</p>
+<p>Mene seuraavaksi <strong>Ohjaimet</strong>-välilehdelle. Yleensä painotuotteissa
+käytetään 3mm marginaalia sivuissa, joten luodaan vaaka- ja
+pystyohjaimet arvoilla 3mm ja 197mm. Voit lisätä ne helposti painamalla
+<img src="img/harjoitus4/img5.png" />-painiketta ja tuplaklikkaamalla ilmestyvää
+riviä ja kirjoittamalla arvot niihin.</p>
+<p><img src="img/harjoitus4/img6.png" /></p>
+<p>Nyt voimme sijoittaa karttanäkymän tulosteelle. Valitse työkalupalkista
+työkalu <img src="img/harjoitus4/img7.png" /></p>
+<p>Vedä paperin alueelle työkalulla suorakulmio, jotta saat QGISin
+karttanäkymän mukaisen kartan taittoikkunaan. Kartta piirtyy
+taittoikkunaan samalla zoomaustasolla, kun se on karttaikkunan puolella.
+Voit rajata kartan mittakaavaa <strong>Elementin ominaisuudet</strong> -välilehdeltä.
+Huomaa, että karttatulosteen hallinnassa on mahdollisuus siirtää
+yksittäisiä kohteita (nimikkeitä) tai muokata kartan sijaintia. Kohteen
+ollessa valittuna, voit siirtää sitä tulosteella
+<img src="img/harjoitus4/img8.png" /> -työkalun avulla.</p>
+<p>Elementin ominaisuudet -välilehdellä on useita työkaluja, jotka
+helpottavat kartan rajauksen ja mittakaavan muokkaamista:</p>
+<table>
+<colgroup>
+<col width="31%" />
+<col width="68%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="img/harjoitus4/img25.png" /></td>
+<td align="center">Päivitä kartta (mikäli olet tehnyt muutoksia pääikkunan puolella)</td>
+</tr>
+<tr class="even">
+<td align="center"><img src="img/harjoitus4/img24.png" /></td>
+<td align="center">Tuo kartan laajuus pääikkunasta taittoon</td>
+</tr>
+<tr class="odd">
+<td align="center"><img src="img/harjoitus4/img23.png" /></td>
+<td align="center">Vie kartan laajuus taitosta pääikkunaan</td>
+</tr>
+<tr class="even">
+<td align="center"><img src="img/harjoitus4/img22.png" /></td>
+<td align="center">Aseta kartan mittakaava vastaamaan pääikkunaa</td>
+</tr>
+<tr class="odd">
+<td align="center"><img src="img/harjoitus4/img21.png" /></td>
+<td align="center">Aseta pääikkunan mittakaava vastaamaan taittonäkymää</td>
+</tr>
+<tr class="even">
+<td align="center"><img src="img/harjoitus4/img20.png" /></td>
+<td align="center">Käytä spatiaalisia kirjanmerkkejä</td>
+</tr>
+<tr class="odd">
+<td align="center"><img src="img/harjoitus4/img19.png" /></td>
+<td align="center">Muokkaa kartan rajausta interaktiivisesti</td>
+</tr>
+<tr class="even">
+<td align="center"><img src="img/harjoitus4/img18.png" /></td>
+<td align="center">Nimiöiden asetukset</td>
+</tr>
+<tr class="odd">
+<td align="center"><img src="img/harjoitus4/img17.png" /></td>
+<td align="center">Leikkauksen asetukset</td>
+</tr>
+</tbody>
+</table>
+<p>Tutki näitä työkaluja ja katso, miten ne toimivat. Olisiko jostain
+näistä hyötyä sinun työprosesseissasi?</p>
+</div>
+<div id="elementtien-lisääminen" class="section level2">
+<h2>Elementtien lisääminen</h2>
+<p>QGISin avulla voit tehdä muutakin kuin lisätä kartan tulosteeseen.</p>
+<p>Otsikko tai muu teksti voidaan lisätä Lisää uusi nimiö -työkalulla:
+<img src="img/harjoitus4/img9.png" /> Lisää uusi selite käyttäen:
+<img src="img/harjoitus4/img10.png" /> Lisää uusi mittakaava käyttäen:
+<img src="img/harjoitus4/img11.png" /></p>
+<p>Huomaa, että näiden taiton elementtien ominaisuuksia voit muokata
+oikeanpuoleisen sivupalkin <strong>Elementin ominaisuudet</strong> -välilehden
+avulla. Valitse ensin haluamasi elementti joko klikkaamalla sitä
+taitossa tai Elementit-listassa, joka sijaitsee ikkunan oikeassa
+yläkulmassa.</p>
+<p>Tekstin fontin määrittelyn lisäksi tekstikohteille voidaan piirtää
+tausta tai kehys, sitä voidaan kiertää tai sijoitella eri tavoin
+suhteessa tekstilaatikkoon. Myös tekstin HTML-muotoilu on mahdollista,
+jos laitat täpän kohtaan “Tulosta HTML:nä”. Etsi nämä toiminnallisuudet
+tekstikohteen ominaisuuksista.</p>
+<p>Luo seuraavaksi selite karttatulosteeseen. Voit myös muokata selitteen
+ominaisuuksia <strong>Elementin ominaisuudet</strong> -välilehdeltä. Huomaa, että
+sinun on poistettava kohdan <strong>Päivitä automaattisesti</strong> rasti. Tämän
+jälkeen voit vaikkapa poistaa kaikki muut tasot kuin Lkm-tason
+selitteestä valitsemalla ne hiiren vasemmalla ja sitten painamalla
+<img src="img/harjoitus4/img12.png" /> -painiketta. Voit muuttaa myös selitteen
+fonttia kohdasta “Fontit ja selitteen muotoilu”, määrittää taustan
+värin/läpinäkyvyyden tai sijoittaa selitevärit oikealle puolelle
+seliteikkunaa (valitse Arrangement-kohtaan “Symbolit oikealla”).</p>
+<p>Pohjoisnuolen lisääminen tapahtuu valitsemalla:
+<img src="img/harjoitus4/img13.png" /></p>
+<p>Valitse sen jälkeen Elementin ominaisuudet -ikkunasta mieleisesi
+pohjoisnuoli-kuva (selaa sisältöä alaspäin, jos et heti näe nuolia).</p>
+<p><img src="img/harjoitus4/img14.png" /></p>
+</div>
+<div id="uusi-sivu-uusi-kartta-ja-teemat" class="section level2">
+<h2>Uusi sivu, uusi kartta ja teemat</h2>
+<p>Luo uusi sivu taittoon menemällä ylävalikosta <strong>Taitto /&gt; Lisää sivuja.</strong>
+Asetetaan uusien sivujen määräksi 1, määritellään ne tulemaan taitossa
+loppuun (At end) ja kooksi A4 ja suunnaksi pysty.</p>
+<p><img src="img/harjoitus4/lisaa-sivu.png" /></p>
+<p>Seuraavaksi lisäämme kartan uudelle sivulle. Lisää kartta samalla
+tavalla kuin aiemmin, eli painamalla <img src="img/harjoitus4/img7.png" />-
+painiketta ja piirtämällä kartalle suorakulmion uudelle sivulle.</p>
+<p>Voit nyt käyttää <img src="img/harjoitus4/img19.png" /> eli Muokkaa kartan rajausta
+interaktiivisesti -työkalua muuttaaksesi kartan mittakaavaa tai
+rajausta eroamaan ensimmäisen sivun kartasta.</p>
+<p>Voit myös asettaa kartalle näkymään eri tasot kuin ensimmäiselle
+kartalle. Se tapahtuu käyttämällä <strong>kartan teemaa</strong>.</p>
+<p>Palaa takaisin QGISin pääikkunaan. Siellä klikkaa näkyviin eri
+tasot kuin ensimmäisessä kartassa. Jos olit tehnyt tavallisen
+opaskarttanäkymän ensimmäiseen karttaan, ota nyt näkyviin
+esimerkiksi kauppojen keskittymisestä kertovat aineistot.</p>
+<p>Kun olet saanut QGISin pääikkunan näkymään ne tasot näkyville,
+jotka haluat toiseen karttaan, klikkaa Tasot-paneelin työkalupalkista
+silmän kuvaa, ja avautuvasta valikosta “Lisää teema”.</p>
+<p><img src="img/harjoitus4/lisaa-teema.png" /></p>
+<p>Anna avautuvaan pikkuikkunaan teemaa kuvaava nimi.</p>
+<p><img src="img/harjoitus4/teema-nimi.png" /></p>
+<p>Palaa nyt taittoikkunaan. Klikkaa toisen sivun karttaa kerran
+aktivoidaksesi sen. Nyt mene Elementin ominaisuuksista
+<strong>“Käytettävä kartan teema”</strong> -kohtaan ja rastita sen edessä
+oleva laatikko. Valitse sitten listasta juuri luomasi teema.</p>
+<p><img src="img/harjoitus4/teema-valinta.png" /></p>
+<p>Tällä tavalla voit luoda samasta aineistosta monta erilaista
+karttatulostetta.</p>
+<div class="hint-box">
+<p>Jos luot useita sivuja taittoon ja jokaiselle sivulle useita
+elementtejä, kannattaa elementit nimetä. Tuplaklikkaa haluamasi
+elementin nimeä Elementit-paneelista taiton oikeassa ylänurkassa
+ja kirjoita elementille sitä kuvaava nimi. Kun tiedät heti,
+mikä elementti liittyy mihinkin karttaan tai sivuun,
+työsi karttatulosteiden kanssa helpottuu.</p>
+<p><img src="img/harjoitus4/elementin-nimi.png" /></p>
+</div>
+</div>
+<div id="tallennus-taittomalliksi-ja-pdf-tuloste" class="section level2">
+<h2>Tallennus taittomalliksi ja PDF-tuloste</h2>
+<p>Halutessasi voit tallentaa käyttämäsi tulostemallin (“layout”)
+ja hyödyntää sitä jatkossa seuraavien karttatulosteiden tekemiseen. Voit
+esimerkiksi muotoilla kollegoidesi käyttöön karttatulostemallin
+organisaatiollesi (logot, värit, tekstin paikka, jne.). Tämä onnistuu
+<strong>Tallenna malliksi</strong> <img src="img/harjoitus4/img15.png" /> -työkalulla:
+Lopputuloksen voit tulostaa tiedostoksi (kuvaksi tai pdf:ksi) tai
+tulostimeen.</p>
+<p><img src="img/harjoitus4/img16.png" /></p>
+<p>Sopiva resoluutio karttatulosteellesi riippuu kartan
+käyttötarkoituksesta, mutta oletusarvoinen 300 dpi tallentaa
+resoluutioltaan hyvinkin tarkkoja kuvia. Kokeile myös PDF-viennissä “Luo
+geospatiaalinen PDF (GeoPDF)” -toimintoa. Tämä luo PDF-tiedoston, joka
+voidaan tuoda suoraan QGISiin niin, että se sisältää aineistot ja on
+georeferoitu oikein.</p>
+<div class="hint-box">
+<p><strong>Psst! Muista tallentaa myös QGIS-projekti harjoituksen lopuksi.</strong></p>
+</div>
+
+</div>
 </div>
 <p style="text-align: center;">
+<a href="04_harjoitus_3.html"><button class="btn btn-default">Previous</button></a>
+<a href="06_harjoitus_5.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>

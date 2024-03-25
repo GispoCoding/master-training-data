@@ -11,7 +11,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Page not found | Kartat ja taitot" />
+<meta property="og:title" content="Harjoitus 1b: Viivakohteet ja sääntöpohjainen visualisointi | Kartat ja taitot" />
 <meta property="og:type" content="book" />
 
 
@@ -23,9 +23,9 @@
 <meta name="date" content="2024-03-25" />
 
 
-<meta name="description" content="Page not found | Kartat ja taitot">
+<meta name="description" content="Harjoitus 1b: Viivakohteet ja sääntöpohjainen visualisointi | Kartat ja taitot">
 
-<title>Page not found | Kartat ja taitot</title>
+<title>Harjoitus 1b: Viivakohteet ja sääntöpohjainen visualisointi | Kartat ja taitot</title>
 
 
 
@@ -213,13 +213,155 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="harjoitus-1b-viivakohteet-ja-sääntöpohjainen-visualisointi" class="section level1">
+<h1>Harjoitus 1b: Viivakohteet ja sääntöpohjainen visualisointi</h1>
+<div id="harjoituksen-sisältö-1" class="section level2">
+<h2>Harjoituksen sisältö</h2>
+<p>Harjoituksessa visualisoidaan viivakohteita vektoriaineistosta
+käyttäen hyväksi sääntöpohjaista visualisointia.</p>
+</div>
+<div id="harjoituksen-tavoite-1" class="section level2">
+<h2>Harjoituksen tavoite</h2>
+<p>Koulutettava oppii viivakohteiden visualisointitavat sekä
+ymmärtää, miten luoda sääntöpohjaisia kuvaustekniikoita
+tasoille. Koulutettava oppii myös tieaineistoihin liittyviä
+edistyneempiä kuvaustekniikoita.</p>
+</div>
+<div id="valmistautuminen-1" class="section level2">
+<h2>Valmistautuminen</h2>
+<p>Avaa edellisessä harjoituksessa luotu QGIS-projekti.</p>
+<div id="sääntöpohjainen-visualisointi" class="section level3">
+<h3>Sääntöpohjainen visualisointi</h3>
+<p>Viivakohteet voivat olla päällekkäisiä tasoja muiden tyyppisten tasojen
+päällä. Jotta viivakohteet erottuvat taustasta (esimerkiksi puistoalueiden
+läpi menevät polut), ne laitetaan usein aluekohteiden päälle.
+Aineistossa tiet ja rakennukset menevät usein päällekkäin eivätkä toimi
+kaikilla mittakaavatasoilla sujuvasti yhteen. Tehdään siis ensiksi
+<strong>rakennus</strong>-polygonitasolle siis <strong>sääntöpohjainen visualisointi</strong>.</p>
+<p><img src="img/harjoitus1/img6.png" /></p>
+<p>Tasolla on oletuksena yksi sääntö (kaikki kohteet kuvataan kaikilla
+mittakaavoilla samalla tavalla), tuplaklikkaa sitä muokataksesi sitä.</p>
+<p><img src="img/harjoitus1/img7.png" /></p>
+<p>Tarkoituksena on luoda sääntö, jonka perusteella QGIS näyttää
+rakennukset vain 1 : 10 000 -mittakaavassa ja sitä tarkemmissa
+mittakaavatasoissa.</p>
+<p>Haluamme valita visualisointiin kaikki talot, joten
+valitse suodattimeksi <strong>“Else”</strong>. Suodatuksen lisävalintoihin pääsemme
+tieaineiston parissa. Nyt meille riittää, että laitamme täpän Scale
+range -kohtaan ja täytämme pienimmäksi mittakaavaksi 1:10 000 ja
+suurimmaksi 1:1. Tämä mittakaavaväli on se, jolla mm. monia opaskarttoja
+tarkastellaan.</p>
+<p><img src="img/harjoitus1/img8.png" /></p>
+<p>Nyt kun muutat QGISin näkymässä kartan mittakaavaa (käyttämällä vaikkapa
+hiiren rullaa tai kannettavan tietokoneen hiiren lähennystä ja
+loitonnusta), huomaat että rakennukset tulevat näkyviin ja katoavat
+mittakaavatason mukaan.</p>
+</div>
+<div id="tieaineisto" class="section level3">
+<h3>Tieaineisto</h3>
+<p>Tieviiva-aineisto sisältää erityyppisiä teitä. Avaa aineiston
+attribuuttitaulukko ja tarkastele mitä se sisältää. Huomaat, että
+Kohdeluokka-sarakkeessa tiet on luokiteltu seitsemään eri luokkaan.
+Kartoissa on kuitenkin usein vain neljä eri luokkaa tietyypeille, joten
+käytetään samaa luokittelua.</p>
+<div class="hint-box">
+<p>Tässä harjoituksessa käytetyt kohdeluokat perustuvat
+Maanmittauslaitoksen luokitukseen Autotie Ia (12111), Autotie Ib
+(12112), Autotie IIa (12121), Autotie IIb (12122), Autotie IIIa (12131),
+Autotie IIIb (12132), Ajotie (12141). Tarkemmat tiedot aineistosta
+löytyvät:
+<a href="https://www.maanmittauslaitos.fi/sites/maanmittauslaitos.fi/files/attachments/2023/06/Maastotietokohteet_2023_05.pdf" class="uri">https://www.maanmittauslaitos.fi/sites/maanmittauslaitos.fi/files/attachments/2023/06/Maastotietokohteet_2023_05.pdf</a></p>
+</div>
+<p>Jotta saamme luotua mittakaavaperusteisen näkyvyyden aineistolle ja
+tehtyä eri luokille omat visualisointinsa, valitaan tieviiva-aineistolle
+sääntöpohjainen visualisointi. Tee uusi sääntö paneelin vasemmasta
+alareunasta <img src="img/harjoitus1/img9.png" /> -painikkeesta. Tästä tulee
+<strong>luokka 1</strong>.</p>
+<p>Lisää suodatin, scale range (mittakaavaperusteinen näkyvyys) sekä
+kaksi visualisointitasoa kohteelle:</p>
+<p><strong>Otsikko:</strong> Luokka 1</p>
+<p><strong>Suodatin</strong>: <code>"kohdeluokka" = 12111 OR "kohdeluokka" =12112</code></p>
+<p><strong>Scale range</strong>: 1:100000000, 1:1</p>
+<p>Valitse aineistolle ensin yksi yksinkertainen täyttö, jossa on haluamasi
+väri. Sen jälkeen paina <img src="img/harjoitus1/img9.png" /> -painiketta ja
+lisää toiseksi väriksi musta. Ensimmäisestä väristä tehdään tien pääväri
+ja mustasta tien reunaviivan väri.</p>
+<p><img src="img/harjoitus1/img10.png" /></p>
+<p>Jotta saat mustan värin reunaviivaksi, aseta se visualisointijärjestyksessä
+alimmaiseksi painamalla <img src="img/harjoitus1/img11.png" /> -painiketta ja
+asettamalla mustan viivan paksuus täyttövärin paksuutta isommaksi. Näin
+QGIS luo siis ensin leveän mustan viivan, jonka päälle tulee toisella
+värillä hieman kapeampi viiva - lopputulos saa tieaineiston näyttämään
+tiealueelta, jolla on reunaviiva.</p>
+<div class="hint-box">
+<p>Esimerkkikuvan asetukset luokalle 1 olivat:</p>
+<p><strong>Viiva 1 (sisus)</strong>: täyttöväri: #f1a342 paksuus: 2,2 mm</p>
+<p><strong>Viiva 2 (reuna)</strong>: täyttöväri: #000000 paksuus: 2,6 mm</p>
+</div>
+<p>Tee lopuille kolmelle luokalle samalla tavalla sääntöpohjainen
+luokittelu ja mittakaavaperusteinen näkyvyys näillä arvoilla:</p>
+<div class="hint-box">
+<p><strong>Luokka 2</strong> “kohdeluokka” =12121 OR “kohdeluokka” =12122</p>
+<p>Scale range: 1:20001, 1:1</p>
+<p>Viiva 1: täyttöväri: #f7e27c paksuus: 2,8 mm</p>
+<p>Viiva 2: täyttöväri: #000000 paksuus: 3,1 mm</p>
+<p><strong>Luokka 3</strong> “kohdeluokka” = 12131 OR “kohdeluokka” = 12132</p>
+<p>Scale range: 1:10001, 1:1</p>
+<p>Viiva 1: täyttöväri: #ffffff paksuus: 1,2</p>
+<p>Viiva 2: täyttöväri: #7e7a7a paksuus 1,6</p>
+<p><strong>Luokka 4</strong> “kohdeluokka” = 12141</p>
+<p>Scale range: 1:10 001, 1:1</p>
+<p>Viiva 1: täyttöväri: #ffffff paksuus: 1,2</p>
+<p>Viiva 2: täyttöväri: #a4a9a2 paksuus: 1,8 Viivan tyyli: pisteviiva</p>
+</div>
+<p>Nyt tiet ovat muuten valmiita, mutta monissa kohdin reunaviivat
+näyttävät menevän väärin, esimerkiksi risteykset näyttävät
+sekaville. Muutetaan siis vielä teiden piirtojärjestys,
+jotta reunaviivat menevät piiloon. Paina “symbolitasot”:</p>
+<p><img src="img/harjoitus1/img12.png" /></p>
+<p>Määrittele järjestys kuvan mukaisesti klikkaamalla värin kenttää ja
+kirjoittamalla siihen (musta jää 0:ksi, muut värit muutetaan arvoon 1):</p>
+<p><img src="img/harjoitus1/img13.png" /></p>
+<p>Nyt QGIS piirtää mustan värin ensin ja sen päälle täyttövärin. Näin
+reunaviivat on saatu piiloon. Seuraavaksi vielä asetetaan teiden
+keskinäinen piirtojärjestys niin, että päätiet piirtyvät pikkuteiden
+päälle. Klikkaa alalaidasta “Tason piirto” -kohtaa ja laita täppä “Säädä
+kohteiden piirtojärjestystä” -kohtaan. Tämän jälkeen paina sen vieressä
+olevaa symbolia avataksesi lisäasetukset.</p>
+<p><img src="img/harjoitus1/img14.png" /> <img src="img/harjoitus1/img15.png" /></p>
+<p>Aseta arvot kuten kuvassa (Lauseke: <em>kohdeluokka</em>, Nouseva/laskeva:
+<em>Laskeva</em>). Nyt QGIS järjestää kohteet kohdeluokka-sarakkeen arvojen
+mukaan niin, että isoimman arvon omistavat kohteet tulevat
+päällimmäisiksi. Paina <strong>OK</strong>.</p>
+</div>
+<div id="rautatie" class="section level3">
+<h3>Rautatie</h3>
+<p>QGISissä on myös valmiita visualisointeja, jotka näkyvät
+visualisointiasetusten alkunäkymässä. Katso symbolikirjaston
+suosikeista, miltä näyttäisi vaikkapa “topo railway”. Saat
+valmiin kuvaustyylin käyttöön klikkaamalla sitä hiiren vasemmalla
+painikkeella. Voit tutkia, miten tyyli on tehty, klikkaamalla sen
+visualisointitapoja. Mitä saat muutettua “Pistesymboliviiva”- tai
+“Yksinkertainen pistesymboli”-otsikoiden alta?</p>
+<p><img src="img/harjoitus1/img16.png" /></p>
+<p>Voit käyttää valmista symbolia visualisointisi pohjana, jota
+alat editoimaan. Esimerkiksi “topo railwayn” alle voit lisätä alle
+valkoisen yhtenäisen viivan samaan tapaan kuin teissä lisättiin
+musta reunaviiva päävärin alle. Tämän voit tehdä valitsemalla
+Yksinkertainen viiva -visualisointitason ja muokkaamalla siinä
+olevan mustan, kapean viivan leveäksi ja valkoiseksi.</p>
+<p>Muokattavat kohdat ja esimerkkiarvot:</p>
+<p><img src="img/harjoitus1/viiva.png" /></p>
+<p>Lopputulos:</p>
+<p><img src="img/harjoitus1/img17.png" /></p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + S tai päävalikosta Projekti &gt; Tallenna.</p>
+
+</div>
+</div>
 </div>
 <p style="text-align: center;">
+<a href="01_harjoitus_1a.html"><button class="btn btn-default">Previous</button></a>
+<a href="03_harjoitus_2.html"><button class="btn btn-default">Next</button></a>
 </p>
 </div>
 </div>
