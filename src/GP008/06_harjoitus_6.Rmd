@@ -1,4 +1,4 @@
-#Lisäharjoitus: Oman väripaletin ja oletusfontin lisääminen
+# Lisäharjoitus: Oman väripaletin ja oletusfontin lisääminen
 
 ## Harjoituksen sisältö
 Harjoituksessa tehdään oma väripaletti ja oletusfontti.
@@ -8,7 +8,7 @@ Koulutettava oppii luomaan valmiita väripaletteja QGISiin ja käyttämään Tyy
 
 ## Väripalettien luominen
 
-Voit luoda oman väripaletin kohdasta ** Asetukset /-> Valinnat /-> Värit**. Voit luoda ja nimetä uusia väripaletteja painamalla  ja lisätä olemassaoleviin uusia värejä. Jos sinulla on valmiiksi määritettyjä värejä (RGB- tai HTLM-koodeilla), voit käyttää niitä värien poimimiseen tai valita ne manuaalisesti värikartalta hiirellä.
+Voit luoda oman väripaletin kohdasta **Asetukset /-> Valinnat /-> Värit**. Voit luoda ja nimetä uusia väripaletteja painamalla  ja lisätä olemassaoleviin uusia värejä. Jos sinulla on valmiiksi määritettyjä värejä (RGB- tai HTLM-koodeilla), voit käyttää niitä värien poimimiseen tai valita ne manuaalisesti värikartalta hiirellä.
 
 Painamalla ![](img/harjoitus6/img1.png) voit luoda ja nimetä uuden väripaletin. Värien lisääminen tapahtuu -symbolista.
  
@@ -18,7 +18,7 @@ Voit myös tallentaa paletin .glp-tiedostona jaettavaksi muille oikealla olevast
  
 Kun haluat käyttää määrittämiäsi värejä visualisointiin, löydät paletin Värikartta-välilehden pudotusvalikosta. Sieltä voit myös poistaa ja lisätä värejä tarvittaessa!
 
-![](img/harjoitus6/paletin-haku.PNG)
+![](img/harjoitus6/paletin-haku.png)
   
 ## Uusien oletusfonttien määrittely
 
@@ -28,11 +28,11 @@ Saatat myös tarvita yhtenäisiä fontteja organisaatiosi tai työryhmäsi käyt
 
 Nyt voit määrittää fontit, koot, tietyt muotoilut, maskit ja muut. Voit tallentaa thext-muodon oletustyyleihin ponnahdusikkunassa, kun tallennat tyylin (Valitse kohtaan Destination: Oletus). Tallennuksen jälkeen voit viedä (export) tyylin lisäyskuvakkeen vierestä ja jakaa sen muille. Hae vain luomasi tyyli luettelosta ja vie se tavalliseen tapaan .xml-tiedostona. Tuonti voidaan tehdä samasta paikasta.
 
-![](img/harjoitus6/tekstinmuotoilu.PNG)
+![](img/harjoitus6/tekstinmuotoilu.png)
  
 Sitten kun määrität nimiöitä vektoritasolle, luomasi uuden tyylin pitäisi ponnahtaa tyyleihin normaalien tekstimuotoasetusten alapuolella. Esimerkkikuvassa näkyy luotu "test" -tyyli.
  
-![](img/harjoitus6/testtyyli.PNG)
+![](img/harjoitus6/testtyyli.png)
  
  
 Voit kokeilla samaan tapaan myös uusien visualisointityylien tallentamista viiva- ja polygonikohteille Tyylien hallinnasta.
@@ -40,5 +40,5 @@ Voit kokeilla samaan tapaan myös uusien visualisointityylien tallentamista viiv
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + S tai päävalikosta Projekti > Tallenna.
 
 ::: hint-box
-** Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki@gispo.fi! **
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki@gispo.fi!**
 :::
