@@ -51,4 +51,4 @@ if ($combine -ne "no-combine") {
 
 Remove-Item -Path $tempFolder -Recurse -Force
 
-Write-Host "Process completed! Output at $(pwd)/out/${code}_pdf" -ForegroundColor Green
+Write-Host "Process completed! Output at $(pwd)\out\${code}_pdf" -ForegroundColor Green
