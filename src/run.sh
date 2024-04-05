@@ -6,7 +6,9 @@ set -e
 
 rm -rf /out/$code/*
 
-mkdir /out/$code
+if [ ! -d "/out/$code" ]; then
+    mkdir /out/$code
+fi
 
 Rscript -e "bookdown::render_book('/app/$code', 'bookdown::html_book')"
 
