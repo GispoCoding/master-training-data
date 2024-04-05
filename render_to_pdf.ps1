@@ -3,6 +3,8 @@ param (
     [string]$combine = ""
 )
 
+$ErrorActionPreference = "Stop"
+
 if ($code -eq "") {
     Write-Host "Usage: "
     Write-Host "  Rendering one course: $($MyInvocation.MyCommand.Name) <code>"
@@ -11,7 +13,7 @@ if ($code -eq "") {
 }
 
 if ($code -eq "all") {
-    $folders = Get-ChildItem "docs\G*" -Directory
+    $folders = Get-ChildItem "out\G*" -Directory
     foreach ($folder in $folders) {
         $folderName = $folder.Name
         Invoke-Expression "./$($MyInvocation.MyCommand.Name) $folderName $combine"
@@ -19,26 +21,25 @@ if ($code -eq "all") {
     exit 0
 }
 
-$docsFolder = "docs\$code"
-
-if (-not (Test-Path $docsFolder) -and $code -ne "all") {
-    Write-Host "Error: Folder '$code' not found in 'docs' directory."
-    Write-Host "Usage: "
-    Write-Host "  Rendering one course: $($MyInvocation.MyCommand.Name) <code>"
-    Write-Host "  Rendering all courses: $($MyInvocation.MyCommand.Name) all"
-    exit 1
-}
-
 Write-Host "Processing ${code}..."
 
-$tempFolder = "docs/${code}_pdfbook"
+try {
+    & ".\render.ps1" ${code}
+} catch {
+    Write-Host "An error occured in $_"
+    throw
+}
+
+$outFolder = "out\$code"
+
+$tempFolder = "out/${code}_pdfbook"
 Remove-Item -Path $tempFolder -Recurse -Force -ErrorAction SilentlyContinue
 New-Item -ItemType Directory -Path $tempFolder | Out-Null
-Copy-Item -Path "$docsFolder/*" -Destination $tempFolder -Recurse -Force
+Copy-Item -Path "$outFolder/*" -Destination $tempFolder -Recurse -Force
 
 Move-Item -Path "$tempFolder/index.html" -Destination "$tempFolder/00_index.html" -Force
 
-docker run --rm -v "$(pwd)/docs:/app" -v "$(pwd)/out:/out" --entrypoint /bin/sh surnet/alpine-wkhtmltopdf:3.19.0-0.12.6-small /app/run.sh $code
+docker run --rm -v "$(pwd)/docs/run.sh:/app/run.sh" -v "$(pwd)/out:/out" --entrypoint /bin/sh surnet/alpine-wkhtmltopdf:3.19.0-0.12.6-small /app/run.sh $code
 
 $pdfFolder = "out/${code}_pdf"
 
@@ -49,3 +50,5 @@ if ($combine -ne "no-combine") {
 }
 
 Remove-Item -Path $tempFolder -Recurse -Force
+
+Write-Host "Process completed! Output at $(pwd)/out/${code}_pdf" -ForegroundColor Green
