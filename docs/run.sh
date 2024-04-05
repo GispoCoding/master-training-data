@@ -2,7 +2,7 @@
 
 code=$1
 
-input_folder="/app/${code}_pdfbook"
+input_folder="/out/${code}_pdfbook"
 
 set -e
 

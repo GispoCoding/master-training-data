@@ -17,28 +17,22 @@ if [ "$code" = "all" ]; then
     exit 0
 fi
 
-docs_folder="docs/$code"
-
-if [ ! -d "$docs_folder" ] && [ "$code" != "all" ]; then
-    echo "Error: Folder '$code' not found in 'docs' directory."
-    echo "Usage: "
-    echo "  Rendering one course: $0 <code>"
-    echo "  Rendering all courses: $0 all"
-    exit 1
-fi
+out_folder="out/$code"
 
 echo "Processing $code..."
 
 set -e
 
-temp_folder=docs/${code}_pdfbook
+./render.sh $code
+
+temp_folder=out/${code}_pdfbook
 rm -rf $temp_folder
 mkdir $temp_folder
-cp -r ${docs_folder}/* $temp_folder
+cp -r ${out_folder}/* $temp_folder
 
 mv $temp_folder/index.html $temp_folder/00_index.html
 
-docker run --rm -v "$(pwd)/docs:/app" -v "$(pwd)/out:/out" --entrypoint /bin/sh surnet/alpine-wkhtmltopdf:3.19.0-0.12.6-small /app/run.sh $code
+docker run --rm -v "$(pwd)/docs/run.sh:/app/run.sh" -v "$(pwd)/out:/out" --entrypoint /bin/sh surnet/alpine-wkhtmltopdf:3.19.0-0.12.6-small /app/run.sh $code
 
 pdf_folder="out/${code}_pdf"
 
@@ -55,3 +49,5 @@ if [ "$2" != "no-combine" ]; then
 fi
 
 rm -rf $temp_folder
+
+echo -e "\033[32mProcess completed! Output at $(pwd)/out/${code}_pdf"
