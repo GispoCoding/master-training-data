@@ -33,11 +33,11 @@ set -e
 
 docker run --rm -v "$(pwd)/src:/app" -v "$(pwd)/out:/out" gispo/bookdown:latest /app/run.sh $code
 
-if [ -d "docs/$code" ]; then
-    rm -rf "docs/$code"
-fi
 
 if [ "$WORKFLOW" = true ]; then
+    if [ -d "docs/$code" ]; then
+        rm -rf "docs/$code"
+    fi
     mv "out/$code" "docs/$code"
 
     rm -R out
@@ -46,13 +46,13 @@ if [ "$WORKFLOW" = true ]; then
 fi
 
 if [ "$ARTIFACT" = true ]; then
-  if [ ! -d "artifact" ]; then
-    mkdir artifact
-  fi
+    if [ ! -d "artifact" ]; then
+        mkdir artifact
+    fi
 
-  mv "out/$code" "artifact/$code"
+    mv "out/$code" "artifact/$code"
 
-  rm -R out
+    rm -R out
 
-  test -f "artifact/$code/index.html"
+    test -f "artifact/$code/index.html"
 fi
