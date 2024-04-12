@@ -1,142 +1,125 @@
-# Harjoitus 5: Digitoinnin perusteet
+# Harjoitus 5: Karttatuloste
 
-**Harjoituksen sisältö**
+## Harjoituksen sisältö
 
-Harjoituksessa luodaan vektoriaineisto hyödyntäen digitoinnin perustyökaluja.
+Harjoituksessa tehdään karttatuloste.
 
-**Harjoituksen tavoite**
+## Harjoituksen tavoite
 
-Harjoituksen jälkeen osallistuja osaa lisätä ja luoda tasoja QGISiin.
-
-**Arvioitu kesto**
-
-30 minuuttia.
+Koulutettava oppii laatimaan karttatulosteen halutussa mittakaavassa sekä tehdä tulosteesta PDF-tiedoston.
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 5**".
+Käynnistä QGIS-ohjelmisto. Avaa harjoituksen 4 QGIS-projektisi ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_5**". Voit poistaa tai laittaa näkyvistä tasot TieViiva ja NaturaKohde_ma.
 
-## Muokkauksen yleisasetukset
+## Karttatuloste
 
-Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkausikkuna tulee esiin jokaisen polygonin piirtämisen jälkeen niin rastita **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri keltaiseksi (**Kuminauha**) ja **Taitepisteen** symbolin tyyli ja koko. Paina **OK**, niin asetukset tulevat voimaan.
-
-![](img/harjoitus_5/image1.png)
-
-## Editoinnin valmistelu
-
-Aloitetaan tekemällä editointia helpottavia valmisteluja. Ensimmäisenä aktivoi omaan projektiisi **Työkalut-valikosta** seuraavat työkalut:
-
--   Digitoinnin työkalupalkki
-
--   Digitoinnin lisätyökalujen palkki
-
--   Tarttumisen työkalut\
-
-![](img/harjoitus_5/image2.png)
-
-Usein ensimmäinen operaatio aineistojen luomisessa on taustakartan lisääminen. Taustakartta helpottaa liikkumista ja aineistojen tarkistusta. Uudemmissa QGISin versioissa on OpenStreetMapin taustakarttatasot saatavilla valmiina. Lisää taustakartta projektiin vasemmalta tuplaklikkaamalla  **Selain-paneelista XYZ Tiles \> OpenStreetMap**.
-
-![](img/harjoitus_5/image3.png)
-
-Zoomaa kartta Suomen kohdalle ja koska haluamme tehdä tarkkaa editointia oikeassa koordinaattijärjestelmässä, muutetaan projektin koordinaattijärjestelmä Suomen kansalliseen **EUREF-FIN 3067**. Klikkaa projektin oikeasta alakulmasta, jossa lukee tällä hetkellä EPSG:3857, jonka QGIS on asettanut taustakartan perusteella.
-
-Paina tämän jälkeen **OK,** jonka jälkeen avautuva ikkuna kysyy sinulta koordinaattimuunnoksesta. Valitse uudestaan **OK** ja nyt projektisi on oikeassa koordinaattijärjestelmässä.
-
-## GeoPackagen luonti
-
-Luo uusi GeoPackage-taso valitsemalla päävalikosta **Tasot \> Luo taso \> Uusi Geopackage-taso**.
-
-![](img/harjoitus_5/image4.png)
-
-GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi **"Aluesuunnitelma"** ja luotavan tason nimeksi **"Alueet"**. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi **3067**. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:
-
--   Nimi: Alueen_nimi / Tyyppi: teksti
-
--   Nimi: Rakennusala / Tyyppi: kokonaisluku
-
--   Nimi: Pinta-ala / Tyyppi: desimaalinumero
-
-![](img/harjoitus_5/image5.png)
-
-Muista aina klikata **Lisää kenttälistaan -painiketta**, jotta jokainen kenttä ilmestyy listaukseen.
-
-::: hint-box
-Integer, 32bit integer vai Integer 64 bit? Tässä tapauksessa valitsemme kentän tyypiksi Integerin, mutta mistä tietää jatkossa, kumman valitsee?\
-\
-Ensin käyttötarkoitus: mitä lukuja kenttään tallennetaan?\
-\
-16-bit unsigned integer voi sisältää luvun väliltä -32 768 - 32 767\
-Signed: 0 - 65 535.\
-32-bit unsigned integer voi sisältää luvun välillä −2 147 483 648 - 2 147 483 647\
-Signed: 0 - 4 294 967 295.\
-64-bit unsigned integer voi sisältää luvunvälillä −9 223 372 036 854 775 808 - 9 223 372 036 854 775 807\
-Signed: 0 - 18 446 744 073 709,55.\
-\
-QGIS:issä (versioissa 3.10+) integerit ovat oletuksena signed-tyyppisiä, ellei toisin mainita.\
-Toisakseen tulee harkittavaksi, mihin tuota tietoa tallennetaan: Geopackage, PostgreSQL vai joku muu? Mitä enemmän käytetään bittejä, sitä suuremmaksi kasvaa tiedostojen koot (myös PostgreSQL:ssä on tiedostoja tietokannan takana). Mitä suuremmat tiedostot, sitä hitaammin asiat sujuvat.\
-\
-Kolmanneksi pitäisi ottaa huomioon, että siirretäänkö kyseistä aineistoa johonkin toiseen järjestelmään / tiedostoformaattiin. Tuleeko tilanteita, joissa 64bit tallennettu tieto pitääkin viedä tiedostoon, joka ei salli noin suuria numeroita (kuten Shapefile).\
-:::
-
-## Aloita geometrioiden editointi
-
-Siirrytään editointialueelle hyödyntämällä **sijaintikirjanmerkkejä**. Valitse ylävalikosta **Näytä \> Paneelit \> Sijaintikirjanmerkkien hallinta**, jolloin QGIS-työtilaasi ilmestyy uusi paneeli (yleensä Selain-paneelin ja Tasot-paneelin väliin).
-
-![](img/harjoitus_5/image6.png)![](img/harjoitus_5/image7.png)
-
-Tuo kurssihakemistoon tallennettu kirjanmerkki Editointialue.xml QGIS-projektiin klikkaamalla **Vie/tuo kirjanmerkit -painiketta Sijaintikirjanmerkkien hallinta -paneelissa**.
-
-![](img/harjoitus_5/image8.png)
-
-Listaan ilmestyy tuotu **Editointialue-sijaintikirjanmerkki**. Pääset sijaintikirjanmerkin osoittamalle alueelle klikkaamalla **Zoomaa kirjanmerkkiin -painiketta** ![](img/harjoitus_5/image9.png).
-
-![](img/harjoitus_5/image10.png)
-
-Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla **Tason muokkaus päälle/pois -painiketta** ![](img/harjoitus_5/image11.png). Huomaa, että **Digitoinnin työkalupalkin** työkalut aktivoituvat. 
-
-![](img/harjoitus_5/image12.png)
-
-Valitse työkaluksi **Lisää polygonikohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, niin napauta hiiren oikeaa näppäintä, uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
-
-![](img/harjoitus_5/image13.png)
-
-Kun editointi on valmis, QGISiin avautuu **Alueet - Kohteen attribuutit -ikkuna**. Laita **Alueen_nimi-kohtaan "Aluerajaus"**. Muihin kenttiin ei vielä tarvitse täyttää mitään.
-
-![](img/harjoitus_5/image14.png)
-
-Luodaan seuraavaksi uusi GeoPackage-taso, mutta kokonaan uuden tietokannan luomisen sijaan teemme aikaisemmin luotuun **Aluesuunnitelma-GeoPackageen** vain uuden tason. Anna taulun nimeksi **"Kulkureitit"** ja lisää siihen seuraavat kentät:
-
--   Nimi: Reitin_nimi / Tyyppi: teksti
-
--   Nimi: Pituus / Tyyppi: desimaalinumero
-
-![](img/harjoitus_5/image15.png)
-
-Kun klikkaat **OK**, QGIS kysyy, haluatko korvata olemassa olevan GeoPackage-tiedoston (ja sen taulut) tällä tiedostolla vai lisätä tiedostoon/tietokantaan uuden tason. Valitse **Lisää uusi taso**, jolloin projektiin lisätään jälleen uusi taso.
-
-![](img/harjoitus_5/image16.png)
-
-Laita nyt vuorostaan tämän juuri luodun tason editointi päälle klikkaamalla **Tason muokkaus päälle/pois -kuvaketta** (kynäikoni). Koska haluamme että kulkureittien editointi alkaa aivan alueen reunasta, on kytkettävä **Tarttuminen (snapping)** päälle. Voit tehdä tämän klikkaamalla **Ota tarttuminen käyttöön -painiketta** ![](img/harjoitus_5/image17.png). Valitse ensimmäisestä alasvetovalikosta **Kaikki tasot** ja toisesta valikosta kuvan mukaisesti **Piste** ja **segmentti**. Aseta **tarttumisherkkyydeksi** 12 pikseliä (oletusherkkyys).
-
-![](img/harjoitus_5/image18.png)
-
-Luodaan seuraavaksi kulkureitti, joka kulkee alueen läpi kuvan mukaisesti. Anna tälle kulkureitille nimeksi **"Raitiotie"**. Jätä pituus-kenttä vielä tyhjäksi.
-
-![](img/harjoitus_5/image19.png)
-
-Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot **Kentän arvojen laskin -työkalun** avulla. Avaa laskin klikkaamalla **Ominaisuustietojen työkalupalkista** **Avaa kentän arvojen laskin -painiketta** ![](img/harjoitus_5/image20.png) ![](img/harjoitus_5/image21.png)
-
-Klikkaa avautuvasta ikkunasta **Päivitä olemassa oleva kenttä** ja valitse alasvetovalikosta **Pituus-kenttä**. Kirjoita **Lauseke-kenttään** lauseke, joka laskee viivamaisen kohteen pituuden sekä pyöristää sen yhden desimaalin tarkkuudelle:
-
-::: code-box
-round(\$length, 1)
-:::
+Uuden tulosteen muodostaminen voidaan aloittaa kahdella tavalla, valitse **Projekti → Uusi taitto** tai paina työkalua:
 
 ![](img/harjoitus_5/image22.png)
 
-Laita lopuksi molempien tasojen tason muokkaus pois päältä klikkaamalla kynäkuvaketta. Tallenna kaikki muutokset tasoihin. Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
+Ensimmäisenä kysytään uuden taiton nimeä. Anna taitolle jokin sitä hyvin kuvaava nimi. Taittoa varten avautuu uusi ikkuna.
+
+![](img/harjoitus_5/image9.png)
+
+Paina tulosalueella hiiren oikealla näppäimellä ja valitse **Sivun ominaisuudet**. Tarkista **Elementin ominaisuudet -välilehdestä** oikeasta paneelista, että paperin kooksi A4, suunta **Vaaka** ja **Taitto-välilehdestä**, että viennin resoluutio on 300 dpi. Tämän jälkeen voimme sijoittaa karttanäkymän tulosteelle, valitse työkalupalkista työkalu:
+
+![](img/harjoitus_5/image1.png)
+
+Vedä tulosalueelle suorakulmio, karttanäkymän mukainen kartta piirtyy näytölle.
+
+![](img/harjoitus_5/image2.png)
+
+Valitse **Elementin ominaisuudet -välilehti** ja muuta kartan parametrejä seuraavasti:
+
+-   Kartan mittakaavaksi 1:200 000
+-   Valitse Kehys (piirtää kartalle reunaviivat)
+
+Huomaa, että karttatulosteen hallinnassa on mahdollisuus siirtää yksittäisiä kohteita (nimikkeitä) tai muokata kartan sijaintia. Kohteen ollessa valittuna, voit siirtää sitä tulosteella seuraavan työkalun avulla:
+
+|                                  |                                                         |
+|:------------------:|:--------------------------------------------------:|
+| ![](img/harjoitus_5/image16.png) |                Valitse/siirrä elementtiä                |
+| ![](img/harjoitus_5/image21.png) | Siirrä elementin sisältöä (esimerkiksi kartan sisältöä) |
+| ![](img/harjoitus_5/image19.png) |                 Zoomaa taiton näkymässä                 |
+
+QGISin avulla voit muokata karttatulosteesi ulkoasua. Otsikko tai muu teksti voidaan lisätä **Lisää uusi nimiö** -työkalulla: ![](img/harjoitus_5/image7.png)
+
+Lisää uusi selite käyttäen: ![](img/harjoitus_5/image8.png)
+
+Ja lisää uusi mittakaava käyttäen: ![](img/harjoitus_5/image20.png)
+
+Huomaa, että näiden taiton elementtien ominaisuuksia voit muokata oikeanpuoleisen sivupalkin **Elementin ominaisuudet -välilehden** avulla. Tekstiä voi muokata tekstinkäsittelyohjelmista tutuilla työkaluilla:
+
+![](img/harjoitus_5/image25.png)
+
+Voit myös muokata selitteen ominaisuuksia. Huomaa, että sinun on poistettava kohdan **Päivitä automaattisesti** rasti. Pohjoisnuolen lisääminen tapahtuu lisäämällä kuva tällä työkalulla (vasemmasta palkista): ![](img/harjoitus_5/image14.png)
+
+Valitse sen jälkeen **Elementin ominaisuudet -ikkunasta** mieleisesi pohjoisnuoli-kuva (selaa sisältöä alaspäin, jos et heti näe nuolia).
+
+![](img/harjoitus_5/image13.png)
+
+Lopputulos voi olla esimerkiksi seuraavanlainen:
+
+![](img/harjoitus_5/image10.png)
+
+Halutessasi voit tallentaa käyttämäsi tulostemallin (layout englanniksi) ja hyödyntää sitä jatkossa seuraavien karttatulosteiden tekemiseen. Voit esimerkiksi muotoilla kollegoidesi käyttöön karttatulostemallin organisaatiollesi (logot, värit, tekstin paikka, jne.). Tämä onnistuu **Tallenna malliksi -työkalulla**: ![](img/harjoitus_5/image26.png)
+
+Lopputuloksen voit tulostaa tiedostoksi (kuvaksi tai pdf:ksi) tai tulostimeen.
+
+![](img/harjoitus_5/image15.jpg)
+
+Sopiva resoluutio karttatulosteellesi riippuu kartan käyttötarkoituksesta, mutta oletusarvoinen 300 dpi tallentaa resoluutioltaan hyvinkin tarkkoja kuvia. Voit valita arvoksi vaikkapa 200 dpi.
+
+::: hint-box
+**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
+:::
+
+## Lisätehtävä: kartta-atlas
+
+QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Seuraavassa esimerkissä tuotamme kartta-atlaksen Helsingin postinumeroalueista tutkien niitä väestön jakautumisen näkökulmasta. Tavoitteenamme on tuottaa 173 karttaa, jotka kattavat kaikki pääkaupunkiseudun postinumeroalueet.
+
+-   Lataa ensiksi postinumeroalueet paikkatietoaineiston avoindata.fi-sivustolta: <https://www.avoindata.fi/data/fi/dataset/paakaupunkiseudun-postinumeroalueet> Lataa aineisto haluamassasi muodossa kurssikansioosi ja lisää se oppimallasi tavalla QGIS-projektiin.
+
+TAI \* - **Lisää .../kurssihakemisto/Harjoitus 7/Postinumeroalueet_2019.gpkg** eli HSY:n postinumeroaineisto QGIS-projektiisi. Huom! Tämä aineisto on tallennettu koordinaattijärjestelmässä EPSG: 3067.
+
+Nyt projektissa on tasoina ainakin väestöruutuaineisto ja postinumeroalueet. Voit myös lisätä muita haluamiasi tasoja projektiin (esimerkiksi tieviivat). Avaa uusi tuloste ja aseta sen sommittelu haluamaasi kokoon (esimerkiksi A5).
+
+Lisää tulosteelle kartta, johon piirtyvät karttaikkunassa näkyvät projektin tasot. Lisää otsikko, selite ja muut karttatulosteen graafiset tai kartografiset elementit (kuten logo tai pohjoisnuoli) totuttuun tapaan. Lähennä karttanäkymä n. yhden postinumeroalueen laajuiseksi (esim. 1:25 000), sillä lopputuloksessa kartta-atlaksen karttalehdet automaattisesti kohdentuvat postinumeroalueiden kokoon.
+
+Sitten aloitetaan kartta-atlaksen tuottaminen. Aktivoimme tulosteelle kartta-atlastilan oikean ominaisuuspalkin Atlaksen luonti-välilehdestä kuvan osoittamalla tavalla. Karttalehtijakotasoksi valitsemme tason, jonka alueisiin kartta-atlas perustuu. Tässä tapauksessa se on postinumeroalueet-taso.
+
+![](img/harjoitus_5/image18.png)
+
+Varmista, että karttakomponentti on valittuna, valitse se **Valitse/Siirrä elementti -työkalulla** vasemmasta työpalkista ja klikkaamalla kartta aktiiviseksi: ![](img/harjoitus_5/image16.png)
+
+Muokkaamme kartta-atlasasetuksia oikean puolen sivupalkissa **Elementin ominaisuudet → Atlas ohjaa tätä**.
+
+![](img/harjoitus_5/image6.png)
+
+Tämän jälkeen voimme esikatsella kartta-atlastamme **Esikatsele Atlasta -työkalulla** (käyttöliittymän yläreunassa):
+
+![](img/harjoitus_5/image4.jpg)
+
+Esikatselun avulla voit vilkaista, miltä kartta-atlas näyttäisi tulostaessa. Käytä nuolia esikatselutyöpalkista Huomaa, että voit tehdä samanaikaisesti muutoksia karttatulosteen tyyliasetuksiin tai vaikkapa tason luokitteluväreihin. Jos haluat voit lisätä tulosteeseen myös yleiskatsauskarttanäkymän, joka helpottaa kohteen sijainnin määrittämistä kartta-atlaksessa. Yleiskatsaus eli indeksikartta ilmaisee, millä alueella kartalla liikutaan. Lisää sitä varten tulosteeseen pienempi karttaikkuna, jota käytetään indeksikarttana. Valitse uuden karttaelementin **Elementin omaisuudet -paneelista Yleiskatsaukset** ja määritä asetukset kuvan mukaisesti:
+
+![](img/harjoitus_5/image12.png)
+
+Voit myös muuttaa indeksikartan **Kehyksen tyylin**. Kun olet valmis, voit tulostaa kartta-atlaksen **Vie atlas kuvina -työkalulla**. Huomaa, että jokaisesta kartta-atlaksen syntyy kuva eli tulostamisessa voi kestää.
+
+![](img/harjoitus_5/image11.png)
+
+Voit tulostaa atlaksen yksittäisinä kuvina tai yhteen tiedostoon PDF-formaatissa. Yhteen tiedostoon tallentaminen onnistuu aktivoimalla **Yhden tiedoston vienti jos mahdollista** -asetuksen Atlaksen luonti -välilehdessä:
+
+![](img/harjoitus_5/image23.png)
+
+Kartta-atlastuloste voisi näyttää esimerkiksi tältä:
+
+![](img/harjoitus_5/image24.jpg)
+
+Kuvan esimerkissä on käyttöön otettu myös yleiskatsauskarttanäkymä (vasen alareuna) ja taustakarttana käytetty OpenStreetMap Finlandin WMS-palvelua avaa.fi-julkaisualustan kautta (<http://avaa.tdata.fi/openstreetmap>). Huomaa, kuinka yleiskarttanäkymän pieni vaaleanpunainen neliö vaihtaa paikkaa sitä mukaa kun kohdennetun kartan alue vaihtuu.
+
 
 ::: hint-box
 Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
-
