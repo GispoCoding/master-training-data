@@ -56,8 +56,10 @@ Paina lopuksi **OK**.
 ![](img/harjoitus_1/image15.png){width="70%"}
 
 Huomaa, että kielen vaihtamisen aktivoimiseksi sinun tulee käynnistää
-QGIS uudelleen. Lisää ensimmäinen vektorimuotoinen paikkatietoaineisto
-napsauttamalla **Avaa tietolähteiden hallinta --pikakuvakenäppäintä**:
+QGIS uudelleen.
+Lisää ensimmäinen vektorimuotoinen paikkatietoaineisto
+napsauttamalla **Avaa tietolähteiden hallinta --pikakuvakenäppäintä**: ![](img/harjoitus_1/tietolahteidenhallinta.png){width="3%"}
+
 Löydät saman toiminnon myös Tasot-valikosta **Lisää taso → Lisää
 vektoritaso...** (Ctrl+Shift+V). Valitse avautuvasta ikkunasta
 vasemmalta puolelta **Vektori-välilehti**. Lisää aineisto kurssin
