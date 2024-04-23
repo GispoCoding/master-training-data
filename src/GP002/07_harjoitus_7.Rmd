@@ -69,7 +69,7 @@ Seuraavaksi lähdemme käsittelemään aineistoja **Vektori**-ylämenusta, josta
 ![](img/harjoitus_7/image10.png)
 
 Käynnistä **Ristiinleikkaus (intersection...)**-työkalu **Geoprosessointi**-valikosta.
-Määrittele syötetasoksi NaturaKohde ja leikkaavaksi tasoksi HallintoAlue-aineisto. Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista. Paina syötetason vierestä Asetukset ![](img/harjoitus_7/image23.png) ja valitse **Invalid feature filtering** asetukseksi "Skip (Ignore) features with invalid geometries.Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
+Määrittele syötetasoksi NaturaKohde ja leikkaavaksi tasoksi HallintoAlue-aineisto. Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista. Paina syötetason vierestä Asetukset ![](img/harjoitus_7/image23.png) ja valitse **Invalid feature filtering** asetukseksi "Ohita kohteet joilla on virheellinen geometria". Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
 Teemme tälle aineistolle vielä toisen analyysin, joten voit luoda tilapäisen tason:
 
 ![](img/harjoitus_7/image15.png)
