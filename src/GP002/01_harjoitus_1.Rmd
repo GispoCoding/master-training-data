@@ -88,7 +88,7 @@ raahata työkalupalkkeja eri kohtiin.
 
 **3. Karttaikkuna** Karttaikkunaan piirtyvät ne paikkatietoaineistot,
 jotka ovat tasoluettelossa aktivoituna näkyväksi. Voit lähentää ja
-loitontaa karttaa sekä paneroida siinä hiiren avulla (koita myös hiiren
+loitontaa karttaa sekä vapaasti siirtää näkymää hiiren avulla (koita myös hiiren
 scrollia).
 
 **4. Tilapalkki** Tilapalkista näet hiiren kursorin koordinaatit, minkä
