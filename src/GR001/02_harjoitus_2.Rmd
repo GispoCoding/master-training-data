@@ -221,9 +221,3 @@ tai päävalikosta **Projekti \> Tallenna**.
 tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen
 [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email} !**
 :::
-
-## Testaa tietosi...
-
-```{=html}
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfmTsA8OF6nD1aS-LWlFrXf030Y8beGVzTgDuLHUJ5P0nCOOA/viewform?embedded=true" width="700" height="600" frameborder="0" marginheight="0" marginwidth="0"></iframe>
-```
