@@ -17,7 +17,7 @@ documentclass: book
 
 <!-- Harjoitukset -->
 
-# Porvoo 2024: Johdanto QGISin käyttöön
+# Porvoo: Johdanto QGISin käyttöön
 
 ## Kurssimateriaalien lataaminen
 
