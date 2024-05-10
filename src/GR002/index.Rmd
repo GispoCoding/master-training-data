@@ -24,7 +24,7 @@ documentclass: book
 Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
 
 ::: note-box
-[Kurssihakemisto.zip](data_package_link_replace)
+[Kurssihakemisto.zip](https://drive.google.com/file/d/1YrIX1soCBXP_XPu_xxHZcZmcSy1BKWaQ/view)
 :::
 
 ## Lukuohje

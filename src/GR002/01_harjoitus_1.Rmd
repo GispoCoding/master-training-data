@@ -35,7 +35,7 @@ QGISin perusasennuspaketin mukana tietokoneellesi asennetaan **QGIS Desktop -per
 Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google Drivestä linkistä
 
 :::{.note-box}
-[Kurssihakemisto.zip](https://drive.google.com/uc?id=12pfk4z7ouTeNe4QZHNI0ZKNx49IlJxEX&export=download)
+[Kurssihakemisto.zip](https://drive.google.com/file/d/1YrIX1soCBXP_XPu_xxHZcZmcSy1BKWaQ/view)
 :::
 
 Avaa yllä oleva linkki ja klikkaa **Lataa**. Tämä lataa aineistot kokonaisuudessaan pakattuna zip-tiedostona **Kurssihakemisto.zip**. 
