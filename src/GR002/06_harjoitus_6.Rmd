@@ -12,7 +12,7 @@ Harjoituksen jälkeen koulutettava osaa lisätä erilaisia paikkatietopalveluita
 
 30 minuuttia.
 
-**Valmistautuminen** Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 3**". Tässä harjoituksessa muodostetaan yhteyksiä erilaisiin paikkatietopalveluihin, jonka kautta lisätään rasteri- ja vektoriaineistoja QGIS-projektiin.
+**Valmistautuminen** Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 6**". Tässä harjoituksessa muodostetaan yhteyksiä erilaisiin paikkatietopalveluihin, jonka kautta lisätään rasteri- ja vektoriaineistoja QGIS-projektiin.
 
 ## WMS-palvelun lisääminen
 
