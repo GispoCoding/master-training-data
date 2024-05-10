@@ -29,7 +29,7 @@ Avaa tietokoneeltasi sijainti, jonne asennuspaketti latautui ja tuplaklikkaa ase
 ![](img/harjoitus_1/image2.png)
 
 
-QGISin perusasennuspaketin mukana tietokoneellesi asennetaan **QGIS Desktop -perusohjelmiston** lisäksi mm. **QGIS Desktop with GRASS** sekä **SAGA GIS**. Nämä QGISin perusversion mukana tulevat ohjelmistot tuovat QGISin käyttöön lisää erilaisia prosessointi- ja analysointityökaluja.
+QGISin perusasennuspaketin mukana tietokoneellesi asennetaan **QGIS Desktop -perusohjelmiston** lisäksi mm. **QGIS Desktop with GRASS**. Nämä QGISin perusversion mukana tulevat ohjelmistot tuovat QGISin käyttöön lisää erilaisia prosessointi- ja analysointityökaluja.
 
 ## Kurssimateriaalien lataus
 Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google Drivestä linkistä
