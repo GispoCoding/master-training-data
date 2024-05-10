@@ -167,8 +167,6 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="04_harjoitus_4.html#valmistautuminen">Valmistautuminen</a></li>
 <li><a href="04_harjoitus_4.html#muokkauksen-yleisasetukset">Muokkauksen yleisasetukset</a></li>
 <li><a href="04_harjoitus_4.html#editoinnin-valmistelu">Editoinnin valmistelu</a></li>
-<li><a href="04_harjoitus_4.html#geopackagen-luonti">GeoPackagen luonti</a></li>
-<li><a href="04_harjoitus_4.html#aloita-geometrioiden-editointi">Aloita geometrioiden editointi</a></li>
 </ul></li>
 <li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-paikkatietoaineiston-digitointieditointi">Harjoitus 5: Paikkatietoaineiston digitointi/editointi</a>
 <ul>
@@ -209,7 +207,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>30 minuuttia.</p>
 <div id="valmistautuminen" class="section level2">
 <h2>Valmistautuminen</h2>
-<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä “<strong>QGIS-harjoitus 1</strong>”.</p>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä “<strong>QGIS-harjoitus 4</strong>”.</p>
 </div>
 <div id="muokkauksen-yleisasetukset" class="section level2">
 <h2>Muokkauksen yleisasetukset</h2>
@@ -230,72 +228,6 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p><img src="img/harjoitus_4/image3.png" /></p>
 <p>Zoomaa kartta Suomen kohdalle ja koska haluamme tehdä tarkkaa editointia oikeassa koordinaattijärjestelmässä, muutetaan projektin koordinaattijärjestelmä Suomen kansalliseen <strong>EUREF-FIN 3067</strong>. Klikkaa projektin oikeasta alakulmasta, jossa lukee tällä hetkellä EPSG:3857, jonka QGIS on asettanut taustakartan perusteella.</p>
 <p>Paina tämän jälkeen <strong>OK,</strong> jonka jälkeen avautuva ikkuna kysyy sinulta koordinaattimuunnoksesta. Valitse uudestaan <strong>OK</strong> ja nyt projektisi on oikeassa koordinaattijärjestelmässä.</p>
-</div>
-<div id="geopackagen-luonti" class="section level2">
-<h2>GeoPackagen luonti</h2>
-<p>Luo uusi GeoPackage-taso valitsemalla päävalikosta <strong>Tasot &gt; Luo taso &gt; Uusi Geopackage-taso</strong>.</p>
-<p><img src="img/harjoitus_4/image4.png" /></p>
-<p>GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi <strong>“Aluesuunnitelma”</strong> ja luotavan tason nimeksi <strong>“Alueet”</strong>. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi <strong>3067</strong>. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:</p>
-<ul>
-<li><p>Nimi: Alueen_nimi / Tyyppi: teksti</p></li>
-<li><p>Nimi: Rakennusala / Tyyppi: kokonaisluku</p></li>
-<li><p>Nimi: Pinta-ala / Tyyppi: desimaalinumero</p></li>
-</ul>
-<p><img src="img/harjoitus_4/image5.png" /></p>
-<p>Muista aina klikata <strong>Lisää kenttälistaan -painiketta</strong>, jotta jokainen kenttä ilmestyy listaukseen.</p>
-<div class="hint-box">
-<p>Integer, 32bit integer vai Integer 64 bit? Tässä tapauksessa valitsemme kentän tyypiksi Integerin, mutta mistä tietää jatkossa, kumman valitsee?<br />
-<br />
-Ensin käyttötarkoitus: mitä lukuja kenttään tallennetaan?<br />
-<br />
-16-bit unsigned integer voi sisältää luvun väliltä -32 768 - 32 767<br />
-Signed: 0 - 65 535.<br />
-32-bit unsigned integer voi sisältää luvun välillä −2 147 483 648 - 2 147 483 647<br />
-Signed: 0 - 4 294 967 295.<br />
-64-bit unsigned integer voi sisältää luvunvälillä −9 223 372 036 854 775 808 - 9 223 372 036 854 775 807<br />
-Signed: 0 - 18 446 744 073 709,55.<br />
-<br />
-QGIS:issä (versioissa 3.10+) integerit ovat oletuksena signed-tyyppisiä, ellei toisin mainita.<br />
-Toisakseen tulee harkittavaksi, mihin tuota tietoa tallennetaan: Geopackage, PostgreSQL vai joku muu? Mitä enemmän käytetään bittejä, sitä suuremmaksi kasvaa tiedostojen koot (myös PostgreSQL:ssä on tiedostoja tietokannan takana). Mitä suuremmat tiedostot, sitä hitaammin asiat sujuvat.<br />
-<br />
-Kolmanneksi pitäisi ottaa huomioon, että siirretäänkö kyseistä aineistoa johonkin toiseen järjestelmään / tiedostoformaattiin. Tuleeko tilanteita, joissa 64bit tallennettu tieto pitääkin viedä tiedostoon, joka ei salli noin suuria numeroita (kuten Shapefile).<br />
-</p>
-</div>
-</div>
-<div id="aloita-geometrioiden-editointi" class="section level2">
-<h2>Aloita geometrioiden editointi</h2>
-<p>Etsitään editoitava alue kartalla hyödyntäen QGISin hakutoimintoa OSM-kartan kanssa. QGISin alapalkissa vasemmalla on upotettu Etsi-toiminto, johon on sisäänrakennettu esimerkiksi OpenStreetMapin aineistoon perustuva Nominatim Geocoder, jonka avulla voimme etsiä osoitteita.</p>
-<p>Etsiminen tapahtuu kirjoittamalla <code>&gt;</code> jonka perään osoite. Tässä harjoituksessa editoimme Vallilanlaakson aluetta Kumpulassa, joten kirjoitamme hakukenttään <code>&gt; Vallilanlaakso</code></p>
-<p><img src="img/harjoitus_4/image6.gif" /></p>
-<div class="hint-box">
-<p>Jos QGIS versiosi on vanhempi voi olla että tarvitset Nominatim Locator Filter- lisäosan. Asenna se Lisäosat välilehden kautta. Kun olet asentanut lisäosan, hae kohdetta muutoin samaan tapaan mutta aloita haettava osoite <code>osm</code> -sanalla eli kirjoita Etsi- laatikkoon <code>osm Vallilaanlaakso</code></p>
-<p>Huomaa että Vallilanlaakso -sanan jälkeen on lisättävä vielä välilyönti, jotta haku tapahtuu.</p>
-</div>
-<p>Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla <strong>Tason muokkaus päälle/pois -painiketta</strong> <img src="img/harjoitus_4/image7.png" />. Huomaa, että <strong>Digitoinnin työkalupalkin</strong> työkalut aktivoituvat.</p>
-<p><img src="img/harjoitus_4/image8.png" /></p>
-<p>Valitse työkaluksi <strong>Lisää polygonikohde</strong> ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, niin napauta hiiren oikeaa näppäintä, uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.</p>
-<p><img src="img/harjoitus_4/image9.png" /></p>
-<p>Kun editointi on valmis, QGISiin avautuu <strong>Alueet - Kohteen attribuutit -ikkuna</strong>. Laita <strong>Alueen_nimi-kohtaan “Aluerajaus”</strong>. Muihin kenttiin ei vielä tarvitse täyttää mitään.</p>
-<p><img src="img/harjoitus_4/image10.png" /></p>
-<p>Luodaan seuraavaksi uusi GeoPackage-taso, mutta kokonaan uuden tietokannan luomisen sijaan teemme aikaisemmin luotuun <strong>Aluesuunnitelma-GeoPackageen</strong> vain uuden tason. Anna taulun nimeksi <strong>“Kulkureitit”</strong> ja lisää siihen seuraavat kentät:</p>
-<ul>
-<li><p>Nimi: Reitin_nimi / Tyyppi: teksti</p></li>
-<li><p>Nimi: Pituus / Tyyppi: desimaalinumero</p></li>
-</ul>
-<p><img src="img/harjoitus_4/image11.png" /></p>
-<p>Kun klikkaat <strong>OK</strong>, QGIS kysyy, haluatko korvata olemassa olevan GeoPackage-tiedoston (ja sen taulut) tällä tiedostolla vai lisätä tiedostoon/tietokantaan uuden tason. Valitse <strong>Lisää uusi taso</strong>, jolloin projektiin lisätään jälleen uusi taso.</p>
-<p><img src="img/harjoitus_4/image12.png" /></p>
-<p>Laita nyt vuorostaan tämän juuri luodun tason editointi päälle klikkaamalla <strong>Tason muokkaus päälle/pois -kuvaketta</strong> (kynäikoni). Koska haluamme että kulkureittien editointi alkaa aivan alueen reunasta, on kytkettävä <strong>Tarttuminen (snapping)</strong> päälle. Voit tehdä tämän klikkaamalla <strong>Ota tarttuminen käyttöön -painiketta</strong> <img src="img/harjoitus_4/image13.png" />. Valitse ensimmäisestä alasvetovalikosta <strong>Kaikki tasot</strong> ja toisesta valikosta kuvan mukaisesti <strong>Piste</strong> ja <strong>segmentti</strong>. Aseta <strong>tarttumisherkkyydeksi</strong> 12 pikseliä (oletusherkkyys).</p>
-<p><img src="img/harjoitus_4/image14.png" /></p>
-<p>Luodaan seuraavaksi kulkureitti, joka kulkee alueen läpi kuvan mukaisesti. Anna tälle kulkureitille nimeksi <strong>“Raitiotie”</strong>. Jätä pituus-kenttä vielä tyhjäksi.</p>
-<p><img src="img/harjoitus_4/image15.png" /></p>
-<p>Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot <strong>Kentän arvojen laskin -työkalun</strong> avulla. Avaa laskin klikkaamalla <strong>Ominaisuustietojen työkalupalkista</strong> <strong>Avaa kentän arvojen laskin -painiketta</strong> <img src="img/harjoitus_4/image16.png" /> <img src="img/harjoitus_4/image17.png" /></p>
-<p>Klikkaa avautuvasta ikkunasta <strong>Päivitä olemassa oleva kenttä</strong> ja valitse alasvetovalikosta <strong>Pituus-kenttä</strong>. Kirjoita <strong>Lauseke-kenttään</strong> lauseke, joka laskee viivamaisen kohteen pituuden sekä pyöristää sen yhden desimaalin tarkkuudelle:</p>
-<div class="code-box">
-<p>round($length, 1)</p>
-</div>
-<p><img src="img/harjoitus_4/image18.png" /></p>
-<p>Laita lopuksi molempien tasojen tason muokkaus pois päältä klikkaamalla kynäkuvaketta. Tallenna kaikki muutokset tasoihin. Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> (englanninkielisessä QGISissä <strong>CTRL + S</strong>) tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
 <div class="hint-box">
 <p>Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.</p>
 </div>
