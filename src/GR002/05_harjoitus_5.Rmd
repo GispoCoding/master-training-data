@@ -14,7 +14,7 @@ Opiskelija osaa muodostaa paikkatietoaineiston ja muokata sitä.
 
 **Valmistautuminen**
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **"QGIS-harjoitus 5"**. Lisää projektiin seuraava WMS- rajapintayhteys:
+Jatka edellisen harjoituksen projektiteidostolla, harjoitus 4 (**Projekti \> Uusi**) ja tallenna se nimellä **"QGIS-harjoitus 5"**. Lisää projektiin seuraava WMS- rajapintayhteys:
 
 -   <https://kartat.espoo.fi/teklaogcweb/wms.ashx> nimellä Espoon WMS
 
