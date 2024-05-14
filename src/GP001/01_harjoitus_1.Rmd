@@ -24,7 +24,7 @@ http://www.qgis.org/fi/site/
 Löydät QGISin verkkosivujen etusivulta linkin, jonka avulla pääset lataamaan QGIS-työpöytäohjelmiston. Lataa sivustolta viimeisin **QGIS LTR** (long term release eli pitkäaikaisversio). Pitkäaikaisversio sopii parhaiten ammattikäyttöön, sillä se on vakain QGIS-versio – siitä voi kuitenkin puuttua joitakin uudempien versioiden ominaisuuksia. QGISin voi asentaa Windows-, Linux- tai Mac-käyttöjärjestelmään. Eri järjestelmien QGIS-versioiden välillä huomattavimmat erot ovat väriskeemoissa ja tiedostopoluissa – muuten erot ovat hyvin pieniä.
 ![](img/harjoitus_1/image1.png)
 
-Avaa tietokoneeltasi sijainti, jonne asennuspaketti latautui ja tuplaklikkaa asennuspaketin kuvaketta asentaaksesi QGIS-paketin tietokoneellesi. Kun asennus on suoritettu, kurkista työpöydälle ilmestyneeseen **QGIS 3.22 -kansioon** ja tarkastele sieltä löytyviä pikakuvakkeita.
+Avaa tietokoneeltasi sijainti, jonne asennuspaketti latautui ja tuplaklikkaa asennuspaketin kuvaketta asentaaksesi QGIS-paketin tietokoneellesi. Kun asennus on suoritettu, kurkista työpöydälle ilmestyneeseen **QGIS 3.34 -kansioon** ja tarkastele sieltä löytyviä pikakuvakkeita.
 
 ![](img/harjoitus_1/image2.png)
 
