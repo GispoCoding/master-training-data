@@ -20,7 +20,7 @@
 
 <meta name="author" content="Gispo Oy" />
 
-<meta name="date" content="2024-04-24" />
+<meta name="date" content="2024-05-15" />
 
 
 <meta name="description" content="Harjoitus 2: QGIS-projektin valmistelu, synkronointi ja digitointi | Paikkatiedon mobiilikeruu QFieldissä">
@@ -253,16 +253,20 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <div id="taustakarttojen-lisäys" class="section level2">
 <h2>Taustakarttojen lisäys</h2>
 <p>Lisätään nyt taustakarttataso paikkatiedon mobiilikeruuta helpottamaan. Tämän voi lisätä sekä esimerkiksi WMS-tasona, jos mobiililaite on varustettu internet-yhteydellä tai se voidaan lisätä tiedostotasona jos yhteyttä ei ole, se on liian hidas, tai sitä ei muusta syystä haluta käyttää.</p>
-<div class="hintbox">
-<p>Eräs mahdollisuus on myös lisätä taustakartta rajapintana QGIS-projektiin, mutta muuttaa se ilman internet-yhteyttä käytettäväksi Geopackage-tiedostoksi halutulta alueelta projektitiedoston siirron/synkronoinnin yhteydessä. Tästä lisää myöhemmin. |</p>
+<div class="hint-box">
+<p>Eräs mahdollisuus on myös lisätä taustakartta rajapintana QGIS-projektiin, mutta muuttaa se ilman internet-yhteyttä käytettäväksi Geopackage-tiedostoksi halutulta alueelta projektitiedoston siirron/synkronoinnin yhteydessä. Tästä lisää myöhemmin.</p>
 </div>
 <p>Lisätään nyt taustakartta koko Suomen alueelta käyttäen QGISin <strong>QuickMapServices</strong>-lisäosaa. Asennetaan ensin lisäosa QGISin ylävalikosta: <strong>Lisäosat &gt; Hallitse ja asenna lisäosia</strong>, kirjoita hakukenttään <strong>QuickMapServices</strong> ja klikkaa “<strong>Asenna lisäosa</strong>”. Lisäosan asennuttua se löytyy Verkko-ylävalikosta. Lisäksi QGIS-ikkunaan aukeaa “<strong>Search QMS</strong>”-paneeli, jolla saatavissa olevia taustakarttapalveluita voi etsiä. Jos paneeli ei aukea automaattisesti, sen voi avata ylävalikon kautta. Hae paneelin avulla “<strong>Kapsi - taustakartta</strong>” ja lisää projektiin kaksoisklikkaamalla.</p>
 <p><img src="img/harjoitus_2/image1.png" /></p>
-<div class="hintbox">
+<div class="hint-box">
+<p>Toisinaan Kapsin taustakartan rajapintayhteys saattaa toimia melko hitaasti. Mikäli näin on, voi vaihtoehtoisesti käyttää QGISiin valmiiksi konfiguroitua
+OpenStreetMap-rajapintayhteyttä. Tämä löytyy Selain-paneelista “XYZ Tiles”-valikon alta, josta sen voi suoraan lisätä karttaikkunaan.</p>
+</div>
+<div class="hint-box">
 <p>Projektiin voi halutessaan lisätä useammankin taustakartan, joita voidaan käyttää QFieldissä yhtäaikaisesti. Tässä voi myös hyödyntää QGISin karttateemat-ominaisuutta.</p>
 </div>
-<div class="hintbox">
-<p>Digitointia auttamaan saattaisi olla hyödyllistä käyttää lisäksi esimerkiksi ortoilmakuvaa, joka löytyy myös QuickMapServicen “Kapsi”-haulla. Pidetään projekti nyt mahdollisimman yksinkertaisena ja pidetään vain “Kapsi - taustakartta” -taso.</p>
+<div class="hint-box">
+<p>Digitointia auttamaan saattaisi olla hyödyllistä käyttää lisäksi esimerkiksi ortoilmakuvaa, joka löytyy myös QuickMapServicen “Kapsi”-haulla. Pidetään projekti nyt mahdollisimman yksinkertaisena ja jätetään vain yksi taustakartta-taso.</p>
 </div>
 </div>
 <div id="tasojen-luonti" class="section level2">
@@ -290,8 +294,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Voit nyt vertailun vuoksi testata, miltä editointi ja tietojen lisäys näyttää QGISissa työskenneltäessä. Aseta siis <strong>Puut</strong>-taso editoitavaksi, esimerkiksi klikkaamalla tason kohdalta hiiren oikealla napilla ja valitsemalla <strong>Tason muokkaus päälle/pois</strong>. Paina <strong>Lisää pistekohde</strong> -nappia digitoinnin työkalupalkista (kts. kuvaa alla). Klikkaa kartalla lisätäksesi pistemäisen kohteen, jolloin lomake aukeaa. Testaa kutakin kenttää ja huomaa, että niihin lisätään tietoja eri tavoilla. Nyt ei kuitenkaan ole tarpeen lisätä kohdetta, joten testattuasi voit klikata <strong>Peru</strong>.</p>
 <p><img src="img/harjoitus_2/image4.png" /></p>
 <p>Kun olet valmis, tallenna vielä projektitiedosto pikanäppäimellä <strong>CTRL + T</strong> tai päävalikosta <strong>Projekti &gt; Tallenna</strong>. Nyt perustasot ja -aineistot on lisätty QGIS-projektiin, joten valmistellaan seuraavaksi projektin siirto mobiililaitteeseen.</p>
-<div class="hintbox">
-<p>QFieldin kehittäjät suosittelevat GeoPackagen käyttöä myös rasteridatalle, erityisesti mobiililaitteille suurten tiedostokokojen takia. Lisätietoja näiden esivalmistelusta löytyy <a href="https://qfield.org/docs/data-formats/">dokumentaatiosta</a>. |</p>
+<div class="hint-box">
+<p>QFieldin kehittäjät suosittelevat GeoPackagen käyttöä myös rasteridatalle, erityisesti mobiililaitteille suurten tiedostokokojen takia. Lisätietoja näiden esivalmistelusta löytyy <a href="https://qfield.org/docs/data-formats/">dokumentaatiosta</a>.</p>
 </div>
 </div>
 <div id="qfield-sync--lisäosan-asentaminen-ja-käyttö" class="section level2">
@@ -305,7 +309,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><p>QGISin ylävalikosta: <strong>Lisäosat &gt; QFieldSync &gt; Määritä nykyinen projekti</strong></p></li>
 <li><p><strong>Pakkaa QFieldiä varten</strong> -toimintoa käytettäessä työkalupalkista (<strong>Määritä nykyinen projekti</strong> -nappi)</p></li>
 </ul>
-<p>Käytetään jotakin edellä mainituista tavoista ja konfiguroidaan projekti QFieldiä varten. Huomaa, että valitaan avautuvasta ikkunasta “Cable export” -välilehti QFieldCloudin sijaan. Välilehdellä näkyy nyt myös listaus projektin tasoista. Tasoille voi yksitellen määrittää jokin seuraavista valinnoista:</p>
+<p>Käytetään jotakin edellä mainituista tavoista ja konfiguroidaan projekti QFieldiä varten. Huomaa, että valitaan avautuvasta ikkunasta “Kaapeliyhteys”-välilehti QFieldCloudin sijaan. Välilehdellä näkyy nyt myös listaus projektin tasoista. Tasoille voi yksitellen määrittää jokin seuraavista valinnoista:</p>
 <ul>
 <li><p>Kopioi: tekee tiedostopohjaisen tason kopion suoraan siirrettävän QField-projektin paketointikansioon</p></li>
 <li><p>Säilytä olemassa olevat (kopioi jos puuttuu)</p></li>
@@ -326,7 +330,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <div id="projektin-avaaminen-qfieldissä" class="section level2">
 <h2>Projektin avaaminen QFieldissä</h2>
 <p>Avataan nyt mobiililaitteeseen siirretty QGIS-projekti QFieldissä. Avaa QField-sovellus (jos QField kysyy hyväksytäänkö paikallisten tiedostojen käyttö ja paikannus, valitse salli), jolloin sinulle ilmestyy jälleen alla olevan kuvan mukainen etusivu. Valitse <strong>Avaa paikallinen tiedosto</strong>.</p>
-<p>Tällöin näytölle tulee “QField tiedostojen hakemisto” jonka alihakemistot ovat lähtökohtaisesti tyhjiä Android-käyttöjärjestelmässä. Tämä johtuu Googlen loppuvuonna 2021 tekemistä muutoksista, jotka eivät salli sovellusten suoraa pääsyä laitteen tallennusmuistiin. Siksi onkin  ensin importoitava se kansio, jonne projektin siirsit, jotta QField voi käyttää sitä. Se tapahtuu painamalla oikean alalaidan vihreää plus-nappia, valitse <strong>“Import project from folder”</strong> jonka jälkeen navigoi mobiililaitteen kansioon johon projekti siirrettiin ja klikkaa <strong>“Use this folder”</strong>. Tämän toimenpiteen jälkeen projektin pitäisi löytyä kansion “QField tiedostojen hakemisto”/“Imported Projects” alta. Avaa QGIS-projekti klikkaamalla mobiililaitteen tiedostoista, jonka jälkeen QFieldiin avautuu karttanäkymä. </p>
+<p>Tällöin näytölle tulee “QField tiedostojen hakemisto” jonka alihakemistot ovat lähtökohtaisesti tyhjiä Android-käyttöjärjestelmässä. Tämä johtuu Googlen loppuvuonna 2021 tekemistä muutoksista, jotka eivät salli sovellusten suoraa pääsyä laitteen tallennusmuistiin. Siksi onkin  ensin importoitava se kansio, jonne projektin siirsit, jotta QField voi käyttää sitä. Se tapahtuu painamalla oikean alalaidan vihreää plus-nappia, valitse <strong>“Tuo projekti hakemistosta”</strong> jonka jälkeen navigoi mobiililaitteen kansioon johon projekti siirrettiin ja klikkaa <strong>“Use this folder”</strong>. Tämän toimenpiteen jälkeen projektin pitäisi löytyä kansion “QField tiedostojen hakemisto”/“Imported Projects” alta. Avaa QGIS-projekti klikkaamalla mobiililaitteen tiedostoista, jonka jälkeen QFieldiin avautuu karttanäkymä. </p>
 <p><img src="img/harjoitus_2/image7.png" /></p>
 <p>Tarkastele avattua projektia, ja varmistu että <strong>Valikosta</strong> löytyy kaikki lisätyt tasot ja ettei avattaessa esimerkiksi tule mitään virheilmoituksia.</p>
 </div>
@@ -336,8 +340,8 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Avaa valikko, aktivoi muokkaus- eli digitointitila kynä-ikonia klikkaamalla. Klikkaa lisäksi Puut-tason kohdalta, jolloin taso tulee aktiiviseksi ja digitointi kohdistuu siihen. Sulje valikko. Huomaa että karttanäkymän keskelle on ilmestynyt tähtäinristikko. Tämä määrää mihin kohtaan digitoitava kohde tulee. Huomaa, että digitointitilassa karttanäkymän oikeasta alakulmasta löytyy myös vastaavankaltainen vihreä ristikkotähtäin-kuvake. Tätä klikkaamalla lisätään uusi kohde Puut-taso on. </p>
 <p><img src="img/harjoitus_2/image8.png" /></p>
 <p>Liikuta nyt karttaa kohtaan, johon haluat lisätä puun ja klikkaa vihreää nappia. Tällöin avautuu ominaisuustietolomake puu-kohteen tietojen lisäämistä varten. Huomaa, että tässä lomakkeessa on kaikki tason kentät, esimerkiksi fid ja uuid, jota emme yleensä halua erikseen manuaalisesti täyttää. Samaten luonti- ja muokkausaikoja lukuunottamatta tietojen syöttö tapahtuu yksinkertaisesti näppäimistön avulla kirjoittamalla, sillä muut kentät ovat joko teksti- tai luku-tyyppiä. Kirjoita nyt lomakkeen laji-kohtaan jotakin ja klikkaa lomakkeen vasemmasta yläkulmasta lisätäksesi kohteen.</p>
-<div class="hintbox">
-<p>Kohdetta lisättäessä tietojen syöttölomakkeen oikeassa laidassa kenttien kohdalla on  valintalaatikko. Ruksaamalla valintalaatikko QField muistaa kentän viimeksi syötetyn arvon ja täyttää sen valmiiksi seuraavalle kohteelle. Tästä voi olla hyötyä joissakin tilanteissa. Oletusarvoja pystyy toki määrittämään myös QGISin lomake-asetuksissa (Harjoitus 3). |</p>
+<div class="hint-box">
+<p>Kohdetta lisättäessä tietojen syöttölomakkeen oikeassa laidassa kenttien kohdalla on  valintalaatikko. Ruksaamalla valintalaatikko QField muistaa kentän viimeksi syötetyn arvon ja täyttää sen valmiiksi seuraavalle kohteelle. Tästä voi olla hyötyä joissakin tilanteissa. Oletusarvoja pystyy toki määrittämään myös QGISin lomake-asetuksissa (Harjoitus 3).</p>
 </div>
 <p><img src="img/harjoitus_2/image9.png" /></p>
 <p>Voit poistaa nyt lisätyn Puut-tason yksittäisen testipisteen seuraavasti:</p>
@@ -370,7 +374,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Paikkatiedon mobiilikeruu QFieldissä</h5>
-<span class="footer-version">v2024-04-24</span>
+<span class="footer-version">v2024-05-15</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 

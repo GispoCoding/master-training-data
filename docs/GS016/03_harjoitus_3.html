@@ -20,7 +20,7 @@
 
 <meta name="author" content="Gispo Oy" />
 
-<meta name="date" content="2024-04-24" />
+<meta name="date" content="2024-05-15" />
 
 
 <meta name="description" content="Harjoitus 3: Lomakkeet | Paikkatiedon mobiilikeruu QFieldissä">
@@ -247,7 +247,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div id="taustatietoja" class="section level2">
 <h2>Taustatietoja</h2>
-<p>Tässä harjoituksessa muokataan projektissa olevien tasojen tietojen syötön lomakkeita digitoinnin helpottamiseen ja tehostamiseen. QGISissa on erityyppisille tiedoille ja niiden syöttötavoille valittavissa monenlaisia vimpaimia (widgets). Näitä kaikkia ei kuitenkaan ole vielä tuettuna QFieldissa, joten niitä ei voi siinä siis käyttää. Tuettujen widget-tyyppien ajantasaisen listan näet dokumentaatiosta: <a href="https://qfield.org/docs/prepare/attributes-form.html" class="uri">https://qfield.org/docs/prepare/attributes-form.html</a></p>
+<p>Tässä harjoituksessa muokataan projektissa olevien tasojen tietojen syötön lomakkeita digitoinnin helpottamiseen ja tehostamiseen. QGISissa on erityyppisille tiedoille ja niiden syöttötavoille valittavissa monenlaisia vimpaimia (widgets). Näitä kaikkia ei kuitenkaan ole vielä tuettuna QFieldissa, joten niitä ei voi siinä siis hyödyntää. Minkä tahansa syöttatavan voi kyllä huoletta QGIS-lomakkeisiin konfiguroida, mutta ei-tuettujen widgettien tapauksessa QField jättää tämän huomiotta ja käyttää kyseessä olevan tietotyypin mukaista oletus-syöttötapaa. Tuettujen widget-tyyppien ajantasaisen listan näet dokumentaatiosta: <a href="https://qfield.org/docs/prepare/attributes-form.html" class="uri">https://qfield.org/docs/prepare/attributes-form.html</a></p>
 </div>
 <div id="ominaisuustietolomakkeen-muokkaus" class="section level2">
 <h2>Ominaisuustietolomakkeen muokkaus</h2>
@@ -261,7 +261,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div id="ympärysmitta--ja-korkeus--tietokentät" class="section level2">
 <h2>Ympärysmitta- ja korkeus -tietokentät</h2>
-<p>Klikkaa nyt ympärysmitta-kenttää Taitosta-sarakkeessa. Sekä tämän että korkeus-kentän  sisältö on numeerista, eli on luontevinta valita widgetin tyypiksi <strong>rajat</strong>. Tehdäänkin näin, mutta muistetaan samalla että tämä tyyppi ei ole tällä hetkellä tuettuna QFieldissä ja sen lomakenäkymässä nämä tiedot joudutaankin syöttämään tekstisyöttönä. Ei-tuettujen widgettien tapauksessa se siis jättää sen huomiotta ja käyttää oletus-syöttötapaa (QField tunnistaa kyllä tässäkin kentän tyypin ja varmistaa että tähän pystyy lisäämään ainoastaan numeroita avaamalla numeronäppäimistön). </p>
+<p>Klikkaa nyt ympärysmitta-kenttää Taitosta-sarakkeessa. Sekä tämän että korkeus-kentän  sisältö on numeerista, eli on luontevinta valita widgetin tyypiksi <strong>rajat</strong>. Tehdäänkin näin, ja määritetään samalla sopivat minimi- ja maksimiarvot ja missä mittayksiköissä nämä arvot annetaan (jälkiliite, esimerkiksi <strong>cm</strong> tai <strong>m</strong>), sekä se kuinka suurin askelein arvoja kasvatetaan vimpainta käytettäessä (kts. kuva alla). Tähän ei sinällään ole yhtä oikeaa ratkaisua, vaan kannattaa miettiä mikä on kyseessä olevan datan keräämisen kannalta järkevintä.</p>
 <p><img src="img/harjoitus_3/image3.png" /></p>
 </div>
 <div id="huomiot-tietokenttä" class="section level2">
@@ -271,14 +271,19 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <div id="valokuva" class="section level2">
 <h2>Valokuva</h2>
 <p>Mobiililaitteella otettujen valokuvien lisäys tapahtuu QFieldillä liitteenä, joten valise widgetiksi <strong>Liite</strong> ja sen asetuksista <strong>Suhteelliset polut</strong>.</p>
-<div class="hintbox">
+<div class="hint-box">
 <p>Pidä mielessä, että QField tallentaa tasolle kohteen tietoihin valokuvista (ja muista liitteistä) ainoastaan tiedostopolun, ei itse valokuvaa. Valokuvat tallentuvat mobiililaitteen kansioon. Tarkastellaan tätä lisää myöhemmin, kun synkronoidaan kerättyjä tietoja takaisin QGIS-projektiin. Tällöin valokuvat sisältävä kansio on siirrettävä erikseen tietokoneelle, projektitiedoston suhteen samaan paikkaan kuin mobiililaitteella.</p>
 </div>
 </div>
 <div id="luoja--ja-muokkaaja--tietokenttien-automatisointi" class="section level2">
 <h2>Luoja- ja muokkaaja -tietokenttien automatisointi</h2>
-<p>Luoja- ja muokkaaja-kentät ovat teksti-muotoisia kenttiä, jotka sisältävät tiedon muokkauksen tekijästä. Pidä siis widgettinä <strong>Tekstin muokkaus</strong>. Koska muokkaaja tietyllä laitteella on yleensä yksi ja sama henkilö, tätä ei haluta joka kerta lisätä manuaalisesti, vaan automaatio on suotavaa, ja se voidaan saavuttaa <strong>Oletusarvot</strong>-kohdan avulla. Olemme aiemmin määritelleet QFieldin asetuksissa käyttäjän oman muuttujan <strong>username</strong>. Tällaiseen muuttujan arvoon voi QGISissa viitata <strong>@</strong>-merkillä. Kirjoita siis tähän Oletusarvo-kohtaan Luonti- ja muokkauskentille kummallekin erikseen <strong>@username_full_name</strong>, jolloin QField osaa lisätä kohteelle käyttäjänimen.</p>
-<p>Luonti ja muokkaus eroavat toisistaan siinä, että kohde luodaan vain kerran, kun taas sitä voidaan muokata moneen kertaan. <strong>Muokkaaja</strong>-tietokentälle pitääkin varmistaa, että tässä on <strong>Yleistä</strong>-kohdassa valittuna <strong>Muokattava</strong> ja <strong>Oletusarvo</strong>-kohdassa <strong>Käytä oletusarvoa päivityksessä</strong>. Vastaavasti <strong>Luoja</strong>-tietokentässä nämä kaksi kohtaa eivät saa olla valittuna, jotta tietojen syöttö toimisi kuten haluamme! Sen sijaan kohteella tulee aina olla luoja, joten laitetaan sille vielä <strong>Ehdot</strong>-kohdassa ehdot <strong>Ei tyhjä (null)</strong> ja <strong>EI NULL -ehto on pakottava</strong>.</p>
+<p>Luoja- ja muokkaaja-kentät ovat teksti-muotoisia kenttiä, jotka sisältävät tiedon muokkauksen tekijästä. Pidä siis widgettinä <strong>Tekstin muokkaus</strong>.</p>
+<p>Koska muokkaaja tietyllä laitteella on yleensä yksi ja sama henkilö, tätä ei haluta joka kerta lisätä manuaalisesti, vaan automaatio on suotavaa, ja se voidaan saavuttaa <strong>Oletusarvot</strong>-kohdan avulla. Olemme aiemmin määritelleet QFieldin asetuksissa käyttäjän oman muuttujan <strong>username</strong>. Tällaiseen muuttujan arvoon voi QGISissa viitata <strong>@</strong>-merkillä. Kirjoita siis tähän Oletusarvo-kohtaan Luonti- ja muokkauskentille kummallekin erikseen <strong>@username</strong>, jolloin QField osaa lisätä kohteelle käyttäjänimen.</p>
+<div class="hint-box">
+<p>QGISissa itsessään ei ole muuttujaa <strong>“username”</strong> määritettynä, vaan QGISin käyttäjän nimi on muuttujassa <strong>“user_full_name”</strong>, ja tämä tietysti voi myös olla eri kuin mobiililaitteen käyttäjä. Jos siis halutaan lisätä ja muokata dataa myös QGISissa, kannattaa oletusarvo-kohtaan laittaa ylläolevan <strong>@username</strong>-arvon sijasta esimerkiksi seuraavanlainen funktio joka osaa valita kussakin tapauksessa oikean käyttäjänimen: <strong>if(@username IS NOT NULL, @username, @user_full_name)</strong></p>
+</div>
+<p>Luonti ja muokkaus eroavat toisistaan siinä, että kohde luodaan vain kerran, kun taas sitä voidaan muokata moneen kertaan. <strong>Muokkaaja</strong>-tietokentälle pitääkin varmistaa, että <strong>Yleistä</strong>-kohdassa ei ole rastitettuna <strong>Muokattava</strong>-valintaa, mutta <strong>Oletusarvo</strong>-kohdassa on valittuna <strong>Käytä oletusarvoa päivityksessä</strong>. Tämä siis tarkoittaa, että muokkaajan arvo muuttuu kyllä muokkauksissa oletusarvon mukaisesti, mutta muokkaajan arvoa ei pysty erikseen kukaan kirjoittamaan ja vaihtamaan toiseksi.</p>
+<p>Vastaavasti <strong>Luoja</strong>-tietokentässä kumpikaan näistä mainituista arvoista ei saa olla valittuna, jotta tietojen syöttö toimisi kuten haluamme, eli että kutakin kohdetta ensimmäistä kertaa luodessa tieto tekijästä tallentuu eikä sen jälkeen enää muutu kohteen tietoja päivitettäessä. Jos halutaan vielä varmistaa että kohdetta ei voi lisätä ilman tekijätietoa, sille voi lisätä vielä <strong>Ehdot</strong>-kohdassa ehdot <strong>Ei tyhjä (null)</strong> ja <strong>EI NULL -ehto on pakottava</strong>.</p>
 </div>
 <div id="luonti--ja-muokkausaika--tietokentät" class="section level2">
 <h2>Luonti- ja muokkausaika -tietokentät</h2>
@@ -297,7 +302,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div id="näyttö-ja-kohdelistaus" class="section level2">
 <h2>Näyttö ja kohdelistaus</h2>
-<p>Huomasimme edellisen harjoituksen lopussa, että kohdelistauksesta oli hankala erottaa kohteita toisistaan selkeyttävien kohdenimien puuttuessa. Tilannetta voi helpottaa QGISin Näyttö-valikon avulla. Avaa siis jälleen Puut-tason ominaisuudet, ja avaa tällä kertaa <strong>Näyttö</strong>-välilehti. Siellä voidaan määrittää <strong>Näyttönimi</strong>, joka on nimi, joka kohdelistauksessa näkyy. Varsinaisia nimiä puukohteillamme ei nyt ole, mutta voimme yrittää erotella kohteita toisistaan esimerkiksi laji-kentän ja jonkin muun kentän, esimerkiksi luontiajan, arvon avulla. Lausekkeen voi kirjoittaa suoraan kuvassakin näkyvään laatikkoon, tai voi käyttää apuna <strong>Lausekkeen muokkaus</strong> -ikkunaa painamalla “epsilon”-ikonia laatikon oikealta puolelta. Muista, että kenttien nimet tulevat tavallisten, kaksinkertaisten lainausmerkkien sisälle (“laji”), kun taas muut tekstipätkät yksinkertaisten heittomerkkien sisälle (‘,’). Esimerkkinä karttavihjeelle voisi siis olla: <strong>“laji” || ‘,’ || “luontiaika”</strong>. Kirjoita tämä tai muu haluamasi lauseke näyttönimeksi, ja paina OK.</p>
+<p>Huomasimme edellisen harjoituksen lopussa, että kohdelistauksesta oli hankala erottaa kohteita toisistaan selkeyttävien kohdenimien puuttuessa. Tilannetta voi helpottaa QGISin Näyttö-valikon avulla. Avaa siis jälleen Puut-tason ominaisuudet, ja avaa tällä kertaa <strong>Karttavihjeet</strong>-välilehti. Siellä voidaan määrittää <strong>Näyttönimi</strong>, joka on nimi, joka kohdelistauksessa näkyy. Varsinaisia nimiä puukohteillamme ei nyt ole, mutta voimme yrittää erotella kohteita toisistaan esimerkiksi laji-kentän ja jonkin muun kentän, esimerkiksi luontiajan, arvon avulla. Lausekkeen voi kirjoittaa suoraan kuvassakin näkyvään laatikkoon, tai voi käyttää apuna <strong>Lausekkeen muokkaus</strong> -ikkunaa painamalla “epsilon”-ikonia laatikon oikealta puolelta. Muista, että kenttien nimet tulevat tavallisten, kaksinkertaisten lainausmerkkien sisälle (“laji”), kun taas muut tekstipätkät yksinkertaisten heittomerkkien sisälle (‘,’). Esimerkkinä karttavihjeelle voisi siis olla: <strong>“laji” || ‘,’ || “luontiaika”</strong>. Kirjoita tämä tai muu haluamasi lauseke näyttönimeksi, ja paina OK.</p>
 <p><img src="img/harjoitus_3/image5.png" /></p>
 </div>
 <div id="tarttumisen-asetukset" class="section level2">
@@ -306,7 +311,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <ul>
 <li><p>magneetti-ikoni on aktivoituna,</p></li>
 <li><p>“kaikki tasot” valittuna,</p></li>
-<li><p>Taitepiste ja Segmentti valittuna</p></li>
+<li><p>Piste ja Segmentti valittuna</p></li>
 <li><p>etäisyysarvo on 15 pikseliä (px).</p></li>
 </ul>
 <p><img src="img/harjoitus_3/image6.png" /></p>
@@ -316,7 +321,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Voit testata nyt miltä lomake näyttää tehdyillä muutoksilla. Tutki lomaketta ensin QGISissa lisäämällä joitakin kohteita Puut-tasoon. Tämän jälkeen siirrä projekti jälleen QFieldiin QField Sync -lisäosaa käyttäen (ei tarvitse muuttaa synkronointiasetuksia) ja testaa QFieldissa. Voit joko lisätä uusia kohteita QFieldillä tai vain selata olemassa olevien kohteiden attribuuttitietoja. Kummassakin tapauksessa näet aukeavassa lomakkeessa luodut välilehdet (perustiedot ja metatiedot). Pääset liikkumaan välilehdeltä toiselle joko klikkaamalla välilehden otsikkoa tai liu’uttamalla näyttöä sormella sivulle.</p>
 <p><img src="img/harjoitus_3/image7.png" /><br />
 </p>
-<div class="hintbox">
+<div class="hint-box">
 <p>Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki@gispo.fi! |</p>
 </div>
 
@@ -335,7 +340,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Paikkatiedon mobiilikeruu QFieldissä</h5>
-<span class="footer-version">v2024-04-24</span>
+<span class="footer-version">v2024-05-15</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 

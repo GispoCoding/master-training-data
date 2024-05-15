@@ -20,7 +20,7 @@
 
 <meta name="author" content="Gispo Oy" />
 
-<meta name="date" content="2024-04-24" />
+<meta name="date" content="2024-05-15" />
 
 
 <meta name="description" content="Harjoitus 1: Asennus ja käyttöönotto | Paikkatiedon mobiilikeruu QFieldissä">
@@ -244,16 +244,16 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <div id="valmistautuminen" class="section level2">
 <h2>Valmistautuminen</h2>
 <p>Android-käyttöliittymällä (versio uudempi kuin 5) varustettu mobiililaite tulee olla käyttövalmiina sekä yhdistettynä internetiin.</p>
-<p>Harjoitusohjeet on tehty QFieldin suomenkieliselle käyttöliittymälle, joten olisi tarvittaessa hyvä vaihtaa mobiililaitteen käyttöliittymän kieli suomeksi, jolloin. QFieldinkin kieli on suomi. Tämä käy esimerkiksi englanninkielisessä Android-käyttöjärjestelmässä seuraavasti: <strong>Settings (“Ratas”-kuvake) &gt; System &gt; Languages &amp; input &gt; Languages</strong>, ja raahaamalla kieli <strong>Suomi (Suomi)</strong> luettelon ensimmäiseksi (kieli on mahdollisesti ensin lisättävä kohdasta <strong>Add a language</strong>). Kysy tarvittaessa apua kouluttajalta. Toki QFieldin käyttöliittymän kielen saa myöhemmin vaihdettua suomeksi myös sovelluksen asetuksista.</p>
+<p>Harjoitusohjeet on tehty QFieldin suomenkieliselle käyttöliittymälle, joten olisi tarvittaessa hyvä vaihtaa mobiililaitteen käyttöliittymän kieli suomeksi, jolloin QFieldinkin kieli on suomi. Tämä käy esimerkiksi englanninkielisessä Android-käyttöjärjestelmässä seuraavasti: <strong>Settings (“ratas”-kuvake) &gt; System &gt; Languages &amp; input &gt; Languages</strong>, ja raahaamalla kieli <strong>Suomi (Suomi)</strong> luettelon ensimmäiseksi (kieli on mahdollisesti ensin lisättävä kohdasta <strong>Add a language</strong>). Kysy tarvittaessa apua kouluttajalta. Toki QFieldin käyttöliittymän kielen saa myöhemmin vaihdettua suomeksi myös sovelluksen asetuksista.</p>
 </div>
 <div id="sovelluksen-asentaminen-google-play--kaupasta" class="section level2">
 <h2>Sovelluksen asentaminen Google Play -kaupasta</h2>
-<p>Avaa mobiililaitteesi Play Kauppa -sovellus klikkaamalla ja kirjoita yläosan haku-palkkiin esimerkiksi “<strong>QField</strong>”. 1. Hakutuloksen pitäisi olla <strong>QField 4 QGIS</strong> -sovellus. Klikkaa Asenna-painiketta asentaaksesi ohjelmiston. Mikäli laitteeltasi löytyy jo aiempi versio sovelluksesta, vaihtoehtona on tällöin ainoastaan <strong>Päivitä.</strong> Klikkaa sitä.</p>
+<p>Avaa mobiililaitteesi Play Kauppa -sovellus klikkaamalla ja kirjoita yläosan haku-palkkiin esimerkiksi “<strong>QField</strong>”. Ensimmäisen hakutuloksen pitäisi olla <strong>QField 4 QGIS</strong> -sovellus. Klikkaa Asenna-painiketta asentaaksesi ohjelmiston. Mikäli laitteeltasi löytyy jo aiempi versio sovelluksesta, vaihtoehtona on tällöin ainoastaan <strong>Päivitä.</strong> Klikkaa sitä.</p>
 <div class="hint-box">
 <p>Huomautus 1: Haulla löytyy myös sovellus nimeltä “QField for QGIS - Unstable”, julkaisijana myös tälle on OPENGIS.ch. Kyseessä on kuitenkin QField-sovelluksen kehitysversio, joka sisältää kaikki viimeisimmät ominaisuudet testattavaksi. Sen ei kuitenkaan voi olettaa olevan käytössä yhtä vakaa kuin varsinaisen julkaisuversion, jota siis tällä kurssilla käytämme. Tämän voi kuitenkin halutessaan asentaa QFieldin lisäksi, ja käyttää eri versioita samalla laitteella. Kokeellisen version nimi laitteella on QField Dev ja sen ikoni on musta, erotuksena normaalin QField-julkaisuversion vihreästä ikonista.</p>
 </div>
 <div class="hint-box">
-<p>Huomautus 2: Mikäli ei halua käyttää Googlen Play -sovelluskauppaa sovelluksen asentamiseen, julkaisija tarjoaa myös vaihtoehdon ladata apk-paketti (Android application package) Github-repositoriosta (<a href="https://github.com/opengisch/QField/releases/">linkki</a>). Emme kuitenkaan paneudu tähän vaihtoehtoon tällä kurssilla enempää. |</p>
+<p>Huomautus 2: Mikäli ei halua käyttää Googlen Play -sovelluskauppaa sovelluksen asentamiseen, julkaisija tarjoaa myös vaihtoehdon ladata apk-paketti (Android application package) Github-repositoriosta (<a href="https://github.com/opengisch/QField/releases/">linkki</a>). Emme kuitenkaan paneudu tähän vaihtoehtoon tällä kurssilla enempää.</p>
 </div>
 </div>
 <div id="sovelluksen-avaaminen-ja-käyttöliittymä" class="section level2">
@@ -263,7 +263,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div id="qfieldin-käyttöliittymä" class="section level2">
 <h2>QFieldin käyttöliittymä</h2>
-<p>Tutustutaan aluksi QFieldin käyttöliittymään ja sen paikkatietojen tarkasteluun sillä. Käytämme nyt aluksi valmista demoprojektia ennen kuin ryhdymme varsinaiseen paikkatietojen mobiilikeruuseen ja muokkaukseen omaa projektia käyttäen. Klikkaa siis sovelluksen etusivulla <strong>Bee Farming Demo</strong> -kohtaa, jolloin kyseisen projektin karttanäkymä avautuu.</p>
+<p>Tutustutaan aluksi QFieldin käyttöliittymään ja sen paikkatietojen tarkasteluun sillä. Käytämme nyt aluksi valmista demoprojektia ennen kuin ryhdymme varsinaiseen paikkatietojen mobiilikeruuseen ja muokkaukseen omaa projektia käyttäen. Klikkaa siis sovelluksen etusivulla <strong>Bee Farming Sample Project</strong> -kohtaa, jolloin kyseisen projektin karttanäkymä avautuu.</p>
 <p>Sovelluksen yläreunan vasemmalta puolelta löytyy <strong>Valikko</strong>, jota klikkaamalla saat näkyviin mm. QGIS-projektin tasot ja muut asetukset. Yläreunan oikealta puolelta löytyy <strong>Haku</strong>, jonka avulla voit hakea sekä kohteita projektin vektoritasoista että sijainteja esimerkiksi koordinaattien tai osoitteen perusteella. Toistaiseksi osoitehaku toimii vain osoitteille Suomen alueelta (ominaisuus ollut versiosta 1.9 “Taivaskero” lähtien). Osoitteet perustuvat Digiroadiin.</p>
 <p>Käyttöliittymän oikealta sivulta löytyy <strong>Zoomaus-painikkeet</strong>,mutta toki zoomaus toimii myös kahden sormen eleitä käyttämällä kuten mobiililaitteiden karttasovellukset yleensäkin. Näytön alareunasta löytyy <strong>Mittakaava</strong> sekä <strong>Paikannus</strong>. Kun aktivoit paikannuksen, karttapohja seuraa sijaintiasi ja keskittää siihen.</p>
 <p><img src="img/harjoitus_1/image2.png" /></p>
@@ -273,19 +273,20 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <p>Siirrytään tämän jälkeen oikeanpuolimmaiseen <strong>Muuttujat</strong>-välilehteen, joka keskittyy sekä tiettyihin QGISin versio- ym. muuttujiin että mobiililaitteen käyttöliittymän muuttujiin. Täällä voi myös määritellä omia muuttujia. Klikkaa alareunan <strong>Lisää uusi muuttuja</strong>, ja anna muuttujalle nimeksi <strong>username</strong> sekä arvoksi oma nimesi. Käytämme tätä myöhemmin harjoituksissa tallentamaan muokkaajatiedot tason kohteille.</p>
 <p>Palaa sitten vielä keskimmäiselle <strong>Paikannus</strong>-välilehdelle. Välilehdellä pystyy määrittämään paikannukseen ja sen näyttämiseen liittyviä asetuksia, esimerkiksi käyttämään ulkoista paikannuslaitetta ja huomioimaan antennin korkeuden vaikutuksen. Käytetään oletuksena kuitenkin nyt mobiililaitteen omaa paikannusta (<strong>Sisäinen laite</strong>). Sen sijaan voit halutessasi aktivoida <strong>Näytä sijainnin tiedot</strong> ja <strong>Aktivoi tarkkuusindikaattori</strong> saadaksesi tietoa koordinaateista ja paikannuksen tarkkuudesta. Sulje <strong>Asetukset</strong> klikkaamalla vasemmasta yläkulmasta, kun olet tarkastellut tarpeeksi.</p>
 <div class="hint-box">
-<p>Valikossa (rattaan kuva) pääsee myös tarkastelemaan QField-sovelluksen perustietoja (Lisätietoja QFieldistä) ja viestilokia (Viestiloki). Takaisin sovelluksen etusivulle pääset valitsemalla Avaa projekti. Valikosta löytyy myös lisätoimintoja mittaustyökalun ja PDF-karttatulosteen muodossa. Osaa näistä toiminnoista käsittelemme lisää myöhemmin. |</p>
+<p>Valikossa (rattaan kuva) pääsee myös tarkastelemaan QField-sovelluksen perustietoja (Lisätietoja QFieldistä) ja viestilokia (Viestiloki). Takaisin sovelluksen etusivulle pääset valitsemalla Avaa projekti. Valikosta löytyy myös lisätoimintoja mittaustyökalun ja PDF-karttatulosteen muodossa. Osaa näistä toiminnoista käsittelemme lisää myöhemmin.</p>
 </div>
 </div>
 <div id="selailutila" class="section level2">
 <h2>Selailutila</h2>
-<p>Tarkastellaan nyt demoprojektiin tallennettuja paikkatietoja. Avaa jälleen valikko, jolloin näet projektiin lisätyt tasot ryhmiteltynä Apiary- ja Fields-ryhmätasoihin (mehiläistarhat ja pellot). Lisäksi taustakarttana on rajapinnasta haettuna OpenStreetMap. Ryhmien edessä näkyy minkätyyppisestä geometriasta on kyse (tässä piste- ja polygonivektoritasot sekä taustakartan rasteritaso). Samaten nähdään tasoille QGISin puolella määritetyt kuvaustyylit sekä tason kohteiden lukumäärä nimen perässä hakasulkeissa.</p>
+<p>Tarkastellaan nyt demoprojektiin tallennettuja paikkatietoja. Avaa jälleen valikko, jolloin näet projektiin lisätyt tasot ryhmiteltynä Apiary- ja Fields-ryhmätasoihin (mehiläistarhat ja pellot, piste- ja polygoni-geometriatasoina). Lisäksi on viivamainen Tracks-taso (Jäljet) sekä tasoja ilman geometriaa Tables-ryhmätason alla. Taustakartat on myöskin ryhmitelty yhteen, ja valittavana on mm. rajapinnasta haettuna OpenStreetMap. Ryhmien edessä näkyy minkätyyppisestä geometriasta on kyse (tässä piste- ja polygonivektoritasot sekä taustakartan rasteritaso). Samaten nähdään tasoille QGISin puolella määritetyt kuvaustyylit sekä tason kohteiden lukumäärä nimen perässä hakasulkeissa.</p>
+<p>Valikossa ylhäällä on myös Karttateema-alasvetovalikko. Karttateemat toimivat Qfieldissa samoin kuin QGISissa, eli teeman määrittelemällä voi hallita karttanäkymää, esimerkiksi mitä tasoja kartalla näytetään kerrallaan tai määrittää samoille tasoille vaihtoehtoisia kuvaustyylejä. Kokeile eri karttateemoja, ja tarkastele miten niiden avulla voidaan vaihdella kartalla näkyviä tietoja.</p>
 <p><img src="img/harjoitus_1/image4.png" /></p>
 <p>Pitkä painallus tason tai ryhmän kohdalta avaa näihin liittyviä valintoja ja  toimintoja. Kokeile tätä ensiksi OpenStreetMap-tason kohdalta. Valittavia toimintoja on nyt <strong>Näytä kartalla</strong> -valintalaatikko, jolla tason näkyvyyttä voi hallita, sekä <strong>Zoomaa tasolle</strong> -nappi. Voit kokeilla jälkimmäistä, jolloin karttaikkunaan piirtyy koko maailmankartan laajuiseksi, jolloin voi helpommin huomata tasojen sijainnin suhteessa käyttäjään. Kokeile nyt vastaavasti jotakin vektoritasoa, esimerkiksi <strong>Buckfast bee</strong> -tasoa. Tällöin vaihtoehtona on lisäksi <strong>Näytä kohdelista</strong>, jolla voi tarkastella tason kohteiden listaa ja yksittäisten kohteiden attribuutteja. Listanäkymästä pääsee pois klikkaamalla vasemman ylänurkan nuolta. </p>
 <p>Kohteita pystyy tarkastelemaan myös suoraan karttanäkymästä kohteita klikkaamalla. Tehdäänkin nyt näin, eli siirry karttanäkymään ja klikkaa jotakin pistemäistä kohdetta. Tällöinkin aukeaa ensin listausikkuna, jossa tyypillisesti on ainoastaan pelkästään klikattu kohde (tai lähekkäisiä/päällekkäisiä kohteita). Klikkaamalla listassa olevaa kohdetta avautuu kohteen tietolomake (kuvassa alla). Huomaa lomakkeen muutama eri välilehti (<strong>General, Picture, Issues, jne.</strong>), joiden välillä pääsee liikkumaan joko sivulle liu’uttamalla tai  otsikosta klikkaamalla.</p>
 <p><img src="img/harjoitus_1/image5.png" /></p>
-<p>Tarkastele nyt lomakkeen tietoja. Huomaat, että tiedot on harmaalla ja vaikka tietojen syöttötapa (esimerkiksi tekstilaatikko tai vetovalikko) on näkyvissä niitä ei pysty muokkaamaan. Valmiiden kohteiden muokkaaminen onnistuu kuitenkin myös QFieldin selaus-moodissa. Klikkaa lomakkeen tietojen editointi aktiiviseksi lomakkeen yläpalkin kuvakkeeta jossa on kynä sekä A-kirjain, kohteen nimen oikealta puolelta. Tämän jälkeen arvojen muuttaminen onnistuu. Muokatut arvot voi joko tallentaa tai hylätä nyt yläpalkin kulmista, joko oikein-merkkiä tai ruksia painamalla. Kokeile muuttaa jonkin kohteen kaikkia ominaisuuksia, mukaan lukien valokuvaa. Sulje tämän jälkeen ominaisuustietolomake, joko liu’uttamalla lomake ylälaidasta alas, tai näytön alalaidasta “takaisin”-nuolta painamalla. Tämän jälkeen voit sulkea projektin sekä sovelluksen. Se puolestaan onnistuu klikkaamalla alalaidan “takaisin”-nuolta kahdesti.</p>
+<p>Tarkastele nyt lomakkeen tietoja. Huomaat, että tiedot on harmaalla ja vaikka tietojen syöttötapa (esimerkiksi tekstilaatikko tai vetovalikko) on näkyvissä niitä ei pysty muokkaamaan. Valmiiden kohteiden muokkaaminen onnistuu kuitenkin myös QFieldin selaus-moodissa. Klikkaa lomakkeen tietojen editointi aktiiviseksi lomakkeen yläpalkin kuvakkeesta jossa on kynä sekä A-kirjain, kohteen nimen oikealta puolelta. Tämän jälkeen arvojen muuttaminen onnistuu. Muokatut arvot voi joko tallentaa tai hylätä nyt yläpalkin kulmista, joko oikein-merkkiä tai ruksia painamalla. Kokeile muuttaa jonkin kohteen kaikkia ominaisuuksia, mukaan lukien valokuvaa. Sulje tämän jälkeen ominaisuustietolomake, joko liu’uttamalla lomake ylälaidasta alas, tai näytön alalaidasta “takaisin”-nuolta painamalla. Tämän jälkeen voit sulkea projektin sekä sovelluksen. Se puolestaan onnistuu klikkaamalla alalaidan “takaisin”-nuolta kahdesti.</p>
 <div class="hint-box">
-<p>Huomaa myös kohteen attribuuttilomakkeen yläpalkin oikeasta reunasta löytyvä lisävalintoja-painike. Painikkeesta aukeavasta valikosta löydät mm. kehys-kuvakkeen, joka kohdistaa karttanäkymän kohteeseen. Attribuuttilomakkeen yläpalkin vasemmanpuoleisilla nuolipainikkeilla pystyy puolestaan siirtymään kohdelistauksessa mahdollisesti oleviin edellisiin ja seuraaviin kohteisiin. |</p>
+<p>Huomaa myös kohteen attribuuttilomakkeen yläpalkin oikeasta reunasta löytyvä lisävalintoja-painike. Painikkeesta aukeavasta valikosta löydät mm. kehys-kuvakkeen, joka kohdistaa karttanäkymän kohteeseen. Attribuuttilomakkeen yläpalkin vasemmanpuoleisilla nuolipainikkeilla pystyy puolestaan siirtymään kohdelistauksessa mahdollisesti oleviin edellisiin ja seuraaviin kohteisiin.</p>
 </div>
 
 </div>
@@ -303,7 +304,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Paikkatiedon mobiilikeruu QFieldissä</h5>
-<span class="footer-version">v2024-04-24</span>
+<span class="footer-version">v2024-05-15</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
