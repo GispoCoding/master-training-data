@@ -6,7 +6,7 @@ Harjoituksessa syvennytään QFieldin edistyneempiin ominaisuuksiin joita ei vie
 
 ### Harjoituksen tavoite
 
-Koulutettava oppii käyttämään etenkin mobiililaitteen paikannusta mobiilikeruun tehostamiseksi QFieldin kanssa toimiessa. \|
+Koulutettava oppii käyttämään etenkin mobiililaitteen paikannusta mobiilikeruun tehostamiseksi QFieldin kanssa toimiessa.
 
 ### Arvioitu kesto
 
@@ -24,7 +24,7 @@ QFieldin karttanäkymän oikeassa yläkulmassa on suurennuslasin kuva. Klikkaa s
 
 -   koordinaatteja (WGS84-koordinaatit sekä projektin koordinaattisysteemi toimivat)
 
--   Suomen alueella olevista osoitteista
+-   Suomen alueella olevista osoitteista (**HUOM. tämä ominaisuus on rikkoutunut tämänhetkisessä QFieldin versiossa!**)
 
 Testataan nyt lyhyesti kutakin tapaa. Hae:
 

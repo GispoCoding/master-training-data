@@ -58,7 +58,7 @@ Määritä näiden jäljelle jäävien kenttien syöttötavat siis seuraavasti:
 
 -   fk_puut: tälle ei tarvitse tässä tehdä muutoksia
 
-Lisätään vielä Kasvualusta-tason kohteillekin tunniste QFieldin kohdelistausta varten. Mene siis vielä Tason ominaisuudet -ikkunassa Näyttö-välilehdelle, ja kirjoita lauseke, jossa on yhdistetty kasvualustan tyyppi ja osuus. Katso alla olevasta kuvasta mallia. Paina tämän jälkeen OK.
+Lisätään vielä Kasvualusta-tason kohteillekin tunniste QFieldin kohdelistausta varten. Mene siis vielä Tason ominaisuudet -ikkunassa Karttavihjeet-välilehdelle, ja kirjoita lauseke, jossa on yhdistetty kasvualustan tyyppi ja osuus. Katso alla olevasta kuvasta mallia. Paina tämän jälkeen OK.
 
 ![](img/harjoitus_4/image3.png)
 
