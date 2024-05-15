@@ -93,7 +93,6 @@ Uuden kohteen luomisen yhteydessä voit täyttää sen attribuuttitiedot automaa
 Ensimmäinen kohde on nyt digitoitu!
 
 
-
 ## Geometrioiden lisääminen
 
 Aloita seuraavan polygonin digitointi. Huomaa, että kun viet hiiren viisi metriä lähemmäksi jo digitoitua viivaa tai kulmapistettä, niin QGIS ehdottaa uutta kulmapistettä. Digitoi toinen alue ensimmäisen alueen vierestä. Yhteistä reunaa on ehkä hieman hankala seurata. Sitä varten on asetus, joka helpottaa huomattavasti editointia, jotta ei synny vahingossakaan päällekkäisiä polygoneja. Paina magneetti-ikonin viereistä painiketta ja valitse **Avaa tarttumisen asetukset...**.
