@@ -70,7 +70,7 @@ Etsi ilmakuvasta haluamasi alue editoitavaksi. Valittavassa alueessa olisi hyvä
 
 ![](img/harjoitus_5/image11.png)
 
-Valitse seuraavaksi valikosta **Näytä \> Työkalut \> Tarttumisen työkalut**. Tarttumisen työkalut ilmestyvät työkalupaneeliin: Klikkaa magneetti-ikonia ottaaksesi tarttumisen käyttöön. Klikkaa tämän jälkeen magneetti-ikonin oikealla puolella olevaa painiketta ja valitse **Tarttumisen asetukset**.
+Valitse seuraavaksi valikosta **Näytä \> Työkalut \> Tarttumisen työkalut**. Tarttumisen työkalut ilmestyvät työkalupaneeliin: Klikkaa magneetti-ikonia ottaaksesi tarttumisen käyttöön. Klikkaa tämän jälkeen magneetti-ikonin oikealla puolella olevaa painiketta ja valitse **Avaa tarttumisen valinnat**.
 
 ![](img/harjoitus_5/image12.png){width="373"}
 
