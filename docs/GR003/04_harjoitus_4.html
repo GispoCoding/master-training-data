@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 4: Topologia ja geometria | Porvoon QGIS -jatkokoulutus" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy." />
+
+<meta name="date" content="2024-05-15" />
+
+
+<meta name="description" content="Harjoitus 4: Topologia ja geometria | Porvoon QGIS -jatkokoulutus">
+
+<title>Harjoitus 4: Topologia ja geometria | Porvoon QGIS -jatkokoulutus</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Porvoon QGIS -jatkokoulutus</h1></div>
+<div class="abstract-sidebar"><p>Porvoon kaupungille räätälöity QGISin jatkokoulutus</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#porvoon-qgis--jatkokoulutus">Porvoon QGIS -jatkokoulutus</a>
+<ul>
+<li><a href="index.html#kurssimateriaalien-lataaminen">Kurssimateriaalien lataaminen</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-teemakartta">Harjoitus 1: Teemakartta</a>
+<ul>
+<li><a href="01_harjoitus_1.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="01_harjoitus_1.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="01_harjoitus_1.html#lisätehtävä-wms-tason-visualisointi">Lisätehtävä: WMS-tason visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-edistyneet-digitointiominaisuudet">Harjoitus 2: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="02_harjoitus_2.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode">Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
+<li><a href="02_harjoitus_2.html#rakentamistila">Rakentamistila</a></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#rakennuksen-piirto-apuviivojen-avulla">Rakennuksen piirto apuviivojen avulla</a>
+<ul>
+<li><a href="02_harjoitus_2.html#sitten-vain-harjoittelemaan.">Sitten vain harjoittelemaan….</a></li>
+</ul></li>
+<li><a href="02_harjoitus_2.html#suorakulmaisen-polygonin-piirtäminen">Suorakulmaisen polygonin piirtäminen</a></li>
+<li><a href="02_harjoitus_2.html#tehtävä-rakennus-3540-m-tontin-rajan-suuntaisesti-etäisyys-rajaan-15-m">Tehtävä: “Rakennus 35×40 m tontin rajan suuntaisesti, etäisyys rajaan 15 m”</a></li>
+<li><a href="02_harjoitus_2.html#case-rakennusala-tontille-polygonin-kopiointi-toiseksi-itseään-pienemmäksi">Case rakennusala tontille: polygonin kopiointi toiseksi itseään pienemmäksi</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-lisää-rakennukset-tasolle-funktio-jolla-pinta-ala-tieto-päivittyy-automaattisesti">Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti</a></li>
+<li><a href="02_harjoitus_2.html#lopuksi">Lopuksi</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-edistyneet-digitointiominaisuudet">Harjoitus 3: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="03_harjoitus_3.html#valmistautuminen-1"><strong>Valmistautuminen</strong></a></li>
+<li><a href="03_harjoitus_3.html#edistyneen-digitoinnin-ominaisuudet"><strong>Edistyneen digitoinnin ominaisuudet</strong></a></li>
+<li><a href="03_harjoitus_3.html#negatiivinen-vyöhyke"><strong>Negatiivinen vyöhyke</strong></a></li>
+<li><a href="03_harjoitus_3.html#kohteiden-editoiminen-alkuperäisessä-tiedostossa"><strong>Kohteiden editoiminen alkuperäisessä tiedostossa</strong></a></li>
+<li><a href="03_harjoitus_3.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode-1"><strong>Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-topologia-ja-geometria">Harjoitus 4: Topologia ja geometria</a>
+<ul>
+<li><a href="04_harjoitus_4.html#valmistautuminen-2"><strong>Valmistautuminen</strong></a></li>
+<li><a href="04_harjoitus_4.html#virheellisen-aineiston-tuonti-qgisiin"><strong>Virheellisen aineiston tuonti QGISiin</strong></a></li>
+<li><a href="04_harjoitus_4.html#tarkista-kelpoisuus-check-validity"><strong>Tarkista kelpoisuus (Check validity)</strong></a></li>
+<li><a href="04_harjoitus_4.html#topologian-tarkastaja-topology-checker"><strong>Topologian tarkastaja (Topology checker)</strong></a></li>
+<li><a href="04_harjoitus_4.html#tarkista-geometriat-geometry-checker"><strong>Tarkista geometriat (Geometry checker)</strong></a></li>
+<li><a href="04_harjoitus_4.html#geometrian-ja-topologian-validointi-tasoa-muokattaessa"><strong>Geometrian ja topologian validointi tasoa muokattaessa</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-karttatuloste">Harjoitus 5: Karttatuloste</a>
+<ul>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="05_harjoitus_5.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="05_harjoitus_5.html#lisätehtävä-kartta-atlas">Lisätehtävä: kartta-atlas</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-4-topologia-ja-geometria" class="section level1">
+<h1>Harjoitus 4: Topologia ja geometria</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa opetellaan käyttämään QGISia topologian ja geometrian tarkistukseen.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa tarkastaa aineistonsa geometrioita ja tehdä niihin manuaalisesti ja automaattisesti tarvittavia korjauksia.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>30 minuuttia.</p>
+<div id="valmistautuminen-2" class="section level2">
+<h2><strong>Valmistautuminen</strong></h2>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä "<strong>QGIS-harjoitus 4</strong>". Lisää projektiin seuraavat aineistot:</p>
+<ul>
+<li><strong>Rakennukset_alueina_GK25.shp</strong></li>
+</ul>
+</div>
+<div id="virheellisen-aineiston-tuonti-qgisiin" class="section level2">
+<h2><strong>Virheellisen aineiston tuonti QGISiin</strong></h2>
+<p><strong>Rakennukset_alueina_GK25-tiedosto</strong> on Helsinki Region Infoshare -sivustolta ladattu avoin aineisto, joka sisältää Vantaan kaupungin rakennukset. Aineiston on kerrottu päivittyvän viikoittain ja sen lähteeksi on merkitty Vantaan kaupungin kiinteistöt ja asuminen, mutta pienellä tarkastelulla huomaamme, että kyseinen aineisto ei ole täysin virheetöntä.</p>
+<p><img src="img/harjoitus_4/image1.png" /></p>
+<p>Aineisto näyttää silmämääräisesti olevan kunnossa, mutta entä sen koneluettavuus? Jos aineisto ei ole kaikkien teknisten määritysten mukainen, voi olla että sillä ei pysty esimerkiksi suorittamaan kaikkia spatiaalisia operaatioita tai sen siirrossa formaatista toiseen tulee ongelmia. Tarkastetaan siis onko tässä aineistossa joitain mahdollisia ongelmia. Tähän tarkoitukseen löytyy QGISistä useita erilaisia työkaluja.</p>
+</div>
+<div id="tarkista-kelpoisuus-check-validity" class="section level2">
+<h2><strong>Tarkista kelpoisuus (Check validity)</strong></h2>
+<p>Aloitetaan aineiston koneluettavuuden (= aineiston laadun) tarkistus "kevyimmällä" tarkistustyökalulla. Valitse QGISin päävalikosta <strong>Vektori &gt; Geometria-työkalut &gt; Tarkista kelpoisuus…</strong>, jolloin QGISiin avautuu <strong>Tarkista kelpoisuus -ikkuna</strong>.</p>
+<p><img src="img/harjoitus_4/image2.png" /></p>
+<p>Kyseinen algoritmi tekee kelpoisuustarkistuksen tason geometrioille. Geometriat luokitellaan kolmeen ryhmään (<strong>Kelvollinen tulos, Virheellinen tulos</strong> ja <strong>Virhetuloste</strong>) ja kullekin näistä luodaan uusi taso. Oletusarvoisesti algoritmi käyttää tiukkaa OGC-määritystä polygonin validoinnissa, mutta me emme halua ottaa tiukinta mahdollista määritystä huomioon, joten valitse  <strong>Ignore ring self intersections</strong>. Koska rakennus voi olla geometrialtaan täysin validi vaikka siinä olisi reikä, jätetään kyseiset virheilmoitukset huomiotta. Paina sitten <strong>Suorita</strong>.</p>
+<p><img src="img/harjoitus_4/image3.png" /></p>
+<p>QGIS tuottaa oletusasetuksilla kolme väliaikaista tasoa, jotka se lisää projektiin. Saat vielä kohteiden määrän näkyviin klikkaamalla tasoa hiiren oikealla ja valitsemalla <strong>Näytä kohteiden lukumäärä</strong>. Kuten alla olevasta kuvasta näkyy, aineisto sisältää melkoisen määrän virheellisiä geometrioita.</p>
+<p><img src="img/harjoitus_4/image4.png" /></p>
+<p>Avaa <strong>Virheellinen tulos -tason</strong> attribuuttitaulu ja tarkastele <strong>_error-saraketta</strong>. Sarake sisältää selkokielisen kuvauksen virheen luonteesta. Suurin osa virheilmoituksista on <strong>Self-intersection-virheitä</strong>, mikä tarkoittaa että polygoni leikkaa itsensä. Tämä analyysi tuo siis <strong>tiedon virheellisistä kohteista, mutta ei auta niiden korjaamisessa</strong>.</p>
+</div>
+<div id="topologian-tarkastaja-topology-checker" class="section level2">
+<h2><strong>Topologian tarkastaja (Topology checker)</strong></h2>
+<p>Seuraava vaihtoehto aineiston laatutarkistukseen on <strong>Topologian tarkastaja -työkalu</strong>. Se on QGISin ns. <strong>ytimeen kuuluva lisäosa</strong>, eli se tulee QGISin mukana, mutta sitä ei ole aina aktivoitu. Mene ylävalikosta <strong>Lisäosat &gt; Hallitse ja asenna lisäosia…</strong> ja kirjoita hakukenttään <strong>"Topologian tarkastaja"</strong>. Klikkaa työkalu aktiiviseksi, jolloin se ilmestyy ylävalikon <strong>Vektori-valikkoon</strong>.</p>
+<p><img src="img/harjoitus_4/image5.png" /></p>
+<p><strong>Topologian tarkistin -paneeli</strong> aukeaa seuraavasta <strong>Topologian tarkastaja -kuvakkeesta</strong> <img src="img/harjoitus_4/image6.png" />. Aineiston topologisen eheyden voi tarkistaa tästä paneelista.</p>
+<p><img src="img/harjoitus_4/image7.png" /></p>
+<p>Valitse ensimmäiseksi <strong>Topologian tarkastaja -paneelista Konfiguroi</strong> <img src="img/harjoitus_4/image8.png" />, jolloin QGISiin aukeaa uusi <strong>Topologiasääntöjen asetukset -ikkuna</strong>. Tässä ikkunassa voidaan määritellä ne säännöt, joiden mukaan QGIS käsittelee aineiston geometrioita. Säännöt voivat koskea vain yhtä tasoa tai ne voivat olla kahden tason välisiä sääntöjä. Sääntöjä voi olla esimerkiksi etteivät kaksi tasoa saa olla päällekkäin. Lisää aineistoon kolme sääntöä kuvan mukaisesti ja paina <strong>OK</strong>.</p>
+<p><img src="img/harjoitus_4/image9.png" /></p>
+<p>Klikkaa sitten <strong>Topologian tarkastaja -paneelissa Tarkasta kaikki -kuvaketta</strong> <img src="img/harjoitus_4/image10.png" />, jolloin QGIS ajaa kaikki äsken listatut säännöt. Minkälaisia tuloksia saat? Tarkastele tuloksia paneelin valikosta.</p>
+</div>
+<div id="tarkista-geometriat-geometry-checker" class="section level2">
+<h2><strong>Tarkista geometriat (Geometry checker)</strong></h2>
+<p>Kolmas ja järein vaihtoehto geometrioiden tarkistukseen on <strong>Tarkista geometriat -työkalu</strong>. Tämäkin työkalu pitää käydä aktivoimassa edellisen tapaan lisäosien valikoimasta. Tämäkin työkalu ilmestyy ylävalikon <strong>Vektori-valikkoon</strong>.</p>
+<p><img src="img/harjoitus_4/image11.png" /></p>
+<p>Kuten heti huomaat kyseisen työkalun valikosta, <strong>Tarkista geometriat -työkalu</strong> antaa ylivoimaisesti laajimman valikoiman validoinnin toiminnallisuuksista. Tehdään kuitenkin perustason tarkastus aineistolle ja etsitään ainoastaan duplikaatteja. Valitse siis kuvan mukaiset asetukset aineiston validoinnissa ja valitse viimeiseksi vaihtoehdoksi (vieritä ikkunaa alaspäin) <strong>Muokkaa syötetasoja</strong>. Paina sitten <strong>Suorita</strong>.</p>
+<p><img src="img/harjoitus_4/image12.png" /></p>
+<p>Työkalu ajaa algoritmia hetken, mutta palauttaa sen jälkeen virheilmoitukset havaitsemistaan virheellisistä kohteista. Voit tarkastella yksittäistä virhettä klikkaamalla riviä; kartta zoomautuu oikeaan sijaintiin ja virheellinen kohde korostuu. Virheitä voi korjata yksitellen, mutta myös useamman virheen voi valita ja korjata isomman osion kerralla. Ennen varsinaista virheiden korjausta voit määrittää virheiden ratkaisumenetelmät valitsemalla <strong>Error resolution settings</strong>. Aseta <strong>Duplicate-kohtaan</strong> ratkaisuksi <strong>Remove duplicates</strong>.</p>
+<p><img src="img/harjoitus_4/image13.png" /></p>
+<p>Korjaa virheet valitsemalla <strong>Fix selected errors using default resolution</strong>, jolloin QGIS poistaa duplikaattigeometriat, kuten määrittelimme äsken.</p>
+<p><img src="img/harjoitus_4/image14.png" /></p>
+<p>Voit lukea lisää työkalusta QGISin dokumentaatiosta: </p>
+<p><a href="https://docs.qgis.org/3.22/en/docs/user_manual/plugins/core_plugins/plugins_geometry_checker.html" class="uri">https://docs.qgis.org/3.22/en/docs/user_manual/plugins/core_plugins/plugins_geometry_checker.html</a></p>
+<div class="hint-box">
+<p>Miksi kaikki menetelmät tuottivat niin erilaisia tuloksia ja miksi vaihtoehtoja tarkastukseen on niin monta? Entä mikä olisi omalle aineistollesi paras mahdollinen tapa tarkistukseen?</p>
+</div>
+</div>
+<div id="geometrian-ja-topologian-validointi-tasoa-muokattaessa" class="section level2">
+<h2><strong>Geometrian ja topologian validointi tasoa muokattaessa</strong></h2>
+<p>Voit välttää virheellisten geometrioiden muodostumista jo aineistoa digitoidessa ja editoidessa. Avaa muokattavan tason <strong>Ominaisuudet</strong> -ikkuna ja mene <strong>Digitointi</strong> -välilehdelle. Ruksi aktiivisiksi haluamasi korjaukset.</p>
+<p><img src="img/harjoitus_4/image15.png" /></p>
+<p>Nimestään huolimatta tämä toiminto ei tee korjauksia automaattisesti, mutta huomauttaa virheellisistä geometrioista. </p>
+<p><img src="img/harjoitus_4/image16.png" /></p>
+<p>Editoidessa voit hyödyntää myös <strong>Tarttumisen työkalut</strong> -palkin toimintoa päällekkäisten kohteiden digitoinnin välttämiseen.</p>
+<p><img src="img/harjoitus_4/image17.png" /></p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> (englanninkielisessä QGISissä <strong>CTRL + S</strong>) tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+<div class="hint-box">
+<p>Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti tuki@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.</p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="03_harjoitus_3.html"><button class="btn btn-default">Previous</button></a>
+<a href="05_harjoitus_5.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Porvoon QGIS -jatkokoulutus</h5>
+<span class="footer-version">v2024-05-15</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Oy.
+<span class="footer-copyright-year">© 2024</span></h5>
+<span class="footer-contact-info">Firdonkatu 2 T 63
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
