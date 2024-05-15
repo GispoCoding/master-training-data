@@ -92,11 +92,7 @@ Uuden kohteen luomisen yhteydessä voit täyttää sen attribuuttitiedot automaa
 
 Ensimmäinen kohde on nyt digitoitu!
 
-## Muokkauksen yleisasetukset
 
-Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkaus tulee esiin jokaisen polygonin piirtämisen jälkeen, ruksi **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri siniseksi (**Kuminauha**) ja **Taitepisteen symbolin** tyyli ja koko. Paina **OK**, niin asetukset tulevat voimaan.
-
-![](img/harjoitus_5/image19.png)
 
 ## Geometrioiden lisääminen
 
