@@ -2,43 +2,58 @@
 
 ## Harjoituksen sisältö
 
-Harjoituksessa tehdään koropleettikartta, joka kuvaa kauppojen keskittymistä Oulussa.
+Harjoituksessa tehdään teemakartta Porvoon alueelta käyttäen postinumeroalueita ja rajapintapalveluja.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii luomaan heksagoniruudukon, laskemaan pisteet polygoneista ja käyttämään luokittelutyyliä visualisointiin. Hän tietää myös, mistä QGISin eri väripaletit löytyvät.
+Koulutettava oppii luomaan teemakartan sekä harjoittelee rajapintapalvelujen käyttöä.
 
-Tässä harjoituksessa tehdään koropleettikartta, joka perustuu OpenStreetMapin kauppakohteisiin.
 
+Avaa QGIS ja aloita tyhjästä projektista. Aloitetaan heti lisäämällä kaikki Suomen kuntarajat [Tilastokeskuksen rajapintapalvelusta](https://stat.fi/org/avoindata/paikkatietoaineistot.html#kuntapohjaiset). Uuden tason voi lisätä muutamalla tavalla. Voit esimerkiksi selain-paneelissa etsiä **WFS / OGC API - Features** kohdan ja klikata sitä oikealla hiirennäppäimellä. Valitse **Uusi yhteys**. Anna yhteydelle selkeä nimi ja lisää tämä Tilastokeskuksen rajapintapalvelun osoite URL-kenttään:
+
+::: note-box
+https://geo.stat.fi/geoserver/tilastointialueet/wfs
+:::
 ![](img/harjoitus_1/image1.png)
+Lisää tämän jälkeen myös uusi yhteys toiseen rajapintapalveluun, [Tilastokeskuksen Paavo-rajapinta](https://stat.fi/org/avoindata/paikkatietoaineistot/paavo.html) missä on kaikki Suomen postinumeroalueet. Paavo-rajapinnan osoite on:
 
-Mene **Vektori \> Tutkimuksen työkalut \> Luo Ruudukko**. Ruudukon tyypiksi valitaan heksagoni ja ruudukon laajuudeksi joko "Map Canvas" tai "Draw on map canvas". Valitse keskusta-alue piirtämällä.
+::: note-box
+https://geo.stat.fi/geoserver/postialue/wfs
+:::
 
-Aseta vaakatason ja pystytason välitykseksi 100m. Koordinaattijärjestelmänä EPSG: 3067, luodaan toistaiseksi tilapäinen taso. Paina lopuksi **"Suorita"**.
-
+Siirry viimeistään nyt Porvoon alueelle käyttäen karttanavigoinnin työkaluja.
 ![](img/harjoitus_1/image2.png)
 
-Nyt QGIS on luonut ruudukon antamallesi alueelle.
+Lisätään nyt Kuntaraja-rajapinnasta taso nimeltään **Kunnat (1:1 000 000)** sekä Paavo-rajapinnasta taso nimeltään **Paavo-tilastointiaineisto ja -postinumeroalueet**. Tarkista, että on oikeat tasot. Harjoituksen kannalta on tärkeää, että Paavo-aineisto sisältää myös tilastointiaineistoa. Voit avata attribuuttitaulukkoa klikkaamalla tasoa oikealla hiirennäppäimellä Tasot-paneelissa ja valita sieltä "Avaa attribuuttitaulukko". Tarkista, että sarake nimeltään "he_vakiy" on olemassa. Tässä sarakkeessa on postinumeroalueen väkimäärä. 
 
-Sen jälkeen lasketaan kuinka monta kauppaa kussakin ruudussa on. QGISin pääikkunan vasemmassa alalaidassa on haku, josta voit hakea **"Laske pisteet monikulmion sisällä"**. Klikkaa se auki listasta. Valitse Monikulmiot-kohdan pudotusvalikosta juuri luotu Ruudukko-tasoja Pisteet-kohtaan kaupat-taso. Laskurikentän nimeksi voi jättää NUMPOINTS, ja lopuksi paina **"Suorita"**.
-
-![](img/harjoitus_1/image3.png)
-
-QGIS luo nyt uuden tason, joka on äskeinen heksagonitaso, mutta jossa on attribuuttitaulussa uusi NUMPOINTS-sarake, joka kertoo kussakin heksagonissa olevien kauppojen lukumäärän. Paina uutta Lkm-tasoa tasoluettelossa hiiren oikealla ja avaa attribuuttitaulu varmistaaksesi, että prosessi on onnistunut.
-
-Seuraavaksi visualisoidaan Lkm-taso. Aseta tällä kertaa Yksittäinen symboli -visualisoinnin sijaan kuvaustyyliksi Porrastettu. Valitse Arvo-kohtaan "NUMPOINTS" ja paina "Luokittele". Oletuksena tuleva luokittelu tai väriskaala ei ole ehkä kaikkein toimivin, joten lähdetään muuttamaan niitä.
+Seuraavaksi viedään Porvoon kaupungin alue ulos omana tiedostona. Paina ensin **Kunnat (1:1 000 000)**-tasoa Tasot-paneelissa. Valitse tämän jälkeen Valinta-työkalu:  ![](img/harjoitus_1/image3.png) ja valitse karttaikkunasta Porvoota. Nyt Porvoon alue pitäisi korostua keltaisella (kuva)
 
 ![](img/harjoitus_1/image4.png)
 
-Liukuvärinä on oletuksena Random colors. Klikkaa sen vieressä olevasta nuolesta lisää valintoja auki. Kohdasta **Kaikki liukuvärit** saat näkyviin vielä lisää väriskaaloja. Voit myös klikata **Luo uusi liukuväri**. Kohdista "katalogi: cpt-city" ja "katalogi: ColorBrewer" saat auki vielä lisää valmiita värimäärityksiä. ColorBrewer-katalogissa ovat kaikki <https://colorbrewer2.org/> -sivustolla olevat väriskaalat.
-
-Gradientti-valinnalla voit luoda itse oman liukuvärin määrittämällä alku- ja loppuvärin. Color presets mahdollistaa uusien väripalettien määrittelyn itse ja niiden tallentamisen/tuomisen. Tutki nyt itse QGISin väripaletteja ja valitse mieleisesi paletti tähän tarkoitukseen.
-
-Tutki myös Tila-kohdassa olevaa oletusta **Equal count**. Miten visualisointi muuttuu, jos valitset jonkin toisen luokittelutavan tai muutat luokkien määrää? Voit tarkastella aineistoa myös "Pylväskaavio"-välilehdellä. Paina "Lataa arvot" -painiketta, jos mitään ei näy.
+Paina oikealla **Kunnat (1:1 000 000)**-tasoa ja valitse **Vie -> Tallenna Valitut kohteet nimellä**. Uudessa ikkunassa valitset paikan uudelle tiedostolle pienestä napista missä on kolme pistettä (kuva). Tiedoston nimi on tässä kuvassa "Porvoo_koulutus". Tason nimeksi voit laittaa esimerkiksi "Kaupunginrajat". 
 
 ![](img/harjoitus_1/image5.png)
 
-Voit halutessasi ottaa pois ensimmäisen luokan näkyvistä ottamalla siitä täpän pois, kuten esimerkkikuvassa on tehty. Tällöin heksagonit, joissa on esimerkiksi 0-5 kohdetta, poistuvat kartalta.
+Valitse myös pienestä maapallosta Porvoolle sopivan koordinattijärjestelmän eli ETRS89 / GK26FIN (kuva alla). Sen saa helpoin kirjoittamalla Suodatin-kohtaan EPSG-koodin 3880. Paina tämän jälkeen **OK**.
+![](img/harjoitus_1/image6.png)
+
+Lisää tallennettu tiedosto kartalle-kohdassa on hyvä olla ruksi ja paina tämän jälkeen **OK**.
+
+Nyt meillä on oma taso missä on vain Porvoon kaupungin alue. Seuraavaksi tarvitaan Porvoon alueella olevat postinumeroalueet. Jotta saadaan ainoastaan ne jotka ovat Porvoon alueella niin voidaan käyttää Ristiinleikkaus-työkalua. Valitse ylävalikosta **Vektori -> Geoprosessointi -> Ristiinleikkaus (Intersection)**
+
+Syötetaso on Postinumeroalueet ja Peitetasona on äsken luomasi Porvoon kaupuginraja-taso. Valitse vielä kolmesta pisteestä **Tallenna GeoPackageen** ja valitse sama GeoPackage-tiedosto, mitä käytit äsken kaupunginraja-tasolle. Näin saat molemmat tasot tallennettu samaan tiedostoon. Kun olet valinnut saman GeoPackage-tiedoston ja tallentanut niin se pyytää nimeä. Tähän voi laittaa esimerkiksi **Porvoon postinumeroalueet**. Kun painat **Suorita** niin työkalu luo sinulle uuden tason, missä on ainoastaan Porvoon alueella olevat postinumeroalueet.
+
+![](img/harjoitus_1/image7.png)
+
+::: hint-box
+Huomaat ehkä, että ihan kaupunginrajalla niin on hyvin pieniä leikattuja postinumeroalueita. Tämä johtuu siitä, että Suomessa postinumeroalueet ei mene nätisti kuntarajojen mukaan. Näitä voisi esimerkisi siivota käsin pois, valitsemalla alueet ja painamalla delete kun on editointi-tilassa. Tässä harjoituksessa sitä ei tehdä (ellei jää runsaasti aikaa).
+:::
+
+Nyt päästään visualisoimaan tasoa. Tasot-paneelista voit valita "Avaa tason tyylit-paneeli", jolloin sinulla aukeaa oikealla tyyli-ikkuna (kuva).
+
+![](img/harjoitus_1/image8.png)
+
+Nyt voit helposti muokata Porvoon postinumeroalueet-tasoa.
 
 ::: hint-box
 Vinkki! Vaikka olet luokitellut aineiston ja määrittänyt visualisoinnit eri luokille, voit muokata kaikkien luokkien visualisoinnin perusasetuksia samalla kertaa. Klikkaa Symboli-tekstin vieressä olevaa värillistä ruutua. Tämä avaa tutun visualisointiasetusikkunan. Voit esimerkiksi tätä kautta vaihtaa heksagonien peittävyyden 90%:iin tai vaihtaa niiden reunaviivan väriä.
