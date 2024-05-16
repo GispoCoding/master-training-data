@@ -1,7 +1,13 @@
 name: Update assets
 on:
-  repository_dispatch:
-    types: [update-assets]
+  push:
+    branches:
+      - main
+    paths:
+      - template/*.html
+      - template/*.css
+      - template/css/*
+      - template/js/*
 
 jobs:
   update-preview:
@@ -18,5 +24,14 @@ jobs:
       - name: Add, Commit & Push
         uses: EndBug/add-and-commit@v7
         with:
-          add: "src/G* docs/G* template"
-          message: "Automatic: Update assets"
+          add: "src/G*"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          author_name: github-actions[bot]
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: "Automatic: Update assets from ${{ github.sha }}"
+
+      - name: Dispatch render-deploy
+        uses: peter-evans/repository-dispatch@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          event-type: update-assets
