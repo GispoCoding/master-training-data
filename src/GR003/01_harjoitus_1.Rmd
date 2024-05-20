@@ -53,31 +53,28 @@ Nyt päästään visualisoimaan tasoa. Tasot-paneelista voit valita "Avaa tason 
 
 ![](img/harjoitus_1/image8.png)
 
-Nyt voit helposti muokata Porvoon postinumeroalueet-tasoa.
+Nyt voit helposti muokata Porvoon postinumeroalueet-tasoa. Oletuksena on valittu "Yksittäinen symboli" kuvaustekniikaksi. Koska meidän tarkoitus on luoda teemkarttaa väestöluvulla, niin valitse **"Porrastettu"**. Jos kyseessä olisi valmiita kategorioita niin käytettäisiin "Luokiteltua"-kuvaustekniikkaa. Kun olet valinnut "Porrastettu" niin valitse myös minkä arvon (eli muuttujan) mukaan luokkia muodostetaan. Tähän voit laittaa **"he_vakiy"**, missä on väestön lukumäärä. Valitse mieluisa liukuväri. Valitse tämän jälkeen **Tila**kohdasta esimerkiksi **Luonnolliset luokkarajat (Jenks)**. Huomaa myös **Luokat**-numeroarvo oikealla. Paina tämän jälkeen **Luokittele**. Nyt luotiin automattiset luokat. Yksittäisen luokan luokkarajoja voi muuttaa tuplaklikkaamalla "Arvot"-sarakkeen arvoa, ja karttatulosteessa näkyvää selitettä voi muuttaa tuplaklikkaamalla luokkaa "Selite"-sarakkeesta.  Tämä määrittää kuinka monta luokkaa haluat. Aineiston jakaumaa voit tarkistaa "Histogrammi"-välilehdeltä.
 
-::: hint-box
-Vinkki! Vaikka olet luokitellut aineiston ja määrittänyt visualisoinnit eri luokille, voit muokata kaikkien luokkien visualisoinnin perusasetuksia samalla kertaa. Klikkaa Symboli-tekstin vieressä olevaa värillistä ruutua. Tämä avaa tutun visualisointiasetusikkunan. Voit esimerkiksi tätä kautta vaihtaa heksagonien peittävyyden 90%:iin tai vaihtaa niiden reunaviivan väriä.
-:::
+![](img/harjoitus_1/image11.png)
 
-![](img/harjoitus_1/image6.png)
 
-Yksittäisen luokan visualisointityyliä voit muuttaa tuplaklikkaamalla luokan symbolia. Yksittäisen luokan luokkarajoja voi muuttaa tuplaklikkaamalla "Arvot"-sarakkeen arvoa, ja karttatulosteessa näkyvää selitettä voi muuttaa tuplaklikkaamalla luokkaa "Selite"-sarakkeesta.
+Yksittäisen luokan visualisointityyliä voit muuttaa tuplaklikkaamalla luokan symbolia. Yksittäisen luokan luokkarajoja voi muuttaa tuplaklikkaamalla "Arvot"-sarakkeen arvoa, ja karttatulosteessa näkyvää selitettä voi muuttaa tuplaklikkaamalla luokkaa "Selite"-sarakkeesta. Onneksi olkoon! Olet luonut teemakartan! Jatka muokkaamista kunnes olet tyytyväinen!
 
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + S tai päävalikosta Projekti \> Tallenna.
 
-## Lisätehtävä: WMS-tason visualisointi
+## Lisätehtävä 1: Poista rajalla olevat postinumeroalueet
 
-Kokeile miltä aineisto näyttää, jos sinulla olisi yksivärinen taustakartta. Avaa QGISin Selain-paneelista XYZ Tiles -kohta painamalla sen vieressä olevaa väkästä.
-
-![](img/harjoitus_1/image7.png)
-
-Tuplaklikkaa avautuvasta listasta **OpenStreetMapia**. Nyt QGIS tuo sinulle uuden taustakartan. Aseta tasoista ainoastaan se ja luomasi Lkm-taso näkyviin.
-
-Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan yksiväriseksi laittamalla täpän kohtaan "Väritys". Hae sitten heksagoneihin valitsemaasi väripalettiin sopiva väri, jolla värität taustakartan. Pyri siihen, että taustakartta jää taka-alalle ja nostaa selkeästi heksagoniaineiston näkyviin. Voit muuttaa kirkkaus-, kylläisyys- ja kontrastiasetuksia sekä gamma-asetusta. Voit myös säätää värityksen vahvuutta. Kokeile myös harmaasävyjen käyttöä!
-
-![](img/harjoitus_1/image8.png)
-
+Kuten huomasimme, postinumeroalueet eivät seuraa kuntarajoja, joten niitä pieniä alueita kuntarajojen lähellä voitaisiin siivota pois. Valitse Porvoon postinumeroalueet-tasoa Tasot-paneelista. Paina tämän jälkeen **Editointi päälle** kynä-symbolista. Valitse tämän jälkeen **Valinta-työkalu**.
 ![](img/harjoitus_1/image9.png)
+![](img/harjoitus_1/image3.png)
+
+Nyt voit valita kaikki ylimääräiset postinumeroalueosat painamalla aluetta ja tämän jälkeen **Delete**-näppäintä. JOs haluat valita useamman alueen kerralla niin pidä ctrl-näppäin alhaalla kun valitset alueita. Kun olet valmis niin muista tallentaa muutokset ja pistä editointi pois päältä. 
+
+## Lisätehtävä 2: Lisää nimiöt 
+
+Lisää nimiöt **Nimiöt**-välilehdeltä Kuvaustekniikka-ikkunasta. Jos haluat, että kartalla sanotaan postinumeroalueen nimi niin valitse arvoksi **postinumeroalue**-sarake. Voit vaihtoehtoisesti käyttää **he_vakiy**-saraketta, jos haluat esittää tarkan arvon siitä, kuinka moni henkilö asuu postinumeroalueella. Jos teksti on vaikeasti luettava voit esimerkiksi lisätä tekstille vyöhykkeen **Vyöhyke**-välilehdelle. Esimerkkikuva alla.
+
+![](img/harjoitus_1/image10.png)
 
 ::: hint-box
 **Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
