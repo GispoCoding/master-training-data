@@ -1,38 +1,39 @@
-# Harjoitus 2: Edistyneet digitointiominaisuudet
+# Harjoitus 2: Digitointi
 
 **Harjoituksen sisältö**
 
-Harjoituksessa tehdään edistyneitä digitoinnin operaatioita QGISillä.
+Harjoituksessa tehdään digitoinnin operaatioita QGISillä.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin editoinnin ominaisuuksia.
+Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin digitoinnin ja editoinnin ominaisuuksia.
 
-**Arvioitu kesto**
-
-45 minuuttia.
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 2**". Lisää projektiin seuraavat aineistot:
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 2**".
 
--   **Aluesuunnitelma.gpkg (Alueet- ja Kulkureitit-tasot)**
+Lisää projektiin kurssihakemistosta seuraavat ortokuvat Maanmittauslaitokselta:
 
--   **OpenStreetMap**
+-   L4321G
 
-## Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)
+-   L4321H
 
-Tässä harjoitukksessa teemme rakennuksia rakennuspaikoille. Luo **Aluesuunnitelma-GeoPackageen** uusi taso rakennuksia varten seuraavasti:
+## Uusi taso ja digitoinnin perustyökalut
 
-Aloita valitsemalla työkalupalkista jälleen **Uusi GeoPackage-taso**. Tällä kertaa kuitenkin valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun Aluesuunnitelma-Geopackagen, jolloin uusi taso tuleelisätyiksi siihen. Kun olet valinnut Aluesuunnitelma.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja täytä tason tiedot kuten alla olevassa kuvassa:
+Tässä harjoituksessa teemme rakennuksia rakennuspaikoille. 
 
+Aloita valitsemalla työkalupalkista **Uusi GeoPackage-taso**. Tällä kertaa valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun "Porvoo_koulutus"-Geopackagetiedoston, jolloin uusi taso tulee lisätyiksi siihen. Kun olet valinnut Porvoo_koulutus.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja valitse geometriaksi "monikulmio". Koordinaattijärjestelmä pitäisi olla EPSG:3880.Lisää kaksi uutta kenttää. Nimeksi ensimäiselle "Käyttötarkoitus" ja Tyyppi "Teksti". Toiselle nimi "Pohjan_ala" ja Tyyppi "Desimaaliluku".
 ![](img/harjoitus_2/image1.png)
 
 Tallennettaessa QGIS kysyy, korvataanko aiemmin luotu GeoPackage vai lisätäänkö uusi taso siihen. Valitse Lisää uusi taso.
 
 ![](img/harjoitus_2/image2.png)
 
-Seuraavaksi laita **Tarttuminen** ![](img/harjoitus_2/image3.png), **Seuraaminen** ![](img/harjoitus_2/image4.png) **ja Self-snapping ![](img/harjoitus_2/image5.png)**päälle **Tarttumisen työkalut -paneelista**. Aseta muut tarttumisasetukset seuraavan kuvan mukaisiksi:
+Tarkista, että sinulla on esillä **Digitoinnin työkalupalkki** sekä **Tarttumisen työkalut**. Tämän voit tehdä Näytä-ylävalikon kautta (Työkalut)
+
+![](img/harjoitus_2/image37.png)
+laita **Tarttuminen** ![](img/harjoitus_2/image3.png), **Seuraaminen** ![](img/harjoitus_2/image4.png) **ja Self-snapping ![](img/harjoitus_2/image5.png)**päälle **Tarttumisen työkalut -paneelista**. Aseta muut tarttumisasetukset seuraavan kuvan mukaisiksi:
 
 ![](img/harjoitus_2/image6.png)
 
