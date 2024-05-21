@@ -73,6 +73,6 @@ Jos haluat varmistaa, että kuvaustekniikka on pysynyt mukana voit esimerkiksi a
 
 ## Projektin tallentaminen GeoPackageen
 
-Joskus on tarvetta jakaa kokonainen projekti kollegan kanssa. Silloin koko projektin voi tallentaa samaan GeoPackage-tiedostoon aineistojen kanssa. Voidaan kokeilla sitä nyt. Mene ylävalikkon "Projekti" ja valitse sieltä **Tallenna tiedostoon** ja **GeoPackage...**. Uudessa ikkunassa valitset "Harjoitus 2 data"-tiedoston. Anna nimeksi vaikkapa "harjoitusprojekti" ja paina **OK**.
+Joskus on tarvetta jakaa kokonainen projekti kollegan kanssa. Silloin koko projektin voi tallentaa samaan GeoPackage-tiedostoon aineistojen kanssa. Voidaan kokeilla sitä nyt. Mene ylävalikkon "Projekti" ja valitse sieltä **Tallenna tiedostoon** ja **GeoPackage...**. Uudessa ikkunassa valitset "Harjoitus 2 data"-tiedoston. Anna nimeksi vaikkapa "harjoitusprojekti" ja paina **OK**. Nyt projektikin on tallentunut GeoPackage-tiedostoon. Nyt avata uuden tyhjän projektin ja kokeilla, avata projekti GeoPackage-tiedostosta. Eli **Projekti -> Avaa kohteest -> GeoPackage...**
 
 ![](img/harjoitus_2/image10.png)
