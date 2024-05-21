@@ -1,27 +1,23 @@
-# Harjoitus 2: Digitointi
+# Harjoitus 2: QGISin perustoiminnot
 
 **Harjoituksen sisältö**
 
-Harjoituksessa tehdään digitoinnin operaatioita QGISillä.
+Harjoituksessa tehdään QGISin perustoimintoja, kuten aineistojen tallentaminen, konvertointi, koordinaattijärjestelmän muunnokset.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin digitoinnin ja editoinnin ominaisuuksia.
+Harjoituksen jälkeen opiskelija osaa käyttämään QGISin perustoimintoja.
 
 
 ## Valmistautuminen
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 2**".
 
-Lisää projektiin kurssihakemistosta seuraavat ortokuvat Maanmittauslaitokselta:
+## Miten saadan MapInfon tiedostot QGISiin
 
--   L4321G
+QGIS tukee kaikki keskeisimmät paikkatietoformaatit. Myös MapInfon tiedostoja voidaan helposti avata QGISissä. Yksinkertaisin tapa tuoda .tab, .mif ja .mid-tiedostoja QGISiin on vetää ne QGIS-ohjelmiston karttaikkunaan. Voit myös tehdä sen valikon kautta: **Tasto -> Lisää tasot -> Lisää vekoritaso**. Etsi oikea tiedosto ja paina **OK**. Huomioi, että esimerkiksi MapInfon .tab tiedoston kyljessä on muutama muu tiedosto (.ID, .MAP, .DAT) jotka pitää pysyä aina samassa paikassa .tab tiedoston kanssa. Muuten aineisto ei toimi oikealla tavalla.
 
--   L4321H
-
-## Uusi taso ja digitoinnin perustyökalut
-
-Tässä harjoituksessa teemme rakennuksia rakennuspaikoille. 
+Tähän "monta tiedostoa samalle aineistolle"-rumbaan löytyy ratkaisu: GeoPackage. QGISin oletusformaatti GeoPackge on kuin pieni paikallinen tietokanta omana tiedostona, mihin voi tallentaa monta eri tasoa, tyylejä sekä jopa QGISin projektia. Tällä tavalla voit esimerkiksi näppärästi siirtää kaikki tarvittavat tasot oikeilla tyyleillä kolleegalle. Lähettämällä pelkän .gpkg-tiedoston vaikkapa sähköpostitse.
 
 Aloita valitsemalla työkalupalkista **Uusi GeoPackage-taso**. Tällä kertaa valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun "Porvoo_koulutus"-Geopackagetiedoston, jolloin uusi taso tulee lisätyiksi siihen. Kun olet valinnut Porvoo_koulutus.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja valitse geometriaksi "monikulmio". Koordinaattijärjestelmä pitäisi olla EPSG:3880.Lisää kaksi uutta kenttää. Nimeksi ensimäiselle "Käyttötarkoitus" ja Tyyppi "Teksti". Toiselle nimi "Pohjan_ala" ja Tyyppi "Desimaaliluku".
 ![](img/harjoitus_2/image1.png)
@@ -33,31 +29,30 @@ Tallennettaessa QGIS kysyy, korvataanko aiemmin luotu GeoPackage vai lisätään
 Tarkista, että sinulla on esillä **Digitoinnin työkalupalkki** sekä **Tarttumisen työkalut**. Tämän voit tehdä Näytä-ylävalikon kautta (Työkalut)
 
 ![](img/harjoitus_2/image37.png)
-laita **Tarttuminen** ![](img/harjoitus_2/image3.png), **Seuraaminen** ![](img/harjoitus_2/image4.png) **ja Self-snapping ![](img/harjoitus_2/image5.png)**päälle **Tarttumisen työkalut -paneelista**. Aseta muut tarttumisasetukset seuraavan kuvan mukaisiksi:
+Laita Rakennusket-tason muokkaustila päälle ![](img/harjoitus_1/image9.png)
 
-![](img/harjoitus_2/image6.png)
+Nyt voit piirtää uusia kohteita Rakennus-tasolle painamalla ensin "Lisää monikulmiokohde" ![](img/harjoitus_1/image6.png) 
 
-Valinnat järjestyksessä vasemmalta oikealle:
+Sen jälkeen voit vapaasti piirtää rakennuksen taustakartan mukaan. Kokeile piirtää yksi rakennus ja kun olet valmis niin painat hiiren oikealla näppäimellä. Nyt voit lisätä rakennuksen käyttötarkoituksen (voit keksiä itse). Pinta-alaa ei laiteta, koska sitä lasketaan geometrian mukaan myöhemmin.
 
--   Tarttuminen
+## Tarttuminen
 
--   Kaikki tasot (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
+QGISillä on monta hyödyllistä työkalua, jotka helpottavat digitointia. Voit seuraavaksi laittaa "Tarttuminen" päälle magneettisymbolista ![](img/harjoitus_1/image3.png)
+Tarttuminen tarkoittaa, että kun olet piirtämässä uutta kohdetta, niin voit helposti tarttua kiinnni olemassa oleviin kohteisiin, jotta ei tule päällekkäisyyksiä.
 
--   Taitepiste (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
+![](img/harjoitus_2/image38.gif)
+Etsi nyt kartalta rakennus joka on kiinni toisessa rakennuksessa. Piirrä ensin yksi rakennus ja tarkista, että sinulla on Tarttuminen päällä. Piirrä sitten se toinen rakennus niin, että se "tarttuu kiinni" ensimmäiseen rakennukseen. Voit katsoa esimerkin yllä olevasta kuvasta.
 
--   10
+## Lisätyökalut apuun
 
--   px (pikseliä)
+Kun ollaan piirtämässä rakennuksia niin voisi olla hyvä saada 90 asteen kulmia rakennuksiin. Mene **Näytä**-ylävalikon kautta **Paneelit**-valikkoon ja tarkista, että **Digitoinnin lisätyökalut**-paneeli on näkyvissä. Ota sitten digitoinnin lisätyökalut käyttöön painamalla ![](img/harjoitus_2/image14.png).
 
--   Ei käytössä
+Lisätyökalujen avulla voi saada näkyville apuviivat ja tarttumisasetukset tiettyihin kulmiin, esimerkiksi 45 tai 90 asteen välein. Toiminnon saa päälle laajennetun digitoinnin paneelista (ikkunan vasemmassa laidassa). Laita  **tartu yleismpiin kulmiin --\> 90.0, 180.0, 270.0, 360.0** päälle ![](img/harjoitus_2/image9.png)-nappulasta
 
--   Ei käytössä
+Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen alettua kulma lasketaan viimeisen piirretyn viivan mukaan ja näkyviin tulee tukiviivoja haluttujen kulmien kohdalle.
 
--   Ei käytössä
+Kokeile nyt piirtää muutama muu rakennus 90 asteen kulmilla. Muista tallentaa tason muutoksia tasaisin väliajoin. 
 
--   Ota seuraaminen käyttöön
-
--   Self snapping (tarttuminen työn alla olevaan digitoitavaan kohteeseen)
 
 ## Rakentamistila
 
@@ -67,9 +62,6 @@ Rakentamistila aktivoidaan laajennetun digitoinnin paneelista löytyvästä ![](
 
 Huom! Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä ![](img/harjoitus_2/image8.png) tai **C**-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.
 
-## Rakennuksen piirto apuviivojen avulla
-
-Lisätyökalujen avulla voi saada näkyville apuviivat ja tarttumisasetukset tiettyihin kulmiin, esimerkiksi 45 tai 90 asteen välein. Toiminnon saa päälle laajennetun digitoinnin paneelista (ikkunan vasemmassa laidassa) ![](img/harjoitus_2/image9.png)-nappulasta. Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen alettua kulma lasketaan viimeisen piirretyn viivan mukaan ja näkyviin tulee tukiviivoja haluttujen kulmien kohdalle.
 
 ### Sitten vain harjoittelemaan....
 
