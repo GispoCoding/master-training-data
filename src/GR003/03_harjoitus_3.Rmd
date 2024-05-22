@@ -1,143 +1,82 @@
-# Harjoitus 3: Edistyneet digitointiominaisuudet
+# Harjoitus 3: Digitointi
 
 **Harjoituksen sisältö**
 
-Harjoituksessa tehdään edistyneitä digitoinnin operaatioita QGISillä.
+Harjoituksessa tehdään digitoinnin operaatioita QGISillä.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin editoinnin ominaisuuksia.
+Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin digitoinnin ja editoinnin ominaisuuksia.
 
-**Arvioitu kesto**
+## Valmistautuminen
 
-45 minuuttia.
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 3**".
 
-## **Valmistautuminen**
+Lisää projektiin kurssihakemistosta seuraavat ortokuvat Maanmittauslaitokselta:
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 2**". Lisää projektiin seuraavat aineistot:
+-   L4321G
 
--   **Aluesuunnitelma.gpkg (Alueet- ja Kulkureitit-tasot)**
+-   L4321H
 
--   **OpenStreetMap**
+## Uusi taso ja digitoinnin perustyökalut
 
-## **Edistyneen digitoinnin ominaisuudet**
+Tässä harjoituksessa teemme rakennuksia rakennuspaikoille. 
 
-Luodaan ensimmäisenä Kulkureitit-tason raitiotielle puskurivyöhyke, jonka sisälle ei sallita rakentamista. Valitse **Prosessointityökalut-paneelista Vektorigeometria \> Vyöhyke**, eli vyöhykeanalyysi. Jos tiedät mitä työkalua haet, voit kirjoittaa sen nimen **Prosessointityökalut-paneelin Etsi-kenttään**. Muodosta Vyöhyke-työkalulla haluamasi levyinen vyöhyke, mutta voit tehdä vyöhykkeen esimerkiksi seuraavan kuvan mukaisesti:
-
+Aloita valitsemalla työkalupalkista **Uusi GeoPackage-taso**. Tällä kertaa valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun "Porvoo_koulutus"-Geopackagetiedoston, jolloin uusi taso tulee lisätyiksi siihen. Kun olet valinnut Porvoo_koulutus.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja valitse geometriaksi "monikulmio". Koordinaattijärjestelmä pitäisi olla EPSG:3880.Lisää kaksi uutta kenttää. Nimeksi ensimäiselle "Käyttötarkoitus" ja Tyyppi "Teksti". Toiselle nimi "Pohjan_ala" ja Tyyppi "Desimaaliluku".
 ![](img/harjoitus_3/image1.png)
-
-Paina lopuksi **Suorita**, jolloin QGIS luo projektiisi uuden **väliaikaisen** geometriatason vyöhykkeelle. Väliaikaisen tason tunnistaa mikropiiri-kuvakkeesta ![](img/harjoitus_3/image2.png). Uusi vyöhyketaso halutaan kuitenkin pysyväksi osaksi aineistoa, joten tallenna vyöhyke osaksi aikaisemmin luotua **Aluesuunnitelma-GeoPackagea** klikkaamalla hiiren oikealla väliaikaista **Vyöhyke luotu -tasoa** ja valitsemalla **Vie \> Tallenna kohteet nimellä...** Valitse tiedostomuodoksi GeoPackage, valitse tiedostoksi **Aluesuunnitelma.gpkg** ja anna tasolle nimeksi **"Suojavyöhyke"**. Paina sitten **OK**, niin QGIS tallentaa tason osaksi aikaisemmin luotua GeoPackagea.
-
-![](img/harjoitus_3/image3.png)
-
-Kun tiedosto on tallennettu, visualisoidaan vyöhyketasoa hieman, jotta analysointi olisi helpompaa. Valitse **Näytä \> Paneelit \> Kuvaustekniikka**, niin saat **Kuvaustekniikka-paneelin** näkyviin QGISiin. Tasoa voi visualisoida myös klikkaamalla tason kohdalla hiiren oikeaa nappia ja valitsemalla **Ominaisuudet... \> Kuvaustekniikka**.
-
-![](img/harjoitus_3/image4.png)
-
-Muuta vyöhyke osittain läpinäkyväksi ja tee sille muita haluamiasi muutoksia, jotka helpottavat vaikutusalueen tulkintaa.
-
-![](img/harjoitus_3/image5.png)
-
-Seuraavaksi luomme **Alueet-tason** sisälle rakennuspaikkoja, jotka tulevat olemaan suojavyöhykkeen ulkopuolella ja korkeintaan viiden metrin etäisyydellä alueen reunasta. Leikataan **Alueet-taso Suojavyöhyke-tasolla**, koska suojavyöhykkeelle ei kuitenkaan saa rakentaa. Valitse **Prosessointityökalut-paneelista Vektoritiedon päällekkäisanalyysit \> Eroavuus**. Aseta syötetasoksi **Alueet-taso** ja peitetasoksi **Suojavyöhyke-taso**. Paina sitten **Suorita**.
-
-![](img/harjoitus_3/image6.png)
-
-Saat tämän jälkeen uuden väliaikaisen tason, joka toimii pohjana seuraavaan vaiheeseen.
-
-## **Negatiivinen vyöhyke**
-
-Valitse Prosessointityökalut-paneelista jälleen **Vektorigeometria \> Vyöhyke**. Teemme edellisessä vaiheessa luodulle tasolle negatiivisen vyöhykeanalyysin, jotta saamme määritettyä rakennuspaikat viisi metriä sisäänpäin **Alueet-tason** reunasta.
-
-![](img/harjoitus_3/image7.png)
-
-Tallenna tästä syntyvä taso Aluesuunnitelma-GeoPackageen nimellä **"Rakennuspaikat"**.
-
-## **Kohteiden editoiminen alkuperäisessä tiedostossa**
-
-Aiemmin QGIS loi usein uuden tason, kun sille tehtiin jokin geoprosessoinnin operaatio. Lopputuloksena saattoi olla projekti, joka oli täynnä väliaikaisia tasoja. Uutena ominaisuutena QGIS mahdollistaa nykyään **Muokkaa ominaisuuksia suoraan -toiminnon (**engl**.** **In-Place Editing)**, jonka avulla voidaan esimerkiksi pehmentää tason geometriaa tekemättä siitä uutta tasoa. Muutokset siis tehdään suoraan lähtötasoon.
-
-![](img/harjoitus_3/image8.png)
-
-Toiminto löytyy **Prosessointityökalut**-paneelin ylävalikosta.
-
-Toiminto on käytössä vain sellaisille prosessointityökaluille, joissa kohteen geometriatyyppi ei muutu.
-
-## **Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)**
-
-Seuraavaksi teemme rakennuksia rakennuspaikoille. Luo **Aluesuunnitelma-GeoPackageen** uusi taso rakennuksia varten seuraavasti:
-
-Aloita valitsemalla työkalupalkista jälleen **Uusi GeoPackage-taso**. Tällä kertaa kuitenkin valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun Aluevaraus-Geopackagen, jolloin uusi taso tuleelisätyiksi siihen. Kun olet valinnut Aluevaraus.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja täytä tason tiedot kuten alla olevassa kuvassa:
-
-![](img/harjoitus_3/image9.png)
 
 Tallennettaessa QGIS kysyy, korvataanko aiemmin luotu GeoPackage vai lisätäänkö uusi taso siihen. Valitse Lisää uusi taso.
 
-![](img/harjoitus_3/image10.png)
+![](img/harjoitus_3/image2.png)
 
-Seuraavaksi laita **Tarttuminen** ![](img/harjoitus_3/image11.png), **Seuraaminen** ![](img/harjoitus_3/image12.png) **ja Self-snapping ![](img/harjoitus_3/image13.png)**päälle **Tarttumisen työkalut -paneelista**. Aseta muut tarttumisasetukset seuraavan kuvan mukaisiksi:
+Tarkista, että sinulla on esillä **Digitoinnin työkalupalkki** sekä **Tarttumisen työkalut**. Tämän voit tehdä Näytä-ylävalikon kautta (Työkalut)
 
-![](img/harjoitus_3/image14.png)
+![](img/harjoitus_3/image37.png)
+Laita Rakennukset-tason muokkaustila päälle ![](img/harjoitus_3/image9.png)
 
-Valinnat järjestyksessä vasemmalta oikealle:
+Nyt voit piirtää uusia kohteita Rakennus-tasolle painamalla ensin "Lisää monikulmiokohde" ![](img/harjoitus_3/image6.png) 
 
--   Tarttuminen
+Sen jälkeen voit vapaasti piirtää rakennuksen taustakartan mukaan. Kokeile piirtää yksi rakennus ja kun olet valmis niin painat hiiren oikealla näppäimellä. Nyt voit lisätä rakennuksen käyttötarkoituksen (voit keksiä itse). Pinta-alaa ei laiteta, koska sitä lasketaan geometrian mukaan myöhemmin.
 
--   Kaikki tasot (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
+## Tarttuminen
 
--   Taitepiste (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
+QGISillä on monta hyödyllistä työkalua, jotka helpottavat digitointia. Voit seuraavaksi laittaa "Tarttuminen" päälle magneettisymbolista ![](img/harjoitus_3/image3.png)
+Tarttuminen tarkoittaa, että kun olet piirtämässä uutta kohdetta, niin voit helposti tarttua kiinnni olemassa oleviin kohteisiin, jotta ei tule päällekkäisyyksiä.
 
--   10
+![](img/harjoitus_3/image38.gif)
+Etsi nyt kartalta rakennus joka on kiinni toisessa rakennuksessa. Piirrä ensin yksi rakennus ja tarkista, että sinulla on Tarttuminen päällä. Piirrä sitten se toinen rakennus niin, että se "tarttuu kiinni" ensimmäiseen rakennukseen. Voit katsoa esimerkin yllä olevasta kuvasta.
 
--   px (pikseliä)
+## Lisätyökalut apuun
 
--   Ei käytössä
+Kun ollaan piirtämässä rakennuksia niin voisi olla hyvä saada 90 asteen kulmia rakennuksiin. Mene **Näytä**-ylävalikon kautta **Paneelit**-valikkoon ja tarkista, että **Digitoinnin lisätyökalut**-paneeli on näkyvissä. Ota sitten digitoinnin lisätyökalut käyttöön painamalla ![](img/harjoitus_3/image14.png).
 
--   Ei käytössä
+Lisätyökalujen avulla voi saada näkyville apuviivat ja tarttumisasetukset tiettyihin kulmiin, esimerkiksi 45 tai 90 asteen välein. Toiminnon saa päälle laajennetun digitoinnin paneelista (ikkunan vasemmassa laidassa). Laita  **tartu yleismpiin kulmiin --\> 90.0, 180.0, 270.0, 360.0** päälle ![](img/harjoitus_3/image9.png)-nappulasta
 
--   Ei käytössä
+Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen alettua kulma lasketaan viimeisen piirretyn viivan mukaan ja näkyviin tulee tukiviivoja haluttujen kulmien kohdalle.
 
--   Ota seuraaminen käyttöön
+Kokeile nyt piirtää muutama muu rakennus 90 asteen kulmilla. Muista tallentaa tason muutoksia tasaisin väliajoin. 
 
--   Self snapping (tarttuminen työn alla olevaan digitoitavaan kohteeseen)
+## Lisätehtävä 1: Kokeile työkaluja rohkeast
+Voit kokeilla myös CAD-pohjaista digitointia, joka on kehittynyt verrattain paljon QGISin uudessa versiossa. Työkalut sait siis esiin lisäämällä **Digitoinnin lisätyökalut** -ylämenusta **Näytä → Työkalut → Digitoinnin lisätyökalut**. 
+Kokeile erilaisia työkaluja, esimerkiksi **Täytä piiri** -työkalua. Tätä voit hyödyntää esimerkiksi rakennuksen sisäpihan piirtämisessä. Eli voidaan niin sanotusti tehdä reikä rakennuksen keskelle.
 
-Rakennusten luonnissa on kolme sääntöä:
 
--   Rakennusten tulee olla 45 tai 90 asteen kulmassa suhteessa rakennuspaikan reunaan
+## Lisätehtävä 2: Testaa rakentamistila
 
--   Rakennuksen tulee sijaita vähintään 5 metriä rakennuspaikan reunasta
+Jos piirtämisen apuna tarvitaan etäisyyttä tietystä pisteestä tai tiettyä kulmaa johonkin olemassa olevaan linjaan, rakentamistilan avulla saa näkyville apuviivoja piirtämisen tueksi. Rakentamistilan ollessa aktiivisena ei voi piirtää, mutta sen avulla voidaan hakea näkyviin tarvittavia apuviivoja esim. etäisyyden tai kulman suhteen. Rakentamistilaa voi käyttää ennen tai kesken piirtämisen.
 
--   Rakennuksen tulee sijaita vähintään 5 metriä toisesta rakennuksesta
+Rakentamistila aktivoidaan laajennetun digitoinnin paneelista löytyvästä ![](img/harjoitus_3/image7.png)-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla **C**.
 
-**Rakentamistila** tarkoittaa tilaa, jossa voit valita kohteita kartalla, määrittää liikkumisen kulmia ja napata kiinni kohteisiin, mutta tilassa ei varsinaisesti luoda uusia geometrioita tai kulmapisteitä. Voit siis vaihdella rakentamis- ja editointitilan välillä yhden kohteen digitoinnin aikana.
+Huom! Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä ![](img/harjoitus_3/image8.png) tai **C**-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.
 
-Aseta **Rakennukset-tason** editointi päälle kynäkuvakkeesta. Kun valitset **Lisää polygonikohde -työkalun**, **Laajennettu digitointi -kuvake** aktivoituu ![](img/harjoitus_3/image15.png). Klikkaa kuvaketta niin saat **Laajennettu digitointi -hallintapaneeliin** QGISiin.
+## Lisätehtävä 3: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti
 
-![](img/harjoitus_3/image16.png)
+Avaa Rakennukset-tason ominaisuudet. Mene kohtaan Attribuuttilomake. Valitse kentistä Pohjan_ala ja selaa kohtaan Oletusarvot. Avaa oikean reunan funktio-painikkeesta auki lausekkeen muokkaus -ikkuna. Valitse Geometrian alta `$area`. Funktion voi myös itse kirjoittaa suoraan oletusarvot -kenttään. Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella lauseke on `round($area,2)`. **Lopuksi muista laittaa täppä tuohon "Käytä oletusarvoa päivityksessä" kohtaan**, niin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
 
-Aloita nyt **Rakennukset-tason** editointi. Tarkoituksena on luoda rakennuksia rakennuspaikkojen sisään aikaisemmin mainittujen sääntöjen mukaan. Toimi seuraavasti:
+Kun olet valmis, tallenna projektitiedosto.
 
--   Klikkaa **Rakentamistila** päälle ![](img/harjoitus_3/image17.png) -painikkeesta tai näppäimistöltä pikakomennolla **c**
-
--   Valitse rakennusalueen reunasta kohta, johon rakennus tulee
-
--   Laita d-kentän arvoksi 5
-
--   Klikkaa **Kohtisuora-kuvaketta** ![](img/harjoitus_3/image18.png) ja valitse ulkoreunalta viiva, jonka suhteessa rakennuksen tulisi olla 90 asteen kulmassa
-
--   Nyt QGIS lukitsee aloituspisteen ja voit siirtyä pois rakentamistilasta klikkaamalla uudestaan ![](img/harjoitus_3/image19.png) (tai pikanäppäimellä **c**) ja ryhtyä digitoimaan rakennusta.
-
-![](img/harjoitus_3/image20.png)
-
-Tämän jälkeen editoi aineistoon rakennuksia vähintään kolme kappaletta edellä mainittujen sääntöjen mukaisesti hyödyntäen laajennetun digitoinnin ominaisuuksia. Koita myös kääntää rakennuksia 45 astetta hyödyntäen **Kierrä kohteita -työkalua** ![](img/harjoitus_3/image21.png). Ota lopuksi tason editointi pois päältä ja tallenna tasoon tehdyt muutokset. Avaa **Kuvaustekniikka-paneeli** tai mene tason ominaisuuksien kautta **Kuvaustekniikka-välilehdelle** ja muokkaa editoitujen kohteiden värit vastaamaan taustakartan värejä **Värin valitsin -työkalua** hyödyntäen.
-
-![](img/harjoitus_3/image22.png)
-
-Voit vielä hyödyntää alueen reunaa käyttäen **Seuraaminen-ominaisuutta**:
-
- <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#automatic-tracing>
-
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
+Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä](https://gispo.fi/blogi/cad-aineistot-ja-qgis/).
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti tuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+Psst! Gispolla on ihan oma kurssi kaavojen tekemiseen QGISillä nimeltään [Yleiskaavoitus QGISillä](https://www.gispo.fi/koulutus/yleiskaavoitus-qgisilla/)
 :::

@@ -1,218 +1,83 @@
-# Harjoitus 2: Edistyneet digitointiominaisuudet
+# Harjoitus 2: Teemakartta
 
-**Harjoituksen sisältö**
+## Harjoituksen sisältö
 
-Harjoituksessa tehdään edistyneitä digitoinnin operaatioita QGISillä.
+Harjoituksessa tehdään teemakartta Porvoon alueelta käyttäen postinumeroalueita ja rajapintapalveluja.
 
-**Harjoituksen tavoite**
+## Harjoituksen tavoite
 
-Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin editoinnin ominaisuuksia.
+Koulutettava oppii luomaan teemakartan sekä harjoittelee rajapintapalvelujen käyttöä.
 
-**Arvioitu kesto**
 
-45 minuuttia.
+Avaa QGIS ja aloita tyhjästä projektista. Aloitetaan heti lisäämällä kaikki Suomen kuntarajat [Tilastokeskuksen rajapintapalvelusta](https://stat.fi/org/avoindata/paikkatietoaineistot.html#kuntapohjaiset). Uuden tason voi lisätä muutamalla tavalla. Voit esimerkiksi selain-paneelissa etsiä **WFS / OGC API - Features** kohdan ja klikata sitä oikealla hiirennäppäimellä. Valitse **Uusi yhteys**. Anna yhteydelle selkeä nimi ja lisää tämä Tilastokeskuksen rajapintapalvelun osoite URL-kenttään:
 
-## Valmistautuminen
-
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 2**". Lisää projektiin seuraavat aineistot:
-
--   **Aluesuunnitelma.gpkg (Alueet- ja Kulkureitit-tasot)**
-
--   **OpenStreetMap**
-
-## Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)
-
-Tässä harjoitukksessa teemme rakennuksia rakennuspaikoille. Luo **Aluesuunnitelma-GeoPackageen** uusi taso rakennuksia varten seuraavasti:
-
-Aloita valitsemalla työkalupalkista jälleen **Uusi GeoPackage-taso**. Tällä kertaa kuitenkin valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun Aluesuunnitelma-Geopackagen, jolloin uusi taso tuleelisätyiksi siihen. Kun olet valinnut Aluesuunnitelma.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja täytä tason tiedot kuten alla olevassa kuvassa:
-
+::: note-box
+https://geo.stat.fi/geoserver/tilastointialueet/wfs
+:::
 ![](img/harjoitus_2/image1.png)
 
-Tallennettaessa QGIS kysyy, korvataanko aiemmin luotu GeoPackage vai lisätäänkö uusi taso siihen. Valitse Lisää uusi taso.
+Lisää tämän jälkeen myös uusi yhteys toiseen rajapintapalveluun, [Tilastokeskuksen Paavo-rajapinta](https://stat.fi/org/avoindata/paikkatietoaineistot/paavo.html) missä on kaikki Suomen postinumeroalueet. Paavo-rajapinnan osoite on:
 
+::: note-box
+https://geo.stat.fi/geoserver/postialue/wfs
+:::
+
+Siirry viimeistään nyt Porvoon alueelle käyttäen karttanavigoinnin työkaluja.
 ![](img/harjoitus_2/image2.png)
 
-Seuraavaksi laita **Tarttuminen** ![](img/harjoitus_2/image3.png), **Seuraaminen** ![](img/harjoitus_2/image4.png) **ja Self-snapping ![](img/harjoitus_2/image5.png)**päälle **Tarttumisen työkalut -paneelista**. Aseta muut tarttumisasetukset seuraavan kuvan mukaisiksi:
+Lisätään nyt Kuntaraja-rajapinnasta taso nimeltään **Kunnat (1:1 000 000)** sekä Paavo-rajapinnasta taso nimeltään **Paavo-tilastointiaineisto ja -postinumeroalueet**. Tarkista, että on oikeat tasot. Harjoituksen kannalta on tärkeää, että Paavo-aineisto sisältää myös tilastointiaineistoa. Voit avata attribuuttitaulukkoa klikkaamalla tasoa oikealla hiirennäppäimellä Tasot-paneelissa ja valita sieltä "Avaa attribuuttitaulukko". Tarkista, että sarake nimeltään "he_vakiy" on olemassa. Tässä sarakkeessa on postinumeroalueen väkimäärä. 
+
+Seuraavaksi viedään Porvoon kaupungin alue ulos omana tiedostona. Paina ensin **Kunnat (1:1 000 000)**-tasoa Tasot-paneelissa. Valitse tämän jälkeen Valinta-työkalu:  ![](img/harjoitus_2/image3.png) ja valitse karttaikkunasta Porvoota. Nyt Porvoon alue pitäisi korostua keltaisella (kuva)
+
+![](img/harjoitus_2/image4.png)
+
+Paina oikealla **Kunnat (1:1 000 000)**-tasoa ja valitse **Vie -> Tallenna Valitut kohteet nimellä**. Uudessa ikkunassa valitset paikan uudelle tiedostolle pienestä napista missä on kolme pistettä (kuva). Tiedoston nimi on tässä kuvassa "Porvoo_koulutus". Tason nimeksi voit laittaa esimerkiksi "Kaupunginrajat". Tarkista, että olet tallentamassa GeoPackage-tiedoston.
+
+![](img/harjoitus_2/image5.png)
+
+Valitse myös pienestä maapallosta Porvoolle sopivan koordinattijärjestelmän eli ETRS89 / GK26FIN (kuva alla). Sen saa helpoin kirjoittamalla Suodatin-kohtaan EPSG-koodin 3880. Paina tämän jälkeen **OK**.
 
 ![](img/harjoitus_2/image6.png)
 
-Valinnat järjestyksessä vasemmalta oikealle:
+Lisää tallennettu tiedosto kartalle-kohdassa on hyvä olla ruksi ja paina tämän jälkeen **OK**.
 
--   Tarttuminen
+Nyt meillä on oma taso missä on vain Porvoon kaupungin alue. Seuraavaksi tarvitaan Porvoon alueella olevat postinumeroalueet. Jotta saadaan ainoastaan ne jotka ovat Porvoon alueella niin voidaan käyttää Ristiinleikkaus-työkalua. Valitse ylävalikosta **Vektori -> Geoprosessointi -> Ristiinleikkaus (Intersection)**
 
--   Kaikki tasot (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
+Syötetaso on Postinumeroalueet ja Peitetasona on äsken luomasi Porvoon kaupuginraja-taso. Valitse vielä kolmesta pisteestä **Tallenna GeoPackageen** ja valitse sama GeoPackage-tiedosto, mitä käytit äsken kaupunginraja-tasolle. Näin saat molemmat tasot tallennettu samaan tiedostoon. Kun olet valinnut saman GeoPackage-tiedoston ja tallentanut niin se pyytää nimeä. Tähän voi laittaa esimerkiksi **Porvoon postinumeroalueet**. Kun painat **Suorita** niin työkalu luo sinulle uuden tason, missä on ainoastaan Porvoon alueella olevat postinumeroalueet.
 
--   Taitepiste (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
+![](img/harjoitus_2/image7.png)
 
--   10
+::: hint-box
+Huomaat ehkä, että ihan kaupunginrajalla niin on hyvin pieniä leikattuja postinumeroalueita. Tämä johtuu siitä, että Suomessa postinumeroalueet ei mene nätisti kuntarajojen mukaan. Näitä voisi esimerkisi siivota käsin pois, valitsemalla alueet ja painamalla delete kun on editointi-tilassa. Tässä harjoituksessa sitä ei tehdä (ellei jää runsaasti aikaa).
+:::
 
--   px (pikseliä)
+Nyt päästään visualisoimaan tasoa. Tasot-paneelista voit valita "Avaa tason tyylit-paneeli", jolloin sinulla aukeaa oikealla tyyli-ikkuna (kuva).
 
--   Ei käytössä
+![](img/harjoitus_2/image8.png)
 
--   Ei käytössä
-
--   Ei käytössä
-
--   Ota seuraaminen käyttöön
-
--   Self snapping (tarttuminen työn alla olevaan digitoitavaan kohteeseen)
-
-## Rakentamistila
-
-Jos piirtämisen apuna tarvitaan etäisyyttä tietystä pisteestä tai tiettyä kulmaa johonkin olemassa olevaan linjaan, rakentamistilan avulla saa näkyville apuviivoja piirtämisen tueksi. Rakentamistilan ollessa aktiivisena ei voi piirtää, mutta sen avulla voidaan hakea näkyviin tarvittavia apuviivoja esim. etäisyyden tai kulman suhteen. Rakentamistilaa voi käyttää ennen tai kesken piirtämisen.
-
-Rakentamistila aktivoidaan laajennetun digitoinnin paneelista löytyvästä ![](img/harjoitus_2/image7.png)-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla **C**.
-
-Huom! Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä ![](img/harjoitus_2/image8.png) tai **C**-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.
-
-## Rakennuksen piirto apuviivojen avulla
-
-Lisätyökalujen avulla voi saada näkyville apuviivat ja tarttumisasetukset tiettyihin kulmiin, esimerkiksi 45 tai 90 asteen välein. Toiminnon saa päälle laajennetun digitoinnin paneelista (ikkunan vasemmassa laidassa) ![](img/harjoitus_2/image9.png)-nappulasta. Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen alettua kulma lasketaan viimeisen piirretyn viivan mukaan ja näkyviin tulee tukiviivoja haluttujen kulmien kohdalle.
-
-### Sitten vain harjoittelemaan....
-
-Aseta **Rakennukset-tason** editointi päälle kynäkuvakkeesta. Kun valitset **Lisää polygonikohde -työkalun**, **Laajennettu digitointi -kuvake** aktivoituu ![](img/harjoitus_2/image10.png). Klikkaa kuvaketta niin saat **Laajennettu digitointi -hallintapaneeliin** QGISiin.
+Nyt voit helposti muokata Porvoon postinumeroalueet-tasoa. Oletuksena on valittu "Yksittäinen symboli" kuvaustekniikaksi. Koska meidän tarkoitus on luoda teemkarttaa väestöluvulla, niin valitse **"Porrastettu"**. Jos kyseessä olisi valmiita kategorioita niin käytettäisiin "Luokiteltua"-kuvaustekniikkaa. Kun olet valinnut "Porrastettu" niin valitse myös minkä arvon (eli muuttujan) mukaan luokkia muodostetaan. Tähän voit laittaa **"he_vakiy"**, missä on väestön lukumäärä. Valitse mieluisa liukuväri. Valitse tämän jälkeen **Tila**- kohdasta esimerkiksi **Luonnolliset luokkarajat (Jenks)**. Huomaa myös **Luokat**-numeroarvo oikealla. Paina tämän jälkeen **Luokittele**. Nyt luotiin automattiset luokat. Yksittäisen luokan luokkarajoja voi muuttaa tuplaklikkaamalla "Arvot"-sarakkeen arvoa, ja karttatulosteessa näkyvää selitettä voi muuttaa tuplaklikkaamalla luokkaa "Selite"-sarakkeesta.  Tämä määrittää kuinka monta luokkaa haluat. Aineiston jakaumaa voit tarkistaa "Histogrammi"-välilehdeltä.
 
 ![](img/harjoitus_2/image11.png)
 
-Laita vielä **Snap to common angles/tartu yleismpiin kulmiin --\> 90.0, 180.0, 270.0, 360.0** päälle![](img/harjoitus_2/image9.png)
 
-Aloita nyt **Rakennukset-tason** editointi.
+Yksittäisen luokan visualisointityyliä voit muuttaa tuplaklikkaamalla luokan symbolia. Yksittäisen luokan luokkarajoja voi muuttaa tuplaklikkaamalla "Arvot"-sarakkeen arvoa, ja karttatulosteessa näkyvää selitettä voi muuttaa tuplaklikkaamalla luokkaa "Selite"-sarakkeesta. Onneksi olkoon! Olet luonut teemakartan! Jatka muokkaamista kunnes olet tyytyväinen!
 
-1.  Harjoittele ensin rakennuksien piirtämistä apuviivojen avulla alla olevan kuvan mukaisesti
+Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + S tai päävalikosta Projekti \> Tallenna.
 
-    ![](img/harjoitus_2/image13.gif)
+## Lisätehtävä 1: Poista rajalla olevat postinumeroalueet
 
-2.  Seuraavaksi harjoitellaan alueen reunaviivan suuntaisesti rakennuksen piirtämistä. Toimi seuraavasti:
+Kuten huomasimme, postinumeroalueet eivät seuraa kuntarajoja, joten niitä pieniä alueita kuntarajojen lähellä voitaisiin siivota pois. Valitse Porvoon postinumeroalueet-tasoa Tasot-paneelista. Paina tämän jälkeen **Editointi päälle** kynä-symbolista. Valitse tämän jälkeen **Valinta-työkalu**.
+![](img/harjoitus_2/image9.png)
+![](img/harjoitus_2/image3.png)
 
--   Varmista, että laajennettu digitointi ![](img/harjoitus_2/image10.png){width="26" height="25"} on päällä.
+Nyt voit valita kaikki ylimääräiset postinumeroalueosat painamalla aluetta ja tämän jälkeen **Delete**-näppäintä. JOs haluat valita useamman alueen kerralla niin pidä ctrl-näppäin alhaalla kun valitset alueita. Kun olet valmis niin muista tallentaa muutokset ja pistä editointi pois päältä. 
 
--   Piirrä piste kartalle haluamaasi kohtaan. Laajennetun digitoinnin valikossa aktivoituvat kohtisuoruustyökalu ![](img/harjoitus_2/image15.png) ja rinnakkainentyökalu ![](img/harjoitus_2/image16.png).
+## Lisätehtävä 2: Lisää nimiöt 
 
--   Valitse haluamasi työkalu (kohtisuoruus tai rinnakkainen):
+Lisää nimiöt **Nimiöt**-välilehdeltä Kuvaustekniikka-ikkunasta. Jos haluat, että kartalla sanotaan postinumeroalueen nimi niin valitse arvoksi **postinumeroalue**-sarake. Voit vaihtoehtoisesti käyttää **he_vakiy**-saraketta, jos haluat esittää tarkan arvon siitä, kuinka moni henkilö asuu postinumeroalueella. Jos teksti on vaikeasti luettava voit esimerkiksi lisätä tekstille vyöhykkeen **Vyöhyke**-välilehdelle. Esimerkkikuva alla.
 
-    -   
-
-        a)  painamalla sen nappia hiirellä, tai
-
-    -   
-
-        b)  paina **P** yhdestä kolmeen kertaa aktivoidaksesi työkaluja järjestyksessä: kohtisuoruus -\> yhdensuuntaisuus -\> vapaapiirto.
-
--   Kun jompi kumpi työkalu on valittuna, klikkaa viivaa, jonka suhteen haluat yhdensuuntaisuutta tai kohtisuoruutta. Huom! tämä klikkaus ei piirrä pistettä, vaan valitsee työkalulle peilauskohteen. Näkyviin tulee valitusta työkalusta riippuen joko yhdensuuntainen tai kohtisuora apuviiva.
-
--   Klikkaa toinen piste kartalle apuviivan avulla haluamaasi kohtaan. Jos haluat, voit määrittää etäisyyden painamalla **D** (fokus etäisyyden syöttökenttään), syöttämällä etäisyyden metreinä ja painamalla **enter**.
-
--   Jatka piirtämistä haluamallasi tavalla. Kohtisuoruutta ja yhdensuuntaisuutta voi käyttää piirtämisen aikana toistamalla askelia
-
-## Suorakulmaisen polygonin piirtäminen
-
-1.  Laita tarttumisen työkalu (työtilan yläosassa) päälle **self-snapping** ![](img/harjoitus_2/image5.png).
-
-2.  Laita asteen mukaiset tukiviivat ja tarttuminen päälle laajennetun digitoinnin paneelista ![](img/harjoitus_2/image9.png). Riittävä tarkkuus on tässä *"90, 180, 270, 360 astetta"*.
-
-3.  Aloita piirtäminen piirtämällä ensimmäiset kaksi pistettä haluttuihin kohtiin.
-
-4.  Kolmannen pisteen piirtämistä helpottamaan näkyville tulee apuviiva kohtisuoraan jo piirrettyyn viivaan. Piirrä tämän avulla kolmas piste haluttuun kohtaan.
-
-5.  Hae seuraava kohtisuora apuviiva näkyviin liikuttamalla hiirtä kohti neljättä pistettä, mutta ÄLÄ paina hiiren nappulaa. Kun apuviiva on näkyvissä ja laajennetun digitoinnin paneelissa näkyy kulman arvona 90 astetta paina **CTRL+ A** lukitaksesi kulman arvo. ÄLÄ klikkaa neljättä pistettä kartalle.
-
-6.  Vie hiiri suorakulmion aloituspisteeseen ja kun osoitin tarttuu pisteeseen, **klikkaa sitä hiirellä**. 
-
-7.  Saadaksesi piirtämisen päätökseen, **klikkaa vielä hiiren oikealla** **näppäimellä.** Suorakulmio on valmis.
-
-![](img/harjoitus_2/image19.gif)
-
-## Tehtävä: "Rakennus 35×40 m tontin rajan suuntaisesti, etäisyys rajaan 15 m"
-
-Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 30 metriä, sen voi tehdä laajennetun digitoinnin työkaluja hyödyntäen mm. seuraavasti:
-
-1.  Lisää kurssihakemistostasi kiinteistörajat sisältävä vektoritaso **MML_kiinteistorekisterikartta_05-2023.gpkg**
-
-2.  Valitse **Rakennukset** taso aktiiviseksi.
-
-3.  Laita **editointi** päälle ![](img/harjoitus_2/image20.png){width="26" height="24"} **Rakennukset**- tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_2/image21.png) sekä l**aajennetun digitoinnin työkalut** aktiivisiksi ![](img/harjoitus_2/image10.png){width="26" height="24"}.
-
-4.  **Laita laajennetun digitoinnin** paneelista (vasen reuna) **rakentamistila** päälle ![](img/harjoitus_2/image8.png) (tai painamalla **C**).
-
-5.  Aseta halutun kiinteistönraja nollakulmaksi valitsemalla rajalta kaksi pistettä.
-
-6.  Valitse haluttu tukikulma 90 astetta painamalla **A** (kerran tai kahdesti, niin että fokus siirtyy laajennetun digitointipaneelin kohtaan a(ngle)) ja syötetään luku 90. Painetaan **enter**. Käyttöön tulee apuviiva kohtisuorasti kiinteistönrajaan. Huom! Jos kulma-asteiden apuviivat ovat käytössä (![](img/harjoitus_2/image9.png)-valikosta), saat automaattisesti apuviivoja piirtämisen avuksi eikä kulman arvoa tarvitse syöttää erikseen.
-
-7.  Valitse haluttu etäisyys 15 metriä painamalla **D** (fokus siirtyy kohtaan d(istance)). Syötetään **luku 15**. Painetaan **enter**. Käyttöön tulee säde 15 m etäisyydelle kiinteistönrajaan piirretyn jälkimmäisen apupisteen mukaan. HUOM! Mitään ei ole vielä piirretty.
-
-8.  Aloita piirtäminen poistamalla **rakentamistila** käytöstä ![](img/harjoitus_2/image8.png) (tai painamalla **C**).
-
-9.  **Piirrä** ensimmäinen piste kohtisuoraa apuviivaa ja -sädettä hyödyntäen.
-
-10. Suora kulma pysyy valittuna, mutta etäisyys halutaan muuttaa 35 metriin (rakennuksen 1. seinän mitta). Paina **D**, syötä arvoksi 35 ja paina **enter**. Apusäde muuttuu 35 metriin. Piirrä rakennuksen seuraava nurkka.
-
-11. Vaihda etäisyydeksi 45 painamalla jälleen, syöttämällä arvo ja painamalla **enter**. Ympyrä kasvaa ja piirtäminen voidaan tehdä sen ja kohtisuoran apuviivan avulla. Etäisyys ja kulma pysyvät samana: piirrä kolmas nurkkapiste.
-
-12. Toista kohta 9.
-
-13. Paina lopuksi hiiren oikeaa näppäintä, jolloin alue sulkeutuu. Näin rakennus on valmis.
-
-![*Rakennuksen piirtäminen käyttämällä aluksi rakennustilaa apuna etäisyyden määrittämiseen alueen rajasta. Tämän jälkeen rakennuksen mitat annetaan painamalla D ja antamalla seinän mitta, jolloin piirtämisen avuksi tulee ympyrä annetun etäisyyden säteellä.*](img/harjoitus_2/image26.gif)
-
-Tämän jälkeen digitoi aineistoon rakennuksia vähintään kolme kappaletta hyödyntäen laajennetun digitoinnin ominaisuuksia. Koita myös kääntää rakennuksia 45 astetta hyödyntäen **Kierrä kohteita -työkalua** ![](img/harjoitus_2/image27.png). **CTRL+hiiren klikkaus** asettaa käännökselle kulmapisteen, jonka mukaan kääntö suoritetaan.
-
-Ota lopuksi tason editointi pois päältä ja tallenna tasoon tehdyt muutokset.
-
-## Case rakennusala tontille: polygonin kopiointi toiseksi itseään pienemmäksi
-
-1.  Lisää **MML_kiinteistorekisterikartta_05-2023.gpkg** taso (jatkossa "lähtötaso").
-
-2.  Valitse polygoni/palsta, jonka haluat kopioida **valintatyökalulla** ![](img/harjoitus_2/image28.png).
-
-3.  Kopioi polygoni leikepöydälle näppäinkomennolla **CTRL+C** tai (tai painamalla hiirellä valikosta **Kopioi kohteet** ![](img/harjoitus_2/image29.png)).
-
-4.  Jos haluat luoda kopion eri tasolle kuin millä alkuperäinen polygoni on, valitse kohdetaso tasopaneelista ja laita se **editointitilaan** ![](img/harjoitus_2/image20.png).
-
-5.  Liitä kopio tasolle painamalla **CTRL+V** tai valikosta **Liitä kohteet** ![](img/harjoitus_2/image31.png).
-
-6.  Huomaa, että jos kohdetaso sijaitsee lähdetason alapuolella, liitetty polygoni jää alkuperäisen polygonin alle. Saat sen näkyviin joko vaihtamalla tasojen järjestystä (raahaamalla niitä tasot-paneelissa hiiren avulla) tai ottamalla päällä olevan tason pois näkyvistä tasopaneelissa.
-
-7.  Jos uutta polygonia tarvitsee muokata (esim. pienentää), palaa kohdetasolle ja valitse polygoni.
-
-8.  Valitse Advanced Digitizing -valikosta **"Tee yhdensuuntaissiirtymä"** -työkalu (Offset curve) ![](img/harjoitus_2/image32.png).
-
-9.  Klikkaa kerran johonkin polygonin pisteeseen. Ruudun oikeaan yläkulmaan ilmestyy **Siirtymä**-asetusvalikko (Offset), johon voi syöttää halutun etäisyyden alkuperäisen polygonin viivasta (esim. -5 tekee tuo polygonin reunoja 5 metriä sisäänpäin aluperäisestä). Valikossa voi valita myös kulmien muodot ![](img/harjoitus_2/image33.png)-nappia painamalla.
-
-![*Pienennetyn tai suurennetun polygonin kulmien muotoa voi muokata valikosta*.](img/harjoitus_2/image34.png)
-
-![](img/harjoitus_2/image35.gif)Ja sitten ei kun harjoittelemaan käyttöä! Esitellyt työkalut voivat tuntua hankalilta ensialkuun, mutta jo pienelläkin harjoituksella ja toistoilla käytännöt tulevat tutuksi ja työskentely jouhevoituu.
-
-Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä](https://gispo.fi/blogi/cad-aineistot-ja-qgis/).
-
-## Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti
-
-1.  Avaa Rakennukset-tason ominaisuudet. Mene kohtaan Attribuuttilomake
-
-2.  Valitse kentistä Pinta-ala ja selaa kohtaan Oletusarvot.
-
-3.  Avaa oikean reunan funktio-painikkeesta auki lausekkeen muokkaus -ikkuna.
-
-4.  Valitse Geometrian alta `$area`. Funktion voi myös itse kirjoittaa suoraan oletusarvot -kenttään.
-
-5.  Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella lauseke on `round($area,2)`
-
-6.  **Lopuksi muista laittaa täppä tuohon "Käytä oletusarvoa päivityksessä" kohtaan**, niin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
-
-    ![](img/harjoitus_2/image36.png)![](img/harjoitus_2/image37.png){width="519"}
-
-## Lopuksi
-
-Avaa **Kuvaustekniikka-paneeli** tai mene tason ominaisuuksien kautta **Kuvaustekniikka-välilehdelle** ja muokkaa editoitujen kohteiden värit vastaamaan taustakartan värejä **Värin valitsin -työkalua** hyödyntäen.
-
-Voit vielä hyödyntää alueen reunaa käyttäen **Seuraaminen-ominaisuutta**:
-
- <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#automatic-tracing>
-
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
+![](img/harjoitus_2/image10.png)
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
 :::
-

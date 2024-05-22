@@ -1,69 +1,78 @@
-# Harjoitus 1: Teemakartta
+# Harjoitus 1: QGISin perustoiminnot
 
-## Harjoituksen sisältö
+**Harjoituksen sisältö**
 
-Harjoituksessa tehdään koropleettikartta, joka kuvaa kauppojen keskittymistä Oulussa.
+Harjoituksessa tehdään QGISin perustoimintoja, kuten aineistojen tallentaminen, konvertointi, koordinaattijärjestelmän muunnokset.
 
-## Harjoituksen tavoite
+**Harjoituksen tavoite**
 
-Koulutettava oppii luomaan heksagoniruudukon, laskemaan pisteet polygoneista ja käyttämään luokittelutyyliä visualisointiin. Hän tietää myös, mistä QGISin eri väripaletit löytyvät.
+Harjoituksen jälkeen opiskelija osaa käyttämään QGISin perustoimintoja.
 
-Tässä harjoituksessa tehdään koropleettikartta, joka perustuu OpenStreetMapin kauppakohteisiin.
 
-![](img/harjoitus_1/image1.png)
+## Valmistautuminen
 
-Mene **Vektori \> Tutkimuksen työkalut \> Luo Ruudukko**. Ruudukon tyypiksi valitaan heksagoni ja ruudukon laajuudeksi joko "Map Canvas" tai "Draw on map canvas". Valitse keskusta-alue piirtämällä.
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 2**".
 
-Aseta vaakatason ja pystytason välitykseksi 100m. Koordinaattijärjestelmänä EPSG: 3067, luodaan toistaiseksi tilapäinen taso. Paina lopuksi **"Suorita"**.
+## MapInfon tiedostot QGISiin
 
-![](img/harjoitus_1/image2.png)
+QGIS tukee kaikki keskeisimmät paikkatietoformaatit. Myös MapInfon tiedostoja voidaan helposti avata QGISissä. Yksinkertaisin tapa tuoda .tab, .mif ja .mid-tiedostoja QGISiin on vetää ne QGIS-ohjelmiston karttaikkunaan. Voit myös tehdä sen valikon kautta: **Tasto -> Lisää tasot -> Lisää vekoritaso**. Etsi oikea tiedosto ja paina **OK**. Huomioi, että esimerkiksi MapInfon .tab tiedoston kyljessä on muutama muu tiedosto (.ID, .MAP, .DAT) jotka pitää pysyä aina samassa paikassa .tab tiedoston kanssa. Muuten aineisto ei toimi oikealla tavalla.
 
-Nyt QGIS on luonut ruudukon antamallesi alueelle.
+Tähän "monta tiedostoa samalle aineistolle"-rumbaan löytyy ratkaisu: GeoPackage. QGISin oletusformaatti GeoPackge on kuin pieni paikallinen tietokanta omana tiedostona, mihin voi tallentaa monta eri tasoa, tyylejä sekä jopa QGISin projektia. Tällä tavalla voit esimerkiksi näppärästi siirtää kaikki tarvittavat tasot oikeilla tyyleillä kolleegalle. Lähettämällä pelkän .gpkg-tiedoston vaikkapa sähköpostitse.
 
-Sen jälkeen lasketaan kuinka monta kauppaa kussakin ruudussa on. QGISin pääikkunan vasemmassa alalaidassa on haku, josta voit hakea **"Laske pisteet monikulmion sisällä"**. Klikkaa se auki listasta. Valitse Monikulmiot-kohdan pudotusvalikosta juuri luotu Ruudukko-tasoja Pisteet-kohtaan kaupat-taso. Laskurikentän nimeksi voi jättää NUMPOINTS, ja lopuksi paina **"Suorita"**.
-
-![](img/harjoitus_1/image3.png)
-
-QGIS luo nyt uuden tason, joka on äskeinen heksagonitaso, mutta jossa on attribuuttitaulussa uusi NUMPOINTS-sarake, joka kertoo kussakin heksagonissa olevien kauppojen lukumäärän. Paina uutta Lkm-tasoa tasoluettelossa hiiren oikealla ja avaa attribuuttitaulu varmistaaksesi, että prosessi on onnistunut.
-
-Seuraavaksi visualisoidaan Lkm-taso. Aseta tällä kertaa Yksittäinen symboli -visualisoinnin sijaan kuvaustyyliksi Porrastettu. Valitse Arvo-kohtaan "NUMPOINTS" ja paina "Luokittele". Oletuksena tuleva luokittelu tai väriskaala ei ole ehkä kaikkein toimivin, joten lähdetään muuttamaan niitä.
-
-![](img/harjoitus_1/image4.png)
-
-Liukuvärinä on oletuksena Random colors. Klikkaa sen vieressä olevasta nuolesta lisää valintoja auki. Kohdasta **Kaikki liukuvärit** saat näkyviin vielä lisää väriskaaloja. Voit myös klikata **Luo uusi liukuväri**. Kohdista "katalogi: cpt-city" ja "katalogi: ColorBrewer" saat auki vielä lisää valmiita värimäärityksiä. ColorBrewer-katalogissa ovat kaikki <https://colorbrewer2.org/> -sivustolla olevat väriskaalat.
-
-Gradientti-valinnalla voit luoda itse oman liukuvärin määrittämällä alku- ja loppuvärin. Color presets mahdollistaa uusien väripalettien määrittelyn itse ja niiden tallentamisen/tuomisen. Tutki nyt itse QGISin väripaletteja ja valitse mieleisesi paletti tähän tarkoitukseen.
-
-Tutki myös Tila-kohdassa olevaa oletusta **Equal count**. Miten visualisointi muuttuu, jos valitset jonkin toisen luokittelutavan tai muutat luokkien määrää? Voit tarkastella aineistoa myös "Pylväskaavio"-välilehdellä. Paina "Lataa arvot" -painiketta, jos mitään ei näy.
-
-![](img/harjoitus_1/image5.png)
-
-Voit halutessasi ottaa pois ensimmäisen luokan näkyvistä ottamalla siitä täpän pois, kuten esimerkkikuvassa on tehty. Tällöin heksagonit, joissa on esimerkiksi 0-5 kohdetta, poistuvat kartalta.
-
-::: hint-box
-Vinkki! Vaikka olet luokitellut aineiston ja määrittänyt visualisoinnit eri luokille, voit muokata kaikkien luokkien visualisoinnin perusasetuksia samalla kertaa. Klikkaa Symboli-tekstin vieressä olevaa värillistä ruutua. Tämä avaa tutun visualisointiasetusikkunan. Voit esimerkiksi tätä kautta vaihtaa heksagonien peittävyyden 90%:iin tai vaihtaa niiden reunaviivan väriä.
-:::
+Ensin tarvitaan taustakartta. Valitse Selain-paneelista XYZ-tiles ja tuplaklikkaa "OpenStreetMap"-yhteyttä. Siirry Porvoon alueelle. Projektin koordinaattijärjestelmäksi suositellaan tässä tapauksessa Porvoolle sopivaa EPSG:3880. Painamalla alaoikealla olevaa EPSG-koodia voit vaihtaa kyseisen projektin koordinaattijärjestelmää. Valitse tähän EPSG:3880. Paina **OK**.
 
 ![](img/harjoitus_1/image6.png)
 
-Yksittäisen luokan visualisointityyliä voit muuttaa tuplaklikkaamalla luokan symbolia. Yksittäisen luokan luokkarajoja voi muuttaa tuplaklikkaamalla "Arvot"-sarakkeen arvoa, ja karttatulosteessa näkyvää selitettä voi muuttaa tuplaklikkaamalla luokkaa "Selite"-sarakkeesta.
+Lisätään tässä vaiheessa QGIS-projektiin uutta aineistoa. Etsi kurssihakemistosta **mastot.tab* ja lisää se QGIS-projektiin. Aineisto pitäisi asettua oikeille paikolle. Aineisto sisältää Porvoon keskustan alueen mastoja (Maanmittauslaitoksen maastotietokannan mukaan). Haluamme nyt tehdä muunnoksen .tab formaatista .gpkg formaattiin. Helpoin tapa on silloin vaan tallentaa tasoa uudestaan, ja valitsemalla oikea tiedostoformaatti. 
 
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + S tai päävalikosta Projekti \> Tallenna.
+## Aineistomuunnos tai uuden aineiston tallentaminen
 
-## Lisätehtävä: WMS-tason visualisointi
+Eli aloita klikkamalla oikealla mastot-tasoa "Tasot"-paneelissa. Valitse **Vie -> Tallenna kohteet nimellä**. Vaihda tiedostomuoto GeoPackageksi ja pienestä napista, missä on kolme pistettä niin valitset itsellesi järkevän paikan tiedostolle. Voit nimetä tiedoston esimerkiksi näin "harjoitus 1 data". Tämä on siis nyt tämän harjoituksen GeoPackage-tiedosto ja tähän tallennetaan usempi taso (Huomaa, että logiikka MapInfon tiedostomuotoja verratuna on hiukan erilainen). Ensimmäisen tason nimi voi olla **mastot**. Koordinaattijärjestelmäksi valitaan EPSG:3880, pienen maapallo-napin takaa. Huomaat ehkä, että pieni varoituskolmio ilmenee. Jos pidät hiiren kolmion päällä, niin QGIS kertoo, että tämän koordinaattijärjestelmän tarkkuus on parhaimmillaan 0,1 metriä. Eli meidän tapauksessa tästä ei tarvitse huolehtia. Paina **OK**. Hienoa! Olet nyt muuntanut .tab tiedoston .gpkg-muotoon. 
 
-Kokeile miltä aineisto näyttää, jos sinulla olisi yksivärinen taustakartta. Avaa QGISin Selain-paneelista XYZ Tiles -kohta painamalla sen vieressä olevaa väkästä.
+![](img/harjoitus_1/image1.png)
+
+## Väliaikainen luonnostaso
+
+
+Luodaan seuraavaksi uusi väliaikainen luonnostaso joka sitten tallennetaan samaan GeoPackage-tiedostoon. Valitse **Luo uusi väliaikainen luonnostaso** ![](img/harjoitus_1/image2.png)
+
+::: hint-box
+Psst! Väliaikaiset luonnostasot eivät tallennu omaksi tiedostoksi. Eli jos suljet tämän QGIS-projektin, niin väliaiksen luonnostason kohteet ovat hävinneet. Väliaikaiset luonnostasot ovat näppäriä silloin, kun tiedetään, että siitä ei ole tulossa omaa lopputuotosta, vaan ne ovat nimensä mukaisesti väliaikaisia luonnoksia. 
+:::
+
+Anna uudelle tasolle nimen "sillat". Geometriatyyppi on LineString ja koordinattijärjestelmä sama kuin aiemmin. Voit lisätä uuden kentän jonka nimi on "nimi" ja tyyppi on Teksti. Lisää myös kenttä nimeltään "pituus" ja jonka tyyppi on Desimaaliluku. 
+
+![](img/harjoitus_1/image3.png)
+
+Uusi väliaikainen luonnostaso näkyy nyt Tasot-paneelissa. Erotat tason pysyvistä tasoita pienen "ötökän" näköisestä symbolista.
+
+![](img/harjoitus_1/image4.png)
+
+Lisää yksi silta painamalla ![](img/harjoitus_1/image5.png)-symbolia ja vedä tämän jälkeen viiva kartalla. Painamalla hiiren oikeaa näppäintä lopetat uuden viivan piirtämistä ja pieni ikkuna avautuu, mihin voit kirjoittaa nimen ja pituuden. Voit myös jättää tiedot tyhjiksi. Tallenna väliaikaisen luonnostason uusi silta ja siirry pois tason editointitilasta painamalla kynä-symbolia. Klikkaa nyt hiiren oikealla samaa tasoa ja valitse "Tee pysyväksi". Valitse tiedostonimeksi edellinen tiedosto eli "Harjoitus 3 data.gpkg" ja anna tason nimeksi "sillat". Paina **OK**. Hienoa! Nyt sinulla on jo kaksi tasoa samassa GeoPackage-tiedostossa. 
 
 ![](img/harjoitus_1/image7.png)
 
-Tuplaklikkaa avautuvasta listasta **OpenStreetMapia**. Nyt QGIS tuo sinulle uuden taustakartan. Aseta tasoista ainoastaan se ja luomasi Lkm-taso näkyviin.
+## Selain-paneelin käyttö
 
-Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan yksiväriseksi laittamalla täpän kohtaan "Väritys". Hae sitten heksagoneihin valitsemaasi väripalettiin sopiva väri, jolla värität taustakartan. Pyri siihen, että taustakartta jää taka-alalle ja nostaa selkeästi heksagoniaineiston näkyviin. Voit muuttaa kirkkaus-, kylläisyys- ja kontrastiasetuksia sekä gamma-asetusta. Voit myös säätää värityksen vahvuutta. Kokeile myös harmaasävyjen käyttöä!
+Aineistoja voi lisätä QGISiin monella tavalla. Yksi hyvä tapa saada yleiskuvaa GeoPackagen sisällöstä on Selain-paneelin kautta. Tätä kautta pääset helposti näkemään omia tiedostojasi. Jos sinulla on esimerkiksi oma kansio tietylle aineistolle voit myös tallentaa sen suosikiksi. Alla olevassa videossa näet, miten voit lisätä kansion suosikkeihin jotta siihen on helpompi pääsy ja myös miten nopean yhteyden GeoPackage-tiedstoon luodaan.
+
+![](img/harjoitus_1/image8.gif)
+
+## Kuvaustekniikan tallentaminen
+
+Muistatko vielä miten kuvaustekniikkaa voi muuttaa? Tasot paneelista valitset "Avaa tason tyylit-paneeli". Vasemmalla näkyy nyt tason kuvaustekniikka. Kokeile lisätä sillan viivalle paksuutta ja vaihtaa sen väriä.
 
 ![](img/harjoitus_1/image8.png)
 
+Kun olet tyytyväinen visualisointiin voit tallentaa sen. Kuvaustekniikat tallenntuu aina QGISin projektin mukana, eli usein ei ole tarpeen tallentaa kuvaustekniikkaa erikseen, jos käyttää samaa projektia. Jos olet lähettämässä aineiston kolleegalle, eli GeoPackage-tiedoston niin voit tallentaa kuvaustekniikan GeoPackage-tiedostoon. 
+
+Klikkaa oikealla "Sillat"-tasoa ja valitse **Tallenna QGIS tason tyylitiedosto**. Valitse tallennustapa "In datasource database", anna tyylille nimi sekä valitse, että tyyli on oletuksena (kuva alla).
+
 ![](img/harjoitus_1/image9.png)
 
-::: hint-box
-**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
-:::
+Jos haluat varmistaa, että kuvaustekniikka on pysynyt mukana voit esimerkiksi avata uuden tyhjän QGIS-projektin ja tuoda sillat-taso siihen. Jos kaikki näyttää hyvältä voisit esimerkiksi lähettää .gpkg-tiedoston eteenpäin ja vastaanottajalla olisi täsmälleen samanlainen kuvaustekniikka. 
+
+## Projektin tallentaminen GeoPackageen
+
+Joskus on tarvetta jakaa kokonainen projekti kollegan kanssa. Silloin koko projektin voi tallentaa samaan GeoPackage-tiedostoon aineistojen kanssa. Voidaan kokeilla sitä nyt. Mene ylävalikkon "Projekti" ja valitse sieltä **Tallenna tiedostoon** ja **GeoPackage...**. Uudessa ikkunassa valitset "Harjoitus 1 data"-tiedoston. Anna nimeksi vaikkapa "harjoitusprojekti" ja paina **OK**. Nyt projektikin on tallentunut GeoPackage-tiedostoon. Nyt avata uuden tyhjän projektin ja kokeilla avata projekti GeoPackage-tiedostosta. Eli **Projekti -> Avaa kohteet -> GeoPackage...**
+
