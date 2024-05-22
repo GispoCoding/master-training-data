@@ -1,81 +1,78 @@
-# Harjoitus 1: Teemakartta
+# Harjoitus 2: QGISin perustoiminnot
 
-## Harjoituksen sisältö
+**Harjoituksen sisältö**
 
-Harjoituksessa tehdään teemakartta Porvoon alueelta käyttäen postinumeroalueita ja rajapintapalveluja.
+Harjoituksessa tehdään QGISin perustoimintoja, kuten aineistojen tallentaminen, konvertointi, koordinaattijärjestelmän muunnokset.
 
-## Harjoituksen tavoite
+**Harjoituksen tavoite**
 
-Koulutettava oppii luomaan teemakartan sekä harjoittelee rajapintapalvelujen käyttöä.
+Harjoituksen jälkeen opiskelija osaa käyttämään QGISin perustoimintoja.
 
 
-Avaa QGIS ja aloita tyhjästä projektista. Aloitetaan heti lisäämällä kaikki Suomen kuntarajat [Tilastokeskuksen rajapintapalvelusta](https://stat.fi/org/avoindata/paikkatietoaineistot.html#kuntapohjaiset). Uuden tason voi lisätä muutamalla tavalla. Voit esimerkiksi selain-paneelissa etsiä **WFS / OGC API - Features** kohdan ja klikata sitä oikealla hiirennäppäimellä. Valitse **Uusi yhteys**. Anna yhteydelle selkeä nimi ja lisää tämä Tilastokeskuksen rajapintapalvelun osoite URL-kenttään:
+## Valmistautuminen
 
-::: note-box
-https://geo.stat.fi/geoserver/tilastointialueet/wfs
-:::
-![](img/harjoitus_1/image1.png)
-Lisää tämän jälkeen myös uusi yhteys toiseen rajapintapalveluun, [Tilastokeskuksen Paavo-rajapinta](https://stat.fi/org/avoindata/paikkatietoaineistot/paavo.html) missä on kaikki Suomen postinumeroalueet. Paavo-rajapinnan osoite on:
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 2**".
 
-::: note-box
-https://geo.stat.fi/geoserver/postialue/wfs
-:::
+## MapInfon tiedostot QGISiin
 
-Siirry viimeistään nyt Porvoon alueelle käyttäen karttanavigoinnin työkaluja.
-![](img/harjoitus_1/image2.png)
+QGIS tukee kaikki keskeisimmät paikkatietoformaatit. Myös MapInfon tiedostoja voidaan helposti avata QGISissä. Yksinkertaisin tapa tuoda .tab, .mif ja .mid-tiedostoja QGISiin on vetää ne QGIS-ohjelmiston karttaikkunaan. Voit myös tehdä sen valikon kautta: **Tasto -> Lisää tasot -> Lisää vekoritaso**. Etsi oikea tiedosto ja paina **OK**. Huomioi, että esimerkiksi MapInfon .tab tiedoston kyljessä on muutama muu tiedosto (.ID, .MAP, .DAT) jotka pitää pysyä aina samassa paikassa .tab tiedoston kanssa. Muuten aineisto ei toimi oikealla tavalla.
 
-Lisätään nyt Kuntaraja-rajapinnasta taso nimeltään **Kunnat (1:1 000 000)** sekä Paavo-rajapinnasta taso nimeltään **Paavo-tilastointiaineisto ja -postinumeroalueet**. Tarkista, että on oikeat tasot. Harjoituksen kannalta on tärkeää, että Paavo-aineisto sisältää myös tilastointiaineistoa. Voit avata attribuuttitaulukkoa klikkaamalla tasoa oikealla hiirennäppäimellä Tasot-paneelissa ja valita sieltä "Avaa attribuuttitaulukko". Tarkista, että sarake nimeltään "he_vakiy" on olemassa. Tässä sarakkeessa on postinumeroalueen väkimäärä. 
+Tähän "monta tiedostoa samalle aineistolle"-rumbaan löytyy ratkaisu: GeoPackage. QGISin oletusformaatti GeoPackge on kuin pieni paikallinen tietokanta omana tiedostona, mihin voi tallentaa monta eri tasoa, tyylejä sekä jopa QGISin projektia. Tällä tavalla voit esimerkiksi näppärästi siirtää kaikki tarvittavat tasot oikeilla tyyleillä kolleegalle. Lähettämällä pelkän .gpkg-tiedoston vaikkapa sähköpostitse.
 
-Seuraavaksi viedään Porvoon kaupungin alue ulos omana tiedostona. Paina ensin **Kunnat (1:1 000 000)**-tasoa Tasot-paneelissa. Valitse tämän jälkeen Valinta-työkalu:  ![](img/harjoitus_1/image3.png) ja valitse karttaikkunasta Porvoota. Nyt Porvoon alue pitäisi korostua keltaisella (kuva)
+Ensin tarvitaan taustkartta. Valitse Selain-paneelista XYZ-tiles ja tuplaklikkaa "OpenStreetMap"-yhteyttä. Siirry Porvoon alueelle. Projektin koordinaattijärjestelmäksi suositellaan tässä tapauksessa Porvoolle sopivaa EPSG:3880. Painamalla alaoikealla olevaa EPSG-koodia voit vaihtaa kyseisen projektin koordinaattijärjestelmää. Valitse tähän EPSG:3880. Paina **OK**.
 
-![](img/harjoitus_1/image4.png)
+![](img/harjoitus_2/image6.png)
 
-Paina oikealla **Kunnat (1:1 000 000)**-tasoa ja valitse **Vie -> Tallenna Valitut kohteet nimellä**. Uudessa ikkunassa valitset paikan uudelle tiedostolle pienestä napista missä on kolme pistettä (kuva). Tiedoston nimi on tässä kuvassa "Porvoo_koulutus". Tason nimeksi voit laittaa esimerkiksi "Kaupunginrajat". Tarkista, että olet tallentamassa GeoPackage-tiedoston.
+Lisätään tässä vaiheessa QGIS-projektiin uutta aineistoa. Etsi kurssihakemistosta **mastot.tab* ja lisää se QGIS-projektiin. Aineisto pitäisi asettua oikeille paikolle. Aineisto sisältää Porvoon keskustan alueen mastoja (Maanmittauslaitoksen maastotietokannan mukaan). Haluamme nyt tehdä muunnoksen .tab formaatista .gpkg formaattiin. Helpoin tapa on silloin vaan tallentaa tasoa uudestaan, ja valitsemalla oikea tiedostoformaatti. 
 
-![](img/harjoitus_1/image5.png)
+## Aineistomuunnos tai uuden aineiston tallentaminen
 
-Valitse myös pienestä maapallosta Porvoolle sopivan koordinattijärjestelmän eli ETRS89 / GK26FIN (kuva alla). Sen saa helpoin kirjoittamalla Suodatin-kohtaan EPSG-koodin 3880. Paina tämän jälkeen **OK**.
-![](img/harjoitus_1/image6.png)
+Eli aloita klikkamalla oikealla mastot-tasoa "Tasot"-paneelissa. Valitse **Vie -> Tallenna kohteet nimellä**. Vaihda tiedostomuoto GeoPackageksi ja pienestä napista, missä on kolme pistettä niin valitset itsellesi järkevän paikan tiedostolle. Voit nimetä tiedoston esimerkiksi näin "harjoitus 2 data". Tämä on siis nyt tämän harjoituksen GeoPackage-tiedosto ja tähän tallennetaan usempi taso (Huomaa, että logiikka MapInfon tiedostomuotoja verratuna on hiukan erilainen). Ensimmäisen tason nimi voi olla **mastot**. Koordinaattijärjestelmäksi valitaan EPSG:3880, pienen maapallo-napin takaa. Huomaat ehkä, että pieni varoituskolmio ilmenee. Jos pidät hiiren kolmion päällä, niin QGIS kertoo, että tämän koordinaattijärjestelmän tarkkuus on parhaimmillaan 0,1 metriä. Eli meidän tapauksessa tästä ei tarvitse huolehtia. Paina **OK**. Hienoa! Olet nyt muuntanut .tab tiedoston .gpkg-muotoon. 
 
-Lisää tallennettu tiedosto kartalle-kohdassa on hyvä olla ruksi ja paina tämän jälkeen **OK**.
+![](img/harjoitus_2/image1.png)
 
-Nyt meillä on oma taso missä on vain Porvoon kaupungin alue. Seuraavaksi tarvitaan Porvoon alueella olevat postinumeroalueet. Jotta saadaan ainoastaan ne jotka ovat Porvoon alueella niin voidaan käyttää Ristiinleikkaus-työkalua. Valitse ylävalikosta **Vektori -> Geoprosessointi -> Ristiinleikkaus (Intersection)**
+## Väliaikainen luonnostaso
 
-Syötetaso on Postinumeroalueet ja Peitetasona on äsken luomasi Porvoon kaupuginraja-taso. Valitse vielä kolmesta pisteestä **Tallenna GeoPackageen** ja valitse sama GeoPackage-tiedosto, mitä käytit äsken kaupunginraja-tasolle. Näin saat molemmat tasot tallennettu samaan tiedostoon. Kun olet valinnut saman GeoPackage-tiedoston ja tallentanut niin se pyytää nimeä. Tähän voi laittaa esimerkiksi **Porvoon postinumeroalueet**. Kun painat **Suorita** niin työkalu luo sinulle uuden tason, missä on ainoastaan Porvoon alueella olevat postinumeroalueet.
 
-![](img/harjoitus_1/image7.png)
+Luodaan seuraavaksi uusi väliaikainen luonnostaso joka sitten tallennetaan samaan GeoPackage-tiedostoon. Valitse **Luo uusi väliaikainen luonnostaso** ![](img/harjoitus_2/image2.png)
 
 ::: hint-box
-Huomaat ehkä, että ihan kaupunginrajalla niin on hyvin pieniä leikattuja postinumeroalueita. Tämä johtuu siitä, että Suomessa postinumeroalueet ei mene nätisti kuntarajojen mukaan. Näitä voisi esimerkisi siivota käsin pois, valitsemalla alueet ja painamalla delete kun on editointi-tilassa. Tässä harjoituksessa sitä ei tehdä (ellei jää runsaasti aikaa).
+Psst! Väliaikaiset luonnostasot eivät tallennu omaksi tiedostoksi. Eli jos suljet tämän QGIS-projektin, niin väliaiksen luonnostason kohteet ovat hävinneet. Väliaikaiset luonnostasot ovat näppäriä silloin, kun tiedetään, että siitä ei ole tulossa omaa lopputuotosta, vaan ne ovat nimensä mukaisesti väliaikaisia luonnoksia. 
 :::
 
-Nyt päästään visualisoimaan tasoa. Tasot-paneelista voit valita "Avaa tason tyylit-paneeli", jolloin sinulla aukeaa oikealla tyyli-ikkuna (kuva).
+Anna uudelle tasolle nimen "sillat". Geometriatyyppi on LineString ja koordinattijärjestelmä sama kuin aiemmin. Voit lisätä uuden kentän jonka nimi on "nimi" ja tyyppi on Teksti. Lisää myös kenttä nimeltään "pituus" ja jonka tyyppi on Desimaaliluku. 
 
-![](img/harjoitus_1/image8.png)
+![](img/harjoitus_2/image3.png)
+Uusi väliaikainen luonnostaso näkyy nyt Tasot-paneelissa. Erotat tason pysyvistä tasoita pienen "ötökän" näköisestä symbolista.
 
-Nyt voit helposti muokata Porvoon postinumeroalueet-tasoa. Oletuksena on valittu "Yksittäinen symboli" kuvaustekniikaksi. Koska meidän tarkoitus on luoda teemkarttaa väestöluvulla, niin valitse **"Porrastettu"**. Jos kyseessä olisi valmiita kategorioita niin käytettäisiin "Luokiteltua"-kuvaustekniikkaa. Kun olet valinnut "Porrastettu" niin valitse myös minkä arvon (eli muuttujan) mukaan luokkia muodostetaan. Tähän voit laittaa **"he_vakiy"**, missä on väestön lukumäärä. Valitse mieluisa liukuväri. Valitse tämän jälkeen **Tila**kohdasta esimerkiksi **Luonnolliset luokkarajat (Jenks)**. Huomaa myös **Luokat**-numeroarvo oikealla. Paina tämän jälkeen **Luokittele**. Nyt luotiin automattiset luokat. Yksittäisen luokan luokkarajoja voi muuttaa tuplaklikkaamalla "Arvot"-sarakkeen arvoa, ja karttatulosteessa näkyvää selitettä voi muuttaa tuplaklikkaamalla luokkaa "Selite"-sarakkeesta.  Tämä määrittää kuinka monta luokkaa haluat. Aineiston jakaumaa voit tarkistaa "Histogrammi"-välilehdeltä.
+![](img/harjoitus_2/image4.png)
 
-![](img/harjoitus_1/image11.png)
+Lisää yksi silta painamalla ![](img/harjoitus_2/image5.png)-symbolia ja vedä tämän jälkeen viiva kartalla. Painamalla hiiren oikeaa näppäintä lopetat uuden viivan piirtämistä ja pieni ikkuna avautuu, mihin voit kirjoittaa nimen ja pituuden. Voit myös jättää tiedot tyhjiksi. Tallenna väliaikaisen luonnostason uusi silta ja siirry pois tason editointitilasta painamalla kynä-symbolia. Klikkaa nyt hiiren oikealla samaa tasoa ja valitse "Tee pysyväksi". Valitse tiedostonimeksi edellinen tiedosto eli "Harjoitus 3 data.gpkg" ja anna tason nimeksi "sillat". Paina **OK**. Hienoa! Nyt sinulla on jo kaksi tasoa samassa GeoPackage-tiedostossa. 
 
+![](img/harjoitus_2/image7.png)
 
-Yksittäisen luokan visualisointityyliä voit muuttaa tuplaklikkaamalla luokan symbolia. Yksittäisen luokan luokkarajoja voi muuttaa tuplaklikkaamalla "Arvot"-sarakkeen arvoa, ja karttatulosteessa näkyvää selitettä voi muuttaa tuplaklikkaamalla luokkaa "Selite"-sarakkeesta. Onneksi olkoon! Olet luonut teemakartan! Jatka muokkaamista kunnes olet tyytyväinen!
+## Selain-paneelin käyttö
 
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + S tai päävalikosta Projekti \> Tallenna.
+Aineistoja voi lisätä QGISiin monella tavalla. Yksi hyvä tapa saada yleiskuvaa GeoPackagen sisällöstä on Selain-paneelin kautta. Tätä kautta pääset helposti näkemään omia tiedostojasi. Jos sinulla on esimerkiksi oma kansio tietylle aineistolle voit myös tallentaa sen suosikiksi. Alla olevassa videossa näet, miten voit lisätä kansion suosikkeihin jotta siihen on helpompi pääsy ja myös miten nopean yhteyden GeoPackage-tiedstoon luodaan.
 
-## Lisätehtävä 1: Poista rajalla olevat postinumeroalueet
+![](img/harjoitus_2/image8.gif)
 
-Kuten huomasimme, postinumeroalueet eivät seuraa kuntarajoja, joten niitä pieniä alueita kuntarajojen lähellä voitaisiin siivota pois. Valitse Porvoon postinumeroalueet-tasoa Tasot-paneelista. Paina tämän jälkeen **Editointi päälle** kynä-symbolista. Valitse tämän jälkeen **Valinta-työkalu**.
-![](img/harjoitus_1/image9.png)
-![](img/harjoitus_1/image3.png)
+## Kuvaustekniikan tallentaminen
 
-Nyt voit valita kaikki ylimääräiset postinumeroalueosat painamalla aluetta ja tämän jälkeen **Delete**-näppäintä. JOs haluat valita useamman alueen kerralla niin pidä ctrl-näppäin alhaalla kun valitset alueita. Kun olet valmis niin muista tallentaa muutokset ja pistä editointi pois päältä. 
+Muistatko vielä miten kuvaustekniikkaa voi muuttaa? Tasot paneelista valitset "Avaa tason tyylit-paneeli". Vasemmalla näkyy nyt tason kuvaustekniikka. Kokeile lisätä sillan viivalle paksuutta ja vaihtaa sen väriä.
 
-## Lisätehtävä 2: Lisää nimiöt 
+![](img/harjoitus_2/image8.png)
 
-Lisää nimiöt **Nimiöt**-välilehdeltä Kuvaustekniikka-ikkunasta. Jos haluat, että kartalla sanotaan postinumeroalueen nimi niin valitse arvoksi **postinumeroalue**-sarake. Voit vaihtoehtoisesti käyttää **he_vakiy**-saraketta, jos haluat esittää tarkan arvon siitä, kuinka moni henkilö asuu postinumeroalueella. Jos teksti on vaikeasti luettava voit esimerkiksi lisätä tekstille vyöhykkeen **Vyöhyke**-välilehdelle. Esimerkkikuva alla.
+Kun olet tyytyväinen visualisointiin voit tallentaa sen. Kuvaustekniikat tallenntuu aina QGISin projektin mukana, eli usein ei ole tarpeen tallentaa kuvaustekniikkaa erikseen, jos käyttää samaa projektia. Jos olet lähettämässä aineiston kolleegalle, eli GeoPackage-tiedoston niin voit tallentaa kuvaustekniikan GeoPackage-tiedostoon. 
 
-![](img/harjoitus_1/image10.png)
+Klikkaa oikealla "Sillat"-tasoa ja valitse **Tallenna QGIS tason tyylitiedosto**. Valitse tallennustapa "In datasource database", anna tyylille nimi sekä valitse, että tyyli on oletuksena (kuva alla).
 
-::: hint-box
-**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
-:::
+![](img/harjoitus_2/image9.png)
+
+Jos haluat varmistaa, että kuvaustekniikka on pysynyt mukana voit esimerkiksi avata uuden tyhjän QGIS-projektin ja tuoda sillat-taso siihen. Jos kaikki näyttää hyvältä voisit esimerkiksi lähettää .gpkg-tiedoston eteenpäin ja vastaanottajalla olisi täsmälleen samanlainen kuvaustekniikka. 
+
+## Projektin tallentaminen GeoPackageen
+
+Joskus on tarvetta jakaa kokonainen projekti kollegan kanssa. Silloin koko projektin voi tallentaa samaan GeoPackage-tiedostoon aineistojen kanssa. Voidaan kokeilla sitä nyt. Mene ylävalikkon "Projekti" ja valitse sieltä **Tallenna tiedostoon** ja **GeoPackage...**. Uudessa ikkunassa valitset "Harjoitus 2 data"-tiedoston. Anna nimeksi vaikkapa "harjoitusprojekti" ja paina **OK**. Nyt projektikin on tallentunut GeoPackage-tiedostoon. Nyt avata uuden tyhjän projektin ja kokeilla, avata projekti GeoPackage-tiedostosta. Eli **Projekti -> Avaa kohteest -> GeoPackage...**
+
+![](img/harjoitus_2/image10.png)
