@@ -8,7 +8,6 @@ Harjoituksessa tehdään digitoinnin operaatioita QGISillä.
 
 Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin digitoinnin ja editoinnin ominaisuuksia.
 
-
 ## Valmistautuminen
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 3**".
@@ -81,5 +80,3 @@ Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä
 ::: hint-box
 Psst! Gispolla on ihan oma kurssi kaavojen tekemiseen QGISillä nimeltään [Yleiskaavoitus QGISillä](https://www.gispo.fi/koulutus/yleiskaavoitus-qgisilla/)
 :::
-
-

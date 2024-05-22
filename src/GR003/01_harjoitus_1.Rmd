@@ -27,7 +27,7 @@ Lisätään tässä vaiheessa QGIS-projektiin uutta aineistoa. Etsi kurssihakemi
 
 ## Aineistomuunnos tai uuden aineiston tallentaminen
 
-Eli aloita klikkamalla oikealla mastot-tasoa "Tasot"-paneelissa. Valitse **Vie -> Tallenna kohteet nimellä**. Vaihda tiedostomuoto GeoPackageksi ja pienestä napista, missä on kolme pistettä niin valitset itsellesi järkevän paikan tiedostolle. Voit nimetä tiedoston esimerkiksi näin "harjoitus 2 data". Tämä on siis nyt tämän harjoituksen GeoPackage-tiedosto ja tähän tallennetaan usempi taso (Huomaa, että logiikka MapInfon tiedostomuotoja verratuna on hiukan erilainen). Ensimmäisen tason nimi voi olla **mastot**. Koordinaattijärjestelmäksi valitaan EPSG:3880, pienen maapallo-napin takaa. Huomaat ehkä, että pieni varoituskolmio ilmenee. Jos pidät hiiren kolmion päällä, niin QGIS kertoo, että tämän koordinaattijärjestelmän tarkkuus on parhaimmillaan 0,1 metriä. Eli meidän tapauksessa tästä ei tarvitse huolehtia. Paina **OK**. Hienoa! Olet nyt muuntanut .tab tiedoston .gpkg-muotoon. 
+Eli aloita klikkamalla oikealla mastot-tasoa "Tasot"-paneelissa. Valitse **Vie -> Tallenna kohteet nimellä**. Vaihda tiedostomuoto GeoPackageksi ja pienestä napista, missä on kolme pistettä niin valitset itsellesi järkevän paikan tiedostolle. Voit nimetä tiedoston esimerkiksi näin "harjoitus 1 data". Tämä on siis nyt tämän harjoituksen GeoPackage-tiedosto ja tähän tallennetaan usempi taso (Huomaa, että logiikka MapInfon tiedostomuotoja verratuna on hiukan erilainen). Ensimmäisen tason nimi voi olla **mastot**. Koordinaattijärjestelmäksi valitaan EPSG:3880, pienen maapallo-napin takaa. Huomaat ehkä, että pieni varoituskolmio ilmenee. Jos pidät hiiren kolmion päällä, niin QGIS kertoo, että tämän koordinaattijärjestelmän tarkkuus on parhaimmillaan 0,1 metriä. Eli meidän tapauksessa tästä ei tarvitse huolehtia. Paina **OK**. Hienoa! Olet nyt muuntanut .tab tiedoston .gpkg-muotoon. 
 
 ![](img/harjoitus_1/image1.png)
 
@@ -73,6 +73,5 @@ Jos haluat varmistaa, että kuvaustekniikka on pysynyt mukana voit esimerkiksi a
 
 ## Projektin tallentaminen GeoPackageen
 
-Joskus on tarvetta jakaa kokonainen projekti kollegan kanssa. Silloin koko projektin voi tallentaa samaan GeoPackage-tiedostoon aineistojen kanssa. Voidaan kokeilla sitä nyt. Mene ylävalikkon "Projekti" ja valitse sieltä **Tallenna tiedostoon** ja **GeoPackage...**. Uudessa ikkunassa valitset "Harjoitus 2 data"-tiedoston. Anna nimeksi vaikkapa "harjoitusprojekti" ja paina **OK**. Nyt projektikin on tallentunut GeoPackage-tiedostoon. Nyt avata uuden tyhjän projektin ja kokeilla, avata projekti GeoPackage-tiedostosta. Eli **Projekti -> Avaa kohteest -> GeoPackage...**
+Joskus on tarvetta jakaa kokonainen projekti kollegan kanssa. Silloin koko projektin voi tallentaa samaan GeoPackage-tiedostoon aineistojen kanssa. Voidaan kokeilla sitä nyt. Mene ylävalikkon "Projekti" ja valitse sieltä **Tallenna tiedostoon** ja **GeoPackage...**. Uudessa ikkunassa valitset "Harjoitus 1 data"-tiedoston. Anna nimeksi vaikkapa "harjoitusprojekti" ja paina **OK**. Nyt projektikin on tallentunut GeoPackage-tiedostoon. Nyt avata uuden tyhjän projektin ja kokeilla avata projekti GeoPackage-tiedostosta. Eli **Projekti -> Avaa kohteet -> GeoPackage...**
 
-![](img/harjoitus_1/image10.png)

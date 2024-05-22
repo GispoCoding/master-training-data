@@ -1,6 +1,4 @@
-
-
-# Harjoitus 1: Teemakartta
+# Harjoitus 2: Teemakartta
 
 ## Harjoituksen sisältö
 

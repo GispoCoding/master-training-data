@@ -10,7 +10,7 @@ Koulutettava oppii laatimaan karttatulosteen halutussa mittakaavassa sekä tehd�
 
 ## Valmistautuminen
 
-Käynnistä QGIS-ohjelmisto. Avaa toisen harjoituksen projekti, eli se missä tehtiin teemakarttaa.
+Käynnistä QGIS-ohjelmisto. Avaa toisen harjoituksen projekti, eli se missä tehtiin teemakarttaa. Vaihtoehtoisesti voit lisätä jotain muuta aineistoa, tässä harjoituksessa emme visualisoida aineistoa, vaan me harjoitellaan karttatulosteiden tekemistä.
 
 ## Karttatuloste
 
@@ -71,6 +71,12 @@ Lopputuloksen voit tulostaa tiedostoksi (kuvaksi tai pdf:ksi) tai tulostimeen.
 
 Sopiva resoluutio karttatulosteellesi riippuu kartan käyttötarkoituksesta, mutta oletusarvoinen 300 dpi tallentaa resoluutioltaan hyvinkin tarkkoja kuvia. Voit valita arvoksi vaikkapa 200 dpi.
 
+## Lisätehtävä: Tutustu QGISin kartta-atlakseen
+
+QGISillä on toiminto millä voidaan automatisoida karttojen luontia. Jos esimerkiksi haluaa monesta kaupuginosasta samantyylisiä karttoja, kannattaa harkita kartta-atlaksen käyttöä. Tutustu kartta-atlakseen esimerkiksi [täällä](https://www.qgistutorials.com/en/docs/3/automating_map_creation.html) ja mieti jos tästä voisi olla hyötyä sinulle.
+
 ::: hint-box
 **Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
 :::
+
+
