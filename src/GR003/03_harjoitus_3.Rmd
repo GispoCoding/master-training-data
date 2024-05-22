@@ -33,9 +33,9 @@ Tallennettaessa QGIS kysyy, korvataanko aiemmin luotu GeoPackage vai lisätään
 Tarkista, että sinulla on esillä **Digitoinnin työkalupalkki** sekä **Tarttumisen työkalut**. Tämän voit tehdä Näytä-ylävalikon kautta (Työkalut)
 
 ![](img/harjoitus_3/image37.png)
-Laita Rakennusket-tason muokkaustila päälle ![](img/harjoitus_1/image9.png)
+Laita Rakennukset-tason muokkaustila päälle ![](img/harjoitus_3/image9.png)
 
-Nyt voit piirtää uusia kohteita Rakennus-tasolle painamalla ensin "Lisää monikulmiokohde" ![](img/harjoitus_1/image6.png) 
+Nyt voit piirtää uusia kohteita Rakennus-tasolle painamalla ensin "Lisää monikulmiokohde" ![](img/harjoitus_3/image6.png) 
 
 Sen jälkeen voit vapaasti piirtää rakennuksen taustakartan mukaan. Kokeile piirtää yksi rakennus ja kun olet valmis niin painat hiiren oikealla näppäimellä. Nyt voit lisätä rakennuksen käyttötarkoituksen (voit keksiä itse). Pinta-alaa ei laiteta, koska sitä lasketaan geometrian mukaan myöhemmin.
 
@@ -57,70 +57,29 @@ Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen a
 
 Kokeile nyt piirtää muutama muu rakennus 90 asteen kulmilla. Muista tallentaa tason muutoksia tasaisin väliajoin. 
 
+## Lisätehtävä 1: Kokeile työkaluja rohkeast
+Voit kokeilla myös CAD-pohjaista digitointia, joka on kehittynyt verrattain paljon QGISin uudessa versiossa. Työkalut sait siis esiin lisäämällä **Digitoinnin lisätyökalut** -ylämenusta **Näytä → Työkalut → Digitoinnin lisätyökalut**. 
+Kokeile erilaisia työkaluja, esimerkiksi **Täytä piiri** -työkalua. Tätä voit hyödyntää esimerkiksi rakennuksen sisäpihan piirtämisessä. Eli voidaan niin sanotusti tehdä reikä rakennuksen keskelle.
 
-## Rakentamistila
+
+## Lisätehtävä 2: Testaa rakentamistila
 
 Jos piirtämisen apuna tarvitaan etäisyyttä tietystä pisteestä tai tiettyä kulmaa johonkin olemassa olevaan linjaan, rakentamistilan avulla saa näkyville apuviivoja piirtämisen tueksi. Rakentamistilan ollessa aktiivisena ei voi piirtää, mutta sen avulla voidaan hakea näkyviin tarvittavia apuviivoja esim. etäisyyden tai kulman suhteen. Rakentamistilaa voi käyttää ennen tai kesken piirtämisen.
 
 Rakentamistila aktivoidaan laajennetun digitoinnin paneelista löytyvästä ![](img/harjoitus_3/image7.png)-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla **C**.
 
-Huom! Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä ![](img/harjoitus_2/image8.png) tai **C**-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.
+Huom! Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä ![](img/harjoitus_3/image8.png) tai **C**-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.
 
-## Tehtävä: "Rakennus 35×40 m tontin rajan suuntaisesti, etäisyys rajaan 15 m"
+## Lisätehtävä 3: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti
 
-Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 30 metriä, sen voi tehdä laajennetun digitoinnin työkaluja hyödyntäen mm. seuraavasti:
+Avaa Rakennukset-tason ominaisuudet. Mene kohtaan Attribuuttilomake. Valitse kentistä Pohjan_ala ja selaa kohtaan Oletusarvot. Avaa oikean reunan funktio-painikkeesta auki lausekkeen muokkaus -ikkuna. Valitse Geometrian alta `$area`. Funktion voi myös itse kirjoittaa suoraan oletusarvot -kenttään. Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella lauseke on `round($area,2)`. **Lopuksi muista laittaa täppä tuohon "Käytä oletusarvoa päivityksessä" kohtaan**, niin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
 
-1.  Lisää kurssihakemistostasi kiinteistörajat sisältävä vektoritaso **MML_kiinteistorekisterikartta_05-2023.gpkg**
-
-2.  Valitse **Rakennukset** taso aktiiviseksi.
-
-3.  Laita **editointi** päälle ![](img/harjoitus_2/image20.png){width="26" height="24"} **Rakennukset**- tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_3/image21.png) sekä l**aajennetun digitoinnin työkalut** aktiivisiksi ![](img/harjoitus_3/image10.png){width="26" height="24"}.
-
-4.  **Laita laajennetun digitoinnin** paneelista (vasen reuna) **rakentamistila** päälle ![](img/harjoitus_3/image8.png) (tai painamalla **C**).
-
-5.  Aseta halutun kiinteistönraja nollakulmaksi valitsemalla rajalta kaksi pistettä.
-
-6.  Valitse haluttu tukikulma 90 astetta painamalla **A** (kerran tai kahdesti, niin että fokus siirtyy laajennetun digitointipaneelin kohtaan a(ngle)) ja syötetään luku 90. Painetaan **enter**. Käyttöön tulee apuviiva kohtisuorasti kiinteistönrajaan. Huom! Jos kulma-asteiden apuviivat ovat käytössä (![](img/harjoitus_3/image9.png)-valikosta), saat automaattisesti apuviivoja piirtämisen avuksi eikä kulman arvoa tarvitse syöttää erikseen.
-
-7.  Valitse haluttu etäisyys 15 metriä painamalla **D** (fokus siirtyy kohtaan d(istance)). Syötetään **luku 15**. Painetaan **enter**. Käyttöön tulee säde 15 m etäisyydelle kiinteistönrajaan piirretyn jälkimmäisen apupisteen mukaan. HUOM! Mitään ei ole vielä piirretty.
-
-8.  Aloita piirtäminen poistamalla **rakentamistila** käytöstä ![](img/harjoitus_3/image8.png) (tai painamalla **C**).
-
-9.  **Piirrä** ensimmäinen piste kohtisuoraa apuviivaa ja -sädettä hyödyntäen.
-
-10. Suora kulma pysyy valittuna, mutta etäisyys halutaan muuttaa 35 metriin (rakennuksen 1. seinän mitta). Paina **D**, syötä arvoksi 35 ja paina **enter**. Apusäde muuttuu 35 metriin. Piirrä rakennuksen seuraava nurkka.
-
-11. Vaihda etäisyydeksi 45 painamalla jälleen, syöttämällä arvo ja painamalla **enter**. Ympyrä kasvaa ja piirtäminen voidaan tehdä sen ja kohtisuoran apuviivan avulla. Etäisyys ja kulma pysyvät samana: piirrä kolmas nurkkapiste.
-
-12. Toista kohta 9.
-
-13. Paina lopuksi hiiren oikeaa näppäintä, jolloin alue sulkeutuu. Näin rakennus on valmis.
-
-![*Rakennuksen piirtäminen käyttämällä aluksi rakennustilaa apuna etäisyyden määrittämiseen alueen rajasta. Tämän jälkeen rakennuksen mitat annetaan painamalla D ja antamalla seinän mitta, jolloin piirtämisen avuksi tulee ympyrä annetun etäisyyden säteellä.*](img/harjoitus_3/image26.gif)
-
-Tämän jälkeen digitoi aineistoon rakennuksia vähintään kolme kappaletta hyödyntäen laajennetun digitoinnin ominaisuuksia. Koita myös kääntää rakennuksia 45 astetta hyödyntäen **Kierrä kohteita -työkalua** ![](img/harjoitus_3/image27.png). **CTRL+hiiren klikkaus** asettaa käännökselle kulmapisteen, jonka mukaan kääntö suoritetaan.
-
-Ota lopuksi tason editointi pois päältä ja tallenna tasoon tehdyt muutokset.
-
+Kun olet valmis, tallenna projektitiedosto.
 
 Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä](https://gispo.fi/blogi/cad-aineistot-ja-qgis/).
 
-## Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti
-
-1.  Avaa Rakennukset-tason ominaisuudet. Mene kohtaan Attribuuttilomake
-
-2.  Valitse kentistä Pinta-ala ja selaa kohtaan Oletusarvot.
-
-3.  Avaa oikean reunan funktio-painikkeesta auki lausekkeen muokkaus -ikkuna.
-
-4.  Valitse Geometrian alta `$area`. Funktion voi myös itse kirjoittaa suoraan oletusarvot -kenttään.
-
-5.  Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella lauseke on `round($area,2)`
-
-6.  **Lopuksi muista laittaa täppä tuohon "Käytä oletusarvoa päivityksessä" kohtaan**, niin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
-
-    ![](img/harjoitus_2/image36.png)![](img/harjoitus_3/image37.png){width="519"}
+::: hint-box
+Psst! Gispolla on ihan oma kurssi kaavojen tekemiseen QGISillä nimeltään [Yleiskaavoitus QGISillä](https://www.gispo.fi/koulutus/yleiskaavoitus-qgisilla/)
+:::
 
 
-
-Kun olet valmis, tallenna projektitiedosto.
