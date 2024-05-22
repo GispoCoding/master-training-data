@@ -157,29 +157,6 @@ Tämän jälkeen digitoi aineistoon rakennuksia vähintään kolme kappaletta hy
 
 Ota lopuksi tason editointi pois päältä ja tallenna tasoon tehdyt muutokset.
 
-## Case rakennusala tontille: polygonin kopiointi toiseksi itseään pienemmäksi
-
-1.  Lisää **MML_kiinteistorekisterikartta_05-2023.gpkg** taso (jatkossa "lähtötaso").
-
-2.  Valitse polygoni/palsta, jonka haluat kopioida **valintatyökalulla** ![](img/harjoitus_2/image28.png).
-
-3.  Kopioi polygoni leikepöydälle näppäinkomennolla **CTRL+C** tai (tai painamalla hiirellä valikosta **Kopioi kohteet** ![](img/harjoitus_2/image29.png)).
-
-4.  Jos haluat luoda kopion eri tasolle kuin millä alkuperäinen polygoni on, valitse kohdetaso tasopaneelista ja laita se **editointitilaan** ![](img/harjoitus_2/image20.png).
-
-5.  Liitä kopio tasolle painamalla **CTRL+V** tai valikosta **Liitä kohteet** ![](img/harjoitus_2/image31.png).
-
-6.  Huomaa, että jos kohdetaso sijaitsee lähdetason alapuolella, liitetty polygoni jää alkuperäisen polygonin alle. Saat sen näkyviin joko vaihtamalla tasojen järjestystä (raahaamalla niitä tasot-paneelissa hiiren avulla) tai ottamalla päällä olevan tason pois näkyvistä tasopaneelissa.
-
-7.  Jos uutta polygonia tarvitsee muokata (esim. pienentää), palaa kohdetasolle ja valitse polygoni.
-
-8.  Valitse Advanced Digitizing -valikosta **"Tee yhdensuuntaissiirtymä"** -työkalu (Offset curve) ![](img/harjoitus_2/image32.png).
-
-9.  Klikkaa kerran johonkin polygonin pisteeseen. Ruudun oikeaan yläkulmaan ilmestyy **Siirtymä**-asetusvalikko (Offset), johon voi syöttää halutun etäisyyden alkuperäisen polygonin viivasta (esim. -5 tekee tuo polygonin reunoja 5 metriä sisäänpäin aluperäisestä). Valikossa voi valita myös kulmien muodot ![](img/harjoitus_2/image33.png)-nappia painamalla.
-
-![*Pienennetyn tai suurennetun polygonin kulmien muotoa voi muokata valikosta*.](img/harjoitus_2/image34.png)
-
-![](img/harjoitus_2/image35.gif)Ja sitten ei kun harjoittelemaan käyttöä! Esitellyt työkalut voivat tuntua hankalilta ensialkuun, mutta jo pienelläkin harjoituksella ja toistoilla käytännöt tulevat tutuksi ja työskentely jouhevoituu.
 
 Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä](https://gispo.fi/blogi/cad-aineistot-ja-qgis/).
 
@@ -199,17 +176,6 @@ Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä
 
     ![](img/harjoitus_2/image36.png)![](img/harjoitus_2/image37.png){width="519"}
 
-## Lopuksi
 
-Avaa **Kuvaustekniikka-paneeli** tai mene tason ominaisuuksien kautta **Kuvaustekniikka-välilehdelle** ja muokkaa editoitujen kohteiden värit vastaamaan taustakartan värejä **Värin valitsin -työkalua** hyödyntäen.
 
-Voit vielä hyödyntää alueen reunaa käyttäen **Seuraaminen-ominaisuutta**:
-
- <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#automatic-tracing>
-
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
-
-::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
-:::
-
+Kun olet valmis, tallenna projektitiedosto.

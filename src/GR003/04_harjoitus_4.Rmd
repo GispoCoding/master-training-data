@@ -1,105 +1,125 @@
-# Harjoitus 4: Topologia ja geometria
+# Harjoitus 5: Karttatuloste
 
-**Harjoituksen sisältö**
+## Harjoituksen sisältö
 
-Harjoituksessa opetellaan käyttämään QGISia topologian ja geometrian tarkistukseen.
+Harjoituksessa tehdään karttatuloste.
 
-**Harjoituksen tavoite**
+## Harjoituksen tavoite
 
-Harjoituksen jälkeen opiskelija osaa tarkastaa aineistonsa geometrioita ja tehdä niihin manuaalisesti ja automaattisesti tarvittavia korjauksia.
+Koulutettava oppii laatimaan karttatulosteen halutussa mittakaavassa sekä tehdä tulosteesta PDF-tiedoston.
 
-**Arvioitu kesto**
+## Valmistautuminen
 
-30 minuuttia.
+Käynnistä QGIS-ohjelmisto. Avaa harjoituksen 4 QGIS-projektisi ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_5**". Voit poistaa tai laittaa näkyvistä tasot TieViiva ja NaturaKohde_ma.
 
-## **Valmistautuminen**
+## Karttatuloste
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä \"**QGIS-harjoitus 4**\". Lisää projektiin seuraavat aineistot:
+Uuden tulosteen muodostaminen voidaan aloittaa kahdella tavalla, valitse **Projekti → Uusi taitto** tai paina työkalua:
 
--   **Rakennukset_alueina_GK25.shp**
+![](img/harjoitus_5/image1.png)
 
-## **Virheellisen aineiston tuonti QGISiin**
+Ensimmäisenä kysytään uuden taiton nimeä. Anna taitolle jokin sitä hyvin kuvaava nimi. Taittoa varten avautuu uusi ikkuna.
 
-**Rakennukset_alueina_GK25-tiedosto** on Helsinki Region Infoshare -sivustolta ladattu avoin aineisto, joka sisältää Vantaan kaupungin rakennukset. Aineiston on kerrottu päivittyvän viikoittain ja sen lähteeksi on merkitty Vantaan kaupungin kiinteistöt ja asuminen, mutta pienellä tarkastelulla huomaamme, että kyseinen aineisto ei ole täysin virheetöntä.
+![](img/harjoitus_5/image2.png)
 
-![](img/harjoitus_4/image1.png)
+Paina tulosalueella hiiren oikealla näppäimellä ja valitse **Sivun ominaisuudet**. Tarkista **Elementin ominaisuudet -välilehdestä** oikeasta paneelista, että paperin kooksi A4, suunta **Vaaka** ja **Taitto-välilehdestä**, että viennin resoluutio on 300 dpi. Tämän jälkeen voimme sijoittaa karttanäkymän tulosteelle, valitse työkalupalkista työkalu:
 
-Aineisto näyttää silmämääräisesti olevan kunnossa, mutta entä sen koneluettavuus? Jos aineisto ei ole kaikkien teknisten määritysten mukainen, voi olla että sillä ei pysty esimerkiksi suorittamaan kaikkia spatiaalisia operaatioita tai sen siirrossa formaatista toiseen tulee ongelmia. Tarkastetaan siis onko tässä aineistossa joitain mahdollisia ongelmia. Tähän tarkoitukseen löytyy QGISistä useita erilaisia työkaluja.
+![](img/harjoitus_5/image3.png)
 
-## **Tarkista kelpoisuus (Check validity)**
+Vedä tulosalueelle suorakulmio, karttanäkymän mukainen kartta piirtyy näytölle.
 
-Aloitetaan aineiston koneluettavuuden (= aineiston laadun) tarkistus \"kevyimmällä\" tarkistustyökalulla. Valitse QGISin päävalikosta **Vektori \> Geometria-työkalut \> Tarkista kelpoisuus...**, jolloin QGISiin avautuu **Tarkista kelpoisuus -ikkuna**.
+![](img/harjoitus_5/image4.png)
 
-![](img/harjoitus_4/image2.png)
+Valitse **Elementin ominaisuudet -välilehti** ja muuta kartan parametrejä seuraavasti:
 
-Kyseinen algoritmi tekee kelpoisuustarkistuksen tason geometrioille. Geometriat luokitellaan kolmeen ryhmään (**Kelvollinen tulos, Virheellinen tulos** ja **Virhetuloste**) ja kullekin näistä luodaan uusi taso. Oletusarvoisesti algoritmi käyttää tiukkaa OGC-määritystä polygonin validoinnissa, mutta me emme halua ottaa tiukinta mahdollista määritystä huomioon, joten valitse  **Ignore ring self intersections**. Koska rakennus voi olla geometrialtaan täysin validi vaikka siinä olisi reikä, jätetään kyseiset virheilmoitukset huomiotta. Paina sitten **Suorita**.
+-   Kartan mittakaavaksi 1:200 000
+-   Valitse Kehys (piirtää kartalle reunaviivat)
 
-![](img/harjoitus_4/image3.png)
+Huomaa, että karttatulosteen hallinnassa on mahdollisuus siirtää yksittäisiä kohteita (nimikkeitä) tai muokata kartan sijaintia. Kohteen ollessa valittuna, voit siirtää sitä tulosteella seuraavan työkalun avulla:
 
-QGIS tuottaa oletusasetuksilla kolme väliaikaista tasoa, jotka se lisää projektiin. Saat vielä kohteiden määrän näkyviin klikkaamalla tasoa hiiren oikealla ja valitsemalla **Näytä kohteiden lukumäärä**. Kuten alla olevasta kuvasta näkyy, aineisto sisältää melkoisen määrän virheellisiä geometrioita.
+|                                  |                                                         |
+|:------------------:|:--------------------------------------------------:|
+| ![](img/harjoitus_5/image5.png) |                Valitse/siirrä elementtiä                |
+| ![](img/harjoitus_5/image6.png) | Siirrä elementin sisältöä (esimerkiksi kartan sisältöä) |
+| ![](img/harjoitus_5/image7.png) |                 Zoomaa taiton näkymässä                 |
 
-![](img/harjoitus_4/image4.png)
+QGISin avulla voit muokata karttatulosteesi ulkoasua. Otsikko tai muu teksti voidaan lisätä **Lisää uusi nimiö** -työkalulla: ![](img/harjoitus_5/image8.png)
 
-Avaa **Virheellinen tulos -tason** attribuuttitaulu ja tarkastele **\_error-saraketta**. Sarake sisältää selkokielisen kuvauksen virheen luonteesta. Suurin osa virheilmoituksista on **Self-intersection-virheitä**, mikä tarkoittaa että polygoni leikkaa itsensä. Tämä analyysi tuo siis **tiedon virheellisistä kohteista, mutta ei auta niiden korjaamisessa**.
+Lisää uusi selite käyttäen: ![](img/harjoitus_5/image9.png)
 
-## **Topologian tarkastaja (Topology checker)**
+Ja lisää uusi mittakaava käyttäen: ![](img/harjoitus_5/image10.png)
 
-Seuraava vaihtoehto aineiston laatutarkistukseen on **Topologian tarkastaja -työkalu**. Se on QGISin ns. **ytimeen kuuluva lisäosa**, eli se tulee QGISin mukana, mutta sitä ei ole aina aktivoitu. Mene ylävalikosta **Lisäosat \> Hallitse ja asenna lisäosia...** ja kirjoita hakukenttään **\"Topologian tarkastaja\"**. Klikkaa työkalu aktiiviseksi, jolloin se ilmestyy ylävalikon **Vektori-valikkoon**.
+Huomaa, että näiden taiton elementtien ominaisuuksia voit muokata oikeanpuoleisen sivupalkin **Elementin ominaisuudet -välilehden** avulla. Tekstiä voi muokata tekstinkäsittelyohjelmista tutuilla työkaluilla:
 
-![](img/harjoitus_4/image5.png)
+![](img/harjoitus_5/image11.png)
 
-**Topologian tarkistin -paneeli** aukeaa seuraavasta **Topologian tarkastaja -kuvakkeesta** ![](img/harjoitus_4/image6.png). Aineiston topologisen eheyden voi tarkistaa tästä paneelista.
+Voit myös muokata selitteen ominaisuuksia. Huomaa, että sinun on poistettava kohdan **Päivitä automaattisesti** rasti. Pohjoisnuolen lisääminen tapahtuu lisäämällä kuva tällä työkalulla (vasemmasta palkista): ![](img/harjoitus_5/image12.png)
 
-![](img/harjoitus_4/image7.png)
+Valitse sen jälkeen **Elementin ominaisuudet -ikkunasta** mieleisesi pohjoisnuoli-kuva (selaa sisältöä alaspäin, jos et heti näe nuolia).
 
-Valitse ensimmäiseksi **Topologian tarkastaja -paneelista Konfiguroi** ![](img/harjoitus_4/image8.png), jolloin QGISiin aukeaa uusi **Topologiasääntöjen asetukset -ikkuna**. Tässä ikkunassa voidaan määritellä ne säännöt, joiden mukaan QGIS käsittelee aineiston geometrioita. Säännöt voivat koskea vain yhtä tasoa tai ne voivat olla kahden tason välisiä sääntöjä. Sääntöjä voi olla esimerkiksi etteivät kaksi tasoa saa olla päällekkäin. Lisää aineistoon kolme sääntöä kuvan mukaisesti ja paina **OK**.
+![](img/harjoitus_5/image13.png)
 
-![](img/harjoitus_4/image9.png)
+Lopputulos voi olla esimerkiksi seuraavanlainen:
 
-Klikkaa sitten **Topologian tarkastaja -paneelissa Tarkasta kaikki -kuvaketta** ![](img/harjoitus_4/image10.png), jolloin QGIS ajaa kaikki äsken listatut säännöt. Minkälaisia tuloksia saat? Tarkastele tuloksia paneelin valikosta.
+![](img/harjoitus_5/image14.png)
 
-## **Tarkista geometriat (Geometry checker)**
+Halutessasi voit tallentaa käyttämäsi tulostemallin (layout englanniksi) ja hyödyntää sitä jatkossa seuraavien karttatulosteiden tekemiseen. Voit esimerkiksi muotoilla kollegoidesi käyttöön karttatulostemallin organisaatiollesi (logot, värit, tekstin paikka, jne.). Tämä onnistuu **Tallenna malliksi -työkalulla**: ![](img/harjoitus_5/image15.png)
 
-Kolmas ja järein vaihtoehto geometrioiden tarkistukseen on **Tarkista geometriat -työkalu**. Tämäkin työkalu pitää käydä aktivoimassa edellisen tapaan lisäosien valikoimasta. Tämäkin työkalu ilmestyy ylävalikon **Vektori-valikkoon**.
+Lopputuloksen voit tulostaa tiedostoksi (kuvaksi tai pdf:ksi) tai tulostimeen.
 
-![](img/harjoitus_4/image11.png)
+![](img/harjoitus_5/image16.jpg)
 
-Kuten heti huomaat kyseisen työkalun valikosta, **Tarkista geometriat -työkalu** antaa ylivoimaisesti laajimman valikoiman validoinnin toiminnallisuuksista. Tehdään kuitenkin perustason tarkastus aineistolle ja etsitään ainoastaan duplikaatteja. Valitse siis kuvan mukaiset asetukset aineiston validoinnissa ja valitse viimeiseksi vaihtoehdoksi (vieritä ikkunaa alaspäin) **Muokkaa syötetasoja**. Paina sitten **Suorita**.
-
-![](img/harjoitus_4/image12.png)
-
-Työkalu ajaa algoritmia hetken, mutta palauttaa sen jälkeen virheilmoitukset havaitsemistaan virheellisistä kohteista. Voit tarkastella yksittäistä virhettä klikkaamalla riviä; kartta zoomautuu oikeaan sijaintiin ja virheellinen kohde korostuu. Virheitä voi korjata yksitellen, mutta myös useamman virheen voi valita ja korjata isomman osion kerralla. Ennen varsinaista virheiden korjausta voit määrittää virheiden ratkaisumenetelmät valitsemalla **Error resolution settings**. Aseta **Duplicate-kohtaan** ratkaisuksi **Remove duplicates**.
-
-![](img/harjoitus_4/image13.png)
-
-Korjaa virheet valitsemalla **Fix selected errors using default resolution**, jolloin QGIS poistaa duplikaattigeometriat, kuten määrittelimme äsken.
-
-![](img/harjoitus_4/image14.png)
-
-Voit lukea lisää työkalusta QGISin dokumentaatiosta: 
-
-<https://docs.qgis.org/3.22/en/docs/user_manual/plugins/core_plugins/plugins_geometry_checker.html>
+Sopiva resoluutio karttatulosteellesi riippuu kartan käyttötarkoituksesta, mutta oletusarvoinen 300 dpi tallentaa resoluutioltaan hyvinkin tarkkoja kuvia. Voit valita arvoksi vaikkapa 200 dpi.
 
 ::: hint-box
-Miksi kaikki menetelmät tuottivat niin erilaisia tuloksia ja miksi vaihtoehtoja tarkastukseen on niin monta? Entä mikä olisi omalle aineistollesi paras mahdollinen tapa tarkistukseen?
+**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
 :::
 
-## **Geometrian ja topologian validointi tasoa muokattaessa**
+## Lisätehtävä: kartta-atlas
 
-Voit välttää virheellisten geometrioiden muodostumista jo aineistoa digitoidessa ja editoidessa. Avaa muokattavan tason **Ominaisuudet** -ikkuna ja mene **Digitointi** -välilehdelle. Ruksi aktiivisiksi haluamasi korjaukset.
+QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Seuraavassa esimerkissä tuotamme kartta-atlaksen Helsingin postinumeroalueista tutkien niitä väestön jakautumisen näkökulmasta. Tavoitteenamme on tuottaa 173 karttaa, jotka kattavat kaikki pääkaupunkiseudun postinumeroalueet.
 
-![](img/harjoitus_4/image15.png)
+-   Lataa ensiksi postinumeroalueet paikkatietoaineiston avoindata.fi-sivustolta: <https://www.avoindata.fi/data/fi/dataset/paakaupunkiseudun-postinumeroalueet> Lataa aineisto haluamassasi muodossa kurssikansioosi ja lisää se oppimallasi tavalla QGIS-projektiin.
 
-Nimestään huolimatta tämä toiminto ei tee korjauksia automaattisesti, mutta huomauttaa virheellisistä geometrioista. 
+TAI \* - **Lisää .../kurssihakemisto/Harjoitus 7/Postinumeroalueet_2019.gpkg** eli HSY:n postinumeroaineisto QGIS-projektiisi. Huom! Tämä aineisto on tallennettu koordinaattijärjestelmässä EPSG: 3067.
 
-![](img/harjoitus_4/image16.png)
+Nyt projektissa on tasoina ainakin väestöruutuaineisto ja postinumeroalueet. Voit myös lisätä muita haluamiasi tasoja projektiin (esimerkiksi tieviivat). Avaa uusi tuloste ja aseta sen sommittelu haluamaasi kokoon (esimerkiksi A5).
 
-Editoidessa voit hyödyntää myös **Tarttumisen työkalut** -palkin toimintoa päällekkäisten kohteiden digitoinnin välttämiseen.
+Lisää tulosteelle kartta, johon piirtyvät karttaikkunassa näkyvät projektin tasot. Lisää otsikko, selite ja muut karttatulosteen graafiset tai kartografiset elementit (kuten logo tai pohjoisnuoli) totuttuun tapaan. Lähennä karttanäkymä n. yhden postinumeroalueen laajuiseksi (esim. 1:25 000), sillä lopputuloksessa kartta-atlaksen karttalehdet automaattisesti kohdentuvat postinumeroalueiden kokoon.
 
-![](img/harjoitus_4/image17.png)
+Sitten aloitetaan kartta-atlaksen tuottaminen. Aktivoimme tulosteelle kartta-atlastilan oikean ominaisuuspalkin Atlaksen luonti-välilehdestä kuvan osoittamalla tavalla. Karttalehtijakotasoksi valitsemme tason, jonka alueisiin kartta-atlas perustuu. Tässä tapauksessa se on postinumeroalueet-taso.
 
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
+![](img/harjoitus_5/image17.png)
+
+Varmista, että karttakomponentti on valittuna, valitse se **Valitse/Siirrä elementti -työkalulla** vasemmasta työpalkista ja klikkaamalla kartta aktiiviseksi: ![](img/harjoitus_5/image5.png)
+
+Muokkaamme kartta-atlasasetuksia oikean puolen sivupalkissa **Elementin ominaisuudet → Atlas ohjaa tätä**.
+
+![](img/harjoitus_5/image19.png)
+
+Tämän jälkeen voimme esikatsella kartta-atlastamme **Esikatsele Atlasta -työkalulla** (käyttöliittymän yläreunassa):
+
+![](img/harjoitus_5/image20.jpg)
+
+Esikatselun avulla voit vilkaista, miltä kartta-atlas näyttäisi tulostaessa. Käytä nuolia esikatselutyöpalkista Huomaa, että voit tehdä samanaikaisesti muutoksia karttatulosteen tyyliasetuksiin tai vaikkapa tason luokitteluväreihin. Jos haluat voit lisätä tulosteeseen myös yleiskatsauskarttanäkymän, joka helpottaa kohteen sijainnin määrittämistä kartta-atlaksessa. Yleiskatsaus eli indeksikartta ilmaisee, millä alueella kartalla liikutaan. Lisää sitä varten tulosteeseen pienempi karttaikkuna, jota käytetään indeksikarttana. Valitse uuden karttaelementin **Elementin omaisuudet -paneelista Yleiskatsaukset** ja määritä asetukset kuvan mukaisesti:
+
+![](img/harjoitus_5/image21.png)
+
+Voit myös muuttaa indeksikartan **Kehyksen tyylin**. Kun olet valmis, voit tulostaa kartta-atlaksen **Vie atlas kuvina -työkalulla**. Huomaa, että jokaisesta kartta-atlaksen syntyy kuva eli tulostamisessa voi kestää.
+
+![](img/harjoitus_5/image22.png)
+
+Voit tulostaa atlaksen yksittäisinä kuvina tai yhteen tiedostoon PDF-formaatissa. Yhteen tiedostoon tallentaminen onnistuu aktivoimalla **Yhden tiedoston vienti jos mahdollista** -asetuksen Atlaksen luonti -välilehdessä:
+
+![](img/harjoitus_5/image23.png)
+
+Kartta-atlastuloste voisi näyttää esimerkiksi tältä:
+
+![](img/harjoitus_5/image24.jpg)
+
+Kuvan esimerkissä on käyttöön otettu myös yleiskatsauskarttanäkymä (vasen alareuna) ja taustakarttana käytetty OpenStreetMap Finlandin WMS-palvelua avaa.fi-julkaisualustan kautta (<http://avaa.tdata.fi/openstreetmap>). Huomaa, kuinka yleiskarttanäkymän pieni vaaleanpunainen neliö vaihtaa paikkaa sitä mukaa kun kohdennetun kartan alue vaihtuu.
+
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti tuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
