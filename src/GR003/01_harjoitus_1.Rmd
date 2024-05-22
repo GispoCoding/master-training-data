@@ -1,4 +1,4 @@
-# Harjoitus 2: QGISin perustoiminnot
+# Harjoitus 1: QGISin perustoiminnot
 
 **Harjoituksen sisältö**
 
