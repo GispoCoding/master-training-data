@@ -43,6 +43,7 @@ Psst! Väliaikaiset luonnostasot eivät tallennu omaksi tiedostoksi. Eli jos sul
 Anna uudelle tasolle nimen "sillat". Geometriatyyppi on LineString ja koordinattijärjestelmä sama kuin aiemmin. Voit lisätä uuden kentän jonka nimi on "nimi" ja tyyppi on Teksti. Lisää myös kenttä nimeltään "pituus" ja jonka tyyppi on Desimaaliluku. 
 
 ![](img/harjoitus_1/image3.png)
+
 Uusi väliaikainen luonnostaso näkyy nyt Tasot-paneelissa. Erotat tason pysyvistä tasoita pienen "ötökän" näköisestä symbolista.
 
 ![](img/harjoitus_1/image4.png)
