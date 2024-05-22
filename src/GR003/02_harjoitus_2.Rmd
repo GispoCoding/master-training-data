@@ -15,6 +15,7 @@ Avaa QGIS ja aloita tyhjästä projektista. Aloitetaan heti lisäämällä kaikk
 https://geo.stat.fi/geoserver/tilastointialueet/wfs
 :::
 ![](img/harjoitus_2/image1.png)
+
 Lisää tämän jälkeen myös uusi yhteys toiseen rajapintapalveluun, [Tilastokeskuksen Paavo-rajapinta](https://stat.fi/org/avoindata/paikkatietoaineistot/paavo.html) missä on kaikki Suomen postinumeroalueet. Paavo-rajapinnan osoite on:
 
 ::: note-box
