@@ -11,7 +11,7 @@
 <meta charset="utf-8" />
 <meta name="generator" content="pandoc" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="Harjoitus 1: Teemakartta | Porvoon QGIS -jatkokoulutus" />
+<meta property="og:title" content="Harjoitus 1: QGISin perustoiminnot | Porvoon QGIS -jatkokoulutus" />
 <meta property="og:type" content="book" />
 
 
@@ -20,81 +20,15 @@
 
 <meta name="author" content="Gispo Oy." />
 
-<meta name="date" content="2024-05-15" />
+<meta name="date" content="2024-05-22" />
 
 
-<meta name="description" content="Harjoitus 1: Teemakartta | Porvoon QGIS -jatkokoulutus">
+<meta name="description" content="Harjoitus 1: QGISin perustoiminnot | Porvoon QGIS -jatkokoulutus">
 
-<title>Harjoitus 1: Teemakartta | Porvoon QGIS -jatkokoulutus</title>
+<title>Harjoitus 1: QGISin perustoiminnot | Porvoon QGIS -jatkokoulutus</title>
 
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <link rel="stylesheet" href="custom.css" type="text/css" />
 
@@ -139,51 +73,40 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 <li><a href="index.html#virheet">Virheet</a></li>
 <li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
 </ul></li>
-<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-teemakartta">Harjoitus 1: Teemakartta</a>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-perustoiminnot">Harjoitus 1: QGISin perustoiminnot</a>
 <ul>
-<li><a href="01_harjoitus_1.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
-<li><a href="01_harjoitus_1.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
-<li><a href="01_harjoitus_1.html#lisätehtävä-wms-tason-visualisointi">Lisätehtävä: WMS-tason visualisointi</a></li>
+<li><a href="01_harjoitus_1.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="01_harjoitus_1.html#mapinfon-tiedostot-qgisiin">MapInfon tiedostot QGISiin</a></li>
+<li><a href="01_harjoitus_1.html#aineistomuunnos-tai-uuden-aineiston-tallentaminen">Aineistomuunnos tai uuden aineiston tallentaminen</a></li>
+<li><a href="01_harjoitus_1.html#väliaikainen-luonnostaso">Väliaikainen luonnostaso</a></li>
+<li><a href="01_harjoitus_1.html#selain-paneelin-käyttö">Selain-paneelin käyttö</a></li>
+<li><a href="01_harjoitus_1.html#kuvaustekniikan-tallentaminen">Kuvaustekniikan tallentaminen</a></li>
+<li><a href="01_harjoitus_1.html#projektin-tallentaminen-geopackageen">Projektin tallentaminen GeoPackageen</a></li>
 </ul></li>
-<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-edistyneet-digitointiominaisuudet">Harjoitus 2: Edistyneet digitointiominaisuudet</a>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-teemakartta">Harjoitus 2: Teemakartta</a>
 <ul>
-<li><a href="02_harjoitus_2.html#valmistautuminen">Valmistautuminen</a></li>
-<li><a href="02_harjoitus_2.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode">Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
-<li><a href="02_harjoitus_2.html#rakentamistila">Rakentamistila</a></li>
-<li class="has-sub"><a href="02_harjoitus_2.html#rakennuksen-piirto-apuviivojen-avulla">Rakennuksen piirto apuviivojen avulla</a>
-<ul>
-<li><a href="02_harjoitus_2.html#sitten-vain-harjoittelemaan.">Sitten vain harjoittelemaan….</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-1-poista-rajalla-olevat-postinumeroalueet">Lisätehtävä 1: Poista rajalla olevat postinumeroalueet</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-2-lisää-nimiöt">Lisätehtävä 2: Lisää nimiöt</a></li>
 </ul></li>
-<li><a href="02_harjoitus_2.html#suorakulmaisen-polygonin-piirtäminen">Suorakulmaisen polygonin piirtäminen</a></li>
-<li><a href="02_harjoitus_2.html#tehtävä-rakennus-3540-m-tontin-rajan-suuntaisesti-etäisyys-rajaan-15-m">Tehtävä: “Rakennus 35×40 m tontin rajan suuntaisesti, etäisyys rajaan 15 m”</a></li>
-<li><a href="02_harjoitus_2.html#case-rakennusala-tontille-polygonin-kopiointi-toiseksi-itseään-pienemmäksi">Case rakennusala tontille: polygonin kopiointi toiseksi itseään pienemmäksi</a></li>
-<li><a href="02_harjoitus_2.html#lisätehtävä-lisää-rakennukset-tasolle-funktio-jolla-pinta-ala-tieto-päivittyy-automaattisesti">Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti</a></li>
-<li><a href="02_harjoitus_2.html#lopuksi">Lopuksi</a></li>
-</ul></li>
-<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-edistyneet-digitointiominaisuudet">Harjoitus 3: Edistyneet digitointiominaisuudet</a>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-digitointi">Harjoitus 3: Digitointi</a>
 <ul>
-<li><a href="03_harjoitus_3.html#valmistautuminen-1"><strong>Valmistautuminen</strong></a></li>
-<li><a href="03_harjoitus_3.html#edistyneen-digitoinnin-ominaisuudet"><strong>Edistyneen digitoinnin ominaisuudet</strong></a></li>
-<li><a href="03_harjoitus_3.html#negatiivinen-vyöhyke"><strong>Negatiivinen vyöhyke</strong></a></li>
-<li><a href="03_harjoitus_3.html#kohteiden-editoiminen-alkuperäisessä-tiedostossa"><strong>Kohteiden editoiminen alkuperäisessä tiedostossa</strong></a></li>
-<li><a href="03_harjoitus_3.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode-1"><strong>Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</strong></a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#uusi-taso-ja-digitoinnin-perustyökalut">Uusi taso ja digitoinnin perustyökalut</a></li>
+<li><a href="03_harjoitus_3.html#tarttuminen">Tarttuminen</a></li>
+<li><a href="03_harjoitus_3.html#lisätyökalut-apuun">Lisätyökalut apuun</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-1-kokeile-työkaluja-rohkeast">Lisätehtävä 1: Kokeile työkaluja rohkeast</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-2-testaa-rakentamistila">Lisätehtävä 2: Testaa rakentamistila</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-3-lisää-rakennukset-tasolle-funktio-jolla-pinta-ala-tieto-päivittyy-automaattisesti">Lisätehtävä 3: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti</a></li>
 </ul></li>
-<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-topologia-ja-geometria">Harjoitus 4: Topologia ja geometria</a>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-karttatuloste">Harjoitus 4: Karttatuloste</a>
 <ul>
-<li><a href="04_harjoitus_4.html#valmistautuminen-2"><strong>Valmistautuminen</strong></a></li>
-<li><a href="04_harjoitus_4.html#virheellisen-aineiston-tuonti-qgisiin"><strong>Virheellisen aineiston tuonti QGISiin</strong></a></li>
-<li><a href="04_harjoitus_4.html#tarkista-kelpoisuus-check-validity"><strong>Tarkista kelpoisuus (Check validity)</strong></a></li>
-<li><a href="04_harjoitus_4.html#topologian-tarkastaja-topology-checker"><strong>Topologian tarkastaja (Topology checker)</strong></a></li>
-<li><a href="04_harjoitus_4.html#tarkista-geometriat-geometry-checker"><strong>Tarkista geometriat (Geometry checker)</strong></a></li>
-<li><a href="04_harjoitus_4.html#geometrian-ja-topologian-validointi-tasoa-muokattaessa"><strong>Geometrian ja topologian validointi tasoa muokattaessa</strong></a></li>
-</ul></li>
-<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-karttatuloste">Harjoitus 5: Karttatuloste</a>
-<ul>
-<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
-<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
-<li><a href="05_harjoitus_5.html#valmistautuminen-3">Valmistautuminen</a></li>
-<li><a href="05_harjoitus_5.html#karttatuloste">Karttatuloste</a></li>
-<li><a href="05_harjoitus_5.html#lisätehtävä-kartta-atlas">Lisätehtävä: kartta-atlas</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-tutustu-qgisin-kartta-atlakseen">Lisätehtävä: Tutustu QGISin kartta-atlakseen</a></li>
 </ul></li>
 </ul>
 </div>
@@ -194,49 +117,59 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 </div>
 <div class="row">
 <div class="col-sm-12">
-<div id="harjoitus-1-teemakartta" class="section level1">
-<h1>Harjoitus 1: Teemakartta</h1>
-<div id="harjoituksen-sisältö" class="section level2">
-<h2>Harjoituksen sisältö</h2>
-<p>Harjoituksessa tehdään koropleettikartta, joka kuvaa kauppojen keskittymistä Oulussa.</p>
+<div id="harjoitus-1-qgisin-perustoiminnot" class="section level1">
+<h1>Harjoitus 1: QGISin perustoiminnot</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tehdään QGISin perustoimintoja, kuten aineistojen tallentaminen, konvertointi, koordinaattijärjestelmän muunnokset.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa käyttämään QGISin perustoimintoja.</p>
+<div id="valmistautuminen" class="section level2">
+<h2>Valmistautuminen</h2>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä “<strong>QGIS-harjoitus 2</strong>”.</p>
 </div>
-<div id="harjoituksen-tavoite" class="section level2">
-<h2>Harjoituksen tavoite</h2>
-<p>Koulutettava oppii luomaan heksagoniruudukon, laskemaan pisteet polygoneista ja käyttämään luokittelutyyliä visualisointiin. Hän tietää myös, mistä QGISin eri väripaletit löytyvät.</p>
-<p>Tässä harjoituksessa tehdään koropleettikartta, joka perustuu OpenStreetMapin kauppakohteisiin.</p>
-<p><img src="img/harjoitus_1/image1.png" /></p>
-<p>Mene <strong>Vektori &gt; Tutkimuksen työkalut &gt; Luo Ruudukko</strong>. Ruudukon tyypiksi valitaan heksagoni ja ruudukon laajuudeksi joko “Map Canvas” tai “Draw on map canvas”. Valitse keskusta-alue piirtämällä.</p>
-<p>Aseta vaakatason ja pystytason välitykseksi 100m. Koordinaattijärjestelmänä EPSG: 3067, luodaan toistaiseksi tilapäinen taso. Paina lopuksi <strong>“Suorita”</strong>.</p>
-<p><img src="img/harjoitus_1/image2.png" /></p>
-<p>Nyt QGIS on luonut ruudukon antamallesi alueelle.</p>
-<p>Sen jälkeen lasketaan kuinka monta kauppaa kussakin ruudussa on. QGISin pääikkunan vasemmassa alalaidassa on haku, josta voit hakea <strong>“Laske pisteet monikulmion sisällä”</strong>. Klikkaa se auki listasta. Valitse Monikulmiot-kohdan pudotusvalikosta juuri luotu Ruudukko-tasoja Pisteet-kohtaan kaupat-taso. Laskurikentän nimeksi voi jättää NUMPOINTS, ja lopuksi paina <strong>“Suorita”</strong>.</p>
-<p><img src="img/harjoitus_1/image3.png" /></p>
-<p>QGIS luo nyt uuden tason, joka on äskeinen heksagonitaso, mutta jossa on attribuuttitaulussa uusi NUMPOINTS-sarake, joka kertoo kussakin heksagonissa olevien kauppojen lukumäärän. Paina uutta Lkm-tasoa tasoluettelossa hiiren oikealla ja avaa attribuuttitaulu varmistaaksesi, että prosessi on onnistunut.</p>
-<p>Seuraavaksi visualisoidaan Lkm-taso. Aseta tällä kertaa Yksittäinen symboli -visualisoinnin sijaan kuvaustyyliksi Porrastettu. Valitse Arvo-kohtaan “NUMPOINTS” ja paina “Luokittele”. Oletuksena tuleva luokittelu tai väriskaala ei ole ehkä kaikkein toimivin, joten lähdetään muuttamaan niitä.</p>
-<p><img src="img/harjoitus_1/image4.png" /></p>
-<p>Liukuvärinä on oletuksena Random colors. Klikkaa sen vieressä olevasta nuolesta lisää valintoja auki. Kohdasta <strong>Kaikki liukuvärit</strong> saat näkyviin vielä lisää väriskaaloja. Voit myös klikata <strong>Luo uusi liukuväri</strong>. Kohdista “katalogi: cpt-city” ja “katalogi: ColorBrewer” saat auki vielä lisää valmiita värimäärityksiä. ColorBrewer-katalogissa ovat kaikki <a href="https://colorbrewer2.org/" class="uri">https://colorbrewer2.org/</a> -sivustolla olevat väriskaalat.</p>
-<p>Gradientti-valinnalla voit luoda itse oman liukuvärin määrittämällä alku- ja loppuvärin. Color presets mahdollistaa uusien väripalettien määrittelyn itse ja niiden tallentamisen/tuomisen. Tutki nyt itse QGISin väripaletteja ja valitse mieleisesi paletti tähän tarkoitukseen.</p>
-<p>Tutki myös Tila-kohdassa olevaa oletusta <strong>Equal count</strong>. Miten visualisointi muuttuu, jos valitset jonkin toisen luokittelutavan tai muutat luokkien määrää? Voit tarkastella aineistoa myös “Pylväskaavio”-välilehdellä. Paina “Lataa arvot” -painiketta, jos mitään ei näy.</p>
-<p><img src="img/harjoitus_1/image5.png" /></p>
-<p>Voit halutessasi ottaa pois ensimmäisen luokan näkyvistä ottamalla siitä täpän pois, kuten esimerkkikuvassa on tehty. Tällöin heksagonit, joissa on esimerkiksi 0-5 kohdetta, poistuvat kartalta.</p>
-<div class="hint-box">
-<p>Vinkki! Vaikka olet luokitellut aineiston ja määrittänyt visualisoinnit eri luokille, voit muokata kaikkien luokkien visualisoinnin perusasetuksia samalla kertaa. Klikkaa Symboli-tekstin vieressä olevaa värillistä ruutua. Tämä avaa tutun visualisointiasetusikkunan. Voit esimerkiksi tätä kautta vaihtaa heksagonien peittävyyden 90%:iin tai vaihtaa niiden reunaviivan väriä.</p>
-</div>
+<div id="mapinfon-tiedostot-qgisiin" class="section level2">
+<h2>MapInfon tiedostot QGISiin</h2>
+<p>QGIS tukee kaikki keskeisimmät paikkatietoformaatit. Myös MapInfon tiedostoja voidaan helposti avata QGISissä. Yksinkertaisin tapa tuoda .tab, .mif ja .mid-tiedostoja QGISiin on vetää ne QGIS-ohjelmiston karttaikkunaan. Voit myös tehdä sen valikon kautta: <strong>Tasto -&gt; Lisää tasot -&gt; Lisää vekoritaso</strong>. Etsi oikea tiedosto ja paina <strong>OK</strong>. Huomioi, että esimerkiksi MapInfon .tab tiedoston kyljessä on muutama muu tiedosto (.ID, .MAP, .DAT) jotka pitää pysyä aina samassa paikassa .tab tiedoston kanssa. Muuten aineisto ei toimi oikealla tavalla.</p>
+<p>Tähän “monta tiedostoa samalle aineistolle”-rumbaan löytyy ratkaisu: GeoPackage. QGISin oletusformaatti GeoPackge on kuin pieni paikallinen tietokanta omana tiedostona, mihin voi tallentaa monta eri tasoa, tyylejä sekä jopa QGISin projektia. Tällä tavalla voit esimerkiksi näppärästi siirtää kaikki tarvittavat tasot oikeilla tyyleillä kolleegalle. Lähettämällä pelkän .gpkg-tiedoston vaikkapa sähköpostitse.</p>
+<p>Ensin tarvitaan taustakartta. Valitse Selain-paneelista XYZ-tiles ja tuplaklikkaa “OpenStreetMap”-yhteyttä. Siirry Porvoon alueelle. Projektin koordinaattijärjestelmäksi suositellaan tässä tapauksessa Porvoolle sopivaa EPSG:3880. Painamalla alaoikealla olevaa EPSG-koodia voit vaihtaa kyseisen projektin koordinaattijärjestelmää. Valitse tähän EPSG:3880. Paina <strong>OK</strong>.</p>
 <p><img src="img/harjoitus_1/image6.png" /></p>
-<p>Yksittäisen luokan visualisointityyliä voit muuttaa tuplaklikkaamalla luokan symbolia. Yksittäisen luokan luokkarajoja voi muuttaa tuplaklikkaamalla “Arvot”-sarakkeen arvoa, ja karttatulosteessa näkyvää selitettä voi muuttaa tuplaklikkaamalla luokkaa “Selite”-sarakkeesta.</p>
-<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + S tai päävalikosta Projekti &gt; Tallenna.</p>
+<p>Lisätään tässä vaiheessa QGIS-projektiin uutta aineistoa. Etsi kurssihakemistosta **mastot.tab* ja lisää se QGIS-projektiin. Aineisto pitäisi asettua oikeille paikolle. Aineisto sisältää Porvoon keskustan alueen mastoja (Maanmittauslaitoksen maastotietokannan mukaan). Haluamme nyt tehdä muunnoksen .tab formaatista .gpkg formaattiin. Helpoin tapa on silloin vaan tallentaa tasoa uudestaan, ja valitsemalla oikea tiedostoformaatti.</p>
 </div>
-<div id="lisätehtävä-wms-tason-visualisointi" class="section level2">
-<h2>Lisätehtävä: WMS-tason visualisointi</h2>
-<p>Kokeile miltä aineisto näyttää, jos sinulla olisi yksivärinen taustakartta. Avaa QGISin Selain-paneelista XYZ Tiles -kohta painamalla sen vieressä olevaa väkästä.</p>
-<p><img src="img/harjoitus_1/image7.png" /></p>
-<p>Tuplaklikkaa avautuvasta listasta <strong>OpenStreetMapia</strong>. Nyt QGIS tuo sinulle uuden taustakartan. Aseta tasoista ainoastaan se ja luomasi Lkm-taso näkyviin.</p>
-<p>Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan yksiväriseksi laittamalla täpän kohtaan “Väritys”. Hae sitten heksagoneihin valitsemaasi väripalettiin sopiva väri, jolla värität taustakartan. Pyri siihen, että taustakartta jää taka-alalle ja nostaa selkeästi heksagoniaineiston näkyviin. Voit muuttaa kirkkaus-, kylläisyys- ja kontrastiasetuksia sekä gamma-asetusta. Voit myös säätää värityksen vahvuutta. Kokeile myös harmaasävyjen käyttöä!</p>
-<p><img src="img/harjoitus_1/image8.png" /></p>
-<p><img src="img/harjoitus_1/image9.png" /></p>
+<div id="aineistomuunnos-tai-uuden-aineiston-tallentaminen" class="section level2">
+<h2>Aineistomuunnos tai uuden aineiston tallentaminen</h2>
+<p>Eli aloita klikkamalla oikealla mastot-tasoa “Tasot”-paneelissa. Valitse <strong>Vie -&gt; Tallenna kohteet nimellä</strong>. Vaihda tiedostomuoto GeoPackageksi ja pienestä napista, missä on kolme pistettä niin valitset itsellesi järkevän paikan tiedostolle. Voit nimetä tiedoston esimerkiksi näin “harjoitus 1 data”. Tämä on siis nyt tämän harjoituksen GeoPackage-tiedosto ja tähän tallennetaan usempi taso (Huomaa, että logiikka MapInfon tiedostomuotoja verratuna on hiukan erilainen). Ensimmäisen tason nimi voi olla <strong>mastot</strong>. Koordinaattijärjestelmäksi valitaan EPSG:3880, pienen maapallo-napin takaa. Huomaat ehkä, että pieni varoituskolmio ilmenee. Jos pidät hiiren kolmion päällä, niin QGIS kertoo, että tämän koordinaattijärjestelmän tarkkuus on parhaimmillaan 0,1 metriä. Eli meidän tapauksessa tästä ei tarvitse huolehtia. Paina <strong>OK</strong>. Hienoa! Olet nyt muuntanut .tab tiedoston .gpkg-muotoon.</p>
+<p><img src="img/harjoitus_1/image1.png" /></p>
+</div>
+<div id="väliaikainen-luonnostaso" class="section level2">
+<h2>Väliaikainen luonnostaso</h2>
+<p>Luodaan seuraavaksi uusi väliaikainen luonnostaso joka sitten tallennetaan samaan GeoPackage-tiedostoon. Valitse <strong>Luo uusi väliaikainen luonnostaso</strong> <img src="img/harjoitus_1/image2.png" /></p>
 <div class="hint-box">
-<p><strong>Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.</strong></p>
+<p>Psst! Väliaikaiset luonnostasot eivät tallennu omaksi tiedostoksi. Eli jos suljet tämän QGIS-projektin, niin väliaiksen luonnostason kohteet ovat hävinneet. Väliaikaiset luonnostasot ovat näppäriä silloin, kun tiedetään, että siitä ei ole tulossa omaa lopputuotosta, vaan ne ovat nimensä mukaisesti väliaikaisia luonnoksia.</p>
 </div>
+<p>Anna uudelle tasolle nimen “sillat”. Geometriatyyppi on LineString ja koordinattijärjestelmä sama kuin aiemmin. Voit lisätä uuden kentän jonka nimi on “nimi” ja tyyppi on Teksti. Lisää myös kenttä nimeltään “pituus” ja jonka tyyppi on Desimaaliluku.</p>
+<p><img src="img/harjoitus_1/image3.png" /></p>
+<p>Uusi väliaikainen luonnostaso näkyy nyt Tasot-paneelissa. Erotat tason pysyvistä tasoita pienen “ötökän” näköisestä symbolista.</p>
+<p><img src="img/harjoitus_1/image4.png" /></p>
+<p>Lisää yksi silta painamalla <img src="img/harjoitus_1/image5.png" />-symbolia ja vedä tämän jälkeen viiva kartalla. Painamalla hiiren oikeaa näppäintä lopetat uuden viivan piirtämistä ja pieni ikkuna avautuu, mihin voit kirjoittaa nimen ja pituuden. Voit myös jättää tiedot tyhjiksi. Tallenna väliaikaisen luonnostason uusi silta ja siirry pois tason editointitilasta painamalla kynä-symbolia. Klikkaa nyt hiiren oikealla samaa tasoa ja valitse “Tee pysyväksi”. Valitse tiedostonimeksi edellinen tiedosto eli “Harjoitus 3 data.gpkg” ja anna tason nimeksi “sillat”. Paina <strong>OK</strong>. Hienoa! Nyt sinulla on jo kaksi tasoa samassa GeoPackage-tiedostossa.</p>
+<p><img src="img/harjoitus_1/image7.png" /></p>
+</div>
+<div id="selain-paneelin-käyttö" class="section level2">
+<h2>Selain-paneelin käyttö</h2>
+<p>Aineistoja voi lisätä QGISiin monella tavalla. Yksi hyvä tapa saada yleiskuvaa GeoPackagen sisällöstä on Selain-paneelin kautta. Tätä kautta pääset helposti näkemään omia tiedostojasi. Jos sinulla on esimerkiksi oma kansio tietylle aineistolle voit myös tallentaa sen suosikiksi. Alla olevassa videossa näet, miten voit lisätä kansion suosikkeihin jotta siihen on helpompi pääsy ja myös miten nopean yhteyden GeoPackage-tiedstoon luodaan.</p>
+<p><img src="img/harjoitus_1/image8.gif" /></p>
+</div>
+<div id="kuvaustekniikan-tallentaminen" class="section level2">
+<h2>Kuvaustekniikan tallentaminen</h2>
+<p>Muistatko vielä miten kuvaustekniikkaa voi muuttaa? Tasot paneelista valitset “Avaa tason tyylit-paneeli”. Vasemmalla näkyy nyt tason kuvaustekniikka. Kokeile lisätä sillan viivalle paksuutta ja vaihtaa sen väriä.</p>
+<p><img src="img/harjoitus_1/image8.png" /></p>
+<p>Kun olet tyytyväinen visualisointiin voit tallentaa sen. Kuvaustekniikat tallenntuu aina QGISin projektin mukana, eli usein ei ole tarpeen tallentaa kuvaustekniikkaa erikseen, jos käyttää samaa projektia. Jos olet lähettämässä aineiston kolleegalle, eli GeoPackage-tiedoston niin voit tallentaa kuvaustekniikan GeoPackage-tiedostoon.</p>
+<p>Klikkaa oikealla “Sillat”-tasoa ja valitse <strong>Tallenna QGIS tason tyylitiedosto</strong>. Valitse tallennustapa “In datasource database”, anna tyylille nimi sekä valitse, että tyyli on oletuksena (kuva alla).</p>
+<p><img src="img/harjoitus_1/image9.png" /></p>
+<p>Jos haluat varmistaa, että kuvaustekniikka on pysynyt mukana voit esimerkiksi avata uuden tyhjän QGIS-projektin ja tuoda sillat-taso siihen. Jos kaikki näyttää hyvältä voisit esimerkiksi lähettää .gpkg-tiedoston eteenpäin ja vastaanottajalla olisi täsmälleen samanlainen kuvaustekniikka.</p>
+</div>
+<div id="projektin-tallentaminen-geopackageen" class="section level2">
+<h2>Projektin tallentaminen GeoPackageen</h2>
+<p>Joskus on tarvetta jakaa kokonainen projekti kollegan kanssa. Silloin koko projektin voi tallentaa samaan GeoPackage-tiedostoon aineistojen kanssa. Voidaan kokeilla sitä nyt. Mene ylävalikkon “Projekti” ja valitse sieltä <strong>Tallenna tiedostoon</strong> ja <strong>GeoPackage…</strong>. Uudessa ikkunassa valitset “Harjoitus 1 data”-tiedoston. Anna nimeksi vaikkapa “harjoitusprojekti” ja paina <strong>OK</strong>. Nyt projektikin on tallentunut GeoPackage-tiedostoon. Nyt avata uuden tyhjän projektin ja kokeilla avata projekti GeoPackage-tiedostosta. Eli <strong>Projekti -&gt; Avaa kohteet -&gt; GeoPackage…</strong></p>
 
 </div>
 </div>
@@ -253,7 +186,7 @@ type="button" onclick="navToggle()" aria-label="Toggle navigation">
 
 <div class="footer-info">
 <h5 class="footer-title">Porvoon QGIS -jatkokoulutus</h5>
-<span class="footer-version">v2024-05-15</span>
+<span class="footer-version">v2024-05-22</span>
 <div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
 </div>
 
