@@ -11,7 +11,7 @@ Harjoituksen jälkeen opiskelija osaa käyttämään QGISin perustoimintoja.
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 2**".
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 1**".
 
 ## MapInfon tiedostot QGISiin
 
@@ -48,7 +48,7 @@ Uusi väliaikainen luonnostaso näkyy nyt Tasot-paneelissa. Erotat tason pysyvis
 
 ![](img/harjoitus_1/image4.png)
 
-Lisää yksi silta painamalla ![](img/harjoitus_1/image5.png)-symbolia ja vedä tämän jälkeen viiva kartalla. Painamalla hiiren oikeaa näppäintä lopetat uuden viivan piirtämistä ja pieni ikkuna avautuu, mihin voit kirjoittaa nimen ja pituuden. Voit myös jättää tiedot tyhjiksi. Tallenna väliaikaisen luonnostason uusi silta ja siirry pois tason editointitilasta painamalla kynä-symbolia. Klikkaa nyt hiiren oikealla samaa tasoa ja valitse "Tee pysyväksi". Valitse tiedostonimeksi edellinen tiedosto eli "Harjoitus 3 data.gpkg" ja anna tason nimeksi "sillat". Paina **OK**. Hienoa! Nyt sinulla on jo kaksi tasoa samassa GeoPackage-tiedostossa. 
+Lisää yksi silta painamalla ![](img/harjoitus_1/image5.png)-symbolia ja vedä tämän jälkeen viiva kartalla. Painamalla hiiren oikeaa näppäintä lopetat uuden viivan piirtämistä ja pieni ikkuna avautuu, mihin voit kirjoittaa nimen ja pituuden. Voit myös jättää tiedot tyhjiksi. Tallenna väliaikaisen luonnostason uusi silta ja siirry pois tason editointitilasta painamalla kynä-symbolia. Klikkaa nyt hiiren oikealla samaa tasoa ja valitse "Tee pysyväksi". Valitse tiedostonimeksi edellinen tiedosto ja anna tason nimeksi "sillat". Paina **OK**. Hienoa! Nyt sinulla on jo kaksi tasoa samassa GeoPackage-tiedostossa. 
 
 ![](img/harjoitus_1/image7.png)
 
@@ -66,7 +66,7 @@ Muistatko vielä miten kuvaustekniikkaa voi muuttaa? Tasot paneelista valitset "
 
 Kun olet tyytyväinen visualisointiin voit tallentaa sen. Kuvaustekniikat tallenntuu aina QGISin projektin mukana, eli usein ei ole tarpeen tallentaa kuvaustekniikkaa erikseen, jos käyttää samaa projektia. Jos olet lähettämässä aineiston kolleegalle, eli GeoPackage-tiedoston niin voit tallentaa kuvaustekniikan GeoPackage-tiedostoon. 
 
-Klikkaa oikealla "Sillat"-tasoa ja valitse **Tallenna QGIS tason tyylitiedosto**. Valitse tallennustapa "In datasource database", anna tyylille nimi sekä valitse, että tyyli on oletuksena (kuva alla).
+Klikkaa oikealla "Sillat"-tasoa ja valitse **Vie** ja **Tallenna QGIS tason tyylitiedosto**. Valitse tallennustapa "In datasource database", anna tyylille nimi sekä valitse, että tyyli on oletuksena (kuva alla).
 
 ![](img/harjoitus_1/image9.png)
 
