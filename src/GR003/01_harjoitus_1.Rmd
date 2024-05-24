@@ -15,7 +15,7 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-h
 
 ## MapInfon tiedostot QGISiin
 
-QGIS tukee kaikki keskeisimmät paikkatietoformaatit. Myös MapInfon tiedostoja voidaan helposti avata QGISissä. Yksinkertaisin tapa tuoda .tab, .mif ja .mid-tiedostoja QGISiin on vetää ne QGIS-ohjelmiston karttaikkunaan. Voit myös tehdä sen valikon kautta: **Tasto -> Lisää tasot -> Lisää vekoritaso**. Etsi oikea tiedosto ja paina **OK**. Huomioi, että esimerkiksi MapInfon .tab tiedoston kyljessä on muutama muu tiedosto (.ID, .MAP, .DAT) jotka pitää pysyä aina samassa paikassa .tab tiedoston kanssa. Muuten aineisto ei toimi oikealla tavalla.
+QGIS tukee kaikki keskeisimmät paikkatietoformaatit. Myös MapInfon tiedostoja voidaan helposti avata QGISissä. Yksinkertaisin tapa tuoda .tab, .mif ja .mid-tiedostoja QGISiin on vetää ne QGIS-ohjelmiston karttaikkunaan. Voit myös tehdä sen valikon kautta: **Tasot -> Lisää tasot -> Lisää vekoritaso**. Etsi oikea tiedosto ja paina **OK**. Huomioi, että esimerkiksi MapInfon .tab tiedoston kyljessä on muutama muu tiedosto (.ID, .MAP, .DAT) jotka pitää pysyä aina samassa paikassa .tab tiedoston kanssa. Muuten aineisto ei toimi oikealla tavalla.
 
 Tähän "monta tiedostoa samalle aineistolle"-rumbaan löytyy ratkaisu: GeoPackage. QGISin oletusformaatti GeoPackge on kuin pieni paikallinen tietokanta omana tiedostona, mihin voi tallentaa monta eri tasoa, tyylejä sekä jopa QGISin projektia. Tällä tavalla voit esimerkiksi näppärästi siirtää kaikki tarvittavat tasot oikeilla tyyleillä kolleegalle. Lähettämällä pelkän .gpkg-tiedoston vaikkapa sähköpostitse.
 
