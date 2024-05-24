@@ -32,7 +32,7 @@ Tallennettaessa QGIS kysyy, korvataanko aiemmin luotu GeoPackage vai lisätään
 Tarkista, että sinulla on esillä **Digitoinnin työkalupalkki** sekä **Tarttumisen työkalut**. Tämän voit tehdä Näytä-ylävalikon kautta (Työkalut)
 
 ![](img/harjoitus_3/image37.png)
-Laita Rakennukset-tason muokkaustila päälle ![](img/harjoitus_3/image9.png)
+Laita Rakennukset-tason muokkaustila päälle.
 
 Nyt voit piirtää uusia kohteita Rakennus-tasolle painamalla ensin "Lisää monikulmiokohde" ![](img/harjoitus_3/image6.png) 
 
