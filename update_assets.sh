@@ -17,3 +17,4 @@ find "$src_folder" -type d -name "G*" -print0 | while IFS= read -r -d '' folder;
         sed -i 's/Oy\./AB/g' "$folder/custom.html"
     fi
 done
+
