@@ -1,7 +1,12 @@
 name: Render to HTML & Deploy
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - src/G*/**
   repository_dispatch:
-    types: [render-deploy]
+    types: [update-assets]
 
 jobs:
   check-changes:
@@ -14,30 +19,90 @@ jobs:
 
       - name: Find directories with changed rmd or image files
         id: changed-files-dir-names
-        uses: tj-actions/changed-files@v41
+        uses: tj-actions/changed-files@v44
         with:
           files:  |
-            src/G*/*.{rmd,Rmd}
+            src/G*/*.{rmd,Rmd,html,css}
+            src/G*/js/*.js
+            src/G*/css/*.css
             src/G*/img/*.{png,gif}
-            src/G*/img/*/*.{png,gif}            
+            src/G*/img/*/*.{png,gif}
           dir_names: "true"
           dir_names_max_depth: 2
+          dir_names_deleted_files_include_only_deleted_dirs: "true"
+          output_renamed_files_as_deleted_and_added: "true"
 
       - name: Render modified courses to HTML and move output to docs
+        env:
+          WORKFLOW: true
+          CHANGED_DIRS: ${{ steps.changed-files-dir-names.outputs.all_changed_files }}
         run: |
-          folder_list="${{ steps.changed-files-dir-names.outputs.all_changed_files }}"
-          IFS=" "
-          read -ra folders <<< "$folder_list"
+          set -e
 
-          export WORKFLOW=true
-
-          for folder in "${folders[@]}"; do
+          for folder in ${CHANGED_DIRS}; do
             code="${folder#src/}"
             ./render.sh $code
           done
 
+          if [ ! -d "docs" ]; then
+            mkdir docs
+          fi
+
+          cp ./pagesroot/* ./docs/
+
       - name: Add, Commit & Push
-        uses: EndBug/add-and-commit@v7
-        with:
-          add: "docs/G*"
-          message: "Automatic: Update docs"
+        env:
+          CHANGED_DIRS: ${{ steps.changed-files-dir-names.outputs.all_changed_files }}
+          DELETED_DIRS: ${{ steps.changed-files-dir-names.outputs.deleted_files }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Create temporary branch with no history
+          git checkout --orphan temp-pages
+
+          # Unstage files from 'main'
+          git rm -r --cached .
+
+          # Checkout course folder from live 'pages' branch
+          git checkout remotes/origin/pages -- ./G*
+
+          # Remove course folders that were either changed or deleted
+          # This way we can keep the unchanged folders
+          # This is done so that we can render only the courses that had
+          # changes made to them, speeding up the process
+          for folder in ${CHANGED_DIRS} ${DELETED_DIRS}; do
+            code="${folder#src/}"
+            rm -rf $code
+          done
+
+          # We add all courses that were left over
+          git add G*
+
+          # Add docs, which contains the courses
+          # that were rendered in the previous step
+          # as well as the favicon and index
+          git add docs
+
+          # Remove everything that wasn't explicitly 'git add'ed
+          git clean -df
+
+          # Move courses and assets to root
+          mv docs/* .
+          rm -r docs
+
+          # Finally add everything and commit
+          # Since the temp branch has no history this will
+          # be the first and only commit
+          git add .
+          git commit -m "Automatic: Render docs from ${GITHUB_SHA}"
+
+          # Rename the temporary branch and overwrite pages
+          git branch -M temp-pages pages
+
+          # Force push
+          git push --force origin pages
+
