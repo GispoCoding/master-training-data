@@ -125,7 +125,13 @@ Taso-asetusten alla voitaisiin määrittää taustakartta-asetukset, jos halutta
 
 ![](img/harjoitus_2/image6.png)
 
-Suoritetaan nyt paketointi: **Lisäosat \> QFieldSync \> Pakkaa QFieldiä varten**. Valitaan pakatun projektin tallennuskansio, joka on siis eri kuin mihin vastaava QGIS-projekti aiemmin luotiin (oletuskansion pystyy muuttamaan QFieldSync-lisäosan asetuksista). Voimme nyt myös panoroida sen karttanäkymän laajuuden, jonka halutaan näkyvän kun projekti avataan QFieldissä. Paina **Luo**.
+Suoritetaan nyt paketointi: **Lisäosat \> QFieldSync \> Pakkaa QFieldiä varten**. Voimme nyt myös zoomata siihen karttanäkymään, jonka halutaan näkyvän kun projekti avataan QFieldissä.
+
+::: hint-box
+Valitse pakatun projektin tallennuskansioksi eri kansio kuin mihin harjoituksen QGIS-projekti aiemmin luotiin. Ei ole myöskään suositeltavaa, että QField-projekti olisi harjoituksen QGIS-projektin alakansiona. Lähtökohtaisesti voit pitää vaikka kaikki QFieldSyncillä paketoimasi projektit erillään omissa kansioissaan, mutta saman pääkansion alla (esim. QField-projektit > Harjoitus1, Harjoitus2 jne.). QFieldSyncissä oletuskansiota voi vaihtaa QFieldSync-lisäosan asetuksista.
+:::
+
+Kun olet valinnut tallennuskansion, johon QFieldSync luo paketoidun projektin, paina **Luo**.
 
 ## QGIS-projektin siirto mobiililaitteeseen
 
