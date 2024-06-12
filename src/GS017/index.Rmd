@@ -1,6 +1,6 @@
 ---
 title: "Paikkatiedon mobiilikeruu Mergin Mapsilla"
-author: "Gispo Oy"
+author: "Gispo Suomi Oy.
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Peruskurssi mergin maps-lisäosan ja mobiilisovelluksen käytöstä."
@@ -101,4 +101,4 @@ Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä koulu
 
 ## **Lisenssi ja oikeudet**
 
-Nämä materiaalit ovat "Paikkatiedon mobiilikeruu Mergin Mapsilla"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+Nämä materiaalit ovat "Paikkatiedon mobiilikeruu Mergin Mapsilla"-kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

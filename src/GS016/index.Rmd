@@ -1,6 +1,6 @@
 ---
 title: "Paikkatiedon mobiilikeruu QFieldissä"
-author: "Gispo Oy"
+author: "Gispo Suomi Oy.
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Peruskurssi QField-mobiilisovelluksen ja QGISin QField-lisäosan käytöstä."
@@ -111,4 +111,4 @@ Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä koulu
 
 ## Lisenssi ja oikeudet
 
-Nämä materiaalit on "Paikkatiedon mobiilikeruu QFieldillä"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+Nämä materiaalit on "Paikkatiedon mobiilikeruu QFieldillä"-kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

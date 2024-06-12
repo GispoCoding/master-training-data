@@ -91,5 +91,5 @@ If you notice mistakes in these course materials, we ask you to report either di
 
 ## License and permissions
 
-These materials are developed for the "license_title_replace" course by Gispo Ltd.
+These materials are developed for the "license_title_replace" course by Gispo Finland Ltd.
 The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
