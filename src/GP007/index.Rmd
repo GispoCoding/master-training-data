@@ -1,6 +1,6 @@
 ---
 title: "QGIS perusteet kunnille"
-author: "Gispo Ltd."
+author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Peruskurssi kunnille QGIS-ohjelmiston perusteisiin"

@@ -1,6 +1,6 @@
 ---
 title: "Paikkatiedon mobiilikeruu QFieldissä"
-author: "Gispo Suomi Oy.
+author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Peruskurssi QField-mobiilisovelluksen ja QGISin QField-lisäosan käytöstä."

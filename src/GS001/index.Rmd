@@ -1,6 +1,6 @@
 ---
 title: "Visualisoinnin mestariksi QGISillä"
-author: "Gispo Suomi Oy.
+author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Jatkokurssi QGISin visualisointitekniikoista."

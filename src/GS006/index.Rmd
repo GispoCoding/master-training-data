@@ -1,6 +1,6 @@
 ---
 title: "Johdanto GeoServerin käyttöön"
-author: "Gispo Suomi Oy.
+author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Johdantokurssi GeoServerin käyttöön."

@@ -1,6 +1,6 @@
 ---
 title: "Paikkatiedon mobiilikeruu Mergin Mapsilla"
-author: "Gispo Suomi Oy.
+author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Peruskurssi mergin maps-lisäosan ja mobiilisovelluksen käytöstä."

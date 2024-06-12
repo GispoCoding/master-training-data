@@ -1,6 +1,6 @@
 ---
 title: "Kartat ja taitot"
-author: "Gispo Ltd."
+author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "QGISin perusteet karttojen tulostamisen ja taittojen hallinnan näkökulmasta"

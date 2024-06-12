@@ -1,6 +1,6 @@
 ---
 title: "Johdanto paikkatietoon ja QGISin käyttöön"
-author: "Gispo Ltd."   
+author: "Gispo Suomi Oy."   
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Peruskurssi paikkatiedon ja QGIS-ohjelmiston perusteisiin"

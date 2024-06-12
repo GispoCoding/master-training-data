@@ -1,6 +1,6 @@
 ---
 title: "Johdanto QGISin käyttöön - Harjoitukset"
-author: "Gispo Ltd."   
+author: "Gispo Suomi Oy."   
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Peruskurssi QGIS-ohjelmiston perusteisiin"

@@ -1,6 +1,6 @@
 ---
 title: "Introduction to GeoServer"
-author: "Gispo Finland Ltd.
+author: "Gispo Finland Ltd."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "A course covering basic GeoServer topics."
