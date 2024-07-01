@@ -23,7 +23,7 @@ Tämän kurssin tarkoituksena on opastaa sinut QGIS--ohjelmiston käyttöön. Mu
 
 ## QGISin taustaa
 
-QGIS (alkuperäiseltä nimeltään Quantum GIS) on yhteisöllisesti kehitetty avoimen lähdekoodin paikkatieto-ohjelmisto. QGISin kehittäminen on alkanut heinäkuussa 2002, jonka jälkeen kehitystyöhön on osallistunut yli 150 sovelluskehittäjää. QGISin käyttäjämäärää on hyvin vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä ja sitä voi jakaa edelleen vapaasti. Karkeasti arvioiden voidaan kuitenkin todeta, että QGIS-ohjelmiston eri versioilla on yli miljoona käyttäjää maailmanlaajuisesti. QGIS--ohjelmisto ja sen lisäosat muodostavat kattavan ohjelmistoperheen paikkatietojen keräämiseen, mallintamiseen, analysointiin, visualisointiin ja jakeluun. Tämän kurssin aikana käsittelemme vain murto-osaa QGISin kaikista toiminnallisuuksista.
+QGIS (alkuperäiseltä nimeltään Quantum GIS) on yhteisöllisesti kehitetty avoimen lähdekoodin paikkatieto-ohjelmisto. QGISin kehittäminen on alkanut heinäkuussa 2002, minkä jälkeen kehitystyöhön on osallistunut yli 150 sovelluskehittäjää. QGISin käyttäjämäärää on hyvin vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä ja sitä voi jakaa edelleen vapaasti. Karkeasti arvioiden voidaan kuitenkin todeta, että QGIS-ohjelmiston eri versioilla on yli miljoona käyttäjää maailmanlaajuisesti. QGIS--ohjelmisto ja sen lisäosat muodostavat kattavan ohjelmistoperheen paikkatietojen keräämiseen, mallintamiseen, analysointiin, visualisointiin ja jakeluun. Tämän kurssin aikana käsittelemme vain murto-osaa QGISin kaikista toiminnallisuuksista.
 
 ## Miksi QGIS?
 
@@ -98,7 +98,7 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ## Virheet
 
-Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla osoitteeseen [info\@gispo.fi](mailto:info@gispo.fi){.email}.
 
 ## Lisenssi ja oikeudet
 
