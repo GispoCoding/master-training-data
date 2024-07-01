@@ -13,9 +13,9 @@
 
 
 .in-view {
-  background-color: #edc949;
+  background-color: #ab8b9b;
 
-  padding-left: 5%;
+  padding-left: 3%;
   padding-top: 2%;
   padding-bottom: 2%;
   padding-right: 10%;
@@ -35,13 +35,13 @@ p, span, li {
 }
 
 a {
-    color: #ab8b9b !important;
+    color: #936287 !important;
     text-decoration: underline !important;
     background-color: transparent;
 }
 
 a:hover {
-    color: #f1c3bb !important;
+    color: #caabbe !important;
     text-decoration: underline;
 }
 
@@ -256,7 +256,7 @@ table td {
     border: none !important;
     margin: 0.8em 0.8em !important;
     padding: 0.4em 0.8em !important;
-    border-radius: 0 !important;
+    border-radius: 3 !important;
     display:block
 }
 
@@ -276,7 +276,7 @@ table td {
     padding: 5px;
     background-color: transparent;
     border: 1px solid #434662;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
   }
 
@@ -366,10 +366,11 @@ table td {
 /* Content boxes */
 
 .hint-box {
-    background: #7a3884;
+    background: #434662;
     padding: 10px;
     border: none;
     margin-bottom: 1rem;
+    border-radius: 3px;
 }
 
 .hint-box p {
@@ -378,20 +379,21 @@ table td {
 }
 
 .note-box {
-    background: #edc949;
+    background: #ffffff;
     padding: 10px;
     border: none;
     margin-bottom: 1rem;
+    border-radius: 3px;
 }
 
 .note-box p {
-    color: #444444;
+    color: #434662;
     margin: 0 !important;
 }
 
 .code-box {
     position: relative;
-    background: #e8ecf3;
+    background: #f5d2cc;
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     padding-left: 1rem;
@@ -401,6 +403,7 @@ table td {
     align-items: center;
     margin-bottom: 1rem;
     min-height: 2.5rem;
+    border-radius: 3px;
 }
 
 code span {
@@ -408,26 +411,27 @@ code span {
 }
 
 .code-box p {
-    color: #444444;
+    color: #000000;
     font-family: 'Source Code Pro', sans-serif !important;
     margin: 0 !important;
 }
 
 .file-content-box {
-    background: #eeeeee;
+    background: #caabbe;
     padding: 10px;
     border: none;
     margin-bottom: 1rem;
+    border-radius: 3px;
 }
 
 .file-content-box p {
-    color: #444444;
+    color: #000000;
     margin: 0 !important;
 }
 
 .commandline-box {
     position: relative;
-    background: #f9edf3;
+    background: #cccccc;
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     padding-left: 1rem;
@@ -437,10 +441,12 @@ code span {
     align-items: center;
     margin-bottom: 1rem;
     min-height: 2.5rem;
+    border-radius: 3px;
 }
 
 .commandline-box p {
     font-family: 'Source Code Pro', monospace;
+    color: #000000;
     margin: 0 !important;
 }
 
