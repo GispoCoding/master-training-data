@@ -18,7 +18,7 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-h
 
 ## **Muokkauksen yleisasetukset**
 
-Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkausikkuna tulee esiin jokaisen polygonin piirtämisen jälkeen niin rastita **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri keltaiseksi (**Kuminauha**) ja **Taitepisteen** symbolin tyyli ja koko. Paina **OK**, niin asetukset tulevat voimaan.
+Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkausikkuna tulee esiin jokaisen polygonin piirtämisen jälkeen, rastita **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri keltaiseksi (**Kuminauha**) ja **Taitepisteen** symbolin tyyli ja koko. Paina **OK**, niin asetukset tulevat voimaan.
 
 ![](img/harjoitus_1/image1.png)
 
@@ -40,7 +40,7 @@ Usein ensimmäinen operaatio aineistojen luomisessa on taustakartan lisääminen
 
 Zoomaa kartta Suomen kohdalle ja koska haluamme tehdä tarkkaa editointia oikeassa koordinaattijärjestelmässä, muutetaan projektin koordinaattijärjestelmä Suomen kansalliseen **EUREF-FIN 3067**. Klikkaa projektin oikeasta alakulmasta, jossa lukee tällä hetkellä EPSG:3857, jonka QGIS on asettanut taustakartan perusteella.
 
-Paina tämän jälkeen **OK,** jonka jälkeen avautuva ikkuna kysyy sinulta koordinaattimuunnoksesta. Valitse uudestaan **OK** ja nyt projektisi on oikeassa koordinaattijärjestelmässä.
+Paina tämän jälkeen **OK,** minkä jälkeen avautuva ikkuna kysyy sinulta koordinaattimuunnoksesta. Valitse uudestaan **OK**. Nyt projektisi on oikeassa koordinaattijärjestelmässä.
 
 ## **GeoPackagen luonti**
 
@@ -73,14 +73,14 @@ Signed: 0 - 4 294 967 295.\
 Signed: 0 - 18 446 744 073 709,55.\
 \
 QGIS:issä (versioissa 3.10+) integerit ovat oletuksena signed-tyyppisiä, ellei toisin mainita.\
-Toisakseen tulee harkittavaksi, mihin tuota tietoa tallennetaan: Geopackage, PostgreSQL vai joku muu? Mitä enemmän käytetään bittejä, sitä suuremmaksi kasvaa tiedostojen koot (myös PostgreSQL:ssä on tiedostoja tietokannan takana). Mitä suuremmat tiedostot, sitä hitaammin asiat sujuvat.\
+Toisekseen tulee harkita, mihin tuota tietoa tallennetaan: Geopackage, PostgreSQL vai joku muu? Mitä enemmän käytetään bittejä, sitä suuremmaksi tiedostojen koot kasvavat (myös PostgreSQL:ssä on tiedostoja tietokannan takana). Mitä suuremmat tiedostot, sitä hitaammin asiat sujuvat.\
 \
-Kolmanneksi pitäisi ottaa huomioon, että siirretäänkö kyseistä aineistoa johonkin toiseen järjestelmään / tiedostoformaattiin. Tuleeko tilanteita, joissa 64bit tallennettu tieto pitääkin viedä tiedostoon, joka ei salli noin suuria numeroita (kuten Shapefile).\
+Kolmanneksi pitäisi ottaa huomioon, että siirretäänkö kyseistä aineistoa johonkin toiseen järjestelmään / tiedostoformaattiin. Tuleeko tilanteita, joissa 64-bittisenä tallennettu tieto pitääkin viedä tiedostoon, joka ei salli noin suuria numeroita (kuten Shapefile).\
 :::
 
 ## **Aloita geometrioiden editointi**
 
-Siirrytään editointialueelle hyödyntämällä **sijaintikirjanmerkkejä**. Valitse ylävalikosta **Näytä \> Paneelit \> Sijaintikirjanmerkkien hallinta**, jolloin QGIS-työtilaasi ilmestyy uusi paneeli (yleensä Selain-paneelin ja Tasot-paneelin väliin).
+Siirrytään editointialueelle hyödyntämällä **sijaintikirjanmerkkejä**. Valitse ylävalikosta **Näytä \> Paneelit \> Sijaintikirjanmerkkien hallinta**, jolloin QGIS-näkymääsi ilmestyy uusi paneeli (yleensä Selain-paneelin ja Tasot-paneelin väliin).
 
 ![](img/harjoitus_1/image6.png)![](img/harjoitus_1/image7.png)
 
@@ -96,7 +96,7 @@ Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla **Tason muokkaus pää
 
 ![](img/harjoitus_1/image12.png)
 
-Valitse työkaluksi **Lisää polygonikohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, niin napauta hiiren oikeaa näppäintä, uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
+Valitse työkaluksi **Lisää polygonikohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, napauta hiiren oikeaa näppäintä ja uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
 
 ![](img/harjoitus_1/image13.png)
 
