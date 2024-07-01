@@ -3,7 +3,7 @@ title: "QGIS kaavoittajille"
 author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "QGIS-jatkokurssi kaavoittajille."
+abstract: "QGIS-jatkokurssi kaavoittajille"
 output:
     bookdown::html_book:
         toc: true
@@ -14,8 +14,6 @@ output:
         number_sections: false
 documentclass: book
 ---
-
-# Template
 
 ## Tervetuloa kurssille!
 
