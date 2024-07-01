@@ -3,7 +3,7 @@ title: "QGIS kaavoittajille"
 author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "QGIS jatkokurssi kaavoittajille."
+abstract: "QGIS-jatkokurssi kaavoittajille."
 output:
     bookdown::html_book:
         toc: true
@@ -81,7 +81,7 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ## Virheet
 
-Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi){.email}.
 
 ## Lisenssi ja oikeudet
 
