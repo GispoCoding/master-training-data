@@ -1,4 +1,4 @@
-# Harjoitus 1a: Vektoriaineistojen visualisointi: pisteet ja alueet
+# Harjoitus 1a: Vektoriaineistojen visualisointi, pisteet ja alueet
 
 ## Harjoituksen sisältö
 
@@ -33,17 +33,16 @@ Avaa uusi QGIS-projekti (Projekti \> Uusi) ja tallenna se nimellä
 Kurssimateriaali on koottu yhteen GeoPackageen, joka tuodaan QGISiin.
 Samaa aineistoa käytetään kaikissa harjoituksissa.
 Avaa **Tietolähteiden hallinta -\> Vektori -\> Etsi lataamasi
-Kartat_ja_taitot.gpkg** ja Lisää. Valitse kaikki tasot ja paina vielä
-**Lisää**.
+Kartat_ja_taitot.gpkg** ja Lisää. Valitse kaikki tasot ja paina **Lisää**.
 
 ![](img/harjoitus1/img1.png)
 
-Aineisto sisältää piste- viiva- ja polygonikohteita, Voit tutkia
+Aineisto sisältää piste-, viiva- ja polygonikohteita. Voit tutkia
 minkälaisia tasoja GeoPackagessa on. Helpottaaksemme käsittelyä voimme
 jakaa kunkin aineistotyypin eri kansioihin. Luo piste-, viiva- ja
 polygonikohteille omat kansionsa painamalla ![](img/harjoitus1/img2.png)
-Tasot-paneelin yläreunasta. Nimeä tasoryhmä lisäämisvaiheessa kun se on
-aktiivinen, tai klikkaamalla tasoryhmää tasoluettelossa hiiren oikealla
+Tasot-paneelin yläreunasta. Nimeä tasoryhmä lisäämisvaiheessa, kun se on
+aktiivinen tai klikkaamalla tasoryhmää tasoluettelossa hiiren oikealla
 ja valitsemalla "Nimeä ryhmä". Kun olet luonut kolme uutta kansiota,
 raahaa pistekohteet omaan kansioonsa, polygonit omaansa ja viivat
 omaansa. Näin saadaan aineisto järkevästi järjesteltyä. Jos kaikki
@@ -89,7 +88,7 @@ Alla on esimerkkinä mitä värejä harjoituksen esimerkkikuvassa on
 käytetty. Voit testata myös eri värejä ja katsoa, miten ne toimivat
 kartallasi.
 
-::: code-box
+::: hint-box
 **Esimerkkikuvan värit**
 
 **Kuntaraja:** täyttöväri: #dcecbd reunaviiva: #000000
