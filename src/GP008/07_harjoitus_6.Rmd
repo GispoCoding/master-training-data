@@ -26,11 +26,11 @@ Saatat myös tarvita yhtenäisiä fontteja organisaatiosi tai työryhmäsi käyt
  
 ![](img/harjoitus6/tyylienhallinta.png)
 
-Nyt voit määrittää fontit, koot, tietyt muotoilut, maskit ja muut. Voit tallentaa thext-muodon oletustyyleihin ponnahdusikkunassa, kun tallennat tyylin (Valitse kohtaan Destination: Oletus). Tallennuksen jälkeen voit viedä (export) tyylin lisäyskuvakkeen vierestä ja jakaa sen muille. Hae vain luomasi tyyli luettelosta ja vie se tavalliseen tapaan .xml-tiedostona. Tuonti voidaan tehdä samasta paikasta.
+Nyt voit määrittää fontit, koot, tietyt muotoilut, maskit ja muut. Voit tallentaa muotoilut oletustyyleihin ponnahdusikkunassa, kun tallennat tyylin (Valitse kohtaan Destination: Oletus). Tallennuksen jälkeen voit viedä (export) tyylin lisäyskuvakkeen vierestä ja jakaa sen muille. Hae vain luomasi tyyli luettelosta ja vie se tavalliseen tapaan .xml-tiedostona. Tuonti voidaan tehdä samasta paikasta.
 
 ![](img/harjoitus6/tekstinmuotoilu.png)
  
-Sitten kun määrität nimiöitä vektoritasolle, luomasi uuden tyylin pitäisi ponnahtaa tyyleihin normaalien tekstimuotoasetusten alapuolella. Esimerkkikuvassa näkyy luotu "test" -tyyli.
+Kun sitten määrität nimiöitä vektoritasolle, luomasi uuden tyylin pitäisi näkyä tyyleissä normaalien tekstimuotoasetusten alapuolella. Esimerkkikuvassa näkyy luotu "test"-tyyli.
  
 ![](img/harjoitus6/testtyyli.png)
  
@@ -40,5 +40,5 @@ Voit kokeilla samaan tapaan myös uusien visualisointityylien tallentamista viiv
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + S tai päävalikosta Projekti > Tallenna.
 
 ::: hint-box
-**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki@gispo.fi!**
+**Psst!** Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki@gispo.fi!
 :::
