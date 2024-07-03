@@ -169,7 +169,7 @@ Tee alemmasta tasosta hieman läpinäkyvä säätämällä sen täyttövärin
 peittävyyttä väriasetuksista 55 prosenttiin.
 
 Esimerkkikuvan asetukset:
-täyttöväri:: #0f7c79 täyttövärin läpinäkyvyys 55% reunaviiva: #000000
+täyttöväri:: #0f7c79 täyttövärin läpinäkyvyys 55 % reunaviiva: #000000
 
 Sen jälkeen vaihda päällimmäisen symbolitason tyypiksi **Täyttö
 viivakuosilla**. Vaihda jaottelu täytön kohdalta ja viivan väri ja
@@ -190,7 +190,5 @@ Esimerkissä puistoalueissa on vihreä tausta ja vihreitä pieniä puita.
 ![](img/harjoitus1/img21.png)
 
 ::: hint-box
-**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
-**Voit jättää projektin auki koneellesi seuraava harjoitusosiota 
-varten.**
+**Psst!** Muista tallentaa QGIS-projekti harjoituksen lopuksi. Voit jättää projektin auki koneellesi seuraava harjoitusosiota varten.
 :::
