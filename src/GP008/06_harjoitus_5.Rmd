@@ -20,18 +20,11 @@ QGIS mahdollistaa myös kartta-atlaksen tekemisen.
 Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta.
 Seuraavassa esimerkissä tuotamme kartta-atlaksen Oulusta, jossa jokainen karttalehti perustuu käyttäjän itse tekemään karttalehtijakoon.
 
-Avaa QGISin pääikkuna.
-Luo uusi väliaikainen luonnostaso menemällä **Tasot /> Uusi taso /> Uusi väliaikainen luonnostaso**. 
-Aseta tason geometriatyypiksi polygoni ja koordinaattijärjestelmäksi projektin koordinaattijärjestelmä (EPSG:3067).
-Nimeksi voit laittaa "Karttalehtijako".
-Tasolle ei tarvitse lisätä uusia kenttiä, paina vain **OK**.
+Avaa QGISin pääikkuna. Luo uusi väliaikainen luonnostaso menemällä **Tasot -> Uusi taso -> Uusi väliaikainen luonnostaso**. Aseta tason geometriatyypiksi polygoni ja koordinaattijärjestelmäksi projektin koordinaattijärjestelmä (EPSG:3067). Nimeksi voit laittaa "Karttalehtijako". Tasolle ei tarvitse lisätä uusia kenttiä, paina vain **OK**.
 
 ![](img/harjoitus5/karttalehtijako.png)
 
-Taso ilmestyy nyt tasovalikkoon ja siinä on editointitila päällä.
-Aloita uusien polygonien piirtäminen painamalla ![](img/harjoitus5/img1.png).
-Piirrä eri puolille Oulua kolme suorakulmiota.
-Kun olet valmis, lopeta editointi klikkaamalla kynäikonia ja tallenna taso painamalla ![](img/harjoitus5/img2.png)
+Taso ilmestyy nyt tasovalikkoon ja siinä on editointitila päällä. Aloita uusien polygonien piirtäminen painamalla ![](img/harjoitus5/img1.png). Piirrä eri puolille Oulua kolme suorakulmiota. Kun olet valmis, lopeta editointi klikkaamalla kynäikonia ja tallenna taso painamalla ![](img/harjoitus5/img2.png)
 .
 
 Avaa seuraavaksi uusi taitto.
@@ -49,7 +42,7 @@ Tässä tapauksessa se on Uusi luonnostaso.
 ![](img/harjoitus5/img3.png)
 
 Nyt vielä määritämme, että karttalehtijako ohjaa luomaamme karttakuvaa.
-Varmista, että kartta on valittuna valitsemalla se **Valitse/Siirrä elementti** ![](img/harjoitus5/img4.png) -työkalulla vasemmasta työpalkista ja klikkaamalla kartta aktiiviseksi: Sen jälkeen valitse oikean puolen sivupalkissa **Elementin ominaisuudet \> Atlas ohjaa tätä**. ![](img/harjoitus5/img5.png)
+Varmista, että kartta on valittuna valitsemalla se **Valitse/Siirrä elementti** ![](img/harjoitus5/img4.png) -työkalulla vasemmasta työpalkista ja klikkaamalla kartta aktiiviseksi: Sen jälkeen valitse oikean puolen sivupalkissa **Elementin ominaisuudet -> Atlas ohjaa tätä**. ![](img/harjoitus5/img5.png)
 
 Voit määritellä myös marginaalin kohteen ympärille.
 Jos teet todella tarkkaa työtä, valitse marginaaliksi 0 %, muussa tapauksessa se voi olla oletusarvoinen 10 %.
