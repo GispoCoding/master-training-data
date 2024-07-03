@@ -52,18 +52,14 @@ Nyt vielä määritämme, että karttalehtijako ohjaa luomaamme karttakuvaa.
 Varmista, että kartta on valittuna valitsemalla se **Valitse/Siirrä elementti** ![](img/harjoitus5/img4.png) -työkalulla vasemmasta työpalkista ja klikkaamalla kartta aktiiviseksi: Sen jälkeen valitse oikean puolen sivupalkissa **Elementin ominaisuudet \> Atlas ohjaa tätä**. ![](img/harjoitus5/img5.png)
 
 Voit määritellä myös marginaalin kohteen ympärille.
-Jos teet todella tarkkaa työtä, valitse marginaaliksi 0%, muussa tapauksessa se voi olla oletusarvoinen 10%.
+Jos teet todella tarkkaa työtä, valitse marginaaliksi 0 %, muussa tapauksessa se voi olla oletusarvoinen 10 %.
 Tämän jälkeen voimme esikatsella kartta-atlastamme Esikatsele Atlasta -työkalulla (käyttöliittymän yläreunassa):
 
 ![](img/harjoitus5/img6.jpg)
 
-Esikatselun avulla voit vilkaista, miltä kartta-atlas näyttäisi tulostaessa.
-Käytä nuolia esikatselutyöpalkista liikkuaksesi eri karttasivujen välillä.
-Huomaa, että voit tehdä samanaikaisesti muutoksia karttatulosteen tyyliasetuksiin tai vaikkapa tason luokitteluväreihin.
-Kiinnitä myös huomiota siihen, mitkä elementit muuttuvat karttasivuilla ja mitkä pysyvät samana.
+Esikatselun avulla voit vilkaista, miltä kartta-atlas näyttäisi tulostaessa. Käytä nuolia esikatselutyöpalkista liikkuaksesi eri karttasivujen välillä. Huomaa, että voit tehdä samanaikaisesti muutoksia karttatulosteen tyyliasetuksiin tai vaikkapa tason luokitteluväreihin. Kiinnitä myös huomiota siihen, mitkä elementit muuttuvat karttasivuilla ja mitkä pysyvät samana.
 
-Jos haluat, voit lisätä tulosteeseen myös yleiskatsauskarttanäkymän, joka helpottaa kohteen sijainnin määrittämistä kartta-atlaksessa.
-Yleiskatsaus eli indeksikartta ilmaisee, millä alueella kartalla liikutaan.
+Jos haluat, voit lisätä tulosteeseen myös yleiskatsauskarttanäkymän, joka helpottaa kohteen sijainnin määrittämistä kartta-atlaksessa. Yleiskatsaus eli indeksikartta ilmaisee, millä alueella kartalla liikutaan.
 Lisää sitä varten tulosteeseen pienempi karttaikkuna, jota käytetään indeksikarttana.
 Valitse uuden karttaelementin **Elementin omaisuudet** -paneelista **Yleiskatsaukset** ja määritä asetukset.
 Voit myös muuttaa indeksikartan kehyksen tyylin.
@@ -84,13 +80,9 @@ Kartta-atlastuloste voisi näyttää esimerkiksi tältä:
 
 ::: hint-box
 Vinkki!
-Voit myös lisätä dynaamista tekstiä kartta-atlakseen.
-Luo tekstikenttä ja klikkaa sen Elementin ominaisuudet -välilehdeltä "Dynaaminen teksti" -painiketta.
-Etsi avautuvasta valikosta esimerkiksi päivämäärä, kartta-atlaksen sivu ja kartta-atlaksen sivumäärä.
-QGIS tuo nämä tiedot lausekkeina tekstieditoriin, mutta näyttää lausekkeiden tuloksen taitossa.
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + T tai päävalikosta Projekti \> Tallenna.
+Voit myös lisätä dynaamista tekstiä kartta-atlakseen. Luo tekstikenttä ja klikkaa sen Elementin ominaisuudet -välilehdeltä "Dynaaminen teksti" -painiketta. Etsi avautuvasta valikosta esimerkiksi päivämäärä, kartta-atlaksen sivu ja kartta-atlaksen sivumäärä. QGIS tuo nämä tiedot lausekkeina tekstieditoriin, mutta näyttää lausekkeiden tuloksen taitossa. Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä CTRL + T tai päävalikosta Projekti \> Tallenna.
 :::
 
 ::: hint-box
-**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
+**Psst!** Muista tallentaa QGIS-projekti harjoituksen lopuksi.
 :::
