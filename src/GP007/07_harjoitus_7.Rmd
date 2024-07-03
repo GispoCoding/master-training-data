@@ -83,9 +83,9 @@ Aloita nyt **Rakennukset-tason** editointi.
 
 2.  Seuraavaksi harjoitellaan alueen reunaviivan suuntaisesti rakennuksen piirtämistä. Toimi seuraavasti:
 
--   Varmista, että laajennettu digitointi ![](img/harjoitus_7/image17.png)![]() on päällä.
+-   Varmista, että laajennettu digitointi ![](img/harjoitus_7/image15.png)![]() on päällä.
 
--   Piirrä piste kartalle haluamaasi kohtaan. Laajennetun digitoinnin valikossa aktivoituvat kohtisuoruustyökalu ![](img/harjoitus_7/image18.png) ja rinnakkainentyökalu ![](img/harjoitus_7/yhdensuuntaisuus_tyokalu.png).
+-   Piirrä piste kartalle haluamaasi kohtaan. Laajennetun digitoinnin valikossa aktivoituvat kohtisuoruustyökalu ![](img/harjoitus_7/image18.png) ja rinnakkainen-työkalu ![](img/harjoitus_7/yhdensuuntaisuus_tyokalu.png). Huom! Jos **tarttuminen** ei ole päällä, nämä työkalut eivät aktivoidu.
 
 -   Valitse haluamasi työkalu (kohtisuoruus tai rinnakkainen):
 
@@ -123,13 +123,13 @@ Aloita nyt **Rakennukset-tason** editointi.
 
 ## Rakennustilan hyödyntäminen rakennuksen piirtämisessä
 
-Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 30 metriä, sen voi tehdä laajennetun digitoinnin työkaluja hyödyntäen mm. seuraavasti:
+Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi, jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 30 metriä, sen voi tehdä laajennetun digitoinnin työkaluja hyödyntäen mm. seuraavasti:
 
-1.  Valitse **Rakennukset** taso aktiiviseksi.
+1.  Valitse **Rakennukset**-taso aktiiviseksi.
 
-2.  Laita **editointi** päälle ![](img/harjoitus_7/toggle_editing.png){width="26" height="24"} **Rakennukset**- tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_7/monikulmio_kohde.png) sekä **laajennetun digitoinnin työkalut** aktiivisiksi ![](img/harjoitus_7/image15.png){width="26" height="24"}.
+2.  Laita **editointi** päälle ![](img/harjoitus_7/toggle_editing.png){width="26" height="24"} **Rakennukset**-tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_7/monikulmio_kohde.png) sekä **laajennetun digitoinnin työkalut** aktiivisiksi ![](img/harjoitus_7/image15.png)![]().
 
-3.  **Laita laajennetun digitoinnin** paneelista (vasen reuna) **rakentamistila** päälle ![](img/harjoitus_7/image19.png) (tai painamalla **C**).
+3.  Laita **laajennetun digitoinnin** paneelista (vasen reuna) **rakentamistila** päälle ![](img/harjoitus_7/image19.png) (tai painamalla **C**).
 
 4.  Aseta halutun kiinteistönraja nollakulmaksi valitsemalla rajalta kaksi pistettä.
 
