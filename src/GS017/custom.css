@@ -392,10 +392,17 @@ table td {
 }
 
 .code-box {
+    position: relative;
     background: #f5d2cc;
-    padding: 10px;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border: none;
+    display: flex;
+    align-items: center;
     margin-bottom: 1rem;
+    min-height: 2.5rem;
     border-radius: 3px;
 }
 
@@ -423,10 +430,17 @@ code span {
 }
 
 .commandline-box {
+    position: relative;
     background: #cccccc;
-    padding: 10px;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     border: none;
+    display: flex;
+    align-items: center;
     margin-bottom: 1rem;
+    min-height: 2.5rem;
     border-radius: 3px;
 }
 
