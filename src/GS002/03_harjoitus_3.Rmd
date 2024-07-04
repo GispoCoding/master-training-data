@@ -6,7 +6,7 @@ Harjoituksessa aktivoidaan Georefereroija-lisäosa ja harjoitellaan georeferoint
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii tuomaan kuvatiedoston QGIS-ohjelmaan ja georeferoimaan sen koordinaatistoon
+Koulutettava oppii tuomaan kuvatiedoston QGIS-ohjelmaan ja georeferoimaan sen koordinaatistoon.
 
 **Arvioitu kesto**
 
@@ -34,13 +34,11 @@ Toimi siis seuraavasti:
 
 ![](img/harjoitus_3/image23.png)
 
-4\. Paina Enter tai klikkaa "Suorita komento" -nappulaa ![](img/harjoitus_3/image24.png){width="35" height="31"}
+4\. Paina Enter tai klikkaa "Suorita komento" -nappulaa ![](img/harjoitus_3/image24.png).
 
 Nyt käytössäsi pitäisi olla lisää taustakarttoja selainikkunan XYZ Tiles -kohdassa.
 
-### 
-
-Lisää taustakarttoja - QuickMapServices -lisäosa
+## Lisää taustakarttoja: QuickMapServices-lisäosa
 
 Laajemman valikoiman erilaisia taustakarttoja saat käyttöösi lisäosalla nimeltä **QuickMapServices**. Asenna se yläpalkin Lisäosat-valikosta ja avaa sen jälkeen Verkko-valikosta **Search QMS**. Avautuvasta paneelista voit etsiä erilaisia taustakarttoja ja satelliittikuvia, suodattaa niitä sijaintisi perusteella, ja saada tarvittaessa lisätietoja (esim. käyttöoikeuksista) kartasta. Vihreä pallo kertoo, että kartta on saatavilla. Etsi vaikkapa Stamen-nimellä eri tarkoituksiin sopivia taustakarttoja.
 
