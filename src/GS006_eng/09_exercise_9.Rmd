@@ -86,6 +86,7 @@ For creating tiles, the settings can be found at the bottom of the page in the *
 | **Zoom start, Zoom stop**                                                                  | Scale intervals for the map tiles to be created (scales are defined for the map tiles)                                                                                                                                                    |
 | **Bounding box**                                                                           | The rectangular delineation of the location from which the map tiles are generated                                                                                                                                                          |
 
+
 Set **Number of tasks to use** to 1.
 
 ::: hint-box
@@ -96,13 +97,17 @@ Set the task settings as follows, paying particular attention to the **Zoom stop
 
 Press **Submit**.
 
-GeoServer (GeoWebCache) will now generate map tiles of the selected service from scale levels 0--15..
+GeoServer (GeoWebCache) will now generate map tiles of the selected service from scale levels 0--15.
 
 During the generation process, the interface allows you to monitor the completion of the map tiles:
 
+![](img/harjoitus_9/image9.png)
+
 Click on the **Refresh list** link to refresh information on the progress of the calculation.
 
-The map tile grid definition and the layer position delimitation indicate that 1 922 map tiles are required for scales 0-15. With these settings, it takes about a minute to draw the images on the remote server. ![](img/harjoitus_9/image10.png)
+The map tile grid definition and the layer position delimitation indicate that 1 922 map tiles are required for scales 0-15. With these settings, it takes about a minute to draw the images on the remote server. 
+
+![](img/harjoitus_9/image10.png)
 
 Note that map tiles are created by default according to the boundary of the layer location (unless otherwise specified). ![](img/harjoitus_9/image11.2.png)
 
