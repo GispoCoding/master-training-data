@@ -4,7 +4,7 @@ editor_options:
     wrap: sentence
 ---
 
-# EXERCISE 1.6: RASTER DATA
+# Exercise 1.6: Raster data
 
 **Content of the exercise**
 
@@ -26,12 +26,9 @@ A few raster files have been uploaded to the data directory of the GeoServer ser
 
 ## **Adding raster data**
 
-Adding raster data to GeoServer is done in much the same way as in the previous exercises with vector data.
-We now load a raster file into GeoServer for use, the original format of which is **ArcGrid** (ASCII-based raster format).
-The raster data is a height model of the Helsinki area from National Land Survey of Finland (grid size 2 m x 2 m).
+Adding raster data to GeoServer is done in much the same way as in the previous exercises with vector data. We now load a raster file into GeoServer for use, the original format of which is **ArcGrid** (ASCII-based raster format). The raster data is a height model of the Helsinki area from National Land Survey of Finland (grid size 2 m x 2 m).
 
-First, we need to create a reference to the data so that GeoServer knows where the data is physically located.
-Remember that this is done by creating stores.
+First, we need to create a reference to the data so that GeoServer knows where the data is physically located. Remember that this is done by creating stores.
 
 Create a new store by selecting **Stores → Add new Store**.
 Then click **ArcGrid** for the store format.
@@ -54,9 +51,10 @@ Set the name to **elevation model** and the title to **Helsinki elevation model*
 Note that in **Coordinate Reference Systems**, the coordinate system is incorrectly defined.
 The correct system for the data is **ETRS89 / ETRS-TM35FIN** (**EPSG:3067**).
 Correct it manually in the **Declared SRS** field and select **SRS handling** in the **Force declared** field, then use the shortcuts to determine the extent of the data.
+
 ![](img/harjoitus_6/image3.png)
 
-Then press **Save.**
+Press **Save.**
 
 Check that the layer is in the **Data → Layers** table.
 You can preview the new raster layer via the **Data → Layer Preview** window.\
@@ -101,7 +99,7 @@ Enter a name and an explanation, for example as shown in the following picture: 
 
 ![](img/harjoitus_6/image6.2.png)
 
-Then press **Save** and then press **Publish** to publish the layer.
+Press **Save** and then press **Publish** to publish the layer.
 
 Name the layer **Aerialimages_ofthecitycentre** and title it **Aerial images of the city centre of Helsinki**.
 For additional information you can write for example **Aerial images of Helsinki - National Land Survey of Finland 2014**.
@@ -215,7 +213,7 @@ Add the City of Helsinki's open spatial data services to our GeoServer as a new 
 This City of Helsinki service can be found at: 
 
 ::: note-box
- [**https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities**](https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities).
+ [https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities](https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities).
 :::
 
 Fill in the information as shown in the following image, put the above address in the **Capabilities URL** field:
