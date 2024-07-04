@@ -1,8 +1,8 @@
-# EXERCISE 2.2: MAP TILE SERVICES
+# Exercise 2.2: Map tile services
 
 **Content of the exercise**
 
-We will use map tiles and grid creation tools available in GeoServer in this exercise.
+In this exercise we will use map tiles and grid creation tools available in GeoServer.
 
 **Aim of the exercise**
 
@@ -14,7 +14,7 @@ After the exercise, the student will be able to create and configure their own m
 
 ## **Preparation**
 
-Several raster and vector datasets have been uploaded and published on the GeoServer server. GeoServer's default installation also includes GeoWebCache, which GeoServer uses to create and manage map tiles.
+Several raster and vector datasets have been uploaded and published on the GeoServer server. The GeoServer default installation also includes GeoWebCache, which GeoServer uses to create and manage map tiles.
 
 ## **Tile Caching**
 
