@@ -20,13 +20,13 @@ Avaa projektiisi jokin taustakartta, esimerkiksi OpenStreetMap. Löydät sen **S
 
 ## GeoCoding -lisäosa
 
-Avaa **Lisäosat** -valikko ja etsi **GeoCoding** -niminen lisäosa. Tutustu sen esittelytekstiin: se voi hyödyntää sekä Googlen että OpenStreetMapin osoitetietoja ja niiden omia hakupalveluita. Asenna lisäosa.
+Avaa **Lisäosat**-valikko ja etsi **GeoCoding**-niminen lisäosa. Tutustu sen esittelytekstiin: lisäosa voi hyödyntää sekä Googlen että OpenStreetMapin osoitetietoja ja niiden omia hakupalveluita. Asenna lisäosa.
 
 Avaa GeoCoding Lisäosat-valikosta GeoCoding \> GeoCoding.
 
 ![](img/harjoitus_5/image1.png)
 
-Testaa löytääkö lisäosa esimerkiksi kotiosoitteesi. Mikäli useassa kaupungissa on saman niminen katu, GeoCoding kysyy, minkä niistä haluat näyttää kartalla.
+Testaa löytääkö lisäosa esimerkiksi kotiosoitteesi. Mikäli useassa kaupungissa on samanniminen katu, GeoCoding kysyy, minkä niistä haluat näyttää kartalla.
 
 ![](img/harjoitus_5/image2.png)
 
@@ -40,9 +40,9 @@ Avaa nyt **GeoCoding-lisäosan** asetukset ja tutustu sen toimintaan. Se hyödyn
 
 ### DigiTransit.fi - alkuvalmistelut
 
-Gispo on julkaissut vuonna 2018 QGIS-lisäosan, joka mahdollistaa geokoodauksen suomalaisille osoitteille. Lisäosa hyödyntää Digitransitin geokoodausrajapintaa, jonka käyttäminen vaatii 4.3.2023 lähtien API-avaimen toimiakseen. Tämän vuoksi olemme tehneet lisäosaan päivityksen, joka mahdollistaa lisäosan käytön myös tämän muutoksen jälkeen. Ennen lisäosan lataamista lue ja tee meidän blogimme mukaiset toimenpiteet QGISiin, jotta saat API-avaimen käyttöön: <https://www.gispo.fi/blogi/geokoodauslisaosa-digitransit-on-paivitetty/>
+Gispo on julkaissut vuonna 2018 QGIS-lisäosan, joka mahdollistaa geokoodauksen suomalaisille osoitteille. Lisäosa hyödyntää Digitransitin geokoodausrajapintaa, jonka käyttäminen vaatii 4.3.2023 lähtien API-avaimen toimiakseen. Tämän vuoksi olemme tehneet lisäosaan päivityksen, joka mahdollistaa lisäosan käytön myös tämän muutoksen jälkeen. Ennen lisäosan lataamista lue ja tee seuraavan blogiartikkelimme mukaiset toimenpiteet QGISiin, jotta saat API-avaimen käyttöön: <https://www.gispo.fi/blogi/geokoodauslisaosa-digitransit-on-paivitetty/>
 
-### DigiTransit.fi - Geocoder aktivointi
+### DigiTransit.fi - Geocoder-aktivointi
 
 Gispon kehittämä **DigiTransit.fi Geocoder -lisäosa** hyödyntää mm. HSL:n Reittioppaan taustalla olevan DigiTransitin geokoodausta. Se käyttää kolmea osoitetietolähdettä: OpenStreetMap, Maastotietokanta ja Väestörekisterikeskus. Lisäksi siihen voi ladata listan osoitteista csv-tekstitiedostona. Osoitetietolähteidensä vuoksi lisäosa toimii vain suomalaisilla osoitteilla. Lisäosa kuuluu QGISin viralliseen lisäosien kirjastoon, joten voit etsiä ja asentaa sen samaan tapaan kuin edellisen lisäosan.
 
@@ -52,7 +52,7 @@ Asentamisen jälkeen **Digitransit.fi-dialogi-ikkuna** aukeaa **Lisäosat-valiko
 
 ![](img/harjoitus_5/image5.png)
 
-Hakeaksesi monta osoitetta kerralla tarvitset **csv-tiedoston**,johon osoitteet on tallennettu. Csv-tiedostoa käytettäessä lisäosa pitää avata yläpalkista **Prosessointi \> Työkalut**. Etsi työkalu kirjoittamalla hakukenttään "Digitransit" ja avaa se tuplaklikkauksella.
+Hakeaksesi monta osoitetta kerralla tarvitset **csv-tiedoston**, johon osoitteet on tallennettu. Csv-tiedostoa käytettäessä lisäosa pitää avata yläpalkista **Prosessointi \> Työkalut**. Etsi työkalu kirjoittamalla hakukenttään "Digitransit" ja avaa se tuplaklikkauksella.
 
 ![](img/harjoitus_5/image6.png)
 
@@ -67,5 +67,5 @@ Vastaavanlainen työkalu, osoitteiden geokoodaus csv-tiedostosta, löytyy mm. li
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
