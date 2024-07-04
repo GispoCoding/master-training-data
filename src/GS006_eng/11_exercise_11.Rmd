@@ -186,7 +186,7 @@ Your code at this point should look something like this:
      stroke-width: 0.1;}\
 \
  /\* \@title Roads \*/\
-     { font-family: Helvetica;}\
+  \* { font-family: Helvetica;}\
 :::
 
 ## **Multi-scale visibility**
@@ -219,7 +219,7 @@ Your code at this point should look something like this:
      stroke-width: 0.1;}\
 \
 /\* \@title Roads \*/\
-     { font-family: Helvetica;}
+  \*  { font-family: Helvetica;}
 :::
 
 ## **Adding subtitles**
