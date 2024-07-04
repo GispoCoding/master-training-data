@@ -65,7 +65,7 @@ Avaa uusi, tyhjä QGIS-projekti. Saat hyödynnettyä myös muiden tekemiä malle
 
 ![](img/harjoitus_4/image8.png)
 
-Avaa tallennetut mallisi Prosessointityökalupalkista Mallit-kohdasta. Voit valita lähtöaineistot kurssihakemistosta suoraan  ![](img/harjoitus_4/image10.png)-kohdasta, koska projektissa ei ole mitään tasoja avoinna. Kurssihakemistossa on valmiina vuoden 2021 tieliikenneonnettomuudet, joita voit hyödyntää. Paina vielä **suorita** [](img/harjoitus_4/image6.png)
+Avaa tallennetut mallisi Prosessointityökalupalkista Mallit-kohdasta. Voit valita lähtöaineistot kurssihakemistosta suoraan  ![](img/harjoitus_4/image10.png)-kohdasta, koska projektissa ei ole mitään tasoja avoinna. Kurssihakemistossa on valmiina vuoden 2021 tieliikenneonnettomuudet, joita voit hyödyntää. Paina vielä **suorita** ![](img/harjoitus_4/image6.png)
 
 Onnistunut prosessi luo uuden tulostason, jossa on samalla tavalla vaaralliset tieristeykset pistetasona. Lähtötietona olleet aineistot eivät avaudu QGISiin lainkaan. 
 
