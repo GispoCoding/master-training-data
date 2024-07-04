@@ -2,7 +2,7 @@
 
 **Content of the exercise**
 
-This exercise will introduce you to the GeoServer logs and the different settings that affect performance.
+This exercise will introduce the student to the GeoServer logs and the different settings that affect performance.
 
 **Aim of the exercise**
 
@@ -18,7 +18,9 @@ The GeoServer server has been loaded with various data and the GeoServer **Monit
 
 ## **General information about the GeoServer server**
 
-Open **About & Status → Server Status** from the left bar of GeoServer. ![](img/harjoitus_10/image1.png)
+Open **About & Status → Server Status** from the left bar of GeoServer.
+
+![](img/harjoitus_10/image1.png)
 
 The **Locks** function allows you to check existing locks on WFS-T data. If necessary, you can release the locks by pressing **Free locks**.
 
@@ -30,9 +32,9 @@ You can check and release the memory used by GeoServer under **Memory Usage**.
 
 Check again which Java settings are in use on the server for image processing. By default, it is not very efficient to process images as a whole in computer memory. A commonly used method is to split images into smaller parts (tiles) and do any image operators on the smaller images. The JAI settings (defined in the **Image Processing** settings) control the operation of these methods.
 
-You can edit the JAI (Java Advanced Imaging) settings via **Settings → Image Processing** view. ![](img/harjoitus_10/image2.png)
+You can edit the JAI (Java Advanced Imaging) settings via **Settings → Image Processing** view. 
 
-PUT A TABLE HERE FROM DOCS (?)
+![](img/harjoitus_10/image2.png)
 
 Changes to the settings are visible in the **Server Status** page.
 
