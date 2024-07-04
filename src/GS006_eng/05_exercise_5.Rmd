@@ -1,4 +1,4 @@
-# Exercise 1.5: WMS AND WCS services
+# Exercise 1.5: WMS and WCS services
 
 **Content of the exercise**
 
