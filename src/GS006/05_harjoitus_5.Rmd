@@ -1,4 +1,4 @@
-# Harjoitus 1.5: WMS- JA WCS-palvelut
+# Harjoitus 1.5: WMS- ja WCS-palvelut
 
 **Harjoituksen sisältö**
 
