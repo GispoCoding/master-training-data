@@ -2,7 +2,7 @@
 
 ## Tehtävä 8.1
 
-Tarkastele Lipas- aineistoa. Luo frisbeegolfrata-tyyppisten liikuntakohteiden esiintyvyystiheyttä kuvaava lämpökartta.
+Tarkastele Lipas-aineistoa. Luo frisbeegolfrata-tyyppisten liikuntakohteiden esiintyvyystiheyttä kuvaava lämpökartta.
 
 - Käytä säteenä 5 km
   - Määrittää ympyränmuotoisen "vaikutusympäristön" jokaisen pisteen ympärille
@@ -17,7 +17,7 @@ Muokkaa tason tyyliä seuraavasti joko tyylipaneelissa tai tason ominaisuuksissa
 
 ![](img/kappale_8/image1.png)
 
-Syötä ehkolauseke klikkaamalla epsilon- painikkeesta. Pisteen säde kerrotaan lausekkeen tuloksena olevalla painokertoimella. Millä lausekkeella saat vain frisbeegolfradat näkyviin?
+Syötä ehkolauseke klikkaamalla epsilon-painikkeesta. Pisteen säde kerrotaan lausekkeen tuloksena olevalla painokertoimella. Millä lausekkeella saat vain frisbeegolfradat näkyviin?
 :::
 
 
