@@ -3,7 +3,7 @@ title: "Introduction to GeoServer"
 author: "Gispo Finland Ltd."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "A course covering basic GeoServer topics."
+abstract: "A course covering basic GeoServer topics"
 output:
     bookdown::html_book:
         toc: true
@@ -15,7 +15,7 @@ output:
 documentclass: book
 ---
 
-# INTRODUCTION TO GEOSERVER
+# Introduction to GeoServer
 
 ## Welcome to this GeoServer Course!
 
