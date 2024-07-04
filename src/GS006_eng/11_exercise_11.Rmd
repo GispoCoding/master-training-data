@@ -275,7 +275,6 @@ Here is a sample code with all the previously mentioned styles in use:
        halo-color: white;\
        halo-radius: 1;}\
 \
-
 /\* \@title Sivutiet \*/\
 [\@scale \< 50000]\
 [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
@@ -292,7 +291,7 @@ Here is a sample code with all the previously mentioned styles in use:
         halo-radius: 1;}\
 \
 /\* \@title Tiesto \*/\
-\* { font-family: Helvetica;}
+  \* { font-family: Helvetica;}
 :::
 
 A preview of this style looks like this on the map: ![](img/harjoitus_11/image10.2.png)
