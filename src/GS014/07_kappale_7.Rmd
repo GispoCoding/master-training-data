@@ -2,7 +2,7 @@
 
 ## Tehtävä 7.1
 
-Tarkastele maanjäristysaineistoa. Visualisoi maanjäristykset siten, että niiden koko (millimetreinä) määräytyy järistyksen voimakkuuden perusteella (```Mag```). Lisää kuvaustekniikkaan myös symbolin väriin vaikuttava logiikka seuraavasti vuodenajan mukaan seuraavasti:
+Tarkastele maanjäristysaineistoa. Visualisoi maanjäristykset siten, että niiden koko (millimetreinä) määräytyy järistyksen voimakkuuden perusteella (```Mag```). Lisää kuvaustekniikkaan myös symbolin väriin vaikuttava logiikka vuodenajan mukaan seuraavasti:
 
 - Talvi: sininen
 - Kevät: keltainen
@@ -14,15 +14,15 @@ Tarkastele maanjäristysaineistoa. Visualisoi maanjäristykset siten, että niid
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
 ::: hidden-box
-Käytä **Categorized**- luokittelua. Lisää pisteen koon määrittävä lauseke seuraavasti:
+Käytä **Categorized**-luokittelua. Lisää pisteen koon määrittävä lauseke seuraavasti:
 
 ![](img/kappale_7/image1.gif)
 
-Määritä 'Categorized'- kuvaustekniikkaan lauseke seuraavasti:
+Määritä 'Categorized'-kuvaustekniikkaan lauseke seuraavasti:
 
 ![](img/kappale_7/image2.gif)
 
-Käytä lausekkeessa CASE WHEN- rakennetta (määritä vuodenajat kuukauden perusteella):
+Käytä lausekkeessa CASE WHEN -rakennetta (määritä vuodenajat kuukauden perusteella):
 
 ::: code-box
 ``` sql
@@ -34,7 +34,7 @@ END
 ```
 :::
 
-Paina lopuksi **Classify** painiketta. Muokkaa symbolien värit tehtävänannon mukaisiksi kaksoisklikkaamalla eri luokkien symbolia.
+Paina lopuksi **Classify**-painiketta. Muokkaa symbolien värit tehtävänannon mukaisiksi kaksoisklikkaamalla eri luokkien symbolia.
 :::
 
 
@@ -44,7 +44,7 @@ Paina lopuksi **Classify** painiketta. Muokkaa symbolien värit tehtävänannon 
 ::: code-box
 ``` sql
 -- Vaihe 1 (Symbolien koko):
-"Mag" -- Lausekkeeksi riittää viittaus ```Mag``` (magnitudi)- kenttään
+"Mag" -- Lausekkeeksi riittää viittaus ```Mag``` (magnitudi)-kenttään
 
 -- Vaihe 2 (luokitus):
 CASE
