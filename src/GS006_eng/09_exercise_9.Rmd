@@ -192,11 +192,11 @@ The JHS180 Recommendation includes a recommendation for a national map tile grid
 |                                                                                                                                            |                         |
 |--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
 | **Interface standard**                                                                                                                     | OGC's WMS-T standard \| |
-| **Coordinate reference system** \| ETRS89 / TM35-FIN (EPSG:3067)                                                                           |                         |
-| **Usable origo** \| East -548 576 m, North 8 388 608 m (anchor point of tiles is upper left corner) \|                                     |                         |
-| **Resolution levels** \| 0.25 m, 0.5 m, 1 m, 2 m, 4 m, 8 m, 16 m, 32 m, 64 m, 128 m, 256 m, 512 m, 1 024 m, 2 048 m, 4 096 m ja 8 192 m \| |                         |
-| **Size of tiles in pixels** \| 256\*256 pixels \|                                                                                          |                         |
-| **Image format** \| Image/png \|                                                                                                           |                         |
+| **Coordinate reference system**                                                                           | ETRS89 / TM35-FIN (EPSG:3067)                         |
+| **Usable origo**                                     | East -548 576 m, North 8 388 608 m (anchor point of tiles is upper left corner)                         |
+| **Resolution levels** | 0.25 m, 0.5 m, 1 m, 2 m, 4 m, 8 m, 16 m, 32 m, 64 m, 128 m, 256 m, 512 m, 1 024 m, 2 048 m, 4 096 m ja 8 192 m                        |
+| **Size of tiles in pixels**                                                                                           | 256\*256 pixels                        |
+| **Image format**                                                                                                            | Image/png                        |
 
 With these definitions, at the coarsest resolution level (level 0) there is only one tile image of size 2 097 152 m \* 2 097 152 m (8 192\*8 192 pixels). The north-south centreline of this image file lies on the centreline of the projection strip (27 degrees). And the north coordinate of the northern edge of the tile is a multiple of the size of the tile from the equator (4 \* 2 097 152).
 
