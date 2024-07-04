@@ -259,70 +259,39 @@ You can also define names for smaller roads in the same way as we just did for m
 Here is a sample code with all the previously mentioned styles in use:
 
 ::: code-box
-/\* \@title Paatiet \*/
-
-[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
-
-{ stroke: black, yellow;
-
-stroke-width: 5px, 3px;
-
-z-index: 0, 3;
-
-label: [name];
-
-font-weight: bold;
-
-font-fill: black;
-
-font-size: 12;
-
--gt-label-follow-line: true;
-
--gt-label-max-angle-delta: 90;
-
--gt-label-max-displacement: 400;
-
--gt-label-repeat: 150;
-
-halo-color: white;
-
-halo-radius: 1;}
-
+/\* \@title Paatiet \*/\
+[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+     { stroke: black, yellow;\
+       stroke-width: 5px, 3px;\
+       z-index: 0, 3;\
+       label: [name];\
+       font-weight: bold;\
+       font-fill: black;\
+       font-size: 12;\
+       -gt-label-follow-line: true;\
+       -gt-label-max-angle-delta: 90;\
+       -gt-label-max-displacement: 400;\
+       -gt-label-repeat: 150;\
+       halo-color: white;\
+       halo-radius: 1;}\
 \
 
-/\* \@title Sivutiet \*/
-
-[\@scale \< 50000]
-
-[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
-
-{ stroke: black;
-
-stroke-width: 0.1;
-
-label: [name];
-
-font-fill: black;
-
-font-size: 9;
-
--gt-label-follow-line: true;
-
--gt-label-max-angle-delta: 90;
-
--gt-label-max-displacement: 400;
-
--gt-label-repeat: 150;
-
-halo-color: white;
-
-halo-radius: 1;}
-
+/\* \@title Sivutiet \*/\
+[\@scale \< 50000]\
+[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+      { stroke: black;\
+        stroke-width: 0.1;\
+        label: [name];\
+        font-fill: black;\
+        font-size: 9;\
+        -gt-label-follow-line: true;\
+        -gt-label-max-angle-delta: 90;\
+        -gt-label-max-displacement: 400;\
+        -gt-label-repeat: 150;\
+        halo-color: white;\
+        halo-radius: 1;}\
 \
-
-/\* \@title Tiesto \*/ 
-
+/\* \@title Tiesto \*/\
 \* { font-family: Helvetica;}
 :::
 
