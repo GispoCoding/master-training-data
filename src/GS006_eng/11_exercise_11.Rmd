@@ -186,7 +186,7 @@ Your code at this point should look something like this:
      stroke-width: 0.1;}\
 \
  /\* \@title Roads \*/\
-  \* { font-family: Helvetica;}\
+     { font-family: Helvetica;}\
 :::
 
 ## **Multi-scale visibility**
@@ -207,19 +207,19 @@ Your code at this point should look something like this:
 
 ::: code-box
  /\* \@title Paatiet \*/\
- [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
-     { stroke: black, yellow;
-     stroke-width: 5px, 3px;
-     z-index: 0, 3;}
+ [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk'] \
+     { stroke: black, yellow;\
+     stroke-width: 5px, 3px;\
+     z-index: 0, 3;}\
 \
  /\* \@title Sivutiet \*/\
- [\@scale \< 50000]
- [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
-     { stroke: black;
-     stroke-width: 0.1;}
+ [\@scale \< 50000]\
+ [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+     { stroke: black;\
+     stroke-width: 0.1;}\
 \
 /\* \@title Roads \*/\
- \* { font-family: Helvetica;}
+     { font-family: Helvetica;}
 :::
 
 ## **Adding subtitles**
