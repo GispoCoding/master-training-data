@@ -1,4 +1,4 @@
-# EXERCISE 1.5: WMS AND WCS SERVICES
+# Exercise 1.5: WMS AND WCS services
 
 **Content of the exercise**
 
@@ -124,7 +124,7 @@ Psst! The DPI value is set low by default to avoid overloading the server and to
 
 It is possible to specify other screen resolutions for services by modifying the parameters of WMS map requests.
 
-Now try to preview **poly_landmarks-** as a JPEG image. You can easily find the layer in the **Layer preview** view: ![](img/harjoitus_5/image6.png)
+Now try to preview **poly_landmarks** as a JPEG image. You can easily find the layer in the **Layer preview** view: ![](img/harjoitus_5/image6.png)
 
 The result is a map image in JPEG format at the default resolution of 90 DPI:\
 ![](img/harjoitus_5/image7.png)
@@ -135,8 +135,8 @@ If you enlarge the image in your browser (or save it to your hard drive and view
 
 Select and copy the full text of the address in the browser. Open a text editor and paste the text into it. It is an http request to your GeoServer server and resembles the following text:
 
-::: note-box
-[http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&version=1.1.0&request=GetMap &layers=tiger:poly_landmarks&styles=&bbox=-74.047185,40.679648,-73.90782,40.882078 **&width=528&height=768**&srs=EPSG:4326**&format=image%2Fjpeg**](http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&version=1.1.0&request=GetMap%20&layers=tiger:poly_landmarks&styles=&bbox=-74.047185,40.679648,-73.90782,40.882078%20&width=528&height=768&srs=EPSG:4326&format=image%2Fjpeg)
+::: code-box
+http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&version=1.1.0&request=GetMap &layers=tiger:poly_landmarks&styles=&bbox=-74.047185,40.679648,-73.90782,40.882078 **&width=528&height=768**&srs=EPSG:4326**&format=image%2Fjpeg**
 :::
 
 The text highlights the most important parameters concerning the WMS image. They can be interpreted as follows:
