@@ -186,7 +186,7 @@ Ota lopuksi tason editointi pois päältä ja tallenna tasoon tehdyt muutokset.
 
 Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä](https://gispo.fi/blogi/cad-aineistot-ja-qgis/).
 
-## Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti
+## Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-alatieto päivittyy automaattisesti
 
 1.  Avaa Rakennukset-tason ominaisuudet. Mene kohtaan Attribuuttilomake
 
@@ -194,11 +194,11 @@ Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä
 
 3.  Avaa oikean reunan funktio-painikkeesta auki lausekkeen muokkaus -ikkuna.
 
-4.  Valitse Geometrian alta `$area`. Funktion voi myös itse kirjoittaa suoraan oletusarvot -kenttään.
+4.  Valitse Geometrian alta `$area`. Funktion voi myös itse kirjoittaa suoraan oletusarvot-kenttään.
 
-5.  Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella lauseke on `round($area,2)`
+5.  Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella, lauseke on `round($area,2)`
 
-6.  **Lopuksi muista laittaa täppä tuohon "Käytä oletusarvoa päivityksessä" kohtaan**, niin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
+6.  **Lopuksi muista laittaa täppä tuohon "Käytä oletusarvoa päivityksessä" -kohtaan**, jolloin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
 
     ![](img/harjoitus_2/Attribuuttilomake.png)![](img/harjoitus_2/Lauseke.png){width="519"}
 
@@ -209,6 +209,6 @@ Avaa **Kuvaustekniikka-paneeli** tai mene tason ominaisuuksien kautta **Kuvauste
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
 
