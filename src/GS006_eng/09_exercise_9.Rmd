@@ -177,11 +177,11 @@ Open **Tile Caching → Gridsets** and then click on the grid named **EPSG:4326*
 
 Definitions of the map tile grid include:
 
-|                                 |                                                                                                                                                   |
-|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Coordinate Reference System** | The coordinate system used to define the grids.                                                                                                   |
-| **Gridset bounds**              | The location delimiter for the map sheet layer, which specifies the location to which the map tile grid is delimited.                             |
-| **Tile Matrix Set**             | A map tile model (image pyramid) that defines the scales selected for the map tile grid. This can be defined either by resolution or by scale.    |
+|                                            |                                                                                                                                                   |
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Coordinate Reference System**            | The coordinate system used to define the grids.                                                                                                   |
+| **Gridset bounds**                         | The location delimiter for the map sheet layer, which specifies the location to which the map tile grid is delimited.                             |
+| **Tile Matrix Set**                        | A map tile model (image pyramid) that defines the scales selected for the map tile grid. This can be defined either by resolution or by scale.    |
 
 You can also create map tiles to suit your own needs.
 
@@ -189,14 +189,14 @@ You can also create map tiles to suit your own needs.
 
 The JHS180 Recommendation includes a recommendation for a national map tile grid based on the OGC standards specifications. Among others, the following definitions can be found in the recommendation:
 
-|                                   |                                                                                                                 |
-|-----------------------------------|-----------------------------------------------------------------------------------------------------------------|
-| **Interface standard**            | OGC's WMS-T standard                                                                                            |
-| **Coordinate reference system**   | ETRS89 / TM35-FIN (EPSG:3067)                                                                                   |
-| **Usable origo**                  | East -548 576 m, North 8 388 608 m (anchor point of tiles is upper left corner)                                 |
-| **Resolution levels**             | 0.25 m, 0.5 m, 1 m, 2 m, 4 m, 8 m, 16 m, 32 m, 64 m, 128 m, 256 m, 512 m, 1 024 m, 2 048 m, 4 096 m ja 8 192 m  |
-| **Size of tiles in pixels**       | 256\*256 pixels                                                                                                 |
-| **Image format**                  | Image/png                                                                                                       |
+|                                            |                                                                                                                 |
+|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| **Interface standard**                     | OGC's WMS-T standard                                                                                            |
+| **Coordinate reference system**            | ETRS89 / TM35-FIN (EPSG:3067)                                                                                   |
+| **Usable origo**                           | East -548 576 m, North 8 388 608 m (anchor point of tiles is upper left corner)                                 |
+| **Resolution levels**                      | 0.25 m, 0.5 m, 1 m, 2 m, 4 m, 8 m, 16 m, 32 m, 64 m, 128 m, 256 m, 512 m, 1 024 m, 2 048 m, 4 096 m ja 8 192 m  |
+| **Size of tiles in pixels**                | 256\*256 pixels                                                                                                 |
+| **Image format**                           | Image/png                                                                                                       |
 
 With these definitions, at the coarsest resolution level (level 0) there is only one tile image of size 2 097 152 m \* 2 097 152 m (8 192\*8 192 pixels). The north-south centreline of this image file lies on the centreline of the projection strip (27 degrees). And the north coordinate of the northern edge of the tile is a multiple of the size of the tile from the equator (4 \* 2 097 152).
 
@@ -220,7 +220,7 @@ The recommendations say that the coordinates of the upper left corner (origo) ar
 
 **Max Y** is then: 8388608 -- 2097152 = **6 291 456** m
 
-|                    | **Coverage of the JHS180 grid**    |
+|                    | Coverage of the JHS180 grid        |
 |--------------------|------------------------------------|
 | Min X: -548 576 m  | Max X: 1 548 576 m                 |
 | Min Y: 6 291 456 m | Max Y: 8 388 608 m                 |
