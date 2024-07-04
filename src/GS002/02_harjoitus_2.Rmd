@@ -86,11 +86,11 @@ Aloita nyt **Rakennukset-tason** editointi.
 
 2.  Seuraavaksi harjoitellaan alueen reunaviivan suuntaisesti rakennuksen piirtämistä. Toimi seuraavasti:
 
--   Varmista, että laajennettu digitointi ![](img/harjoitus_2/image15.png){width="26" height="25"} on päällä.
+-   Varmista, että laajennettu digitointi ![](img/harjoitus_2/image15.png)![]() on päällä.
 
--   Piirrä piste kartalle haluamaasi kohtaan. Laajennetun digitoinnin valikossa aktivoituvat kohtisuoruustyökalu ![](img/harjoitus_2/image18.png) ja rinnakkainentyökalu ![](img/harjoitus_2/yhdensuuntaisuus_tyokalu.png).
+-   Piirrä piste kartalle haluamaasi kohtaan. Laajennetun digitoinnin valikossa aktivoituvat kohtisuoruustyökalu ![](img/harjoitus_2/image18.png) ja yhdensuuntaisuustyökalu ![](img/harjoitus_2/yhdensuuntaisuus_tyokalu.png).
 
--   Valitse haluamasi työkalu (kohtisuoruus tai rinnakkainen):
+-   Valitse haluamasi työkalu (kohtisuoruus tai yhdensuuntainen):
 
     -   
 
@@ -132,7 +132,7 @@ Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta p
 
 2.  Valitse **Rakennukset** taso aktiiviseksi.
 
-3.  Laita **editointi** päälle ![](img/harjoitus_2/toggle_editing.png){width="26" height="24"} **Rakennukset**- tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_2/monikulmio_kohde.png) sekä l**aajennetun digitoinnin työkalut** aktiivisiksi ![](img/harjoitus_2/image15.png){width="26" height="24"}.
+3.  Laita **editointi** päälle ![](img/harjoitus_2/toggle_editing.png) **Rakennukset**- tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_2/monikulmio_kohde.png) sekä l**aajennetun digitoinnin työkalut** aktiivisiksi ![](img/harjoitus_2/image15.png){width="26" height="24"}.
 
 4.  **Laita laajennetun digitoinnin** paneelista (vasen reuna) **rakentamistila** päälle ![](img/harjoitus_2/image19.png) (tai painamalla **C**).
 
@@ -205,10 +205,6 @@ Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä
 ## Lopuksi
 
 Avaa **Kuvaustekniikka-paneeli** tai mene tason ominaisuuksien kautta **Kuvaustekniikka-välilehdelle** ja muokkaa editoitujen kohteiden värit vastaamaan taustakartan värejä **Värin valitsin -työkalua** hyödyntäen.
-
-Voit vielä hyödyntää alueen reunaa käyttäen **Seuraaminen-ominaisuutta**:
-
- <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#automatic-tracing>
 
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
