@@ -1,4 +1,4 @@
-# EXERCISE 2.3: ARCHITECTURE AND DEPLOYMENT
+# Exercise 2.3: Architecture and deployment
 
 **Content of the exercise**
 
@@ -26,7 +26,7 @@ The **Connections** information refers to the number of vector stores available.
 
 You can check and release the memory used by GeoServer under **Memory Usage**.
 
-## **Image Processing Settings**
+## **Image processing settings**
 
 Check again which Java settings are in use on the server for image processing. By default, it is not very efficient to process images as a whole in computer memory. A commonly used method is to split images into smaller parts (tiles) and do any image operators on the smaller images. The JAI settings (defined in the **Image Processing** settings) control the operation of these methods.
 
@@ -43,9 +43,9 @@ Unlike WMS image requests, WCS requests produce potentially very large image fil
 The **Raster Access** settings determine the behaviour of GeoServer when image requests arrive. You can view the settings in the **Settings → Raster Access** view:
 
 +-----------------------------------------+------------------------------------------------------------------------------------------------------------------------+
-|                                         | #### **Raster Access settings** \|                                                                                     |
+|                                         | **Raster Access settings**                                                                                      |
 +-----------------------------------------+------------------------------------------------------------------------------------------------------------------------+
-| **ImageIO cache memory threshold (KB)** | Image requests above this value will be handled using a temporary file cache, otherwise a cache memory will be used \| |
+| **ImageIO cache memory threshold (KB)** | Image requests above this value will be handled using a temporary file cache, otherwise a cache memory will be used  |
 +-----------------------------------------+------------------------------------------------------------------------------------------------------------------------+
 | **CPU Use**                             | Settings for the processes used during the creation of raster images                                                   |
 +-----------------------------------------+------------------------------------------------------------------------------------------------------------------------+
@@ -55,16 +55,16 @@ The **Raster Access** settings determine the behaviour of GeoServer when image r
 At the end of the **Server Status** view, you will find settings related to the server:
 
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                               | #### **Other server settings** \|                                                                                                                                         |
+|                               | **Other server settings**                                                                                                                                          |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Update Sequence**           | Tells you how many times changes have been made to the server settings.                                                                                                   |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Resource cache**            | GeoServer stores store connections, external images, and the configuration of object types, fonts and coordinate systems. If necessary, the cache data can be deleted. \| |
+| **Resource cache**            | GeoServer stores store connections, external images, and the configuration of object types, fonts and coordinate systems. If necessary, the cache data can be deleted.  |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **Configuration and catalog** | All GeoServer configuration settings are loaded into the server memory. If necessary, they can be reloaded. \|                                                            |
+| **Configuration and catalog** | All GeoServer configuration settings are loaded into the server memory. If necessary, they can be reloaded.                                                             |
 +-------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-## **GeoServer's log**
+## **GeoServer log**
 
 Explore the contents of the GeoServer log and its settings by making requests to the server using the preview function.
 
@@ -94,8 +94,8 @@ It is also possible to manage GeoServer server settings via the REST interface.
 
 You can check the data available through the REST interface by typing the following address in a web browser (use the ip address of your own server):
 
-::: note-box
-[http://[your-training-instance]/geoserver/rest/workspaces/](http://%3Eoma-ip-osoite:8080/geoserver/rest/workspaces/){.uri}
+::: code-box
+http://[your-training-instance]/geoserver/rest/workspaces/
 :::
 
 Find information on the map layers created in the previous exercises.
@@ -112,7 +112,7 @@ Psst! See the description of the REST API in the GeoServer Help.
 
 ## **Using the Monitor plugin (tarkista nämä vielä)**
 
-GeoServer's **Monitor** plugin is pre-installed on the training servers and can be seen in the main menu below.
+The GeoServer **Monitor** plugin is pre-installed on the training servers and can be seen in the main menu below.
 
 Open **Monitor → Activity**.
 
