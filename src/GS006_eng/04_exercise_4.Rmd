@@ -1,4 +1,4 @@
-# EXERCISE 1.4: BASICS OF STYLING (SLD)
+# Exercise 1.4: Basics of styling (SLD)
 
 **Content of the exercise**
 
@@ -16,17 +16,19 @@ After the exercise, the student will be able to use basic styling techniques on 
 
 Start a web browser on your computer and log in at:
 
-In the previous exercises, a layer **Buildings** has been created on the GeoServer server, where the styling technique will now be created.
+::: note-box
+<http://localhost:8080/geoserver>
+:::
 
-## **GeoServerin styling technique**
+In the previous exercises, a layer **Buildings** has been created on the GeoServer server. In this exercise a styling technique will be created for this layer.
+
+## **GeoServer styling technique**
 
 WMS services visualize map images in GeoServer using predefined styling techniques. Until now, we have used the default stylings whenever we added new data, for example when we previewed a layer.
 
 From the main menu, open the **Layers** view and the **Buildings** layer. Then open the **Publishing** tab. ![](img/harjoitus_4/image1.2.png)
 
 Note that under **WMS Settings**, you will find the **Default Style** menu with **polygon** style selected.
-
-\
 
 ![](img/harjoitus_4/image2.png)
 
@@ -84,11 +86,11 @@ From the **Data → Layer Preview** view, you can now preview the **buildings** 
 
 ## **SLD Cookbook**
 
-You can find out more about writing SLD styles on the SLD Cookbook website. The SLD Cookbook is part of GeoServer's online documentation and contains various examples of styling techniques.
+You can find out more about writing SLD styles on the SLD Cookbook website. The SLD Cookbook is part of GeoServer online documentation and contains various examples of styling techniques.
 
 Let's use an example from the **SLD Cookbook** as a basis for our new style.
 
-In a new browser window, open GeoServer's SLD Cookbook from the link below (or you can Google "geoserver sld cookbook" in your browser). Look for **Polygon with styled label** and click on it:
+In a new browser window, open GeoServer SLD Cookbook from the link below (or you can Google "geoserver sld cookbook" in your browser). Look for **Polygon with styled label** and click on it:
 
 ::: note-box
 <http://docs.geoserver.org/stable/en/user/styling/sld/cookbook/>
@@ -171,7 +173,7 @@ The updated style is immediately available on the server and can be previewed us
 
 ![](img/harjoitus_4/image11.2.png)
 
-At <http://colorbrewer2.org/> you can learn about different visualisation styles and choose the right colours for your visualisation.
+Visit <http://colorbrewer2.org/> to learn about different visualisation styles and choose the right colours for your visualisation.
 
 ## **Create a road style**
 
