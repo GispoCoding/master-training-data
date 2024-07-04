@@ -3,7 +3,7 @@ title: "Johdanto GeoServerin käyttöön"
 author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "Johdantokurssi GeoServerin käyttöön."
+abstract: "Johdantokurssi GeoServerin käyttöön"
 output:
     bookdown::html_book:
         toc: true
@@ -15,13 +15,13 @@ output:
 documentclass: book
 ---
 
-# JOHDANTO GEOSERVERIN KÄYTTÖÖN
+# Johdanto GeoServerin käyttöön
 
 ## Tervetuloa GeoServer-kurssille!
 Tämän kurssin tarkoituksena on opastaa sinut GeoServerin käyttöön. Paikkatietojen tai muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumisel­le. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku asia jää epäselväksi.
 
 ## GeoServerin taustaa
-GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitellä ja hallinnoida geospatiaalista dataa. GeoServer on ollut toiminnassa vuodesta 2001 alkaen “The Open Planning Project”-hankkeen kautta. Vuonna 2014 GeoServer siirtyi OSGeo-projektin alle. GeoServeriä päivitetään puolen vuoden välein ja ohjelmiston käyttäjäkunta on varsin vilkas ja aktiivinen.
+GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitellä ja hallinnoida geospatiaalista dataa. GeoServer on ollut toiminnassa vuodesta 2001 alkaen “The Open Planning Project” -hankkeen kautta. Vuonna 2014 GeoServer siirtyi OSGeo-projektin alle. GeoServeriä päivitetään puolen vuoden välein ja ohjelmiston käyttäjäkunta on varsin vilkas ja aktiivinen.
 
 
 ## Lukuohje
@@ -37,7 +37,8 @@ GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitell
 ::: commandline-box
 ``` shell
 sudo lsb_release -a
-```:::
+```
+:::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:
 
@@ -85,8 +86,8 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ## Virheet
 
-Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla osoitteeseen [info\@gispo.fi](mailto:info@gispo.fi){.email}.
 
 ## Lisenssi ja oikeudet
 
-Nämä materiaalit on "Johdanto GeoServerin käyttöön"-kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+Nämä materiaalit on "Johdanto GeoServerin käyttöön" -kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
