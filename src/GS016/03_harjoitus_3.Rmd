@@ -6,7 +6,7 @@ Tässä harjoituksessa muokataan projektissa olevien tasojen tietojen syötön l
 
 ### Harjoituksen tavoite
 
-Koulutettava oppii muokkaamaan tiedon syöttötapoja QGISin widgettejä käyttäen, sekä osaa tunnistaa mobiilitiedonkeruussa ja etenkin QFieldissä tähän liittyvät erityispiirteet. \|
+Koulutettava oppii muokkaamaan tiedon syöttötapoja QGISin widgettejä käyttäen, sekä osaa tunnistaa mobiilitiedonkeruussa ja etenkin QFieldissä tähän liittyvät erityispiirteet.
 
 ### Arvioitu kesto
 
@@ -18,30 +18,31 @@ Avaa QGIS tietokoneellasi ja avaa siellä aiemmin luomasi QGIS-projekti (**Proje
 
 ## Taustatietoja
 
-Tässä harjoituksessa muokataan projektissa olevien tasojen tietojen syötön lomakkeita digitoinnin helpottamiseen ja tehostamiseen. QGISissa on erityyppisille tiedoille ja niiden syöttötavoille valittavissa monenlaisia vimpaimia (widgets). Näitä kaikkia ei kuitenkaan ole vielä tuettuna QFieldissa, joten niitä ei voi siinä siis hyödyntää. Minkä tahansa syöttatavan voi kyllä huoletta QGIS-lomakkeisiin konfiguroida, mutta ei-tuettujen widgettien tapauksessa QField jättää tämän huomiotta ja käyttää kyseessä olevan tietotyypin mukaista oletus-syöttötapaa. Tuettujen widget-tyyppien ajantasaisen listan näet dokumentaatiosta: <https://qfield.org/docs/prepare/attributes-form.html> 
+Tässä harjoituksessa muokataan projektissa olevien tasojen tietojen syötön lomakkeita digitoinnin helpottamiseen ja tehostamiseen. QGISissa on erityyppisille tiedoille ja niiden syöttötavoille valittavissa monenlaisia vimpaimia (widgets). Näitä kaikkia ei kuitenkaan ole vielä tuettuna QFieldissa, joten niitä ei voi siinä siis hyödyntää. QGIS-lomakkeisiin voi kyllä huoletta konfiguroida minkä tahansa syöttatavan, mutta ei-tuettujen widgettien tapauksessa QField jättää tämän huomiotta ja käyttää kyseessä olevan tietotyypin mukaista oletus-syöttötapaa. Tuettujen widget-tyyppien ajantasaisen listan näet dokumentaatiosta: <https://qfield.org/docs/prepare/attributes-form.html>.
 
 ## Ominaisuustietolomakkeen muokkaus
 
-Avaa QGISissa **Puut**-tason ominaisuudet klikkaamalla hiiren oikealla napilla **Tasot**-paneelista tason kohdalta. Valitse **Ominaisuudet...** ja mene **Attribuuttilomake**-välilehdelle. Valitse välilehdellä ylhäällä olevasta pudotusvalikosta **Drag and Drop Designer** -tila (suom. Raahaa ja pudota -muokkain) automaattisen sijaan. Tässä lomakkeeseen sisällytettävät kentät on välilehden keskimmäisessä, **Lomakenäkymä**-nimisessä (ent. taitosta) sarakkeessa. Tähän voidaan lisätä objekteja vasemmanpuolimmaisesta sarakkeesta keskimmäiseen raahaamalla. Samoin tarpeettomia vimpaimia ja kenttiä voi poistaa lomakkeen taitosta klikkaamalla kyseistä objektia ja poistamalla se punaisesta miinus-nappulasta (kts. kuva). Drag and Drop Designer -näkymässä voidaan myös ryhmitellä lomakkeen kenttiä esimerkiksi eri välilehtiin ja nämä ryhmitykset toimivat myös QFieldin käyttöliittymässä.
+Avaa QGISissa **Puut**-tason ominaisuudet klikkaamalla hiiren oikealla napilla **Tasot**-paneelista tason kohdalta. Valitse **Ominaisuudet...** ja mene **Attribuuttilomake**-välilehdelle. Valitse välilehdellä ylhäällä olevasta pudotusvalikosta **Drag and Drop Designer** -tila (suom. Raahaa ja pudota -muokkain) automaattisen sijaan. Tässä lomakkeeseen sisällytettävät kentät ovat välilehden keskimmäisessä, **Lomakenäkymä**-nimisessä (ent. taitosta) sarakkeessa. Tähän voidaan lisätä objekteja vasemmanpuolimmaisesta sarakkeesta keskimmäiseen raahaamalla. Samoin tarpeettomia vimpaimia ja kenttiä voi poistaa lomakkeen taitosta klikkaamalla kyseistä objektia ja poistamalla se punaisesta miinus-nappulasta (kts. kuva). Drag and Drop Designer -näkymässä voidaan myös ryhmitellä lomakkeen kenttiä esimerkiksi eri välilehtiin ja nämä ryhmitykset toimivat myös QFieldin käyttöliittymässä.
 
-Pidetään nyt kuitenkin kaikki kentät samassa välilehdessä. Poistetaan sen sijaan lomakenäkymästä kentät **fid** sekä **uuid**, joita ei lomakkeessa haluta manuaalisesti lisätä. **Lomakenäkymä** -sarakkeessa voi myös muuttaa lomakkeen kenttien järjestystä raahaamalla. Muokkaa nyt kenttien järjestys alla olevan kuvan **Taitosta**-osion  mukaiseksi.
+Pidetään nyt kaikki kentät samassa välilehdessä. Poistetaan sen sijaan lomakenäkymästä kentät **fid** sekä **uuid**, joita ei lomakkeessa haluta manuaalisesti lisätä. **Lomakenäkymä** -sarakkeessa voi myös muuttaa lomakkeen kenttien järjestystä raahaamalla. Muokkaa nyt kenttien järjestys alla olevan kuvan **Taitosta**-osion  mukaiseksi.
 
 ![](img/harjoitus_3/image1.png)
+
 ## Laji-tietokenttä
 
-Ruvetaan nyt muokkaamaan tietojen syöttötapoja. Klikkaa keskimmäisessä Lomakenäkymä -sarakkeessa **laji**-kenttää. Valitse oikeaan sarakkeeseen aukeavasta Widgetin tyyppi -pudotusvalikosta **Arvoluettelo** Tekstin muokkaus -tyypin sijasta. Tällä tavoin puulajitieto lisätään digitoidessa valitsemalla luettelosta jossa on tiettyjä arvoja. Tällöin myös esimerkiksi kirjoitusasu säilyy yhdenmukaisena ja aineiston myöhempi analyysi todennäköisesti myös helpottuu.  Lisää nyt taulukkoon kohtaan **Arvo** puulajien nimiä, ainakin Suomen yleisimmät puulajit: mänty, kuusi ja koivu. Lisää yksi laji per rivi. Halutessasi voit jatkaa listaa seuraavaksi yleisimmillä lajeilla: haapa, harmaaleppä, kataja, lehtikuuset, pihlaja, raita, tammi sekä tervaleppä, jos arvelet niitä tarvitsevasi. Aseta tämän jälkeen vielä **Ehdot**-osioon alle ruksi valintalaatikkoon **Ei tyhjä (null)**, jolloin ainakin tämä tieto on aina täytettävä.
+Ruvetaan nyt muokkaamaan tietojen syöttötapoja. Klikkaa keskimmäisessä Lomakenäkymä-sarakkeessa **laji**-kenttää. Valitse oikeaan sarakkeeseen aukeavasta Widgetin tyyppi -pudotusvalikosta **Arvoluettelo** Tekstin muokkaus -tyypin sijasta. Tällä tavoin puulajitieto lisätään digitoidessa valitsemalla luettelosta jossa on tiettyjä arvoja. Tällöin myös esimerkiksi kirjoitusasu säilyy yhdenmukaisena ja aineiston myöhempi analyysi todennäköisesti myös helpottuu.  Lisää nyt taulukkoon kohtaan **Arvo** puulajien nimiä, ainakin Suomen yleisimmät puulajit: mänty, kuusi ja koivu. Lisää yksi laji per rivi. Halutessasi voit jatkaa listaa seuraavaksi yleisimmillä lajeilla: haapa, harmaaleppä, kataja, lehtikuusi, pihlaja, raita, tammi sekä tervaleppä, jos arvelet niitä tarvitsevasi. Aseta tämän jälkeen vielä **Ehdot**-osioon alle ruksi valintalaatikkoon **Ei tyhjä (null)**, jolloin ainakin tämä tieto on aina täytettävä.
 
 ![](img/harjoitus_3/image2.png)\
 
-## Ympärysmitta- ja korkeus -tietokentät
+## Ympärysmitta- ja korkeus-tietokentät
 
-Klikkaa nyt ympärysmitta-kenttää Taitosta-sarakkeessa. Sekä tämän että korkeus-kentän  sisältö on numeerista, eli on luontevinta valita widgetin tyypiksi **rajat**. Tehdäänkin näin, ja määritetään samalla sopivat minimi- ja maksimiarvot ja missä mittayksiköissä nämä arvot annetaan (jälkiliite, esimerkiksi **cm** tai **m**), sekä se kuinka suurin askelein arvoja kasvatetaan vimpainta käytettäessä (kts. kuva alla). Tähän ei sinällään ole yhtä oikeaa ratkaisua, vaan kannattaa miettiä mikä on kyseessä olevan datan keräämisen kannalta järkevintä.
+Klikkaa nyt ympärysmitta-kenttää Taitosta-sarakkeessa. Sekä tämän että korkeus-kentän sisältö on numeerista, eli on luontevinta valita widgetin tyypiksi **rajat**. Tehdäänkin näin ja määritetään samalla sopivat minimi- ja maksimiarvot, missä mittayksiköissä nämä arvot annetaan (jälkiliite, esimerkiksi **cm** tai **m**) sekä se, kuinka suurin askelein arvoja kasvatetaan vimpainta käytettäessä (kts. kuva alla). Tähän ei sinällään ole yhtä oikeaa ratkaisua, vaan kannattaa miettiä, mikä on kyseessä olevan datan keräämisen kannalta järkevintä.
 
 ![](img/harjoitus_3/image3.png)
 
 ## Huomiot-tietokenttä
 
-Tähän olisi tarkoitus lisätä vapaamuotoisia lisähuomioita, joten tämän voi pitää oletusasetuksilla **Tekstin muokkaus** -tyyppisenä. Valitaan tähän alle lisäksi **Monirivi** (Multiline), jolloin pidemmätkin huomiot voi lisätä kätevästi. Koska huomioita ei toisaalta välttämättä ole, jätetään **Ei tyhjä** -ehto valitsematta.
+Tähän olisi tarkoitus lisätä vapaamuotoisia lisähuomioita, joten tämän voi pitää oletusasetuksilla **Tekstin muokkaus** -tyyppisenä. Valitaan tähän alle lisäksi **Monirivi** (Multiline), jolloin pidemmätkin huomiot voi lisätä kätevästi. Koska huomioita ei toisaalta välttämättä ole, jätetään **Ei tyhjä** -ehto valitsematta. Kentän saa siis jättää myös tyhjäksi.
 
 ## Valokuva
 
@@ -51,7 +52,7 @@ Mobiililaitteella otettujen valokuvien lisäys tapahtuu QFieldillä liitteenä, 
 Pidä mielessä, että QField tallentaa tasolle kohteen tietoihin valokuvista (ja muista liitteistä) ainoastaan tiedostopolun, ei itse valokuvaa. Valokuvat tallentuvat mobiililaitteen kansioon. Tarkastellaan tätä lisää myöhemmin, kun synkronoidaan kerättyjä tietoja takaisin QGIS-projektiin. Tällöin valokuvat sisältävä kansio on siirrettävä erikseen tietokoneelle, projektitiedoston suhteen samaan paikkaan kuin mobiililaitteella.
 :::
 
-## Luoja- ja muokkaaja -tietokenttien automatisointi
+## Luoja- ja muokkaaja-tietokenttien automatisointi
 
 Luoja- ja muokkaaja-kentät ovat teksti-muotoisia kenttiä, jotka sisältävät tiedon muokkauksen tekijästä. Pidä siis widgettinä **Tekstin muokkaus**.
 
@@ -65,7 +66,7 @@ Luonti ja muokkaus eroavat toisistaan siinä, että kohde luodaan vain kerran, k
 
 Vastaavasti **Luoja**-tietokentässä kumpikaan näistä mainituista arvoista ei saa olla valittuna, jotta tietojen syöttö toimisi kuten haluamme, eli että kutakin kohdetta ensimmäistä kertaa luodessa tieto tekijästä tallentuu eikä sen jälkeen enää muutu kohteen tietoja päivitettäessä. Jos halutaan vielä  varmistaa että kohdetta ei voi lisätä ilman tekijätietoa, sille voi lisätä vielä **Ehdot**-kohdassa ehdot **Ei tyhjä (null)** ja **EI NULL -ehto on pakottava**.
 
-## Luonti- ja muokkausaika -tietokentät
+## Luonti- ja muokkausaika-tietokentät
 
 Myös luonti- ja muokkausaika-kentille pätee sama, mitä edellä sanottiin luonnista ja muokkauksesta, ja ne käsitellään kumpikin melko samalla tavalla. Valitse kummallekin Widgetin tyypiksi **Päivä/Aika**. Näidenkin tietojen syöttö halutaan automatisoida, ja tämä onnistuu käyttämällä QGISin sisäistä funktiota **now()**, joka kirjoitetaan **Oletusarvo**-kohtaan kummallekin kentälle. **Muokattava, oletusarvon päivitys** ja **null-ehdot** määritetään täsmälleen kuten edellä **Luoja-** ja **Muokkaaja**-kentille ohjeistettiin.
 
@@ -75,9 +76,9 @@ Vaikka uuid-tietokenttä poistettiinkin taitosta tarpeettomana tietona, määrit
 
 ## Lomakkeen välilehdet
 
-Kun täytettäviä ominaisuustietokenttiä on paljon, niiden jaotteleminen eri välilehdille saattaa helpottaa työskentelyä. Myös QField tukee välilehtien käyttöä. Välilehti-ominaisuus luodaan QGISissa samassa näkymässä jossa juuri määrittelimme tietojen syöttötavat eri kentille.
+Kun täytettäviä ominaisuustietokenttiä on paljon, niiden jaotteleminen eri välilehdille saattaa helpottaa työskentelyä. QField tukee välilehtien käyttöä. Välilehti-ominaisuus luodaan QGISissa samassa näkymässä, jossa juuri määrittelimme tietojen syöttötavat eri kentille.
 
-Vaikka lisättäviä ominaisuustietoja ei nykyisessä projektissamme aivan valtavasti olekaan, saattaa olla kätevää jaotella metatiedot omalle välilehdelleen, sillä nämä liittyvät toisiinsa eikä niitä myöskään täytetä manuaalisesti. Klikkaa vihreää plus-merkkiä lisätäksesi uuden välilehden (kts. kuva). Anna välilehdelle (tab) nimeksi "metatiedot" ja sarakkeiden lukumääräksi 1. Paina OK, jolloin välilehti ilmestyy Taitosta-sarakkeeseen. Raahaa metatieto-kentät välilehden päälle ja irrota, jolloin ne sisältyvät välilehteen alla olevan kuvan mukaisesti. Lisää sitten toinen välilehti ja anna sille nimeksi "perustiedot". Raahaa loput ominaisuustietokentät tähän välilehteen. Huomaa että pystyt muokkaamaan välilehtien ja niiden sisältämien kenttien järjestystä sopivaksi samaan tapaan raahaamalla.
+Vaikka lisättäviä ominaisuustietoja ei nykyisessä projektissamme kovin paljoa olekaan, saattaa olla kätevää jaotella metatiedot omalle välilehdelleen, sillä nämä liittyvät toisiinsa eikä niitä myöskään täytetä manuaalisesti. Klikkaa vihreää plus-merkkiä lisätäksesi uuden välilehden (kts. kuva). Anna välilehdelle (tab) nimeksi "metatiedot" ja sarakkeiden lukumääräksi 1. Paina OK, jolloin välilehti ilmestyy Taitosta-sarakkeeseen. Raahaa metatieto-kentät välilehden päälle ja irrota, jolloin ne sisältyvät välilehteen alla olevan kuvan mukaisesti. Lisää sitten toinen välilehti ja anna sille nimeksi "perustiedot". Raahaa loput ominaisuustietokentät tähän välilehteen. Huomaa että pystyt muokkaamaan välilehtien ja niiden sisältämien kenttien järjestystä sopivaksi samaan tapaan raahaamalla.
 
 Tämän jälkeen voit klikata OK, jolloin attribuuttilomakkeen muutokset tulevat voimaan QGIS-projektissa. Muista tallentaa myös projektitiedosto pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
 
@@ -85,7 +86,7 @@ Tämän jälkeen voit klikata OK, jolloin attribuuttilomakkeen muutokset tulevat
 
 ## Näyttö ja kohdelistaus
 
-Huomasimme edellisen harjoituksen lopussa, että kohdelistauksesta oli hankala erottaa kohteita toisistaan selkeyttävien kohdenimien puuttuessa. Tilannetta voi helpottaa QGISin Näyttö-valikon avulla. Avaa siis jälleen Puut-tason ominaisuudet, ja avaa tällä kertaa **Karttavihjeet**-välilehti. Siellä voidaan määrittää **Näyttönimi**, joka on nimi, joka kohdelistauksessa näkyy. Varsinaisia nimiä puukohteillamme ei nyt ole, mutta voimme yrittää erotella kohteita toisistaan esimerkiksi laji-kentän ja jonkin muun kentän, esimerkiksi luontiajan, arvon avulla. Lausekkeen voi kirjoittaa suoraan kuvassakin näkyvään laatikkoon, tai voi käyttää apuna **Lausekkeen muokkaus** -ikkunaa painamalla "epsilon"-ikonia laatikon oikealta puolelta. Muista, että kenttien nimet tulevat tavallisten, kaksinkertaisten lainausmerkkien sisälle ("laji"), kun taas muut tekstipätkät yksinkertaisten heittomerkkien sisälle (','). Esimerkkinä karttavihjeelle voisi siis olla: **"laji" \|\| ',' \|\| "luontiaika"**. Kirjoita tämä tai muu haluamasi lauseke näyttönimeksi, ja paina OK.
+Huomasimme edellisen harjoituksen lopussa, että kohdelistauksesta oli hankala erottaa kohteita toisistaan selkeyttävien kohdenimien puuttuessa. Tilannetta voi helpottaa QGISin Näyttö-valikon avulla. Avaa siis jälleen Puut-tason ominaisuudet, ja avaa tällä kertaa **Karttavihjeet**-välilehti. Siellä voidaan määrittää **Näyttönimi**, joka on nimi, joka kohdelistauksessa näkyy. Varsinaisia nimiä puukohteillamme ei nyt ole, mutta voimme yrittää erotella kohteita toisistaan esimerkiksi laji-kentän ja jonkin muun kentän, esimerkiksi luontiajan, arvon avulla. Lausekkeen voi kirjoittaa suoraan kuvassakin näkyvään laatikkoon, tai voi käyttää apuna **Lausekkeen muokkaus** -ikkunaa painamalla "epsilon"-ikonia laatikon oikealta puolelta. Muista, että kenttien nimet tulevat tavallisten, kaksinkertaisten lainausmerkkien sisälle ("laji"), kun taas muut tekstipätkät yksinkertaisten heittomerkkien sisälle (','). Esimerkkinä karttavihjeelle voisi siis olla: **"laji" \|\| ',' \|\| "luontiaika"**. Kirjoita tämä tai muu haluamasi lauseke näyttönimeksi ja paina OK.
 
 ![](img/harjoitus_3/image5.png)
 
