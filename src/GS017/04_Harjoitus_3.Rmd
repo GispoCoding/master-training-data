@@ -6,7 +6,7 @@ Tässä harjoituksessa muokataan projektissa olevien tasojen tietojen syötön l
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii muokkaamaan tiedon syöttötapoja QGISin widgettejä käyttäen, sekä osaa tunnistaa mobiilitiedonkeruussa ja etenkin Merginissä tähän liittyvät erityispiirteet.
+Koulutettava oppii muokkaamaan tiedon syöttötapoja QGISin widgettejä käyttäen, sekä osaa tunnistaa mobiilitiedonkeruussa ja etenkin Mergin Mapsissä tähän liittyvät erityispiirteet.
 
 **Arvioitu kesto**
 
@@ -34,11 +34,11 @@ Ruvetaan nyt muokkaamaan tietojen syöttötapoja. Ennen kuin lähdetään muutta
 
 ![](img/harjoitus_3/image2.png)
 
-Paina sitte **Lisää**.
+Paina **Lisää**.
 
-Tuplaklikkaa nyt lintuhavainnot-tasoa ja mene attribuuttilomakkeelle. Klikkaa keskimmäisessä Lomakenäkymä -sarakkeessa **laji**-kenttää. Valitse oikeaan sarakkeeseen aukeavasta Widgetin tyyppi -pudotusvalikosta **Arvoluettelo** Tekstin muokkaus -tyypin sijasta. Tällä tavoin lajitieto lisätään suoraan luettelosta (jossa on valmiit arvot), kun digitoidaan. Tällöin myös esimerkiksi kirjoitusasu säilyy yhdenmukaisena ja aineiston myöhempi analyysi todennäköisesti myös helpottuu.
+Tuplaklikkaa nyt lintuhavainnot-tasoa ja mene attribuuttilomakkeelle. Klikkaa keskimmäisessä Lomakenäkymä-sarakkeessa **laji**-kenttää. Valitse oikeaan sarakkeeseen aukeavasta Widgetin tyyppi -pudotusvalikosta **Arvoluettelo** Tekstin muokkaus -tyypin sijasta. Tällä tavoin lajitieto lisätään digitoidessa suoraan luettelosta (jossa on valmiit arvot). Tällöin kirjoitusasu säilyy yhdenmukaisena ja esimerkiksi aineiston myöhempi analyysi helpottuu.
 
-Avautuvaan taulukkoon kohtaan **Arvo** voisit manuaalisesti syöttää lintulajien nimiä, mutta jos lajilista on laaja, kannattaa arvot hakea taulukkoon suoraan tiedostosta. Tätä varten lisäämämme lintulajit-taulukko onkin luotu. Paina laatikosta "Load Data From Layer" ja valitse tasoksi "lintulajit", arvoksi "lajinimi" sekä kuvaukseksi "lajinimi". Paina OK.
+Avautuvaan taulukkoon kohtaan **Arvo** voit syöttää manuaalisesti lintulajien nimiä, mutta jos lajilista on laaja, kannattaa arvot hakea taulukkoon suoraan tiedostosta. Tätä varten lisäämämme lintulajit-taulukko onkin luotu. Paina laatikosta "Load Data From Layer" ja valitse tasoksi "lintulajit", arvoksi "lajinimi" sekä kuvaukseksi "lajinimi". Paina OK.
 
 ![](img/harjoitus_3/image3.png)
 
@@ -50,18 +50,18 @@ Tähän kenttään on tarkoitus lisätä vapaamuotoisia lisähuomioita, joten ke
 
 ![](img/harjoitus_3/image4.png)
 
-## **Luoja- ja muokkaaja -tietokenttien automatisointi**
+## **Luoja- ja muokkaaja-tietokenttien automatisointi**
 
 Luoja- ja muokkaaja-kentät ovat teksti-muotoisia kenttiä, jotka sisältävät tiedon muokkauksen tekijästä. Pidä siis widgettinä **Tekstin muokkaus**. Koska muokkaaja tietyllä laitteella on yleensä yksi ja sama henkilö, tätä ei haluta joka kerta lisätä manuaalisesti, vaan automaatio on suotavaa, ja se voidaan saavuttaa **Oletusarvot**-kohdan avulla. Olemme aiemmin määritelleet Merginin asetuksissa käyttäjän oman muuttujan **username**. Tällaiseen muuttujan arvoon voi QGISissa viitata **\@**-merkillä. Kirjoita siis tähän Oletusarvo-kohtaan Luonti- ja muokkauskentille kummallekin erikseen **\@mergin_username**, jolloin Mergin osaa lisätä kohteelle käyttäjänimen.
 
 Luonti ja muokkaus eroavat toisistaan siinä, että kohde luodaan vain kerran, kun taas sitä voidaan muokata moneen kertaan. **Muokkaaja**-tietokentälle pitääkin varmistaa, että tässä on **Yleistä**-kohdassa valittuna **Muokattava** ja **Oletusarvo**-kohdassa **Käytä oletusarvoa päivityksessä**. Vastaavasti **Luoja**-tietokentässä nämä kaksi kohtaa eivät saa olla valittuna, jotta tietojen syöttö toimisi kuten haluamme! Sen sijaan kohteella tulee aina olla luoja, joten laitetaan sille vielä **Ehdot**-kohdassa ehdot **Ei tyhjä (null)** ja **EI NULL -ehto on pakottava**.
 
-## **Luonti- ja muokkausaika -tietokentät**
+## **Luonti- ja muokkausaika-tietokentät**
 
 Myös luonti- ja muokkausaika-kentille pätee sama, mitä edellä sanottiin luonnista ja muokkauksesta, ja ne käsitellään kumpikin melko samalla tavalla. Valitse kummallekin Widgetin tyypiksi **Päivä/Aika**. Näidenkin tietojen syöttö halutaan automatisoida, ja tämä onnistuu käyttämällä QGISin sisäistä funktiota **now()**, joka kirjoitetaan **Oletusarvo**-kohtaan kummallekin kentälle. **Muokattava, oletusarvon päivitys** ja **null-ehdot** määritetään täsmälleen kuten edellä **Luoja-** ja **Muokkaaja**-kentille ohjeistettiin.
 
 ::: hint-box
-Jos haluat muotoilla Päivä/Aika muotoa käytä format_date komentoa. Esim. format_date(now(),'dd.MM.yyyy klo hh:MM') muotoilee päiväyksen ja kellonajan esimerkiksi näin 03.08.2023 klo 14:08
+Jos haluat muotoilla Päivä/Aika-muotoa käytä format_date komentoa. Esim. format_date(now(),'dd.MM.yyyy klo hh:MM') muotoilee päiväyksen ja kellonajan esimerkiksi näin 03.08.2023 klo 14:08
 :::
 
 ## **Kohteen uuid-kenttä**
@@ -74,16 +74,16 @@ Mikä on UUID? UUID (**U**niversal **U**nique **Id**entifier) on Open Software F
 
 ## **Lomakkeen välilehdet**
 
-Kun täytettäviä ominaisuustietokenttiä on paljon, niiden jaotteleminen eri välilehdille saattaa helpottaa työskentelyä. Myös Mergin tukee välilehtien käyttöä. Välilehti-ominaisuus luodaan QGISissa samassa näkymässä jossa juuri määrittelimme tietojen syöttötavat eri kentille.
+Kun täytettäviä ominaisuustietokenttiä on paljon, niiden jaotteleminen eri välilehdille saattaa helpottaa työskentelyä. Myös Mergin Maps tukee välilehtien käyttöä. Välilehti-ominaisuus luodaan QGISissa samassa näkymässä, jossa juuri määrittelimme tietojen syöttötavat eri kentille.
 
-Vaikka lisättäviä ominaisuustietoja ei nykyisessä projektissamme aivan valtavasti olekaan, saattaa olla kätevää jaotella metatiedot omalle välilehdelleen, sillä nämä liittyvät toisiinsa eikä niitä myöskään täytetä manuaalisesti. Klikkaa vihreää plus-merkkiä lisätäksesi uuden välilehden (kts. kuva). Anna välilehdelle (tab) nimeksi "metatiedot" ja sarakkeiden lukumääräksi 1. Paina OK, jolloin välilehti ilmestyy Taitosta-sarakkeeseen. Raahaa metatieto-kentät välilehden päälle ja irrota, jolloin ne sisältyvät välilehteen alla olevan kuvan mukaisesti. Lisää sitten toinen välilehti ja anna sille nimeksi "perustiedot". Raahaa loput ominaisuustietokentät tähän välilehteen. Huomaa että pystyt muokkaamaan välilehtien ja niiden sisältämien kenttien järjestystä sopivaksi samaan tapaan raahaamalla.
+Vaikka lisättäviä ominaisuustietoja ei nykyisessä projektissamme ole valtavasti, saattaa olla kätevää jaotella metatiedot omalle välilehdelleen, sillä nämä liittyvät toisiinsa eikä niitä myöskään täytetä manuaalisesti. Klikkaa vihreää plus-merkkiä lisätäksesi uuden välilehden (kts. kuva). Anna välilehdelle (tab) nimeksi "metatiedot" ja sarakkeiden lukumääräksi 1. Paina OK, jolloin välilehti ilmestyy Taitosta-sarakkeeseen. Raahaa metatieto-kentät välilehden päälle ja irrota, jolloin ne sisältyvät välilehteen alla olevan kuvan mukaisesti. Lisää sitten toinen välilehti ja anna sille nimeksi "perustiedot". Raahaa loput ominaisuustietokentät tähän välilehteen. Huomaa että pystyt muokkaamaan välilehtien ja niiden sisältämien kenttien järjestystä sopivaksi samaan tapaan raahaamalla.
 
 Tämän jälkeen voit klikata OK, jolloin attribuuttilomakkeen muutokset tulevat voimaan QGIS-projektissa. Muista tallentaa myös projektitiedosto pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**. Muista myös synkronoida projekti Mergin Maps pilvipalveluun.
 
 ![](img/harjoitus_3/image5.png)
 
 ::: hint-box
-Voit asettaa myös välilehdille ehdot joiden mukaan ne tulevat näkyviin. Esimerkiksi kun käyttäjä antaa toiseen kenttään tietyn arvon ilmestyy vasta haluttu välilehti näkyviin. Lisää tästä ominaisuudesta [dokumentaatiossa](https://merginmaps.com/docs/layer/settingup_forms_settings/#tabs-and-groups "Show and hide field depending on a field value")
+Voit asettaa myös välilehdille ehdot joiden mukaan ne tulevat näkyviin. Esimerkiksi, kun käyttäjä antaa johonkin kenttään tietyn arvon, ilmestyy haluttu välilehti näkyviin. Lisää tästä ominaisuudesta [dokumentaatiossa](https://merginmaps.com/docs/layer/settingup_forms_settings/#tabs-and-groups "Show and hide field depending on a field value").
 
 ![](img/harjoitus_4/image10.png)
 :::
@@ -109,7 +109,7 @@ Määritellään tässä kohtaa projektille vielä toinen digitointia käytänn�
 ![](img/harjoitus_3/image7.png)
 
 ::: hint-box
-Mergin Maps projektin tarttumisasetuksia voidaan vielä tarkemmin räätälöidän Projektin ominaisuuksissa. Projekti --\> Ominaisuudet. Voit valita noudattaako Mergin Maps oletus tartuntaa, noudattaako se QGISin tartuntaa tai valita ettei tartuntaa ole ollenkaan
+Mergin Maps projektin tarttumisasetuksia voidaan vielä tarkemmin räätälöidän Projektin ominaisuuksissa. Projekti --\> Ominaisuudet. Voit valita noudattaako Mergin Maps oletustartuntaa, noudattaako se QGISin tartuntaa tai valita, ettei tartuntaa ole ollenkaan.
 
 ![](img/harjoitus_4/image11.png)
 :::
@@ -123,9 +123,7 @@ Voit testata nyt miltä lomake näyttää tehdyillä muutoksilla. Päivitä proj
 ![](img/harjoitus_3/image9.png)
 
 ::: hintbox
-Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi! \|
+Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi!
 :::
 
-
-\
 \
