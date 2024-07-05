@@ -17,7 +17,6 @@ documentclass: book
 
 # Tervetuloa kurssille!
 
-Kurssilla tehdään ja opitaan niitä ja näitä.
 
 ## Lukuohje
 
