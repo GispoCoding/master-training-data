@@ -116,13 +116,13 @@ Aseta **Rakennukset-tason** editointi päälle kynäkuvakkeesta. Kun valitset **
 
 Aloita nyt **Rakennukset-tason** editointi. Tarkoituksena on luoda rakennuksia rakennuspaikkojen sisään aikaisemmin mainittujen sääntöjen mukaan. Toimi seuraavasti:
 
--   Klikkaa **Rakentamistila** päälle ![](img/harjoitus_2/image17.png) -painikkeesta tai näppäimistöltä pikakomennolla **c**
+-   Klikkaa **Rakentamistila** päälle ![](img/harjoitus_2/image17.png) -painikkeesta tai näppäimistöltä pikakomennolla **c**.
 
--   Valitse rakennusalueen reunasta kohta, johon rakennus tulee
+-   Valitse rakennusalueen reunasta kohta, johon rakennus tulee.
 
--   Laita d-kentän arvoksi 5
+-   Laita d-kentän arvoksi 5.
 
--   Klikkaa **Kohtisuora-kuvaketta** ![](img/harjoitus_2/image18.png) ja valitse ulkoreunalta viiva, jonka suhteessa rakennuksen tulisi olla 90 asteen kulmassa
+-   Klikkaa **Kohtisuora-kuvaketta** ![](img/harjoitus_2/image18.png) ja valitse ulkoreunalta viiva, jonka suhteessa rakennuksen tulisi olla 90 asteen kulmassa.
 
 -   Nyt QGIS lukitsee aloituspisteen ja voit siirtyä pois rakentamistilasta klikkaamalla uudestaan ![](img/harjoitus_2/image19.png) (tai pikanäppäimellä **c**) ja ryhtyä digitoimaan rakennusta.
 
@@ -132,12 +132,8 @@ Tämän jälkeen editoi aineistoon rakennuksia vähintään kolme kappaletta ede
 
 ![](img/harjoitus_2/image22.png)
 
-Voit vielä hyödyntää alueen reunaa käyttäen **Seuraaminen-ominaisuutta**:
-
- <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#automatic-tracing>
-
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti tuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti tuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
