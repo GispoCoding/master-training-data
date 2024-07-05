@@ -52,7 +52,7 @@ Seuraava vaihtoehto aineiston laatutarkistukseen on **Topologian tarkastaja -ty�
 
 ![](img/harjoitus_4/image7.png)
 
-Valitse ensimmäiseksi **Topologian tarkastaja -paneelista Konfiguroi** ![](img/harjoitus_4/image8.png), jolloin QGISiin aukeaa uusi **Topologiasääntöjen asetukset -ikkuna**. Tässä ikkunassa voidaan määritellä ne säännöt, joiden mukaan QGIS käsittelee aineiston geometrioita. Säännöt voivat koskea vain yhtä tasoa tai ne voivat olla kahden tason välisiä sääntöjä. Sääntöjä voi olla esimerkiksi etteivät kaksi tasoa saa olla päällekkäin. Lisää aineistoon kolme sääntöä kuvan mukaisesti ja paina **OK**.
+Valitse ensimmäiseksi **Topologian tarkastaja -paneelista Konfiguroi** ![](img/harjoitus_4/image8.png), jolloin QGISiin aukeaa uusi **Topologiasääntöjen asetukset -ikkuna**. Tässä ikkunassa voidaan määritellä ne säännöt, joiden mukaan QGIS käsittelee aineiston geometrioita. Säännöt voivat koskea vain yhtä tasoa tai ne voivat olla kahden tason välisiä sääntöjä. Sääntöjä voi olla esimerkiksi, etteivät kaksi tasoa saa olla päällekkäin. Lisää aineistoon kolme sääntöä kuvan mukaisesti ja paina **OK**.
 
 ![](img/harjoitus_4/image9.png)
 
@@ -68,7 +68,7 @@ Kuten heti huomaat kyseisen työkalun valikosta, **Tarkista geometriat -työkalu
 
 ![](img/harjoitus_4/image12.png)
 
-Työkalu ajaa algoritmia hetken, mutta palauttaa sen jälkeen virheilmoitukset havaitsemistaan virheellisistä kohteista. Voit tarkastella yksittäistä virhettä klikkaamalla riviä; kartta zoomautuu oikeaan sijaintiin ja virheellinen kohde korostuu. Virheitä voi korjata yksitellen, mutta myös useamman virheen voi valita ja korjata isomman osion kerralla. Ennen varsinaista virheiden korjausta voit määrittää virheiden ratkaisumenetelmät valitsemalla **Error resolution settings**. Aseta **Duplicate-kohtaan** ratkaisuksi **Remove duplicates**.
+Työkalu ajaa algoritmia hetken, mutta palauttaa sen jälkeen virheilmoitukset havaitsemistaan virheellisistä kohteista. Voit tarkastella yksittäistä virhettä klikkaamalla riviä, jolloin kartta zoomautuu oikeaan sijaintiin ja virheellinen kohde korostuu. Virheitä voi korjata yksitellen, mutta voit valita ja korjata myös useamman virheen kerralla. Ennen varsinaista virheiden korjausta voit määrittää virheiden ratkaisumenetelmät valitsemalla **Error resolution settings**. Aseta **Duplicate-kohtaan** ratkaisuksi **Remove duplicates**.
 
 ![](img/harjoitus_4/image13.png)
 
@@ -86,7 +86,7 @@ Miksi kaikki menetelmät tuottivat niin erilaisia tuloksia ja miksi vaihtoehtoja
 
 ## **Geometrian ja topologian validointi tasoa muokattaessa**
 
-Voit välttää virheellisten geometrioiden muodostumista jo aineistoa digitoidessa ja editoidessa. Avaa muokattavan tason **Ominaisuudet** -ikkuna ja mene **Digitointi** -välilehdelle. Ruksi aktiivisiksi haluamasi korjaukset.
+Voit välttää virheellisten geometrioiden muodostumista jo aineistoa digitoidessa ja editoidessa. Avaa muokattavan tason **Ominaisuudet**-ikkuna ja mene **Digitointi**-välilehdelle. Ruksi aktiivisiksi haluamasi korjaukset.
 
 ![](img/harjoitus_4/image15.png)
 
