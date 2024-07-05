@@ -3,7 +3,7 @@ title: "Paikkatiedon mobiilikeruu Mergin Mapsilla"
 author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "Peruskurssi mergin maps-lisäosan ja mobiilisovelluksen käytöstä."
+abstract: "Peruskurssi Mergin Maps -lisäosan ja mobiilisovelluksen käytöstä"
 output:
     bookdown::html_book:
         toc: true
@@ -21,17 +21,17 @@ documentclass: book
 
 ## **Tervetuloa paikkatiedon mobiilikeruun peruskurssille!**
 
-Tämän kurssin tarkoituksena on opastaa sinut Input--ohjelmiston käyttöön. Mergin Mapsin Input hyödyntää QGIS-ohjelmistoa, ja oletuksena on, että ainakin perusteet QGISista on jo opittu. Muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumiselle. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku muu asia jää epäselväksi.
+Tämän kurssin tarkoituksena on opastaa sinut Input-ohjelmiston käyttöön. Mergin Mapsin Input hyödyntää QGIS-ohjelmistoa ja oletuksena on, että ainakin perusteet QGISista on jo opittu. Muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumiselle. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku muu asia jää epäselväksi.
 
 ## **Mergin Maps Inputin taustaa**
 
-Mergin Maps on mobiililaitteille tarkoitettu avoimen lähdekoodin paikkatieto-ohjelmisto. Pääkehittäjänä toimii Englantilainen yritys nimeltä Lutra Consulting. Mergin Mapsin toiminnallisuudet ovat kehittyneet viime vuosina huimasti, ja se onkin käytössä paikkatiedon keruun mobiiliratkaisuna maailmalla laajasti. Mergin Mapsin käyttäjämäärää on melko vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä, sitä voi käyttää useilla laitteilla samanaikaisesti ja jakaa edelleen vapaasti. Heidän oma arvio käyttäjistä on yli 45 000 käyttäjää.
+Mergin Maps on mobiililaitteille tarkoitettu avoimen lähdekoodin paikkatieto-ohjelmisto. Pääkehittäjänä toimii englantilainen yritys nimeltä Lutra Consulting. Mergin Mapsin toiminnallisuudet ovat kehittyneet viime vuosina huimasti, ja ohjelmisto on maailmalla laajasti käytössä paikkatiedon keruun mobiiliratkaisuna. Mergin Mapsin käyttäjämäärää on melko vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä, sitä voi käyttää useilla laitteilla samanaikaisesti ja jakaa edelleen vapaasti. Heidän oma arvionsa käyttäjien lukumäärästä on yli 45 000.
 
-Mergin Maps--ohjelmisto on suunniteltu hyvin yhteensopivaksi QGIS-työpöytäohjelmiston kanssa, ja sikäli täydentää senkin käyttäjäkuntaa ja käyttötapauksia. Tämän lyhyen kurssin aikana käsittelemme vain osaa Mergin Mapsin kaikista toiminnallisuuksista. Kurssin perusteella sinun tulisi kuitenkin oppia Mergin Mapsin käytön perusteet, ja pystyä käyttämään oppimaasi omaan käyttötarkoitukseesi.
+Mergin Maps -ohjelmisto on suunniteltu hyvin yhteensopivaksi QGIS-työpöytäohjelmiston kanssa, ja sikäli täydentää senkin käyttäjäkuntaa ja käyttötapauksia. Tämän lyhyen kurssin aikana käsittelemme vain osaa Mergin Mapsin kaikista toiminnallisuuksista. Kurssin perusteella sinun tulisi kuitenkin oppia Mergin Mapsin käytön perusteet ja pystyä käyttämään oppimaasi omaan käyttötarkoitukseesi.
 
 ## **Miksi Mergin Maps?**
 
-Perimmäinen syy Mergin Mapsin käyttöön on tietysti paikkatietoaineistojen hyödyntäminen. Paikkatietoja voi hyödyntää monilla avoimen ja suljetun lähdekoodin ohjelmistolla, mutta tässä muutamia perusteluja juuri Mergin Maps-ohjelmiston käytölle:
+Perimmäinen syy Mergin Mapsin käyttöön on paikkatietoaineistojen hyödyntäminen. Paikkatietoja voi hyödyntää monilla avoimen ja suljetun lähdekoodin ohjelmistolla, mutta tässä muutamia perusteluja juuri Mergin Maps-ohjelmiston käytölle:
 
 -   **Mergin Maps** on ilmainen. Voit ladata ja asentaa sen ilman lisenssi- tai käyttömaksuja. Käyttöön ei sisälly mitään maksuja.
 
@@ -97,8 +97,8 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ## **Virheet**
 
-Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla info\@gispo.fi-osoitteeseen.
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla osoitteeseen info\@gispo.fi.
 
 ## **Lisenssi ja oikeudet**
 
-Nämä materiaalit ovat "Paikkatiedon mobiilikeruu Mergin Mapsilla"-kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+Nämä materiaalit ovat "Paikkatiedon mobiilikeruu Mergin Mapsilla" -kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
