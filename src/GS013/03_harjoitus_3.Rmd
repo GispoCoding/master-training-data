@@ -53,7 +53,7 @@ Lisää projektiisi rajapinnalta:
 -   **Rakennukset_piste_rekisteritiedot**
 
 Pisteaineisto on melko iso, joten sen lataamisessa voi kestää hetki. Aineistossa on jokainen rakennus pisteenä ja ominaisuustiedoissa huoneistojen lukumäärä kussakin rakennuksessa sarakkeessa **i_huoneistojen_lkm**. Liitetään tieto huoneistojen lukumäärästä Helsingin piirijakoon sijainnin perusteella. Avaa **Vektori -> Tiedonhallinta -> Yhdistä attribuutit sijainnin perusteella**. Valitse yhdistettäväksi tasoksi Piirijako_osaalue ja vertailukohteeksi Rakennukset_piste_rekisteritiedot. 
-**Fields to add** kohdassa valitse listasta **i_huoneistojen_lkm**. Jos kenttä jää tyhjäksi niin kaikki Rakennus-tason sarakkeet lisätään. Tarkista vielä, että Join type on **Create separate feature for each matching feature (one-to-many)**, jotta jokainen piste huomiodaan uudessa tasossa.
+**Sisällytettävät kentät** kohdassa valitse listasta **i_huoneistojen_lkm**. Jos kenttä jää tyhjäksi niin kaikki Rakennus-tason sarakkeet lisätään. Tarkista vielä, että Join type on **Luo  erillinen kohde jokaisesta täsmäävästä kohteesta (yksi-moneen) **, jotta jokainen piste huomiodaan uudessa tasossa.
 
 ![](img/harjoitus_3/image31.png)
 
