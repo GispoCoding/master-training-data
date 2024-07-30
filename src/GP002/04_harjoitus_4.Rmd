@@ -25,7 +25,7 @@ Aseta aluksi **NaturaKohde_ma** -taso näkyviin ja muut näkymättömäksi
 
 QGIS käyttöliittymässä paikkatietokohteiden tekstitykseen viitataan termillä **Nimiöt** (englanninkielinen termi on “**Labeling**”).
 Avaa **NaturaKohde-tason Ominaisuudet-ikkuna** ja valitse **Nimiöt-välilehti**.
-Valitse **Single labels** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi, esim. “Nimi”.
+Valitse **Yksinkertainen nimiöinti** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi, esim. “Nimi”.
 Paina **Käytä**, niin kohteille syntyy nimiöt. Tämä nähdään nyt karttaikkunasta, johon nimiöt ovat jo päivittyneet:
 
 ![](img/harjoitus_4/image11.png)
@@ -60,7 +60,7 @@ Toinen työkalu tekstin korostamiseen on tekstipuskuri. Valitse **Vyöhyke-alate
 
 ![](img/harjoitus_4/image5.png)
 
-Avaa vielä **Sijoittaminen-alateema** ja valitse **Using perimeter** (käyttäen kehää). Valitse **Sallitut asemoinnit -kohdassa Viivan alla**. Huomaa, että sallitut asemoinnit-kohdassa tulee aina olla vähintään yksi kohta valittuna. Jos useampi kohta on valittu, QGIS valitsee automaattisesti parhaan vaihtoehdon jokaiselle kohteelle. Paina OK, ja huomaa, että nyt nimiöt seuraavat monikulmioiden rajoja.
+Avaa vielä **Sijoittaminen-alateema** ja valitse ***Ympärille (kaareva)***. Valitse **Sallitut asemoinnit -kohdassa Viivan alla**. Huomaa, että sallitut asemoinnit-kohdassa tulee aina olla vähintään yksi kohta valittuna. Jos useampi kohta on valittu, QGIS valitsee automaattisesti parhaan vaihtoehdon jokaiselle kohteelle. Paina OK, ja huomaa, että nyt nimiöt seuraavat monikulmioiden rajoja.
 
 ![](img/harjoitus_4/image19.png)
 
