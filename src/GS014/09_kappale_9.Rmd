@@ -9,17 +9,17 @@ Tarkastele lentokenttäaineistoa. Muodosta lentokenttäkohteille niiden nimeä v
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
 ::: hidden-box
-Käytä CASE WHEN ... - rakennetta.
+Käytä CASE WHEN ... -rakennetta.
 
 **Koon määrittäminen**:
 
-- Valitse ```country```- sarakkeesta Suomi, Ruotsi ja Norja ja aseta niille tehtävänannossa kerrottu fonttikoko.
+- Valitse ```country``` -sarakkeesta Suomi, Ruotsi ja Norja ja aseta niille tehtävänannossa kerrottu fonttikoko.
 
 **Värin määrittäminen**:
 
-- Valitse ```country```- sarakkeesta Suomi, Ruotsi ja Norja.
+- Valitse ```country``` -sarakkeesta Suomi, Ruotsi ja Norja.
 - Väri määritetään:
-  - joko RGB (red, green, blue)- muodossa jossa luku 0-255 määrittää kunkin värin arvon, 
+  - joko RGB (red, green, blue) -muodossa jossa luku 0-255 määrittää kunkin värin arvon, 
   - tai hexadesimaaliformaatissa (esim. '#000000')
   - tai osa väreistä voidaan kirjoittaa sanana ('red', 'blue') jne.
 :::

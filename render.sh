@@ -31,6 +31,10 @@ set -e
 
 docker run --rm -v "$(pwd)/src:/app" -v "$(pwd)/out:/out" gispo/bookdown:latest /app/run.sh $code
 
+if [ ! -d "docs" ]; then
+    mkdir docs
+fi
+
 if [ "$WORKFLOW" = true ]; then
     if [ -d "docs/$code" ]; then
         rm -rf "docs/$code"

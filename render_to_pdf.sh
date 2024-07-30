@@ -32,7 +32,7 @@ cp -r ${out_folder}/* $temp_folder
 
 mv $temp_folder/index.html $temp_folder/00_index.html
 
-docker run --rm -v "$(pwd)/docs/run.sh:/app/run.sh" -v "$(pwd)/out:/out" --entrypoint /bin/sh surnet/alpine-wkhtmltopdf:3.19.0-0.12.6-small /app/run.sh $code
+docker run --rm -v "$(pwd)/process_html.sh:/app/run.sh" -v "$(pwd)/out:/out" --entrypoint /bin/sh surnet/alpine-wkhtmltopdf:3.19.0-0.12.6-small /app/run.sh $code
 
 pdf_folder="out/${code}_pdf"
 

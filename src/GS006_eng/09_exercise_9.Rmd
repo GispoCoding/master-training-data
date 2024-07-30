@@ -1,8 +1,8 @@
-# EXERCISE 2.2: MAP TILE SERVICES
+# Exercise 2.2: Map tile services
 
 **Content of the exercise**
 
-We will use map tiles and grid creation tools available in GeoServer in this exercise.
+In this exercise we will use map tiles and grid creation tools available in GeoServer.
 
 **Aim of the exercise**
 
@@ -14,7 +14,7 @@ After the exercise, the student will be able to create and configure their own m
 
 ## **Preparation**
 
-Several raster and vector datasets have been uploaded and published on the GeoServer server. GeoServer's default installation also includes GeoWebCache, which GeoServer uses to create and manage map tiles.
+Several raster and vector datasets have been uploaded and published on the GeoServer server. The GeoServer default installation also includes GeoWebCache, which GeoServer uses to create and manage map tiles.
 
 ## **Tile Caching**
 
@@ -77,14 +77,15 @@ In the **GeoWebCache** view at the top of the page you will find general functio
 
 For creating tiles, the settings can be found at the bottom of the page in the **Create a new task** section.
 
-|                                                                                            |                                                                                                                                                                                                                                             |
-|--------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Number of tasks to use** \| Specifies how many processes to start to create map tiles \| |                                                                                                                                                                                                                                             |
-|                                                                                            | **Type of operation** \| Type of operation for creating tiles \| \| \| \| Reseed: create all map tiles, replace old map tiles \| \| \| \| Seed: create only the missing map tiles \| \| \| \| Truncate: remove map tiles from the server \| |
-| **Grid set**                                                                               | Specifies which map tiles are created on which map tiles grid \|                                                                                                                                                                            |
-| **Format**                                                                                 | Map image file format (e.g. jpg, png) \|                                                                                                                                                                                                    |
-| **Zoom start, Zoom stop**                                                                  | Scale intervals for the map tiles to be created (scales are defined for the map tiles) \|                                                                                                                                                   |
-| **Bounding box**                                                                           | The rectangular delineation of the location from which the map tiles are generated                                                                                                                                                          |
+|                                 |                                                                                                                                                                                      |
+|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Number of tasks to use**      | Specifies how many processes to start to create map tiles                                                                                                                            |
+| **Type of operation**           | Type of operation for creating tiles \| Reseed: create all map tiles, replace old map tiles \| Seed: create only the missing map tiles \| Truncate: remove map tiles from the server |
+| **Grid set**                    | Specifies which map tiles are created on which map tiles grid                                                                                                                        |
+| **Format**                      | Map image file format (e.g. jpg, png)                                                                                                                                                |
+| **Zoom start, Zoom stop**       | Scale intervals for the map tiles to be created (scales are defined for the map tiles)                                                                                               |
+| **Bounding box**                | The rectangular delineation of the location from which the map tiles are generated                                                                                                   |
+
 
 Set **Number of tasks to use** to 1.
 
@@ -96,13 +97,17 @@ Set the task settings as follows, paying particular attention to the **Zoom stop
 
 Press **Submit**.
 
-GeoServer (GeoWebCache) will now generate map tiles of the selected service from scale levels 0--15..
+GeoServer (GeoWebCache) will now generate map tiles of the selected service from scale levels 0--15.
 
 During the generation process, the interface allows you to monitor the completion of the map tiles:
 
+![](img/harjoitus_9/image9.png)
+
 Click on the **Refresh list** link to refresh information on the progress of the calculation.
 
-The map tile grid definition and the layer position delimitation indicate that 1 922 map tiles are required for scales 0-15. With these settings, it takes about a minute to draw the images on the remote server. ![](img/harjoitus_9/image10.png)
+The map tile grid definition and the layer position delimitation indicate that 1 922 map tiles are required for scales 0-15. With these settings, it takes about a minute to draw the images on the remote server. 
+
+![](img/harjoitus_9/image10.png)
 
 Note that map tiles are created by default according to the boundary of the layer location (unless otherwise specified). ![](img/harjoitus_9/image11.2.png)
 
@@ -172,11 +177,11 @@ Open **Tile Caching → Gridsets** and then click on the grid named **EPSG:4326*
 
 Definitions of the map tile grid include:
 
-|                                 |                                                                                                                                                   |
-|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Coordinate Reference System** | The coordinate system used to define the grids.  \|                                                                                               |
-| **Gridset bounds**              | The location delimiter for the map sheet layer, which specifies the location to which the map tile grid is delimited.                             |
-| **Tile Matrix Set**             | A map tile model (image pyramid) that defines the scales selected for the map tile grid. This can be defined either by resolution or by scale. \| |
+|                                            |                                                                                                                                                   |
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Coordinate Reference System**            | The coordinate system used to define the grids.                                                                                                   |
+| **Gridset bounds**                         | The location delimiter for the map sheet layer, which specifies the location to which the map tile grid is delimited.                             |
+| **Tile Matrix Set**                        | A map tile model (image pyramid) that defines the scales selected for the map tile grid. This can be defined either by resolution or by scale.    |
 
 You can also create map tiles to suit your own needs.
 
@@ -184,14 +189,14 @@ You can also create map tiles to suit your own needs.
 
 The JHS180 Recommendation includes a recommendation for a national map tile grid based on the OGC standards specifications. Among others, the following definitions can be found in the recommendation:
 
-|                                                                                                                                            |                         |
-|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------|
-| **Interface standard**                                                                                                                     | OGC's WMS-T standard \| |
-| **Coordinate reference system** \| ETRS89 / TM35-FIN (EPSG:3067)                                                                           |                         |
-| **Usable origo** \| East -548 576 m, North 8 388 608 m (anchor point of tiles is upper left corner) \|                                     |                         |
-| **Resolution levels** \| 0.25 m, 0.5 m, 1 m, 2 m, 4 m, 8 m, 16 m, 32 m, 64 m, 128 m, 256 m, 512 m, 1 024 m, 2 048 m, 4 096 m ja 8 192 m \| |                         |
-| **Size of tiles in pixels** \| 256\*256 pixels \|                                                                                          |                         |
-| **Image format** \| Image/png \|                                                                                                           |                         |
+|                                            |                                                                                                                 |
+|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| **Interface standard**                     | OGC's WMS-T standard                                                                                            |
+| **Coordinate reference system**            | ETRS89 / TM35-FIN (EPSG:3067)                                                                                   |
+| **Usable origo**                           | East -548 576 m, North 8 388 608 m (anchor point of tiles is upper left corner)                                 |
+| **Resolution levels**                      | 0.25 m, 0.5 m, 1 m, 2 m, 4 m, 8 m, 16 m, 32 m, 64 m, 128 m, 256 m, 512 m, 1 024 m, 2 048 m, 4 096 m ja 8 192 m  |
+| **Size of tiles in pixels**                | 256\*256 pixels                                                                                                 |
+| **Image format**                           | Image/png                                                                                                       |
 
 With these definitions, at the coarsest resolution level (level 0) there is only one tile image of size 2 097 152 m \* 2 097 152 m (8 192\*8 192 pixels). The north-south centreline of this image file lies on the centreline of the projection strip (27 degrees). And the north coordinate of the northern edge of the tile is a multiple of the size of the tile from the equator (4 \* 2 097 152).
 
@@ -215,7 +220,7 @@ The recommendations say that the coordinates of the upper left corner (origo) ar
 
 **Max Y** is then: 8388608 -- 2097152 = **6 291 456** m
 
-|                    | **Coverage of the JHS180 grid** \| |
+|                    | Coverage of the JHS180 grid        |
 |--------------------|------------------------------------|
 | Min X: -548 576 m  | Max X: 1 548 576 m                 |
 | Min Y: 6 291 456 m | Max Y: 8 388 608 m                 |
@@ -243,7 +248,7 @@ Under **Tiles** you can check how many tiles are needed on each side of each lay
 Finally, press **Save** to make the new JHS180 mapping grid available on your server.\
 ![](img/harjoitus_9/image23.2.png)
 
-## **Finland's OpenStreetMap road network**
+## **Finland OpenStreetMap road network**
 
 Our newly created gridset is suitable for data covering the whole of Finland.
 
@@ -282,7 +287,6 @@ In the preview, the EPSG:3067 map tile grid you created is in use (note below ho
 
 ![](img/harjoitus_9/image27.png)
 
-\
 ![](img/harjoitus_9/image28.png)
 
 ## **Create a local map tile grid**

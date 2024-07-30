@@ -1,4 +1,4 @@
-# HARJOITUS 2.2: KARTTATIILIPALVELUT
+# Harjoitus 2.2: Karttatiilipalvelut
 
 **Harjoituksen sisältö**
 
@@ -72,7 +72,9 @@ Palaa **Tile Caching → Tile Layers** näkymään. Tältä sivulta voit myös e
 
 Valitse nyt **Seed/Truncate** -linkki Helsingin ilmakuvien tason karttatiilien luomista varten.
 
-**GeoWebCache**-näkymässä sivun yläosasta löytyy yleisiä toimintoja ja lista meneillään olevista tehtävistä. Karttatiilien luominen on hyvin resurssi-intensiivinen ja kohtuullisia levytiloja vaativa prosessi. On myös tyypillistä, että tehtävien eli karttatiilien luominen voi kestää hyvinkin pitkään (tunteja, jopa päiviä). Sivun tiedot päivitetään käyttämällä **Refresh list** -toimintoa. ![](img/harjoitus_9/image9.png)
+**GeoWebCache**-näkymässä sivun yläosasta löytyy yleisiä toimintoja ja lista meneillään olevista tehtävistä. Karttatiilien luominen on hyvin resurssi-intensiivinen ja kohtuullisia levytiloja vaativa prosessi. On myös tyypillistä, että tehtävien eli karttatiilien luominen voi kestää hyvinkin pitkään (tunteja, jopa päiviä). Sivun tiedot päivitetään käyttämällä **Refresh list** -toimintoa. 
+
+![](img/harjoitus_9/image9.png)
 
 Tiilien luomista varten asetukset löytyvät sivun alapuolelta **Create a new task** -osiosta.
 
@@ -120,11 +122,15 @@ Huomaa, että karttatiilet luodaan oletuksena tason sijainnin rajauksen mukaises
 Laske vielä karttatiilet **tasolle 16** (määrittele zoomaus aloitus- ja lopputasoksi 16). Päivitä laskennan aikana sivua ja tutki karttatiilien luomisen etenemistä.\
 ![](img/harjoitus_9/image12.png)
 
-Jos erehdyt määrittelemään vääriä asetuksia, voit pysäyttää laskennan käyttämällä **Kill all Tasks...** -toimintoa painamalla **Submit**-näppäintä. ![](img/harjoitus_9/image13.png)
+Jos erehdyt määrittelemään vääriä asetuksia, voit pysäyttää laskennan käyttämällä **Kill all Tasks...** -toimintoa painamalla **Submit**-näppäintä. 
+
+![](img/harjoitus_9/image13.png)
 
 Taso 16 vastaa mittakaavaa 1:4 262. Kaikkiaan sen tiilittämiseen tarvitaan 3 700 karttatiiliä, joiden luomiseen menee noin pari minuuttia. Laske vielä taso 17 samalla tavalla ja kirjoita muistiinpanot prosessorimäärästä, karttatiilistä sekä ajasta.
 
-Taso 17 näyttää kartalla tältä: ![](img/harjoitus_9/image14.png)
+Taso 17 näyttää kartalla tältä: 
+
+![](img/harjoitus_9/image14.png)
 
 ## **Karttatiilien kovalevyn käyttö**
 
@@ -142,7 +148,9 @@ Voit tarkistaa kovalevyn käytön tasokohtaisesti **Tile Caching → Tile Layers
 
 Tiedon näkymiseksi pitää ensin määrittää, kuinka paljon kovalevytilaa karttatiilipalvelulla on lupa käyttää. Oletuksena GeoWebCache voi käyttää koko palvelimen levytilan.
 
-Palataan hetkeksi takaisin näkymään **Tile Caching** → **Disk Quota**. Rastita siellä **Enable disk quota** ja määrittele vielä **Maximum tile cache size** -arvoksi **2 GiB**. ![](img/harjoitus_9/image16.png)
+Palataan hetkeksi takaisin näkymään **Tile Caching** → **Disk Quota**. Rastita siellä **Enable disk quota** ja määrittele vielä **Maximum tile cache size** -arvoksi **2 GiB**. 
+
+![](img/harjoitus_9/image16.png)
 
 Paina lopulta **Submit**, niin asetukset tulevat tallennetuksi.
 
@@ -199,7 +207,7 @@ Karttatiiliruudukkoja voi myös laatia omiin tarpeisiin.
 JHS180 suosituksesta löytyy muun muassa suositus kansallisesta karttatiiliruudukosta, joka perustuu OGC-standardien määrittelyihin. Suosituksesta löytyy muun muassa seuraavat määritelmät:
 
 +------------------------------+----------------------------------------------------------------------------------------------------------------+
-| **Rajapintastandardi**       | OGC:n WMS-T standardi                                                                                          |
+| **Rajapintastandardi**       | OGC:n WMS-T-standardi                                                                                          |
 +------------------------------+----------------------------------------------------------------------------------------------------------------+
 | **Koordinaattijärjestelmä**  | ETRS89 / TM35-FIN (EPSG:3067)                                                                                  |
 +------------------------------+----------------------------------------------------------------------------------------------------------------+
@@ -234,13 +242,10 @@ Suosituksissa sanotaan, että vasemman yläkulman koordinaatit (origo) ovat itä
 
 **Min Y** on sitten: 8388608 -- 2097152 = **6 291 456** m
 
-+------------------------------------------------------------------------------------------+
-| **  JHS180-mukaisen ruudukon kattavuus**                                                 |
-+=================================================+========================================+
-| Min X: -548 576 m                               | Max X: 1 548 576 m                     |
-+-------------------------------------------------+----------------------------------------+
-| Min Y: 6 291 456 m                              | Max Y: 8 388 608 m                     |
-+-------------------------------------------------+----------------------------------------+
+|                    | JHS180-mukaisen ruudukon kattavuus    |
+|--------------------|---------------------------------------|
+| Min X: -548 576 m  | Max X: 1 548 576 m                    |
+| Min Y: 6 291 456 m | Max Y: 8 388 608 m                    |
 
 Pidä tiilen pikselikoko oletuksena, **256** px.
 
@@ -250,7 +255,7 @@ Samat arvot löydät suosituksen mukaisesta tiiliruudukosta.
 
 Täytä karttatiiliruudukon tiedot yllä mainituilla arvoilla, kuitenkin siten, että et käytä välilyöntejä koordinaatteja kirjoittaessasi.
 
-Määritellään seuraavaksi resoluutiotasot. **Tile Matrix Set** -asetuksissa voit määritellä JHS180 suosituksessa mainitut **resoluutiotasot**.
+Määritellään seuraavaksi resoluutiotasot. **Tile Matrix Set** -asetuksissa voit määritellä JHS180-suosituksessa mainitut **resoluutiotasot**.
 
 Pidä valittuna **Resolutions**. Aloita määrittelemällä taso 0. ![](img/harjoitus_9/image22.png)
 
@@ -260,7 +265,7 @@ Kun painat uudelleen **Add zoom level**, uuden tason **Pixel Size** -arvo tulee 
 
 Luo loput resoluutiotasot (tasolle 15 asti) samalla tavalla.
 
-**Tiles**-kohdalta voit tarkista kuinka monta tiiliä tarvitaan jokaisen tason puolelta.
+**Tiles**-kohdalta voit tarkistaa, kuinka monta tiiltä tarvitaan jokaisen tason puolelta.
 
 Paina lopulta **Save**, niin uusi JHS180-karttatiiliruudukko on käytettävissä palvelimessasi.\
 ![](img/harjoitus_9/image23.png)

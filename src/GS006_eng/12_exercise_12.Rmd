@@ -1,8 +1,8 @@
-# EXERCISE 2.5: ACCESS CONTROL
+# Exercise 2.5: Access control
 
 **Content of the exercise**
 
-The exercise will introduce you to different security settings and create users and roles. Set permissions for services, datas and users.
+The exercise will introduce the student to different security settings and create users and roles. Set permissions for services, datas and users.
 
 **Aim of the exercise**
 
@@ -206,10 +206,9 @@ Log in to the server again using the **hki_user** ID and check that the layers o
 
 ![](img/harjoitus_12/image15.2.png) 
 
-\## **Map service-specific rights**
+## **Map service-specific rights**
 
-
-Geoserver's documentation says that “The default service security configuration in GeoServer contains no rules and allows any anonymous user to access any operation of any service. The following are some examples of desired security restrictions and the corresponding rules.” So, this means that there are no rules to be defined. The security page should look like this:
+Geoserver documentation says that “The default service security configuration in GeoServer contains no rules and allows any anonymous user to access any operation of any service. The following are some examples of desired security restrictions and the corresponding rules.” So, this means that there are no rules to be defined. The security page should look like this:
 
 ![](img/harjoitus_12/image19.png)
 

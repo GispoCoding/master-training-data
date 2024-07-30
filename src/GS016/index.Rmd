@@ -1,9 +1,9 @@
 ---
 title: "Paikkatiedon mobiilikeruu QFieldissä"
-author: "Gispo Oy"
+author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "Peruskurssi QField-mobiilisovelluksen ja QGISin QField-lisäosan käytöstä."
+abstract: "Peruskurssi QField-mobiilisovelluksen ja QGISin QField-lisäosan käytöstä"
 output:
     bookdown::html_book:
         toc: true
@@ -21,15 +21,15 @@ documentclass: book
 
 ## Tervetuloa QField-peruskurssille!
 
-Tämän kurssin tarkoituksena on opastaa sinut QField--ohjelmiston käyttöön. QField hyödyntää QGIS-ohjelmistoa, ja oletuksena on, että ainakin perusteet QGISista on jo opittu. Muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumiselle. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku muu asia jää epäselväksi.
+Tämän kurssin tarkoituksena on opastaa sinut QField-ohjelmiston käyttöön. QField hyödyntää QGIS-ohjelmistoa, ja oletuksena on, että ainakin perusteet QGISista on jo opittu. Muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumiselle. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku muu asia jää epäselväksi.
 
 \
 
 ## QFieldin taustaa
 
-QField mobiililaitteille tarkoitettu avoimen lähdekoodin paikkatieto-ohjelmisto. QFieldin pääkehittäjänä toimii sveitsiläinen yritys nimeltä [OpenGIS.ch](https://www.opengis.ch/) ja sovelluksen kehittämisen voidaan katsoa alkaneen jo vuonna 2011. QFieldin toiminnallisuudet ovat kehittyneet viime vuosina huimasti, ja se onkin käytössä paikkatiedon keruun mobiiliratkaisuna maailmalla melko laajasti. QFieldin käyttäjämäärää on melko vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä, sitä voi käyttää useilla laitteilla samanaikaisesti ja jakaa edelleen vapaasti. Arvio kuukausittain QFieldiä käyttävistä on noin pari sataatuhatta käyttäjää, sovelluksen kunkin version latausten määrä liikkuu puolestaan viidessä sadassa tuhannessa kappaleessa
+QField mobiililaitteille tarkoitettu avoimen lähdekoodin paikkatieto-ohjelmisto. QFieldin pääkehittäjänä toimii sveitsiläinen yritys nimeltä [OpenGIS.ch](https://www.opengis.ch/) ja sovelluksen kehittämisen voidaan katsoa alkaneen jo vuonna 2011. QFieldin toiminnallisuudet ovat kehittyneet viime vuosina huimasti, ja se onkin käytössä paikkatiedon keruun mobiiliratkaisuna maailmalla melko laajasti. QFieldin käyttäjämäärää on melko vaikea arvioida, sillä ohjelmistoa ei tarvitse rekisteröidä ja sitä voi käyttää useilla laitteilla samanaikaisesti sekä jakaa edelleen vapaasti. On arvioitu, että QFieldiä käyttää kuukausittain noin parisataa tuhatta käyttäjää. Sovelluksen versiokohtaisten latausten määrä liikkuu puolestaan noin viidessäsadassa tuhannessa kappaleessa.
 
-QField--ohjelmisto on suunniteltu hyvin yhteensopivaksi QGIS-työpöytäohjelmiston kanssa, ja sikäli täydentää senkin käyttäjäkuntaa ja käyttötapauksia. Tämän lyhyen kurssin aikana käsittelemme vain osaa QFieldin kaikista toiminnallisuuksista. Kurssin perusteella sinun tulisi kuitenkin oppia QFieldin käytön perusteet, ja pystyä käyttämämään oppimaasi omaan käyttötarkoitukseesi.
+QField-ohjelmisto on suunniteltu hyvin yhteensopivaksi QGIS-työpöytäohjelmiston kanssa. Näin se täydentää myös QGISin käyttäjäkuntaa ja käyttötapauksia. Tämän lyhyen kurssin aikana käsittelemme vain osaa QFieldin kaikista toiminnallisuuksista. Kurssin perusteella sinun tulisi kuitenkin oppia QFieldin käytön perusteet ja pystyä käyttämämään oppimaasi omaan käyttötarkoitukseesi.
 
 \
 
@@ -105,10 +105,10 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ## Virheet
 
-Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla <a href="mailto:info@gispo.fi">info@gispo.fi</a>-osoitteeseen.
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla osoitteeseen <a href="mailto:info@gispo.fi">info@gispo.fi</a>.
 
 \
 
 ## Lisenssi ja oikeudet
 
-Nämä materiaalit on "Paikkatiedon mobiilikeruu QFieldillä"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+Nämä materiaalit on "Paikkatiedon mobiilikeruu QFieldillä" -kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

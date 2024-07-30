@@ -14,10 +14,10 @@ After this exercise you know how to use the QGIS user interface.
 
 **Preparations**
 
-Open a website and navigate to the QGIS website
+Open a browser and navigate to the QGIS website.
 
 ::: note-box
-<http://www.qgis.org/fi/site/>
+<http://www.qgis.org/en/site/>
 :::
 
 On the main page you'll find a link where you can download QGIS. Download the latest QGIS Long Term Release (LTR). The long term release is the most stable QGIS version, but may lack the newest features. QGIS can be installed on Windows, Linux or Mac operating systems. The differences in QGIS between operating systems is mainly visual and with file paths.
@@ -50,7 +50,7 @@ As the name suggests, **Toolbars** include sets of different tools. Your QGIS mi
 
 #### **2. Map View**
 
-The **Map View** displays the geographic data sets that are set visible in the **Layers Panel**. You can zoom in and out and pan the map with you mouse (Also try the scroll wheel on your mouse, use CTRL + scroll for more subtle zooming).
+The **Map View** displays the geographic data sets that are set visible in the **Layers Panel**. You can zoom in and out and pan the map with you mouse (also try the scroll wheel on your mouse, use CTRL + scroll for more subtle zooming).
 
 #### **3. Browser Panel**
 

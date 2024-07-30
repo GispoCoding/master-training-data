@@ -1,4 +1,4 @@
-# EXERCISE 1.7: SPATIAL DATABASES
+# Exercise 1.7: Spatial databases
 
 **Content of the exercise**
 
@@ -115,7 +115,7 @@ GeoServer also allows SQL queries to be used to share spatial data sets.
 
 Let's add again **lipas_kaikki_reitit** data as a new layer on the server. The goal is to create a layer where only data from Helsinki is displayed.
 
-I will name it **lipas_kaikki_reitit_helsinki**.
+Here it will be named **lipas_kaikki_reitit_helsinki**.
 
 ::: hint-box
 Psst! An SQL view could also be created directly in the database and use that view to create a layer.
@@ -147,7 +147,7 @@ Then check that **SRID** in the **geom** field is specified with the correct EPS
 
 ![](img/harjoitus_7/image11.png)
 
-Then press **Save**.
+Press **Save**.
 
 Next, define the dimensions of the layer (Bounding Box) and press **Save**. You can now preview the Helsinki liikuntareitit layer. ![](img/harjoitus_7/image12.png)
 
@@ -169,6 +169,6 @@ FROM lipas.reitit
 WHERE kunta_nimi = 'Helsinki'
 :::
 
-Update the format of the attributes again and then press **Save**. ![](img/harjoitus_7/image13.png)
+Update the format of the attributes again and press **Save**. ![](img/harjoitus_7/image13.png)
 
 In the preview, you will notice that the route data is now buffered by 10 metres: ![](img/harjoitus_7/image14.png)

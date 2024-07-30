@@ -35,7 +35,7 @@ Valitse **Elementin ominaisuudet -välilehti** ja muuta kartan parametrejä seur
 -   Kartan mittakaavaksi 1:200 000
 -   Valitse Kehys (piirtää kartalle reunaviivat)
 
-Huomaa, että karttatulosteen hallinnassa on mahdollisuus siirtää yksittäisiä kohteita (nimikkeitä) tai muokata kartan sijaintia. Kohteen ollessa valittuna, voit siirtää sitä tulosteella seuraavan työkalun avulla:
+Huomaa, että karttatulosteen hallinnassa on mahdollisuus siirtää yksittäisiä kohteita (nimikkeitä) tai muokata kartan sijaintia. Kohteen ollessa valittuna, voit siirtää/muokata sitä tulosteella seuraavien työkalujen avulla:
 
 |                                  |                                                         |
 |:------------------:|:--------------------------------------------------:|
@@ -121,5 +121,5 @@ Kuvan esimerkissä on käyttöön otettu myös yleiskatsauskarttanäkymä (vasen
 
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+**Psst!** Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::

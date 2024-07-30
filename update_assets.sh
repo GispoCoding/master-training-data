@@ -3,30 +3,18 @@
 src_folder="src"
 
 find "$src_folder" -type d -name "G*" -print0 | while IFS= read -r -d '' folder; do
-    cp assets/css -r $folder
-    cp assets/js -r $folder
-    cp assets/custom.css $folder
+    cp template/css -r $folder
+    cp template/js -r $folder
+    cp template/custom.css $folder
 
-    cp assets/custom.html $folder
+    cp template/custom.html $folder
 
+    # Translate company type to either English or Swedish
+    # if course is marked as '_en' or '_sv'
     if [[ "$folder" == *eng* ]]; then
-        sed -i 's/Oy\./Ltd\./g' "$folder/custom.html"
+        sed -i 's/Suomi Oy\./Finland Ltd\./g' "$folder/custom.html"
     elif [[ "$folder" == *sv* ]]; then
-        sed -i 's/Oy\./AB/g' "$folder/custom.html"
+        sed -i 's/Suomi Oy\./Sweden AB/g' "$folder/custom.html"
     fi
 done
 
-docs_folder="docs"
-
-find "$docs_folder" -type d -name "G*" -print0 | while IFS= read -r -d '' folder; do
-    cp assets/css -r $folder
-    cp assets/js -r $folder
-    cp assets/custom.css $folder
-done
-
-template_folder="template"
-
-cp assets/css -r $template_folder
-cp assets/js -r $template_folder
-cp assets/custom.css $template_folder
-cp assets/custom.html $template_folder

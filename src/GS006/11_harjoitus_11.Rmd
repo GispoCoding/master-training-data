@@ -1,4 +1,4 @@
-# HARJOITUS 2.4: CSS-KUVAUSTEKNIIKKA
+# Harjoitus 2.4: CSS-kuvaustekniikka
 
 **Harjoituksen sisältö**
 
@@ -177,7 +177,7 @@ Edellä esitetty ja viimeinen taso/koodi määrittää "**\***"-merkin toimesta 
 Paina nyt **Apply**, jolloin kartta päivittyy.
 ![](img/harjoitus_11/image6.png)
 
-Koodisi tässä vaiheessa pitäisi näyttää jotenkin tältä:
+Koodisi tässä vaiheessa pitäisi näyttää jokseenkin tältä:
 
 ::: code-box
  /\* \@title Paatiet \*/\
@@ -213,33 +213,20 @@ Nyt muut tiet näkyvät vain, jos **zoom**-taso on tarkempi kuin **1:50 000**. J
 Koodisi tässä vaiheessa pitäisi näyttää jotenkin tältä:
 
 ::: code-box
- /\* \@title Paatiet \*/
-
- [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
-
-     { stroke: black, yellow;
-
-     stroke-width: 5px, 3px;
-
-     z-index: 0, 3;}
-
+ /\* \@title Paatiet \*/\
+ [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+     { stroke: black, yellow;\
+     stroke-width: 5px, 3px;\
+     z-index: 0, 3;}\
 \
-
- /\* \@title Sivutiet \*/
-
- [\@scale \< 50000]
-
- [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
-
-     { stroke: black;
-
-     stroke-width: 0.1;}
-
+ /\* \@title Sivutiet \*/\
+ [\@scale \< 50000]\
+ [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+     { stroke: black;\
+     stroke-width: 0.1;}\
 \
-
- /\* \@title Tiesto \*/ 
-
- \* { font-family: Helvetica;}
+ /\* \@title Roads \*/\
+   \*  { font-family: Helvetica;}
 :::
 
 ## **Tekstityksen lisääminen**
@@ -281,74 +268,41 @@ Voit määritellä pienemmille teille myös nimiöt samalla tavalla kun äsken t
 Tässä on esimerkkikoodi, jossa kaikki aiemmin mainitut tyylit ovat käytössä:
 
 ::: code-box
-
-/\* \@title Paatiet \*/
-
-[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
-
-{ stroke: black, yellow;
-
-stroke-width: 5px, 3px;
-
-z-index: 0, 3;
-
-label: [name];
-
-font-weight: bold;
-
-font-fill: black;
-
-font-size: 12;
-
--gt-label-follow-line: true;
-
--gt-label-max-angle-delta: 90;
-
--gt-label-max-displacement: 400;
-
--gt-label-repeat: 150;
-
-halo-color: white;
-
-halo-radius: 1;}
-
+/\* \@title Paatiet \*/\
+[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+    { stroke: black, yellow;\
+      stroke-width: 5px, 3px;\
+      z-index: 0, 3;\
+      label: [name];\
+      font-weight: bold;\
+      font-fill: black;\
+      font-size: 12;\
+      -gt-label-follow-line: true;\
+      -gt-label-max-angle-delta: 90;\
+      -gt-label-max-displacement: 400;\
+      -gt-label-repeat: 150;\
+      halo-color: white;\
+      halo-radius: 1;}\
 \
-
-/\* \@title Sivutiet \*/
-
-[\@scale \< 50000]
-
-[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
-
-{ stroke: black;
-
-stroke-width: 0.1;
-
-label: [name];
-
-font-fill: black;
-
-font-size: 9;
-
--gt-label-follow-line: true;
-
--gt-label-max-angle-delta: 90;
-
--gt-label-max-displacement: 400;
-
--gt-label-repeat: 150;
-
-halo-color: white;
-
-halo-radius: 1;}
-
+/\* \@title Sivutiet \*/\
+[\@scale \< 50000]\
+[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+    { stroke: black;\
+    stroke-width: 0.1;\
+    label: [name];\
+    font-fill: black;\
+    font-size: 9;\
+    -gt-label-follow-line: true;\
+    -gt-label-max-angle-delta: 90;\
+    -gt-label-max-displacement: 400;\
+    -gt-label-repeat: 150;\
+    halo-color: white;\
+    halo-radius: 1;}\
 \
-
-/\* \@title Tiesto \*/ 
-
-\* { font-family: Helvetica;}
-
+/\* \@title Tiesto \*/\
+  \* { font-family: Helvetica;}
 :::
+
 
 Tämän tyylin esikatselu näyttää kartassa tältä:
 ![](img/harjoitus_11/image10.png)

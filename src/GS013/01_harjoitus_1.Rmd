@@ -24,21 +24,21 @@ QGIS käyttää oletuksena sitä kieltä, jolle koneen käyttöjärjestelmä on 
 
 ![](img/harjoitus_1/image1.png)
 
-**Koordinaattijärjestelmä** -välilehdellä voit vaihtaa projektin ja aineistojen oletuskoordinaattijärjestelmän esim. suomalaisissa aineistoissa tyypilliseen   ETRS89/TM35FIN (EPSG:3067) tai oman organisaatiosi käyttämään GK-kaistaan.
+**Koordinaattijärjestelmä**-välilehdellä voit vaihtaa projektin ja aineistojen oletuskoordinaattijärjestelmän esim. suomalaisissa aineistoissa tyypilliseen   ETRS89/TM35FIN (EPSG:3067) tai oman organisaatiosi käyttämään GK-kaistaan.
 
-**Järjestelmä** -välilehdellä määritellään tallennettujen **symbolikirjastojen sijainnit**, jotta niitä voi hyödyntää visualisoinnissa. Hyödyllinen on myös ruksi **Verkko**-välilehden kohdassa **Käytä proxya verkkohakuihin**. Se estää aikakatkaisun, jos rajapinnasta haetaan suuria aineistoja.
+**Järjestelmä**-välilehdellä määritellään tallennettujen **symbolikirjastojen sijainnit**, jotta niitä voi hyödyntää visualisoinnissa. Hyödyllinen on myös ruksi **Verkko**-välilehden kohdassa **Käytä proxya verkkohakuihin**. Se estää aikakatkaisun, jos rajapinnasta haetaan suuria aineistoja.
 
-Kun käytät QGISiä jonkin aikaa, huomaat mitkä ovat useimmin tarvitsemasi paneelit ja työkalut. Voit valita näiden näkyvyyden ja asetella ne näytölle mieleiseesi järjestykseen. Klikkaa yläpalkista **Näytä \> Paneelit**. Voit luoda esimerkiksi **spatiaalisia kirjanmerkkejä** jotka vievät sinut aina tiettyyn sijaintiin, tai pitää **Tason tyylit** -ikkunan koko ajan näkyvissä omassa paneelissaan.
+Kun käytät QGISiä jonkin aikaa, huomaat mitkä ovat useimmin tarvitsemasi paneelit ja työkalut. Voit valita näiden näkyvyyden ja asetella ne näytölle mieleiseesi järjestykseen. Klikkaa yläpalkista **Näytä \> Paneelit**. Voit luoda esimerkiksi **spatiaalisia kirjanmerkkejä**, jotka vievät sinut aina tiettyyn sijaintiin tai pitää **Tason tyylit** -ikkunan koko ajan näkyvissä omassa paneelissaan.
 
 ## Muokkauksen yleisasetukset
 
-Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkaus tulee esiin jokaisen polygonin piirtämisen jälkeen niin rastita **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri keltaiseksi (Kuminauha) ja **Taitepisteen symbolin** tyyli ja koko. Paina **OK**, niin asetukset tulevat voimaan.
+Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkaus tulee esiin jokaisen polygonin piirtämisen jälkeen, rastita **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri keltaiseksi (**Kuminauha**) ja **Taitepisteen symbolin** tyyli ja koko. Paina **OK**, niin asetukset tulevat voimaan.
 
 ![](img/harjoitus_1/image2.png)
 
 ## Käyttäjäprofiilit
 
-Jos käytät QGISia useampaan toisistaan poikkeavaan tarkoitukseen, tai vaikkapa useampi henkilö käyttää samaa konetta, voit luoda erilaisia käyttäjäprofiileja. Profiiliin tallentuvat tekemäsi kieli-, digitointi- ja  muut asetukset. Profiileihin voi myös luoda erilaisia etukäteen määriteltyjä tietokantayhteyksiä tai rajapintapalveluita sekä tallentaa oletushakemiston, josta aineistoja haetaan ja johon ne tallennetaan.
+Jos käytät QGISia useampaan toisistaan poikkeavaan tarkoitukseen, tai jos vaikka useampi henkilö käyttää samaa konetta, voit luoda erilaisia käyttäjäprofiileja. Profiiliin tallentuvat tekemäsi kieli-, digitointi- ja  muut asetukset. Profiileihin voi myös luoda erilaisia etukäteen määriteltyjä tietokantayhteyksiä tai rajapintapalveluita sekä tallentaa oletushakemiston, josta aineistoja haetaan ja johon ne tallennetaan.
 
 Profiileja voi luoda ja tallentaa valikosta **Asetukset \> Käyttäjäprofiilit**. Vaihtaessasi profiilia QGIS avaa uuden ikkunan.
 
@@ -58,11 +58,11 @@ Helpoin tapa lisätä OpenStreetMap-kartta on etsiä se **Selain-paneelista XYZ 
 
 ![](img/harjoitus_1/image4.png)
 
-Laajemman valikoiman erilaisia taustakarttoja saat käyttöösi lisäosalla nimeltä QuickMapServices. Asenna se yläpalkin **Lisäosat-valikosta** ja avaa sen jälkeen **Verkko-valikosta Search QMS**. Avautuvasta paneelista voit etsiä erilaisia taustakarttoja ja satelliittikuvia, suodattaa niitä sijaintisi perusteella, ja saada tarvittaessa lisätietoja (esim. käyttöoikeuksista) kartasta. Vihreä pallo kertoo että kartta on saatavilla. Etsi vaikkapa Kapsi-nimellä ortoilmakuvia:
+Laajemman valikoiman erilaisia taustakarttoja saat käyttöösi lisäosalla nimeltä QuickMapServices. Asenna se yläpalkin **Lisäosat-valikosta** ja avaa sen jälkeen **Verkko-valikosta Search QMS**. Avautuvasta paneelista voit etsiä erilaisia taustakarttoja ja satelliittikuvia, suodattaa niitä sijaintisi perusteella ja saada tarvittaessa lisätietoja (esim. käyttöoikeuksista) kartasta. Vihreä pallo kertoo että kartta on saatavilla. Etsi vaikkapa Kapsi-nimellä ortoilmakuvia:
 
 ![](img/harjoitus_1/image5.png)
 
-Jos sinulle jää aikaa, käy läpi muita lisäosia ja tarkastele mitä työkaluja sieltä löytyy, jotka voivat auttaa sinua omassa työssäsi.
+Jos sinulle jää aikaa, käy läpi muita lisäosia ja tarkastele mitä sellaisia työkaluja löytyy, jotka voisivat auttaa sinua omassa työssäsi.
 
 ::: hint-box
 Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi!

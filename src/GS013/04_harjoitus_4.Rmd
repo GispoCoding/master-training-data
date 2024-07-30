@@ -27,7 +27,7 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-h
 ## Graafisen mallintajan toiminnot
 
 Graafisella mallintajalla voit automatisoida ja tallentaa usein toistuvia, monivaiheisia analyysiprosesseja. Prosessin voi jakaa muille käyttäjille, ja sitä käytettäessä valitaan lähtöaineistot aina uudelleen. Prosessinmallintaja avataan yläpalkin valikosta **Prosessointi \> Graafinen mallintaja...** 
-Harjoituksessa käytettävässä aineistossa on muutamia geometriavirheitä, niin varmista, että olet laittanut QGISin asetuksista päälle epäkelpojen kohteiden suodatuksen edellisen harjoituksen alun ohjeiden mukaisesti.
+Harjoituksessa käytettävässä aineistossa on muutamia geometriavirheitä, joten varmista, että olet laittanut QGISin asetuksista päälle epäkelpojen kohteiden suodatuksen edellisen harjoituksen alun ohjeiden mukaisesti.
 
 ![](img/harjoitus_4/image1.png)
 
@@ -44,8 +44,7 @@ Anna ensimmäiseksi prosessillesi nimi, esimerkiksi "Luonnonsuojelualueet teiden
 
 ![](img/harjoitus_4/image13.png)
 
-Tehdään ensin tiestölle vyöhykkeet, joiden alueelta etsimme niille osuvia luonnonsuojelualueita. Siirry nyt **Algoritmit-välilehdelle**. Etsi työkalu **Vyöhyke**, lisää se malliin ja anna sille syötetasoksi **Tiestö** ja vyöhykkeen etäisyydeksi 200m. Koska tiestö koostuu pienistä risteyksiin päättyvistä osioista, sulautetaan vielä vyöhykkeet toisiinsa. Valitse vyöhykkeen asetuksista **Yhdistä päällekkäiset** osioon Kyllä. 
-Huomaa, että voit siirrellä **Input-** ja **Algoritmilaatikoita** ja järjestää ne siistiksi prosessiksi.
+Tehdään ensin tiestölle vyöhykkeet, joiden alueelta etsimme niille osuvia luonnonsuojelualueita. Siirry nyt **Algoritmit-välilehdelle**. Etsi työkalu **Vyöhyke**, lisää se malliin ja anna sille syötetasoksi **Tiestö** ja vyöhykkeen etäisyydeksi 200 m. Koska tiestö koostuu pienistä risteyksiin päättyvistä osioista, sulautetaan vielä vyöhykkeet toisiinsa. Valitse vyöhykkeen asetuksista **Yhdistä päällekkäiset** -osioon Kyllä. Huomaa, että voit siirrellä **Input-** ja **Algoritmilaatikoita** ja järjestää ne siistiksi prosessiksi.
 
 ![](img/harjoitus_4/image14.png)
 
@@ -57,18 +56,18 @@ Lopuksi lisätään tieden lähellä oleviin luonnonsuojelualueisiin tieto aluee
 
 Testaa malliasi klikkaamalla **Suorita malli -painiketta** ![](img/harjoitus_4/image6.png). Käynnistyvä prosessi kysyy lähtöaineistoja: valitse kutakin syötetasoa vastaava taso, niistä jotka lisäsit aiemmin projektiisi. Kun klikkaat **Suorita**, laatimasi prosessi käynnistyy ja tulostiedosto ilmestyy tasoluetteloon. Tallenna toimiva prosessi ![](img/harjoitus_4/image7.png)-painikkeella graafisen mallintajan ikkunassa. Tallenna myös QGIS-projektisi.
 
-Valmiista tulostasosta voit laskea vielä esimerkiksi teiden varsille osuvien suojelualueiden pinta-alan avaamalla attribuuttitaulukon ja lisäämällä sinne uuden sarakkeen. Pinta-aloja voit tarkastella tilastollisesti maakunnittain esimerkiksi Prosessointityökaluista löytyvällä **Tilastotiedot ryhmiteltynä luokittain**. Valitse kentäksi, josta tilastot lasketaan juuri tekemäsi pinta-ala ja kategoriatiedon sisältävä kenttä listasta esimerkiksi **Maaku_ni1** ja paina Suorita. Voit tulleesta taulukkoaineistosta tarkastella pinta-alan tärkeimpiä tunnuslukuja maakunnittain.
+Valmiista tulostasosta voit laskea vielä esimerkiksi teiden varsille osuvien suojelualueiden pinta-alan avaamalla attribuuttitaulukon ja lisäämällä sinne uuden sarakkeen. Pinta-aloja voit tarkastella tilastollisesti maakunnittain esimerkiksi Prosessointityökaluista löytyvällä **Tilastotiedot ryhmiteltynä luokittain**. Valitse kentäksi, josta tilastot lasketaan juuri tekemäsi pinta-ala ja kategoriatiedon sisältävä kenttä -listasta esimerkiksi **Maaku_ni1**. Paina Suorita. Syntyneestä taulukkoaineistosta voit tarkastella pinta-alan tärkeimpiä tunnuslukuja maakunnittain.
 
 
 ## Tallennetun prosessin käyttöönotto
 
-Avaa uusi, tyhjä QGIS-projekti. Saat hyödynnettyä myös muiden tekemiä malleja graafisen mallintajan kautta. Edellisessä harjoituksessa laskimme vaarallisia tieristeyksiä Uusimaalla. Kurssihakemistosta löytyy samaan prosessimalli. Lisää se itsellesi Prosessointityökaluista painamalla ![](img/harjoitus_4/image16.png) ja **Lisää malli työkaluihin**. Navigoi kurssihakemistoosi ja lisää Vaaralliset tieristeykset.model3.
+Avaa uusi, tyhjä QGIS-projekti. Saat hyödynnettyä myös muiden tekemiä malleja graafisen mallintajan kautta. Edellisessä harjoituksessa laskimme vaarallisia tieristeyksiä Uudellamaalla. Kurssihakemistosta löytyy samaan prosessimalli. Lisää se itsellesi Prosessointityökaluista painamalla ![](img/harjoitus_4/image16.png) ja **Lisää malli työkaluihin**. Navigoi kurssihakemistoosi ja lisää Vaaralliset tieristeykset.model3.
 
 ![](img/harjoitus_4/image8.png)
 
-Avaa tallennetut mallisi Prosessointityökalupalkista Mallit-kohdasta. Voit valita lähtöaineistot kurssihakemistosta suoraan  ![](img/harjoitus_4/image10.png)-kohdasta, koska projektissa ei ole mitään tasoja avoinna. Kurssihakemistossa on valmiina vuoden 2021 tieliikenneonnettomuudet, joita voit hyödyntää. Paina vielä suorita.[](img/harjoitus_4/image11.png)
+Avaa tallennetut mallisi Prosessointityökalupalkista Mallit-kohdasta. Voit valita lähtöaineistot kurssihakemistosta suoraan  ![](img/harjoitus_4/image10.png)-kohdasta, koska projektissa ei ole mitään tasoja avoinna. Kurssihakemistossa on valmiina vuoden 2021 tieliikenneonnettomuudet, joita voit hyödyntää. Paina vielä **suorita** ![](img/harjoitus_4/image6.png)
 
-Onnistunut prosessi luo uuden tulostason, jossa on samalla tavalla vaaralliset tieristeykset pistetasona.. Lähtötietona olleet aineistot eivät avaudu QGISiin lainkaan. 
+Onnistunut prosessi luo uuden tulostason, jossa on samalla tavalla vaaralliset tieristeykset pistetasona. Lähtötietona olleet aineistot eivät avaudu QGISiin lainkaan. 
 
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
 

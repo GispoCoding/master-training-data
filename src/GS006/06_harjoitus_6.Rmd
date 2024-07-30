@@ -1,8 +1,8 @@
-# HARJOITUS 1.6: RASTERIAINEISTOT
+# Harjoitus 1.6: Rasteriaineistot
 
 **Harjoituksen sisältö**
 
-Harjoituksessa lisätään rasteriaineistoja GeoServer-palvelimelle ja muokataan tason asetuksia WCS-palvelun julkistamista varten.
+Harjoituksessa lisätään rasteriaineistoja GeoServer-palvelimelle ja muokataan tason asetuksia WCS-palvelun julkaisemista varten.
 
 **Harjoituksen tavoite**
 
@@ -36,9 +36,11 @@ Paina sitten **Save** ja sen jälkeen **Publish**.
 Kuten aiemmin vektoriaineistojen luomisen yhteydessä, pääset nyt tason editointinäkymään. Tarkista yleisasetukset niin, että sekä **Enabled** että **Advertised** ovat valittuna.
 
 Laita nimeksi **korkeusmalli** ja otsikoksi **Helsingin korkeusmalli** ja lisätiedoksi **Korkeusmalli 2m -- Maanmittauslaitos.**
+
 ![](img/harjoitus_6/image2.png)
 
-Huomaa, että **Coordinate Reference Systems** -kohdassa, koordinaattijärjestelmä on määritelty väärin. Aineiston oikea järjestelmä on **ETRS89 / ETRS-TM35FIN** (**EPSG:3067**). Korjaa sitä käsin **Declared SRS** -kentässä ja valitse **SRS handling** kentästä **Force declared**. Käytä sen jälkeen pikalinkkejä määrittääksesi aineiston laajuuden.
+Huomaa, että **Coordinate Reference Systems** -kohdassa, koordinaattijärjestelmä on määritelty väärin. Aineiston oikea järjestelmä on **ETRS89 / ETRS-TM35FIN** (**EPSG:3067**). Korjaa sitä käsin **Declared SRS** -kentässä ja valitse **SRS handling** -kentästä **Force declared**. Käytä sen jälkeen pikalinkkejä määrittääksesi aineiston laajuuden.
+
 ![](img/harjoitus_6/image3.png)
 
 Paina sitten **Save.**
@@ -48,7 +50,7 @@ Tarkista, että taso on **Data → Layers**-taulussa. Voit esikatsella uutta ras
 
 ## **Ilmakuvan lisääminen**
 
-Samalla tavalla kun lisäsit edellisessä kohdassa ArcGrid-tiedoston voit lisätä GeoTIFF-aineistoja. 
+Samalla tavalla kun lisäsit edellisessä kohdassa ArcGrid-tiedoston, voit lisätä GeoTIFF-aineistoja. 
 
 Seuraa edellisen kohdan ohjeita ja lisää samalta alueelta ilmakuva. GeoTIFF-tiedosto löytyy täältä: **/koulutus/ilmakuvat_geotiff/L4133A.tif**.
 
@@ -101,7 +103,7 @@ Luodaan nyt tasoryhmä käyttäen aiemmin palvelimelle lisättyjä **ilmakuvat_k
 
 Valitse päävalikosta **Data → Layer Groups** ja sitten **Add new layer group**.
 
-Laita ryhmätason nimeksi **taustakartta** ja otsikoksi **Helsingin taustakartta**. Lisää **Abstract** kentälle \"Helsingin keskustan taustakartta\".
+Laita ryhmätason nimeksi **taustakartta** ja otsikoksi **Helsingin taustakartta**. Lisää **Abstract**-kentälle \"Helsingin keskustan taustakartta\".
 
 ::: hint-box
 Psst! Joissain selaimissa ääkkösten käyttö ei välttämättä onnistu. Vältä ääkkösten käyttöä tasojen nimissä ja otsikoissa.
@@ -116,16 +118,18 @@ Paina **Generate Bounds** ja huomaa, kuinka tason alkuperäinen koordinaatistoj�
 
 Lisää samalla tavalla Helsingin **rakennukset**- ja **tiesto**-tasot.
 
-Huomaa, että voit järjestää tasot käyttämällä **Drawing order** -nuolia. Ylempänä oleva (sija 1) piirretään ensimmäiseksi; sen päälle piirretään seuraava taso, ja niin edelleen. Järjestele tasot tämän kuvan mukaan:
+Huomaa, että voit järjestää tasot käyttämällä **Drawing order** -nuolia. Ylempänä oleva (sija 1) piirretään ensimmäiseksi, sen päälle piirretään seuraava taso, ja niin edelleen. Järjestele tasot tämän kuvan mukaan:
 
-Varmista, että **Default Style** ovat rastittuina.
+![](img/harjoitus_6/image11.png)
+
+Varmista, että **Default Style** -ruudut ovat rastitetut.
 
 Paina lopulta uudelleen **Generate Bounds** päivittämään ryhmätason laajuustiedot, jotta myös uudet aineistot otetaan huomioon laajuustietojen määrittämisessä. Aina kun lisäät uutta aineistoa tasoryhmään tulisi painaa uudelleen **Generate Bounds** päivittääksesi ryhmätason laajuustiedot.
 
 Paina vielä **Save**.
 
 Voit esikatsella ryhmätasoa samalla tavalla kuin muitakin tasoja:
-![](img/harjoitus_6/image11.png)
+
 ![](img/harjoitus_6/image12.png)
 
 ### **Ryhmätasojen julkaisemisen muoto**
@@ -166,7 +170,7 @@ Lisää uusi store (**Data → Stores → Add new Store**), valitse **WMS**-list
 Lisätään Helsingin kaupungin avoimet paikkatietopalvelut GeoServeriimme uudeksi WMS-yhteydeksi (remote WMS connection). Kyseinen Helsingin kaupungin palvelu löytyy osoitteesta: 
 
 ::: note-box
- [**https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities**](https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities).
+ [https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities](https://kartta.hel.fi/ws/geoserver/avoindata/wms?REQUEST=Getcapabilities).
 :::
 
 Täytä tiedot seuraavan kuvan mukaisesti, laita yllä oleva osoite **Capabilities URL** -kenttään:
@@ -174,7 +178,7 @@ Täytä tiedot seuraavan kuvan mukaisesti, laita yllä oleva osoite **Capabiliti
 
 Loput asetukset voit jättää oletuksiin. Paina sitten **Save**.
 
-Seuraavasti voit julkaista tasoja suoraan siitä palvelusta. Julkaise esimerkiksi **Ajantasa_asemakaava**.
+Seuraavaksi voit julkaista tasoja suoraan palvelusta. Julkaise esimerkiksi **Ajantasa_asemakaava**.
 ![](img/harjoitus_6/image17.png)
 
 Uuden tason oletusasetukset ovat oikein. Selaa sivun loppuun ja paina **Save**.
@@ -183,6 +187,5 @@ Voit nyt esikatsella uutta tasoa samalla tavalla kuin aiemmin:
 ![](img/harjoitus_6/image18.png)
 
 ::: hint-box
-Psst! Huomaa, että WMS-cascade-tasojen tyyliin tai sisältöön ei voida vaikuttaa, sillä ne ovat Helsingin kaupungin omassa palvelimessa. 
-Helsingin kaupungin paikkatietopalvelujen metatietoihin voit tutustua tässä: http://ptp.hel.fi/avoindata/aineistot/Aineistolista_wms_avoindata_ulkoverkko.html.
+Psst! Huomaa, että WMS-cascade-tasojen tyyliin tai sisältöön ei voida vaikuttaa, sillä ne ovat Helsingin kaupungin omassa palvelimessa. Helsingin kaupungin paikkatietopalvelujen metatietoihin voit tutustua täällä: http://ptp.hel.fi/avoindata/aineistot/Aineistolista_wms_avoindata_ulkoverkko.html.
 :::

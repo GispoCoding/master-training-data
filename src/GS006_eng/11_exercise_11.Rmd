@@ -1,4 +1,4 @@
-# EXERCISE 2.4: CSS-STYLING
+# Exercise 2.4: CSS styles
 
 **Content of the exercise**
 
@@ -16,7 +16,7 @@ After the exercise, the student will be able to use basic styling techniques on 
 
 Various data are uploaded to the GeoServer server. The CSS plugin is installed on GeoServer.
 
-## **CSS-styles**
+## **CSS styles**
 
 Once the CSS plugin is installed, you can write styles in CSS, which is a more user-friendly way to customize your styles than SLD.
 
@@ -206,33 +206,20 @@ Now other roads will only be shown if the **zoom** level is more accurate than *
 Your code at this point should look something like this:
 
 ::: code-box
- /\* \@title Paatiet \*/
-
- [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
-
-     { stroke: black, yellow;
-
-     stroke-width: 5px, 3px;
-
-     z-index: 0, 3;}
-
+ /\* \@title Paatiet \*/\
+ [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+     { stroke: black, yellow;\
+     stroke-width: 5px, 3px;\
+     z-index: 0, 3;}\
 \
-
- /\* \@title Sivutiet \*/
-
- [\@scale \< 50000]
-
- [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
-
-     { stroke: black;
-
-     stroke-width: 0.1;}
-
+ /\* \@title Sivutiet \*/\
+ [\@scale \< 50000]\
+ [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+     { stroke: black;\
+     stroke-width: 0.1;}\
 \
-
- /\* \@title Roads \*/ 
-
- \* { font-family: Helvetica;}
+ /\* \@title Roads \*/\
+   \*  { font-family: Helvetica;}
 :::
 
 ## **Adding subtitles**
@@ -272,71 +259,39 @@ You can also define names for smaller roads in the same way as we just did for m
 Here is a sample code with all the previously mentioned styles in use:
 
 ::: code-box
-/\* \@title Paatiet \*/
-
-[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
-
-{ stroke: black, yellow;
-
-stroke-width: 5px, 3px;
-
-z-index: 0, 3;
-
-label: [name];
-
-font-weight: bold;
-
-font-fill: black;
-
-font-size: 12;
-
--gt-label-follow-line: true;
-
--gt-label-max-angle-delta: 90;
-
--gt-label-max-displacement: 400;
-
--gt-label-repeat: 150;
-
-halo-color: white;
-
-halo-radius: 1;}
-
+/\* \@title Paatiet \*/\
+[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
+    { stroke: black, yellow;\
+      stroke-width: 5px, 3px;\
+      z-index: 0, 3;\
+      label: [name];\
+      font-weight: bold;\
+      font-fill: black;\
+      font-size: 12;\
+      -gt-label-follow-line: true;\
+      -gt-label-max-angle-delta: 90;\
+      -gt-label-max-displacement: 400;\
+      -gt-label-repeat: 150;\
+      halo-color: white;\
+      halo-radius: 1;}\
 \
-
-/\* \@title Sivutiet \*/
-
-[\@scale \< 50000]
-
-[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
-
-{ stroke: black;
-
-stroke-width: 0.1;
-
-label: [name];
-
-font-fill: black;
-
-font-size: 9;
-
--gt-label-follow-line: true;
-
--gt-label-max-angle-delta: 90;
-
--gt-label-max-displacement: 400;
-
--gt-label-repeat: 150;
-
-halo-color: white;
-
-halo-radius: 1;}
-
+/\* \@title Sivutiet \*/\
+[\@scale \< 50000]\
+[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
+    { stroke: black;\
+    stroke-width: 0.1;\
+    label: [name];\
+    font-fill: black;\
+    font-size: 9;\
+    -gt-label-follow-line: true;\
+    -gt-label-max-angle-delta: 90;\
+    -gt-label-max-displacement: 400;\
+    -gt-label-repeat: 150;\
+    halo-color: white;\
+    halo-radius: 1;}\
 \
-
-/\* \@title Tiesto \*/ 
-
-\* { font-family: Helvetica;}
+/\* \@title Tiesto \*/\
+  \* { font-family: Helvetica;}
 :::
 
 A preview of this style looks like this on the map: ![](img/harjoitus_11/image10.2.png)

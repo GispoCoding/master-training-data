@@ -1,4 +1,4 @@
-# HARJOITUS 1.7: PAIKKATIETOKANNAT
+# Harjoitus 1.7: Paikkatietokannat
 
 **Harjoituksen sisältö**
 
@@ -15,6 +15,10 @@ Harjoituksen jälkeen opiskelija osaa yhdistää paikkatietokannan tietoja GeoSe
 ## **Valmistautuminen**
 
 Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
 
 Palvelinkoneeseen on asennettu PostgreSQL-tietokanta ja sen PostGIS-laajennos. Tietokantaan on ladattu valmiiksi erilaisia vektoriaineistoja.
 
@@ -54,6 +58,7 @@ Täytä sitten PostGIS-tietokannan **Connection Parameters** -yhteysasetukset se
 +--------------------+---------------+
 
 Jätä loput asetukset oletuksiin ja paina lopulta **Save**.
+
 ![](img/harjoitus_7/image2.png)
 
 Samalla tavalla kuin aiemmin, uuden tason luomisen näkymä tulee esiin automaattisesti storen luomisen jälkeen. Näkymässä on listattu kaikki tasot, jotka löytyvät kyseisessä tietokannassa.
@@ -73,9 +78,10 @@ Tason editoinnin näkymässä, tason nimi ja otsikko on automaattisesti täytett
 
 Tarkista, että **Enabled** ja **Advertised** ovat rastittuina.
 
-Kuten olet varmasti nyt huomannut, uuden tason asetukset ovat samanlaiset, oli kyseessä sitten shapefile-formaatti tai PostGIS-tietokanta.
+Kuten olet varmasti jo huomannut, uuden tason asetukset ovat samanlaiset, oli kyseessä sitten shapefile-formaatti tai PostGIS-tietokanta.
 
 Katso vielä **Coordinate Reference Systems** -osiosta, että GeoServer on tunnistanut koordinaattijärjestelmäksi **EPSG:3067**. PostGIS ja GeoServer käyttävät EPSG-koodeja määrittääkseen koordinaattijärjestelmän, joten useimmiten koordinaattijärjestelmä tulee oikein määritellyksi automaattisesti.
+
 ![](img/harjoitus_7/image4.png)
 
 Ennen kuin tallennetaan tason julkaisuasetukset, määritä tason **Bounding Boxes** samalla tavalla kuin aikaisemmin lisäämiesi aineistojen kanssa.
@@ -103,7 +109,7 @@ Mitkä vaiheet ovat pakollisia tason julkaisemiseksi? Mitkä ovat tasojen koordi
 Vaihda lopuksi oletustyylit kyseisille tasoille käyttäen GeoServerin valmiita kuvaustekniikoita (default styles). Voit vaihtaa tason tyylin päävalikosta **Data → Layers** ja avaamalla haluamasi tason. Tyylit määritellään **Publish** välilehdestä. Käytä seuraavia tyylejä:
 
 +--------------------------+-----------------+
-| ##### **Taso**           | ##### **Tyyli** |
+| **Taso**                 | **Tyyli**       |
 +==========================+=================+
 | **lipas_kaikki_pisteet** | burg            |
 +--------------------------+-----------------+
@@ -162,7 +168,7 @@ Määrittele seuraavaksi tason ulottuvuudet (Bounding Box) ja paina **Save**. Vo
 
 Voit käyttää SQL-lausekkeissa myös paikkatietofunktioita. Käytetään esimerkkinä vyöhyke-funktiota (ST_Buffer).
 
-Avaa tason  **lipas_kaikki_reitit_helsinki** uudelleen (**Data → Layers**)
+Avaa taso  **lipas_kaikki_reitit_helsinki** uudelleen (**Data → Layers**).
 
 Selaa **Data** välilehdessä sivun loppuun. Sieltä löytyy **Edit sql view** -toiminto.
 

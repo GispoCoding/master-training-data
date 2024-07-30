@@ -11,10 +11,10 @@ Tarkastele Helsingin alueen väestöruutuaineistoa. Luo aineistoon uusi sarake j
 ::: hidden-box
 Lausekkeeseen tulee syöttää monta sisäkkäistä funktiota:
 
-- etsi lausekkeen muodostajasta funktio, jolla voit tehdä lineaarisen skaalauksen
-- asukkaita- sarakkeen tietotyyppi on kokonaisluku. Se tulee muuttaa lausekkeessa desimaaliluvuksi. Millä funktiolla se onnistuu?
-- millä funktiolla saat selville sarakkeen suurimman ja pienimmän luvun?
-- Käytä lopuksi ```round()``` funktiota. Miten saat tuloksen kahden desimaalin tarkkuudella?
+- Etsi lausekkeen muodostajasta funktio, jolla voit tehdä lineaarisen skaalauksen.
+- Asukkaita-sarakkeen tietotyyppi on kokonaisluku. Se tulee muuttaa lausekkeessa desimaaliluvuksi. Millä funktiolla se onnistuu?
+- Millä funktiolla saat selville sarakkeen suurimman ja pienimmän luvun?
+- Käytä lopuksi ```round()```-funktiota. Miten saat tuloksen kahden desimaalin tarkkuudella?
 :::
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
@@ -41,14 +41,14 @@ round(
 
 ## Lisätehtävä 2
 
-Tarkastele hallintoalueaineistoa. Mikäli kunnalla on olemassa nimi vain yhdellä virallisella kielellä (Kunta_ni2- attribuuttikentän arvo on N_A) korvaa se sanalla ```Puuttuu```.
+Tarkastele hallintoalueaineistoa. Mikäli kunnalla on olemassa nimi vain yhdellä virallisella kielellä (Kunta_ni2- attribuuttikentän arvo on N_A), korvaa se sanalla ```Puuttuu```.
 
 **Aineisto**: ```hallintoalueet.gpkg```
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
 ::: hidden-box
-Käytä ```if()```- ehtolausekefunktiota.
+Käytä ```if()```-ehtolausekefunktiota.
 :::
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
@@ -65,7 +65,7 @@ if(
 
 ## Lisätehtävä 3
 
-Tarkastele Natura-alueaineistoa. Selvitä (**Field Calculatorin General**- ryhmän funktioiden avulla) montako kohdetta ko. karttataso sisältää.
+Tarkastele Natura-alueaineistoa. Selvitä (**Field Calculatorin General** -ryhmän funktioiden avulla) montako kohdetta ko. karttataso sisältää.
 
 **Aineisto**: ```natura_alueet.gpkg```
 
@@ -89,17 +89,17 @@ layer_property(
 
 ## Lisätehtävä 4
 
-Tarkastele maanjäristysaineistoa. Luo uusi attribuuttikenttä (tyyppi: Text (string)) ja anna sen nimeksi Location Country. Muodosta lauseke, jonka avulla uuden kentän arvo pystytään johtamaan Location Name- attribuuttikentän arvosta.
+Tarkastele maanjäristysaineistoa. Luo uusi attribuuttikenttä (tyyppi: Text (string)) ja anna sen nimeksi Location Country. Muodosta lauseke, jonka avulla uuden kentän arvo pystytään johtamaan Location Name -attribuuttikentän arvosta.
 
 **Aineisto**: ```maanjaristykset.gpkg```
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
 ::: hidden-box
-Location Name- kentässä maan nimi sijaitsee ennen kaksoispistettä ```:```.
+Location Name -kentässä maan nimi sijaitsee ennen kaksoispistettä ```:```.
 
-- ```substr()```- funktiolla saat "irroitettua" merkkijonosta osion. Argumenteiksi tulee syöttää merkkijonon lisäksi aloitus- ja lopetuskohdat irroitettavalle tekstille.
-- Etsi ```strpos()```- funktiolla oikea lopetuskohta.
+- ```substr()```-funktiolla saat "irroitettua" merkkijonosta osion. Argumenteiksi tulee syöttää merkkijonon lisäksi aloitus- ja lopetuskohdat irroitettavalle tekstille.
+- Etsi ```strpos()```-funktiolla oikea lopetuskohta.
 :::
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
@@ -127,9 +127,9 @@ Selvitä sisältääkö kuhunkin Natura-alueeseen liittyvä päätös vesilakia.
 ::: hidden-box
 Luo lauseke paloittain:
 
-- Käytä ```string_to_array()```- funktiota
-- Käytä ```array_contains()```- funktiota
-- Käytä ```eval()```- funktiota
+- Käytä ```string_to_array()```-funktiota
+- Käytä ```array_contains()```-funktiota
+- Käytä ```eval()```-funktiota
 
 :::
 
@@ -160,7 +160,7 @@ Ennen tätä tehtävää tehtävä 5.2 tulee olla tehtynä. Laske kunkin hallint
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
 ::: hidden-box
-```sum()```- funktiolla voit laskea ```asukkaita```- sarakkeen yhteenlasketun määrän.
+```sum()```-funktiolla voit laskea ```asukkaita```-sarakkeen yhteenlasketun määrän.
 :::
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
@@ -178,7 +178,7 @@ Ennen tätä tehtävää tehtävä 5.2 tulee olla tehtynä. Laske kunkin hallint
 
 ## Lisätehtävä 7
 
-Selvitä mitkä hallintoaluepolygonit sijaitsevat korkeintaan 20km etäisyydellä Vaasan lyseon lukiosta. Käytä **Field Calculatoria**, älä geoprosessointityökaluja!
+Selvitä mitkä hallintoaluepolygonit sijaitsevat korkeintaan 20 km:n etäisyydellä Vaasan lyseon lukiosta. Käytä **Field Calculatoria**, älä geoprosessointityökaluja!
 
 **Aineistot**: 
 
@@ -188,10 +188,10 @@ Selvitä mitkä hallintoaluepolygonit sijaitsevat korkeintaan 20km etäisyydell�
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
 ::: hidden-box
-- Hae Vaasan lyseon lukio- kohde ```get_feature()```- funktiolla.
-- Hae kohteen geometria ```geometry()```- funktiolla.
-- Luo hallintoaluekohteelle 20km buffer.
-- Millä funktiolla voit tarkistaa leikkaako buffer ja lyseon lukion geometria leikkaavat (intersect)?
+- Hae Vaasan lyseon lukio -kohde ```get_feature()```-funktiolla.
+- Hae kohteen geometria ```geometry()```-funktiolla.
+- Luo hallintoaluekohteelle 20 km:n buffer.
+- Millä funktiolla voit tarkistaa leikkaavatko (intersect) buffer ja lyseon lukion geometria?
 :::
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
@@ -221,8 +221,8 @@ Luo uusi sarake (nimi: tunnus, tyyppi: string) ja hyödynnä Quick Field Calcula
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
 ::: hidden-box
-- Valitse päivitettäväksi kentäksi tunnus
-- Kirjoita lauseke-kenttään
+- Valitse päivitettäväksi kentäksi tunnus.
+- Kirjoita lauseke-kenttään.
 - Napsauta lopuksi Update all -painiketta
 :::
 
@@ -321,7 +321,7 @@ format_number(
 
 Luo funktio, jonka avulla voidaan selvittää kolmen attribuuttikentän painotettu keskiarvo.
 
-- Yksi luonnollinen käyttötapaus on laskea kolmen ikäryhmittäisen asukasluvun painotettu keskiarvo (esim. markkinoinnin kannalta työikäisillä ihmisillä on lapsia tai vanhuksia enemmän painoarvoa)
+- Yksi luonnollinen käyttötapaus on laskea kolmen ikäryhmittäisen asukasluvun painotettu keskiarvo (esim. markkinoinnin kannalta työikäisillä ihmisillä on lapsia tai vanhuksia enemmän painoarvoa).
 - Rajaa huomioitavat väestöruudut Select features by area -työkalulla!
 - Funktion syötteet: kolme attribuuttikenttää, kolme painokerrointa
 
@@ -330,10 +330,10 @@ Luo funktio, jonka avulla voidaan selvittää kolmen attribuuttikentän painotet
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
 ::: hidden-box
-1. Luo painotettuka-niminen funktio Field Calculatorin Function Editor -välilehdellä
+1. Luo painotettuka-niminen funktio Field Calculatorin Function Editor -välilehdellä.
 - Muista painaa lopulta Save and Load functions -painiketta!
-2. Mene hsy_vaesto2020_muok-tason Field Calculatoriin ja määritä uusi Decimal- kenttä
-3. Kirjoita ao. lauseke Expression-ikkunaan ja paina OK
+2. Mene hsy_vaesto2020_muok-tason Field Calculatoriin ja määritä uusi Decimal-kenttä.
+3. Kirjoita ao. lauseke Expression-ikkunaan ja paina OK.
 
 ::: code-box
 ``` sql
@@ -357,7 +357,7 @@ def painotettuka(field1, field2, field3, value1, value2, value3, feature, parent
     """
 
     # HSYn datassa arvo 99 = Tieto puuttuu, joten jos jokin kenttä sisältää tämän arvon,
-    # ei painotetun keskiarvon laskeminen ole mielekästä
+    # painotetun keskiarvon laskeminen ei ole mielekästä
     if 99 in (field1, field2, field3):
         return NULL
     else:
@@ -368,7 +368,7 @@ def painotettuka(field1, field2, field3, value1, value2, value3, feature, parent
 
 ## Geoprosessointiesimerkki
 
-Alta löytyy esimerkki yksinkertaisesta geoprosessointiskriptistä. Skripti muuttaa ```rautatieviiva_suomi.gpkg```- tason ```Sahkoistys```- sarakkeen arvot selkokieliseksi ja tallentaa tiedot uuteen CSV- taulukkotiedostoon. Voit kokeilla lisätä skriptin QGISiin ja ajaa sen.
+Alta löytyy esimerkki yksinkertaisesta geoprosessointiskriptistä. Skripti muuttaa ```rautatieviiva_suomi.gpkg```-tason ```Sahkoistys```-sarakkeen arvot selkokieliseksi ja tallentaa tiedot uuteen CSV-taulukkotiedostoon. Voit kokeilla lisätä skriptin QGISiin ja ajaa sen.
 
 **Aineisto:** ```rautatieviiva_suomi.gpkg```
 

@@ -2,7 +2,7 @@
 
 ## Exercise content
 
-This exercise focuses on QGIS' print layouts and the map atlas functionality.
+This exercise focuses on QGIS print layouts and the map atlas functionality.
 
 ## The goal of the exercise
 
@@ -72,7 +72,7 @@ Now the legend should look more pleasing. Let's add a title for the legend from 
 
 ![](img/exercise_5/image21.png){width="484"}
 
-Add a scale bar to your layout with the **Add Scalebar** tool ![](img/exercise_5/image22.png). Activate the scalebar and head to the  **Item properties** to customize it. Set the **Style** to **Line Ticks Up**. Experiment with the other options as well.
+Add a scale bar to your layout with the **Add Scalebar** tool ![](img/exercise_5/image22.png). Activate the scalebar and head to the **Item properties** to customize it. Set the **Style** to **Line Ticks Up**. Experiment with the other options as well.
 
 Let's finish our print layout by adding a **north arrow** ![](img/exercise_5/image23.png). Nowadays north arrows are mandatory only when the north of the map is not directly upwards. In **Item Properties \> Image rotation**, synchronize your north arrow to your map by checking the **Sync with map** box. If you rotate the map, the north arrow will now follow along.
 

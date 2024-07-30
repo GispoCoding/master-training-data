@@ -2,7 +2,7 @@
 
 ### Harjoituksen sisältö
 
-Harjoituksessa luodaan QGIS-projektiin uusi Kasvualusta-taso, jonka avulla kerättäviin Puut-tason kohteisiin lisätään tietoa näiden kasvupaikasta. Tasojen välille luodaan relaatio, jonka avulla kyseinen vanhempi-lapsi -suhde saadaan kohteille rakennettua.
+Harjoituksessa luodaan QGIS-projektiin uusi Kasvualusta-taso, jonka avulla kerättäviin Puut-tason kohteisiin lisätään tietoa näiden kasvupaikasta. Tasojen välille luodaan relaatio, jonka avulla kyseinen vanhempi-lapsi-suhde saadaan kohteille rakennettua.
 
 ### Harjoituksen tavoite
 
@@ -20,7 +20,7 @@ Avaa QGIS tietokoneellasi ja avaa siellä aiemmin luomasi QGIS-projekti (**Proje
 
 Luodaan nyt uusi taso, joka mahdollistaa yhden tai useamman tiedon (ns. lapsi-kohde/child) liittämiseen kuhunkin Puut-tason kohteeseen (vanhempi-kohde/parent). Kerätään siis puulajien lisäksi summittaista tietoa näiden kasvupaikoista, esimerkiksi maanpinnan koostumuksesta n. 5 metrin säteellä rungosta. Koska tämän säteen sisällä maanpinta voi koostua useammanlaisesta aineksesta, voi yhteen puuhun täten liittyä useampi tämän uuden tason kohde.
 
-Lisätään muut tasot sisältävään GeoPackageen uusi taso (**Tasot \> Luo Taso \> Uusi GeoPackage-taso...** ). Kuten ennenkin, navigoidaan nyt **Tietokanta**-kohdasta aiemmin luotu **Puu-inventointi** -GeoPackage-tietokanta. Muutetaan nyt taulun nimeksi **Kasvualusta**, geometriatyypiksi **Ei geometriaa**, sillä sillä ei ole tässä merkitystä (kaikille samanlainen 5 m ympyrä). Ominaisuustietokentiksi voimme määrittää **tyyppi** (teksti), **osuus** (integer), **uuid** (teksti), **fk_puut** (teksti), **luoja** (teksti) sekä **luontiaika** (päivämäärä ja aika). Paina sitten OK. Esiin ponnahtaa jälleen ikkuna, jossa ilmoitetaan tiedoston jo olevan olemassa ja kysytään mitä sillä halutaan tehdä. Kuten ennenkin, valitse **Lisää uusi taso**, jolloin samaan GeoPackage-tietokantaan lisätään uusi taso.
+Lisätään muut tasot sisältävään GeoPackageen uusi taso (**Tasot \> Luo Taso \> Uusi GeoPackage-taso...** ). Kuten ennenkin, navigoidaan nyt **Tietokanta**-kohdasta aiemmin luotu **Puu-inventointi**-GeoPackage-tietokanta. Muutetaan taulun nimeksi **Kasvualusta**, geometriatyypiksi **Ei geometriaa**, sillä sillä ei ole tässä merkitystä (kaikille samanlainen 5 m ympyrä). Ominaisuustietokentiksi voimme määrittää **tyyppi** (teksti), **osuus** (integer), **uuid** (teksti), **fk_puut** (teksti), **luoja** (teksti) sekä **luontiaika** (päivämäärä ja aika). Paina sitten OK. Esiin ponnahtaa jälleen ikkuna, jossa ilmoitetaan tiedoston jo olevan olemassa ja kysytään mitä sillä halutaan tehdä. Kuten ennenkin, valitse **Lisää uusi taso**, jolloin samaan GeoPackage-tietokantaan lisätään uusi taso.
 
 ## Relaatioiden luonti
 
@@ -58,11 +58,11 @@ Määritä näiden jäljelle jäävien kenttien syöttötavat siis seuraavasti:
 
 -   fk_puut: tälle ei tarvitse tässä tehdä muutoksia
 
-Lisätään vielä Kasvualusta-tason kohteillekin tunniste QFieldin kohdelistausta varten. Mene siis vielä Tason ominaisuudet -ikkunassa Näyttö-välilehdelle, ja kirjoita lauseke, jossa on yhdistetty kasvualustan tyyppi ja osuus. Katso alla olevasta kuvasta mallia. Paina tämän jälkeen OK.
+Lisätään vielä Kasvualusta-tason kohteillekin tunniste QFieldin kohdelistausta varten. Mene siis vielä Tason ominaisuudet -ikkunassa Karttavihjeet-välilehdelle, ja kirjoita lauseke, jossa on yhdistetty kasvualustan tyyppi ja osuus. Katso alla olevasta kuvasta mallia. Paina tämän jälkeen OK.
 
 ![](img/harjoitus_4/image3.png)
 
-Lisätään **puut_kasvualusta** -relaatio vielä **Puut-tason** attribuuttilomakkeeseen kuvan mukaisesti. Eli avaa Puut-tason ominaisuudet, ja raahaa Attribuuttilomake-välilehden Drag and Drop Designer -näkymässä käytettävissä olevista widgeteistä lomakenäkymä-sarakkeen perustieto-välilehden viimeiseksi kentäksi:
+Lisätään **puut_kasvualusta**-relaatio vielä **Puut-tason** attribuuttilomakkeeseen kuvan mukaisesti. Eli avaa Puut-tason ominaisuudet, ja raahaa Attribuuttilomake-välilehden Drag and Drop Designer -näkymässä käytettävissä olevista widgeteistä lomakenäkymä-sarakkeen perustieto-välilehden viimeiseksi kentäksi:
 
 ![](img/harjoitus_4/image4.png)
 
@@ -70,7 +70,7 @@ Paina lopuksi OK. Tallenna myös projekti (**Projekti \> Tallenna**). Pakkaa ja 
 
 ## Lapsikohteiden luominen QFieldissä
 
-Avaa jälleen kurssiprojekti viimeisine muutoksineen QFieldissä. Luodaan nyt Puut-tasolle uusi kohde, jolle lisätään lapsikohteena tietoa kasvualustasta. Aktivoi digitointitila QFieldissä ja valitse Puut-taso. Digitoi tasolle uusi piste. Attribuuttilomakkeen ilmestyessä huomaat, että perustiedot-välilehdelle on ilmestynyt **puut_kasvualusta** -valinta, joka on mahdollista aktivoida täytettyäsi vaadittavat tiedot Puut-tasolle lisättävästä kohteesta. Täytä tarvittavat tiedot, ja lisää digitoimallesi puulle sen kasvualustatyyppi / -tyypit. Huomaa, että voit lisätä monta eri lapsikohdetta, tässä tapauksessa kasvualustatyyppiä.
+Avaa jälleen kurssiprojekti viimeisine muutoksineen QFieldissä. Luodaan nyt Puut-tasolle uusi kohde, jolle lisätään lapsikohteena tietoa kasvualustasta. Aktivoi digitointitila QFieldissä ja valitse Puut-taso. Digitoi tasolle uusi piste. Attribuuttilomakkeen ilmestyessä huomaat, että perustiedot-välilehdelle on ilmestynyt **puut_kasvualusta**-valinta, joka on mahdollista aktivoida täytettyäsi vaadittavat tiedot Puut-tasolle lisättävästä kohteesta. Täytä tarvittavat tiedot, ja lisää digitoimallesi puulle sen kasvualustatyyppi / -tyypit. Huomaa, että voit lisätä monta eri lapsikohdetta, tässä tapauksessa kasvualustatyyppiä.
 
 ![](img/harjoitus_4/image5.png)
 

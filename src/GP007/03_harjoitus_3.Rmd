@@ -2,7 +2,7 @@
 
 ## Harjoituksen sisältö
 
-Harjoituksessa harjoitellaan vektoriaineiston visualisoitia
+Harjoituksessa harjoitellaan vektoriaineiston visualisoitia.
 
 ## Harjoituksen tavoite
 
@@ -23,7 +23,7 @@ Lisää projektiin seuraavat aineistot:
 
 ## Vektoriaineistojen visualisointi
 
-Aloita tutkimalla ne_10m_populated_places -tasoa, joka sisältää Natural Earth kaupunkiaineiston Suomesta. Jos et näe pisteitä kartallasi, vedä taso muiden tasojen päälle painamalla hiiren vasenta painiketta ja raahaa taso ylimmäksi listauksessa. Paina hiiren oikealla painikkeella tason nimeä (ne_10m_populated_places) tasoluettelossa. Valitse valikosta **Ominaisuudet**:
+Aloita tutkimalla ne_10m_populated_places-tasoa, joka sisältää Natural Earth kaupunkiaineiston Suomesta. Jos et näe pisteitä kartallasi, vedä taso muiden tasojen päälle painamalla hiiren vasenta painiketta ja raahaa taso ylimmäksi listauksessa. Paina hiiren oikealla painikkeella tason nimeä (ne_10m_populated_places) tasoluettelossa. Valitse valikosta **Ominaisuudet**:
 
 ![](img/harjoitus_3/image4.png)
 
@@ -33,7 +33,7 @@ Aloita tutkimalla ne_10m_populated_places -tasoa, joka sisältää Natural Earth
 
 Vaihda **Väri- ja koko-arvot**, ja paina **Käytä**. Sillä tavalla saat näkyviin tekemäsi muutokset sulkematta **Tason ominaisuudet -ikkunaa**. Avaa vielä jokin **symbolikirjasto**, esimerkiksi **Suosikit**, ja muuta pisteen tyyliksi jokin sinua miellyttävä tyyli. Voit myös kiertää symbolia vaihtamalla **kierto-arvon** astelukua. Paina sitten **OK**, ikkuna sulkeutuu ja kaupunkitaso näkyy nyt määrittämäsi visualisointityylin tavalla.
 
-Saat avattua edistyneet visualisointiasetukset painamalla **Yksinkertainen pistesymboli** valintaa. Täältä saat muokattua symbolin lisäksi esimerkiksi reunojen väriä, paksuutta sekä viivan tyyliä. Voit myös poistaa ääriviivat tai symbolin värityksen kokonaan jättäen vain ääriviivat. Muut paikkatietoaineistojen visualisoinnin työkalut saa käyttöön samalla tavalla, avaamalla hiiren oikealla **Ominaisuudet** ja sivupalkista **Kuvaustekniikka**. Klikkaamalla sivellintä Tasot-paneelin yläreunasta tai pikanäppäimellä **F7** saat avatuksi **Tason tyylit -ikkunan**, joka on jatkuvasti avoinna karttaikkunan oikeassa laidassa. Tällöin voit helposti vaihtaa kaikkien tasojen kuvaustekniikkaa ja näet heti, miltä uusi tyyli näyttää.
+Saat avattua edistyneet visualisointiasetukset painamalla **Yksinkertainen pistesymboli** -valintaa. Täältä saat muokattua symbolin lisäksi esimerkiksi reunojen väriä, paksuutta sekä viivan tyyliä. Voit myös poistaa ääriviivat tai vaihtoehtoisesti poistaa symbolin värityksen ja jättää vain ääriviivat. Muut paikkatietoaineistojen visualisoinnin työkalut saa käyttöön samalla tavalla, avaamalla hiiren oikealla **Ominaisuudet** ja sivupalkista **Kuvaustekniikka**. Klikkaamalla sivellintä Tasot-paneelin yläreunasta tai pikanäppäimellä **F7** saat avatuksi **Tason tyylit -ikkunan**, joka on jatkuvasti avoinna karttaikkunan oikeassa laidassa. Tällöin voit helposti vaihtaa kaikkien tasojen kuvaustekniikkaa ja näet heti, miltä uusi tyyli näyttää.
 
 Eri vektoriaineistotyypeillä (piste, viiva, monikulmio) on erilaiset kuvaustekniikan työkalut, vaikkakin ne muistuttavat paljon toisiaan. Esimerkiksi pistetasolle ei voida tehdä samoja tyylittelyjä kuin viiva- tai monikulmiotasolle. Rasteriaineistojen työkalut taas eroavat melko paljon vektoriaineistojen työkaluista.
 
@@ -45,7 +45,7 @@ Kokeile nyt itse muokata viiva- ja monikulmioaineistoja haluamaksesi. Avaa aiemm
 
 Vaihda viivan **Väri** ja **Leveys** ja paina taas **Käytä**. Tutki mitä valmiita tyylejä QGISiin on tallennettu ja testaa miltä ne näyttävät oman karttasi visualisoinnissa.
 
-Visualisoi vielä monikulmioaineisto haluamallasi tavalla. Avaa NaturaKohde_ma kuvaustekniikkaikkuna ja huomaa erot verrattuna piste- ja viiva-aineistojen ominaisuuksiin. Muokkaa tason väriä **Väri-kohdasta** ja valitse tasolle jokin symboli haluamastasi kirjastosta. Voit myös kokeilla eri **Peittävyys-arvoja**. Paina Käytä ja kun olet testannut tarpeeksi, paina **OK**.
+Visualisoi vielä monikulmioaineisto haluamallasi tavalla. Avaa NaturaKohde_ma kuvaustekniikkaikkuna ja huomaa erot verrattuna piste- ja viiva-aineistojen ominaisuuksiin. Muokkaa tason väriä **Väri-kohdasta** ja valitse tasolle jokin symboli haluamastasi kirjastosta. Voit myös kokeilla eri **Peittävyys-arvoja**. Paina **Käytä**, ja kun olet testannut tarpeeksi, paina **OK**.
 
 Saattaa olla, että aineistotasot peittävät toisensa vaikka siten, että monikulmio aineisto peittää muut sen alle jäävät aineistot. Kokeile muuttaa tasojen keskinäistä järjestystä ja siten tasojen näkymistä raahaamalla/vetämällä tasot uuteen järjestykseen **Tasoluettelossa**. Useimmiten monikulmiotasot on hyvä jättää alimmiksi tasoiksi. Jos kartalla halutaan visualisoida jotakin rasterikuvaa, kannattaa se/ne yleensä pitää myös alimpina tasoina. Uudelleen järjestettynä karttasi näyttää tältä:
 
@@ -72,10 +72,10 @@ Voit muokata viivoituksen kiertoa, jaottelua ja siirtymää **Täyttö viivakuos
 
 ![](img/harjoitus_3/image_26.png){width="70%"}
 
-Muuta vielä aineiston reunaviiva katkoviivaksi kohdasta **Piirron tyyli**. Viivan paksuudeksi voit määritellä 0,8 millimetriä. Lopuksi voit vielä määritellä **Tason piirto -kohdasta** (valikko aukeaa pientä nuolta klikkaamalla) **Peittävyys-kohtaan** arvoksi 70%.
+Muuta vielä aineiston reunaviiva katkoviivaksi kohdasta **Piirron tyyli**. Viivan paksuudeksi voit määritellä 0,8 millimetriä. Lopuksi voit vielä määritellä **Tason piirto -kohdasta** (valikko aukeaa pientä nuolta klikkaamalla) **Peittävyys-kohtaan** arvoksi 70 %.
 
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+**Psst!** Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
 

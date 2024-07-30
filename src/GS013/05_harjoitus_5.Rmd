@@ -24,7 +24,7 @@ Hyödynnetään pistemäisen aineiston luokittelua attribuuttitiedon perusteella
 
 ![](img/harjoitus_5/image1.png)
 
-Huomaa, että voit asettaa symboliksi muunkin kuin pyöreän pisteen. Lisäksi voit määrittää, minkä kokoinen on aineiston suurin ja pienin symboli. Tällä, samoin kuin luokittelumenetelmällä, on merkittävä vaikutus siihen miten luokkien välinen vaihtelu koetaan. Käytännöllistä on asettaa pienin piste vähintään 3-4 pikselin kokoiseksi, jotta se erottuu taustasta. Suurimman pisteen taas täytyy pysyä riittävän pienenä, jotta se ei peitä taustaa tai muita kohteita sillä zoomaustasolla, jolla karttaa on tarkoitus tarkastella.
+Huomaa, että voit asettaa symboliksi muunkin kuin pyöreän pisteen. Lisäksi voit määrittää, minkä kokoinen on aineiston suurin ja pienin symboli. Tällä, samoin kuin luokittelumenetelmällä, on merkittävä vaikutus siihen miten luokkien välinen vaihtelu koetaan. On käytännöllistä asettaa pienin piste vähintään 3-4 pikselin kokoiseksi, jotta se erottuu taustasta. Suurimman pisteen taas täytyy pysyä riittävän pienenä, jotta se ei peitä taustaa tai muita kohteita sillä zoomaustasolla, jolla karttaa on tarkoitus tarkastella.
 
 ![](img/harjoitus_5/image2.png)
 
@@ -40,9 +40,9 @@ Painota vielä heatmapia aineiston **Asukasluku 2019** -kentän tiedoilla, jollo
 
 ## Diagrammit
 
-QGISillä on helppo tehdä myös esimerkiksi piirakkadiagrammeja aineiston arvojen jakaumasta. Jotta kartta ei ruuhkautuisi liikaa, suodata ensin **Keskipisteet-tasosta** näkyviin vain 20 suurinta kaupunkia (yli 51.000 asukasta). 
+QGISillä on helppo tehdä myös esimerkiksi piirakkadiagrammeja aineiston arvojen jakaumasta. Jotta kartta ei ruuhkautuisi liikaa, suodata ensin **Keskipisteet-tasosta** näkyviin vain 20 suurinta kaupunkia (yli 51 000 asukasta). 
 
-Aseta **Kuvaustekniikka-välilehdellä** symbolit kokonaan pois näkyvistä ja siirry **Kaaviot-välilehdelle**. valitse pudotusvalikosta **Ympyräkaavio -vaihtoehto**. **Attribuutit-rivillä** valitaan, mitkä attribuuttitietokentät yhdessä muodostavat halutun arvojoukon. Valitse siis eri ikäryhmät ja siirrä ne oikeanpuoleiseen ikkunaan ![](img/harjoitus_5/image4.png)-painikkeella. Huom! Älä valitse **Asukasluku 2019 -kenttää**, koska silloin se muodostaisi puolet piirakkakaaviosta ja eri ikäryhmät toisen puolen.
+Aseta **Kuvaustekniikka-välilehdellä** symbolit kokonaan pois näkyvistä ja siirry **Kaaviot-välilehdelle**. Valitse pudotusvalikosta **Ympyräkaavio -vaihtoehto**. **Attribuutit-rivillä** valitaan, mitkä attribuuttitietokentät yhdessä muodostavat halutun arvojoukon. Valitse siis eri ikäryhmät ja siirrä ne oikeanpuoleiseen ikkunaan ![](img/harjoitus_5/image4.png)-painikkeella. Huom! Älä valitse **Asukasluku 2019 -kenttää**, koska silloin se muodostaisi puolet piirakkakaaviosta ja eri ikäryhmät toisen puolen.
 
 ![](img/harjoitus_5/image5.png)
 
@@ -54,11 +54,11 @@ Voit vaihtaa eri sektoreiden värejä klikkaamalla värisymbolia sekä sektoreid
 
 **Tulosteenmuodostaja ja kaavion selite**
 
-Ympyräkaavion selite (kaavioiden suhteellinen koko) tulee vielä muodostaa erikseen, jotta se tulee näkyviin tulosteelle. Valitse **Selite** -välilehti ja aseta merkinnät mieleiseksesi esim. oheisen kuvan mukaisesti. Voit asettaa muutaman kokoluokan manuaalisesti tai käyttää valmiita luokkia.
+Ympyräkaavion selite (kaavioiden suhteellinen koko) tulee vielä muodostaa erikseen, jotta se tulee näkyviin tulosteelle. Valitse **Selite**-välilehti ja aseta merkinnät mieleiseksesi esim. oheisen kuvan mukaisesti. Voit asettaa muutaman kokoluokan manuaalisesti tai käyttää valmiita luokkia.
 
 ![](img/harjoitus_5/image7.png)
 
-Avaa sitten **Tulosteenmuodostaja** ja uusi taitto. Aseta paperi pystysuuntaiseksi (löydät sivun asetukset klikkaamalla tyhjää paperia hiiren oikealla painikkeella). Voit myös asettaa sivun taustavärin täysin läpikuultavaksi; tällöin valmis tulosteesi ei sisällä valkoista suorakaiteen muotoista taustaa vaan ainoastaan siihen tuodut elementit.
+Avaa sitten **Tulosteenmuodostaja** ja uusi taitto. Aseta paperi pystysuuntaiseksi (löydät sivun asetukset klikkaamalla tyhjää paperia hiiren oikealla painikkeella). Voit myös asettaa sivun taustavärin täysin läpikuultavaksi. Tällöin valmis tulosteesi ei sisällä valkoista suorakaiteen muotoista taustaa vaan ainoastaan siihen tuodut elementit.
 
 Tuo taittoon karttaelementti sekä selite. Voit muokata selitteen merkintöjä, kun poistat ruksin ruudusta **Päivitä automaattisesti**. Lisää halutessasi kartalle otsikko.
 

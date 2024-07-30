@@ -10,7 +10,7 @@ Harjoituksen jälkeen osallistuja osaa lisätä ja luoda tasoja QGISiin.
 
 **Arvioitu kesto**
 
-30 minuuttia.
+10 minuuttia.
 
 ## Valmistautuminen
 
@@ -24,13 +24,15 @@ Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa pää
 
 ## Editoinnin valmistelu
 
-Aloitetaan tekemällä editointia helpottavia valmisteluja. Ensimmäisenä aktivoi omaan projektiisi **Työkalut-valikosta** seuraavat työkalut:
+Aloitetaan tekemällä editointia helpottavia valmisteluja. Avaa **Työkalut-valikko** valisemalla **Näytä \> Työkalut**. Aktivoi omaan projektiisi **Työkalut-valikosta** seuraavat työkalut:
 
 -   Digitoinnin työkalupalkki
 
 -   Digitoinnin lisätyökalujen palkki
 
 -   Tarttumisen työkalut\
+
+
 
 ![](img/harjoitus_4/image2.png)
 

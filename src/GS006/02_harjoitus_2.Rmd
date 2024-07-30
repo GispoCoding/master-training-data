@@ -1,4 +1,4 @@
-# HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ
+# Harjoitus 1.2: GeoServerin web-käyttöliittymä
 
 **Harjoituksen sisältö**
 
@@ -55,10 +55,10 @@ Näiden lisäksi Geoserverin laajennokset voivat lisätä valikkoja käyttöliit
 ![](img/harjoitus_2/image1.png)
 
 ::: hint-box
-Psst! Huomaa, että nyt käyttöliittymän keskiosassa lukee myös "No Strong cryptography available...". Riippuen asennuksesta vahva salaus (strong cryptography)-toiminnallisuuden mahdollistaminen saattaa tarvita erillisen asennuksen (Java policy jar tiedostot).
+Psst! Huomaa, että nyt käyttöliittymän keskiosassa lukee myös "No Strong cryptography available...". Riippuen asennuksesta vahva salaus (strong cryptography) -toiminnallisuuden mahdollistaminen saattaa tarvita erillisen asennuksen (Java policy jar tiedostot).
 :::
 
-## **Master- ja Administrator-käyttäjät**
+## **Master- ja Admin-käyttäjät**
 
 GeoServerin oletusasennuksessa on kaksi käyttäjäprofiilia, **master** ja **admin**. Salasanat on vaihdettu oletuksesta seuraavalla tavalla:
 
@@ -67,7 +67,7 @@ GeoServerin oletusasennuksessa on kaksi käyttäjäprofiilia, **master** ja **ad
 **Admin** →   gispo
 
 ::: hint-box
-Psst! Ero master ja admin-käyttäjien välillä on se, että admin-käyttäjä on tarkoitettu käytettäväksi web-käyttöliittymän hallinnassa. Itse palvelimen asetusten muokkaamiseen käytetään master-käyttäjää, jolla on oikeudet päästä hallitsemaan GeoServerin root-asetuksia sekä suoraan palvelimella että web-käyttöliittymän kautta. Vältä näiden tunnusten käyttöä tuotannollisten palvelimien ylläpidossa.
+Psst! Ero master- ja admin-käyttäjien välillä on se, että admin-käyttäjä on tarkoitettu käytettäväksi web-käyttöliittymän hallinnassa. Itse palvelimen asetusten muokkaamiseen käytetään master-käyttäjää, jolla on oikeudet päästä hallitsemaan GeoServerin root-asetuksia sekä suoraan palvelimella että web-käyttöliittymän kautta. Vältä näiden tunnusten käyttöä tuotannollisten palvelimien ylläpidossa.
 :::
 
 Näiden käyttäjien salasanat voi vaihtaa tarvittaessa pääsynhallinnan työkaluilla (**Security**-valikko).
@@ -210,7 +210,7 @@ Sarake **Enabled** näyttää tiedon siitä, onko taso käytettävissä palvelim
 
 ![](img/harjoitus_2/image20.png)
 
-Avaa **Manhattan (NY) landmarks** -tason asetusten näkymä painamalla tason otsikkoa (**Title**) tai nimeä (**Name**) sarakkeesta. 
+Avaa **Manhattan (NY) landmarks** -tason asetusten näkymä painamalla tason otsikkoa **Title**- tai nimeä **Name** sarakkeesta. 
 
 Tasoon liittyvät asetukset ovat laajat ja siksi ne on jaettu välilehtiin **Data**, **Publishing**, **Dimensions** ja **Tile Caching**. 
 
@@ -238,7 +238,7 @@ Kuvaustekniikka on hyvin laaja aihe; siihen tutustutaan erikseen myöhemmin. Kuv
 
 ## **Services**
 
-GeoServerin rajapintapalvelujen (WFS, WMS ja WCS) yleisasetukset määritellään **Services**-valikon kautta; näihin tutustutaan tarkemmin myöhemmin.
+GeoServerin rajapintapalvelujen (WFS, WMS ja WCS) yleisasetukset määritellään **Services**-valikon kautta. Näihin tutustutaan tarkemmin myöhemmin.
 
 ![](img/harjoitus_2/image24.png)
 

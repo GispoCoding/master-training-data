@@ -22,9 +22,9 @@ Lisää projektiisi kurssihakemiston aineisto **Tuulivoima_sopivat_paikat.csv**.
 
 ![](img/harjoitus_2/image1.png)
 
-Paina sitten **OK**.
+Paina **OK**.
 
-Koska aineiston koordinaatit on tallennettu asteina WGS84-koordinaattijärjestelmässä, Helsinki näyttää hieman litistyneeltä. Vaihda projektin koordinaattijärjestelmäksi **ETRS89/TM35FIN (EPSG:3067)**. Nyt kartan muoto on tutumpi, ja karttayksiköt ovat metrejä asteiden sijaan.
+Koska aineiston koordinaatit on tallennettu asteina WGS84-koordinaattijärjestelmässä, Helsinki näyttää hieman litistyneeltä. Vaihda projektin koordinaattijärjestelmäksi **ETRS89/TM35FIN (EPSG:3067)**. Nyt kartan muoto on tutumpi ja karttayksiköt ovat metrejä asteiden sijaan.
 
 
 ## Ilman geometriaa olevan taulukon tuominen
@@ -33,13 +33,13 @@ Tuo kurssihakemistosta projektiisi aluemainen shapefile-taso Helsingin kaupungin
 
 ![](img/harjoitus_2/image4.png)
 
-Koska taulukko ei sisällä geometriaa, sitä ei voida kuvata karttanäkymässä, mutta se tulee Tasot -listaukseen. 
+Koska taulukko ei sisällä geometriaa, sitä ei voida kuvata karttanäkymässä, mutta se tulee Tasot-listaukseen. 
 
 ## Taulukon kenttien tyypin muokkaaminen
 
 Kun tuot taulukon QGISiin, et voi vaikuttaa siihen, minkä tyyppisiksi QGIS tunnistaa taulukkosi kentät. Jos vaikkapa numeerisessa kentässä on yksikin tekstiksi tulkittava solu (esim. tyhjää merkitsevä viiva tai  N/A- tai NULL-teksti), koko kenttä tulkitaan tekstiksi. Tällöin et voi käyttää kentän tietoja numeerisiin analyyseihin kuten koropleettikartan laatimiseen.
 
-Avaa tulisijat-tason **ominaisuudet** ja tarkastele **Tietokentät** -välilehteä. Yksi kenttä on sisältänyt muita kuin numeroita, ja siksi siitä on tullut String- eli tekstikenttä.
+Avaa tulisijat-tason **ominaisuudet** ja tarkastele **Tietokentät**-välilehteä. Yksi kenttä on sisältänyt muita kuin numeroita, ja siksi siitä on tullut String- eli tekstikenttä.
 
 ![](img/harjoitus_2/image5.png)
 
