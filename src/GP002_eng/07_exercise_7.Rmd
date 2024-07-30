@@ -68,7 +68,7 @@ You can easily copy a pre-configured layer style for a new layer. Right click th
 
 ![](img/exercise_7/image6.png)
 
-Once you enable the **Show Feature Count** the result should look like this:
+Once you enable the **Show Feature Count** by left-clicking the layer name in the **Layer panel** and selecting the option from the menu the result should look like this:
 
 ![](img/exercise_7/image7.png)
 

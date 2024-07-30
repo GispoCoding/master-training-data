@@ -32,7 +32,7 @@ Aloitetaan aineiston koneluettavuuden (= aineiston laadun) tarkistus \"kevyimmä
 
 ![](img/harjoitus_4/image2.png)
 
-Kyseinen algoritmi tekee kelpoisuustarkistuksen tason geometrioille. Geometriat luokitellaan kolmeen ryhmään (**Kelvollinen tulos, Virheellinen tulos** ja **Virhetuloste**) ja kullekin näistä luodaan uusi taso. Oletusarvoisesti algoritmi käyttää tiukkaa OGC-määritystä polygonin validoinnissa, mutta me emme halua ottaa tiukinta mahdollista määritystä huomioon, joten valitse  **Ignore ring self intersections**. Koska rakennus voi olla geometrialtaan täysin validi vaikka siinä olisi reikä, jätetään kyseiset virheilmoitukset huomiotta. Paina sitten **Suorita**.
+Kyseinen algoritmi tekee kelpoisuustarkistuksen tason geometrioille. Geometriat luokitellaan kolmeen ryhmään (**Kelvollinen tulos, Virheellinen tulos** ja **Virhetuloste**) ja kullekin näistä luodaan uusi taso. Oletusarvoisesti algoritmi käyttää tiukkaa OGC-määritystä polygonin validoinnissa, mutta me emme halua ottaa tiukinta mahdollista määritystä huomioon, joten valitse  **Älä huomioi renkaan itsensä leikkausta**. Koska rakennus voi olla geometrialtaan täysin validi vaikka siinä olisi reikä, jätetään kyseiset virheilmoitukset huomiotta. Paina sitten **Suorita**.
 
 ![](img/harjoitus_4/image3.png)
 
@@ -60,7 +60,7 @@ Klikkaa sitten **Topologian tarkastaja -paneelissa Tarkasta kaikki -kuvaketta** 
 
 ## Tarkista geometriat (Geometry checker)
 
-Kolmas ja järein vaihtoehto geometrioiden tarkistukseen on **Tarkista geometriat -työkalu**. Tämäkin työkalu pitää käydä aktivoimassa edellisen tapaan lisäosien valikoimasta. Tämäkin työkalu ilmestyy ylävalikon **Vektori-valikkoon**.
+Kolmas ja järein vaihtoehto geometrioiden tarkistukseen on **Tarkista geometriat -työkalu**. Tämäkin työkalu pitää käydä aktivoimassa edellisen tapaan lisäosien valikoimasta. Työkalu löytyy ylävalikon **Vektori-valikosta**.
 
 ![](img/harjoitus_4/image11.png)
 
@@ -68,11 +68,13 @@ Kuten heti huomaat kyseisen työkalun valikosta, **Tarkista geometriat -työkalu
 
 ![](img/harjoitus_4/image12.png)
 
-Työkalu ajaa algoritmia hetken, mutta palauttaa sen jälkeen virheilmoitukset havaitsemistaan virheellisistä kohteista. Voit tarkastella yksittäistä virhettä klikkaamalla riviä; kartta zoomautuu oikeaan sijaintiin ja virheellinen kohde korostuu. Virheitä voi korjata yksitellen, mutta myös useamman virheen voi valita ja korjata isomman osion kerralla. Ennen varsinaista virheiden korjausta voit määrittää virheiden ratkaisumenetelmät valitsemalla **Error resolution settings**. Aseta **Duplicate-kohtaan** ratkaisuksi **Remove duplicates**.
+
+Työkalu ajaa algoritmia hetken, mutta palauttaa sen jälkeen virheilmoitukset havaitsemistaan virheellisistä kohteista. Voit tarkastella yksittäistä virhettä klikkaamalla riviä; kartta zoomautuu oikeaan sijaintiin ja virheellinen kohde korostuu. Virheitä voi korjata yksitellen, mutta myös useamman virheen voi valita ja korjata isomman osion kerralla. Ennen varsinaista virheiden korjausta voit määrittää virheiden ratkaisumenetelmät valitsemalla **Aseta virheen ratkaisut**. Aseta **Duplikaattisolmu-kohtaan** ratkaisuksi **Poista duplikaattsolmu**.
 
 ![](img/harjoitus_4/image13.png)
 
-Korjaa virheet valitsemalla **Fix selected errors using default resolution**, jolloin QGIS poistaa duplikaattigeometriat, kuten määrittelimme äsken.
+Korjaa virheet valitsemalla **Korjaa valitut virheet oletusratkaisulla**, jolloin QGIS poistaa duplikaattigeometriat, kuten määrittelimme äsken.
+
 
 ![](img/harjoitus_4/image14.png)
 
@@ -86,7 +88,7 @@ Miksi kaikki menetelmät tuottivat niin erilaisia tuloksia ja miksi vaihtoehtoja
 
 ## Geometrian ja topologian validointi tasoa muokattaessa
 
-Voit välttää virheellisten geometrioiden muodostumista jo aineistoa digitoidessa ja editoidessa. Avaa muokattavan tason **Ominaisuudet** -ikkuna ja mene **Digitointi** -välilehdelle. Ruksi aktiivisiksi haluamasi korjaukset.
+Voit välttää virheellisten geometrioiden muodostumista jo aineistoa digitoidessa ja editoidessa. Avaa muokattavan tason **Ominaisuudet**-ikkuna ja mene **Digitointi**-välilehdelle. Ruksi aktiivisiksi haluamasi korjaukset.
 
 ![](img/harjoitus_4/image15.png)
 
@@ -101,5 +103,5 @@ Editoidessa voit hyödyntää myös **Tarttumisen työkalut** -palkin toimintoa 
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::

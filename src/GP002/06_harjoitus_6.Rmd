@@ -45,9 +45,9 @@ Digitoi nyt 5-8 polygonia. Voit tehdä rakennuksia, metsä- tai peltoalueita hal
 Kun olet valmis, klikkaa jälleen kynä-ikonia lopettaaksesi ja tallentaaksesi editoinnin. 
 
 
-
-> Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.
-
+::: hint-box
+**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
+:::
 
 ## Lisätehtävä: Tarttumisen työkalut
 

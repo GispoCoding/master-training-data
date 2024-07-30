@@ -1,0 +1,82 @@
+# Harjoitus 4: Karttatuloste
+
+## Harjoituksen sisältö
+
+Harjoituksessa tehdään karttatuloste.
+
+## Harjoituksen tavoite
+
+Koulutettava oppii laatimaan karttatulosteen halutussa mittakaavassa sekä tehdä tulosteesta PDF-tiedoston.
+
+## Valmistautuminen
+
+Käynnistä QGIS-ohjelmisto. Avaa toisen harjoituksen projekti, eli se missä tehtiin teemakarttaa. Vaihtoehtoisesti voit lisätä jotain muuta aineistoa, tässä harjoituksessa emme visualisoida aineistoa, vaan me harjoitellaan karttatulosteiden tekemistä.
+
+## Karttatuloste
+
+Uuden tulosteen muodostaminen voidaan aloittaa kahdella tavalla, valitse **Projekti → Uusi taitto** tai paina työkalua:
+
+![](img/harjoitus_4/image1.png)
+
+Ensimmäisenä kysytään uuden taiton nimeä. Anna taitolle jokin sitä hyvin kuvaava nimi. Taittoa varten avautuu uusi ikkuna.
+
+![](img/harjoitus_4/image2.png)
+
+Paina tulosalueella hiiren oikealla näppäimellä ja valitse **Sivun ominaisuudet**. Tarkista **Elementin ominaisuudet -välilehdestä** oikeasta paneelista, että paperin kooksi A4, suunta **Vaaka** ja **Taitto-välilehdestä**, että viennin resoluutio on 300 dpi. Tämän jälkeen voimme sijoittaa karttanäkymän tulosteelle, valitse työkalupalkista työkalu:
+
+![](img/harjoitus_4/image3.png)
+
+Vedä tulosalueelle suorakulmio, karttanäkymän mukainen kartta piirtyy näytölle.
+
+![](img/harjoitus_4/image4.png)
+
+Valitse **Elementin ominaisuudet -välilehti** ja muuta kartan parametrejä seuraavasti:
+
+-   Kartan mittakaavaksi 1:250 000
+-   Valitse Kehys (piirtää kartalle reunaviivat)
+
+Huomaa, että karttatulosteen hallinnassa on mahdollisuus siirtää yksittäisiä kohteita (nimikkeitä) tai muokata kartan sijaintia. Kohteen ollessa valittuna, voit siirtää sitä tulosteella seuraavan työkalun avulla:
+
+|                                  |                                                         |
+|:------------------:|:--------------------------------------------------:|
+| ![](img/harjoitus_4/image5.png) |                Valitse/siirrä elementtiä                |
+| ![](img/harjoitus_4/image6.png) | Siirrä elementin sisältöä (esimerkiksi kartan sisältöä) |
+| ![](img/harjoitus_4/image7.png) |                 Zoomaa taiton näkymässä                 |
+
+QGISin avulla voit muokata karttatulosteesi ulkoasua. Otsikko tai muu teksti voidaan lisätä **Lisää uusi nimiö** -työkalulla: ![](img/harjoitus_4/image8.png)
+
+Lisää uusi selite käyttäen: ![](img/harjoitus_4/image9.png)
+
+Ja lisää uusi mittakaava käyttäen: ![](img/harjoitus_4/image10.png)
+
+Huomaa, että näiden taiton elementtien ominaisuuksia voit muokata oikeanpuoleisen sivupalkin **Elementin ominaisuudet -välilehden** avulla. Tekstiä voi muokata tekstinkäsittelyohjelmista tutuilla työkaluilla:
+
+![](img/harjoitus_4/image11.png)
+
+Voit myös muokata selitteen ominaisuuksia. Huomaa, että sinun on poistettava kohdan **Päivitä automaattisesti** rasti. Pohjoisnuolen lisääminen tapahtuu lisäämällä kuva tällä työkalulla (vasemmasta palkista): ![](img/harjoitus_4/image12.png)
+
+Valitse sen jälkeen **Elementin ominaisuudet -ikkunasta** mieleisesi pohjoisnuoli-kuva (selaa sisältöä alaspäin, jos et heti näe nuolia).
+
+![](img/harjoitus_4/image13.png)
+
+Lopputulos voi olla esimerkiksi seuraavanlainen:
+
+![](img/harjoitus_4/image14.png)
+
+Halutessasi voit tallentaa käyttämäsi tulostemallin (layout englanniksi) ja hyödyntää sitä jatkossa seuraavien karttatulosteiden tekemiseen. Voit esimerkiksi muotoilla kollegoidesi käyttöön karttatulostemallin organisaatiollesi (logot, värit, tekstin paikka, jne.). Tämä onnistuu **Tallenna malliksi -työkalulla**: ![](img/harjoitus_4/image15.png)
+
+Lopputuloksen voit tulostaa tiedostoksi (kuvaksi tai pdf:ksi) tai tulostimeen.
+
+![](img/harjoitus_4/image16.jpg)
+
+Sopiva resoluutio karttatulosteellesi riippuu kartan käyttötarkoituksesta, mutta oletusarvoinen 300 dpi tallentaa resoluutioltaan hyvinkin tarkkoja kuvia. Voit valita arvoksi vaikkapa 200 dpi.
+
+## Lisätehtävä: Tutustu QGISin kartta-atlakseen
+
+QGISillä on toiminto millä voidaan automatisoida karttojen luontia. Jos esimerkiksi haluaa monesta kaupuginosasta samantyylisiä karttoja, kannattaa harkita kartta-atlaksen käyttöä. Tutustu kartta-atlakseen esimerkiksi [täällä](https://www.qgistutorials.com/en/docs/3/automating_map_creation.html) ja mieti jos tästä voisi olla hyötyä sinulle.
+
+::: hint-box
+**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
+:::
+
+

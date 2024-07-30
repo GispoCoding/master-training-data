@@ -93,4 +93,4 @@ Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä koulu
 
 ## Lisenssi ja oikeudet
 
-Nämä materiaalit on "license_title_replace"- kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+Nämä materiaalit on "license_title_replace"- kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

@@ -18,7 +18,7 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-h
 
 ## Muokkauksen yleisasetukset
 
-Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkausikkuna tulee esiin jokaisen polygonin piirtämisen jälkeen niin rastita **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri keltaiseksi (**Kuminauha**) ja **Taitepisteen** symbolin tyyli ja koko. Paina **OK**, niin asetukset tulevat voimaan.
+Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkausikkuna tulee esiin jokaisen polygonin piirtämisen jälkeen, rastita **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri keltaiseksi (**Kuminauha**) ja **Taitepisteen** symbolin tyyli ja koko. Paina **OK**, jolloin asetukset tulevat voimaan.
 
 ![](img/harjoitus_6/image1.png)
 
@@ -34,13 +34,13 @@ Aloitetaan tekemällä editointia helpottavia valmisteluja. Ensimmäisenä aktiv
 
 ![](img/harjoitus_6/image2.png)
 
-Usein ensimmäinen operaatio aineistojen luomisessa on taustakartan lisääminen. Taustakartta helpottaa liikkumista ja aineistojen tarkistusta. Uudemmissa QGISin versioissa on OpenStreetMapin taustakarttatasot saatavilla valmiina. Lisää taustakartta projektiin vasemmalta tuplaklikkaamalla  **Selain-paneelista XYZ Tiles \> OpenStreetMap**.
+Usein ensimmäinen tehtävä aineistojen luomisessa on taustakartan lisääminen. Taustakartta helpottaa liikkumista ja aineistojen tarkistusta. Uudemmissa QGISin versioissa on OpenStreetMapin taustakarttatasot valmiiksi saatavilla. Lisää taustakartta projektiin tuplaklikkaamalla vasemmalta **Selain-paneelista XYZ Tiles \> OpenStreetMap**.
 
 ![](img/harjoitus_6/image3.png)
 
-Zoomaa kartta Suomen kohdalle ja koska haluamme tehdä tarkkaa editointia oikeassa koordinaattijärjestelmässä, muutetaan projektin koordinaattijärjestelmä Suomen kansalliseen **EUREF-FIN 3067**. Klikkaa projektin oikeasta alakulmasta, jossa lukee tällä hetkellä EPSG:3857, jonka QGIS on asettanut taustakartan perusteella.
+Zoomaa kartta Suomen kohdalle, ja koska haluamme tehdä tarkkaa editointia oikeassa koordinaattijärjestelmässä, muutetaan projektin koordinaattijärjestelmä Suomen kansalliseen **EUREF-FIN 3067**-järjestelmään. Klikkaa projektin oikeasta alakulmasta, jossa lukee tällä hetkellä EPSG:3857. Tämä on QGISin taustakartan perusteella asettama koordinaattijärjestelmä, jota emme nyt siis halua käyttää.
 
-Paina tämän jälkeen **OK,** jonka jälkeen avautuva ikkuna kysyy sinulta koordinaattimuunnoksesta. Valitse uudestaan **OK** ja nyt projektisi on oikeassa koordinaattijärjestelmässä.
+Paina tämän jälkeen **OK,** minkä jälkeen avautuva ikkuna kysyy sinulta koordinaattimuunnoksesta. Valitse uudestaan **OK**. Nyt projektisi on oikeassa koordinaattijärjestelmässä.
 
 ## GeoPackagen luonti
 
@@ -82,25 +82,25 @@ Kolmanneksi pitäisi ottaa huomioon, että siirretäänkö kyseistä aineistoa j
 
 Etsitään editoitava alue kartalla hyödyntäen QGISin hakutoimintoa OSM-kartan kanssa. QGISin alapalkissa vasemmalla on upotettu Etsi-toiminto, johon on sisäänrakennettu esimerkiksi OpenStreetMapin aineistoon perustuva Nominatim Geocoder, jonka avulla voimme etsiä osoitteita.
 
-Etsiminen tapahtuu kirjoittamalla `>` jonka perään osoite. Tässä harjoituksessa editoimme Vallilanlaakson aluetta Kumpulassa, joten kirjoitamme hakukenttään `> Vallilanlaakso`
+Etsiminen tapahtuu kirjoittamalla `>` ja sen perään osoite. Tässä harjoituksessa editoimme Vallilanlaakson aluetta Kumpulassa, joten kirjoitamme hakukenttään `> Vallilanlaakso` .
 
 ![](img/harjoitus_6/image23.gif)
 
 ::: hint-box
-Jos QGIS versiosi on vanhempi voi olla että tarvitset Nominatim Locator Filter- lisäosan. Asenna se Lisäosat välilehden kautta. Kun olet asentanut lisäosan, hae kohdetta muutoin samaan tapaan mutta aloita haettava osoite `osm` -sanalla eli kirjoita Etsi- laatikkoon `osm Vallilaanlaakso`
+Jos QGIS-versiosi on vanhempi, voi olla, että tarvitset Nominatim Locator Filter -lisäosan. Asenna se Lisäosat-välilehden kautta. Kun olet asentanut lisäosan, hae kohdetta muutoin samaan tapaan, mutta aloita haettava osoite `osm`-sanalla eli kirjoita Etsi-laatikkoon `osm Vallilaanlaakso`
 
-Huomaa että Vallilanlaakso -sanan jälkeen on lisättävä vielä välilyönti, jotta haku tapahtuu.
+Huomaa, että Vallilanlaakso-sanan jälkeen on lisättävä vielä välilyönti, jotta haku tapahtuu.
 :::
 
 Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla **Tason muokkaus päälle/pois -painiketta** ![](img/harjoitus_6/image11.png). Huomaa, että **Digitoinnin työkalupalkin** työkalut aktivoituvat. 
 
 ![](img/harjoitus_6/image12.png)
 
-Valitse työkaluksi **Lisää polygonikohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, niin napauta hiiren oikeaa näppäintä, uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
+Valitse työkaluksi **Lisää polygonikohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, napauta hiiren oikeaa näppäintä ja uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
 
 ![](img/harjoitus_6/image13.png)
 
-Kun editointi on valmis, QGISiin avautuu **Alueet - Kohteen attribuutit -ikkuna**. Laita **Alueen_nimi-kohtaan "Aluerajaus"**. Muihin kenttiin ei vielä tarvitse täyttää mitään.
+Kun editointi on valmis, QGISiin avautuu **Alueet - Kohteen attribuutit -ikkuna**. Laita **Alueen_nimi-kohtaan "Aluerajaus"**. Muihin kenttiin ei vielä tarvitse täyttää mitään. Paina **OK**.
 
 ![](img/harjoitus_6/image14.png)
 
@@ -116,7 +116,7 @@ Kun klikkaat **OK**, QGIS kysyy, haluatko korvata olemassa olevan GeoPackage-tie
 
 ![](img/harjoitus_6/image16.png)
 
-Laita nyt vuorostaan tämän juuri luodun tason editointi päälle klikkaamalla **Tason muokkaus päälle/pois -kuvaketta** (kynäikoni). Koska haluamme että kulkureittien editointi alkaa aivan alueen reunasta, on kytkettävä **Tarttuminen (snapping)** päälle. Voit tehdä tämän klikkaamalla **Ota tarttuminen käyttöön -painiketta** ![](img/harjoitus_6/image17.png). Valitse ensimmäisestä alasvetovalikosta **Kaikki tasot** ja toisesta valikosta kuvan mukaisesti **Piste** ja **segmentti**. Aseta **tarttumisherkkyydeksi** 12 pikseliä (oletusherkkyys).
+Laita nyt vuorostaan tämän juuri luodun tason editointi päälle klikkaamalla **Tason muokkaus päälle/pois -kuvaketta** (kynäikoni). Koska haluamme, että kulkureittien editointi alkaa aivan alueen reunasta, on kytkettävä **Tarttuminen (snapping)** päälle. Voit tehdä tämän klikkaamalla **Ota tarttuminen käyttöön -painiketta** ![](img/harjoitus_6/image17.png). Valitse ensimmäisestä alasvetovalikosta **Kaikki tasot** ja toisesta valikosta kuvan mukaisesti **Piste** ja **segmentti**. Aseta **tarttumisherkkyydeksi** 12 pikseliä (oletusherkkyys).
 
 ![](img/harjoitus_6/image18.png)
 
@@ -137,6 +137,6 @@ round(\$length, 1)
 Laita lopuksi molempien tasojen tason muokkaus pois päältä klikkaamalla kynäkuvaketta. Tallenna kaikki muutokset tasoihin. Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+**Psst!** Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
 

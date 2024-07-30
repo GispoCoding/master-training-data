@@ -39,7 +39,7 @@ Copy-Item -Path "$outFolder/*" -Destination $tempFolder -Recurse -Force
 
 Move-Item -Path "$tempFolder/index.html" -Destination "$tempFolder/00_index.html" -Force
 
-docker run --rm -v "$(pwd)/docs/run.sh:/app/run.sh" -v "$(pwd)/out:/out" --entrypoint /bin/sh surnet/alpine-wkhtmltopdf:3.19.0-0.12.6-small /app/run.sh $code
+docker run --rm -v "$(pwd)/process_html.sh:/app/run.sh" -v "$(pwd)/out:/out" --entrypoint /bin/sh surnet/alpine-wkhtmltopdf:3.19.0-0.12.6-small /app/run.sh $code
 
 $pdfFolder = "out/${code}_pdf"
 

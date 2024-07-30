@@ -1,4 +1,4 @@
-# HARJOITUS 1.4: KUVAUSTEKNIIKAN PERUSTEET (SLD)
+# Harjoitus 1.4: Kuvaustekniikan perusteet (SLD)
 
 **Harjoituksen sisältö**
 
@@ -15,6 +15,10 @@ Harjoituksen jälkeen opiskelija osaa hyödyntää peruskuvaustekniikoita GeoSer
 ## **Valmistautuminen**
 
 Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
 
 Aiemmissa harjoituksissa on luotu GeoServerin palvelimelle taso **rakennukset**, johon luodaan nyt kuvaustekniikka.
 
@@ -201,9 +205,9 @@ Aseta vielä tiesto-tason oletustyyliksi **tiesto-tyyli**. (**Data → Layers �
 
 Paina **Save** ja esikatsele tasoa. Huomaa, että kun loitonnat karttaa siten että mittakaava on pienempi kuin 1:32 000, tiet eivät enää tule näkyviin.
 
-Lisätään nyt tiet myös mittakaavaan 1:32 000 ja suuremmille. Tämä onnistuu luomalla **\<Rule\>**-osio, jossa maksimimittakaava (**\<MaxScaleDenominator\>**) on määritelty **32000** arvoksi.
+Lisätään nyt tiet myös mittakaavaan 1:32 000 ja suuremmille. Tämä onnistuu luomalla **\<Rule\>**-osio, jossa maksimimittakaava (**\<MaxScaleDenominator\>**) on määritelty arvolla **32000**.
 
-Voit hyödyntää edellisen sääntö osiota: kopioi koko **\<Rule\>** kappale. Lisää se **\</Rule\>** jälkeen.
+Voit hyödyntää edellistä sääntöosiota: kopioi koko **\<Rule\>** kappale. Lisää se **\</Rule\>** jälkeen.
 
 ![](img/harjoitus_4/image15.png)
 
@@ -231,7 +235,7 @@ Muuta taas otsikko, väri ja paksuus kuvan mukaisesti:
 
 ![](img/harjoitus_4/image17.png)
 
-Tämä viiva tulee piirretyksi edellisen paksumman viivan päälle, josta aiheutuu viivareunan efekti.
+Tämä viiva tulee piirretyksi edellisen paksumman viivan päälle, mistä aiheutuu viivareunan efekti.
 
 Esikatsele lopputulosta:
 

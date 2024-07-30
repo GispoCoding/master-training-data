@@ -1,8 +1,8 @@
-# EXERCISE 2.1: WFS SERVICES
+# Exercise 2.1: WFS services
 
 **Content of the exercise**
 
-The exercise will introduce you to the settings and functionality of the WFS map services.
+The exercise will introduce the student to the settings and functionality of the WFS map services.
 
 **Aim of the exercise**
 
@@ -34,7 +34,7 @@ The WFS-specific settings can be found below, which define how WFS-specific serv
 
 To test this function, set the value of these features to **1**.
 
-Then press **Submit**.
+Press **Submit**.
 
 Then view the **tiesto** layer through the WFS interface via the Layer Preview GML preview or e.g. with the QGIS application.
 
@@ -166,14 +166,14 @@ First you need the address of the WFS service. For example, you can get this fro
 
 The address will be in the format:
 
-::: note-box
-<http://%3Cip.osoite%3E:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities>
+::: code-box
+http://%3Cip.address%3E:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities
 :::
 
 With GeoServer's default settings, a workspace-specific address is obtained by adding the workspace URI to the address. For example, the address of a helsinki workspace would be:
 
-::: note-box
-<http://%3Cip.osoite%3E:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities>
+::: code-box
+http://%3Cip.address%3E:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities
 :::
 
 Open QGIS from the desktop icon. Add a new WFS service and paste the address you just copied into the URL field. Also enter your username (admin) and password (gispo).
@@ -192,8 +192,8 @@ To add a new store (**Data → Stores → Add new Store**), select **Web Feature
 
 The Lipas-WFS service will be added. Name the new vector-store **lipas_WFS** and set **WFS GetCapabilities URL**:
 
-::: note-box
-<http://lipas.cc.jyu.fi/geoserver/lipas/ows?service=WFS&REQUEST=Getcapabilities>
+::: code-box
+http://lipas.cc.jyu.fi/geoserver/lipas/ows?service=WFS&REQUEST=Getcapabilities
 :::
 
 ![](img/harjoitus_8/image10.png)
@@ -206,7 +206,7 @@ The new store will contain the map layers that were shared on the original WFS s
 
 You can publish layers directly from the service. For example, publish **lipas_excursion_map_routes**. Right click on **Publish** and define **Bounding Boxes** as usual.
 
-Then press **Save**.
+Press **Save**.
 
 You can now preview the new layer (the default name will be **Excursion_routes**).
 

@@ -7,12 +7,12 @@ Käytä QGISin kartta-atlas työkalua. Tuota kuvan mukainen karttatulostesarja E
 ![](img/kappale_11/image1.png)
 
 1. Luo uusi karttatuloste ja sille karttaikkuna, jonka sisältöä hallinnoi valtioaineiston perusteella luotu kartta-atlas.
-  - Aseta kartta-atlaksen sivun nimeksi ADMIN-attribuuttikentän arvo
-  - Hyödynnä kartta-atlaksen asetuksista löytyvää suodatusmahdollisuutta ja tarkastele vain Euroopan valtioita
-2. Luo dynaaminen otsikkonimiö, joka on muotoa "Map .../50" (atlaksen sivu)
-3. Luo dynaaminen karttatulostenimiö, johon muodostuu lista sen hetkisen atlas-sivun kattavuusobjektin alueelle osuvista lentokentistä (nimi-tieto kustakin, pilkulla erotettuina)
-4. Säädä valtioiden näkyvyyttä siten, että vain atlas-sivun kattavuusobjektina toimiva valtio näkyy
-5. Säädä lentokenttien näkyvyyttä siten, että vain atlas-sivun kattavuusobjektin alueella sijaitsevat lentokenttäkohteet kuvautuvat karttapohjalle
+  - Aseta kartta-atlaksen sivun nimeksi ADMIN-attribuuttikentän arvo.
+  - Hyödynnä kartta-atlaksen asetuksista löytyvää suodatusmahdollisuutta ja tarkastele vain Euroopan valtioita.
+2. Luo dynaaminen otsikkonimiö, joka on muotoa "Map .../50" (atlaksen sivu).
+3. Luo dynaaminen karttatulostenimiö, johon muodostuu lista sen hetkisen atlas-sivun kattavuusobjektin alueelle osuvista lentokentistä (nimi-tieto kustakin, pilkulla erotettuina).
+4. Säädä valtioiden näkyvyyttä siten, että vain atlas-sivun kattavuusobjektina toimiva valtio näkyy.
+5. Säädä lentokenttien näkyvyyttä siten, että vain atlas-sivun kattavuusobjektin alueella sijaitsevat lentokenttäkohteet kuvautuvat karttapohjalle.
 
 **Aineistot**: 
 
@@ -26,22 +26,22 @@ Käytä QGISin kartta-atlas työkalua. Tuota kuvan mukainen karttatulostesarja E
 
 ![](img/kappale_11/image2.gif)
 
-**Vaihe 2 (otsikko)**: ```@atlas_feature```- muuttuja kertoo sivunumeron.
+**Vaihe 2 (otsikko)**: ```@atlas_feature``` -muuttuja kertoo sivunumeron.
 
 **Vaihe 3 (lista lentokentistä)**:
 
-- Käytä ```overlay_contains()```- funktiota. Hae sillä lentokenttien nimet. Funktio palauttaa tulokset ```Array```- datatyyppinä.
+- Käytä ```overlay_contains()```-funktiota. Hae sillä lentokenttien nimet. Funktio palauttaa tulokset ```Array```-datatyyppinä.
 - Muuta ```Array``` merkkijonoksi (string). Millä funktiolla se onnistuu?
 
 **Vaihe 4 (valtion näkyvyys)**:
 
-- Tee sääntöpohjainen visualisointi valtioille. ```@atlas_pagename```- muuttuja kertoo tämänhetkisen sivun nimen.
+- Tee sääntöpohjainen visualisointi valtioille. ```@atlas_pagename```-muuttuja kertoo tämänhetkisen sivun nimen.
 
 **Vaihe 5 (lentokenttien näkyvyys)**:
 
 - Tee sääntöpohjainen visualisointi lentokentille.
   - Millä funktiolla voit tarkastaa leikkaako lentokenttäpiste valtiopolygonin?
-  - ```get_feature()```- funktiolla saat haettua toisen tason kohteen.
+  - ```get_feature()```-funktiolla saat haettua toisen tason kohteen.
   - Millä funktiolla saat palautettua kohteen geometrian?
 :::
 

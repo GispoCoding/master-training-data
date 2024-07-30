@@ -1,6 +1,6 @@
 ---
 title: "Introduction to QGIS"
-author: "Gispo Ltd."   
+author: "Gispo Finland Ltd."   
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Basic course on QGIS"

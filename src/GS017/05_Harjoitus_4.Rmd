@@ -2,11 +2,11 @@
 
 **Harjoituksen sisältö**
 
-Harjoituksessa luodaan QGIS-projektiin relaatio, jonka avulla kerättäviin lintuhavainnot-tason kohteisiin lisätään tietoa ympäröivästä luontotyypistä. Tasojen välille luodaan relaatio, jonka avulla kyseinen vanhempi-lapsi -suhde saadaan kohteille rakennettua.
+Harjoituksessa luodaan QGIS-projektiin relaatio, jonka avulla kerättäviin lintuhavainnot-tason kohteisiin lisätään tietoa ympäröivästä luontotyypistä. Tasojen välille luodaan relaatio, jonka avulla kyseinen vanhempi-lapsi-suhde saadaan rakennettua kohteille.
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii määrittelemään relaatioita tasojen välille QGISin projektin asetuksia käyttäen ja ottamaan tässä huomioon QFieldin ja mobiilikeruun ominaispiirteet.
+Koulutettava oppii määrittelemään relaatioita tasojen välille QGISin projektin asetuksia käyttäen ja ottamaan tässä huomioon Mergin Mapsin ja mobiilikeruun ominaispiirteet.
 
 **Arvioitu kesto**
 
@@ -20,7 +20,7 @@ Avaa QGIS tietokoneellasi ja avaa siellä aiemmin luomasi QGIS-projekti (**Proje
 
 Äskeisessä harjoituksessa jalostimme lintuhavainnot tason attribuuttitiedot varsin pitkälle. Hyödynnetään nyt Luontoselvitys-tasoa relaation muodostamisessa. Relaation muodostaminen mahdollistaa lintuhavainnon yhteydessä lisätä myös havaintopaikan luontotyypin/kasvillisuustyypin, joka tallentuu toiselle tasolle samasta kohteesta.
 
-Ennen relaation luomista tehdään Luontoselvitys-tasolle muutama ennalta määritetty luontotyyppi. Luodaan lista muutamista luonnonsuojelulaissa määritetyistä luontotyypeistä, jotka voisivat ilmetä kyseisellä alueella. tehdään Luontoselvitys-tason attribuuttilomakkeella tasolle "luonto- /kasvillisuustyyppi" listaus valitsemalla widget-tyypiksi "Value map" ja lisätään arvot:
+Ennen relaation luomista tehdään Luontoselvitys-tasolle muutama ennalta määritetty luontotyyppi. Luodaan lista muutamista luonnonsuojelulaissa määritetyistä luontotyypeistä, jotka voisivat ilmetä kyseisellä alueella. tehdään Luontoselvitys-tason attribuuttilomakkeella tasolle "luonto-/kasvillisuustyyppi" listaus valitsemalla widget-tyypiksi "Value map" ja lisätään arvot:
 
 - Jalopuumetsiköt
 
@@ -64,11 +64,11 @@ Määritetään nyt miten Lintuhavainnot kohteisiin liitettävien luontotyyppi-t
 
 ![](img/harjoitus_4/image3.png)
 
-Lisätään luontyypeille tunniste Merginin kohdelistausta varten. Mene siis vielä Tason ominaisuudet -ikkunassa Näyttö-välilehdelle, ja kirjoita näyttönimeksi "luonto-/kasvillisuutyyppi". Katso alla olevasta kuvasta mallia. Paina tämän jälkeen OK.
+Lisätään luontyypeille tunniste Mergin Mapsin kohdelistausta varten. Mene siis vielä Tason ominaisuudet -ikkunassa Näyttö-välilehdelle, ja kirjoita näyttönimeksi "luonto-/kasvillisuutyyppi". Katso alla olevasta kuvasta mallia. Paina tämän jälkeen OK.
 
 ![](img/harjoitus_4/image4.png)
 
-Lisätään **Lintuhav_luonto** -relaatio vielä **Lintuhavainnot** attribuuttilomakkeeseen kuvan mukaisesti. Eli avaa Puut-tason ominaisuudet, ja raahaa Attribuuttilomake-välilehden Drag and Drop Designer -näkymässä käytettävissä olevista widgeteistä lomakenäkymä-sarakkeen perustieto-välilehden viimeiseksi kentäksi:
+Lisätään **Lintuhav_luonto**-relaatio vielä **Lintuhavainnot**-attribuuttilomakkeeseen kuvan mukaisesti. Eli avaa Puut-tason ominaisuudet ja raahaa Attribuuttilomake-välilehden Drag and Drop Designer -näkymässä käytettävissä olevista widgeteistä lomakenäkymä-sarakkeen perustieto-välilehden viimeiseksi kentäksi:
 
 ![](img/harjoitus_4/image5.png)
 
@@ -76,14 +76,13 @@ Paina lopuksi OK. Tallenna myös projekti (**Projekti \> Tallenna**). Pakkaa ja 
 
 ![](img/harjoitus_4/image6.png)
 
-## **Lapsikohteiden luominen Merginissä**
+## **Lapsikohteiden luominen Mergin Mapsissa**
 
-Avaa jälleen kurssiprojekti viimeisine muutoksineen puhelimen Mergin Mapsissa. Luodaan nyt Lintuhavainnot-tasolle uusi kohde, jolle lisätään lapsikohteena tietoa luontotyypistä. Aktivoi digitointitila ja valitse Lintuhavainnot-taso. Digitoi tasolle uusi piste. Attribuuttilomakkeen ilmestyessä huomaat, että perustiedot-välilehdelle on ilmestynyt **Luontotyyppi** -valinta, joka on mahdollista aktivoida täytettyäsi vaadittavat tiedot Lintuhavainnot-tasolle lisättävästä kohteesta. Täytä tarvittavat tiedot, ja lisää digitoimallesi havainnolle sen luontotyyppi / -tyypit.
+Avaa jälleen kurssiprojekti viimeisine muutoksineen puhelimen Mergin Mapsissa. Luodaan nyt Lintuhavainnot-tasolle uusi kohde, jolle lisätään lapsikohteena tietoa luontotyypistä. Aktivoi digitointitila ja valitse Lintuhavainnot-taso. Digitoi tasolle uusi piste. Attribuuttilomakkeen ilmestyessä huomaat, että perustiedot-välilehdelle on ilmestynyt **Luontotyyppi**-valinta, joka on mahdollista aktivoida täytettyäsi vaadittavat tiedot Lintuhavainnot-tasolle lisättävästä kohteesta. Täytä tarvittavat tiedot, ja lisää digitoimallesi havainnolle sen luontotyyppi/-tyypit.
 
 ![](img/harjoitus_4/image7.png)![](img/harjoitus_4/image8.png)![](img/harjoitus_4/image9.png)
 \
-\
 
 ::: hintbox
-Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi! \|
+Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki\@gispo.fi!
 :::

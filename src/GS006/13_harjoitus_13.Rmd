@@ -1,4 +1,4 @@
-# HARJOITUS 2.6: SUODATTIMET
+# Harjoitus 2.6: Suodattimet
 
 **Harjoituksen sisältö**
 
@@ -56,7 +56,7 @@ Psst! Lauseke on muotoa “BBOX(geometriasarake, xmin, ymin, xmax, ymax)”. Osa
 
 GeoServerin dokumentaatiosta löytyy tarkempia kuvauksia (**Tutorials → CQL and ECQL**).
 
-Suodata **topp:states**-tason WMS-palvelua siten, että ainoastaan ne osavaltiot, joiden työttömyysprosentti on alle 5% näkyvät palvelussa.
+Suodata **topp:states**-tason WMS-palvelua siten, että ainoastaan ne osavaltiot, joiden työttömyysprosentti on alle 5 % näkyvät palvelussa.
 
 Muodosta topp:states-tasolle kuvaustekniikka, jossa piirretään osavaltioiden keskipisteeseen punainen symboli.
 

@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan Mergin Maps -käyttöliittymään.
 
 **Harjoituksen tavoite**
 
-Tavoite on, että koulutettava saa asennettua Mergin Maps-mobiilisovelluksen käyttövalmiiksi laitteelleen, oppii sen käyttöliittymän eri osiot sekä osaa tarkastella karttanäkymää ja paikkatietoja sovelluksen avulla.
+Tavoite on, että koulutettava saa asennettua Mergin Maps -mobiilisovelluksen käyttövalmiiksi laitteelleen, oppii sen käyttöliittymän eri osiot sekä osaa tarkastella karttanäkymää ja paikkatietoja sovelluksen avulla.
 
 **Arvioitu kesto**
 
@@ -14,13 +14,13 @@ Tavoite on, että koulutettava saa asennettua Mergin Maps-mobiilisovelluksen kä
 
 ## **Sovelluksen avaaminen ja käyttöliittymä**
 
-Avataan nyt Mergin Maps-sovellus (jos kysyy hyväksytäänkö paikallisten tiedostojen käyttö ja paikannus, valitse salli), jolloin sinulle pitäisi ilmestyä alla olevan kuvan mukainen etusivu. Siinä näet oletusvaihtoehtoja projektien avaamiseksi. Nyt **Viimeisimmät projektit** -kohdassa on asennuksen mukana tulevia demoprojekteja, joilla voi tutustua Mergin Mapsin käyttöön ilman, että pitää valmistella ensin oma projekti QGISin avulla. Myöhemmin tähän tulee edellisellä kerralla käyttämiäsi projekteja, joita klikkaamalla pääset nopeammin niihin käsiksi.
+Avataan nyt Mergin Maps -sovellus (jos kysyy hyväksytäänkö paikallisten tiedostojen käyttö ja paikannus, valitse salli), jolloin sinulle pitäisi ilmestyä alla olevan kuvan mukainen etusivu. Siinä näet oletusvaihtoehtoja projektien avaamiseksi. Nyt **Viimeisimmät projektit** -kohdassa on asennuksen mukana tulevia demoprojekteja, joilla voi tutustua Mergin Mapsin käyttöön ilman, että pitää valmistella ensin oma projekti QGISin avulla. Myöhemmin tähän tulee edellisellä kerralla käyttämiäsi projekteja, joita klikkaamalla pääset nopeammin niihin käsiksi.
 
 ![](img/Harjoitus_1/image1.png)
 
 ## **Mergin Mapsin käyttöliittymä**
 
-Tutustutaan aluksi Mergin Mapsin käyttöliittymään ja sen paikkatietojen tarkasteluun sillä. Käytämme nyt aluksi valmista demoprojektia ennen kuin ryhdymme varsinaiseen paikkatietojen mobiilikeruuseen ja muokkaukseen omaa projektia käyttäen. Klikkaa siis sovelluksen etusivulla **Start here!** -kohtaa, jolloin kyseisen projektin karttanäkymä avautuu.
+Tutustutaan aluksi Mergin Mapsin käyttöliittymään ja paikkatietojen tarkasteluun sillä. Käytämme aluksi valmista demoprojektia ennen kuin ryhdymme varsinaiseen paikkatietojen mobiilikeruuseen ja muokkaukseen omaa projektia käyttäen. Klikkaa sovelluksen etusivulla **Start here!** -kohtaa, jolloin kyseisen projektin karttanäkymä avautuu.
 
 ![](img/Harjoitus_1/image2.png)
 
@@ -28,7 +28,7 @@ Seurataan askeleita ja sormisymboleja. Demoversio pitää sisällään ilmanlaat
 
 ![](img/Harjoitus_1/image3.png)
 
-Olet varmasti tässä kohtaa jo huomannut, että sovelluksen toiminnallisuudet löytyvät sivun alalaidasta. "Projektit"-valikosta pääset takaisin pääsivulle, josta voit vaihtaa toiseen projektiin. "GPS"-valikko paikantaa sinun todelliseen sijaintiin, mikäli olet antanut sovellukselle oikeuden paikantaa sijaintisi. "Tallenna"-valikon takana pääset lisämään ja muokkaamaan tasojen geometrioita. "Lisää"-valikon takaa löytyy demoversion seuraavan vinkin toiminnallisuus "Karttateemat".
+Olet varmasti jo huomannut, että sovelluksen toiminnallisuudet löytyvät sivun alalaidasta. "Projektit"-valikosta pääset takaisin pääsivulle, josta voit vaihtaa toiseen projektiin. "GPS"-valikko paikantaa sinun todelliseen sijaintiin, mikäli olet antanut sovellukselle oikeuden paikantaa sijaintisi. "Tallenna"-valikon takana pääset lisämään ja muokkaamaan tasojen geometrioita. "Lisää"-valikon takaa löytyy demoversion seuraavan vinkin toiminnallisuus "Karttateemat".
 
 ![](img/Harjoitus_1/image4.png)
 
@@ -36,12 +36,10 @@ Avaamalla karttateemat-valikon pääset valitsemaan kahden olemassa olevan teema
 
 ![](img/Harjoitus_1/image5.png)
 
-Katsotaan tässä kohtaa vielä asetuksia, jotka löydät Lisää-valikon kautta. Ohjelman pitäisi oletusasetuksena aktivoida puhelimen GPS-paikannin. Mikäli näin ei ole eikä ohjelma avautuessaan erikseen pyydä oikeutta käyttää laitteen sisäistä GPS:ää, laita päälle valinta "seuraa GPS-signaalia kartalla". Tämä vie sinut projektissa nykyiseen sijaintiisi. Asetusten kautta voit myös asettaa ulkoisen GPS-vastaanottimen, mikäli sellaisen käytölle on tarvella tulevissa työtehtävissäsi. Mikäli haluat käyttää automaattista pistetallennusta esimerkiksi kävellessäsi, "Streemaustila" valikosta voit asettaa aika- tai matkaintervallin pistetallennukselle.
+Katsotaan tässä kohtaa vielä asetuksia, jotka löydät Lisää-valikon kautta. Ohjelman pitäisi oletusasetuksena aktivoida puhelimen GPS-paikannin. Mikäli näin ei ole eikä ohjelma avautuessaan erikseen pyydä oikeutta käyttää laitteen sisäistä GPS:ää, laita päälle valinta "seuraa GPS-signaalia kartalla". Tämä vie sinut projektissa nykyiseen sijaintiisi. Asetusten kautta voit myös asettaa ulkoisen GPS-vastaanottimen, mikäli sellaisen käytölle on tarvetta tulevissa työtehtävissäsi. Mikäli haluat käyttää automaattista pistetallennusta esimerkiksi kävellessäsi, "Streemaustila"-valikosta voit asettaa aika- tai matkaintervallin pistetallennukselle.
 
 ![](img/Harjoitus_1/image6.png)
 
 Kun olet tarkastellut asetukset-välilehden toimintoja, voit sulkea ohjelman.
 
-
-\
 \

@@ -1,10 +1,10 @@
-# EXERCISE 1.2: GEOSERVER WEB INTERFACE
+# Exercise 1.2: GeoServer web interface
 
 **Content of the exercise**
 
 The exercise will introduce you to the main functions of GeoServer through the user interface. The main options and main features of the different sections of the interface will be discussed.
 
-**The aim of the exercise**
+**Aim of the exercise**
 
 After the exercise, the student will understand how GeoServer works and the management tools of the different sections.
 
@@ -16,7 +16,7 @@ After the exercise, the student will understand how GeoServer works and the mana
 
 In the previous exercise, we went thorugh some of the menus in the GeoServer web interface. Accessing these menus and functions did not require a login. In this exercise, we will log in to the GeoServer web interface as administrators, which will open up more menus and functions.
 
-## **Administrator's interface**
+## **Administrator interface**
 
 Until now, the interface has only displayed the functionalities and resources open to all (without authentication). These can be restricted on a per-user basis through different access control settings. The basics of access control will be introduced later in the course.
 
@@ -26,7 +26,7 @@ Now log in to the server using **admin** as ID and **gispo** as password.
 Psst! The default password for GeoServer is 'geoserver', but for training purposes this has been changed for security reasons.
 :::
 
-The administrator's view is similar to the interface we just saw. The structure is the same but there is much more functionality and information available.
+The administrator view is similar to the interface we just saw. The structure is the same but there is much more functionality and information available.
 
 The GeoServer functions in the main menu are grouped according to their purpose:
 
@@ -128,7 +128,7 @@ The output of the layers can be raster or vector, the format is described by the
 
 The layer preview opens as an OpenLayers map window in a new browser window. Note that the **OpenLayers** preview of the data uses a styling technique that is defined as the default on GeoServer. More information on this topic will be provided later.
 
-Uisng the drop-down menu (**Select one**), you can also download this layer in different file formats (GeoTIFF, csv, shapefile\...).
+Using the drop-down menu (**Select one**), you can also download this layer in different file formats (GeoTIFF, csv, shapefile\...).
 
 ### **Workspaces**
 
@@ -154,7 +154,7 @@ If you check **Isolated Workspace** choice the content of the workspace will not
 Psst! URI (Uniform Resource Identifier) is a text that defines the name of a particular resource. It can be a web address or even a relative directory on a hard drive.
 :::
 
-Press **Submit** and you have now added a new workspace to GeoServer.
+Press **Save** and you have now added a new workspace to GeoServer.
 
 Open the workspace you just created by clicking on **helsinki** workspace under the **Workspace Name** and you will see that more choices are now available. We will return to these later when adjusting the workspace-specific settings.
 

@@ -4,15 +4,15 @@ editor_options:
     wrap: sentence
 ---
 
-# **Ennen harjoituksia: Asennus ja käyttöönotto**
+# **Ennen harjoituksia: asennus ja käyttöönotto**
 
 **Sisältö**
 
-Harjoituksessa asennetaan Mergin Maps-ohjelmisto mobiililaitteelle ja luodaan tunnukset
+Harjoituksessa asennetaan Mergin Maps -ohjelmisto mobiililaitteelle ja luodaan tunnukset.
 
 **Tavoite**
 
-Tavoite on, että koulutettava saa asennettua Mergin Maps-mobiilisovelluksen käyttövalmiiksi laitteelleen ja saa luotua käyttäjätunnukset pilviympäristöön.
+Tavoite on, että koulutettava saa asennettua Mergin Maps -mobiilisovelluksen käyttövalmiiksi laitteelleen ja saa luotua käyttäjätunnukset pilviympäristöön.
 
 **Arvioitu kesto**
 
@@ -22,17 +22,11 @@ Tavoite on, että koulutettava saa asennettua Mergin Maps-mobiilisovelluksen kä
 
 Android- tai IOS-käyttöliittymällä varustettu mobiililaite tulee olla käyttövalmiina sekä yhdistettynä internetiin.
 
-Harjoitusohjeet on tehty Mergin Mapsin suomenkieliselle käyttöliittymälle, joten olisi tarvittaessa hyvä vaihtaa mobiililaitteen käyttöliittymän kieli suomeksi, jolloin Mergin Mapsin kieli on suomi.
-Tämä käy esimerkiksi englanninkielisessä Android-käyttöjärjestelmässä seuraavasti: **Settings ("Ratas"-kuvake) \> System \> Languages & input \> Languages**, ja raahaamalla kieli **Suomi (Suomi)** luettelon ensimmäiseksi (kieli on mahdollisesti ensin lisättävä kohdasta **Add a language**).
-Apple-käyttöjärjestelmässä seuraavasti: **Settings ("Ratas"-kuvake) \> General \> Languages \> Language.** Kysy tarvittaessa apua kouluttajalta.
-Toki käyttöliittymän kielen saa myöhemmin vaihdettua suomeksi myös sovelluksen asetuksista.
+Harjoitusohjeet on tehty Mergin Mapsin suomenkieliselle käyttöliittymälle, joten olisi tarvittaessa hyvä vaihtaa mobiililaitteen käyttöliittymän kieli suomeksi, jolloin Mergin Mapsin kieli on suomi. Tämä käy esimerkiksi englanninkielisessä Android-käyttöjärjestelmässä seuraavasti: **Settings ("Ratas"-kuvake) \> System \> Languages & input \> Languages** ja raahaamalla kieli **Suomi (Suomi)** luettelon ensimmäiseksi (kieli on mahdollisesti ensin lisättävä kohdasta **Add a language**). Apple-käyttöjärjestelmässä sama tehdään seuraavasti: **Settings ("Ratas"-kuvake) \> General \> Languages \> Language.** Kysy tarvittaessa apua kouluttajalta. Käyttöliittymän kielen saa vaihdettua suomeksi myös myöhemmin sovelluksen asetuksista.
 
 ## **Sovelluksen asentaminen sovelluskaupasta**
 
-Avaa mobiililaitteesi Play- tai App Store -sovellus klikkaamalla ja kirjoita yläosan haku-palkkiin esimerkiksi "**Mergin maps**".
-Hakutuloksen pitäisi olla **Mergin maps** -sovellus.
-Klikkaa Asenna-painiketta asentaaksesi ohjelmiston.
-Mikäli laitteeltasi löytyy jo aiempi versio sovelluksesta, vaihtoehtona on tällöin ainoastaan **Päivitä.** Klikkaa sitä.
+Avaa mobiililaitteesi Play- tai App Store -sovellus klikkaamalla ja kirjoita yläosan hakukenttään esimerkiksi "**Mergin maps**". Hakutuloksen pitäisi olla **Mergin maps** -sovellus. Klikkaa Asenna-painiketta asentaaksesi ohjelmiston. Mikäli laitteeltasi löytyy aiempi versio sovelluksesta, vaihtoehtona on tällöin ainoastaan **Päivitä.** Klikkaa sitä.
 
 ## **Käyttäjätunnusten luominen pilvipalveluun**
 
@@ -55,10 +49,10 @@ Subscription-välilehden alta löydät tilin kapasiteettia koskevat tiedot ja ma
 
 User profile -välilehdellä näet käyttäjätunnustasi koskevat perustiedot.
 Ota käyttäjätunnuksesi muistiin.
-Sinun tulee syöttää samat tunnukset myöhemmin myös QGISin puolella, kun Mergin Maps-lisäosa on asennettu.
+Sinun tulee syöttää samat tunnukset myöhemmin myös QGISin puolella, kun Mergin Maps -lisäosa on asennettu.
 Tässä kohtaa voit jo kirjautua tilillesi myös mobiililaitteellasi.
 Kun avaat Mergin Mapsin mobiililaitteellasi, aukeaa kirjautumissivu.
-Kirjaudu sisään samoilla tunnuksilla mitkä äsken loit pilviympäristöön.
+Kirjaudu sisään samoilla tunnuksilla, jotka juuri loit pilviympäristöön.
 
 ![](img/Ennen_harjoituksia/image3.png)
 

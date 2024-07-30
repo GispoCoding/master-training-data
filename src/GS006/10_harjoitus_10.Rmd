@@ -1,4 +1,4 @@
-# HARJOITUS 2.3: ARKKITEHTUURI JA KÄYTTÖÖNOTTO
+# Harjoitus 2.3: Arkkitehtuuri ja käyttöönotto
 
 **Harjoituksen sisältö**
 
@@ -31,8 +31,6 @@ Voit tarkistaa ja vapauttaa GeoServerin käyttämää muistia **Memory Usage** k
 Tarkista vielä, mitkä Java-asetukset ovat voimassa palvelimessa kuvien käsittelyä varten. Lähtökohtaisesti ei ole kovin tehokasta käsitellä kuvia kokonaisina tietokoneen muistissa. Yleisesti käytetty tapa on jakaa kuvat pienempiin osiin (tiilet/tiles) ja tehdä mahdolliset kuvaoperaattorit pienempiin kuviin. JAI-asetukset (määritelty **Image Processing** -asetuksissa) hallinnoivat näiden menetelmien toimintaa.
 
 JAI (Java Advanced Imaging) asetuksia voit muokata **Settings → Image Processing** -näkymän kautta. ![](img/harjoitus_10/image2.png)
-
-TAULUKKO TÄHÄN DOCSISTA
 
 Asetusten muutokset näkyvät **Server Status** -sivulla.
 
@@ -86,7 +84,7 @@ GeoServerin asennuksessa on valmiina ladattuja erilaisia loki-profiileja, jotka 
 
 ![](img/harjoitus_10/image5.png)
 
-Voit nyt vaihtaa erilaisia lokitus profiileja ja havainnoida toimintojen aiheuttamat vaikutukset lokitiedostoihin. Kokeile asettaa profiiliksi VERBOSE_LOGGING.properties ja liikuttele karttaa. Päivitä tämän jälkeen loki (refresh) ja katso mitä rivejä lokiin on ilmestynyt.
+Voit nyt vaihtaa erilaisia lokitusprofiileja ja havainnoida toimintojen aiheuttamia vaikutuksia lokitiedostoihin. Kokeile asettaa profiiliksi VERBOSE_LOGGING.properties ja liikuttele karttaa. Päivitä tämän jälkeen loki (refresh) ja katso mitä rivejä lokiin on ilmestynyt.
 
 ## **REST API:n toimintaa**
 
@@ -94,8 +92,8 @@ GeoServerin palvelimen asetuksia on mahdollista hallita myös REST-rajapinnan ka
 
 Voit tarkistaa REST-rajapinnan kautta saatavilla olevat aineistot kirjoittamalla seuraavan osoitteen web-selaimeen (käytä oman palvelimesi ip-osoitetta):
 
-::: note-box
-<http://%3Eoma-ip-osoite:8080/geoserver/rest/workspaces/>
+::: code-box
+http://%3Eoma-ip-osoite:8080/geoserver/rest/workspaces/
 :::
 
 Etsi tiedot edellisissä harjoituksissa luoduista karttatasoista.

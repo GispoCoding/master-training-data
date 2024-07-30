@@ -1,0 +1,82 @@
+---
+title: "Porvoon QGIS -jatkokoulutus"
+author: "Gispo Suomi Oy."
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "Porvoon kaupungille räätälöity QGISin jatkokoulutus"
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+        number_sections: false
+documentclass: book
+---
+
+<!-- Harjoitukset -->
+
+# Porvoon QGIS -jatkokoulutus
+
+## Kurssimateriaalien lataaminen
+
+Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
+
+::: note-box
+[Kurssihakemisto.zip](https://drive.google.com/file/d/1stYquy8n2JPL_HaUvFI8QM72C4-M-Vp0/view?usp=sharing)
+:::
+
+Avaa yllä oleva linkki ja klikkaa **Lataa**. Tämä lataa aineistot
+kokonaisuudessaan pakattuna zip-tiedostona. Pura
+kurssimateriaalit omalle tietokoneellesi haluamaasi kansioon niin, että
+löydät ne helposti harjoituksia tehdessä.
+
+
+## Lukuohje
+
+**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+
+
+**Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
+
+::: hint-box
+Mistä löydät tietoa GeoServeristä?
+
+GeoServerillä on omat kotisivut.
+
+Psst! Tietoa GeoServeristä löydät internetistä.
+:::
+
+## Mistä lisätietoja?
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+::: note-box
+<http://www.qgis.org/>
+:::
+
+::: note-box
+<http://docs.qgis.org/>
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>
+:::
+
+::: note-box
+<http://www.osgeo.fi>
+:::
+
+## Virheet
+
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+
+## Lisenssi ja oikeudet
+
+Nämä materiaalit on "Porvoon QGIS -jatkokoulutus"- kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

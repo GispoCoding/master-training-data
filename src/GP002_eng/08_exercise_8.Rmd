@@ -2,11 +2,11 @@
 
 ## Exercise content
 
-This exercise familiarizes you with QGIS' diverse selection of plugins and focuses more closely on a few of the central ones.
+This exercise familiarizes you with the diverse selection of QGIS plugins and focuses more closely on a few of the essential ones.
 
 ## The goal of the exercise
 
-After the exercise you understand the basics of QGIS' plugins and know how to use them.
+After the exercise you understand the basics of QGIS plugins and know how to use them.
 
 ## Preparations
 
@@ -27,16 +27,17 @@ You can add plugins to QGIS from the top menu bar by selecting **Plugins \> Mana
 Click **Install Plugin** and then **Close**. A new menu under **Web** (in the top bar) has appeared. Select **Web \> QuickMapServices \> OSM \> OSM Standard**. OpenStreetMap is now visible in your project. Arrange your layers so that the population data is clearly visible. Try other background maps too. 
 
 ![](img/exercise_8/image2.png)
+
 ## QuickOSM
 
-Find and add QuickOSM. With this plugin you can search and add objects from OpenStreetMap as a vector layer. Open **Vector → QuickOSM → QuickOSM**. In th e QuickOSM window you can find  objects with **Key** and **Value** or use **Preset**. For example lets find all the picnic areas in Helsinki, Finland. Start writing **picnic** in the Preset search and click on the Picnic-sites. The key and value of the search are automatically filled. Then add city we are interested in, this time Helsinki and click **Run query**
+Find and add the QuickOSM plugin from the list. With this plugin you can search and add objects from OpenStreetMap as a vector layer. Open **Vector → QuickOSM → QuickOSM**. In th e QuickOSM window you can find  objects with **Key** and **Value** or use **Preset**. For example lets find all the picnic areas in Helsinki, Finland. Start writing **picnic** in the Preset search and click on the Picnic-sites. The key and value of the search are automatically filled. Then add the city we are interested in, this time Helsinki, and click **Run query**
 
 ![](img/exercise_8/image7.png)
 Two new temporary layers should appear to your Layers panel: point and area layers. You can visualize and use them in analyses if needed. If you want to save the layers for later use, **click the layer → Export → Save features as**. 
 
 ![](img/exercise_8/image8.png)
 
-Try to add some other features from OpenStreetmap! For example add golfcourses or biking lanes from some city. If there isn't a suitable preset try to use key and value to find the feature.
+Try to add some other features from OpenStreetmap! For example add golfcourses or biking lanes from a city of your choice. If there isn't a suitable preset available try to use key or value to find the feature.
 
 
 ## Bonus: Qgis2threejs

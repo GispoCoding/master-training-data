@@ -6,7 +6,7 @@ Harjoituksessa opetellaan hyödyntämään ulkopuolisia tauluja aineiston editoi
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen osallistuja osaa hyödyntää tehokkaasti QGISin Attribute Forms toiminnallisuutta ominaisuustietojen editoinnissa.
+Harjoituksen jälkeen osallistuja osaa hyödyntää tehokkaasti QGISin Attribute Forms -toiminnallisuutta ominaisuustietojen editoinnissa.
 
 **Arvioitu kesto**
 
@@ -30,9 +30,9 @@ GeoPackage-tietokantaan voi lisätä myös tasoja/tiedostoja/aineistoja, jotka e
 
 Luokittelu on hierarkinen ja logiikka on helppo ymmärtää:
 
--   Jokaisella maankäyttöluokalla on oma koodinsa, jonka pituus riippuu hierarkian tasosta
+-   Jokaisella maankäyttöluokalla on oma koodinsa, jonka pituus riippuu hierarkian tasosta.
 
--   Jokaisella luokalla on myös sanallinen kuvaus luokasta
+-   Jokaisella luokalla on myös sanallinen kuvaus luokasta.
 
 Editoinnin tarkoituksena on hyödyntää ja rajoittaa luokkien välisiä suhteita attribuuttitietojen editoinnissa. Tehdään maankäytön suunnitelma näillä luokituksilla, joka perustuu kuusikulmioihin. Useassa kaupungissa on luotu yleiskaavoja, joissa kerrotaan ruuduittain alueiden käytön suunnittelusta. Harjoituksessa luomme kuvitteellisen yleiskaavan Lopelle Kanta-Hämeeseen heksagonien avulla.
 

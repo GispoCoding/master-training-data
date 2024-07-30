@@ -29,12 +29,12 @@ päällä. Jotta viivakohteet erottuvat taustasta (esimerkiksi puistoalueiden
 läpi menevät polut), ne laitetaan usein aluekohteiden päälle. 
 Aineistossa tiet ja rakennukset menevät usein päällekkäin eivätkä toimi 
 kaikilla mittakaavatasoilla sujuvasti yhteen. Tehdään siis ensiksi 
-**rakennus**-polygonitasolle siis **sääntöpohjainen visualisointi**.
+**rakennus**-polygonitasolle **sääntöpohjainen visualisointi**.
 
 ![](img/harjoitus1/img6.png)
 
 Tasolla on oletuksena yksi sääntö (kaikki kohteet kuvataan kaikilla
-mittakaavoilla samalla tavalla), tuplaklikkaa sitä muokataksesi sitä.
+mittakaavoilla samalla tavalla). Tuplaklikkaa sitä muokataksesi sitä.
 
 ![](img/harjoitus1/img7.png)
 
@@ -51,9 +51,8 @@ tarkastellaan.
 
 ![](img/harjoitus1/img8.png)
 
-Nyt kun muutat QGISin näkymässä kartan mittakaavaa (käyttämällä vaikkapa
-hiiren rullaa tai kannettavan tietokoneen hiiren lähennystä ja
-loitonnusta), huomaat että rakennukset tulevat näkyviin ja katoavat
+Kun nyt muutat QGISin karttanäkymässä kartan mittakaavaa (käyttämällä vaikkapa
+hiiren rullaa), huomaat, että rakennukset tulevat näkyviin ja katoavat
 mittakaavatason mukaan.
 
 ### Tieaineisto

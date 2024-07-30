@@ -20,7 +20,7 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-h
 
 -   **..kurssihakemisto/4. Harjoitus/ne_10m_populated_places_suomi.shp**
 
-::: note-box
+::: hint-box
 **Psst! Paikkatietoaineistolla pitäisi aina olla asetettuna jokin koordinaattijärjestelmä!**
 :::
 

@@ -2,7 +2,7 @@
 
 ## Tehtävä 6.1
 
-Tarkastele hallintoalueaineistoa. Luo uusi virtuaalinen kenttä (anna nimeksi esimerkiksi sama_nimen_pituus), jonka tietotyyppi on _boolean_ (totuusarvo). Kirjoita virtuaaliselle kentälle lauseke, joka on **tosi** jos kunnan suomen- ja ruotsinkielinen nimi on saman pituinen.
+Tarkastele hallintoalueaineistoa. Luo uusi virtuaalinen kenttä (anna nimeksi esimerkiksi sama_nimen_pituus), jonka tietotyyppi on _boolean_ (totuusarvo). Kirjoita virtuaaliselle kentälle lauseke, joka on **tosi**, jos kunnan suomen- ja ruotsinkielinen nimi on saman pituinen.
 
 **Aineisto**: `hallintoalueet.gpkg`
 
@@ -28,7 +28,7 @@ length("Kunta_ni1") = length("Kunta_ni2")
 
 **Ennen tehtävää: ** Tehtävän 4.1 tulee olla tehtynä.
 
-Tarkastele hallintoalueaineistoa. Päivitä tehtävässä 4.1 luotu kenttä. Hyödynnä samassa tehtävässä käytettyä lauseketta, mutta laske kuntien sijainti Tampereesta 100km säteellä.
+Tarkastele hallintoalueaineistoa. Päivitä tehtävässä 4.1 luotu kenttä. Hyödynnä samassa tehtävässä käytettyä lauseketta, mutta laske kuntien sijainti Tampereesta 100 km:n säteellä.
 
 **Aineisto**: `hallintoalueet.gpkg`
 

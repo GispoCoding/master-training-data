@@ -1,4 +1,4 @@
-# HARJOITUS 1.1: ASENNUS JA KÄYTTÖÖNOTTO
+# Harjoitus 1.1: Asennus ja käyttöönotto
 
 **Harjoituksen sisältö**
 
@@ -22,7 +22,7 @@ Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
 
 Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti opettajalta. Muokkaa sitten verkko-osoitteen **localhost:8080**-osaa ohjeiden mukaan.
 
-Edessäsi on GeoServerin  käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
+Edessäsi on GeoServerin käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
 
 ![](img/harjoitus_1/image1.png)
 
@@ -92,7 +92,7 @@ Seuraavassa kuvassa on piste geometria määritelty WKT-formaatissa EPSG:3067 ko
 
 ![](img/harjoitus_1/image3.png)
 
-Voit myös kokeilla ETRS89 / TM35FIN viivageometriaa. Löydät esimerkkitiedoston koulutuskansiosta nimellä **esimerkki_wkt_geometry_3067.txt**. Avaa se tekstieditorissa ja käytä sitä **Reprojection console** -työkalussa. Kokeile muuntaa se esimerkiksi WGS 84 -järjestelmään.
+Voit myös kokeilla ETRS89 / TM35FIN -viivageometriaa. Löydät esimerkkitiedoston koulutuskansiosta nimellä **esimerkki_wkt_geometry_3067.txt**. Avaa se tekstieditorissa ja käytä sitä **Reprojection console** -työkalussa. Kokeile muuntaa se esimerkiksi WGS 84 -järjestelmään.
 
 ![](img/harjoitus_1/image4.png)
 

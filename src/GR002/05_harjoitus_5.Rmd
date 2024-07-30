@@ -14,7 +14,7 @@ Opiskelija osaa muodostaa paikkatietoaineiston ja muokata sitä.
 
 **Valmistautuminen**
 
-Jatka edellisen harjoituksen projektitiedostolla, harjoitus 4 (**Projekti \> Uusi**) ja tallenna se nimellä **"QGIS-harjoitus 5"**. Lisää projektiin seuraava WMS- rajapintayhteys:
+Jatka edellisen harjoituksen projektitiedostolla, harjoitus 4, mutta tallenna se nyt nimellä **"QGIS-harjoitus 5"**. Lisää projektiin seuraava WMS- rajapintayhteys:
 
 -   <https://kartat.espoo.fi/teklaogcweb/wms.ashx> nimellä Espoon WMS
 
@@ -70,7 +70,7 @@ Etsi ilmakuvasta haluamasi alue editoitavaksi. Valittavassa alueessa olisi hyvä
 
 ![](img/harjoitus_5/image11.png)
 
-Valitse seuraavaksi valikosta **Näytä \> Työkalut \> Tarttumisen työkalut**. Tarttumisen työkalut ilmestyvät työkalupaneeliin: Klikkaa magneetti-ikonia ottaaksesi tarttumisen käyttöön. Klikkaa tämän jälkeen magneetti-ikonin oikealla puolella olevaa painiketta ja valitse **Tarttumisen asetukset**.
+Valitse seuraavaksi valikosta **Näytä \> Työkalut \> Tarttumisen työkalut**. Tarttumisen työkalut ilmestyvät työkalupaneeliin: Klikkaa magneetti-ikonia ottaaksesi tarttumisen käyttöön. Klikkaa tämän jälkeen magneetti-ikonin oikealla puolella olevaa painiketta ja valitse **Avaa tarttumisen valinnat**.
 
 ![](img/harjoitus_5/image12.png){width="373"}
 
@@ -92,11 +92,6 @@ Uuden kohteen luomisen yhteydessä voit täyttää sen attribuuttitiedot automaa
 
 Ensimmäinen kohde on nyt digitoitu!
 
-## Muokkauksen yleisasetukset
-
-Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkaus tulee esiin jokaisen polygonin piirtämisen jälkeen, ruksi **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri siniseksi (**Kuminauha**) ja **Taitepisteen symbolin** tyyli ja koko. Paina **OK**, niin asetukset tulevat voimaan.
-
-![](img/harjoitus_5/image19.png)
 
 ## Geometrioiden lisääminen
 
@@ -116,7 +111,7 @@ Digitoi muutama alue ja muista tallentaa digitoinnin tulokset aina välillä **N
 
 ![](img/harjoitus_5/image25.png)
 
-Kun olet digitoinut 5–8 uutta kohdetta poistu muokkaustilasta painamalla uudelleen lyijykynä-työkalua. Tallenna muutokset ja määrittele kuvaustekniikka polygoneille. Luokittelu tyypin mukaan voisi olla järkevä visualisointikeino arvoluettelokohteille. Alempana on esimerkkikuva digitoiduista alueilta, mutta voit valita vapaasti digitoitavat kohteesi: 
+Kun olet digitoinut 5–8 uutta kohdetta poistu muokkaustilasta painamalla uudelleen lyijykynä-työkalua. Tallenna muutokset ja määrittele kuvaustekniikka polygoneille. Pääset muuttamaaan kuvaustekniikkaa avaamalla **Tason ominaisuudet- valikon** ja valitse siellä välilehden **Kuvaustekniikka** Alempana on esimerkkikuva digitoiduista alueilta, mutta voit valita vapaasti digitoitavat kohteesi: 
 
 ![](img/harjoitus_5/image26.png)
 

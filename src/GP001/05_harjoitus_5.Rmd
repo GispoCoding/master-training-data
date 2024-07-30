@@ -205,7 +205,7 @@ Lausekkeessa esiintyy kentän nimien **NaturaTunn** ja **Nimi** lisäksi myös r
 ![](img/harjoitus_5/image26.png)
 
 ::: hint-box
-Psst! Voit lisätä rivinvaihtosymbolin lausekkeeseen painamalla **Lauseke**-ikkunan päällä olevaa painiketta. Samalla tavalla voit lisätä aineistossa olevia kenttiä lausekkeeseen laajentamalla kentät ja arvot -valikon ja kaksoisklikkaamalla kentän nimeä.
+**Psst! Voit lisätä rivinvaihtosymbolin lausekkeeseen painamalla **Lauseke**-ikkunan päällä olevaa painiketta. Samalla tavalla voit lisätä aineistossa olevia kenttiä lausekkeeseen laajentamalla kentät ja arvot -valikon ja kaksoisklikkaamalla kentän nimeä.**
 :::
 
 Kirjoita edellä mainittu lauseke ja paina **OK**. Klikkaa **Tason ominaisuudet** -valikossa **Käytä** ja katso kartalta, miltä alueiden nimiöinti näyttää.

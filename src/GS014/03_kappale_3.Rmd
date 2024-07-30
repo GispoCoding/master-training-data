@@ -2,7 +2,7 @@
 
 ## Tehtävä 3.1
 
-Klikkaa **Select by Expression**- työkaluikonia QGISissä. Valitse kaikki liikuntakohteet, jotka sijaitsevat kotikuntasi alueella, ja jotka kiinnostaavat sinua. Tallenna valitut kohteet uudeksi erilliseksi karttatasoksi.
+Klikkaa **Select by Expression** -työkaluikonia QGISissä. Valitse kaikki liikuntakohteet, jotka sijaitsevat kotikuntasi alueella ja jotka kiinnostaavat sinua. Tallenna valitut kohteet uudeksi erilliseksi karttatasoksi.
 
 -   Vaihtoehtoinen tehtävänanto: valitse Turusta seuraavat liikuntapaikat: Pallokenttä, Jalkapallostadion tai Jalkapallohalli
 
@@ -30,7 +30,7 @@ and
 
 ## Tehtävä 3.2
 
-Suodata attribuuttitaulussa pois ne Pirkanmaan järvet, joihin seuraava väite **EI** päde: järvessä olevien saarten yhteenlaskettu pinta-ala kattaa vähintään 10% järven pinta-alasta. Huomaa, että järven kokonaispinta-ala on ilmoitettu hehtaareina ja järven sisältämien saarten yhteenlaskettu pinta-ala neliömetreinä.
+Suodata attribuuttitaulussa pois ne Pirkanmaan järvet, joihin seuraava väite **EI** päde: järvessä olevien saarten yhteenlaskettu pinta-ala kattaa vähintään 10 % järven pinta-alasta. Huomaa, että järven kokonaispinta-ala on ilmoitettu hehtaareina ja järven sisältämien saarten yhteenlaskettu pinta-ala neliömetreinä.
 
 **Aineisto**: `pirkanmaa_jarvet.gpkg`
 
@@ -65,7 +65,7 @@ Suunnittelet **Manner-Suomeen** sijoittuvaa reissua ja haluat matkustaa sellaise
 Avaa hallintoalueet- tasosta **Filter** valikko.
 
 -   Matkustusetäisyyksien vuoksi Lappi ja Itä-Suomi eivät tule kysymykseen
--   Oletetaan, että ruotsinkielisyyttä indikoi sekä hallintoalueen ensisijainen kieli että se, sisältyykö kunnan jompaankumpaan viralliseen nimeen å- kirjain/kirjaimia.
+-   Oletetaan, että ruotsinkielisyyttä indikoi sekä hallintoalueen ensisijainen kieli että se, sisältyykö kunnan jompaankumpaan viralliseen nimeen å-kirjain/kirjaimia.
 
 **Aineisto**: `hallintoalueet.gpkg`
 

@@ -20,7 +20,7 @@ Aseta aluksi **NaturaKohde_ma** -taso näkyviin ja muut näkymättömäksi
 
 ## Nimiöt
 
-QGIS käyttöliittymässä paikkatietokohteiden tekstitykseen viitataan termillä **Nimiöt** (englanninkielinen termi on "**Labeling**"). Avaa **NaturaKohde-tason Ominaisuudet-ikkuna** ja valitse **Nimiöt-välilehti**. Valitse **Single labels** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi, esim. "Nimi". Paina **Käytä**, niin kohteille syntyy nimiöt. Tämä nähdään nyt karttaikkunasta, johon nimiöt ovat jo päivittyneet:
+QGIS käyttöliittymässä paikkatietokohteiden tekstitykseen viitataan termillä **Nimiöt** (englanninkielinen termi on "**Labeling**"). Avaa **NaturaKohde-tason Ominaisuudet-ikkuna** ja valitse **Nimiöt-välilehti**. Valitse **Yksinkertainen nimiöinti** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi, esim. "Nimi". Paina **Käytä**, niin kohteille syntyy nimiöt. Tämä nähdään nyt karttaikkunasta, johon nimiöt ovat jo päivittyneet:
 
 ![](img/harjoitus_4/image11.png)
 
@@ -54,7 +54,7 @@ Toinen työkalu tekstin korostamiseen on tekstipuskuri. Valitse **Vyöhyke-alate
 
 ![](img/harjoitus_4/image5.png)
 
-Avaa vielä **Sijoittaminen-alateema** ja valitse **Using perimeter** (käyttäen kehää). Valitse **Sallitut asemoinnit -kohdassa Viivan alla**. Huomaa, että sallitut asemoinnit-kohdassa tulee aina olla vähintään yksi kohta valittuna. Jos useampi kohta on valittu, QGIS valitsee automaattisesti parhaan vaihtoehdon jokaiselle kohteelle. Paina OK, ja huomaa, että nyt nimiöt seuraavat monikulmioiden rajoja.
+Avaa vielä **Sijoittaminen-alateema** ja valitse ***Ympärille (kaareva)***. Valitse **Sallitut asemoinnit -kohdassa Viivan alla**. Huomaa, että sallitut asemoinnit-kohdassa tulee aina olla vähintään yksi kohta valittuna. Jos useampi kohta on valittu, QGIS valitsee automaattisesti parhaan vaihtoehdon jokaiselle kohteelle. Paina OK, ja huomaa, että nyt nimiöt seuraavat monikulmioiden rajoja.
 
 ![](img/harjoitus_4/image19.png)
 
@@ -80,7 +80,7 @@ Nyt nimiöt seuraavat viivoja paremmin. Huomaa myös, että kaikki nimiöt eivä
 
 ## Vektoriaineiston luokittelut
 
-**Väestötietoruudukko.gpkg** on vektoriaineisto, tällä kertaa kuitenkin geopackage-formaatissa. Voit lisätä sen projektiin **Tietolähteiden hallinta -työkalulla**. Tutustu ensin aineistoon. Avaa **Attribuuttitaulu** painamalla aineistotason nimen päällä hiiren oikealla näppäimellä. Ominaisuustietojen ymmärtämiseksi on hyvä tarkastella taulun sisältöä sekä tutustua samalla aineiston metatietoihin (tietoa aineistosta). Metatiedot löytyvät usein aineistontuottajan nettisivuilta tai paikkatietojen löytämiseen tarkoitetuista hakemistoista. Metatiedot kertovat mm. kuka aineiston on tuottanut, mihin tarkoitukseen se on tehty, millä mittakaavalla ja missä koordinaattijärjestelmässä. Harjoituksessa käytettävän aineiston on tuottanut Helsingin seudun ympäristöpalvelut. Sen metatiedot löytyvät samasta kansiosta, **Vaestoruudukko.pdf** -tiedostosta. Avaa Vaestoruudukko.pdf-tiedosto ja tutustu eri kenttien (sarakkeiden) kuvauksiin. Sivun lopussa asiaa on hieman avattu.
+**Väestötietoruudukko.gpkg** on vektoriaineisto, tällä kertaa kuitenkin geopackage-formaatissa. Voit lisätä sen projektiin **Tietolähteiden hallinta -työkalulla**. Tutustu ensin aineistoon. Avaa **Attribuuttitaulu** painamalla aineistotason nimen päällä hiiren oikealla näppäimellä. Ominaisuustietojen ymmärtämiseksi on hyvä tarkastella taulun sisältöä sekä tutustua samalla aineiston metatietoihin (tietoa aineistosta). Metatiedot löytyvät usein aineistontuottajan nettisivuilta tai paikkatietojen löytämiseen tarkoitetuista hakemistoista. Metatiedot kertovat mm. kuka aineiston on tuottanut, mihin tarkoitukseen se on tehty, millä mittakaavalla ja missä koordinaattijärjestelmässä. Harjoituksessa käytettävän aineiston on tuottanut Helsingin seudun ympäristöpalvelut. Sen metatiedot löytyvät samasta kansiosta, **Vaestoruudukko.pdf**-tiedostosta. Avaa Vaestoruudukko.pdf-tiedosto ja tutustu eri kenttien (sarakkeiden) kuvauksiin. Sivun lopussa asiaa on hieman avattu.
 
 ![](img/harjoitus_4/image25.png){width="60%"}
 
@@ -122,7 +122,7 @@ Loitonna karttanäkymää siten, että kaikki tasojesi kohteet tulevat näkyvill
 
 ![](img/harjoitus_4/image15.jpg)
 
-Joissakin tapauksissa olisi hyödyllistä määrittää nimiöt eri mittakaavoille erikseen. Avaa taas **NaturaKohde_ma-tason ominaisuudet** ja valitse **Nimiöt-sivupalkista** ja **Piirtäminen-alateema**. Rastita **Show all labels for this layer (including colliding labels)**, varmista, ettei mittakaavaperusteinen näkyvyys ole valittuna ja paina **Käytä**. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä mittakaavalla. Rastita tämä asetus pois päältä ja paina Käytä. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt. Rastita päälle **Mittakaavaperusteinen näkyvyys** ja laita **Maksimi-kentän arvoksi** 500 000:
+Joissakin tapauksissa olisi hyödyllistä määrittää nimiöt eri mittakaavoille erikseen. Avaa taas **NaturaKohde_ma-tason ominaisuudet** ja valitse **Nimiöt-sivupalkista** ja **Piirtäminen-alateema**. Rastita **Show all labels for this layer (including colliding labels)**, varmista, ettei mittakaavaperusteinen näkyvyys ole valittuna ja paina **Käytä**. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä mittakaavalla. Rastita tämä asetus pois päältä ja paina **Käytä**. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt. Rastita päälle **Mittakaavaperusteinen näkyvyys** ja laita **Maksimi-kentän arvoksi** 500 000:
 
 ![](img/harjoitus_4/image12.png)
 
@@ -136,5 +136,5 @@ Kokeile yhdistää kaksi saraketta samaan nimiöön **\|\| -merkin** avulla esim
 
 
 ::: hint-box
-**Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**
+**Psst!** Muista tallentaa QGIS-projekti harjoituksen lopuksi.
 :::
