@@ -18,7 +18,7 @@ Varmista, että viimeisin versio kurssiprojektista on synkronoituna mobiililaitt
 
 Voi myöskin olla hyödyllistä ladata kurssin harjoitusmoniste-pdf mobiililaitteelle, josta voi tarvittaessa katsoa ohjeita esimerkiksi digitointiin. Tarvittaessa harjoituksen aikana voi olla yhteydessä myös kouluttajaan esimerkiksi avaamalla koulutuksen kalenteritapahtuman joko Google Meet -sovelluksen tai puhelun avulla mobiililaitteessa.
 
-Lue alla oleva ohjeistus kenttätöistä ennen ulos siirtymistä, ja sopikaa yhteisesti mobiilikeruun kesto (n. 30 min). Kenttätöiden jälkeen data synkronoidaan tietokoneen QGIS-projektiin. Pidä siis myös usb-johto lähistöllä.
+Lue alla oleva ohjeistus kenttätöistä ennen ulos siirtymistä, ja sopikaa yhteisesti mobiilikeruun kesto (n. 30 min). Kenttätöiden jälkeen data synkronoidaan tietokoneen QGIS-projektiin. Pidä siis myös USB-johto lähistöllä.
 
 ## Lyhyt ohjeistus kenttätöihin
 
@@ -54,7 +54,9 @@ Lue alla oleva ohjeistus kenttätöistä ennen ulos siirtymistä, ja sopikaa yht
 
 ## Tietojen synkronoiminen tietokoneelle
 
-Synkronoidaan nyt kenttätöissä tuotettu data takaisin tietokoneelta löytyvään alkuperäiseen QGIS-projektiin. Yhdistä mobiililaite tietokoneeseen ja kopioi projektikansio mobiililaitteelta tietokoneelle. Kun projektikansio on tietokoneella, avaa alkuperäinen projektitiedosto QGISillä (**älä siis avaa mobiililaitteelta tuotua projektia**) ja valitse ylävalikosta **Lisäosat \> QField Sync \> Synkronoi QFieldistä**. Valitse avautuvassa ikkunassa **\...-**painike ja etsi mobiililaitteelta tuomasi projektikansio. Kun oikea kansio on valittuna, valitse **Synkronoi**.
+Synkronoidaan nyt kenttätöissä tuotettu data takaisin tietokoneelta löytyvään alkuperäiseen QGIS-projektiin. Yhdistä mobiililaite tietokoneeseen ja etsi projektikansio mobiililaitteelta. QField luo uuden version projektikansiosta ja projektista, joka tallentuu esimerkiksi Android-laitteilla polkuun: Android > data > ch.opengis.qfield > files > Imported Projects. Tästä hakemistosta löydät QFieldillä muokkaamasi projektin. Kopioi nyt projektin kansio tietokoneellesi. 
+
+Kun projektikansio on tietokoneella, avaa alkuperäinen projektitiedosto QGISillä (**älä siis avaa mobiililaitteelta tuotua projektia**) ja valitse ylävalikosta **Lisäosat \> QField Sync \> Synkronoi QFieldistä**. Valitse avautuvassa ikkunassa **\...-**painike ja etsi mobiililaitteelta tuomasi projektikansio. Kun oikea kansio on valittuna, valitse **Synkronoi**.
 
 ![](img/harjoitus_6/image1.png)
 
