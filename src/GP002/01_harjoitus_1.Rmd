@@ -9,11 +9,10 @@ perustoimintoihin.
 
 Koulutettava oppii käyttämään QGISin käyttöliittymää.
 
-**Valmistautuminen** Avaa web-selain ja mene QGISin suomenkielisille
-web-sivuille.
+**Valmistautuminen** Avaa web-selain ja mene QGISin web-sivuille.
 
 ::: note-box
-<http://www.qgis.org/fi/site/>
+<https://www.qgis.org/>
 :::
 
 Löydät etusivulta linkin, jonka avulla pääset lataamaan
