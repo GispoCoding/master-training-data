@@ -72,7 +72,7 @@ Tulos voi näyttää oudolta, etenkin jos karttaikkunan mittakaavaa on asetettu 
 
 ## Vektoriaineiston luokittelut 
 
-**Väestötietoruudukko.gpkg** on vektoriaineisto, tällä kertaa kuitenkin geopackage-formaatissa. Voit lisätä sen projektiin **Tietolähteiden hallinta -työkalulla**.
+**Väestötietoruudukko.gpkg** on vektoriaineisto, jälleen geopackage-formaatissa. Voit lisätä sen projektiin **Tietolähteiden hallinta -työkalulla**.
 Tutustu ensin aineistoon. Avaa **Attribuuttitaulu** painamalla aineistotason nimen päällä hiiren oikealla näppäimellä. Ominaisuustietojen ymmärtämiseksi on hyvä tarkastella taulun sisältöä sekä tutustua samalla aineiston metatietoihin (tietoa aineistosta). Metatiedot löytyvät usein aineistontuottajan nettisivuilta tai paikkatietojen löytämiseen tarkoitetuista hakemistoista. Metatiedot kertovat mm. kuka aineiston on tuottanut, mihin tarkoitukseen se on tehty, millä mittakaavalla ja missä koordinaattijärjestelmässä. 
 Harjoituksessa käytettävän aineiston on tuottanut Helsingin seudun ympäristöpalvelut. Sen metatiedot löytyvät samasta kansiosta, **Vaestoruudukko.pdf** -tiedostosta. Avaa Vaestoruudukko.pdf-tiedosto ja tutustu eri kenttien (sarakkeiden) kuvauksiin. Sivun lopussa asiaa on hieman avattu.
 
