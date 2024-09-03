@@ -1,4 +1,4 @@
-# Extensions {#extensions}
+# 8. Extensions {#extensions}
 
 The functionalities of GeoServer can be expanded using various extensions.
 These extensions are divided to two categories: extensions, which are officially supported plug-ins, and community modules, which are more experimental in nature.

@@ -1,4 +1,4 @@
-# Training environment
+# 1. Training environment
 
 First, let's ensure access to the GeoServer training environment.
 If you are following these materials while participating on the Advanced GeoServer course, you are provided your own virtual machine hosted on Amazon Web Services (AWS).
