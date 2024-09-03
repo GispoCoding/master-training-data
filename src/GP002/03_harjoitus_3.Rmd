@@ -14,11 +14,11 @@ Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (**
 
 Lisää projektiin seuraavat aineistot:
 
--   **.../Harjoitus 3/TieViiva.shp**
+-   **.../Harjoitus 3/Tieviiva.gpkg**
 
--   **.../Harjoitus 3/NaturaKohde.shp**
+-   **.../Harjoitus 3/natura2000sac_alueet.gpkg**
 
--   **.../Harjoitus 3/Kaupungit.shp**
+-   **.../Harjoitus 3/Kaupungit.gpkg**
 
 ## Vektoriaineistojen visualisointi
 
@@ -44,7 +44,7 @@ Kokeile nyt itse muokata viiva- ja monikulmioaineistoja haluamaksesi. Avaa aiemm
 
 Vaihda viivan **Väri** ja **Leveys** ja paina taas **Käytä**. Tutki mitä valmiita tyylejä QGISiin on tallennettu ja testaa miltä ne näyttävät oman karttasi visualisoinnissa.
 
-Visualisoi vielä monikulmioaineisto haluamallasi tavalla. Avaa NaturaKohteet kuvaustekniikkaikkuna ja huomaa erot verrattuna piste- ja viiva-aineistojen ominaisuuksiin. Muokkaa tason väriä **Väri-kohdasta** ja valitse tasolle jokin symboli haluamastasi kirjastosta. Voit myös kokeilla eri **Peittävyys-arvoja**. Paina Käytä ja kun olet testannut tarpeeksi, paina **OK**.
+Visualisoi vielä monikulmioaineisto haluamallasi tavalla. Avaa tason natura2000sac_alueet kuvaustekniikkaikkuna ja huomaa erot verrattuna piste- ja viiva-aineistojen ominaisuuksiin. Muokkaa tason väriä **Väri-kohdasta** ja valitse tasolle jokin symboli haluamastasi kirjastosta. Voit myös kokeilla eri **Peittävyys-arvoja**. Paina Käytä ja kun olet testannut tarpeeksi, paina **OK**.
 
 Saattaa olla, että aineistotasot peittävät toisensa vaikka siten, että monikulmio aineisto peittää muut sen alle jäävät aineistot. Kokeile muuttaa tasojen keskinäistä järjestystä ja siten tasojen näkymistä raahaamalla/vetämällä tasot uuteen järjestykseen **Tasoluettelossa**. Useimmiten monikulmiotasot on hyvä jättää alimmiksi tasoiksi. Jos kartalla halutaan visualisoida jotakin rasterikuvaa, kannattaa se/ne yleensä pitää myös alimpina tasoina. Uudelleen järjestettynä karttasi näyttää tältä:
 
@@ -54,7 +54,7 @@ Voit myös piilottaa tai näyttää tasoja painamalla tason nimen vasemmalla puo
 
 ## Lisätehtävä: Monikulmioaineiston edistynyt visualisointi
 
-Visualisointeihin voi tehdä myös useampia tasoja monipuolisemman kuvaustekniikan saavuttamiseksi. Muokataan **NaturaKohde**-aineiston visualisointia. Tavoitteena on saada kutakuinkin tällainen visualisointi tasolle:
+Visualisointeihin voi tehdä myös useampia tasoja monipuolisemman kuvaustekniikan saavuttamiseksi. Muokataan **natura2000sac_alueet**-aineiston visualisointia. Tavoitteena on saada kutakuinkin tällainen visualisointi tasolle:
 
 ![](img/harjoitus_3/image_24.png)
 
