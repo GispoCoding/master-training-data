@@ -1,4 +1,4 @@
-# Security and user management
+# 2. Security and user management
 
 GeoServer can be used to serve private information and spatial data to authenticated users.
 One of the key functions of GS Layer security is preventing unauthorized access to such data.

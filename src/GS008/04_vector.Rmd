@@ -1,4 +1,4 @@
-# Optimising vector data {#vectors}
+# 4. Optimising vector data {#vectors}
 
 While vector datasets are typically smaller compared to rasters, they can still grow to a size where optimisations are needed.
 The single most important performance optimisation for vector data is indexing.

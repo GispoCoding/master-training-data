@@ -1,4 +1,4 @@
-# Clustering {#cluster}
+# 6. Clustering {#cluster}
 
 Clustering is a common way to improve the performance and/or availability of a GeoServer deployment by scaling out.
 While a cluster can run on a single machine by running multiple GeoServers on different ports, it's typically done by deploying GS on separate server machines/VMs.

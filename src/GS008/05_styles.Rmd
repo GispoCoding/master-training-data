@@ -1,4 +1,4 @@
-# Map styles {#styles}
+# 5. Map styles {#styles}
 
 Styles define how GeoServer renders spatial data to maps.
 The GeoServer render engine uses SLD, but other styling languages such as (Geo)CSS are supported via extensions.

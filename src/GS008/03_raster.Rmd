@@ -1,4 +1,4 @@
-# Optimising rasters {#rasters}
+# 3. Optimising rasters {#rasters}
 
 GeoServer is often used to distribute spatial raster data, typically using either WMS or WCS.
 Typical use cases for raster data are aerial and satellite imagery and various coverages.
