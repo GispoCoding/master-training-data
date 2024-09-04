@@ -58,7 +58,7 @@ Valitse ensimmäiseksi **Topologian tarkastaja -paneelista Konfiguroi** ![](img/
 
 Klikkaa sitten **Topologian tarkastaja -paneelissa Tarkasta kaikki -kuvaketta** ![](img/harjoitus_4/image10.png), jolloin QGIS ajaa kaikki äsken listatut säännöt. Minkälaisia tuloksia saat? Tarkastele tuloksia paneelin valikosta.
 
-## Tarkista geometriat (Geometry checker)
+## Geometrian tarkistaja (Geometry checker)
 
 Kolmas ja järein vaihtoehto geometrioiden tarkistukseen on **Geometrian tarkistaja -työkalu**. Tämäkin työkalu pitää käydä aktivoimassa edellisen tapaan lisäosien valikoimasta. Työkalu löytyy ylävalikon **Vektori-valikosta**.
 
