@@ -18,11 +18,11 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **"QGIS-h
 
 -   **..kurssihakemisto/5. Harjoitus/L4133B.asc**
 
--   **..kurssihakemisto/5. Harjoitus/TieViiva.shp**
+-   **..kurssihakemisto/5. Harjoitus/TieViiva.gpkg**
 
--   **..kurssihakemisto/5. Harjoitus/ne_10m_populated_places_suomi.shp**
+-   **..kurssihakemisto/5. Harjoitus/ne_10m_populated_places_suomi.gpkg**
 
--   **..kurssihakemisto/5. Harjoitus/Naturakohde_ma.shp**
+-   **..kurssihakemisto/5. Harjoitus/natura2000sac_alueet.gpkg**
 
 ## Tasojen visualisoinnin valikko
 
@@ -62,7 +62,7 @@ Avaa tason **Kuvaustekniikka-asetukset**. Muista, että rasteriaineistojen kuvau
 
 ## Vektoriaineistojen visualisointi
 
-Siirrytään nyt visualisoimaan vektoriaineistoja. Tarkastele kaikkia QGIS-projektiin avaamiasi vektoriaineistoja. Voit huomata, että jokaisen tason vasemmalla puolella on muoto, joka kuvastaa kyseisen tason vektorityyppiä. **TieViiva** on viiva-aineisto, **ne_10m_populated_places_suomi** on pisteaineisto ja **NaturaKohde_ma** on polygoniaineisto.
+Siirrytään nyt visualisoimaan vektoriaineistoja. Tarkastele kaikkia QGIS-projektiin avaamiasi vektoriaineistoja. Voit huomata, että jokaisen tason vasemmalla puolella on muoto, joka kuvastaa kyseisen tason vektorityyppiä. **TieViiva** on viiva-aineisto, **ne_10m_populated_places_suomi** on pisteaineisto ja **natura2000sac_alueet** on polygoniaineisto.
 
 ![](img/harjoitus_5/image7.png)
 
@@ -90,7 +90,7 @@ Pisteaineistosi voi näyttää yhdessä viiva-aineiston kanssa esimerkiksi tält
 
 ## Polygoniaineiston visualisointi
 
-Visualisoidaan vielä polygoniaineisto. Aseta **NaturaKohde_ma**-aineisto näkyviin yhdessä **TieViiva**-aineiston ja **ne_10m_populated_places_suomi**-aineiston kanssa ja piilota muut aineistot. Avaa NaturaKohde_ma-aineiston **Kuvaustekniikka**-valikko ja huomaa erot verrattuna viiva- ja pisteaineistojen kuvaustekniikkaan. Vaihda tason **Väri** ja valitse tasolle eri symboli. Voit myös kokeilla erilaisia **Peittävyys**-arvoja.
+Visualisoidaan vielä polygoniaineisto. Aseta **natura2000sac_alueet**-aineisto näkyviin yhdessä **TieViiva**-aineiston ja **ne_10m_populated_places_suomi**-aineiston kanssa ja piilota muut aineistot. Avaa natura2000sac_alueet-aineiston **Kuvaustekniikka**-valikko ja huomaa erot verrattuna viiva- ja pisteaineistojen kuvaustekniikkaan. Vaihda tason **Väri** ja valitse tasolle eri symboli. Voit myös kokeilla erilaisia **Peittävyys**-arvoja.
 
 ![](img/harjoitus_5/image12.png)
 
@@ -100,7 +100,7 @@ Saattaa olla, että aineistotasot peittävät toisensa vaikka siten, että polyg
 
 ## Symbolien muokkaaminen
 
-Seuraavaksi muutamme polygonien symboleja. Avaa uudelleen **Naturakohde_ma**-tason **Kuvaustekniikka**-valikosta ensin **Yksinkertainen täyttö (Simple fill)** -rivi oheisen kuvan mukaisesti:
+Seuraavaksi muutamme polygonien symboleja. Avaa uudelleen **natura2000sac_alueet**-tason **Kuvaustekniikka**-valikosta ensin **Yksinkertainen täyttö (Simple fill)** -rivi oheisen kuvan mukaisesti:
 
 ![](img/harjoitus_5/image14.png)
 
@@ -118,7 +118,7 @@ Kokeile nyt karttaikkunassa tason näkymistä eri mittakaavoilla. Mittakaavaa sa
 
 Seuraavaksi muokkaamme visualisointityyliämme hieman pidemmälle. Symbologiat voivat QGISissä koostua yhdestä tai useammasta symbolitasosta (kuvassa **Täyttö**-kohdan alla). Esimerkiksi monikulmioiden symbolitasojen hyödyntäminen voi tuottaa hyvinkin hienovaraisen visualisoinnin. Symbolitasojen avulla voidaan määrittää monikulmion täyttämisen värit ja tyylit (esim. pistetäyttö).
 
-Lisää uusi symbolitaso **NaturaKohde_ma**-tasolle. Avaa tason **Kuvaustekniikka**-asetukset (**Tason ominaisuudet -ikkunasta**) ja lisää uusi symbolitaso painamalla plussa-kuvaketta.
+Lisää uusi symbolitaso **natura2000sac_alueet**-tasolle. Avaa tason **Kuvaustekniikka**-asetukset (**Tason ominaisuudet -ikkunasta**) ja lisää uusi symbolitaso painamalla plussa-kuvaketta.
 
 ![](img/harjoitus_5/image16.png)
 
@@ -128,7 +128,7 @@ Muuta lisätyn symbolitason tyypiksi **Täyttö viivakuosilla** ja määrittele 
 
 ## Nimiöinti
 
-Avaa **NaturaKohde_ma-tason** kuvaustekniikka- valikko ja valitse **Nimiöt-välilehti**. Valitse **Yksittäinen nimiö** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi. Nimiöt nähdään nyt karttaikkunasta, johon ne ovat päivittyneet.
+Avaa **natura2000sac_alueet-tason** kuvaustekniikka- valikko ja valitse **Nimiöt-välilehti**. Valitse **Yksittäinen nimiö** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi. Nimiöt nähdään nyt karttaikkunasta, johon ne ovat päivittyneet.
 
 ![](img/harjoitus_5/image18.png)
 
@@ -176,7 +176,7 @@ Nyt nimiöt seuraavat viivoja paremmin. Huomaa myös, että kaikki nimiöt eivä
 
 ## Nimiöiden piirtäminen
 
-Zoomaa karttanäkymä näyttämään koko aineisto klikkaamalla **Zoomaa täydeksi** -painiketta ![](img/harjoitus_5/image22.png) . Odota hetki, että nimiöt piirtyvät. Nimiöitä on nyt liikaa karttaikkunassa, mikä vaikeuttaa kartan hahmottamista. Olisi hyödyllistä määrittää nimiöt eri mittakaavoille erikseen. Avaa taas **NaturaKohde_ma-tason** ominaisuudet ja valitse **Nimiöt** sivupalkista ja **Karttanäyttö-alateema**. Rastita **Näytä kaikki tämän tason nimiöt (myös päällekkäiset nimiöt)** ja paina **Käytä**. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä mittakaavalla. Rastita tämä asetus pois päältä ja paina **Käytä**. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt.
+Zoomaa karttanäkymä näyttämään koko aineisto klikkaamalla **Zoomaa täydeksi** -painiketta ![](img/harjoitus_5/image22.png) . Odota hetki, että nimiöt piirtyvät. Nimiöitä on nyt liikaa karttaikkunassa, mikä vaikeuttaa kartan hahmottamista. Olisi hyödyllistä määrittää nimiöt eri mittakaavoille erikseen. Avaa taas **natura2000sac_alueet-tason** ominaisuudet ja valitse **Nimiöt** sivupalkista ja **Karttanäyttö-alateema**. Rastita **Näytä kaikki tämän tason nimiöt (myös päällekkäiset nimiöt)** ja paina **Käytä**. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä mittakaavalla. Rastita tämä asetus pois päältä ja paina **Käytä**. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt.
 
 Rastita päälle **Mittakaavaperusteinen näkyvyys** ja laita **Minimimittakaava-kentän** arvoksi **500 000**. Paina **OK**. Natura-kohteiden nimiöt eivät enää näy 1:500 000 mittakaavan ulkopuolella. Lähennä karttaan, kunnes nimiöt näkyvät uudelleen. Muuta samalla tavalla **TieViiva-tason** piirtäminen siten, että sen nimiöt näkyvät vasta kun mittakaava on pienempi kuin **1:200 000**.
 
@@ -184,7 +184,7 @@ Rastita päälle **Mittakaavaperusteinen näkyvyys** ja laita **Minimimittakaava
 
 ## Edistyneet ominaisuudet
 
-Voit myös testata tekstien edistyneitä ominaisuuksia **NaturaKohde_ma** -tasolla. Voit ohjata nimiöiden tekstejä lausekepohjaisesti QGISin **Lausekkeen muokkaus** -työkalulla. Saat lausekkeen muodostajan auki **Nimiöiden perustana -alasvetolaatikon** vieressä olevasta painikkeesta:
+Voit myös testata tekstien edistyneitä ominaisuuksia **natura2000sac_alueet** -tasolla. Voit ohjata nimiöiden tekstejä lausekepohjaisesti QGISin **Lausekkeen muokkaus** -työkalulla. Saat lausekkeen muodostajan auki **Nimiöiden perustana -alasvetolaatikon** vieressä olevasta painikkeesta:
 
 ![](img/harjoitus_5/image24.png)
 

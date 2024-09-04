@@ -16,17 +16,17 @@ Opiskelija osaa luokitella ja visualisoida paikkatietoaineistoja QGISin työkalu
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **\"QGIS-harjoitus 6\"**. Lisää projektiin seuraavat aineistot:
 
--   **..kurssihakemisto/6. Harjoitus/HSY_vaestotietoruudukko.gpkg**
+-   **..kurssihakemisto/6. Harjoitus/Vaestotietoruudukko_2022.gpkg**
 
 ## Vektoriaineiston luokittelut
 
-Tarkastellaan aluksi **HSY_vaestotietoruudukko-vektoriaineistoa**, joten piilota muut aineistot näkyvistä. **HSY_vaestotietoruudukko-aineisto** on **GeoPackage-formaatissa**. Tutustu aineistoon avaamalla sen attribuuttitaulu (klikkaa hiiren oikeaa painiketta tason päällä ja valitse **Avaa attribuuttitaulu**). QGISiin avautuu attribuuttitauluikkuna, joka esittelee tason ominaisuuksia ja on erittäin tärkeä osa paikkatietoaineistoa. Kaikilla vektoriaineistoilla on attribuuttitaulu.
+Tarkastellaan aluksi **Vaestotietoruudukko_2022-vektoriaineistoa**, joten piilota muut aineistot näkyvistä. **Vaestotietoruudukko_2022-aineisto** on **GeoPackage-formaatissa**. Tutustu aineistoon avaamalla sen attribuuttitaulu (klikkaa hiiren oikeaa painiketta tason päällä ja valitse **Avaa attribuuttitaulu**). QGISiin avautuu attribuuttitauluikkuna, joka esittelee tason ominaisuuksia ja on erittäin tärkeä osa paikkatietoaineistoa. Kaikilla vektoriaineistoilla on attribuuttitaulu.
 
 ![](img/harjoitus_6/image1.png)
 
-Attribuuttitietojen ymmärtämiseksi on hyvä tarkastella taulun sisältöä sekä tutustua samalla aineiston metatietoihin. Metatiedot löytyvät usein aineistontuottajan nettisivuilta tai paikkatietojen löytämiseen tarkoitetuista hakemistoista. Metatiedot kertovat mm. kuka aineiston on tuottanut, mihin tarkoitukseen, millä mittakaavalla ja missä koordinaattijärjestelmässä se on tehty. HSY_vaestotietoruudukko-aineiston on tuottanut Helsingin seudun ympäristöpalvelut ja sen metatiedot löytyvät saman kansion **HSY_vaestotietoruudukko.pdf-tiedostosta**. Avaa tiedosto ja tutustu eri kenttien (= sarakkeiden) kuvauksiin.
+Attribuuttitietojen ymmärtämiseksi on hyvä tarkastella taulun sisältöä sekä tutustua samalla aineiston metatietoihin. Metatiedot löytyvät usein aineistontuottajan nettisivuilta tai paikkatietojen löytämiseen tarkoitetuista hakemistoista. Metatiedot kertovat mm. kuka aineiston on tuottanut, mihin tarkoitukseen, millä mittakaavalla ja missä koordinaattijärjestelmässä se on tehty. Vaestotietoruudukko_2022-aineiston on tuottanut Helsingin seudun ympäristöpalvelut ja sen metatiedot löytyvät saman kansion **Vaestotietoruudukko_2022.pdf-tiedostosta**. Avaa tiedosto ja tutustu eri kenttien (= sarakkeiden) kuvauksiin.
 
-Attribuuttitauluissa sarakkeiden nimet ovat usein lyhennetyssä muodossa, minkä vuoksi sarakkeiden merkitystä on tyypillisesti vaikea päätellä lyhenteistä. **HSY_vaestotietoruudukko**-aineistossa silmiinpistävää on myös se, että taulukossa toistuu luku 99 useaan otteeseen. Metatietojen avulla voimme kuitenkin selvittää muun muassa sen, miten asukkaita-sarakkeen tiedot on laskettu sekä millä tavalla tiedot on poistettu ruuduissa, joissa asuu 0-4 asukasta. **Ika-sarakkeet** sisältävät asukkaiden määrät ikäluokittain, mutta niille on annettu arvo 99 aina kun ruudukon asukasmäärä on ollut alle 100. Tarkastele aineistoa myös kartalla. Huomaatko yhden ruudun, joka näyttää sijaitsevan kaukana kaakossa keskellä merta?
+Attribuuttitauluissa sarakkeiden nimet ovat usein lyhennetyssä muodossa, minkä vuoksi sarakkeiden merkitystä on tyypillisesti vaikea päätellä lyhenteistä. **Vaestotietoruudukko_2022**-aineistossa silmiinpistävää on myös se, että taulukossa toistuu luku 99 useaan otteeseen. Metatietojen avulla voimme kuitenkin selvittää muun muassa sen, miten asukkaita-sarakkeen tiedot on laskettu sekä millä tavalla tiedot on poistettu ruuduissa, joissa asuu 0-4 asukasta. **Ika-sarakkeet** sisältävät asukkaiden määrät ikäluokittain, mutta niille on annettu arvo 99 aina kun ruudukon asukasmäärä on ollut alle 100. Tarkastele aineistoa myös kartalla. Huomaatko yhden ruudun, joka näyttää sijaitsevan kaukana kaakossa keskellä merta?
 
 ![](img/harjoitus_6/image2.png)
 
