@@ -64,7 +64,7 @@ Kolmas ja järein vaihtoehto geometrioiden tarkistukseen on **Geometrian tarkist
 
 ![](img/harjoitus_4/image11.png)
 
-Kuten heti huomaat kyseisen työkalun valikosta, **Tarkista geometriat -työkalu** antaa ylivoimaisesti laajimman valikoiman validoinnin toiminnallisuuksista. Tehdään kuitenkin perustason tarkastus aineistolle ja etsitään ainoastaan duplikaatteja. Valitse siis kuvan mukaiset asetukset aineiston validoinnissa ja valitse viimeiseksi vaihtoehdoksi (vieritä ikkunaa alaspäin) **Muokkaa syötetasoja**. Paina sitten **Suorita**.
+Kuten heti huomaat kyseisen työkalun valikosta, **Geometrian tarkistaja -työkalu** antaa ylivoimaisesti laajimman valikoiman validoinnin toiminnallisuuksista. Tehdään kuitenkin perustason tarkastus aineistolle ja etsitään ainoastaan duplikaatteja. Valitse siis kuvan mukaiset asetukset aineiston validoinnissa ja valitse viimeiseksi vaihtoehdoksi (vieritä ikkunaa alaspäin) **Muokkaa syötetasoja**. Paina sitten **Suorita**.
 
 ![](img/harjoitus_4/image12.png)
 
