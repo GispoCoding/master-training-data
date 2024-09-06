@@ -16,9 +16,9 @@ Opiskelija osaa laatia karttatulosteen halutussa mittakaavassa sekä tehdä tulo
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **\"QGIS-harjoitus 7\"**. Lisää projektiin seuraavat aineistot:
 
--   **../kurssihakemisto/7. Harjoitus/HSY_vaestotietoruudukko.gpkg**
+-   **../kurssihakemisto/7. Harjoitus/Vaestotietoruudukko_2022.gpkg**
 
--   **../kurssihakemisto/7. Harjoitus/HSY_postinumeroalueet.gpkg**
+-   **../kurssihakemisto/7. Harjoitus/PKS_postinumeroalueet_2023.gpkg**
 
 -   **Haluamasi taustakartta, esimerkiksi Selain \> XYZ Tiles \> OpenStreetMap**
 
@@ -27,7 +27,7 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **\"QGIS-
 
 ## Karttatuloste
 
-Piilota HSY_postinumeroalueet-aineisto karttaikkunastasi ja jätä **HSY_vaestotietoruudukko**-aineisto ja **OpenStreetMap**-aineisto näkyviin. Visualisoi HSY_vaestotietoruudukko-aineisto haluamallasi tavalla - voit esimerkiksi luokitella aineiston asvaljyys-kentän mukaisesti. Voit visualisoida myös OpenStreetMap-rasteriaineistoa halutessasi. Karttasi voi näyttää esimerkiksi tältä:
+Piilota PKS_postinumeroalueet_2023-aineisto karttaikkunastasi ja jätä **Vaestotietoruudukko_2022**-aineisto ja **OpenStreetMap**-aineisto näkyviin. Visualisoi Vaestotietoruudukko_2022-aineisto haluamallasi tavalla - voit esimerkiksi luokitella aineiston asvaljyys-kentän mukaisesti. Voit visualisoida myös OpenStreetMap-rasteriaineistoa halutessasi. Karttasi voi näyttää esimerkiksi tältä:
 
 ![](img/harjoitus_7/image2.png)
 
@@ -69,7 +69,7 @@ Lisää seuraavaksi taittoon selite **Lisää Selite -työkalulla** ![](img/harj
 
 ![](img/harjoitus_7/image21.png)
 
-Klikkaa selite aktiiviseksi ja mene **Elementin ominaisuudet \> Selitteen merkinnät** -kohtaan. Ota ensimmäiseksi rasti pois **Päivitä automaattisesti** -kohdasta, jotta voit muokata selitteessä näkyviä tasoja vapaasti. Aseta rasti kohtaan **Only show items inside linked map**, jolloin selitteessä näytetään vain ne aineistot, jotka näkyvät karttaelementissä. Klikkaa hiiren oikealla painikkeella **HSY_vaestotietoruudukko**-aineistoa ja aktivoi kohta **Piilotettu**. Tämä asetus piilottaa tason nimen. Tee sama **OpenStreetMap**-aineiston kohdalla.
+Klikkaa selite aktiiviseksi ja mene **Elementin ominaisuudet \> Selitteen merkinnät** -kohtaan. Ota ensimmäiseksi rasti pois **Päivitä automaattisesti** -kohdasta, jotta voit muokata selitteessä näkyviä tasoja vapaasti. Aseta rasti kohtaan **Only show items inside linked map**, jolloin selitteessä näytetään vain ne aineistot, jotka näkyvät karttaelementissä. Klikkaa hiiren oikealla painikkeella **Vaestotietoruudukko_2022**-aineistoa ja aktivoi kohta **Piilotettu**. Tämä asetus piilottaa tason nimen. Tee sama **OpenStreetMap**-aineiston kohdalla.
 
 ![](img/harjoitus_7/image22.png) ![](img/harjoitus_7/image23.png)
 
@@ -101,7 +101,7 @@ Voit halutessasi tallentaa karttatulosteesi kuvatiedostoksi esimerkiksi kurssiha
 
 ## Kartta-atlas
 
-QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Seuraavassa esimerkissä tuotetaan kartta-atlas Helsingin postinumeroalueista tutkien niitä väestön jakautumisen näkökulmasta. Tavoitteenamme on tuottaa 173 karttaa, jotka kattavat kaikki pääkaupunkiseudun postinumeroalueet. Aseta nyt **HSY_postinumeroalueet-aineisto** näkyväksi yhdessä HSY_vaestotietoruudukko-aineiston sekä OpenStreetMapin kanssa. Visualisoi postinumeroaineisto niin, että polygonin täyttö on läpinäkyvä ja rajat näkyvät hyvin.
+QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Seuraavassa esimerkissä tuotetaan kartta-atlas Helsingin postinumeroalueista tutkien niitä väestön jakautumisen näkökulmasta. Tavoitteenamme on tuottaa 173 karttaa, jotka kattavat kaikki pääkaupunkiseudun postinumeroalueet. Aseta nyt **PKS_postinumeroalueet_2023-aineisto** näkyväksi yhdessä Vaestotietoruudukko_2022-aineiston sekä OpenStreetMapin kanssa. Visualisoi postinumeroaineisto niin, että polygonin täyttö on läpinäkyvä ja rajat näkyvät hyvin.
 
 ![](img/harjoitus_7/image32.png)
 
@@ -109,7 +109,7 @@ Luo uusi taitto. Lisää taittoon karttaelementti, johon piirtyvät karttaikkuna
 
 ![](img/harjoitus_7/image33.png)
 
-Sitten aloitetaan kartta-atlaksen tuottaminen. Kartta-atlas-ominaisuus on aktivoitava, ennen kuin sitä voidaan hyödyntää QGISin tulosteen muodostajassa. Valitse ylävalikosta **Atlas \> Atlaksen asetukset**. Oikealle ilmestyy uusi **Atlas-välilehti**, josta aktivoidaan kohta **Luo atlas**. Aseta **Coverage layer** -kohtaan se taso, jonka alueisiin kartta-atlas perustuu - tässä tapauksessa se on **HSY_postinumeroalueet**.
+Sitten aloitetaan kartta-atlaksen tuottaminen. Kartta-atlas-ominaisuus on aktivoitava, ennen kuin sitä voidaan hyödyntää QGISin tulosteen muodostajassa. Valitse ylävalikosta **Atlas \> Atlaksen asetukset**. Oikealle ilmestyy uusi **Atlas-välilehti**, josta aktivoidaan kohta **Luo atlas**. Aseta **Coverage layer** -kohtaan se taso, jonka alueisiin kartta-atlas perustuu - tässä tapauksessa se on **PKS_postinumeroalueet_2023**.
 
 ![](img/harjoitus_7/image34.png)
 
