@@ -81,7 +81,7 @@ QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakir
 
 -   Lataa ensiksi postinumeroalueet paikkatietoaineiston avoindata.fi-sivustolta: <https://www.avoindata.fi/data/fi/dataset/paakaupunkiseudun-postinumeroalueet> Lataa aineisto haluamassasi muodossa kurssikansioosi ja lisää se oppimallasi tavalla QGIS-projektiin.
 
-TAI \* - **Lisää .../kurssihakemisto/Harjoitus 7/Postinumeroalueet_2019.gpkg** eli HSY:n postinumeroaineisto QGIS-projektiisi. Huom! Tämä aineisto on tallennettu koordinaattijärjestelmässä EPSG: 3067.
+TAI \* - **Lisää .../kurssihakemisto/Harjoitus 7/PKS_postinumeroalueet.gpkg** eli HSY:n postinumeroaineisto QGIS-projektiisi. Huom! Tämä aineisto on tallennettu koordinaattijärjestelmässä EPSG: 3067.
 
 Nyt projektissa on tasoina ainakin väestöruutuaineisto ja postinumeroalueet. Voit myös lisätä muita haluamiasi tasoja projektiin (esimerkiksi tieviivat). Avaa uusi tuloste ja aseta sen sommittelu haluamaasi kokoon (esimerkiksi A5).
 

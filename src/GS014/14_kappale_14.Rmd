@@ -39,7 +39,7 @@ area(
 
 Tarkastele Helsingin alueen väestöruutuaineistoa. Hyödynnä lausekkeita ja laske asukasmäärän (`asukkaita`-kenttä) keskihajonta.
 
-**Aineisto**: `hsy_vaesto2020_muok.gpkg`
+**Aineisto**: `HSY_vaesto2022_muok.gpkg`
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">
 

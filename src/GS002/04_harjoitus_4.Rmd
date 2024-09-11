@@ -16,7 +16,7 @@ Harjoituksen jälkeen opiskelija osaa tarkastaa aineistonsa geometrioita ja tehd
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä \"**QGIS-harjoitus 4**\". Lisää projektiin seuraavat aineistot:
 
--   **Rakennukset_alueina_GK25.shp**
+-   **Rakennukset_alueina_GK25.gpkg**
 
 ## Virheellisen aineiston tuonti QGISiin
 
