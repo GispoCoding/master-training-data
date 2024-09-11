@@ -17,11 +17,11 @@ Koulutettava oppii käyttämään eri aineistoille tarkoitettuja paikkatietoanal
 Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...) "QGIS_harjoitus_9"**.
 Lisää projektiin seuraavat tasot:
 
--   **.../9. Harjoitus/HallintoAlue.shp**
+-   **.../9. Harjoitus/kunnat2024.gpkg**
 
--   **.../9. Harjoitus/NaturaKohde.shp**
+-   **.../9. Harjoitus/natura2000sac_alueet.gpkg**
 
-Voit asettaa HallintoAlue-monikulmion täytevärin pois ja saada siten NaturaKohde-aineiston paremmin näkyviin:
+Voit asettaa kunnat2024-monikulmion täytevärin pois ja saada siten natura2000sac_alueet-aineiston paremmin näkyviin:
 
 ![](img/harjoitus_9/image1.gif)
 
@@ -67,7 +67,7 @@ Seuraavaksi lähdemme käsittelemään aineistoja **Vektori**-ylämenusta, josta
 ![](img/harjoitus_9/image4.png)
 
 Käynnistä **Ristiinleikkaus (intersection...)**-työkalu **Geoprosessointi**-valikosta.
-Määrittele syötetasoksi NaturaKohde ja leikkaavaksi tasoksi HallintoAlue-aineisto. Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista. Paina syötetason vierestä Asetukset ![](img/harjoitus_9/image5.png) ja valitse **Invalid feature filtering** asetukseksi "Skip (Ignore) features with invalid geometries. Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
+Määrittele syötetasoksi natura2000sac_alueet ja leikkaavaksi tasoksi kunnat2024-aineisto. Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista. Paina syötetason vierestä Asetukset ![](img/harjoitus_9/image5.png) ja valitse **Invalid feature filtering** asetukseksi "Skip (Ignore) features with invalid geometries. Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
 Teemme tälle aineistolle vielä toisen analyysin, joten voit luoda tilapäisen tason:
 
 ![](img/harjoitus_9/image6.png)
@@ -76,11 +76,11 @@ Suorita analyysi painamalla Suorita ja paina sen jälkeen **Sulje**.
 Analyysi luo uuden väliaikaisen tulostason nimeltä **Ristiinleikkaus (intersection)**.
 Karttaikkunassa aineisto näyttää samalta kuin alkuperäinen aineisto.
 
-Vertaile tasojen (**NaturaKohde** ja **Ristiinleikkaus (intersection)**) ominaisuustietoja.
+Vertaile tasojen (**natura2000sac_alueet** ja **Ristiinleikkaus (intersection)**) ominaisuustietoja.
 Mitä huomaat?
 Voit aktivoida myös **Näytä kohteiden lukumäärä** -toiminnon (paina hiiren oikealla näppäimellä tason nimen päällä Tasoluettelossa) katsoaksesi onko aineiston lukumäärä sama.
 
-Analyysin tuloksena ristiinleikatussa aineistossa tulisi olla enemmän kohteita ja ominaisuustietotaulukossa HallintoAlue-aineiston sarakkeet lisänä.
+Analyysin tuloksena ristiinleikatussa aineistossa tulisi olla enemmän kohteita ja ominaisuustietotaulukossa kunnat2024-aineiston sarakkeet lisänä.
 
 ![](img/harjoitus_9/image7.gif)
 
