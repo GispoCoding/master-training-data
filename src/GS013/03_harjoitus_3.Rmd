@@ -34,7 +34,12 @@ Joskus käytettävissä aineistot eivät ole laadultaan täydellisiä. Esimerkik
 
 ## Tilastot
 
-QGISin **Tilastot-paneelilla** voit tarkastella aineistosi arvojen tilastollista jakaumaa. Saat **Tilastot-paneelin** näkyviin QGISin käyttöliittymään klikkaamalla Näytä tilastollinen yhteenveto -painiketta ![](img/harjoitus_3/image4.png) tai valitsemalla päävalikosta **Näytä \> Paneelit \> Tilastot**. Avautuvassa ikkunassa valitse pudotusvalikosta **HSY_vaestotietoruudukko_2019-taso** ja sen jälkeen yksi tason attribuuttikenttä. Tarkastele esitettäviä tilastollisia tunnuslukuja. Voit myös valita aineistosta vain osan, jonka tilastoja haluat tarkastella. Valitse osa aineiston ruuduista joko kartalta tai attribuuttitaulusta, ja klikkaa **Tilastot-paneelin** ruutu **Käytetään vain valittuja kohteita** aktiiviseksi.
+Tuo projektiisi kurssihakemiston **Harjoitus 3** -kansiosta
+vektorimuotoinen taso **Vaestotietoruudukko_2022.gpkg**.
+Tutkitaan seuraavaksi tasoa QGISin tilastot-paneelissa,
+jossa voit tarkastella aineistosi arvojen tilastollista jakaumaa.
+
+Saat **Tilastot-paneelin** näkyviin QGISin käyttöliittymään klikkaamalla Näytä tilastollinen yhteenveto -painiketta ![](img/harjoitus_3/image4.png) tai valitsemalla päävalikosta **Näytä \> Paneelit \> Tilastot**. Avautuvassa ikkunassa valitse pudotusvalikosta **vaestotietoruudukko_2022-taso** ja sen jälkeen yksi tason attribuuttikenttä. Tarkastele esitettäviä tilastollisia tunnuslukuja. Voit myös valita aineistosta vain osan, jonka tilastoja haluat tarkastella. Valitse osa aineiston ruuduista joko kartalta tai attribuuttitaulusta, ja klikkaa **Tilastot-paneelin** ruutu **Käytetään vain valittuja kohteita** aktiiviseksi.
 
 ![](img/harjoitus_3/image5.png)
 
@@ -81,7 +86,7 @@ Vuosittaisia tieliikenneonnettomuuksia käsittelevä aineisto on saatavilla Tila
 Lisää projektiisi minkä tahansa vuoden tieliikenneonnettomuudet.
 Lisää vielä kurssihakemistosta projektiisi aineistot:
 
--   **TieViiva.shp**
+-   **TieViiva.gpkg**
 -   **Uusimaa.gpkg**
 
  

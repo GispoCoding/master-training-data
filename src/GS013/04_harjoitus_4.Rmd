@@ -16,11 +16,11 @@ Koulutettava oppii laatimaan monivaiheisen analyysiprosessin graafisen mallintaj
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 4**". Avaa projektiisi kurssihakemistosta aineistot 
 
--   **TieViiva.shp**
+-   **TieViiva.gpkg**
 
--   **Hallintoalue.shp**
+-   **kunnat2024.gpkg**
 
--   **NaturaKohde.shp**
+-   **NaturaKohde.gpkg**
 
 
 
