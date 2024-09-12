@@ -1,4 +1,4 @@
-# Harjoitus 10: Paikkatietoanalyysit
+# Lisätehtävä: Paikkatietoanalyysit
 
 ## Harjoituksen sisältö
 
@@ -32,6 +32,21 @@ Tähän harjoitukseen pitää ensin lisätä **saavutettvauusanalyysi_aineistot.
 
 Saavutettavuusanalyyseja on monenlaisia ja muutama työkalu tähään löytyy QGISin työkalupakista. Paina ensin seuraavaa symbolia jotta saat auki Työkalut-näkymän:
 
-![](img/harjoitus_11/image2.png)
+![](img/harjoitus_11/image4.png)
 
-Navigoi itsesi **Verkostoanalyysi** alavalikolle tai etsi suoraan työkalu nimeltään **Lyhin polku (pisteestä tasoon)**. 
+Navigoi itsesi **Verkostoanalyysi** alavalikolle tai etsi suoraan työkalu nimeltään **Lyhin polku (pisteestä tasoon)**. Tutkittava vektoritaso on Seutukartta_tiesto ja siinä voi olla geometriavirheitä. Valitse viereisestä jakoavain-symbolin takaa **Ohita kohteet, joilla virheellinen geometria**. Palaa takaisin edelliseen näkymään painamalla kolmiota.
+
+![](img/harjoitus_11/image5.png)
+
+Valitse vielä alkupiste kartalta painamalla kolmea pistettä ja sen jälkeen paikkaa kartalta. Valitse päätepistetasoksi Uimahallit-tasoa. Paina tämän jälkeen **Suorita**.
+
+![](img/harjoitus_11/image6.png)
+
+:::hint-box
+On mahodllista laskea reitti etäisyyden tai matka-ajan mukaan. Etäisyys mitataan tässä koordinaattijärjestelmässä metreinä.  Matka-aikaa laskieassa niin saadaan tietää matka-aikaa tunnin osina.
+:::
+
+Voit avata uuden tason ominaisuustaulukkoa ja huomaat, että kolme uutta saraketta on syntynyt. Start ja end ovat alku-ja loppupisteet ja cost taas kertoo matkaosuus metreinä. Voit visualisoida tuloksia luokittelemalla tuloksia cost-sarakkeen mukaan. Kysy apua kouluttajalta jos et muista miten se tehdään.
+
+![](img/harjoitus_11/image7.png)
+
