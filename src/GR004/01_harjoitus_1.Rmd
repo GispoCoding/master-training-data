@@ -130,10 +130,21 @@ tahansa kentän mukaan laskevaan tai nousevaan järjestykseen.
 
 Kun olet tutkinut ominaisuustietotaulukkoa riittävästi, sulje taulukko.
 
-Tallenna lopuksi aloittamasi QGIS-projekti omaksi projektitiedostokseen
-kurssihakemistoon, esimerkiksi nimellä
-**../kurssihakemisto/QGIS_harjoitus_1.qgz**.
+Voit tallentaa tason eri formaattiin (eli tehdä muunnos) klikkaamalla tasoa hiiren oikealla ja valita **Vie -> Tallenna kohteet nimellä**. Voit esimerkiksi tallentaa tasoa GeoPackage-muotoon (.gpkg). Valitse ensin Tiedostonimi, painamalla kolmen pisteen nappia. Valitse sopiva tallennuspaikka ja hyvä nimi (esim. "Espoo qgis harjoitus.gpkg"). Seuraavaan laatikkoon laitetaan Tason nimi. Miksi nimi kahteen kertaan? Koska GeoPackage-tiedostoon voi tallentaa useampaa tasoa. Eli sanotaan vaikka, että sinulla on meneillään projekti Leppävaarassa, mihin tarvitset pienalueet, luonnonsuojelualueet ja rakennukset. Voisit silloin tallentaa kaikki kolme tasoa samaan GeoPackage-tiedostoon ja antaa sille tiedostolle nimeksi vaikka "Leppävaaran superkiva projekti.gpkg". Tämän tiedoston sisällä olisi sitten kolme tasoa. Eli sinulla olisi näppärästi kaikki projektiin liittyvät tasot samassa tiedostossa. 
+
+Tällä kertaa aloitetaan kuitenkin tallentamalla ainoastaan yhden tason yhteen tiedostoon. Anna tason nimeksi vaikkapa. "Pienalueet". Koordinaatijärjestelmä olisi hyvä olla EPSG:3879. Jos joskus tarvitset aineistoja eri koordinaattijärjestelmään niin helppo tapa on tallentaa tasoa uudestaan, mutta vaihtamalla koordinaattijärjestelmää tässä kohtaa.
+
+Paina tämän jälkeen **OK**.
+
+
+![](img/harjoitus_1/image16.png)
 
 ::: hint-box
-**Psst! Muista tallentaa QGIS-projekti aina harjoituksen lopuksi.**
+GeoPackage on monipuolinen paikkatietoaineistoformaatti. Yhteen tiedostoon voi tallentaa useampi taso. Tavallisesti niin tasojen tyylit tallentuu QGISin projektitiedostoon, mutta voit myös halutessasi tallentaa tietyn tason tyyliä suoraan GeoPackage-tiedostoon. Tämä on erityisen näppärää kun haluat laittaa paikktietoaineiston tyyleineen kolleegalle. Silloin kaikki on tallessa yhdessä tiedostossa. GeoPackageen voi myös tallentaa kokonaisen QGIS-projektin, silloin voidaan myös saada kaikki projektin asetukset siirtymään GeoPackage-tiedoston kautta. Oikeasti GeoPackge on minitietokanta joka löytyy paikallisesti tietokoneellasi. Älä huolestu jos tietokanta kuulostaa pelottavalta, olet sitä jo käyttänyt tämän harjoituksen aikana. GeoPackagesta voit lukea lisää meidän [blogista](https://www.gispo.fi/blogi/kateva-geopackage-mika-se-on/)
 :::
+
+
+Tallenna vielä lopuksi aloittamasi QGIS-projekti omaksi projektitiedostokseen
+kurssihakemistoon, esimerkiksi nimellä
+**../kurssihakemisto/QGIS_harjoitus_1.qgz**. Voit tehdä sen Projekti-valikosta valitsemalla **Tallenna nimellä**.
+
