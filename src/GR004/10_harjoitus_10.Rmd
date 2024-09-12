@@ -6,7 +6,7 @@ Harjoituksessa tuodaan CAD-aineistoja QGIS-työtilaan
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii tuomaan DWG-aineistoja QGIS-työtilaan ja käsittelemään niitä QGISissä.
+Koulutettava oppii tuomaan sekä viemään CAD-aineistoja QGISissä.
 
 ## Valmistautuminen
 
@@ -14,11 +14,15 @@ Käynnistä QGIS-ohjelmisto. Tallenna QGIS-projekti nimellä (**Projekti → Tal
 
 ## CAD-aineiston tuonti
 
-Tässä harjoituksessa ohjeistetaan kuinka käytetään QGISin “Tuo DWG/DXF”-työkalua, joka aineiston avaamisen lisäksi luo GeoPackage-tiedoston sen sisällöstä. 
+Tässä harjoituksessa ohjeistetaan kuinka käytetään QGISin "Tuo DWG/DXF”-työkalua, joka aineiston avaamisen lisäksi luo GeoPackage-tiedoston sen sisällöstä. 
 
 ![](img/harjoitus_10/image1.png)
 
 Toinen vaihtoehto olisi tuoda aineisto projektiin uutena vektoritasona (Tasot -> Lisää taso -> Lisää vektoritaso). Näistä ensin mainittu työkalu antaa paremman näkymän aineistoon, sillä se jakaa aineiston CAD-ohjelmistossa nimettyihin tasoryhmiin. Sen sijaan aineiston tuonti vektoritasona tuo kaikki polygoni-, viiva- ja pisteaineistot projektiin geometrian mukaan jaettuina tasoina, minkä seurauksena haluamiaan tietoja joutuu kaivelemaan aineiston attribuuttitaulukoista. Joidenkin aineistojen tapauksessa myös Tuo DWG/DXF-työkalu on ainoa tapa saada aineisto auki QGISissä, jos jostain syystä vektoritasona tuominen ei toimi.
+
+:::hint-box
+Psst! Lue meidän [blogia](https://www.gispo.fi/blogi/cad-aineistot-ja-qgis/), missä käydään läpi CAD-aineistojen yhteensopivuus QGISin kanssa.
+:::
 
 ## Erilaiset CAD-aineistot
 

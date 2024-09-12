@@ -163,27 +163,6 @@ Ja sitten ei kun harjoittelemaan käyttöä! Esitellyt työkalut voivat tuntua h
 
 Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä](https://gispo.fi/blogi/cad-aineistot-ja-qgis/).
 
-## Lisätehtävä: Lisää Rakennukset-tasolle funktio, jonka avulla pinta-alatieto päivittyy automaattisesti
-
-1.  Avaa **Rakennukset-tason ominaisuudet**. Mene kohtaan **Attribuuttilomake**.
-
-2.  Valitse kentistä **Pinta-ala** ja selaa kohtaan **Oletusarvot**.
-
-3.  Avaa oikean reunan funktio-painikkeesta auki **lausekkeen muokkaus -ikkuna**.
-
-4.  Valitse Geometrian alta `$area`. Funktion voi kirjoittaa myös itse suoraan oletusarvot -kenttään.
-
-5.  Jos haluat vielä pyöristää arvoa niin, että kaikki desimaalit eivät näy, käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella lauseke on `round($area,2)`
-
-6.  **Lopuksi muista laittaa täppä kohtaan "Käytä oletusarvoa päivityksessä"**, niin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
-
-    ![](img/harjoitus_7/image34.png)![](img/harjoitus_7/image35.png){width="519"}
-
-## Lopuksi
-
-Avaa **Kuvaustekniikka-paneeli** tai mene tason ominaisuuksien kautta **Kuvaustekniikka-välilehdelle** ja muokkaa editoitujen kohteiden värit vastaamaan taustakartan värejä **Värin valitsin -työkalua** hyödyntäen.
-
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
 **Psst!** Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.

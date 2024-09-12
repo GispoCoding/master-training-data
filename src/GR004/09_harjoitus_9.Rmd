@@ -10,7 +10,7 @@ Koulutettava oppii laatimaan karttatulosteen halutussa mittakaavassa sekä tehd�
 
 ## Valmistautuminen
 
-Käynnistä QGIS-ohjelmisto. Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä…**) “**QGIS_harjoitus_5**”.
+Käynnistä QGIS-ohjelmisto. Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä…**) “**QGIS_harjoitus_8**”.
 
 ## Karttatuloste
 
@@ -84,14 +84,11 @@ Sopiva resoluutio karttatulosteellesi riippuu kartan käyttötarkoituksesta, mut
 :::
 
 ## Lisätehtävä: kartta-atlas
-QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Seuraavassa esimerkissä tuotamme kartta-atlaksen Helsingin postinumeroalueista tutkien niitä väestön jakautumisen näkökulmasta. Tavoitteenamme on tuottaa 173 karttaa, jotka kattavat kaikki pääkaupunkiseudun postinumeroalueet.
+QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Seuraavassa esimerkissä tuotamme kartta-atlaksen Pääkaupunkiseudun postinumeroalueista tutkien niitä väestön jakautumisen näkökulmasta. Tavoitteenamme on tuottaa 173 karttaa, jotka kattavat kaikki pääkaupunkiseudun postinumeroalueet.
 
-* Lataa ensiksi postinumeroalueet paikkatietoaineiston avoindata.fi-sivustolta: 
-  https://www.avoindata.fi/data/fi/dataset/paakaupunkiseudun-postinumeroalueet
-  Lataa aineisto haluamassasi muodossa kurssikansioosi ja lisää se oppimallasi tavalla QGIS-projektiin.
-  
-TAI
-* - **Lisää .../kurssihakemisto/HSY/Postinumeroalueet_2019.gpkg** eli HSY:n postinumeroaineisto QGIS-projektiisi. Huom! Tämä aineisto on tallennettu koordinaattijärjestelmässä EPSG: 3067. 
+
+
+**Lisää PKS_postinumeroalueet_2023.gpkg** eli HSY:n postinumeroaineisto QGIS-projektiisi. Huom! Tämä aineisto on tallennettu koordinaattijärjestelmässä EPSG: 3067. 
 
 Nyt projektissa on tasoina ainakin väestöruutuaineisto ja postinumeroalueet. Voit myös lisätä muita haluamiasi tasoja projektiin (esimerkiksi tieviivat). 
 Avaa uusi tuloste ja aseta sen sommittelu haluamaasi kokoon (esimerkiksi A5). 
@@ -133,7 +130,7 @@ Kartta-atlastuloste voisi näyttää esimerkiksi tältä:
 
 ![](img/harjoitus_9/image24.jpg)
 
-Kuvan esimerkissä on käyttöön otettu myös yleiskatsauskarttanäkymä (vasen alareuna) ja taustakarttana käytetty OpenStreetMap Finlandin WMS-palvelua avaa.fi-julkaisualustan kautta (http://avaa.tdata.fi/openstreetmap). Huomaa, kuinka yleiskarttanäkymän pieni vaaleanpunainen neliö vaihtaa paikkaa sitä mukaa kun kohdennetun kartan alue vaihtuu.
+Kuvan esimerkissä on käyttöön otettu myös yleiskatsauskarttanäkymä (vasen alareuna) ja taustakarttana käytetty OpenStreetMap. Huomaa, kuinka yleiskarttanäkymän pieni vaaleanpunainen neliö vaihtaa paikkaa sitä mukaa kun kohdennetun kartan alue vaihtuu.
 
 ::: hint-box
 **Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
