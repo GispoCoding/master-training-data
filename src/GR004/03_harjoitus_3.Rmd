@@ -74,8 +74,7 @@ Voit pitää ctrl-nappia alhaalla niin pystyt valitsemaan useamman kohteen. Jos 
 
 ![](img/harjoitus_3/image9.png)
 
-
-## Lisätehtävä: 
+Kun haluat tallentaa niin painat hiiren oikealla tasoa tasoluettelossa ja valitset **Vie -> Tallenna valitut kohteet nimellä**. 
 
 ::: hint-box
 **Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
