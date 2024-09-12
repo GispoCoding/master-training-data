@@ -18,9 +18,9 @@ Voit jatkaa samalla projektilla, jonka teit edellisessä harjoituksessa.
 
 ## Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)
 
-Tässä harjoitukksessa teemme rakennuksia rakennuspaikoille. Luo **Aluesuunnitelma-GeoPackageen** uusi taso rakennuksia varten seuraavasti:
+Tässä harjoitukksessa teemme rakennuksia rakennuspaikoille. Luo **Alueet-GeoPackageen** uusi taso rakennuksia varten seuraavasti:
 
-Aloita valitsemalla työkalupalkista jälleen **Uusi GeoPackage-taso**. Tällä kertaa kuitenkin valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun Aluesuunnitelma-Geopackagen, jolloin uusi taso tulee lisätyiksi siihen. Kun olet valinnut Aluesuunnitelma.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja täytä tason tiedot kuten alla olevassa kuvassa:
+Aloita valitsemalla työkalupalkista jälleen **Uusi GeoPackage-taso**. Tällä kertaa kuitenkin valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun Alueet-Geopackagen, jolloin uusi taso tulee lisätyiksi siihen. Kun olet valinnut Alueet.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja täytä tason tiedot kuten alla olevassa kuvassa:
 
 ![](img/harjoitus_7/image1.png)
 
