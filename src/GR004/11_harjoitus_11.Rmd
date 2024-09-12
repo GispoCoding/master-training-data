@@ -1,0 +1,37 @@
+# Harjoitus 10: Paikkatietoanalyysit
+
+## Harjoituksen sisältö
+
+Harjoituksessa kokeillaan muutamia paikkatietoanalyyseja
+
+## Harjoituksen tavoite
+
+Koulutettava oppii löytämään paikkatietoanalyysityökaluja
+
+## Valmistautuminen
+
+Käynnistä QGIS-ohjelmisto. Tallenna QGIS-projekti nimellä (**Projekti → Tallenna nimellä…**) “**QGIS_harjoitus_10**”.
+
+## Rajaa ja sulauta
+
+Tuo kurssihakemistosta Espoon pienalueet karttatasoa QGISiin. Jotta olisi helpompi lukea karttaa niin laitetaan nimiöt päälle. Paina hiiren oikealla Pienalueet-tasoa ja valitse **Ominaisuudet**. Nimiöt-välilehdellä valitset **Yksinkertainen nimiöinti** ja Arvoksi **nimi_suomeksi**. 
+
+![](img/harjoitus_11/image1.png)
+
+Tarkoituksena on yhdistää pienalueet Lakisto, Lahnus ja Luukki yhdeksi alueeksi. Valitse kaikki kolme aluetta käyttämällä valintatyökalua
+
+![](img/harjoitus_3/image8.png) 
+
+![](img/harjoitus_11/image2.png)
+
+Valitse seuraavaksi **Vektori -> Geoprosessointi -> Sulauta (dissolve)**. Rastita **Käytetään ainoastaan valittuja kohteita**, mutten yhdistäisimme koko Espoon. Paina tämän jälkeen suorita. Nyt sinulla on uusi taso missä on yhdistetty kaikki kolme aluetta!
+
+
+## Saavutettavuusanalyysi
+Tähän harjoitukseen pitää ensin lisätä **saavutettvauusanalyysi_aineistot.gpkg** tiedostosta kahdet tasot: **uimahallit** ja **Seutukartta_tiesto**. 
+
+Saavutettavuusanalyyseja on monenlaisia ja muutama työkalu tähään löytyy QGISin työkalupakista. Paina ensin seuraavaa symbolia jotta saat auki Työkalut-näkymän:
+
+![](img/harjoitus_11/image2.png)
+
+Navigoi itsesi **Verkostoanalyysi** alavalikolle tai etsi suoraan työkalu nimeltään **Lyhin polku (pisteestä tasoon)**. 

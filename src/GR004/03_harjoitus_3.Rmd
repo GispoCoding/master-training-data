@@ -54,7 +54,9 @@ Lisää taas muutama WFS-palvelu ja nimeä ne haluamallasi tavalla. Jos et viel�
 -   <https://kartta.hsy.fi/geoserver/wfs>
 -   <https://geoserver.museovirasto.fi/geoserver/rajapinta_suojellut/wfs>
 
-Jos haluat käyttää tiedossasi olevaa suljettua (salasanaa vaativaa) palvelua, niin lisää käyttäjätunnus ja salasana palveluyhteyden luomisen aikana. Käyttäjätunnuksia kysytään automaattisesti, jos valitut karttatasot niin on määritetty. Kun olet luonut muutaman WFS-palveluyhteyden, voit ottaa niihin yhteyden samalla tavalla kuin WMS-palveluiden yhteydessä. Valitse taas oman kiinnostuksesi mukaan aineistoja lisättäväksi QGISiin. Kuten sanottu, huomataan, että tällä kertaa aineistot ovat vektoriaineistomuodossa. Tutki niiden geometrioita ja ominaisuustietoja QGISissa. Kokeile valita muutamia kohteita ja tallentaa ne paikallisesti kurssihakemistoosi.
+Jos haluat käyttää tiedossasi olevaa suljettua (salasanaa vaativaa) palvelua, niin lisää käyttäjätunnus ja salasana palveluyhteyden luomisen aikana. Käyttäjätunnuksia kysytään automaattisesti, jos valitut karttatasot niin on määritetty. Kun olet luonut muutaman WFS-palveluyhteyden, voit ottaa niihin yhteyden samalla tavalla kuin WMS-palveluiden yhteydessä. Valitse taas oman kiinnostuksesi mukaan aineistoja lisättäväksi QGISiin. Kuten sanottu, huomataan, että tällä kertaa aineistot ovat vektoriaineistomuodossa. Eli voit tutkia niiden geometrioita ja ominaisuustietoja QGISissa. 
+
+
 
 Kun olet luonut muutaman WFS-palveluyhteyden, voit ottaa niihin yhteyden samalla tavalla kuin WMS-palveluiden yhteydessä. Valitse taas oman kiinnostuksen mukaan aineistoja lisättäväksi QGISiin. Nyt kun sinulla on enemmän tasoja tasoluettelossa, voit ryhmittää tasoja, jotta sinun on helpompi hallita tasoja yhdessä. Hyödynnä myös muita tasoluettelon pikanäppäimiä tasoluettelon yläpuolelta:
 
@@ -62,21 +64,18 @@ Kun olet luonut muutaman WFS-palveluyhteyden, voit ottaa niihin yhteyden samalla
 
 Yllä olevassa kuvassa näkyy vain yksi taso, mutta sinulla on varmasti jo useampi taso luettelossasi. Tee esimerkiksi omat ryhmät WFS- ja WMS-tasoille.
 
-## Lisätehtävä: WFS-rajapintapalvelun kysely ja suodatus SQL-lausekkeella
+## Valitseminen ja tallentaminen
 
-Voit myös kysellä ja filtteröidä rajapintapalveluita QGISin SQL-lauseke-toiminnolla. Toiminto löytyy samasta ikkunasta, josta WFS-tasoja voidaan lisätä kunkin palveluyhteyden osalta. Seuraavassa animaatiossa ladataan Tilastokeskuksen ylläpitämästä paikkatietopalvelusta vain vakavuuden "2" liikenneonnettomuudet vuodelta 2015 QGISiin.
+Kokeile valita muutamia kohteita ja tallentaa ne paikallisesti kurssihakemistoosi. Valitseminen tapahtuu seuraavalla työkalulla:
 
-Lisää Tilastokeskuksen tieliikenteen **WFS-rajapinnasta** <http://geo.stat.fi/geoserver/tieliikenne/wfs> vektoritaso **Tieliikenneonnettomuudet 2017**.
+![](img/harjoitus_3/image8.png)
 
-![](img/harjoitus_3/image7.png)
+Voit pitää ctrl-nappia alhaalla niin pystyt valitsemaan useamman kohteen. Jos haluat poistaa valinnan, paina kohdetta uudestaan. Valitut kohteet näkyvät oletuksena keltaisella. Jos haluat poistaa kaikki valinnat paina seuraavaa nappia:
 
-Datan lataamiseksi tuotamme SQL-kyselyn, joka etsii '2'-tiedon meillä jo tiedossa olevasta sarakkeesta. Avaamme ensin **SQL-kyselyikkunan** ja muodostamme kyselyn:
+![](img/harjoitus_3/image9.png)
 
-![](img/harjoitus_3/image8.gif)
 
-Sitten lisäämme tason QGISiin ja varmistamme, että SQL-kyselymme tuotti toivotun tuloksen:
-
-![](img/harjoitus_3/image9.gif)
+## Lisätehtävä: 
 
 ::: hint-box
 **Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
