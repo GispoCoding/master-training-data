@@ -49,8 +49,8 @@ lopuksi **Lisää** ja sulje ikkuna.
 
 ![](img/harjoitus_1/image3.png){width="70%"}
 
-Aineiston pitäisi näkyä seuraavan sivun esimerkin mukaisesti (huom!
-viivan väri saattaa olla eri).
+Aineiston pitäisi näkyä seuraavan kuvan esimerkin mukaisesti (huom!
+värit saattaa olla eri).
 
 ![](img/harjoitus_1/image4.png)
 
@@ -74,16 +74,16 @@ scrollia).
 **4. Tilapalkki** Tilapalkista näet hiiren kursorin koordinaatit, minkä
 lisäksi voit muuttaa mittakaavaa ja koordinaattijärjestelmää.
 
-**5. Prosessointi- ja selain-paneeli** Aikaisemmassa harjoituksessa
-tutustuttiinkin jo hieman QGISin uuteen Selain-paneeliin, joka
-aikaisemmissa versioissa on ollut erillisenä ohjelmana. Myös
-Prosessointityökalut saa kätevästi esille paneeliksi, jolloin ne ovat
+**5. Prosessointi-työkalut**
+Painamalla ratasta saat auki Prosessointityökalut omana paneelina, jolloin ne ovat
 aina helposti löydettävissä. Prosessointyökaluista löydät esim. vektori-
 ja rasterianalyysityökalut.
 
 **6. Hakutoiminto** Joskus on vaikea muistaa, mistä mikäkin työkalu ja
 toiminto valikosta löytyy. Hakutoiminnolla voit helposti etsiä näitä
 näppäilemällä CTRL+K ja kirjoittamalla etsimäsi toiminnon hakukenttään.
+
+**7. Selain-paneeli** Tästä saat auki tiedostot ja rajapinnat. Voit selata oman tietokoneen kansioita ja ottaa yhtettyä tietokantoihin.
 
 ## Kokeile itse
 

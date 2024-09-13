@@ -23,11 +23,7 @@ documentclass: book
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
 
 ::: hint-box
-Mistä löydät tietoa GeoServeristä?
-
-GeoServerillä on omat kotisivut.
-
-Psst! Tietoa GeoServeristä löydät internetistä.
+Psst! Tietoa QGISistä löydät internetistä.
 :::
 
 ## Mistä lisätietoja?
