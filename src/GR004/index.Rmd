@@ -19,43 +19,6 @@ documentclass: book
 
 # QGIS-työpaja Espoon kaupungille
 
-## Kurssimateriaalien lataaminen
-
-Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
-
-::: note-box
-[Kurssihakemisto.zip](data_package_link_replace)
-:::
-
-## Lukuohje
-
-**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
-
-::: note-box
-<http://localhost:8080/geoserver>
-:::
-
-**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
-
-::: commandline-box
-``` bash
-sudo lsb_release -a
-```
-:::
-
-**Tiedostojen sisältö** on esitetty seuraavasti:
-
-::: file-content-box
-#IPv4 local connections: #host all all 127.0.0.1/32 md5
-:::
-
-**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
-
-::: code-box
-``` sql
-SELECT version();
-```
-:::
 
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
 
