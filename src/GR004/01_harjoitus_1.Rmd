@@ -14,10 +14,8 @@ Koulutettava oppii käyttämään QGISin käyttöliittymää.
 Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google
 Drivestä linkistä
 
-VAIHDA LINKKI!
-
 ::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/file/d/1K0SUSVwM0PIPS7cMbDi4-gGiAIFA4igp/view?usp=sharing)
+[Kurssihakemisto.zip](https://drive.google.com/file/d/1EyeSBGm70-vdp5IOWDybKeAzSldNXcKu/view?usp=sharing)
 :::
 
 
