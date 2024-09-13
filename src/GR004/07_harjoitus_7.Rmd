@@ -18,7 +18,7 @@ Voit jatkaa samalla projektilla, jonka teit edellisessä harjoituksessa.
 
 ## Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)
 
-Tässä harjoitukksessa teemme rakennuksia rakennuspaikoille. Luo **Alueet-GeoPackageen** uusi taso rakennuksia varten seuraavasti:
+Tässä harjoituksessa teemme rakennuksia rakennuspaikoille. Luo **Alueet-GeoPackageen** uusi taso rakennuksia varten seuraavasti:
 
 Aloita valitsemalla työkalupalkista jälleen **Uusi GeoPackage-taso**. Tällä kertaa kuitenkin valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun Alueet-Geopackagen, jolloin uusi taso tulee lisätyiksi siihen. Kun olet valinnut Alueet.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja täytä tason tiedot kuten alla olevassa kuvassa:
 
@@ -105,7 +105,7 @@ Aloita nyt **Rakennukset-tason** editointi.
 
 ## Suorakulmaisen polygonin piirtäminen
 
-1.  Laita tarttumisen työkalu (työtilan yläosassa) päälle **self-snapping** ![](img/harjoitus_7/image5.png).
+1.  Tarkista, että **self-snapping** ![](img/harjoitus_7/image5.png) on päällä (Löytyy tarttumisen työkaluista).
 
 2.  Laita asteen mukaiset tukiviivat ja tarttuminen päälle laajennetun digitoinnin paneelista ![](img/harjoitus_7/image9.png). Riittävä tarkkuus on tässä *"90, 180, 270, 360 astetta"*.
 

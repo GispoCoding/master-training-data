@@ -9,7 +9,7 @@ Koulutettava oppii georeferoimaan aineistoja joilla ei ole koordinaattijärjeste
 
 ## Valmistautuminen
 
-allenna QGIS-projekti nimellä (**Projekti → Tallenna nimellä…**) “**QGIS_harjoitus_georeferointi**”.
+Tallenna QGIS-projekti nimellä (**Projekti → Tallenna nimellä…**) “**QGIS_harjoitus_georeferointi**”.
 
 ## Georeferointi
 
@@ -19,7 +19,7 @@ Nyt QGIS olettaa, että haluat lisätä muunnospisteitä, eli pisteitä joiden s
 
 ![](img/harjoitus_12/image1.png)
 
-Kun valitset pisteen niin uusi ikkuna aukeaa. Valitse tämän jälkeen **Karttaikkunata** ja valitse mahdollisimman sama sijainti ortokuvalla. Tämän jälkeen Georeferoijan ikkunassa koordinaattitiedot päivittyvät. Paina tämän jälkeen **OK**.
+Kun valitset pisteen niin uusi ikkuna aukeaa. Valitse tämän jälkeen **Karttaikkunasta** ja valitse mahdollisimman sama sijainti ortokuvalla. Tämän jälkeen Georeferoijan ikkunassa koordinaattitiedot päivittyvät. Paina tämän jälkeen **OK**.
 
 ![](img/harjoitus_12/image2.png)
 

@@ -130,7 +130,7 @@ Rastita päälle **Mittakaavaperusteinen näkyvyys** ja laita **Maksimi-kentän 
 
 ![](img/harjoitus_8/image16.png)
 
-Paina **OK**. Natura-kohteiden nimiöt eivät enää näy 1:500 000 mittakaavan ulkopuolella. Lähennä karttaan, kunnes nimiöt näkyvät uudelleen. 
+Paina **OK**. Natura-kohteiden nimiöt eivät enää näy 1:500 000 mittakaavan ulkopuolella. Loitonna karttaa, kunnes nimiöt näkyvät uudelleen. 
 Voit myös testata muita tekstittämiseen liittyviä edistyneempiä toimia. Voit muun muassa ohjata nimiöiden tekstejä lausekepohjaisesti käyttämällä merkkijonoja QGISin lauseke-työkalulla:
 
 ![](img/harjoitus_8/image17.png)

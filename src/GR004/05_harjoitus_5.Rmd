@@ -40,7 +40,7 @@ Usein ensimmäinen operaatio aineistojen luomisessa on taustakartan lisääminen
 
 ![](img/harjoitus_5/image3.png)
 
-Zoomaa kartta haluamasi kohdalle ja koska haluamme tehdä tarkkaa digitointia oikeassa koordinaattijärjestelmässä niin varmista, että projektin koordinaattijärjestelmä on Espoon alueelle sopiva **ETRS89/GK25FIN (EPSG:3879)**. Tarkista se projektin oikeasta alakulmasta, jossa lukee tällä EPSG-koodi.
+Zoomaa kartta haluamasi kohdalle ja koska haluamme tehdä tarkkaa digitointia oikeassa koordinaattijärjestelmässä niin varmista, että projektin koordinaattijärjestelmä on Espoon alueelle sopiva **ETRS89/GK25FIN (EPSG:3879)**. Tarkista se projektin oikeasta alakulmasta, missä näet EPSG-koodin.
 
 ::: hint-box
 Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti tuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.

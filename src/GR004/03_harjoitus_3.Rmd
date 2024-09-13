@@ -62,7 +62,7 @@ Kun olet luonut muutaman WFS-palveluyhteyden, voit ottaa niihin yhteyden samalla
 
 ![](img/harjoitus_3/image6.png)
 
-Yllä olevassa kuvassa näkyy vain yksi taso, mutta sinulla on varmasti jo useampi taso luettelossasi. Tee esimerkiksi omat ryhmät WFS- ja WMS-tasoille.
+Yllä olevassa kuvassa näkyy vain yksi taso, mutta sinulla on varmasti jo useampi taso luettelossasi. Tee esimerkiksi omat ryhmät WFS- ja WMS-tasoille tasoluettelossa.
 
 ## Valitseminen ja tallentaminen
 

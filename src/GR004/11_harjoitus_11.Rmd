@@ -10,7 +10,7 @@ Koulutettava oppii löytämään paikkatietoanalyysityökaluja
 
 ## Valmistautuminen
 
-Käynnistä QGIS-ohjelmisto. Tallenna QGIS-projekti nimellä (**Projekti → Tallenna nimellä…**) “**QGIS_harjoitus_10**”.
+Käynnistä QGIS-ohjelmisto. Tallenna QGIS-projekti nimellä (**Projekti → Tallenna nimellä…**) “**QGIS_harjoitus_lisätehtävä**”.
 
 ## Rajaa ja sulauta
 
@@ -24,7 +24,7 @@ Tarkoituksena on yhdistää pienalueet Lakisto, Lahnus ja Luukki yhdeksi alueeks
 
 ![](img/harjoitus_11/image2.png)
 
-Valitse seuraavaksi **Vektori -> Geoprosessointi -> Sulauta (dissolve)**. Rastita **Käytetään ainoastaan valittuja kohteita**, mutten yhdistäisimme koko Espoon. Paina tämän jälkeen suorita. Nyt sinulla on uusi taso missä on yhdistetty kaikki kolme aluetta!
+Valitse seuraavaksi **Vektori -> Geoprosessointi -> Sulauta (dissolve)**. Rastita **Käytetään ainoastaan valittuja kohteita**, muuten yhdistäisimme koko Espoon. Paina tämän jälkeen **Suorita**. Nyt sinulla on uusi taso missä on yhdistetty kaikki kolme aluetta!
 
 
 ## Saavutettavuusanalyysi

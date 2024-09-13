@@ -50,7 +50,7 @@ Paina sitten **OK**, niin uusi kenttä tulee listalle. Klikkaa kynäikonista uud
 
 ## Tietorakenteen valmistelu ja editointiasetukset
 
-QGISin automaattisesti luoma fid-kenttä antaa jokaiselle digitoitavalle kohteelle oman uniikin tunnisteen. Digitoijan ei tule kajota tähän kenttään lainkaan, joten estetään sen muokkaus. Mene **Tason ominaisuudet** -ikkunassa **Attribuuttilomake-välilehdelle** ja valitse **Fields-listasta** fid. Mene oikealle puolelle **Yleistä**-kohtaan ja poista valinta kohdasta **Muokattava**. Nyt kyseistä kenttää ei voi vahingossakaan muokata.
+QGISin automaattisesti luoma fid-kenttä antaa jokaiselle digitoitavalle kohteelle oman uniikin tunnisteen. Digitoijan ei tule kajota tähän kenttään lainkaan, joten estetään sen muokkaus. Mene **Tason ominaisuudet** -ikkunassa **Attribuuttilomake-välilehdelle** ja valitse **Fields-listasta** fid. Mene oikealle puolelle **Yleiset**-kohtaan ja poista valinta kohdasta **Muokattava**. Nyt kyseistä kenttää ei voi vahingossakaan muokata.
 
 ![](img/harjoitus_6/image8.png)
 
@@ -62,7 +62,7 @@ Kun olet valmis, paina **OK** sulkeaksesi **Tason ominaisuudet** -ikkunan.
 
 ## Vektoriaineiston editointi
 
-Ennen editoinnin/digitoinnin aloitusta kannattaa määrittää mittakaava (= tarkkuus), jolla editointia tehdään. Aseta QGIS-työtilan **Tilapalkin Mittakaava**-kohtaan 1:2000 ja lukitse mittakaava viereisestä kuvakkeesta. Nyt mittakaava ei muutu, vain suurennustaso muuttuu.
+Ennen editoinnin/digitoinnin aloitusta kannattaa määrittää mittakaava (= tarkkuus), jolla editointia tehdään. Aseta QGIS-työtilan **Tilapalkin Mittakaava**-kohtaan esimerkiksi 1:2000. Jos haluat tehdä tarkempaa digitointia, säädä mittakaava sen mukaan. Lukitse mittakaava viereisestä kuvakkeesta. Nyt mittakaava ei muutu, vain suurennustaso muuttuu.
 
 ![](img/harjoitus_6/image10.png)
 

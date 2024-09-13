@@ -55,15 +55,19 @@ Voit myös piilottaa tai näyttää tasoja painamalla tason nimen vasemmalla puo
 Joskus tarvitaan samanlaista tyyliä usein. Silloin voidaan luoda valmiita tyylejä, mitä voi nopeasti saada käyttöön uusille aineistoille. Valitse tyylien hallinta seuraavasta napista:
 
 ![](img/harjoitus_4/image10.png)
-Tässä näkymässä näet valmiita tyylejä. Alhaalla keskellä on vihreä plus-symbolia. Sillä voi luoda uusia tyylejä. Kokeile luoda esimerkiksi pisteille uuden visualisoinnin. Voit tämän jälkeen tallentaa visualisoinnin "oletuksena" tai ainoastaan tähän projektiin. Jos aiot käyttää samaa visualiointia muualla niin tallenna se oletuksena. Visualisointiin voi myös lisätä tägejä, jotka helpottavat visualisoinnin löytämistä.
+Tässä näkymässä näet valmiita tyylejä. Alhaalla keskellä on vihreä plus-symbolia. Sillä voi luoda uusia tyylejä. 
 
-Tyylit jotka tallennat tyylien hallinta-ikkunassa tulevat myös esiin kun olet asettamassa tyylejä tasoille. On myös mahodllista viedä omat tyylit ulos QGISistä XML-muodossa ja tuoda jonkun toisen tekemiä tyylejä. Tämä tapahtuu **Tuo/Vie**-napin kautta. 
+![](img/harjoitus_4/image11.png)
+
+Kokeile luoda esimerkiksi pisteille uuden visualisoinnin. Voit tämän jälkeen tallentaa visualisoinnin "oletuksena" tai ainoastaan tähän projektiin. Jos aiot käyttää samaa visualiointia muualla niin tallenna se oletuksena. Visualisointiin voi myös lisätä tägejä, jotka helpottavat visualisoinnin löytämistä.
+
+Tyylit jotka tallennat tyylien hallinta-ikkunassa tulevat myös esiin kun olet asettamassa tyylejä tasoille. On myös mahodllista viedä omat tyylit ulos QGISistä XML-muodossa ja tuoda sisään jonkun toisen tekemiä tyylejä. Tämä tapahtuu **Tuo/Vie**-napin kautta. 
 
 :::hint-box
 Muista myös, että tyylejä voi kopioida tasosta toiseen klikkaamalla tasoa oikealla ja valitsemalla **Tyylit -> Kopioi tyylit -> Kuvaustekniikka**
 :::
 
-![](img/harjoitus_4/image11.png)
+
 
 ## Lisätehtävä: Monikulmioaineiston edistynyt visualisointi
 
