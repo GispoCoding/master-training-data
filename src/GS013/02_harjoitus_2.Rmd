@@ -18,7 +18,7 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-h
 
 ## Pisteet tekstitiedostosta kartalle
 
-Lisää projektiisi kurssihakemiston aineisto **Tuulivoimakysely_sopivat_paikat.csv**. Tämä aineisto on Helsingin kaupungin karttapohjaisella kyselyllä keräämä aineisto tuulivoiman hyväksyttävyydestä Helsingissä. Tiedosto sisältää lähes 8000 pistemäistä sijaintia, jotka ovat kyselyyn vastanneiden mielestä sopivia paikkoja tuulivoimalle. Lisää aineisto valitsemalla ylävalikosta **Tasot \>  Lisää taso \> Lisää erotinmerkkejä sisältävä tekstitiedosto**. Pääset tietolähteiden hallintanäkymään myös näppäinyhdistelmällä **Ctrl-b**. Ota mallia seuraavan kuvan asetuksista:
+Lisää projektiisi kurssihakemiston aineisto **Tuulivoimakysely_sopivat_paikat.csv**. Tämä aineisto on Helsingin kaupungin karttapohjaisella kyselyllä keräämä aineisto tuulivoiman hyväksyttävyydestä Helsingissä. Tiedosto sisältää lähes 8000 pistemäistä sijaintia, jotka ovat kyselyyn vastanneiden mielestä sopivia paikkoja tuulivoimalle. Lisää aineisto valitsemalla ylävalikosta **Tasot \>  Lisää taso \> Lisää erotinmerkkejä sisältävä tekstitiedosto**. Pääset tietolähteiden hallintanäkymään myös näppäinyhdistelmällä **CTRL + L**. Ota mallia seuraavan kuvan asetuksista:
 
 ![](img/harjoitus_2/image1.png)
 
