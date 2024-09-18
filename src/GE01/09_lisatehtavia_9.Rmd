@@ -1,0 +1,642 @@
+# Python-lisätehtäviä
+
+Tämä kappale sisältää erityisesti Pythoniin liittyviä
+edistyneempiä aiheita, joita voi tarvittaessa
+käydä läpi ja harjoitella.
+
+## Aihe 1: Listakoosteet
+
+Koosteet (eng. comprehension) ovat tapa luoda sarjoja, kuten listoja ja sanakirjoja pythonimaisesti ilman for- tai while-silmukoita.
+
+Alla on kaksi perinteistä tapaa luoda lista desimaaliluvuista 0-10:
+
+
+::: code-box
+```python
+decimal_numbers = []
+for i in range(11):
+    decimal_numbers.append(float(i))
+print(decimal_numbers)
+```
+:::
+
+::: code-box
+```python
+decimal_numbers = []
+i = 0
+while i <= 10:
+    decimal_numbers.append(float(i))
+    i += 1
+
+print(decimal_numbers)
+```
+:::
+
+Listakooste (list comprehension) mahdollistaa toisen menetelmän luoda vastaavanlaisen listan helposti käyttäen vain yhtä riviä:
+
+
+::: code-box
+```python
+[float(i) for i in range(11)]
+```
+:::
+
+Listakoosteen syntaksin voi ajatella etenevän hieman erilaisessa järjestyksessä, kuin normaalin for-silmukan syntaksi: 
+
+::: code-box
+```python
+[<lauseke> for <alkio> in <sarja>]
+
+# EI näin, vaikka voisi kuulostaa loogisemmalta
+[for <alkio> in <sarja> <lauseke>]
+```
+:::
+
+Jos koosteeseen halutaan asettaa ehtoja, ne laitetaan koosteen loppuun. 
+
+::: code-box
+```python
+[<lauseke> for <alkio> in <sarja> if <ehto>]
+```
+:::
+
+
+Alla oleva listakooste koostuu parittomista desimaaliluvuista välillä 0.0-10.0.
+
+
+::: code-box
+```python
+[float(i) for i in range(11) if i % 2]
+```
+:::
+
+Täysin sama syntaksi toimii myös joukkojen tapauksessa käyttäen aaltosulkuja.
+
+
+::: code-box
+```python
+{str(i) for i in range(11)}
+```
+:::
+
+Tuplejen tapauksessa on kuitenkin muodostettava ensin lista ja luotava siitä tuple.
+
+
+::: code-box
+```python
+tuple([str(i) for i in range(11)])
+```
+:::
+
+Sulkuja käytettäessä luodaan generaattori, eli luova kooste. Se evaluoi vain yhden elementin kerrallaan käyttäen `next`-funktiota, käymällä alkiot läpi silmukassa tai muuttamalla generaattori joksikin rakenteeksi, kuten listaksi.
+
+
+::: code-box
+```python
+print((i ** 2 for i in range(11)))
+generator = (i ** 2 for i in range(11))
+print(next(generator))
+print(next(generator))
+print(next(generator))
+print(list(generator))
+```
+:::
+
+Sanakirjan voi myös luoda samalla tavalla kuin listan käyttäen sanakirjakoostetta (dict comprehension).
+
+
+::: code-box
+```python
+{f"{key}**2": val ** 2 for key, val in enumerate(range(10))}
+```
+:::
+
+### Lisätehtävä 1.1
+Kirjoite listakooste `chosen_numbers`, johon tulee kokonaisluvut 0-20 muutettuina merkkijonoiksi siten, että numerot 9-18 jäävät pois.
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+::: code-box
+```python
+chosen_numbers = [str(value) for value in range(21) <ehtolause> # Miten jätät numerot 9-18 välistä?
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+```python
+chosen_numbers = [str(value) for value in range(21) if value < 9 or value > 18]
+```
+:::
+:::
+
+### Sisäkkäisiä koosteita
+Joskus on tarve kirjoittaa sisäkkäisiä koosteita. Tällöin syntaksi on:
+
+::: code-box
+```python
+[<lauseke> for <alkio1> in <sarja1> for <alkio2> in <sarja2>]
+```
+:::
+
+::: code-box
+```python
+[(i, j) for i in range(3) for j in range(3)]
+```
+:::
+
+Sarjojen järjestyksellä on väliä, jos ensimmäisen sarjan arvoa hyödynnetään toisessa ehdossa.
+
+::: code-box
+```python
+[(i, j) for i in range(3) for j in range(3) if i == 2]
+```
+:::
+
+Koosteita voi olla mielivaltaisen paljon
+
+::: code-box
+```python
+[(i, j, k) for i in range(2) for j in range(3) for k in range(4)]
+```
+:::
+
+## Aihe 2: Lambda-funktiot
+
+Pythonissa funktioita voi myös määritellä "nimettöminä" yhden rivin lambda-funktioina. Tällöin syntaksi on:
+
+::: code-box
+```python
+lambda <parametrit>: <lauseke>
+```
+:::
+
+::: code-box
+```python
+print(lambda x: x ** 2)
+(lambda x: x ** 2)(3)
+```
+:::
+
+Lambda-funktiot, kuten mitkä tahansa muutkin funktiot voi tallentaa muuttujaan
+
+::: code-box
+```python
+power = lambda x, y: x ** y
+power(3, 4)
+```
+:::
+
+
+::: code-box
+```python
+# Erilaisia lambda-funktioita
+summer = lambda *args: sum(args)
+print(summer(1, 2, 3))
+
+without_params = lambda: print("Hello Lambda")  # Palauttaa None
+without_params()
+```
+:::
+
+::: hint-box
+Tyypillisesti lambda-funktioissa halutaan noudattaa [funktionaalista ohjelmointityyliä](https://fi.wikipedia.org/wiki/Funktionaalinen_ohjelmointi), jolloin mitään sivuvaikutuksia, kuten ylläolevassa esimerkissä tapahtuvaa merkkijonon tulostamista, ei tapahdu.
+:::
+
+Lambda-funktioita voi antaa parametreina esimerkiksi lajittelufunktiolla [`sorted`](https://docs.python.org/3/howto/sorting.html#sortinghowto), jolloin lajittelun järjestykseen voi vaikuttaa.
+
+::: code-box
+```python
+digits = [2, 6, 8, 3, 9, 1, 0, 5, 4, 10, 7]
+sorted_digits = sorted(digits)
+sorted_digits_wih_evens_first = sorted(digits, key=lambda x: x % 2)
+print(sorted_digits)
+print(sorted_digits_wih_evens_first)
+```
+:::
+
+### Lisätehtävä 2.1
+Luo Lambda-funktio `sign_switcher`, joka ottaa parametrikseen kaksi kokonaislukua ja laskee niiden summan, mutta kääntää samalla luvun etumerkin. Eli tuloksesta 10 tulisi -10 ja tuloksesta -4 tulisi 4.
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+::: code-box
+```python
+sign_switcher = lambda x, y: (x + y) # Millä laskutoimituksella käännät etumerkin? Lisää lausekkeen loppuun.
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+```python
+sign_switcher = lambda x, y: (x + y) * -1
+```
+:::
+:::
+
+## Aihe 3: Dekoraattorit
+
+Pythonissa funktioita pystyy määrittelemään toisten funktioiden sisälle. Tällöin niillä on pääsy ylemmän funktion muuttujiin.
+
+::: code-box
+```python
+def multiply(num1, num2):
+    def do_multiply():
+        return num1 * num2
+
+    return do_multiply()
+
+
+print(multiply(2, 3))
+```
+:::
+
+Samoin sisäkkäisiä funktioita pystyy palauttamaan.
+
+
+::: code-box
+```python
+def multiplier():
+    def do_multiply(num1, num2):
+        print("Berfore calculation")
+        value = num1 * num2
+        print("After calculation")
+        return value
+
+    return do_multiply
+
+
+multiply = multiplier()
+print(multiply(3, 4))
+```
+:::
+
+Jos ylempi funktio saa parametriksi funktion, voi sitäkin kutsua sisemmässä funktiossa.
+
+
+::: code-box
+```python
+def printer(func):
+    def wrapper():
+        print("Before")
+        value = func()
+        print("After")
+        return value
+
+    return wrapper
+
+
+def heavy_function():
+    print("Doing some hevy lifting...")
+
+
+decorated_function = printer(heavy_function)
+decorated_function()
+```
+:::
+
+Yllä oleva esimerkkifunktio `printer `oli jo dekoraattori. Python tarjoaa kuitenkin
+huomattavasti helpomman syntaksin dekoraattoreiden kutsumiselle koristelemalla
+dekoroitava funktio `@dekoraattorin_nimi`-syntaksilla.
+
+
+::: code-box
+```python
+@printer
+def heavy_function2():
+    print("This is maybe too much...")
+
+
+heavy_function2()
+```
+:::
+
+### Lisätehtävä 3.1
+
+Luo oma dekoraattorifunktio `timeit`, joka mittaa funktion suoritukseen kuluneen ajan ja tulostaa
+sen näkyviin. Käytä hyväksesi [`time`](https://docs.python.org/3/library/time.html)-moduulia.
+
+::: code-box
+```python
+import time
+
+
+def timeit(func):
+    pass
+
+
+@timeit
+def heavy_function():
+    print("Doing heavy work...")
+    time.sleep(2)
+
+
+heavy_function()
+```
+:::
+
+
+::: code-box
+```python
+import time
+
+
+def timeit(func):
+    def wrapper():
+        t = time.time()
+        val = func()
+        print(time.time() - t)
+        return val
+
+    return wrapper
+
+
+@timeit
+def heavy_function():
+    print("Doing heavy work...")
+    time.sleep(2)
+
+
+heavy_function()
+```
+:::
+
+### Dekoraattorit ja parametrit
+Jos dekoroitavaan funktioon voi antaa parametrejä, pitää dekoraattorin ottaa myös vastaan parametri.
+
+
+::: code-box
+```python
+def printer(func):
+    def wrapper(param):
+        print("Before")
+        value = func(param)
+        print("After")
+        return value
+
+    return wrapper
+
+
+@printer
+def tester(param):
+    print("Hello", param)
+
+
+tester(1)
+```
+:::
+
+Yleisissä dekoraattoreissa kannattaa parametrit ((positional) arguments) ja nimetyt parametrit (keyword arguments) antaa käyttäen levitysoperaattoreita `*` ja `**`.
+
+
+::: code-box
+```python
+def printer(func):
+    def wrapper(*args, **kwargs):
+        print("Arguments: ", args)
+        print("Keyword arguments: ", kwargs)
+        print("Before")
+        value = func(*args, **kwargs)
+        print("After")
+        return value
+
+    return wrapper
+
+
+@printer
+def tester(param):
+    print("Hello", param)
+
+
+@printer
+def tester_without_params():
+    print("I have no params")
+
+
+@printer
+def tester_with_lot_of_params(a, b, c, d=1, e=2):
+    print(a, b, c, d, e)
+
+
+tester(1)
+print("--------")
+tester_without_params()
+print("--------")
+tester_with_lot_of_params(5, 4, 2, d=3, e=6)
+```
+:::
+
+Käydään vielä läpi nopeasti mitä levitysoperaattorit tekevät.
+
+
+::: code-box
+```python
+a = [1, 2, 3, 4]
+d = {"a": 1, "b": 2, "c": 3}
+
+# Listan alkiot levitetään omiksi parametreikseen print-funktiolle
+print(a, 1, 2, 3, 4)
+print(a, *a)
+
+# Sanakirjan alkiot levitetään omiksi nimetyiksi parametreikseen dict-funktiolle
+print(dict(a=1, b=2, v=3))
+print(dict(**d))
+```
+:::
+
+Parametrejä voi antaa myös dekoraattorille. Tällöin on käytettävä kolmea sisäkkäistä funktiota.
+
+::: code-box
+```python
+def printer(something_else_to_print):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            print("Arguments: ", args)
+            print("Keyword arguments: ", kwargs)
+            print("Before", something_else_to_print)
+            value = func(*args, **kwargs)
+            print("After", something_else_to_print)
+            return value
+
+        return wrapper
+
+    return decorator
+
+
+@printer("the test function")
+def tester(param):
+    """Prints hello with a parameter"""
+    print("Hello", param)
+
+
+tester(1)
+```
+:::
+
+Tulostetaan vielä tuttuun tapaan `tester`-funktion ohje: 
+
+
+::: code-box
+```python
+help(tester)
+```
+:::
+
+Yllä olevasta tulosteesta huomataan, että nyt ohje onkin `printer`-dekoraattorin `wrapper`-funktiosta. 
+
+### Lisätehtävä 3.2
+
+Tutustu Pythonin [`functools.wraps`](https://docs.python.org/3/library/functools.html?highlight=wraps#functools.wraps)-dekoraattoriin,
+jonka avulla on mahdollista tallentaa dekoroitavan funktion metadata, kuten docstring.
+Käytä dekoraattoria alla olevassa `printer`-dekoraattorissa.
+
+::: code-box
+```python
+def printer(func):
+    def wrapper(*args, **kwargs):
+        print("Before")
+        value = func(*args, **kwargs)
+        print("After")
+        return value
+
+    return wrapper
+
+
+@printer
+def greetings(param):
+    """Prints hello with a parameter"""
+    print("Hello", param)
+
+
+greetings(1)
+help(greetings)
+```
+:::
+
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+```python
+from functools import wraps
+
+
+def printer(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print("Before")
+        value = func(*args, **kwargs)
+        print("After")
+        return value
+
+    return wrapper
+
+
+@printer
+def greetings(param):
+    """Prints hello with a parameter"""
+    print("Hello", param)
+
+
+help(greetings)
+```
+:::
+:::
+
+## Aihe 4: Tyypitys
+
+Python on dynaamisesti tyypitetty kieli, mutta se tarjoaa nykyään mahdollisuuden käyttää staattista tyypitystä.
+
+::: code-box
+```python
+# Esimerkkejä tyypityksestä
+from typing import Dict, List, Optional, Set, Union
+
+local_int = 1  # ei tarvitse tyypittää
+set_of_integers = {1,2,3} # ei tarvitse tyypittää
+set_of_integers: Set[int] = {}
+list_of_sets_of_strings: List[Set[str]] = []
+string_or_int: Union[str, int] = 1
+string_or_int = ""  # IDE ei valita, koska tyyppi voi olla int tai str
+boolean_or_none: Optional[bool] = None
+dict_of_strings_and_booleans: Dict[str, bool] = {"a": True}
+
+
+def multiply(a: int, b: int = 2) -> int:
+    return a * b
+```
+:::
+
+## Lisätehtävä 4.1
+
+Lisää alla olevaan luokkaan tyypitykset kaikkiin löytämiisi kohtiin.
+
+::: code-box
+```python
+from typing import List
+
+
+class UnTypedClass:
+    def __init__(self, a, b, c):
+        self.whole_number = a
+        self.string_var = b
+        self._secret_list_of_integers = c
+        self.dict_of_strings_and_list_of_booleans = []
+        self.floater = 0.1
+
+    @property
+    def list_of_integers(self):
+        forbidden_number = -1
+        if forbidden_number in self._secret_list_of_integers:
+            raise ValueError()
+        return self._secret_list_of_integers
+
+    def increase_whole_number(self, value=1):
+        self.whole_number += value
+
+    def union_with_string_var(self, another):
+        return self.string_var + another
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+```python
+from typing import Dict, List
+
+
+class TypedClass:
+    def __init__(self, a: int, b: str, c: List[int]) -> None:
+        self.whole_number = a
+        self.string_var = b
+        self._secret_list_of_integers = c
+        self.dict_of_strings_and_list_of_booleans: Dict[str, List[bool]] = []
+        self.floater = 0.1
+
+    @property
+    def list_of_integers(self) -> List[int]:
+        forbidden_number = -1
+        if forbidden_number in self._secret_list_of_integers:
+            raise ValueError()
+        return self._secret_list_of_integers
+
+    def increase_whole_number(self, value: int = 1) -> None:
+        self.whole_number += value
+
+    def union_with_string_var(self, another: str) -> str:
+        return self.string_var + another
+```
+:::
+:::
+
