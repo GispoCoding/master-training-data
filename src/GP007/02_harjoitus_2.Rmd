@@ -79,6 +79,7 @@ Muita huomioita: OmaTili-sivun kautta voit myös poistaa API-avaimesi tai käytt
 Mikäli unohdit salasanasi MML:n OmaTili-palveluun, voit pyytää uuden salasanan täältä: <https://omatili.maanmittauslaitos.fi/user/password/avoimet-rajapintapalvelut>
 
 Nyt voit tehdä yhteyden Maanmittauslaitoksen WMS ja WFS palvelimiin. Valitse yksinkertainen todennus välilehti ja kopioi API-avaimesi käyttäjätunnukseksi. API-avain tallentuu palvelinyhteyteen eikä poistu sieltä ellet poista yhteyttä.
+Voit kokeilla yhteyttä esimerkiksi Nimistö -rajapinnalla (WFS / OGC Api -Features): https://avoin-paikkatieto.maanmittauslaitos.fi/geographic-names/features/v1/
 
 ![](img/harjoitus_2/image11.png)
 
