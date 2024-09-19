@@ -29,7 +29,36 @@ QGIS (alkuperäiseltä nimeltään Quantum GIS) on yhteisöllisesti kehitetty av
 
 Perimmäinen syy QGISin käyttöön on tietysti paikkatietoaineistojen hyödyntäminen. Paikkatietoja voi hyödyntää monilla avoimen ja suljetun lähdekoodin ohjelmistolla, mutta tässä muutamia perusteluja juuri QGIS-ohjelmiston käytölle:
 
-QGIS on ilmainen. Voit ladata ja asentaa QGIS ilman lisenssi- tai käyttömaksuja. Käyttöön ei sisälly mitään maksuja. QGIS on vapaa. Jos tarvitset QGISiin lisää ominaisuuksia, sinulla on täysi vapaus laajentaa ja muuttaa QGISiä. Sinun ei tarvitse odottaa seuraavaa versioita ja toivoa, että tarvitsemasi ominaisuudet ovat sisällytetty mukaan. Jos osaat ohjelmoida, voit lisätä ominaisuudet itse. Voit myös rahoittaa uusien ominaisuuksien kehittämistä osaksi QGISiä. QGIS kehittyy jatkuvasti. Kuka tahansa voi lisätä tai rahoittaa uusia ominaisuuksia QGISiin ja siksi ohjelmisto kehittyy kiihtyvällä vauhdilla. Erilaisten lisäosien avulla on helppo toteuttaa omia prosesseja tukevia toimintoja. QGIS on hyvin dokumentoitu. QGIS sisältää laajan dokumentaation. Koko ajan kasvava käyttäjäyhteisö auttaa mielellään uusia käyttäjiä ja voit myös kysyä apua suoraan sovelluskehittäjiltä. QGIS on järjestelmäriippumaton. QGISiä voi käyttää Windows-, Linux- ja Mac-käyttöjärjestelmissä. QGIS on suomenkielinen. QGIS-käyttöliittymä on suomennettu. Myös ruotsinkielinen versio on käytettävissä ilman lisäkustannuksia. Käyttöohjeita, web-sivustoja ja muita materiaaleja kehitetään ja suomennetaan jatkuvasti.
+- **QGIS on ilmainen**:
+Voit ladata, asentaa ja käyttää QGISia ilman lisenssi- tai käyttömaksuja.
+
+- **QGIS on vapaa**:
+Jos tarvitset QGISiin lisää ominaisuuksia,
+sinulla on täysi vapaus laajentaa ja muuttaa ohjelmistoa.
+Voit muokata QGISiä itse ohjelmoimalla,
+tai esimerkiksi rahoittaa uusien ominaisuuksien kehittämistä.
+
+- **QGIS kehittyy jatkuvasti**:
+QGISillä on laaja käyttäjä- ja kehittäjäyhteisö,
+ja ohjelmistoon lisätään toiminnallisuutta
+sekä uusia lisäosia nopealla vauhdilla.
+
+- **QGIS on taipuu helposti omiin tarpeisiin**:
+Lisätoiminnallisuutta kaivatessa ei usein tarvitse alkaa kehittämään QGISiä.
+Joku muu on todennäköisesti jo törmännyt samaan käyttötapaukseen,
+ja voit jo olemassaolevien lisäosien avulla toteuttaa omia prosesseja tukevia toimintoja.
+
+- **QGISin käyttöön löytyy tukea ja ohjeita**:
+QGIS sisältää laajan avoimen dokumentaation,
+ja koko ajan kasvava käyttäjäyhteisö myös auttaa mielellään uusia käyttäjiä.
+Voit myös kysyä apua suoraan sovelluskehittäjiltä.
+
+- **QGIS on järjestelmäriippumaton**:
+Voit käyttää QGISiä Windows-, Linux- ja macOS-käyttöjärjestelmissä.
+
+- **QGIS on saatavilla eri kielillä**:
+QGISin käyttöliittymää ja dokumentaatiota käännetään jatkuvasti monille eri kielille,
+esimerkiksi suomeksi ja ruotsiksi.
 
 ## Lukuohje
 
