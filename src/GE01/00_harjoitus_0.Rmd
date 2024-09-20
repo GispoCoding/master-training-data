@@ -5,7 +5,7 @@
 **Harjoituksen tavoite:** Harjoituksen jälkeen opiskelija hallitsee Pythonin perusteet.
 
 Tämä on **valinnainen harjoitus**,
-joka keskittyy PyQGIS ohjelmoinnin sijasta Python-kielen perusteisiin.
+joka keskittyy PyQGIS-ohjelmoinnin sijasta Python-kielen perusteisiin.
 Kurssin osallistujilta ei vaadita täydellistä ohjelmointitaitoa,
 mutta jos ohjelmoinnin perusteet ovat hallussa,
 ehditään enemmän aikaa käyttää niiden soveltamiseen käytännössä.
@@ -20,7 +20,7 @@ Näin tutustut samalla kurssin olennaisiin työkaluihin,
 ja voit käyttää suoraan QGISin mukana asennettua Pythonia.
 
 Lue siis **harjoitus 1**:n ohjeita siihen asti,
-että saat QGISin Python-konsolin ja tekstieditorin auki.
+että saat QGISin Python-konsolin ja skripti-editorin auki.
 Jatka sitten tämän harjoituksen kanssa.
 
 ## Python-perusteita
@@ -555,7 +555,7 @@ Tulostaa:
 #### while-silmukka
 
 Silmukka (loop) mahdollistaa samojen komentojen toistamisen useaan kertaan.
-`while`-silmukkassa koodilohkoa toistetaan niin pitkään,
+`while`-silmukassa koodilohkoa toistetaan niin pitkään,
 kuin silmukan ehto on totta.
 
 Syntaksi on muotoa:

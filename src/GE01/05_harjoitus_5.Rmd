@@ -170,7 +170,7 @@ pip install -r requirements-dev.txt
 `pip freeze`. Pakettien joukossa pitäisi olla mm. `pytest` ja `pytest-qgis`.
 
 13. Tässä vaiheessa päästään viimein avaamaan Visual Studio Code. Avaa kansiosta
-`test-plugin.code-workspace`- tiedosto. Sen pitäisi avautua automaattisesti VS Codessa.
+`test-plugin.code-workspace`-tiedosto. Sen pitäisi avautua automaattisesti VS Codessa.
 
 14. Ensin asetetaan VS Code käyttämään äsken luotua `.venv`-ympäristöä. Valitaan
 **Help**-valikosta **Show All Commands** ja kirjoitetaan hakuun `Python: Select Interpreter`.

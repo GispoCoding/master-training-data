@@ -3,15 +3,15 @@
 Harjoituksen tarkoituksena on luoda pistetyökalu, jolla voi luoda koordinaattien
 pohjalta pistekohteen. Käyttöliittymässä on alasvetolaatikko pistetasoille
 (tasoja, joilla on eri geometriatyyppi ei näytetä ollenkaan).
-Jos tasoa ei ole valittu, täytyy käyttäjän valita koordinaattijärjestelmä ja
-tällöin työkalu luo uuden pistetason kyseisellä koordinaattijärjestelmän.
+Jos tasoa ei ole valittu, täytyy käyttäjän valita koordinaattijärjestelmä, ja
+tällöin työkalu luo uuden pistetason kyseisellä koordinaattijärjestelmällä.
 Tasolle lisätään pistekohde ja tallennetaan sen koordinaatit 'x' ja 'y'-kenttiin.
 
 ![](img/harjoitus_7/image1.gif)
 
 Jos käyttäjä ei ole valinnut tasoa _eikä_ koordinaattijärjestelmää, lisäosa
-näyttää virheen. Jos käyttäjä on valinnut pistetason koordinaattijärjestelmä-
-widget inaktivoituu siten ja se ei vaikuta lisättävään pisteeseen mitenkään.
+näyttää virheen. Jos käyttäjä on valinnut pistetason, koordinaattijärjestelmä-widget
+inaktivoituu ja se ei vaikuta lisättävään pisteeseen mitenkään.
 
 ![](img/harjoitus_7/image2.gif)
 
@@ -22,7 +22,7 @@ olla itsenäisempi. Tälle työkalulle luodaan paneelikäyttöliittymä
 
 ## Harjoitus 7.1: Paneelin lisääminen
 
-Avaa Qt Designer ja valitse **New Form**-dialogissa **Widgets**-valikon
+Avaa Qt Designer ja valitse **New Form** -dialogissa **Widgets**-valikon
 alta QDockWidget. Vaihda widgetin nimeksi **PointToolDockWidget**.
 Luo kuvan mukainen käyttöliittymä, jossa on käytetty seuraavia
 widgettejä:
@@ -91,7 +91,7 @@ from qgis.PyQt.QtCore import Qt, QCoreApplication, QTranslator
 ```
 :::
 
-Koodissa pitäisi olla import jo plugin_namelle
+Koodissa pitäisi olla import jo plugin_namelle.
 Lisää joukkoon resources_path.
 
 ::: code-box

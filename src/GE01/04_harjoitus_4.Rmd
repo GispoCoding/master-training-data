@@ -4,30 +4,30 @@
 
 **Harjoituksen tavoite:** Ymmärtää Qt-kirjaston toiminnan perusteet ja luoda yksinkertaisia graafisia käyttöliittymiä.
 
-## Qt- käyttöliittymistä
+## Qt-käyttöliittymistä
 
-QGISin käyttöliittymä on luotu hyödyntäen Qt:ta, joka on C++- kielellä kirjoitettu
+QGISin käyttöliittymä on luotu hyödyntäen Qt:ta, joka on C++-kielellä kirjoitettu
 käyttöliittymäkirjasto ja ohjelmointiympäristö. Qt:ta voidaan kuitenkin käyttää myös
 muilla ohjelmointikielillä kuten Pythonilla.
 
 ### QWidget
 
-Qt- kirjasto mahdollistaa käyttöliittymien luomisen. Qt:ssa keskeinen käsite on
+Qt-kirjasto mahdollistaa käyttöliittymien luomisen. Qt:ssa keskeinen käsite on
 "Widget", jota voi ajatella käyttöliittymän yhtenä komponenttina. **QWidget** on
 siis Qt:n koodissa luokka, josta periytyy paljon erilaisia alaluokkia, joilla on
 erilaisia ominaisuuksia. Esimerkkinä vaikka **QPushButton**, joka käyttöliittymässä
-klikattava painike.
+on klikattava painike.
 
-Joihinkin Widgetteihin voidaan lisätä ns. lapsiwidgettejä (child Widget), joka
+Joihinkin widgetteihin voidaan lisätä ns. lapsiwidgettejä (child Widget), mikä
 mahdollistaa käyttöliittymän suunnittelun. Esimerkkinä tästä harjoituksessa
-luotava **QDialog**- widgetti, johon lisätään muun tyyppisiä lapsiwidgettejä.
+luotava **QDialog**-widgetti, johon lisätään muun tyyppisiä lapsiwidgettejä.
 Lapsiwidgetit voidaan järjestää eri asetelmiin (layout), esimerkiksi asettaa
 ne vaaka- tai pystytasoon sekä ruudukkoon.
 
 Omaan käyttöön voi luoda myös omia widgettejä. Tällöin luodaan oma luokka, joka
-perii jonkin olemassa olevan widget- luokan. QGISisiin on luotu sille ominaisia
+perii jonkin olemassa olevan widget-luokan. QGISiin on luotu sille ominaisia
 widgettejä esimerkiksi karttatasojen tai koordinaattijärjestelmän valitsemiseen.
-Näitä voidaan käyttää myös QGIS- lisäosissa.
+Näitä voidaan käyttää myös QGIS-lisäosissa.
 
 Tässä minimiesimerkki käyttöliittymän luomisesta PyQt:lla. Esimerkin voi ajaa
 jälleen QGISin Python-konsolin skriptieditorissa.
@@ -61,16 +61,16 @@ Tässä esimerkissä luodaan "Close"-painike. Sitä painettaessa ei kuitenkaan t
 
 ### Signaalit ja slotit
 
-Toinen keskeinen ajatus Qt- kirjastossa on **signaalit** ja **slotit**. Nämä mahdollistavat
+Toinen keskeinen ajatus Qt-kirjastossa on **signaalit** ja **slotit**. Nämä mahdollistavat
 käyttöliittymän interaktiivisuuden, siten että esimerkiksi painiketta (QPushButton)
 painettaessa tapahtuu ennalta määritetty toiminto.
 
-Kun widgettien kanssa vuorovaikutetaan ne lähettävät eri toiminnoista **signaaleja**, jotka
+Kun widgettien kanssa vuorovaikutetaan, ne lähettävät eri toiminnoista **signaaleja**, jotka
 voidaan yhdistää jonkin toisen widgetin **slottiin**. Qt:n valmiit widgetit sisältävät jo
 valmiiksi monia signaaleja ja slotteja. Kirjaston käyttäjä voi hyödyntää niitä yhdistämällä
 signaaleja eri slotteihin, mutta myös omien signaalien ja slottien määrittäminen on mahdollista.
 
-PyQt:ssa signaali on **Signal- luokan** olio, kun taas slot on **funktio**, joka yhdistetään
+PyQt:ssa signaali on **Signal-luokan** olio, kun taas slot on **funktio**, joka yhdistetään
 signaaliin. Signaali voidaan määritellä lähetettäväksi (*emit*) eri tilanteissa.
 
 Signaali voidaan yhdistää slottiin seuraavasti, edellistä esimerkkiä hyödyntäen:
@@ -104,7 +104,7 @@ Nyt painikkeen pitäisi oikeasti sulkea ikkuna.
 
 Kirjoita skripti joka määrittelee uuden, QWidgetin perivän alaluokan
 `Counter`, joka koostuu kahdesta komponentista: QLabel ja QPushButton.
-Label on teksikomponentti. Counter toimii siten, että kun sen painiketta
+Label on tekstikomponentti. Counter toimii siten, että kun sen painiketta
 painetaan, nollasta lähtevä arvo kasvaa aina yhdellä. Arvo näytetään
 QLabelissa.
 

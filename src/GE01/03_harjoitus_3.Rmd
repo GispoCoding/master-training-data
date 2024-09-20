@@ -28,7 +28,7 @@ QgsProject.instance().addMapLayer(new_layer)
 :::
 
 Taso on kuitenkin tyhjä. Luodaan taso, jossa on kenttiä.
-Voit tässä vaiheessa halutessassi poistaa äsken luodun
+Voit tässä vaiheessa halutessasi poistaa äsken luodun
 tason.
 
 ::: code-box
@@ -105,7 +105,7 @@ Viiva:
 point_1 = QgsPointXY(0, 0)
 point_2 = QgsPointXY(1, 0)
 
-line_geom = QgsGeometry.fromPolyLineXY(
+line_geom = QgsGeometry.fromPolylineXY(
     [
         point_1,
         point_2,
@@ -183,7 +183,7 @@ QgsReferencedGeometry, jossa on myös tieto
 koordinaattijärjestelmästä.
 
 Jos halutaan muuttaa geometria koordinaattijärjestelmästä
-toiseen voidaan käyttää **QgsCoordinateTransform**-luokkaa.
+toiseen, voidaan käyttää **QgsCoordinateTransform**-luokkaa.
 
 ::: code-box
 ```python

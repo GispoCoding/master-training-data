@@ -1,6 +1,6 @@
 ---
-title: "QGIS- lisäosien kehitys"
-author: "Gispo Oy."
+title: "QGIS-lisäosien kehitys"
+author: "Gispo Suomi Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Lisäosien kehitys Pythonilla"
@@ -15,11 +15,11 @@ output:
 documentclass: book
 ---
 
-# QGIS- lisäosien kehitys
+# QGIS-lisäosien kehitys
 
 ## Tervetuloa kurssille!
 
-Tämän kurssin tarkoituksena on oppia miten Python- ohjelmointikiellellä voi käyttää QGIS- ohjelmiston kanssa ja kehittää lisäosia, jotka mahdollistavat monipuolisten lisäominaisuuksien käytön QGISissä.
+Tämän kurssin tarkoituksena on oppia, miten Python-ohjelmointikieltä voi käyttää QGIS-ohjelmiston kanssa, ja miten kehitetään lisäosia, jotka mahdollistavat monipuolisten lisäominaisuuksien käytön QGISissä.
 
 ## Lukuohje
 
@@ -44,7 +44,7 @@ sudo lsb_release -a
 #IPv4 local connections: #host all all 127.0.0.1/32 md5
 :::
 
-**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
+**HTML- ja CSS-koodit, SQL-komennot sekä Python-skriptit** on esitetty seuraavasti:
 
 ::: code-box
 ``` sql
@@ -85,8 +85,8 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ## Virheet
 
-Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+Jos havaitset materiaalissa virheitä, pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi](mailto:info@gispo.fi){.email}-osoitteeseen.
 
 ## Lisenssi ja oikeudet
 
-Nämä materiaalit on "QGIS- lisäosien kehitys"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+Nämä materiaalit on "QGIS-lisäosien kehitys" -kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

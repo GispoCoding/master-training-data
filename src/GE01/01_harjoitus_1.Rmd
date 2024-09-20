@@ -10,11 +10,11 @@ Seuraavissa harjoituksissa oletetaan, että tunnet Python-kielen perusteet.
 Tarvittaessa voit kerrata Pythonia [täällä](00_harjoitus_0.html).
 :::
 
-Yksinkertaisin tapa käyttää Python-rajapintaa QGISissa on Python-konsolin kautta.
+Yksinkertaisin tapa käyttää Python-rajapintaa QGISissä on Python-konsolin kautta.
 Konsolin avulla voidaan syöttää ja ajaa yksittäisiä komentoja tai pidempiä skriptejä.
 Windowsilla QGIS-asennukseen sisältyy erillinen Python-tulkki, jonka versio on 3.12.
 Lisäksi asennukseen sisältyy joitain Python-paketteja standardikirjaston lisäksi.
-Asennukseen kuuluu myös QGIS-ja gdal/ogr-kirjastot, jotka mahdollistavat eri
+Asennukseen kuuluu myös QGIS- ja gdal/ogr-kirjastot, jotka mahdollistavat eri
 komponenttien hyödyntämisen konsolissa ja lisäosissa. Näiden lisäksi asennukseen
 kuuluu myös PyQt-kirjasto, eli Qt-käyttöliittymäkirjaston Python-sidonta (binding),
 joka mahdollistaa graafisen käyttöliittymän luomisen lisäosille.
@@ -27,7 +27,7 @@ taas Linux-pohjaisilla käyttöjärjestelmillä QGIS käyttää järjestelmän P
 
 Python-konsoliin pääsee usealla tavalla (kts. alla oleva kuva): 
 
-- Sen voi avata QGISin ylävalikosta Lisäosat > Python-konsoli (Plugins > Python console), 
+- Sen voi avata QGISin ylävalikosta Lisäosat > Python-konsoli (Plugins > Python Console),
 - Pikanäppäinyhdistelmällä Ctrl + Alt + P,
 - Klikkaamalla työkalupalkista Python-logon kohdalta
 
@@ -53,7 +53,7 @@ Avaa konsolista skripti-editori ja tutki samoin sen ominaisuuksia.
 ## Esimerkit
 
 Eri harjoitusosioissa on annettu esimerkkejä Python-koodista. Suosittelemme,
-että käyt esimerkkejä läpi käydessä kopioit esimerkin QGIS-konsolin skriptieditorin
+että esimerkkejä läpikäydessä kopioit esimerkin QGIS-konsolin skriptieditorin
 puolelle ja ajat koodin. Esimerkkien yhteydessä voi myös muokata koodia
 kokeillakseen eri toimintoja ja lopputuloksia. Esimerkit on annettu
 koodilaatikossa, josta sen sisällön voi kopioida viemällä hiiren osoittimen

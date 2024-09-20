@@ -83,7 +83,7 @@ Iteroidaan tasoja:
 # (kts. tarvittaessa Python-lisätehtävistä
 # aihe 1).
 
-# Tason ID:tä ei välttämättä tarvi,
+# Tason ID:tä ei välttämättä tarvita,
 # joten voidaan hakea suoraan vain
 # tasot
 layers = [layer for layer in QgsProject.instance().mapLayers().values()]
@@ -100,7 +100,7 @@ Valitaan taso nimen perusteella:
 layers = QgsProject.instance().mapLayersByName('OpenStreetMap')
 
 # mapLayersByName() palauttaa listan
-# tasoista, koska QGISissa on sallittua
+# tasoista, koska QGISissä on sallittua
 # olla useampi taso samalla nimellä
 
 layer = layers[0]
@@ -111,12 +111,12 @@ print(layer.name())
 
 
 ::: hint-box
-**QgsProject**-luokka noudattaa ns. singleton (ainokainen)
-suunnittelumallia, joka tarkoittaa sitä että luokasta
+**QgsProject**-luokka noudattaa ns. singleton-
+suunnittelumallia (ainokainen), joka tarkoittaa sitä että luokasta
 voi olla kerrallaan olemassa ainoastaan yksi olio. Tämä
 olio voidaan hakea käyttämällä QgsProject-luokan
 staattista metodia `instance()`, joka palauttaa aina saman olion.
-Koska metodi on staattinen projektiolioon on globaali pääsy.
+Koska metodi on staattinen, projektiolioon on globaali pääsy.
 :::
 
 ## Harjoitus 2.1

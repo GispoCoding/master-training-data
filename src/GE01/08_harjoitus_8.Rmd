@@ -8,7 +8,7 @@ kirjoittamiseen.
 QGISiin voi kirjoittaa itsenäisiä prosessointialgoritmeja,
 siten että ne kirjoitetaan omaan `.py`-tiedostoon ja lisätään
 prosessointipaneeliin. Algoritmin voi sisällyttää myös lisäosaan,
-jossa on muutama hyöty. Tällöin algoritmeille määritetään
+mistä on muutama hyöty. Tällöin algoritmeille määritetään
 oma ns. **provider** ja algoritmit voi selkeämmin kategorisoida.
 Lisäosaan voi myös sisällyttää useampia algoritmeja, jolloin 
 on helpompaa jakaa käyttäjille lisäosa, joka sisältää useamman
@@ -202,9 +202,9 @@ class SampleAlgorithm(QgsProcessingAlgorithm):
 
 ### Prosessointialgoritmin kutsuminen
 
-Jos halutaan kutsua toinen prosesointialgoritmi Pythonilla
+Jos halutaan kutsua prosesointialgoritmia Pythonilla
 konsolista, skriptistä, lisäosasta tai toisesta
-prosessointialgoritmista se voidaan tehdä seuraavasti.
+prosessointialgoritmista, se voidaan tehdä seuraavasti.
 `qgis.processing` tulee olla importoitu. Huomaa, että algoritmin
 parametrit annetaan sanakirjana (dictionary), ja avaimina
 käytetään algoritmissa määriteltyjä vakiomuuttujien arvoja.
@@ -248,12 +248,12 @@ valitsimme vaihtoehdoksi sen, että lisäosaan lisätään
 myös prosessointialgoritmi. Tällöin meillä on jo
 valmis pohja lähteä kirjoittamaan omaa algoritmia.
 
-Käydään kuitenkin läpi miten algoritmi varsinaisesti
+Käydään kuitenkin läpi, miten algoritmi varsinaisesti
 päätyy QGISin käyttöliittymään.
 
 `test-plugin/testplugin`-kansiossa pitäisi olla kansio
 nimeltä `testplugin_processing`. Se sisältää Python-tiedostot
-`provider.py` ja `processing_algorithm.py`
+`provider.py` ja `processing_algorithm.py`.
 
 _processing_algorithm.py:_
 
@@ -521,7 +521,7 @@ class Provider(QgsProcessingProvider):
 Tässä määritellään Providerin ominaisuudet, mm. nimi, ikoni ja tunniste.
 Ehkä tärkein funktio on kuitenkin `loadAlgorithms()`.
 Siinä lisätään varsinainen algoritmi provideriin. Algoritmi pitää
-ensin importoida, joka on tehty tiedoston alussa. Jos provideriin
+ensin importoida, mikä on tehty tiedoston alussa. Jos provideriin
 kuuluu useampi algoritmi, ne kaikki tulee importoida ja lisätä
 `loadAlgorithms()`-funktioon.
 
@@ -582,7 +582,7 @@ _Prosessointi:_
 
 * Algoritmi laskee jokaisen lähtötason pistekohteelle etäisyyden käyttäjän
 valitsemasta pisteestä.
-* Jos valitun pisteen koordinaattijärjestelmä poikeeaa lähtötason
+* Jos valitun pisteen koordinaattijärjestelmä poikkeaa lähtötason
 koordinaattijärjestelmästä, se muunnetaan oikeaan koordinaattijärjestelmään
 * Tulostasolle lisätään kenttä "distance", johon lasketaan kohteen etäisyys
 valitusta pisteestä

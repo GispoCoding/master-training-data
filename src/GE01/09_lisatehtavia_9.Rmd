@@ -220,7 +220,7 @@ print(sorted_digits_wih_evens_first)
 :::
 
 ### Lisätehtävä 2.1
-Luo Lambda-funktio `sign_switcher`, joka ottaa parametrikseen kaksi kokonaislukua ja laskee niiden summan, mutta kääntää samalla luvun etumerkin. Eli tuloksesta 10 tulisi -10 ja tuloksesta -4 tulisi 4.
+Luo lambda-funktio `sign_switcher`, joka ottaa parametrikseen kaksi kokonaislukua ja laskee niiden summan, mutta kääntää samalla luvun etumerkin. Eli tuloksesta 10 tulisi -10 ja tuloksesta -4 tulisi 4.
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
@@ -303,7 +303,7 @@ decorated_function()
 ```
 :::
 
-Yllä oleva esimerkkifunktio `printer `oli jo dekoraattori. Python tarjoaa kuitenkin
+Yllä oleva esimerkkifunktio `printer` oli jo dekoraattori. Python tarjoaa kuitenkin
 huomattavasti helpomman syntaksin dekoraattoreiden kutsumiselle koristelemalla
 dekoroitava funktio `@dekoraattorin_nimi`-syntaksilla.
 
@@ -434,7 +434,7 @@ tester_with_lot_of_params(5, 4, 2, d=3, e=6)
 ```
 :::
 
-Käydään vielä läpi nopeasti mitä levitysoperaattorit tekevät.
+Käydään vielä läpi nopeasti, mitä levitysoperaattorit tekevät.
 
 
 ::: code-box

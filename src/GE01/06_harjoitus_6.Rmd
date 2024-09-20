@@ -15,25 +15,25 @@ Alla havainnollistava esimerkkivideo työkalun ominaisuuksista:
 Kuten kappaleessa 4 opittiin, käyttöliittymiä voi luoda
 ohjelmallisesti kirjoittamalla koodia. Etenkin monimutkaisten
 käyttöliittymien suunnittelu ja toteutus tällä tavalla voi kuitenkin
-olla hankalaa. Qt tarjoaa tähän ongelmaan ratkaisuksi Qt Designer-ohjelman,
+olla hankalaa. Qt tarjoaa tähän ongelmaan ratkaisuksi Qt Designer -ohjelman,
 jolla käyttöliittymiä voi suunnitella graafisesti. Sillä rakennetaan
 käyttöliittymä, joka voidaan tallentaa **.ui**-tiedostoksi, jota
 voidaan käyttää osana lisäosaa. Windowsilla Qt Designer kuuluu yleensä
-QGIS-asennukseen ja sen voi avata hakemalla sitä nimellä.
+QGIS-asennukseen, ja sen voi avata hakemalla sitä nimellä.
 
 Luodaan aluksi minimaalinen käyttöliittymä ja yhdistetään se lisäosaan.
 Avaa Qt Designer, jolloin pitäisi avautua seuraavanlainen valikko:
 
 ![](img/harjoitus_6/image2.png)
 
-Valitse pohjaksi pohjaksi **Dialog with Buttons Bottom** ja paina **Create**.
+Valitse pohjaksi **Dialog with Buttons Bottom** ja paina **Create**.
 Seuraavaksi vaihda oikeasta yläkulmasta "Object Inspector"-valikosta
-vaihda QDialog-olion nimeksi **BufferToolDialog** ja lopuksi muokkaa
+QDialog-olion nimeksi **BufferToolDialog** ja lopuksi muokkaa
 buttonBox-oliota siten, että poistetaan **OK**- painike. Valitse
 buttonBox-olio ja skrollaa Object Inspectorin alapuolella olevaa
 **Property Editoria** alas, kunnes näet QDialogButtonBox-luokan
 ominaisuudet. Täältä avaamalla standardButtons-valikon pystyy
-kontrolloimaan eri painikkeita. Kaksoisklikkaaa OK-painike pois.
+kontrolloimaan eri painikkeita. Kaksoisklikkaa OK-painike pois.
 
 ![](img/harjoitus_6/image3.gif)
 
@@ -122,7 +122,7 @@ Seuraavaksi etsi Plugin-luokan koodista `initGui()`-funktio. Muokkaa `self.add_a
 ::: note-box
 Tässä määritetään QGISin plugin-valikkoon lisättäviä QAction-widgettejä.
 Lisäosapohjassa oletuksena lisätään QGISin **Lisäosat**-ylävalikkoon
-valikko lisäosalle. Tässä määritellään painikkeet, mitkä lisätään lisäosan
+valikko lisäosalle. Tässä määritellään painikkeet, jotka lisätään lisäosan
 nimeä kantavaan valikkoon.
 
 ![](img/harjoitus_6/image4.png){width="50%"}
@@ -188,13 +188,13 @@ komponentit **Label**eineen:
 * New layer name: QLineEdit (nimi: newLayerLineEdit)
 * QPushButton (nimi: newLayerPushButton, painikkeen teksti: Create new layer)
 
-Järjestele komponentit esimerkiksi allekain ja lopuksi voi
-määrittää koko BufferToolDialog-oliolle layoutin klikkaamalla hiiren oikealle
+Järjestele komponentit esimerkiksi allekkain ja lopuksi voit
+määrittää koko BufferToolDialog-oliolle layoutin klikkaamalla hiiren oikealla
 sen taustaa:
 
 ![](img/harjoitus_6/image7.png){width="50%"}
 
-Kun nämä muutokset on tehty voidaan kirjoittaa lisäosan varsinainen
+Kun nämä muutokset on tehty, voidaan kirjoittaa lisäosan varsinainen
 toiminta askelittain. Organisoidaan lisäosan koodi siten, että lisäosan
 käyttöliittymän toiminta on määritelty `test-plugin/testplugin/ui`-kansion
 tiedostoissa. Varsinainen työkalun toiminta määritellään kuitenkin
@@ -293,8 +293,8 @@ python build.py deploy
 ```
 :::
 
-Lataa QGISissä lisäosa uudestaan **Plugin Reloader**illa. **Create new layer**-
-painiketta klikatessa Python-konsoliin pitäisi ilmestyä viesti.
+Lataa QGISissä lisäosa uudestaan **Plugin Reloader**illa. **Create new layer**
+-painiketta klikatessa Python-konsoliin pitäisi ilmestyä viesti.
 
 Kirjoitetaan sitten lopulta varsinainen vyöhyketyökalu. Muokkaa
 `test-plugin/testplugin/core/buffertool.py`-tiedostoa:
@@ -608,7 +608,7 @@ lähettämisen testifunktioille automaattisesti. Testissä
 määritellään parametrit funktiolle, joka luo vyöhyketason.
 Geometrioita testatessa on kätevää käyttää WKT-formaattia.
 Lopuksi määritellään geometria, jota odotetaan funktion
-tuottavan ja testataan saatinko oikea tulos. Lisäksi voidaan
+tuottavan ja testataan saatiinko oikea tulos. Lisäksi voidaan
 testata, että funktio ei lisää ylimääräisiä kohteita tai
 muuta tason koordinaattijärjestelmää tai geometriatyyppiä.
 
