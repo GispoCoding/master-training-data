@@ -391,7 +391,7 @@ Ohjelmoinnissa on tärkeää kirjoittaa testejä ja lisäosat eivät ole
 poikkeus. Lisäosien testaamiseen voidaan käyttää **pytest**-pakettia.
 
 Testien kirjoittaminen toimii siten, että
-`test-plugin/testplugin/tests`-kansioon luodaan `test_`-alkuinen
+`test-plugin/tests`-kansioon luodaan `test_`-alkuinen
 Python-tiedosto. Tiedostoon kirjoitetaan testifunktioita, joissa
 käytetään lisäosassa olevia luokkia ja funktioita. Lopuksi testataan
 saadaanko niistä odotetut tulokset. Testit voi ajaa komentoriviltä
@@ -416,7 +416,7 @@ ensin ennen testien kirjoittamista.
 
 ## Harjoitus 6.5: Testit
 
-Määritellään ensin fixtuurit testeille, avaa `test-plugin/testplugin/tests/conftest.py`
+Määritellään ensin fixtuurit testeille, avaa `test-plugin/tests/conftest.py`
 ja lisää seuraavat fixtuurit:
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">fixtuurit</button>
@@ -541,7 +541,7 @@ def line_layer(fields, line_feature) -> QgsVectorLayer:
 ### Harjoitus 6.5.1: Käyttöliittymätesti
 
 Kirjoitetaan yksinkertainen testi lisäosan dialogille. Luo uusi
-tiedosto `test-plugin/testplugin/tests/test_buffer_tool_dialog.py`:
+tiedosto `test-plugin/tests/test_buffer_tool_dialog.py`:
 
 ::: code-box
 ```python
@@ -566,7 +566,7 @@ Lopussa esitetään väittämä `assert`. Jos lausekkeen tulos on
 ### Harjoitus 6.5.2: BufferTool-testi
 
 Seuraavaksi tehdään testit varsinaiselle **BufferTool**-luokalle.
-Luo uusi tiedosto `test-plugin/testplugin/tests/test_buffer_tool.py`:
+Luo uusi tiedosto `test-plugin/tests/test_buffer_tool.py`:
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">testi</button>
 
@@ -631,8 +631,8 @@ tulee huomioida import-komennoissa.
 [test-plugin/testplugin/ui/buffer_tool_dialog.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/ui/buffer_tool_dialog.py)            \
 [test-plugin/testplugin/core/buffertool.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/core/buffertool.py)                        \
 [test-plugin/testplugin/core/exceptions.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/core/exceptions.py)                        \
-[test-plugin/testplugin/tests/conftest.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/conftest.py)                                 \
-[test-plugin/testplugin/tests/test_buffer_tool_dialog.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/test_buffer_tool_dialog.py)   \
-[test-plugin/testplugin/tests/test_buffer_tool.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/test_buffer_tool.py)                 \
+[test-plugin/tests/conftest.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/conftest.py)                                 \
+[test-plugin/tests/test_buffer_tool_dialog.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/test_buffer_tool_dialog.py)   \
+[test-plugin/tests/test_buffer_tool.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/test_buffer_tool.py)                 \
 [test-plugin/testplugin/resources/ui/buffer_tool.ui](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/resources/ui/buffer_tool.ui)      \
 

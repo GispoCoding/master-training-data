@@ -203,7 +203,7 @@ piirtää kartalle niiden x ja y koordinaatit:
 
 ## Harjoitus 7.3: Testit
 
-Luo uusi tiedosto `test-plugin/testplugin/tests/test_point_tool.py`.
+Luo uusi tiedosto `test-plugin/tests/test_point_tool.py`.
 Kirjoita kaksi testiä:
 
 * `test_create_new_point_layer()`
@@ -213,5 +213,5 @@ Toisessa testissä nimien mukaisesti luodaan piste ilman valittua
 pistetasoa, jolloin työkalun tulisi luoda uusi pistetaso.
 Toisessa lisätään pisteitä jo olemassa olevalle pistetasolle.
 
-[test-plugin/testplugin/tests/test_point_tool.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2-tests/tests/test_point_tool.py)
+[test-plugin/tests/test_point_tool.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2-tests/tests/test_point_tool.py)
 

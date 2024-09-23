@@ -793,7 +793,7 @@ class ProcessingAlgorithm(QgsProcessingAlgorithm):
 
 ## Harjoitus 8.2: Testit algoritmille
 
-Luo tiedosto `test-plugin/testplugin/tests/test_processing_algorithm`.
+Luo tiedosto `test-plugin/tests/test_processing_algorithm`.
 Kirjoita testi, joka testaa ainakin sen että tulostason pisteelle
 laskettiin oikea etäisyys. Voit käyttää tätä pohjaa:
 
