@@ -19,8 +19,7 @@ erilaisia ominaisuuksia. Esimerkkinä vaikka **QPushButton**, joka käyttöliitt
 on klikattava painike.
 
 Joihinkin widgetteihin voidaan lisätä ns. lapsiwidgettejä (child Widget), mikä
-mahdollistaa käyttöliittymän suunnittelun. Esimerkkinä tästä harjoituksessa
-luotava **QDialog**-widgetti, johon lisätään muun tyyppisiä lapsiwidgettejä.
+mahdollistaa käyttöliittymän suunnittelun.
 Lapsiwidgetit voidaan järjestää eri asetelmiin (layout), esimerkiksi asettaa
 ne vaaka- tai pystytasoon sekä ruudukkoon.
 
