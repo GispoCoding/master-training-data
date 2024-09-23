@@ -102,7 +102,7 @@ a = 5
 ```python
 a = 5
 
-print("Muuttujan a arvo", 5)
+print(5)
 ```
 :::
 :::

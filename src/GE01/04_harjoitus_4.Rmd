@@ -226,13 +226,22 @@ counter.show()
 
 ## Harjoitus 4.2: QGISin widgetit
 
-Luo käyttöliittymä, jossa voi valita QGIS-projektin tason, jolloin
-painiketta painamalla luodaan uusi polygonitaso,
-johon lisätään valitun tason laajuus (extent) neliönä. Tallenna myös
-fid-tunniste sekä toisena attribuuttina tason nimi, josta laajuus
-luotiin. Luo uusi polygonitaso koordinaattijärjestelmällä EPSG:4326,
-ja tarvittaessa muunna lähdetason laajuus samaan koordinaattijärjestelmään.
-Käytä **QgsMapLayerComboBox**-widgettiä tason valitsemiseen.
+Luo käyttöliittymä, jossa käyttäjä valitsee QGIS-projektin tason.
+Painiketta painamalla luodaan uusi polygonitaso, jossa on yksi
+kohde. Sille luodaan geometria, joka on suorakaiteen muotoinen
+polygoni, jonka muoto on valitun tason laajuuden (extent)
+mukainen.
+
+Tallenna myös fid-tunniste sekä toisena attribuuttina tason nimi,
+josta laajuus luotiin. Luo uusi polygonitaso koordinaattijärjestelmällä
+EPSG:4326, ja tarvittaessa muunna lähdetason laajuus samaan
+koordinaattijärjestelmään. Käytä **QgsMapLayerComboBox**-widgettiä
+tason valitsemiseen.
+
+Laajuuden voi laskea taso-oliosta [`extent()`-metodilla](https://qgis.org/pyqgis/latest/core/QgsMapLayer.html#qgis.core.QgsMapLayer.extent).
+Se ei kuitenkaan palauta suoraan `QgsGeometry`-oliota. Selvitä
+mitä **extent()** palauttaa ja miten voit luoda sen
+pohjalta geometriaolion.
 
 ![](img/harjoitus_4/image2.gif)
 
@@ -306,7 +315,6 @@ class LayerExtentWidget(QWidget):
 
         new_feature = QgsFeature(new_layer.fields())
         new_feature.setAttributes([1, layer.name()])
-
 
         new_geom = QgsGeometry.fromRect(layer.extent())
         source_crs = layer.crs()

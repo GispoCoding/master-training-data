@@ -423,7 +423,7 @@ everything = [True, 3.14, "yes", [1, 2, 3]]
 ```
 :::
 
-Listan arvoja voi muuttaa ja poistaa, ja siihen voi lisätä arvoja.
+Listan alkioita voi muuttaa ja poistaa, ja siihen voi lisätä alkioita.
 
 ::: code-box
 ```python

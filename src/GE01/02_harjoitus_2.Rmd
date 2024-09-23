@@ -188,7 +188,8 @@ for layer in layers:
 
 Kirjoita skripti, joka tulostaa kaikkien Etelä-Amerikan
 alueiden nimet **NaturalEarth**-tasolta. Valitse maanosa
-`CONTINENT`-sarakkeen perusteella.
+`CONTINENT`-sarakkeen perusteella. Tason oletusnimi
+QGISiin lisätessä on "NaturalEarth_10m_admin_0_countries — admin_0_countries".
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
@@ -214,7 +215,7 @@ for feature in layer.getFeatures():
 ::: hidden-box
 ::: code-box
 ```python
-layers = QgsProject.instance().mapLayersByName('NaturalEarthAdmin0')
+layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
 
 layer = layers[0]
 
