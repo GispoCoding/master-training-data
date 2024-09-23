@@ -37,7 +37,7 @@ Tarkastellaan konsoli-ikkunan eri osia: vihreästä kolmiosta klikkaamalla komen
 suoritetaan (enter-näppäin ajaa saman asian). Muista ikoneista:
 
 - ![](https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/console/iconTabEditorConsole.svg)
-Avaa skripti-editorin. Editori helpottaa pidempien skriptien tekoa ja ajamista
+Avaa skriptieditorin. Editori helpottaa pidempien skriptien tekoa ja ajamista
 
 - ![](https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/console/iconClearConsole.svg)
 Tyhjentää konsoli-ikkunan edellisistä komennoista
@@ -46,7 +46,7 @@ Tyhjentää konsoli-ikkunan edellisistä komennoista
 Täältä löydät kätevästi linkit PyQGIs API -dokumentaatioon, PyQGIS Cookbookiin
 sekä konsolin ohjeisiin.
 
-Avaa konsolista skripti-editori ja tutki samoin sen ominaisuuksia.
+Avaa konsolista skriptieditori ja tutki samoin sen ominaisuuksia.
 
 ## Harjoitusten rakenne
 

@@ -20,7 +20,7 @@ Näin tutustut samalla kurssin olennaisiin työkaluihin,
 ja voit käyttää suoraan QGISin mukana asennettua Pythonia.
 
 Lue siis **harjoitus 1**:n ohjeita siihen asti,
-että saat QGISin Python-konsolin ja skripti-editorin auki.
+että saat QGISin Python-konsolin ja skriptieditorin auki.
 Jatka sitten tämän harjoituksen kanssa.
 
 ## Python-perusteita
