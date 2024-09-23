@@ -244,6 +244,7 @@ table th,
 table td {
     border-right: 1px solid #ffffff;
     padding: 0.8em;
+    font-family: 'Karla', sans-serif;
 }
   
 /* Buttons */
