@@ -1,0 +1,92 @@
+---
+title: "QGIS-lisäosien kehitys"
+author: "Gispo Suomi Oy"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "Lisäosien kehitys Pythonilla"
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+        number_sections: false
+documentclass: book
+---
+
+# QGIS-lisäosien kehitys
+
+## Tervetuloa kurssille!
+
+Tämän kurssin tarkoituksena on oppia, miten Python-ohjelmointikieltä voi käyttää QGIS-ohjelmiston kanssa, ja miten kehitetään lisäosia, jotka mahdollistavat monipuolisten lisäominaisuuksien käytön QGISissä.
+
+## Lukuohje
+
+**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+
+::: note-box
+<http://localhost:8080/geoserver>
+:::
+
+**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
+
+::: commandline-box
+``` shell
+
+sudo lsb_release -a
+```
+:::
+
+**Tiedostojen sisältö** on esitetty seuraavasti:
+
+::: file-content-box
+#IPv4 local connections: #host all all 127.0.0.1/32 md5
+:::
+
+**HTML- ja CSS-koodit, SQL-komennot sekä Python-skriptit** on esitetty seuraavasti:
+
+::: code-box
+``` sql
+
+SELECT version();
+```
+:::
+
+**Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
+
+::: hint-box
+Mistä löydät tietoa GeoServeristä?
+
+GeoServerillä on omat kotisivut.
+
+Psst! Tietoa GeoServeristä löydät internetistä.
+:::
+
+## Mistä lisätietoja?
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+::: note-box
+<http://www.qgis.org/>
+:::
+
+::: note-box
+<http://docs.qgis.org/>
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>
+:::
+
+::: note-box
+<http://www.osgeo.fi>
+:::
+
+## Virheet
+
+Jos havaitset materiaalissa virheitä, pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi](mailto:info@gispo.fi){.email}-osoitteeseen.
+
+## Lisenssi ja oikeudet
+
+Nämä materiaalit on "QGIS-lisäosien kehitys" -kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
