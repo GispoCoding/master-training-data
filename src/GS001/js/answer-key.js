@@ -43,20 +43,40 @@ codeBoxes.forEach(box => {
 
 let show;
 let hide;
+let next;
+let previous;
 
 switch (language) {
   case "EN":
     show = "Show ";
     hide = "Hide ";
+    next = "Next";
+    previous = "Previous";
     break;
   case "SV":
     show = "Visa ";
     hide = "Dölj ";
+    next = "Nästa";
+    previous = "Tillbaka";
     break;
   default:
     show = "Näytä ";
     hide = "Piilota ";
+    next = "Seuraava";
+    previous = "Edellinen";
 }
+
+const navButtons = [...document.getElementsByClassName('btn-default')];
+navButtons.forEach(button => {
+  if (button.textContent === "Next")
+  {
+    button.textContent = next;
+  }
+  else if (button.textContent === "Previous")
+  {
+    button.textContent = previous;
+  }
+});
 
 const answerButtons = [...document.getElementsByClassName('answer_btn')];
 answerButtons.forEach(button => {
