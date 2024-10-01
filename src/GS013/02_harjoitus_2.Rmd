@@ -57,7 +57,7 @@ Kentän arvojen laskin -työkalun ja lausekkeenmuodostustyökalun funktioissa on
 
 ## Taulukkotiedon liittäminen geometriaan
 
-Saat taulukon tiedot käyttöön paikkatietona, kun luot liitoksen shapefile-tiedostosi ja taulukon välille. Klikkaa hiiren oikealla napilla **Helsingin kaupunginosat 1899-tasoa**, valitse **Ominaisuudet** ja vasemman reunan valikosta **Liitokset**. 
+Saat taulukon tiedot käyttöön paikkatietona, kun luot liitoksen geometriat sisältävän tasosi ja taulukon välille. Klikkaa hiiren oikealla napilla **Helsingin kaupunginosat 1899-tasoa**, valitse **Ominaisuudet** ja vasemman reunan valikosta **Liitokset**. 
 
 Luo uusi liitos ![](img/harjoitus_2/image7.png). Valitse pudotusvalikosta liitettäväksi tasoksi csv-taulukkosi (**Hki_1900_asunnot_tulisijat**), liitoskentäksi **Kaupunginosan numero** (csv-taulukon kenttä) ja kohdekentäksi **k_osa_nro** (Helsingin kaupunginosat 1899 -tason kenttä). Paina lopuksi **OK**.
 
