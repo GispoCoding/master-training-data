@@ -36,7 +36,7 @@ Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google Drivestä lin
 
 
 :::{.note-box}
-[Kurssihakemisto.zip](https://drive.google.com/file/d/1qHz7nQbjAn7BZ294km7z0ENYiCCSwHKg/view?usp=sharing)
+[Kurssihakemisto.zip](https://drive.google.com/file/d/testilinkki-esimerkiksi/view?usp=sharing)
 :::
 
 
