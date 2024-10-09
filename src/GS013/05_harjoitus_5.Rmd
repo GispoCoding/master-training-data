@@ -6,7 +6,7 @@ Harjoituksessa laaditaan teemakartta ordinaalisiin arvoihin perustuen symbolin k
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii tekemään teemakartan valinnat siten, että ne kuvaavat käsiteltävää ilmiötä ja tuovat esiin aineiston ominaispiirteet.
+Kouluttautuja oppii tekemään teemakartan valinnat siten, että ne kuvaavat käsiteltävää ilmiötä ja tuovat esiin aineiston ominaispiirteet.
 
 **Arvioitu kesto**
 

@@ -6,7 +6,7 @@ Harjoituksessa tuodaan koordinaatteja sisältävä CSV-tekstitiedosto kartalle, 
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii tuomaan sekä geometrian sisältäviä että puhtaita attribuuttitaulukoita QGISiin sekä käsittelemään yleisimpiä ongelmia taulukoiden tuonnissa.
+Kouluttautuja oppii tuomaan sekä geometrian sisältäviä että puhtaita attribuuttitaulukoita QGISiin sekä käsittelemään yleisimpiä ongelmia taulukoiden tuonnissa.
 
 **Arvioitu kesto**
 

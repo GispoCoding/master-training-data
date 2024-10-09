@@ -6,7 +6,7 @@ Harjoituksessa tehdään teemakartta Porvoon alueelta käyttäen postinumeroalue
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii luomaan teemakartan sekä harjoittelee rajapintapalvelujen käyttöä.
+Kouluttautuja oppii luomaan teemakartan sekä harjoittelee rajapintapalvelujen käyttöä.
 
 
 Avaa QGIS ja aloita tyhjästä projektista. Aloitetaan heti lisäämällä kaikki Suomen kuntarajat [Tilastokeskuksen rajapintapalvelusta](https://stat.fi/org/avoindata/paikkatietoaineistot.html#kuntapohjaiset). Uuden tason voi lisätä muutamalla tavalla. Voit esimerkiksi selain-paneelissa etsiä **WFS / OGC API - Features** kohdan ja klikata sitä oikealla hiirennäppäimellä. Valitse **Uusi yhteys**. Anna yhteydelle selkeä nimi ja lisää tämä Tilastokeskuksen rajapintapalvelun osoite URL-kenttään:

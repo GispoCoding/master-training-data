@@ -6,7 +6,7 @@ Harjoituksessa luodaan 1. versio kurssin puutietojen keruuprojektin projektitied
 
 ### Harjoituksen tavoite
 
-Koulutettava oppii luomaan QGIS-projektin sekä paketoimaan siirtämään sen mobiililaitteeseen QField Sync -lisäosaa käyttäen.
+Kouluttautuja oppii luomaan QGIS-projektin sekä paketoimaan siirtämään sen mobiililaitteeseen QField Sync -lisäosaa käyttäen.
 
 ### Arvioitu kesto
 

@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan Mergin Maps -käyttöliittymään.
 
 **Harjoituksen tavoite**
 
-Tavoite on, että koulutettava saa asennettua Mergin Maps -mobiilisovelluksen käyttövalmiiksi laitteelleen, oppii sen käyttöliittymän eri osiot sekä osaa tarkastella karttanäkymää ja paikkatietoja sovelluksen avulla.
+Tavoite on, että kouluttautuja saa asennettua Mergin Maps -mobiilisovelluksen käyttövalmiiksi laitteelleen, oppii sen käyttöliittymän eri osiot sekä osaa tarkastella karttanäkymää ja paikkatietoja sovelluksen avulla.
 
 **Arvioitu kesto**
 

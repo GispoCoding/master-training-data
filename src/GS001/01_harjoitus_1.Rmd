@@ -11,7 +11,7 @@ Harjoituksessa tutustutaan Geometry generator -työkaluun, laaditaan vertaileva 
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii laatimaan teemakarttoja attribuuttitietoihin perustuen sekä ymmärretään tehtyjen visualisointivalintojen merkityksen valmiissa kartassa. Lisäksi koulutettava oppii hyödyntämään tyylitiedostoja ja johtamaan aineiston geometrioista uusia geometrioita.  
+Kouluttautuja oppii laatimaan teemakarttoja attribuuttitietoihin perustuen sekä ymmärretään tehtyjen visualisointivalintojen merkityksen valmiissa kartassa. Lisäksi kouluttautuja oppii hyödyntämään tyylitiedostoja ja johtamaan aineiston geometrioista uusia geometrioita.  
 
 **Arvioitu kesto**
 

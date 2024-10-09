@@ -12,7 +12,7 @@ Harjoituksessa luodaan kartta-atlas käyttäen aiemmin opittua.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii luomaan karttalehtijaon ja tekemään sen pohjalta kartta-atlaksen.
+Kouluttautuja oppii luomaan karttalehtijaon ja tekemään sen pohjalta kartta-atlaksen.
 
 ## Kartta-atlaksen tekeminen
 

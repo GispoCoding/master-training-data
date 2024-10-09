@@ -12,7 +12,7 @@ Harjoituksessa asennetaan Mergin Maps -ohjelmisto mobiililaitteelle ja luodaan t
 
 **Tavoite**
 
-Tavoite on, että koulutettava saa asennettua Mergin Maps -mobiilisovelluksen käyttövalmiiksi laitteelleen ja saa luotua käyttäjätunnukset pilviympäristöön.
+Tavoite on, että kouluttautuja saa asennettua Mergin Maps -mobiilisovelluksen käyttövalmiiksi laitteelleen ja saa luotua käyttäjätunnukset pilviympäristöön.
 
 **Arvioitu kesto**
 

@@ -8,7 +8,7 @@ tutustutaan QGISin käyttöliittymän perustoiminnallisuuksiin.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen koulutettava tuntee paikkatietoaineistojen
+Harjoituksen jälkeen kouluttautuja tuntee paikkatietoaineistojen
 perusominaisuudet, osaa tarkastella vektoriaineiston geometriaa ja
 ominaisuustietoja QGISissä sekä valita ja suodattaa aineistoa.
 
