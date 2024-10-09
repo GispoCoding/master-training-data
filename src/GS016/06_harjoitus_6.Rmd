@@ -6,7 +6,7 @@ Harjoituksessa yhdistetään käytäntöön kaikki aiemmissa harjoituksissa opit
 
 ### Harjoituksen tavoite
 
-Koulutettava oppii keräämään paikkatietoja tehokkaasti maastossa mobiililaitetta käyttäen.
+Kouluttautuja oppii keräämään paikkatietoja tehokkaasti maastossa mobiililaitetta käyttäen.
 
 ### Arvioitu kesto
 

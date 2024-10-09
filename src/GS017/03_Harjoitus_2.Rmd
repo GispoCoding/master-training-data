@@ -6,7 +6,7 @@ Harjoituksessa luodaan QGIS-työpöytäohjelmistolla projekti, jota käytetään
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii luomaan QGIS-projektin sekä paketoimaan ja siirtämään sen mobiililaitteeseen Mergin Maps -lisäosaa käyttäen.
+Kouluttautuja oppii luomaan QGIS-projektin sekä paketoimaan ja siirtämään sen mobiililaitteeseen Mergin Maps -lisäosaa käyttäen.
 
 **Arvioitu kesto**
 

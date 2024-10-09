@@ -6,7 +6,7 @@ Harjoituksessa lisätään erilaisia paikkatietoaineistoja ja -palveluita QGIS-o
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii lisäämään erilaisia paikkatietoaineistoja ja -palveluja QGIS-projektiin.
+Kouluttautuja oppii lisäämään erilaisia paikkatietoaineistoja ja -palveluja QGIS-projektiin.
 
 ## Valmistautuminen
 

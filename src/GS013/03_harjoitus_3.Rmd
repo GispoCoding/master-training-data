@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan muutamiin hyödyllisiin tilasto- ja vektorianalyysity
 
 **Harjoituksen tavoite**
 
-Koulutettava osaa etsiä ja hyödyntää tarkoitukseensa sopivia analyysityökaluja.
+Kouluttautuja osaa etsiä ja hyödyntää tarkoitukseensa sopivia analyysityökaluja.
 
 **Arvioitu kesto**
 

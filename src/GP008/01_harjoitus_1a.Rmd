@@ -8,8 +8,8 @@ joko oman tyylin tai esimerkkien mukaan.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii tuomaan GeoPackage-muodossa olevia aineistoja QGISiin
-ja visualisoimaan piste- ja polygonikohteita. Koulutettava ymmärtää vektori-
+Kouluttautuja oppii tuomaan GeoPackage-muodossa olevia aineistoja QGISiin
+ja visualisoimaan piste- ja polygonikohteita. Kouluttautuja ymmärtää vektori-
 aineistojen visualisoinnissa käytettävien työkalujen mahdollisuudet.
 
 ## Kurssimateriaalin lataus

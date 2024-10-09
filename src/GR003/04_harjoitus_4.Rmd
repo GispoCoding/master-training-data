@@ -6,7 +6,7 @@ Harjoituksessa tehdään karttatuloste.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii laatimaan karttatulosteen halutussa mittakaavassa sekä tehdä tulosteesta PDF-tiedoston.
+Kouluttautuja oppii laatimaan karttatulosteen halutussa mittakaavassa sekä tehdä tulosteesta PDF-tiedoston.
 
 ## Valmistautuminen
 

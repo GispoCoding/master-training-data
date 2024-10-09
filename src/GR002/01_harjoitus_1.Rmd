@@ -6,7 +6,7 @@ Harjoituksessa ladataan QGIS ja tallennetaan kurssimateriaalit käytettävälle 
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen koulutettava osaa asentaa QGISin ja tietää oman kurssihakemistonsa sijainnin.
+Harjoituksen jälkeen kouluttautuja osaa asentaa QGISin ja tietää oman kurssihakemistonsa sijainnin.
 
 **Arvioitu kesto**
 

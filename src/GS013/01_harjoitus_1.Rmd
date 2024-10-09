@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan QGISin käyttöliittymän konfigurointimahdollisuuksi
 
 **Harjoituksen tavoite**
 
-Koulutettava löytää ja tunnistaa QGIS-ohjelmiston yleiset, profiilikohtaiset ja projektikohtaiset asetukset ja osaa luoda käyttäjäprofiileja.
+Kouluttautuja löytää ja tunnistaa QGIS-ohjelmiston yleiset, profiilikohtaiset ja projektikohtaiset asetukset ja osaa luoda käyttäjäprofiileja.
 
 **Arvioitu kesto**
 

@@ -6,7 +6,7 @@ Harjoituksessa lisätään erilaisia paikkatietopalveluita QGISiin.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen koulutettava osaa lisätä erilaisia paikkatietopalveluita QGISiin.
+Harjoituksen jälkeen kouluttautuja osaa lisätä erilaisia paikkatietopalveluita QGISiin.
 
 **Arvioitu kesto**
 

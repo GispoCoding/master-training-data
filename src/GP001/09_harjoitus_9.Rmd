@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan QGISin erilaisiin paikkatietoanalyyseihin.
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii käyttämään eri aineistoille tarkoitettuja paikkatietoanalyysejä tarkoituksenmukaisesti.
+Kouluttautuja oppii käyttämään eri aineistoille tarkoitettuja paikkatietoanalyysejä tarkoituksenmukaisesti.
 
 **Arvioitu kesto**
 

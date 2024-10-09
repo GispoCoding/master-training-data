@@ -12,7 +12,7 @@ Harjoituksessa tehdään valmiista kartasta taitto.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii käyttämään QGISin taittotyökaluja monipuolisesti ja
+Kouluttautuja oppii käyttämään QGISin taittotyökaluja monipuolisesti ja
 tekemään informatiivisen karttataiton.
 
 ## Uuden taiton luominen ja sijoittelua helpottavat työkalut

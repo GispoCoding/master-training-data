@@ -6,7 +6,7 @@ Harjoituksessa luodaan QGIS-projektiin uusi Kasvualusta-taso, jonka avulla kerä
 
 ### Harjoituksen tavoite
 
-Koulutettava oppii määrittelemään relaatioita tasojen välille QGISin projektin asetuksia käyttäen ja ottamaan tässä huomioon QFieldin ja mobiilikeruun ominaispiirteet.
+Kouluttautuja oppii määrittelemään relaatioita tasojen välille QGISin projektin asetuksia käyttäen ja ottamaan tässä huomioon QFieldin ja mobiilikeruun ominaispiirteet.
 
 ### Arvioitu kesto
 

@@ -4,7 +4,7 @@
 Harjoituksessa tehdään oma väripaletti ja oletusfontti.
 
 ## Harjoituksen tavoite
-Koulutettava oppii luomaan valmiita väripaletteja QGISiin ja käyttämään Tyylien hallintaa.
+Kouluttautuja oppii luomaan valmiita väripaletteja QGISiin ja käyttämään Tyylien hallintaa.
 
 ## Väripalettien luominen
 

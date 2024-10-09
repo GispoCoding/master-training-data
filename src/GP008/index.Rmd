@@ -19,7 +19,7 @@ documentclass: book
 
 ## Tervetuloa kurssille!
 
-Tämän kurssin tarkoituksena on oppia visualisoimaan aineistoja QGISillä monipuolisesti ja tehokkaasti. Kurssilla käydään läpi QGISin visualisointiominaisuuksia laajasti, jotta koulutettava pystyisi tekemään tarkoituksenmukaisia ja selkeitä karttatulosteita. Tavoitteena on ymmärtää QGISin visualisointityökalujen toimintaa ja saada rutiinia niiden käyttöön.
+Tämän kurssin tarkoituksena on oppia visualisoimaan aineistoja QGISillä monipuolisesti ja tehokkaasti. Kurssilla käydään läpi QGISin visualisointiominaisuuksia laajasti, jotta kouluttautuja pystyisi tekemään tarkoituksenmukaisia ja selkeitä karttatulosteita. Tavoitteena on ymmärtää QGISin visualisointityökalujen toimintaa ja saada rutiinia niiden käyttöön.
 
 ## Lukuohje
 
