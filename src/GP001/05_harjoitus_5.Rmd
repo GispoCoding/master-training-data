@@ -2,7 +2,7 @@
 
 **Harjoituksen sisältö**
 
-Harjoituksessa tutustutaan eri rasteri- ja vektoriaineistoihin ja niiden perusvisualisointitekniikoihin sekä vektoriaineistojen nimiöintitoimintoihin.
+Harjoituksessa tutustutaan eri rasteri- ja vektoriaineistoihin, niiden perusvisualisointitekniikoihin sekä vektoriaineistojen nimiöintitoimintoihin.
 
 **Harjoituksen tavoite**
 

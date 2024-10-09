@@ -3,7 +3,7 @@
 **Harjoituksen sisältö**
 
 Harjoituksessa tutustutaan eri paikkatietoaineistoihin käyttäen
-resurssienhallintaa, avataan ensimmäinen paikkatietoaineisto ja
+resurssienhallintaa. Avataan ensimmäinen paikkatietoaineisto ja
 tutustutaan QGISin käyttöliittymän perustoiminnallisuuksiin.
 
 **Harjoituksen tavoite**
