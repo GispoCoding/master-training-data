@@ -1,0 +1,227 @@
+# Exercise 2: PyQGIS-perusteet
+
+**Contents:** QGISin Python-paketin käytön perusteet
+
+**Goal:** Harjoituksen jälkeen opiskelija hallitsee PyQGISin perusteet.
+
+QGISin Python-konsolissa on käytössä valmiiksi alustettu `iface`-muuttuja,
+joka on QgisInterface-luokan olio. Tämä olio mahdollistaa mm. vuorovaikutuksen
+tällä hetkellä käynnissä olevan QGIS-ohjelman eri komponenttien kanssa.
+Sen kautta voidaan manipuloida esimerkiksi projektiin ladattuja
+tasoja tai vaikka pääkarttanäkymää (QgsMapCanvas).
+
+## Tasojen käsittely
+
+Avaa QGISiin kurssihakemistosta `NaturalEarth_10m_admin_0_countries.gpkg`-tiedosto.
+Klikkaa se aktiiviseksi tasopaneelissa.
+
+Valitaan aktiivinen taso:
+
+::: code-box
+```python
+layer = iface.activeLayer()
+print(layer)
+```
+:::
+
+Haetaan vektoritason kohteiden määrä:
+
+::: code-box
+```python
+layer = iface.activeLayer()
+feature_count = layer.featureCount()
+
+print(feature_count)
+```
+:::
+
+Iteroidaan vektoritasojen kohteita ja tulostetaan
+ominaisuustieto:
+
+::: code-box
+```python
+layer = iface.activeLayer()
+
+for feature in layer.getFeatures():
+    attribute = feature.attribute('NAME_EN')
+
+    print(attribute)
+```
+:::
+
+Lisää QGISiin selainpaneelista **XYZ Tiles**-valikon alta
+**OpenStreetMap**-taso.
+
+Haetaan listaus kaikista projektin tasoista:
+
+::: code-box
+```python
+layers = QgsProject.instance().mapLayers()
+
+# Tarkistetaan layers-muuttujan tyyppi
+print(type(layers))
+```
+:::
+
+Tässä `mapLayers()`-metodi palauttaa `dictionary`-
+datatyypin, jossa avaimena on tasolle oma uniikki tunniste
+merkkijonona ja arvona on varsinainen taso-olio.
+
+::: hint-box
+Tässä esimerkissä meillä on projektissa vektori- ja rasteritaso.
+Näiden olioiden luokat on QgsVectorLayer ja QgsRasterLayer.
+Huomaa, että nämä luokat perivät
+[QgsMapLayer](https://qgis.org/pyqgis/master/core/QgsMapLayer.html)-luokan,
+jolloin niillä on myös yhteisiä metodeja.
+:::
+
+Iteroidaan tasoja:
+
+::: code-box
+```python
+# Voidaan käyttää listakoostetta
+# (kts. tarvittaessa Python-lisätehtävistä
+# aihe 1).
+
+# Tason ID:tä ei välttämättä tarvita,
+# joten voidaan hakea suoraan vain
+# tasot
+layers = [layer for layer in QgsProject.instance().mapLayers().values()]
+
+for layer in layers:
+    print(f"name: {layer.name()}")
+```
+:::
+
+Valitaan taso nimen perusteella:
+
+::: code-box
+```python
+layers = QgsProject.instance().mapLayersByName('OpenStreetMap')
+
+# mapLayersByName() palauttaa listan
+# tasoista, koska QGISissä on sallittua
+# olla useampi taso samalla nimellä
+
+layer = layers[0]
+
+print(layer.name())
+```
+:::
+
+
+::: hint-box
+**QgsProject**-luokka noudattaa ns. singleton-
+suunnittelumallia (ainokainen), joka tarkoittaa sitä että luokasta
+voi olla kerrallaan olemassa ainoastaan yksi olio. Tämä
+olio voidaan hakea käyttämällä QgsProject-luokan
+staattista metodia `instance()`, joka palauttaa aina saman olion.
+Koska metodi on staattinen, projektiolioon on globaali pääsy.
+:::
+
+## Exercise 2.1
+
+Selvitä Pythonilla **OpenStreetMap**-tason datan lähde.
+Tutki tarvittaessa [PyQGIS-dokumentaatiota](https://qgis.org/pyqgis/latest/).
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = QgsProject.instance().mapLayersByName('OpenStreetMap')
+layer = layers[0]
+
+data_source = layer.source()
+print(data_source)
+```
+:::
+
+Tulos:
+
+```
+type=xyz&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0
+```
+:::
+
+## Exercise 2.2
+
+Kirjoita skripti, joka käy läpi kaikki projektiin lisätyt tasot
+ja tulostaa **vain** vektoritasojen kenttien nimet.
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = [layer for layer in QgsProject.instance().mapLayer().values() <ehtolause>] # miten tarkistat onko kyseessä vektoritaso?
+
+for layer in layers:
+    fields = <funktio> # miten saat QgsFields-olion tasosta?
+
+    for field in fields:
+        <tulosta nimi>
+```
+:::
+:::
+
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = [layer for layer in QgsProject.instance().mapLayers().values() if layer.type() == QgsMapLayer.VectorLayer]
+
+for layer in layers:
+    fields = layer.fields()
+    
+    print(f"layer '{layer.name()}' fields:")
+    
+    for field in fields:
+        print(field.name())
+```
+:::
+:::
+
+## Exercise 2.3
+
+Kirjoita skripti, joka tulostaa kaikkien Etelä-Amerikan
+alueiden nimet **NaturalEarth**-tasolta. Valitse maanosa
+`CONTINENT`-sarakkeen perusteella. Tason oletusnimi
+QGISiin lisätessä on "NaturalEarth_10m_admin_0_countries — admin_0_countries".
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+::: code-box
+```python
+# Hae taso esim. nimen perusteella
+layers = <funktio>
+
+layer = layers[0]
+
+for feature in layer.getFeatures():
+    # Millä metodilla haet kohteen ominaisuustiedon?
+    # Vertaa merkkijonoon
+    if <funktio> == "South America":
+        print(<kohteen nimi>)
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+
+layer = layers[0]
+
+for feature in layer.getFeatures():
+    if feature.attribute("CONTINENT") == "South America":
+        print(feature.attribute("SOVEREIGNT"))
+```
+:::
+:::

@@ -1,0 +1,1101 @@
+# Exercise 0: Python basics
+
+**Contents:** Recapping the basics of Python
+
+**Goal:** The trainee understands the basics of Python.
+
+This is an **optional exercise**, which focuses on pure Python
+instead of PyQGIS programming. You aren't expected
+to know everything about Python, but if you have a handle
+on the basics more time can be spent on learning PyQGIS.
+If you feel like you need a refresher on Python first
+feel free to browse through this exercise!
+
+## Preparations
+
+The exercise could be technically be done with any text
+editor and Python interpreter, but it's recommended to
+use the QGIS Python console and the script editor which
+is included in the console. This way you can already
+become familiary with the tools that'll be used throughout
+the course.
+
+You can read the instructions from [**exercise 1**](01_exercise_1.html)
+until you get the QGIS script editor open. Then
+you can proceed with this exercise.
+
+## The basics
+
+### Commands
+
+Similarly to other computer programs, Python programs
+consist of commands. Below is a sample program, where
+text is printed out to the console, first `Hello` and
+then `QGIS!`.
+
+::: code-box
+```python
+print("Hello")
+print("QGIS!")
+```
+:::
+
+Output:
+
+```
+Hello
+QGIS!
+```
+
+### Comments
+
+In Python lines prepended with the `#` symbol
+do not affect the execution of the program.
+These lines are called _comments_ and they can
+be used to explain the behavior of the program
+to yourself or to others. The comment can also
+be included at the end of a line.
+
+Commented sample program which does the same thing
+as above:
+
+::: code-box
+```python
+print("Hello")
+# This line does nothing
+print("QGIS!")  # Print QGIS!
+```
+:::
+
+### Calculations
+
+We can do calculations with numbers and print their
+result.
+
+::: code-box
+```python
+print(1 + 1)
+print(5 / 2.5)
+print(10 - 4 * 2)
+```
+:::
+
+Output:
+```
+2
+2.0
+2
+```
+
+### Variables
+
+Values needed by the program can be saved into a
+variable.
+
+Defining a variable:
+
+::: code-box
+```python
+muuttuja = <value>
+```
+:::
+
+Here `<value>` can be any data that can be stored in a variable.
+
+An example of utilizing variables:
+
+::: code-box
+```python
+number1 = 10
+number2 = 5
+
+summed = number1 + number2
+multiplied = number1 * number2
+
+print(summed)
+print(multiplied)
+```
+:::
+
+Output:
+```
+15
+50
+```
+
+You can change the value of a variable:
+
+::: code-box
+```python
+variable = 10
+variable = "ten"
+
+print(variable)
+```
+:::
+
+Output:
+```
+ten
+```
+
+### Types
+
+We've already used three different _types_:
+Strings which are marked with `""` symbols, integers
+and decimal numbers.
+
+You can use the `type` command to find out the type:
+
+::: code-box
+```python
+print(type("string"))
+print(type(1))
+print(type(0.5))
+```
+:::
+
+Output:
+```
+<class 'str'>
+<class 'int'>
+<class 'float'>
+```
+
+The output reveals that in Python `str` stands for a
+string, `int` for an integer and `float` (floating-point
+number) for a decimal number.
+
+There are many other types and you can also define them
+yourself. One more example of a pre-defined type is a
+bool (boolean) value that can be either `True` or `False`.
+
+::: code-box
+```python
+print(type(True))
+print(type(False))
+```
+:::
+
+Output:
+```
+<class 'bool'>
+<class 'bool'>
+```
+
+Types have different attributes. For example we can
+use mathematical operators to do calculations with integers
+and floats, but not necessarily other types.
+
+These commands should work:
+
+::: code-box
+```python
+print(1 + 1)
+print("str" + "ing")
+print(2 * "GIS")
+```
+:::
+
+Output:
+```
+2
+string
+GISGIS
+```
+
+However these commands do not work and you get a
+`TypeError`:
+
+::: code-box
+```python
+print(1 + "1")
+print("str" - "ing")
+print("GIS" / 2)
+```
+:::
+
+### Conditionals
+
+In programming it's typical that we want to control the execution
+of the program according to some condition. Often we compare some
+values as a condition. Here is a list of comparison operators in
+Python,
+
+| Operaattori | Selite |
+|-|-|
+| == | Equal to |
+| != | Not equal to |
+| > | Greater than |
+| < | Less than |
+| >= | Greater than or equal to |
+| <= | Less than or equal to |
+
+\
+
+Here is a sample program which compares the value of variable `a`
+to different strings. If the strings are equal the indented code
+block will be executed. Note that the condition after the `elif`
+keyword will be checked only if the prior condition after the `if`
+keyword is not met If neither the `if` or `elif` conditions are
+not met, the code block after the `else` keyword is executed.
+The final print command is executed in every case.
+
+::: code-box
+```python
+a = "GIS"
+
+if a == "GIS":
+    string_to_print = "Q" + a
+elif a == "ing":
+    string_to_print = "str" + a
+else:
+    string_to_print = a
+
+print(string_to_print)
+```
+:::
+
+Output:
+```
+QGIS
+```
+
+You can check more than one conditional with the logical operators
+`and` and `or`.
+
+::: code-box
+```python
+temperature = 15
+
+if temperature < 25 and temperature > 10:
+    print("pleasant temperature")
+elif temperature >= 25 or temperature <= 10:
+    print("too hot or too cold")
+```
+:::
+
+### Functions
+
+A function is a piece of code that can be _called_ after which
+it will be executed. It can also take in _parameters_ which
+affect how the code will be run. A function can also _return_
+data.
+
+For example the `print` 'command' that has been used in the
+examples is a built-in function in Python. It takes in printable
+values as parameters and prints them, but does not return anything.
+The `type` function returns the type of the given parameter.
+
+Calling a function works like this:
+
+::: code-box
+```python
+function(parameter_1, parameter_2, ... parameter_n)
+```
+:::
+
+A new function can be defined with the `def` keyword:
+
+::: code-box
+```python
+# a function without parameters which returns nothing
+def greet():
+    print("Hello!")
+
+greet()
+```
+:::
+
+Output:
+```
+Hello!
+```
+
+The parameters are defined in the parentheses `()`
+and the return value with the `return` keyword.
+
+When calling a function the parameters can be given
+in the order they were defined, or by writing out the
+name of the parameter and its value:
+
+::: code-box
+```python
+def multiply(a, b):
+    return a * b
+
+multiply(2, 3)
+multiply(a=2, b=3)
+```
+:::
+
+One more example of defining and using a function:
+
+::: code-box
+```python
+def make_greeting(name):  # one parameter: name
+    greeting = f"Hello {name}!"
+    return greeting  # return the greeting
+
+greeting = make_greeting("QGIS")  # the return value is saved to the greeting variable
+print(greeting)
+print(make_greeting(name="Me"))  # the return value is printed right away
+```
+:::
+
+Output:
+```
+Hello QGIS!
+Hello Me!
+```
+
+Note how the string was defined in the function definition above.
+The string was given in the `f""` format which in Python is called
+an f-string. You can insert the values of variables by including
+them inside the f-string encased in curly brackets `{}`.
+
+A function can include every type of code covered previously:
+
+::: code-box
+```python
+def sum_two_positive_integers(a, b):
+    if type(a) != int or type(b) != int:
+        print("use integers only")
+        # if this condition is met the function stops executing here and returns nothing
+        return
+    if a < 0 or b < 0:
+        print("integers must be positive")
+        return
+    return a + b  # return the sum
+```
+:::
+
+### Data structures
+
+In addition to single values Python has several data structures
+in which you can save multiple values and retrieve those values
+in various ways.
+
+#### List
+
+A list is a collection of data and it can be initialized with
+brackets `[]` where its items are delimited with commas `,`.
+braves
+As an example here is a list that has items 1, 2 and 3.
+
+::: code-box
+```python
+my_list = [1, 2, 3]
+```
+:::
+
+You can access items in a list using their index. In Python
+the indexes start from 0, so the first item can be accessed
+with 0, the second one with 1, the third one with 3 etc.
+If you use a negative index it refers to the end of the list,
+so -1 is the last item of the list, -2 is the second to last
+item of the list etc.
+
+::: code-box
+```python
+items = ["first_item", "second_item", "third_item"]
+
+print(items[0])
+print(items[1])
+print(items[2])
+
+print(items[-1])
+print(items[-2])
+print(items[-3])
+```
+:::
+
+Output:
+
+```
+first_item
+second_item
+third_item
+third_item
+second_item
+first_item
+```
+
+A list can include any data:
+
+::: code-box
+```python
+everything = [True, 3.14, "yes", [1, 2, 3]]
+```
+:::
+
+Items can be edited and deleted and more items appended.
+
+::: code-box
+```python
+my_list = [1, 2, "some_item", "last_item"]
+
+my_list[0] = "new_value"  # change value of the item at index 0
+print(my_list)
+
+my_list.pop(2)  # list.pop deletes the item at index 2
+print(my_list)
+
+my_list.remove("last_item")  # list.remove deletes item with the given value
+print(my_list)
+
+my_list.append("my_new_last_item")  # list.append adds an item at the end of the list
+print(my_list)
+```
+:::
+
+Output:
+```
+['new_value', 2, 'some_item', 'last_item']
+['new_value', 2, 'last_item']
+['new_value', 2]
+['new_value', 2, 'my_new_last_item']
+```
+
+#### Dictionary
+
+In a dictionary an item consists of two parts, the _key_ and the _value_.
+The value can be accessed with the key.
+
+A dictionary can be initialized inside curly brackets `{}` where the key and the
+value is separated with a colon `:`. The key-value pairs are separated with
+a comma `,`.
+
+::: code-box
+```python
+my_dictionary = {"greeting": "Hello!", 10: 1000, "list": [1, 0]}
+
+print(my_dictionary["greeting"])
+print(my_dictionary[10])  # Note! Here 10 is a key, even though it's a number
+print(my_dictionary["list"])
+```
+:::
+
+Output:
+```
+Hello!
+1000
+[1, 0]
+```
+
+Dictionaries can be edited by adding more key-value pairs. The keys
+are always unique, so using the same key replaces whatever value
+existed before. Removing a key-value pair is also possible.
+
+::: code-box
+```python
+my_dictionary = {"fruit": "apple"}
+
+my_dictionary["fruit"] = "pear"
+my_dictionary["number"] = 42
+print(my_dictionary)
+
+# deleting based on a key
+my_dictionary.pop("fruit")
+del my_dictionary["number"]
+print(my_dictionary)
+```
+:::
+
+Output:
+```
+{'fruit': 'pear', 'number': 42}
+{}
+```
+
+
+#### Tuple
+
+A tuple is similar to a list, but it is initialized with parentheses
+`()` and it is _immutable_ i.e. it or its items can't be edited
+in any way.
+
+::: code-box
+```python
+xyz = (3, 2, 1)
+xyz[0] = 0  # not possible, gives a TypeError
+```
+:::
+
+#### Set
+
+A set is also similar to a list, but it is initialized with curly
+brackets `{}` and each item in a set is unique.
+
+::: code-box
+```python
+my_set = {1, 1, 2, 2, 3, 3}
+print(my_set)
+```
+:::
+
+Output:
+```
+{1, 2, 3}
+```
+
+You can remove duplicate items from a list with the built-in
+`set` and `list` functions.
+
+::: code-box
+```python
+list_with_duplicates = [1, 1, 1, 0]
+print(set(list_with_duplicates))
+print(list(set(list_with_duplicates)))
+```
+:::
+
+Output:
+```
+{0, 1}
+[0, 1]
+```
+
+### Loops and iteration
+
+#### while loop
+
+A loop lets you repeat the same commands many times. In a `while` loop the
+code block is repeated until the condition of the loop is met.
+
+The syntax for a while loop is:
+
+::: code-box
+```python
+while <condition>:
+    <code block>
+```
+:::
+
+It is important to not create an infinite loop. Here's an example
+of one. **This is just an example and shouldn't be run**, if you run it
+in QGIS you'll have to **force QGIS to stop**.
+
+::: code-box
+```python
+while True:
+    print("this never ends")
+```
+:::
+
+Output:
+```
+this never ends
+this never ends
+this never ends
+...
+(goes on forever)
+```
+
+This loop ends after three iterations:
+
+::: code-box
+```python
+number = 0
+
+while number < 3:
+    print(number)
+    number = number + 1
+```
+:::
+
+Output:
+```
+0
+1
+2
+```
+
+The loop can be stopped with the `break` command:
+
+::: code-box
+```python
+number = 0
+
+while True:
+    print(number)
+    number += 1  # shorter way to write number = number + 1
+    if number >= 3:
+        break
+```
+:::
+
+Output:
+```
+0
+1
+2
+```
+
+#### for loop
+
+In Python a for loop the iterations are based on a data structure.
+The loop goes through each item in a data structure one by one and
+ends once all the items have been iterated over.
+
+The syntax for a for loop is:
+
+::: code-box
+```python
+for <variable> in <data>:
+    <code block>
+```
+:::
+
+The value of `<variable` is dependant on the data structure.
+In a list it has the value of item the loop is currently
+iterating over:
+
+::: code-box
+```python
+my_list = [1, 2, 3]
+
+for item in my_list:
+    print(item)
+
+for i in my_list:  # you can choose any name for the variable
+    print(i)
+```
+:::
+
+Output:
+```
+1
+2
+3
+1
+2
+3
+```
+
+In a dictionary the variable is the key:
+
+::: code-box
+```python
+coordinates = {"city_1": (10, 4), "city_2": (1, 3)}
+
+for key in coordinates:
+    print(f"key: {key}")
+    print(f"value: {coordinates[key]}")
+
+# dict.items enables using both the key and value
+for key, value in coordinates.items():
+    print(key, value)
+```
+:::
+
+Output:
+```
+key: city_1
+value: (10, 4)
+key: city_2
+value: (1, 3)
+city_1 (10, 4)
+city_2 (1, 3)
+```
+
+You can have a loop inside a loop:
+
+::: code-box
+```python
+list_of_lists = [[1, 2, 3], ["a", "b", "c"]]
+
+for inner_list in list_of_lists:
+    print(inner_list)
+    for item in inner_list:
+        print(item)
+```
+:::
+
+Output:
+```
+[1, 2, 3]
+1
+2
+3
+['a', 'b', 'c']
+a
+b
+c
+```
+
+The `break` command works in all loops:
+
+::: code-box
+```python
+numbers = [1, 2, 3, "a cat", 5, 6]
+
+for number in numbers:
+    if type(number) != int and type(number) != float:
+        print(f"{number} is not a number!")
+        break
+    print(number)
+```
+:::
+
+Output:
+```
+1
+2
+3
+a cat is not a number!
+```
+
+### Modules
+
+In Python a module is any `.py` file. It contains Python code
+and their benefit is that you can use them in other modules
+allowing you to reuse code.
+
+To use a module you have to use the `import` command. In the
+example below the built-in `math` module is imported and
+a function called `sqrt` is used to calculate the square
+root of 4.
+
+::: code-box
+```python
+import math
+
+print(math.sqrt(4))
+```
+:::
+
+Output:
+```
+2.0
+```
+
+You can also import different parts of the module directly
+using the `from` syntax:
+
+::: code-box
+```python
+from math import pi, sqrt
+
+print(pi)
+print(sqrt(4))
+```
+:::
+
+Output:
+```
+3.141592653589793
+2.0
+```
+
+### Objects
+
+An object is a central concept in Python. All values like
+numbers, strings and lists are objects of different types.
+
+#### Methods and attributes
+
+An object consists of data and different functionalities.
+For example a string has in addition to the sequence
+of characters different _methods_, which are function associated
+with the object's type. Data associated with
+the object is called an attribute. The methods and attributes
+are tied to the object's type. The methods of an integer
+object are different from a string object.
+
+As opposed to regular functions they must be called through
+an object. Same applies to attributes, unlike a regular
+variable it must be accessed through the object:
+
+::: code-box
+```python
+my_object.method()   # calling a method
+my_object.attribute  # accessing an attribute
+```
+:::
+
+Here is an example of using the `count` method on a string.
+It calculates how many times the given substring is included
+in the string object.
+
+::: code-box
+```python
+print("abcdeeee".count("e"))
+```
+:::
+
+Output:
+```
+4
+```
+
+`sort` method in a list object:
+
+::: code-box
+```python
+my_list = [3, 1, 2]
+
+my_list.sort()
+
+print(my_list)
+```
+:::
+
+Output:
+```
+[1, 2, 3]
+```
+
+A boolean value has an attribute `real`
+which is the representation of the boolean value
+as a real number.
+
+::: code-box
+```python
+print(True.real)
+print(False.real)
+```
+:::
+
+Output:
+```
+1
+0
+```
+
+#### Constructors
+
+So far the creation of new objects hasn't given much attention.
+Many built-in types in Python have a specific syntax with which
+the object is create, for example with lists the braces `[]` and
+with string double or single quotes `""` `''`.
+
+However these examples are exceptions and not all objects have
+a built-in syntax for creating them. By default an object
+is created through its _constructor_ which is a special
+method for creating the object. As opposed to other methods
+it can be called separate from the object, since the object
+doesn't exist yet.
+
+For example this is how you create a `date` object:
+
+::: code-box
+```python
+from datetime import date
+
+my_date = date(year=2024, month=6, day=19)
+
+print(my_date)
+print(type(my_date))
+print(my_date.year)
+print(my_date.isoweekday())
+```
+:::
+
+Output:
+```
+2024-06-19
+<class 'datetime.date'>
+2024
+3
+```
+
+`date` is a constructor that you enter the year, month and day into.
+This creates the `date` object which is associated with many attributes
+and methods.
+
+### Classes
+
+The attributes and methods of an object is defined in a _class_.
+Creating classes is therefore a way to create your own types.
+
+#### Class syntax
+
+You can use the `class` keyword to create one. Typically you define
+a constructor for the class which is defined as a method called
+`__init__`. This method will be called implicitly when you
+construct a new object of the class and does't have to be
+explicitly called.
+
+Other methods are also defined indented in the `class` code block.
+Methods are defined like any other functions, but the first
+parameter must always be `self`. With the self variable you
+can access the class's attributes and methods inside the
+class definition.
+
+Typically classes are named following the CamelCase notation and
+everything else follows the snake_case notation.
+
+An example of defining and using a class:
+
+::: code-box
+```python
+class MyClass:  # the class is named
+
+    def __init__(self, parameter_1, parameter_2):  # constructor
+        self.attribute_1 = parameter_1  # attributes
+        self.attribute_2 = parameter_2
+
+    def method(self, parameter):
+        print(f"{self.attribute_1}, {parameter}")
+
+my_object = MyClass(1, "b")  # creating an object of type MyClass
+
+print(type(my_object))
+print(my_object.attribute_1)
+print(my_object.attribute_2)
+my_object.method("c")
+```
+:::
+
+Tulostaa:
+```
+<class '__console__.MyClass'>
+1
+b
+1, c
+```
+
+#### Utilizing classes
+
+Classes can be used to model structures whose data and
+functionalities are linked together.
+
+An example of an `Animal` class:
+
+::: code-box
+```python
+class Animal:
+
+    def __init__(self, species, sound, name="Unnamed"):
+        self.species = species
+        self.sound = sound
+        self.name = name
+
+    def describe(self):
+        print(f"Name: {self.name}")
+        print(f"Species: {self.species}")
+
+    def speak(self):
+        print(self.sound)
+
+cat = Animal(species="cat", sound="Meow!")
+dog = Animal(species="dog", sound="Woof!", name="Spot")
+
+cat.describe()
+cat.speak()
+
+dog.describe()
+dog.speak()
+```
+:::
+
+Output:
+```
+Name: Unnamed
+Species: cat
+Meow!
+Name: Spot
+Species: dog
+Woof!
+```
+
+Below is a more advanced example where several classes are used
+to model a transaction in a store. Three classes are defined:
+`Item` which has _name_ and _price_ attributes, `Customer`
+which has _money_ and _items_ attributes and a method for
+paying and the `Counter` which has a _money_ attribute and
+a method for charging the customer. In addition the `Customer`
+and `Counter` classes have a `show_info` method that prints
+our relevant information to demonstrate how the program
+works.
+
+::: code-box
+```python
+# Define the classes
+class Item:
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+
+class Customer:
+
+    def __init__(self, money):
+        self.money = money
+        self.items = []
+
+    def add_item(self, item):
+        self.items.append(item)
+
+    def pay(self, price):
+        self.money -= price
+
+    def show_info(self):
+        print("Customer items:")
+        for item in self.items:
+            print(f"{item.name}, price: {item.price}")
+        print(f"Customer money: {self.money}")
+        print("----")
+
+
+class Counter:
+
+    def __init__(self):
+        self.money = 100
+
+    def make_purchase(self, customer):
+        total_price = 0
+        for item in customer.items:
+            total_price += item.price
+        customer.pay(total_price)
+        self.money += total_price
+
+    def show_info(self):
+        print(f"Money in counter: {self.money}")
+        print("----")
+
+
+# Using the classes
+banana = Item(name="banana", price=1)
+coffee = Item(name="coffee", price=6)
+
+customer = Customer(money=10)
+
+counter = Counter()
+
+customer.show_info()
+counter.show_info()
+
+customer.add_item(item=banana)
+customer.add_item(item=coffee)
+customer.show_info()
+
+counter.make_purchase(customer=customer)
+
+customer.show_info()
+counter.show_info()
+```
+:::
+
+Output:
+```
+Customer items:
+Customer money: 10
+----
+Money in counter: 100
+----
+Customer items:
+banana, price: 1
+coffee, price: 6
+Customer money: 10
+----
+Customer items:
+banana, price: 1
+coffee, price: 6
+Customer money: 3
+----
+Money in counter: 107
+----
+```
