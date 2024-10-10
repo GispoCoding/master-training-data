@@ -1,0 +1,75 @@
+name: Render & Release PDFs
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - src/G*/**
+  repository_dispatch:
+    types: [update-assets]
+
+jobs:
+  check-changes:
+    name: Get changed course directories
+    runs-on: ubuntu-latest
+    outputs:
+      # the purpose here is to provide a matrix for the build-and-release-pdf job
+      dir-matrix: ${{ steps.changed-files-dir-names.outputs.all_changed_files }}
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find directories with changed rmd or image files
+        id: changed-files-dir-names
+        uses: tj-actions/changed-files@v45
+        with:
+          matrix: "true"  # to use output as matrix
+          files: |
+            src/G*/*.{rmd,Rmd,html,css}
+            src/G*/js/*.js
+            src/G*/css/*.css
+            src/G*/img/*.{png,gif}
+            src/G*/img/*/*.{png,gif}
+          dir_names: "true"
+          dir_names_max_depth: 2
+          dir_names_deleted_files_include_only_deleted_dirs: "true"
+          output_renamed_files_as_deleted_and_added: "true"
+
+  # this job runs in parallel for each changed course
+  build-and-release-pdf:
+    needs: check-changes
+    name: Build and release PDF
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to make releases
+    strategy:
+      # matrix to run job for each changed directory
+      matrix:
+        directory: ${{ fromJSON(needs.check-changes.outputs.dir-matrix) }}
+    env:
+      COURSE_DIRECTORY: ${{ matrix.directory }}
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Some helpful env vars to use later on
+      - name: Set env
+        run: |
+          course_code=$(basename ${COURSE_DIRECTORY})
+          echo "COURSE_CODE=${course_code}" >> ${GITHUB_ENV}
+          echo "OUT_PDF_PATH=out/${course_code}_pdf/${course_code}.pdf" >> ${GITHUB_ENV}
+
+      - name: Build PDF
+        run: |
+          ./render_to_pdf.sh "${COURSE_CODE}"
+
+      - name: Make release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.COURSE_CODE }}
+          body: A PDF version of ${{ env.COURSE_CODE }}
+          files: ${{ env.OUT_PDF_PATH }}
