@@ -1,21 +1,21 @@
-# Exercise 2: PyQGIS-perusteet
+# Exercise 2: Introduction to PyQGIS
 
-**Contents:** QGISin Python-paketin käytön perusteet
+**Contents:** Basics of using the QGIS Python package (PyQGIS).
 
-**Goal:** Harjoituksen jälkeen opiskelija hallitsee PyQGISin perusteet.
+**Goal:** The trainee understands the basics of PyQGIS.
 
-QGISin Python-konsolissa on käytössä valmiiksi alustettu `iface`-muuttuja,
-joka on QgisInterface-luokan olio. Tämä olio mahdollistaa mm. vuorovaikutuksen
-tällä hetkellä käynnissä olevan QGIS-ohjelman eri komponenttien kanssa.
-Sen kautta voidaan manipuloida esimerkiksi projektiin ladattuja
-tasoja tai vaikka pääkarttanäkymää (QgsMapCanvas).
+Inside the QGIS Python console there is an already initialized
+object called `iface` which is of type `QgisInterface`.
+This object enables us to interact with the different components
+of the currently running QGIS process, for example you can manipulate
+QGIS layers or the main map canvas.
 
-## Tasojen käsittely
+## Layers
 
-Avaa QGISiin kurssihakemistosta `NaturalEarth_10m_admin_0_countries.gpkg`-tiedosto.
-Klikkaa se aktiiviseksi tasopaneelissa.
+Add the `NaturalEarth_10m_admin_0_countries.gpkg` file to QGIS.
+In the layer panel click on the layer to activate it.
 
-Valitaan aktiivinen taso:
+Accessing the active layer in PyQGIS:
 
 ::: code-box
 ```python
@@ -24,7 +24,7 @@ print(layer)
 ```
 :::
 
-Haetaan vektoritason kohteiden määrä:
+You can get the number of features in the layer:
 
 ::: code-box
 ```python
@@ -35,8 +35,7 @@ print(feature_count)
 ```
 :::
 
-Iteroidaan vektoritasojen kohteita ja tulostetaan
-ominaisuustieto:
+You can iterate over the features and print their attributes:
 
 ::: code-box
 ```python
@@ -49,43 +48,44 @@ for feature in layer.getFeatures():
 ```
 :::
 
-Lisää QGISiin selainpaneelista **XYZ Tiles**-valikon alta
-**OpenStreetMap**-taso.
+Add another layer through the browser panel, add the
+**OpenStreetMap** layer from under the **XYZ Tiles**
+menu.
 
-Haetaan listaus kaikista projektin tasoista:
+You can list all layers in the project:
 
 ::: code-box
 ```python
 layers = QgsProject.instance().mapLayers()
 
-# Tarkistetaan layers-muuttujan tyyppi
+# Check the type of the layers variable
 print(type(layers))
 ```
 :::
 
-Tässä `mapLayers()`-metodi palauttaa `dictionary`-
-datatyypin, jossa avaimena on tasolle oma uniikki tunniste
-merkkijonona ja arvona on varsinainen taso-olio.
+The `mapLayers()` method returns a Python dictionary,
+which has a unique identifier as the key and the
+value is the actual layer object (QgsMapLayer).
 
 ::: hint-box
-Tässä esimerkissä meillä on projektissa vektori- ja rasteritaso.
-Näiden olioiden luokat on QgsVectorLayer ja QgsRasterLayer.
-Huomaa, että nämä luokat perivät
-[QgsMapLayer](https://qgis.org/pyqgis/master/core/QgsMapLayer.html)-luokan,
-jolloin niillä on myös yhteisiä metodeja.
+In this example we have one vector and raster layer each.
+The types of these objects are QgsVectorLayer and QgsRasterLayer.
+Note that both of these classes inherit the
+[QgsMapLayer](https://qgis.org/pyqgis/master/core/QgsMapLayer.html) class,
+which means they have some methods in common.
 :::
 
-Iteroidaan tasoja:
+You can iterate through layers:
 
 ::: code-box
 ```python
-# Voidaan käyttää listakoostetta
-# (kts. tarvittaessa Python-lisätehtävistä
-# aihe 1).
+# You can use list comprehension
+# see section 1 in the Python extra
+# exercises
 
-# Tason ID:tä ei välttämättä tarvita,
-# joten voidaan hakea suoraan vain
-# tasot
+# In this case the layer's ID is not
+# necessary so we can retrieve the
+# layer objects directly
 layers = [layer for layer in QgsProject.instance().mapLayers().values()]
 
 for layer in layers:
@@ -93,15 +93,15 @@ for layer in layers:
 ```
 :::
 
-Valitaan taso nimen perusteella:
+You can choose a layer based on its name:
 
 ::: code-box
 ```python
 layers = QgsProject.instance().mapLayersByName('OpenStreetMap')
 
-# mapLayersByName() palauttaa listan
-# tasoista, koska QGISissä on sallittua
-# olla useampi taso samalla nimellä
+# the mapLayersByName() method returns
+# a list because you can have more than
+# one layer with the same name
 
 layer = layers[0]
 
@@ -111,18 +111,19 @@ print(layer.name())
 
 
 ::: hint-box
-**QgsProject**-luokka noudattaa ns. singleton-
-suunnittelumallia (ainokainen), joka tarkoittaa sitä että luokasta
-voi olla kerrallaan olemassa ainoastaan yksi olio. Tämä
-olio voidaan hakea käyttämällä QgsProject-luokan
-staattista metodia `instance()`, joka palauttaa aina saman olion.
-Koska metodi on staattinen, projektiolioon on globaali pääsy.
+The `QgsProject` class implements the _singleton_ pattern, which
+means that there can only exist one object of its type. This
+object can be retrieved using the `instance()` method of
+the `QgsProject` class which always returns the same object.
+The method is static which means you have global access to the
+object.
 :::
 
 ## Exercise 2.1
 
-Selvitä Pythonilla **OpenStreetMap**-tason datan lähde.
-Tutki tarvittaessa [PyQGIS-dokumentaatiota](https://qgis.org/pyqgis/latest/).
+Find out the data source of the `OpenStreetMap` layer. Go through
+the [PyQGIS documentation](https://qgis.org/pyqgis/latest/)
+if needed.
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
 
