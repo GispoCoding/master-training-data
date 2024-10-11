@@ -114,7 +114,7 @@ Sanakirjan voi myös luoda samalla tavalla kuin listan käyttäen sanakirjakoost
 ### Lisätehtävä 1.1
 Kirjoite listakooste `chosen_numbers`, johon tulee kokonaisluvut 0-20 muutettuina merkkijonoiksi siten, että numerot 9-18 jäävät pois.
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
@@ -124,7 +124,7 @@ chosen_numbers = [str(value) for value in range(21) <ehtolause> # Miten jätät 
 :::
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box
@@ -222,7 +222,7 @@ print(sorted_digits_wih_evens_first)
 ### Lisätehtävä 2.1
 Luo lambda-funktio `sign_switcher`, joka ottaa parametrikseen kaksi kokonaislukua ja laskee niiden summan, mutta kääntää samalla luvun etumerkin. Eli tuloksesta 10 tulisi -10 ja tuloksesta -4 tulisi 4.
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
@@ -232,7 +232,7 @@ sign_switcher = lambda x, y: (x + y) # Millä laskutoimituksella käännät etum
 :::
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box
@@ -522,7 +522,7 @@ help(greetings)
 :::
 
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box
@@ -608,7 +608,7 @@ class UnTypedClass:
 ```
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box

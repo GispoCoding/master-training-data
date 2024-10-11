@@ -82,7 +82,7 @@ tapa ratkaista ongelma!
 
 Aseta muuttujan a arvoksi 5 Python- konsolissa ja tulosta muuttujan arvo.
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
@@ -95,7 +95,7 @@ a = 5
 :::
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box

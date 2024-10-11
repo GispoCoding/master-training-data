@@ -260,7 +260,7 @@ WKT:
 POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box
@@ -328,7 +328,7 @@ QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
@@ -400,7 +400,7 @@ if finland_feature.isValid():
 :::
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box

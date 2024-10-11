@@ -131,7 +131,7 @@ counter.show()
 ```
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
@@ -184,7 +184,7 @@ counter.show()
 :::
 
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box
@@ -275,7 +275,7 @@ class LayerExtentWidget(QWidget):
 :::
 
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box

@@ -592,7 +592,7 @@ koordinaattijärjestelmää muunnetaan
 
 ![](img/harjoitus_8/image2.gif)
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box
@@ -828,7 +828,7 @@ def test_sample_algorithm(qgis_app, qgis_processing, point_layer):  # noqa: ARG0
 :::
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 
 ::: hidden-box
 ::: code-box
