@@ -8,7 +8,7 @@ writing and running scripts in the script editor.
 ::: note-box
 In the following exercises it is assumed that you're familiar
 with the basics of Python. If necessary you can go through
-the Python refresher [here](00_harjoitus_0.html).
+the Python refresher [here](00_exercise0.html).
 :::
 
 The simplest way to use the Python API in QGIS is through the
@@ -33,7 +33,7 @@ You can access the Python console in a few different ways:
 - With a hot key: Ctrl + Alt + P
 - By clicking the Python logo in the toolbar
 
-![](img/harjoitus_1/image1.png)
+![](img/exercise1/image1.png)
 
 Tarkastellaan konsoli-ikkunan eri osia: vihreästä kolmiosta klikkaamalla komennot
 suoritetaan (enter-näppäin ajaa saman asian). Muista ikoneista:

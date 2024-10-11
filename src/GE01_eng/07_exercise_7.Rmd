@@ -7,13 +7,13 @@ Jos tasoa ei ole valittu, täytyy käyttäjän valita koordinaattijärjestelmä,
 tällöin työkalu luo uuden pistetason kyseisellä koordinaattijärjestelmällä.
 Tasolle lisätään pistekohde ja tallennetaan sen koordinaatit 'x' ja 'y'-kenttiin.
 
-![](img/harjoitus_7/image1.gif)
+![](img/exercise7/image1.gif)
 
 Jos käyttäjä ei ole valinnut tasoa _eikä_ koordinaattijärjestelmää, lisäosa
 näyttää virheen. Jos käyttäjä on valinnut pistetason, koordinaattijärjestelmä-widget
 inaktivoituu ja se ei vaikuta lisättävään pisteeseen mitenkään.
 
-![](img/harjoitus_7/image2.gif)
+![](img/exercise7/image2.gif)
 
 Edellisessä harjoituksessa käytiin yksityiskohtaisesti läpi
 työkalun toteutus lisäosaan. Tämän harjoituksen on tarkoitus
@@ -27,7 +27,7 @@ alta QDockWidget. Vaihda widgetin nimeksi **PointToolDockWidget**.
 Luo kuvan mukainen käyttöliittymä, jossa on käytetty seuraavia
 widgettejä:
 
-![](img/harjoitus_7/image3.png)
+![](img/exercise7/image3.png)
 
 * X: QgsDoubleSpinBox (nimi: xSpinBox)
 * Y: QgsDoubleSpinBox (nimi: ySpinBox)
@@ -37,7 +37,7 @@ widgettejä:
 
 Tallenna käyttöliittymä polkuun `test-plugin/testplugin/resources/ui/point_tool.ui`.
 Halutessasi voit tallentaa ikonin työkalulle polkuun `test-plugin/testplugin/resources/icons/point_tool.png`.
-Voit ladata esimerkiksi tämän kuvan: ![](img/harjoitus_7/image4.png)
+Voit ladata esimerkiksi tämän kuvan: ![](img/exercise7/image4.png)
 
 Luo uusi tiedosto `test-plugin/testplugin/ui/point_tool_dockwidget.py` ja lisää koodi:
 
@@ -199,7 +199,7 @@ Tarvittaessa kysy apua kouluttajalta tai katso apua mallilisäosasta:
 Kun työkalu lisää uuden taso, määritä tasolle nimiönti joka
 piirtää kartalle niiden x ja y koordinaatit:
 
-![](img/harjoitus_7/image5.png)
+![](img/exercise7/image5.png)
 
 ## Exercise 7.3: Testit
 

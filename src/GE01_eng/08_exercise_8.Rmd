@@ -16,7 +16,7 @@ algoritmin, kuin jakaa joukko yksittäisiä skriptitiedostoja.
 Provider näkyy käyttöliittymässä siten, että se on prosessointityökaluvalikossa
 ylimmän tason kategoria:
 
-![Provider > ryhmä > algoritmi](img/harjoitus_8/image1.png){width=75%}
+![Provider > ryhmä > algoritmi](img/exercise8/image1.png){width=75%}
 
 Algoritmeissä käyttöliittymän luominen tapahtuu
 eri tavalla. Prosessointityökalujen käyttöön on ennalta määritetty
@@ -590,7 +590,7 @@ valitusta pisteestä
 * Päivitä edistymispalkkia ja lähetä tarvittaessa viestejä, esim. jos
 koordinaattijärjestelmää muunnetaan
 
-![](img/harjoitus_8/image2.gif)
+![](img/exercise8/image2.gif)
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
 

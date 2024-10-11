@@ -107,7 +107,7 @@ Label on tekstikomponentti. Counter toimii siten, että kun sen painiketta
 painetaan, nollasta lähtevä arvo kasvaa aina yhdellä. Arvo näytetään
 QLabelissa.
 
-![](img/harjoitus_4/image1.gif)
+![](img/exercise4/image1.gif)
 
 Voit käyttää tätä pohjana skriptille:
 
@@ -242,7 +242,7 @@ Se ei kuitenkaan palauta suoraan `QgsGeometry`-oliota. Selvitä
 mitä **extent()** palauttaa ja miten voit luoda sen
 pohjalta geometriaolion.
 
-![](img/harjoitus_4/image2.gif)
+![](img/exercise4/image2.gif)
 
 Voit käyttää tätä pohjaa:
 
