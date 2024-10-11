@@ -35,64 +35,66 @@ You can access the Python console in a few different ways:
 
 ![](img/exercise1/image1.png)
 
-Tarkastellaan konsoli-ikkunan eri osia: vihreästä kolmiosta klikkaamalla komennot
-suoritetaan (enter-näppäin ajaa saman asian). Muista ikoneista:
+You can use the icon with the green triangle (run button)
+or the Enter key to execute commands you've written in the console.
+The other buttons work as follows:
 
 - ![](https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/console/iconTabEditorConsole.svg)
-Avaa skriptieditorin. Editori helpottaa pidempien skriptien tekoa ja ajamista
+Open the script editor which makes it easier to write and run longer scripts
 
 - ![](https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/console/iconClearConsole.svg)
-Tyhjentää konsoli-ikkunan edellisistä komennoista
+Clears the console of prior outputs
 
 - ![](https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/console/iconHelpConsole.svg)
-Täältä löydät kätevästi linkit PyQGIs API -dokumentaatioon, PyQGIS Cookbookiin
-sekä konsolin ohjeisiin.
+Contains links to the PyQGIS documentation, PyQGIS cookbook and
+instructions for using the console.
 
-Avaa konsolista skriptieditori ja tutki samoin sen ominaisuuksia.
+You can open the script editor and inspect its features.
 
-## Harjoitusten rakenne
+## Structure of the exercises
 
-## Esimerkit
+## Examples
 
-Eri harjoitusosioissa on annettu esimerkkejä Python-koodista. Suosittelemme,
-että esimerkkejä läpikäydessä kopioit esimerkin QGIS-konsolin skriptieditorin
-puolelle ja ajat koodin. Esimerkkien yhteydessä voi myös muokata koodia
-kokeillakseen eri toimintoja ja lopputuloksia. Esimerkit on annettu
-koodilaatikossa, josta sen sisällön voi kopioida viemällä hiiren osoittimen
-laatikon päälle ja klikkaamalla laatikon oikeaan yläreunaan ilmestyvää
-painiketta.
+In the following exercises there are many examples of Python code. We
+recommend that while going through the exercises you copy these
+code examples to the QGIS script editor and run the code. You can
+also change the code in the examples and try different things around.
+The examples are given in a code box whose contents you can copy by
+dragging your mouse cursor in the box and clicking the copy button
+that appears in the top right corner.
 
 ::: code-box
 ```python
-# Esimerkkikoodia
+# Example code
 
 print("Run me as an example!")
 ```
 :::
 
-## Harjoitukset
+## Exercises
 
-Suosittelemme, että työstät myös harjoitusten vastaukset skriptieditorissa.
-Harjoitusten yhteydessä on joskus annettu oikeaan suuntaan ohjaava vinkki,
-sekä aina malliratkaisu. Saat nämä näkyville painamalla **Näytä ratkaisu** ja
-**Näytä vinkki** -painikkeita. Suosittelemme kuitenkin, ettet katso malliratkaisua
-liian aikaisin vaan yrität ensin keksiä ratkaisun itse.
-Saman asian voi myös tehdä usealla tavalla, ja malliratkaisu on vain yksi
-tapa ratkaista ongelma!
+We recommend to write the answers to the exercises also in the script
+editor. A hint is sometimes given with the exercises that points you
+in the right direction. There's also always an example answer. These
+can be seen with the **Show answer** and **Show hint** buttons.
+We recommend that you try to write your on answer first and look at
+the example answer only at the end. Also, there are many ways to solve
+the same problem and the example answers are just one way!
 
 ## Exercise 1.1
 
-Aseta muuttujan a arvoksi 5 Python- konsolissa ja tulosta muuttujan arvo.
+Set the value of a variable called `a` to 5 and print the value of the
+variable.
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
 ```python
-# Aseta ensin arvo
+# set the value
 a = 5
 
-# Millä funktiolla voit tulostaa muuttujan arvon?
+# what function can you use to print the value?
 ```
 :::
 :::
@@ -113,21 +115,20 @@ print(5)
 \
 
 ::: hint-box
-Lisävinkkejä konsolin käyttöön:
+Extra tips for using the console:
 
-- Konsoli sopii hyvin myös esimerkiksi PyQGIS-olioiden ominaisuuksien tutkimiseen sekä
-testailuun, ja se tukee esimerkiksi PyQGIS-kirjastojen koodintäydennystä (code completion).
+- The console is nicely suited for inspecting the attributes of PyQGIS objects
+and testing them. It also supports code completion for the PyQGIS libraries.
 
-- Konsolissa voi myös suorittaa useammalle riville jatkuvia komentoja, kuten for-loopin.
-Konsoliin ilmestyy tällöin rivinvaihdon jälkeen kolme pistettä sen merkiksi, että se
-odottaa lisäkomentoja. Huomaa kuitenkin, että pisteet eivät vastaa Python-koodin
-sisennystä, vaan käyttäjän on huolehdittava tästä.
+- Multiline commands such as a for loop can be run in the console. In these
+cases three dots appear to indicate that the console is waiting extra commands.
+Note that you still have to add the typical Python indentations
 
-- Nuolinäppäimillä ylös- ja alaspäin pääsee siirtymään konsoliin syötettyjen komentojen
-historiassa.
+- You can use the arrow keys (up and down) to browse through the history of
+entered commands
 
-- Konsolipaneeli aukeaa todennäköisesti karttaikkunan alapuolelle, mutta sen pystyy
-raahaamaan ja telakoimaan haluttaessa muuallekin QGISin käyttöliittymässä tai irrottamaan
-omaksi ikkunakseen.
+- The console panel likely opens in the bottom of the QGIS window, but it can
+be detached and either docked to different parts of the QGIS GUI or used as
+a separate window
 :::
 
