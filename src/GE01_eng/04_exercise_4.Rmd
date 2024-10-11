@@ -1,80 +1,85 @@
-# Exercise 4: Qt-käyttöliittymät
+# Exercise 4: GUIs with Qt
 
-**Contents:** PyQt:n perusteet.
+**Contents:** The basics of PyQt.
 
-**Goal:** Ymmärtää Qt-kirjaston toiminnan perusteet ja luoda yksinkertaisia graafisia käyttöliittymiä.
+**Goal:** To understand how to create simple graphical user interfaces with PyQt.
 
-## Qt-käyttöliittymistä
+## About Qt GUIs
 
-QGISin käyttöliittymä on luotu hyödyntäen Qt:ta, joka on C++-kielellä kirjoitettu
-käyttöliittymäkirjasto ja ohjelmointiympäristö. Qt:ta voidaan kuitenkin käyttää myös
-muilla ohjelmointikielillä kuten Pythonilla.
+The QGIS user interface is create using Qt, which is a collection
+of libraries written in C++. It is likely most well-known for its
+graphical user interface (GUI) library. Qt has several bindings
+for different programming languages, such as Python.
 
 ### QWidget
 
-Qt-kirjasto mahdollistaa käyttöliittymien luomisen. Qt:ssa keskeinen käsite on
-"Widget", jota voi ajatella käyttöliittymän yhtenä komponenttina. **QWidget** on
-siis Qt:n koodissa luokka, josta periytyy paljon erilaisia alaluokkia, joilla on
-erilaisia ominaisuuksia. Esimerkkinä vaikka **QPushButton**, joka käyttöliittymässä
-on klikattava painike.
+The Qt GUI library enables you to create GUIs. A central concept
+in Qt is a "Widget", which can be thought of as one component
+of the GUI. In practice QWidget is a class which is inherited
+by many other classes which are specialized for some specific
+purpose. For example a **QPushButton** inherits QWidget and is a
+clickable button in a GUI.
 
-Joihinkin widgetteihin voidaan lisätä ns. lapsiwidgettejä (child Widget), mikä
-mahdollistaa käyttöliittymän suunnittelun.
-Lapsiwidgetit voidaan järjestää eri asetelmiin (layout), esimerkiksi asettaa
-ne vaaka- tai pystytasoon sekä ruudukkoon.
+Some widgets work as containers and you can add so called child
+widgets to them. These can be set to different layout, for example
+organized horizontally, vertically or in a grid. This lets you
+design how the GUI is organized.
 
-Omaan käyttöön voi luoda myös omia widgettejä. Tällöin luodaan oma luokka, joka
-perii jonkin olemassa olevan widget-luokan. QGISiin on luotu sille ominaisia
-widgettejä esimerkiksi karttatasojen tai koordinaattijärjestelmän valitsemiseen.
-Näitä voidaan käyttää myös QGIS-lisäosissa.
+By inheriting the QWidget class you can also write your own widgets
+for some specialized purpose. QGIS has used this feature of Qt
+and it has its own widgets that can also be used in plugins.
+For example there are specific widgets for selecting layers or
+CRSs.
 
-Tässä minimiesimerkki käyttöliittymän luomisesta PyQt:lla. Esimerkin voi ajaa
-jälleen QGISin Python-konsolin skriptieditorissa.
+Here is a minimal example of creating a GUI with PyQt. You can run
+the example in the script editor.
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">esimerkki</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">example</button>
 
 ::: hidden-box
 ::: code-box
 ``` python
-# Luodaan widget ja säädetään sen kokoa
+# create the widget and resize
 widget = QWidget()
 widget.resize(420, 320)
 
-# Luodaan layout ja määritetään se widgetille
+# create a vertical ayout and add it to the widget
 layout = QVBoxLayout()
 widget.setLayout(layout)
 
-# Luodaan painike ja lisätään se layoutiin
+# create a button and add it to the layout
 button = QPushButton("Close")
 layout.addWidget(button)
 
-# Näytetään widget
-# Jos widget itsessään ei ole minkään muun widgetin
-# "lapsi", se avautuu uuteen ikkunaan
+# show the widget.
+# if the widget is not a child of some other widget
+# it will be show in a new window
 widget.show()
 ```
 :::
 :::
 
-Tässä esimerkissä luodaan "Close"-painike. Sitä painettaessa ei kuitenkaan tapahdu mitään.
+In this example we create a **Close** button. However when clicked it doesn't do anything.
 
-### Signaalit ja slotit
+### Signals and slots
 
-Toinen keskeinen ajatus Qt-kirjastossa on **signaalit** ja **slotit**. Nämä mahdollistavat
-käyttöliittymän interaktiivisuuden, siten että esimerkiksi painiketta (QPushButton)
-painettaessa tapahtuu ennalta määritetty toiminto.
+Another central idea in the Qt library are **signals** and **slots**. These enable
+you to define the interactivity of the GUI, so that when clicking a QPushButton
+a pre-defined action takes place.
 
-Kun widgettien kanssa vuorovaikutetaan, ne lähettävät eri toiminnoista **signaaleja**, jotka
-voidaan yhdistää jonkin toisen widgetin **slottiin**. Qt:n valmiit widgetit sisältävät jo
-valmiiksi monia signaaleja ja slotteja. Kirjaston käyttäjä voi hyödyntää niitä yhdistämällä
-signaaleja eri slotteihin, mutta myös omien signaalien ja slottien määrittäminen on mahdollista.
+When you interact with widgets, the _emit_ different **signalds** which can be
+connected to a **slot** in the same or any other widget. The base Qt Widgets
+already have many defined signals and slots, which you can utilize by creating
+**connections** between the signals and slots. You can also define your own
+signals and slot.
 
-PyQt:ssa signaali on **Signal-luokan** olio, kun taas slot on **funktio**, joka yhdistetään
-signaaliin. Signaali voidaan määritellä lähetettäväksi (*emit*) eri tilanteissa.
+In PyQt a signal is an object of type **Signal** wheras a slot is a function
+that can be connected to a signals. You can then **emit** the signal wherever
+you want.
 
-Signaali voidaan yhdistää slottiin seuraavasti, edellistä esimerkkiä hyödyntäen:
+Here's an example of creating a connection, using the previous example as a base:
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">esimerkki</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">example</button>
 
 ::: hidden-box
 ::: code-box
@@ -88,8 +93,8 @@ widget.setLayout(layout)
 button = QPushButton("Close")
 layout.addWidget(button)
 
-# Yhdistetään QPushButtonin "clicked"
-# signaali QWidgetin "close" slottiin
+# Connect the "clicked" signal of QPushButtons
+# to the "close" slot of QWidget
 button.clicked.connect(widget.close)
 
 widget.show()
@@ -97,19 +102,19 @@ widget.show()
 :::
 :::
 
-Nyt painikkeen pitäisi oikeasti sulkea ikkuna.
+Now the button should actually close the window.
 
 ## Exercise 4.1: Counter-widget
 
-Kirjoita skripti joka määrittelee uuden, QWidgetin perivän alaluokan
-`Counter`, joka koostuu kahdesta komponentista: QLabel ja QPushButton.
-Label on tekstikomponentti. Counter toimii siten, että kun sen painiketta
-painetaan, nollasta lähtevä arvo kasvaa aina yhdellä. Arvo näytetään
-QLabelissa.
+Write a script that defines a new widget called `Counter`
+which inherits QWidget. It has two child widgets: QLabel
+and QPushButton. A QLabel is a text component. The Counter
+widget has value that you can increment by clicking the
+button. This value starts at 0 and is shown in the QLabel.
 
 ![](img/exercise4/image1.gif)
 
-Voit käyttää tätä pohjana skriptille:
+You can use this as a base:
 
 ::: code-box
 ```python
@@ -117,7 +122,7 @@ class Counter(QWidget):
     def __init__(self, *args):
         super(Counter, self).__init__(*args)
 
-        # Luo widgetit
+        # Create the widgets
 
     @pyqtSlot()
     def on_increase_clicked(self):
@@ -140,41 +145,43 @@ class Counter(QWidget):
     def __init__(self, *args):
         super(Counter, self).__init__(*args)
 
-        # Tarvitaan muuttuja johon arvo tallennetaan
+        # define a variable where the count is tracked
         self.count = 0
 
-        # Tarvitaan layout widgetille
+        # create a horizontal layout for the widget
         self.layout = QHBoxLayout()
 
         self.label = QLabel()
         self.button = QPushButton("Increase")
 
-        # Miten lisäät widgetit?
-        <funktio>
-        <funktio>
+        # how do you add the widgets to the layout?
+        <functino>
+        <function>
 
-        # Miten asetat layoutin tälle
-        # widgetille?
-        <funktio>
+        # how do you set the layout to this
+        # widget?
+        <function>
 
-        # Yhdistä painikkeen painallus alla
-        # määriteltyyn on_increase_clicked
-        # slottiin
-        <funktio>
+        # create a connection so that
+        # the on_increase_clicked slot
+        # is run when the button is
+        # pushed
+        <function>
 
-        # Päivitä label
-        <funktio>
+        # refresh the label
+        <function>
 
     @pyqtSlot()
     def on_increase_clicked(self):
-        # Lisää arvoa ja päivitä label
-        <funktio>
-        <funktio>
+        # increase the count and
+        # refresh the label
+        <function>
+        <function>
 
     def refresh_label(self):
-        # Miten voit asettaa QLabelille
-        # uuden tekstin?
-        <funktio>
+        # how do you set a new text for
+        # the QLabel?
+        <function>
 
 
 counter = Counter()
@@ -223,28 +230,30 @@ counter.show()
 :::
 :::
 
-## Exercise 4.2: QGISin widgetit
+## Exercise 4.2: QGIS custom widgets
 
-Luo käyttöliittymä, jossa käyttäjä valitsee QGIS-projektin tason.
-Painiketta painamalla luodaan uusi polygonitaso, jossa on yksi
-kohde. Sille luodaan geometria, joka on suorakaiteen muotoinen
-polygoni, jonka muoto on valitun tason laajuuden (extent)
-mukainen.
+Create a GUI where the user can select a layer from the
+QGIS project. By clicking a button a new polygon layer
+is created which as one feature. This feature gets the
+geometry which is a rectangular polygon which is calculated
+from the extent of the selected layer.
 
-Tallenna myös fid-tunniste sekä toisena attribuuttina tason nimi,
-josta laajuus luotiin. Luo uusi polygonitaso koordinaattijärjestelmällä
-EPSG:4326, ja tarvittaessa muunna lähdetason laajuus samaan
-koordinaattijärjestelmään. Käytä **QgsMapLayerComboBox**-widgettiä
-tason valitsemiseen.
+Also save a fid identifier and as another attribute the
+name of the layer from which the extent was calculated.
+Create the new polygon layer with the CRS EPSG:4326 and
+if needed transform the extent calculated from the source
+layer to the same EPSG:4326 CRS. Use the **QgsMapLayerComboBox**
+widget for selecting the layers.
 
-Laajuuden voi laskea taso-oliosta [`extent()`-metodilla](https://qgis.org/pyqgis/latest/core/QgsMapLayer.html#qgis.core.QgsMapLayer.extent).
-Se ei kuitenkaan palauta suoraan `QgsGeometry`-oliota. Selvitä
-mitä **extent()** palauttaa ja miten voit luoda sen
-pohjalta geometriaolion.
+You can calculate the extent from the layer object with the
+[`extent()` method](https://qgis.org/pyqgis/latest/core/QgsMapLayer.html#qgis.core.QgsMapLayer.extent).
+However it does not return a QgsGeometry object directly.
+Find out what it returns and how you can create a geometry
+object from it.
 
 ![](img/exercise4/image2.gif)
 
-Voit käyttää tätä pohjaa:
+You can use this as a base:
 
 ::: code-box
 ```python
@@ -259,7 +268,7 @@ class LayerExtentWidget(QWidget):
         pass
 
     def create_layer(self, layer: QgsMapLayer):
-        new_layer = QgsVectorLayer("Polygon?crs=EPSG:4326", f"laajuus: {layer.name()}", "memory")
+        new_layer = QgsVectorLayer("Polygon?crs=EPSG:4326", f"extent: {layer.name()}", "memory")
 
         new_layer.startEditing()
 
@@ -305,7 +314,7 @@ class LayerExtentWidget(QWidget):
         self.create_layer(layer)
 
     def create_layer(self, layer: QgsMapLayer):
-        new_layer = QgsVectorLayer("Polygon?crs=EPSG:4326", f"laajuus: {layer.name()}", "memory")
+        new_layer = QgsVectorLayer("Polygon?crs=EPSG:4326", f"extent: {layer.name()}", "memory")
 
         new_layer.startEditing()
 

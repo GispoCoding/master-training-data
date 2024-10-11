@@ -33,7 +33,7 @@ You can access the Python console in a few different ways:
 - With a hot key: Ctrl + Alt + P
 - By clicking the Python logo in the toolbar
 
-![](img/exercise1/image1.png)
+![](img/exercise_1/image1.png)
 
 You can use the icon with the green triangle (run button)
 or the Enter key to execute commands you've written in the console.

@@ -8,7 +8,7 @@ Lisäosapohja luodaan komentorivityökaluilla. Käytetään komentorivinä
 QGIS-asennukseen kuuluvaa OSGeo4W Shelliä. Avaa se esimerkiksi hakupalkista
 kirjoittamalla OSGeo4W.
 
-![](img/exercise5/image1.png)
+![](img/exercise_5/image1.png)
 
 ## Gitin konfigurointi
 
@@ -57,7 +57,7 @@ git config --global core.autocrlf input
 Luo ensin sopivaan sijaintiin kansio lisäosalle ja navigoi kansioon
 OSGeo4W Shellissä:
 
-![](img/exercise5/image2.gif)
+![](img/exercise_5/image2.gif)
 
 1. Luo oma virtuaaliympäristö cookiecutter-pluginille
 
@@ -175,20 +175,20 @@ pip install -r requirements-dev.txt
 14. Ensin asetetaan VS Code käyttämään äsken luotua `.venv`-ympäristöä. Valitaan
 **Help**-valikosta **Show All Commands** ja kirjoitetaan hakuun `Python: Select Interpreter`.
 
-![](img/exercise5/image3.png)
+![](img/exercise_5/image3.png)
 
 15. Kun poistut VS Codesta, avaat sen uudelleen ja avaat `test-plugin`-kansion,
 kehitysympäristön pitäisi olla täysin kunnossa. Voit todeta tämän avaamalla
 `testplugin`-kansion alta tiedoston `plugin.py`. Tiedoston yläosan 
 importeissa ei pitäisi näkyä virheistä kertovia korostuksia.
 
-![](img/exercise5/image4.png)
+![](img/exercise_5/image4.png)
 
 16. Projekti sisältää myös yhden testin, jonka avulla on hyvä tutustua VS Coden
 Testing-laajennukseen. Vasemman palkin symbolista avautuu paneeli, jonka kahden
 kolmion symbolilla pääsee ajamaan kaikki määritellyt testit.
 
-![](img/exercise5/image5.png)
+![](img/exercise_5/image5.png)
 
 Kehitysympäristö on nyt konfiguroitu ja valmiina käyttöä varten. Hienoa!
 

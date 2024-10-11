@@ -7,7 +7,7 @@ vyöhykkeen etäisyys ja vyöhykkeen segmenttien määrä.
 
 Alla havainnollistava esimerkkivideo työkalun ominaisuuksista:
 
-![](img/exercise6/image1.gif)
+![](img/exercise_6/image1.gif)
 
 
 ## Exercise 6.1: Käyttöliittymän suunnittelu
@@ -24,7 +24,7 @@ QGIS-asennukseen, ja sen voi avata hakemalla sitä nimellä.
 Luodaan aluksi minimaalinen käyttöliittymä ja yhdistetään se lisäosaan.
 Avaa Qt Designer, jolloin pitäisi avautua seuraavanlainen valikko:
 
-![](img/exercise6/image2.png)
+![](img/exercise_6/image2.png)
 
 Valitse pohjaksi **Dialog with Buttons Bottom** ja paina **Create**.
 Seuraavaksi vaihda oikeasta yläkulmasta "Object Inspector"-valikosta
@@ -35,7 +35,7 @@ buttonBox-olio ja skrollaa Object Inspectorin alapuolella olevaa
 ominaisuudet. Täältä avaamalla standardButtons-valikon pystyy
 kontrolloimaan eri painikkeita. Kaksoisklikkaa OK-painike pois.
 
-![](img/exercise6/image3.gif)
+![](img/exercise_6/image3.gif)
 
 Tallenna käyttöliittymätiedosto aiemmin luodon lisäosakansion polkuun
 `test-plugin/testplugin/resources/ui/buffer_tool.ui`.
@@ -125,7 +125,7 @@ Lisäosapohjassa oletuksena lisätään QGISin **Lisäosat**-ylävalikkoon
 valikko lisäosalle. Tässä määritellään painikkeet, jotka lisätään lisäosan
 nimeä kantavaan valikkoon.
 
-![](img/exercise6/image4.png){width="50%"}
+![](img/exercise_6/image4.png){width="50%"}
 
 Järjestyksessä argumenttien merkitys:
 
@@ -172,7 +172,7 @@ dialogiin **Horizontal Layout**. Voit kasvattaa sen kokoa hieman.
 Seuravaaksi vedä ja pudota layoutiin **Label**-widget. Seuraavaksi
 raahaa layoutiin oikealle puolelle **QgsMapLayerComboBox**.
 
-![](img/exercise6/image5.gif)
+![](img/exercise_6/image5.gif)
 
 Kaksoisklikkaa Label-widgettiä ja kirjoita tekstiksi **Layer**.
 Vaihda **QgsMapLayerComboBox**-olion nimeksi `layerComboBox`.
@@ -181,7 +181,7 @@ Halutessasi voit myös vaihtaa **QLabel**-olion nimen.
 Toista äskeiset askeleet siten, että lopulta käyttöliittymässä on seuraavat
 komponentit **Label**eineen:
 
-![](img/exercise6/image6.png){width="33%"}
+![](img/exercise_6/image6.png){width="33%"}
 
 * Layer: QgsMapLayerComboBox (nimi: layerComboBox)
 * Buffer Distance: QgsDoubleSpinBox (nimi: distanceSpinBox)
@@ -192,7 +192,7 @@ Järjestele komponentit esimerkiksi allekkain ja lopuksi voit
 määrittää koko BufferToolDialog-oliolle layoutin klikkaamalla hiiren oikealla
 sen taustaa:
 
-![](img/exercise6/image7.png){width="50%"}
+![](img/exercise_6/image7.png){width="50%"}
 
 Kun nämä muutokset on tehty, voidaan kirjoittaa lisäosan varsinainen
 toiminta askelittain. Organisoidaan lisäosan koodi siten, että lisäosan
