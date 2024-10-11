@@ -1,45 +1,47 @@
-# Exercise 7: Pistetyökalu
+# Exercise 7: Point tool
 
-Harjoituksen tarkoituksena on luoda pistetyökalu, jolla voi luoda koordinaattien
-pohjalta pistekohteen. Käyttöliittymässä on alasvetolaatikko pistetasoille
-(tasoja, joilla on eri geometriatyyppi ei näytetä ollenkaan).
-Jos tasoa ei ole valittu, täytyy käyttäjän valita koordinaattijärjestelmä, ja
-tällöin työkalu luo uuden pistetason kyseisellä koordinaattijärjestelmällä.
-Tasolle lisätään pistekohde ja tallennetaan sen koordinaatit 'x' ja 'y'-kenttiin.
+The point of this exercise is to create a point tool into which you can
+enter coordinates and create point features at that location. In the
+GUI there is a drop-down menu for suitable layers (only point layers
+are shown). If no layer is selected the user has to select a CRS and
+then the tool creates a new point layer with that chosen CRS. Then a
+new point feature is created to the layer and its coordinates saved
+to fields called `x` and `y`.
 
 ![](img/exercise_7/image1.gif)
 
-Jos käyttäjä ei ole valinnut tasoa _eikä_ koordinaattijärjestelmää, lisäosa
-näyttää virheen. Jos käyttäjä on valinnut pistetason, koordinaattijärjestelmä-widget
-inaktivoituu ja se ei vaikuta lisättävään pisteeseen mitenkään.
+If the user hasn't chosen a layer _or_ a CRS the tool gives an error.
+If the user has chosen a point layer the CRS widget deactivates and
+doesn't affect the added points in any way.
 
 ![](img/exercise_7/image2.gif)
 
-Edellisessä harjoituksessa käytiin yksityiskohtaisesti läpi
-työkalun toteutus lisäosaan. Tämän harjoituksen on tarkoitus
-olla itsenäisempi. Tälle työkalulle luodaan paneelikäyttöliittymä
-(QDockWidget), joten käydään aluksi sen luominen läpi pääpiirteittäin.
+In the last exercise each step was gone over in a lot of detail.
+This exercise is more independent. However the tool has a different
+kind of GUI where it opens as a panel `QDockWidget`. Let's go
+over creating a panel GUI first.
 
-## Exercise 7.1: Paneelin lisääminen
+## Exercise 7.1: Creating a panel
 
-Avaa Qt Designer ja valitse **New Form** -dialogissa **Widgets**-valikon
-alta QDockWidget. Vaihda widgetin nimeksi **PointToolDockWidget**.
-Luo kuvan mukainen käyttöliittymä, jossa on käytetty seuraavia
-widgettejä:
+Open Qt Designer and in the **New Form** dialog select
+**QDockWidget** from under the **Widgets** menu.
+Change the name of the widget to **PointToolDockWidget**.
+Create a GUI similar to this image:
 
 ![](img/exercise_7/image3.png)
 
-* X: QgsDoubleSpinBox (nimi: xSpinBox)
-* Y: QgsDoubleSpinBox (nimi: ySpinBox)
-* QgsProjectionSelectionWidget (nimi: crsWidget)
-* QgsMapLayerComboBox (nimi: layerComboBox)
-* QPushButton (nimi: createPushButton)
+* X: QgsDoubleSpinBox (name: xSpinBox)
+* Y: QgsDoubleSpinBox (name: ySpinBox)
+* QgsProjectionSelectionWidget (name: crsWidget)
+* QgsMapLayerComboBox (name: layerComboBox)
+* QPushButton (name: createPushButton)
 
-Tallenna käyttöliittymä polkuun `test-plugin/testplugin/resources/ui/point_tool.ui`.
-Halutessasi voit tallentaa ikonin työkalulle polkuun `test-plugin/testplugin/resources/icons/point_tool.png`.
-Voit ladata esimerkiksi tämän kuvan: ![](img/exercise_7/image4.png)
+Save the GUI to this path: `test-plugin/testplugin/resources/ui/point_tool.ui`.
+If you prefer you can save an icon for the tool to the
+`test-plugin/testplugin/resources/icons/point_tool.png` path. You can
+create an icon yourself of download this image: ![](img/exercise_7/image4.png)
 
-Luo uusi tiedosto `test-plugin/testplugin/ui/point_tool_dockwidget.py` ja lisää koodi:
+Create a new file `test-plugin/testplugin/ui/point_tool_dockwidget.py` and add this code:
 
 ::: code-box
 ```python
@@ -77,13 +79,12 @@ class PointToolDockWidget(QDockWidget, FORM_CLASS):
 ```
 :::
 
-Avaa seuraavaksi `test-plugin/testplugin/plugin.py` ja tee seuraavat
-muutokset:
+Open `test-plugin/testplugin/plugin.py` and make the following changes:
 
-Muokkaa importteja:
+Edit the imports:
 
-Koodissa pitäisi olla import jo QCoreApplicationille ja QTranslatorille.
-Lisää joukkoon Qt.
+There should already exist an import for `QCoreApplication` and `QTranslator`.
+Add `Qt` to the same command.
 
 ::: code-box
 ```python
@@ -91,8 +92,8 @@ from qgis.PyQt.QtCore import Qt, QCoreApplication, QTranslator
 ```
 :::
 
-Koodissa pitäisi olla import jo plugin_namelle.
-Lisää joukkoon resources_path.
+There should already exist an import for `plugin_name`.
+Add `resources_path` to the same command.
 
 ::: code-box
 ```python
@@ -100,7 +101,7 @@ from testplugin.qgis_plugin_tools.tools.resources import plugin_name, resources_
 ```
 :::
 
-Importoi äsken luotu dockwidget-luokka.
+Import the dockwidget class which was previously defined.
 
 ::: code-box
 ```python
@@ -108,8 +109,8 @@ from testplugin.ui.point_tool_dockwidget import PointToolDockWidget
 ```
 :::
 
-Seuraavaksi muokkaa **Plugin**-luokan konstruktoria (`__init__`-metodi).
-Lisää rivit:
+Edit the constructor (`__init__` method) of the `Plugin` class. Add
+these rows:
 
 ::: code-box
 ```python
@@ -119,7 +120,7 @@ Lisää rivit:
 ```
 :::
 
-Lisää `initGui()`-metodiin:
+Add to the `initGui()` method:
 
 ::: code-box
 ```python
@@ -132,7 +133,7 @@ Lisää `initGui()`-metodiin:
 ```
 :::
 
-Lisää `onClosePlugin()`-metodiin:
+Add to the `onClosePlugin()` method:
 
 ::: code-box
 ```python
@@ -142,7 +143,7 @@ Lisää `onClosePlugin()`-metodiin:
 ```
 :::
 
-Lisää uusi metodi `open_point_tool()`:
+Add a new method `open_point_tool()`:
 
 ::: code-box
 ```python
@@ -158,8 +159,7 @@ Lisää uusi metodi `open_point_tool()`:
 ```
 :::
 
-Voit myös luoda jo valmiiksi uuden tiedoston **core**en
-`test-plugin/testplugin/core/pointtool.py`
+You can also already create a new file `test-plugin/testplugin/core/pointtool.py`:
 
 ::: code-box
 ```python
@@ -171,7 +171,7 @@ class PointTool:
 ```
 :::
 
-Ja lisätä `test-plugin/testplugin/core/exceptions.py`-tiedostoon:
+And add to the `test-plugin/testplugin/core/exceptions.py` file:
 
 ::: code-box
 ```python
@@ -180,13 +180,14 @@ class PointToolException(QgsPluginException):
 ```
 :::
 
-Päivitä plugin. Työkalua klikatessa QGIS-ikkunan vasempaan reunaan
-pitäisi avautua uusi paneeli.
+Reload the plugin. Clicking on the tool should open a new
+panel to the left side of the QGIS window.
 
-## Exercise 7.2: Työkalu
+## Exercise 7.2: Point Tool
 
-Seuraavaksi lisää lisäosalle kuvatun mukainen toiminnallisuus.
-Tarvittaessa kysy apua kouluttajalta tai katso apua mallilisäosasta:
+Next implement the functionality that was previously defined.
+If you need help you can as the trainer or look at the
+sample plugin:
 
 [test-plugin/testplugin/plugin.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2/sampleplugin/plugin.py)                                                 \
 [test-plugin/testplugin/ui/point_tool_dockwidget.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2/sampleplugin/ui/point_tool_dockwidget.py)             \
@@ -194,24 +195,25 @@ Tarvittaessa kysy apua kouluttajalta tai katso apua mallilisäosasta:
 [test-plugin/testplugin/core/pointtool.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/c019b85ed7c7bb66b799f633e139d790f3ab21d0/sampleplugin/core/pointtool.py)  \
 [test-plugin/testplugin/core/exceptions.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2/sampleplugin/core/exceptions.py)                               \
 
-### Exercise 7.2.1: Lisähaaste - nimiöinti
+### Exercise 7.2.1: Extra challenge - labeling
 
-Kun työkalu lisää uuden taso, määritä tasolle nimiönti joka
-piirtää kartalle niiden x ja y koordinaatit:
+When the tool creates a new layer add a style to it which
+includes a label that shows the x and y coordinates of the
+point on the map:
 
 ![](img/exercise_7/image5.png)
 
-## Exercise 7.3: Testit
+## Exercise 7.3: Tests
 
-Luo uusi tiedosto `test-plugin/tests/test_point_tool.py`.
-Kirjoita kaksi testiä:
+Create a new file `test-plugin/tests/test_point_tool.py`.
+Write two tests:
 
 * `test_create_new_point_layer()`
 * `test_add_point_to_layer()`
 
-Toisessa testissä nimien mukaisesti luodaan piste ilman valittua
-pistetasoa, jolloin työkalun tulisi luoda uusi pistetaso.
-Toisessa lisätään pisteitä jo olemassa olevalle pistetasolle.
+In the first test a point is create without a selected point layer
+in which case the tool should create a new point layer. In the
+other one points are added to an existing layer.
 
 [test-plugin/tests/test_point_tool.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2-tests/tests/test_point_tool.py)
 
