@@ -1,95 +1,92 @@
-# Exercise 3: Tasot, kohteet ja geometriat
+# Exercise 3: Layers, features and geometries
 
-**Contents:** QGIS-tasojen ja kohteiden luominen ja muokkaus.
+**Contents:** Creating and editing QGIS layers.
 
-**Goal:** Oppia käsittelemään tasoja syvällisemmin.
+**Goal:** Learn how to process layers using PyQGIS in more detail.
 
-## Tasot
+## Layer
 
-QGISissä vektoritasolla (**QgsVectorLayer**-luokka) on
-**kohteita** eli **[QgsFeature](https://qgis.org/pyqgis/latest/core/QgsFeature.html)**-luokan olioita. Kohteella taas
-on (yleensä) geometria, eli **[QgsGeometry](https://qgis.org/pyqgis/latest/core/QgsGeometry.html)**-luokan olio.
+In QGIS a **QgsVectorLayer** class contains **features** which are
+of the [**QgsFeature**](https://qgis.org/pyqgis/latest/core/QgsFeature.html)
+type. A feature then (typically) has a geometry which is of the
+[**QgsGeometry**](https://qgis.org/pyqgis/latest/core/QgsGeometry.html)
+type.
 
-Tasolla sekä kohteella on **QgsFields**-olio, joka
-kuvaa ominaisuustietokenttiä. QgsFields itsessään
-koostuu **QgsField**-olioista, jotka sisältävät
-mm. kentän nimen ja datatyypin.
+Vector layers and features also have a **QgsFields** object, which
+describes the attribute fields the layer has. This type itself
+consists of **QgsField** objects which contain the name
+of the field and its data type etc.
 
-## Väliaikaisen tason luominen
+## Creating a temporary layer
 
-Luodaan uusi väliaikainen taso:
+You can create a temporary layer like this:
 
 ::: code-box
 ```python
-new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "Uusi Taso", "memory")
+new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "New Layer", "memory")
 
 QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
 
-Taso on kuitenkin tyhjä. Luodaan taso, jossa on kenttiä.
-Voit tässä vaiheessa halutessasi poistaa äsken luodun
-tason.
+In this case the layer is empty. Let's create a layer that has
+attribute fields. You can delete the layer that was added
+to the QGIS project in the step prior.
 
 ::: code-box
 ```python
-new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "Uusi Taso", "memory")
+new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "New Layer", "memory")
 
-# Koska muokkaamme tasoa, pitää se laittaa
-# editointitilaan
+# because we're editing the layer we have to turn
+# editing on
 new_layer.startEditing()
 
 new_layer.addAttribute(QgsField("fid", QVariant.Int))
-new_layer.addAttribute(QgsField("nimi", QVariant.String))
+new_layer.addAttribute(QgsField("name", QVariant.String))
 
-# Tallennetaan muutokset
+# you also have to save the changes
 new_layer.commitChanges()
 
 QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
 
-Tasolla on nyt kaksi kenttää, mutta ei edelleenkään yhtään
-kohdetta. Lisätään seuraavaksi pistekohde tasolle.
+Now the layer has two fields, but zero features. Let's
+add a point feature to the layer.
 
 ::: code-box
 ```python
-new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "Uusi Taso", "memory")
+new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "New Layer", "memory")
 
-# Koska muokkaamme tasoa, pitää se laittaa
-# editointitilaan
 new_layer.startEditing()
 
 new_layer.addAttribute(QgsField("fid", QVariant.Int))
-new_layer.addAttribute(QgsField("nimi", QVariant.String))
+new_layer.addAttribute(QgsField("name", QVariant.String))
 
 new_feature = QgsFeature(new_layer.fields())
-new_feature.setAttributes([1, "piste"]) # huomaa, että argumenttina on lista
+new_feature.setAttributes([1, "point"]) # note that the argument here is a list
 
-# Luodaan kohteelle geometria
-# Koska kyseessä on pistetaso, voidaan
-# luoda suoraan QgsPoint-olio
+# let's create a geometry for the feature
+# since this is a point layer we can create
+# a QgsPoint object directly
 new_geom = QgsPoint(0, 0)
 new_feature.setGeometry(new_geom)
 
 new_layer.addFeature(new_feature)
 
-# Tallennetaan muutokset
 new_layer.commitChanges()
 
 QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
 
-## Geometriat
+## Geometries
 
-Geometrioita voidaan luoda ja manipuloida Pythonilla eri tavoin.
-QgsGeometry-luokalla on mm. eri staattisia metodeja, joilla voidaan
-luodaan geometrioita:
+Geometries can be created and manipulated with PyQGIS in many ways.
+QgsGeometry has static methods which can be used to create
+geometries:
 
-Tutustutaan seuraavaksi geometrioiden käsittelyyn PyQGISillä.
-
-Piste:
+Point:
 
 ::: code-box
 ```python
@@ -98,7 +95,7 @@ point_geom = QgsGeometry.fromPointXY(point_xy)
 ```
 :::
 
-Viiva:
+Line:
 
 ::: code-box
 ```python
@@ -114,7 +111,7 @@ line_geom = QgsGeometry.fromPolylineXY(
 ```
 :::
 
-Polygoni:
+Polygon:
 
 ::: code-box
 ```python
@@ -136,22 +133,24 @@ polygon_geom = QgsGeometry.fromPolygonXY(
 ```
 :::
 
-Geometrioita voi luoda myös [WKT (Well-Known Text)](https://libgeos.org/specifications/wkt/)-formaatista
+You can create geometries from the
+[WKT (Well-Known Text)](https://libgeos.org/specifications/wkt/)
+format.
 
 ::: code-box
 ```python
-# piste
+# point
 point_geom = QgsGeometry.fromWkt('POINT(0 0)')
 
-# viiva
+# line
 line_geom = QgsGeometry.fromWkt('LINESTRING(0 0, 0 1)')
 
-# multipolygoni
+# multipolygon
 multipolygon_geom = QgsGeometry.fromWkt('MULTIPOLYGON(((0 0, 0 1, 1 1, 1 0, 0 0), (2 2, 2 3, 3 3, 3 2, 2 2)))')
 ```
 :::
 
-Geometrian voi tulostaa WKT-formaatissa:
+You can also print the geometry as WKT:
 
 ::: code-box
 ```python
@@ -175,30 +174,28 @@ print(polygon_geom.asWkt())
 ```
 :::
 
-Geometriaolioon tallentuu taitepisteiden koordinaatit.
-Siihen ei itsessään tallennu tieto
-koordinaattijärjestelmästä, vaan se tieto on vain
-taso-oliolla. Geometrialuokasta on tosin alaluokka
-QgsReferencedGeometry, jossa on myös tieto
-koordinaattijärjestelmästä.
+A geometry object contains the coordinates of the
+vertexes. It does not contain infromation about the
+coordinate reference system (CRS) of those coordinates,
+but instead the layer object has that information.
+There is however a subclass of QgsGeometry called
+QgsReferencedGeometry, which also has the CRS information.
 
-Jos halutaan muuttaa geometria koordinaattijärjestelmästä
-toiseen, voidaan käyttää **QgsCoordinateTransform**-luokkaa.
+Most of the time **QgsGeometry** is used however. If we
+want to transform the CRS, we can use the
+**QgsCoordinateTransform** class.
 
 ::: code-box
 ```python
-# luodaan geometria ja oletetaan
-# että lähtökoordinaattijärjestelmä
-# on WGS 84 (EPSG:4326)
+# create a geometry with the assumption
+# that its CRS is WGS 84 (EPSG:4326)
 
-# muunnetaan geometria Suomen
-# valtakunnalliseen koordinaatti-
-# järjestelmään (EPSG:3067)
+# transform to Pseudo Mercator (EPSG:3857)
 
 geom = QgsGeometry.fromWkt('POINT(0 0)')
 
 source_crs = QgsCoordinateReferenceSystem(4326)
-target_crs = QgsCoordinateReferenceSystem(3067)
+target_crs = QgsCoordinateReferenceSystem(3857)
 
 tf = QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())
 
@@ -208,7 +205,7 @@ print(geom.asWkt())
 ```
 :::
 
-Voimme myös laskea geometrioiden ominaisuuksia:
+We can calculate different attributes of the geometry:
 
 ::: code-box
 ```python
@@ -218,8 +215,8 @@ print(line_geom.length())
 polygon_geom = QgsGeometry.fromWkt('POLYGON((0 0, 0 1, 1 1, 1 0, 0 0))')
 print(polygon_geom.area())
 
-# length() funktio polygonigeometriasta
-# palauttaa polygonin piirin
+# on a polygon geometry the length() method
+# returns the perimeter
 
 print(polygon_geom.length())
 
@@ -230,11 +227,10 @@ print(point_1.distance(point_2))
 ```
 :::
 
-Geometriaa voidaan myös manipuloida eri tavoin
-valmiilla metodeilla. Luodaan uusi polygonigeometria
-kahden olemassa olevan polygonin päällekkäin menevästä
-alueesta. Tämä vastaa Ristiinleikkaus (intersection)-
-prosessointityökalua QGISissä.
+There are also many methods for manipulating the geometry.
+You can create a new polygon geometry from the intersection
+of two overlapping polygons. This corresponds to the
+Intersection processing tool in QGIS.
 
 ::: code-box
 ```python
@@ -249,12 +245,13 @@ print(new_geom.asWkt())
 
 ## Exercise 3.1
 
-Kirjoita skripti, joka luo uuden polygonitason koordinaattijärjestelmällä
-3857. Lisää polygonitasolle kentät "fid" ja "pinta_ala". Lisää
-kohteeseen alla oleva WKT-formaatissa kuvattu geometria ja laske
-sille pinta-ala. Lisää taso lopuksi QGIS-projektiin.
+Write a script that creates a polygon layer with the CRS EPSG:3857.
+Add two fieldsm named "fid" and "area". Add a feature with the
+geometry that is included below. Calculate the area of geometry
+and add the result the the "area" field". Finally add the new
+layer to the QGIS project.
 
-WKT:
+Geometry:
 
 ::: code-box
 POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))
@@ -265,12 +262,12 @@ POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))
 ::: hidden-box
 ::: code-box
 ```python
-new_layer = QgsVectorLayer("Polygon?crs=EPSG:3857", "Uusi Taso", "memory")
+new_layer = QgsVectorLayer("Polygon?crs=EPSG:3857", "New Layer", "memory")
 
 new_layer.startEditing()
 
 new_layer.addAttribute(QgsField("fid", QVariant.Int))
-new_layer.addAttribute(QgsField("pinta_ala", QVariant.Double))
+new_layer.addAttribute(QgsField("area", QVariant.Double))
 
 new_feature = QgsFeature(new_layer.fields())
 
@@ -289,29 +286,31 @@ QgsProject.instance().addMapLayer(new_layer)
 :::
 :::
 
-## Exercise 3.2: Etäisyydet
+## Exercise 3.2: Distances
 
-Avaa QGISiin kurssihakemistosta `NaturalEarth_10m_admin_0_countries.gpkg`-tiedosto.
+Add the `NaturalEarth_10m_admin_0_countries.gpkg` file to
+QGIS.
 
-Kirjoita skripti, joka laskee jokaisen valtion etäisyyden sen
-painopisteestä (centroid) Suomen painopisteeseen.
-Lähtötason koordinaattijärjestelmä on EPSG:4326, jonka yksikkönä
-on asteet. Etäisyyksien esittäminen asteina ei ole välttämättä
-kovin selkeää. Luo siis uusi pistetaso koordinaattijärjestelmällä
-EPSG:3857, jonka yksikkö on metrit. Uuden tason kentät tulee sisältää
-fid-numerotunnisteen, etäisyyden ja valtion
-nimen, josta etäisyys laskettiin. Muunna lähtötason painopiste oikeaan
-koordinaattijärjestelmään ja aseta se uuden tason kohteiden geometriaksi.
+Write a script that calculates the distance between each
+country from its centroid to the centroid of Finland.
+The CRS of the layer is EPSG:4326 whose unit is degrees.
+Experssing distance as degrees is unideal so create a new
+point layer with the CSR ESPG:3857 whose unit is meters.
+The fields of the new layer should include a identifier
+fid, the distance and the name of the country from which
+the distance was calculated. Transform the centroid from
+the source layer to the correct CRS and set it as the
+geometry of the new features.
 
-Voit käyttää tätä pohjana:
+You can use this as a base for the script:
 
 ::: code-box
 ```python
-# hae NaturalEarth-taso esim. nimen perusteella
+# select the layer by name
 layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
 layer = layers[0]
 
-# luodaan uusi taso
+# create the new layer
 new_layer = QgsVectorLayer("Point?crs=EPSG:3857", "New Layer", "memory")
 
 new_layer.startEditing()
@@ -333,11 +332,9 @@ QgsProject.instance().addMapLayer(new_layer)
 ::: hidden-box
 ::: code-box
 ```python
-# hae NaturalEarth-taso esim. nimen perusteella
 layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
 layer = layers[0]
 
-# luodaan uusi taso
 new_layer = QgsVectorLayer("Point?crs=EPSG:3857", "New Layer", "memory")
 
 new_layer.startEditing()
@@ -346,13 +343,12 @@ new_layer.addAttribute(QgsField("fid", QVariant.Int))
 new_layer.addAttribute(QgsField("country", QVariant.String))
 new_layer.addAttribute(QgsField("distance", QVariant.Double))
 
-# QgsCoordinateTransform-olion
-# voi luoda jo nyt ja sitä voi
-# käyttää monta kertaa
-<tallenna olio muuttujaan>
+# you can create the QgsCoordinateTransform
+# object here and use it for each feature
+<save the object to a variable>
 
-# Käytetään QGISin lauseketta
-# Suomi-kohteen etsimiseen
+# use a QGIS expression to find
+# the feature of Finland
 filter_expression = QgsExpression('''"NAME_EN" = 'Finland' ''')
 filtered_features = layer.getFeatures(QgsFeatureRequest(filter_expression))
 
@@ -361,35 +357,35 @@ for feat in filtered_features:
     finland_feature = feat
 
 if finland_feature.isValid():
-    # Jos Suomi-kohde löytyi
-    # tallennetaan sen painopiste
-    # ja suoritetaan koordinaatti-
-    # muunnos
+    # if the feature was found
+    # save its centroid and
+    # perform the coordinate
+    # transformation
     finland_centroid = finland_feature.geometry().centroid()
     finland_centroid.transform(tf)
 
     for old_feature in layer.getFeatures():
-        # Käydään lähdetason kohteet läpi.
-        # Hae ja tallenna tarvitut kohteen
-        # tiedot
+        # iterate through the features of
+        # the source layer. Get and save
+        # the needed attributes
 
-        # Hae myös vanhan kohteen
-        # painopiste ja laske etäisyys.
+        # also get the centroid of the old
+        # feature and calculate the distance
+        # to the finland_centroid
 
-        # Jos koordinaattimuunnos on
-        # tehty oikein, laskutuloksen
-        # yksikkö on metrit, muutetaan
-        # kilometreiksi.
-        distance = <lauseke> / 1000
+        # if the CRS transformation is done
+        # correctly, the distance is in meters.
+        # Transform meters to kilometers
+        distance = <expression> / 1000
 
-        # Luodaan uusi kohde
+        # create the new feature
         new_feature = QgsFeature(new_layer.fields())
         new_feature.setAttributes(
             [
-                <arvot>
+                <values>
             ]
         )
-        new_feature.setGeometry(<painopiste>)
+        new_feature.setGeometry(<centroid>)
 
         new_layer.addFeature(new_feature)
 
@@ -421,8 +417,6 @@ target_crs = QgsCoordinateReferenceSystem(3857)
 
 tf = QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())
 
-# Käytetään QGISin lauseketta
-# Suomi-kohteen etsimiseen
 filter_expression = QgsExpression('''"NAME_EN" = 'Finland' ''')
 filtered_features = layer.getFeatures(QgsFeatureRequest(filter_expression))
 
