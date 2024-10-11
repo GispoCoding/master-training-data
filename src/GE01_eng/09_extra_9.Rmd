@@ -1,14 +1,16 @@
-# Python-lisätehtäviä
+# Extra Python exercises
 
-Tämä kappale sisältää erityisesti Pythoniin liittyviä
-edistyneempiä aiheita, joita voi tarvittaessa
-käydä läpi ja harjoitella.
+This section contains examples and exercises for more
+advanced Python topics which you can go through
+if needed.
 
-## Aihe 1: Listakoosteet
+## Topic 1: Comprehensions
 
-Koosteet (eng. comprehension) ovat tapa luoda sarjoja, kuten listoja ja sanakirjoja pythonimaisesti ilman for- tai while-silmukoita.
+Comprehensions are a way to create lists and dictionaries _pythonically_ without for
+or while loops.
 
-Alla on kaksi perinteistä tapaa luoda lista desimaaliluvuista 0-10:
+Here's an example of a traditional way to create a list of
+numbers 0-10:
 
 
 ::: code-box
@@ -32,8 +34,7 @@ print(decimal_numbers)
 ```
 :::
 
-Listakooste (list comprehension) mahdollistaa toisen menetelmän luoda vastaavanlaisen listan helposti käyttäen vain yhtä riviä:
-
+With a list comprehension you can do the same on one line:
 
 ::: code-box
 ```python
@@ -41,28 +42,29 @@ Listakooste (list comprehension) mahdollistaa toisen menetelmän luoda vastaavan
 ```
 :::
 
-Listakoosteen syntaksin voi ajatella etenevän hieman erilaisessa järjestyksessä, kuin normaalin for-silmukan syntaksi: 
+In a list comprehension the elements are entered in a slightly different
+order than in a normal for loop:
 
 ::: code-box
 ```python
-[<lauseke> for <alkio> in <sarja>]
+[<expression> for <item> in <list>]
 
-# EI näin, vaikka voisi kuulostaa loogisemmalta
-[for <alkio> in <sarja> <lauseke>]
+# NOT this
+[for <item> in <list> <expression>]
 ```
 :::
 
+If you have to include a condition in the comprehension, they are included at the end.
 Jos koosteeseen halutaan asettaa ehtoja, ne laitetaan koosteen loppuun. 
 
 ::: code-box
 ```python
-[<lauseke> for <alkio> in <sarja> if <ehto>]
+[<expression> for <item> in <list> if <condition>]
 ```
 :::
 
 
-Alla oleva listakooste koostuu parittomista desimaaliluvuista välillä 0.0-10.0.
-
+The following list comprehension creates a list of odd decimal number from 0.0 to 10.0.
 
 ::: code-box
 ```python
@@ -70,8 +72,7 @@ Alla oleva listakooste koostuu parittomista desimaaliluvuista välillä 0.0-10.0
 ```
 :::
 
-Täysin sama syntaksi toimii myös joukkojen tapauksessa käyttäen aaltosulkuja.
-
+The same syntax works with sets, only difference is having to use curly brackets.
 
 ::: code-box
 ```python
@@ -79,8 +80,7 @@ Täysin sama syntaksi toimii myös joukkojen tapauksessa käyttäen aaltosulkuja
 ```
 :::
 
-Tuplejen tapauksessa on kuitenkin muodostettava ensin lista ja luotava siitä tuple.
-
+With tuples you first have to create a list and create a tuple from it.
 
 ::: code-box
 ```python
@@ -88,8 +88,8 @@ tuple([str(i) for i in range(11)])
 ```
 :::
 
-Sulkuja käytettäessä luodaan generaattori, eli luova kooste. Se evaluoi vain yhden elementin kerrallaan käyttäen `next`-funktiota, käymällä alkiot läpi silmukassa tai muuttamalla generaattori joksikin rakenteeksi, kuten listaksi.
-
+When using ellipses a generator is created. It evaluates only one element at a time using
+the `next` function.
 
 ::: code-box
 ```python
@@ -102,8 +102,7 @@ print(list(generator))
 ```
 :::
 
-Sanakirjan voi myös luoda samalla tavalla kuin listan käyttäen sanakirjakoostetta (dict comprehension).
-
+You can also create a dictionary:
 
 ::: code-box
 ```python
@@ -111,15 +110,17 @@ Sanakirjan voi myös luoda samalla tavalla kuin listan käyttäen sanakirjakoost
 ```
 :::
 
-### Lisätehtävä 1.1
-Kirjoite listakooste `chosen_numbers`, johon tulee kokonaisluvut 0-20 muutettuina merkkijonoiksi siten, että numerot 9-18 jäävät pois.
+### Extra exercise 1.1
+
+Write a list compregension `chose_number` which gets integers 0-20 changed to string so that numbers 9-18 are
+excluded.
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
 ```python
-chosen_numbers = [str(value) for value in range(21) <ehtolause> # Miten jätät numerot 9-18 välistä?
+chosen_numbers = [str(value) for value in range(21) <ehtolause> # how to exclude numbers 9-18?
 ```
 :::
 :::
@@ -134,12 +135,14 @@ chosen_numbers = [str(value) for value in range(21) if value < 9 or value > 18]
 :::
 :::
 
-### Sisäkkäisiä koosteita
-Joskus on tarve kirjoittaa sisäkkäisiä koosteita. Tällöin syntaksi on:
+### Nested comprehensions
+
+Sometimes you need to use a comprehension inside a comprehension.
+Here the syntax is:
 
 ::: code-box
 ```python
-[<lauseke> for <alkio1> in <sarja1> for <alkio2> in <sarja2>]
+[<expression> for <item1> in <list1> for <item2> in <list2>]
 ```
 :::
 
@@ -149,7 +152,8 @@ Joskus on tarve kirjoittaa sisäkkäisiä koosteita. Tällöin syntaksi on:
 ```
 :::
 
-Sarjojen järjestyksellä on väliä, jos ensimmäisen sarjan arvoa hyödynnetään toisessa ehdossa.
+The order of the lists matters if values from the first list are used in the seconds
+condition.
 
 ::: code-box
 ```python
@@ -157,7 +161,7 @@ Sarjojen järjestyksellä on väliä, jos ensimmäisen sarjan arvoa hyödynnetä
 ```
 :::
 
-Koosteita voi olla mielivaltaisen paljon
+You can have an arbitrary number of comprehensions:
 
 ::: code-box
 ```python
@@ -165,13 +169,13 @@ Koosteita voi olla mielivaltaisen paljon
 ```
 :::
 
-## Aihe 2: Lambda-funktiot
+## Topic 2: Lambda function
 
-Pythonissa funktioita voi myös määritellä "nimettöminä" yhden rivin lambda-funktioina. Tällöin syntaksi on:
+In Python you can define one-line lambda functions with the following syntax:
 
 ::: code-box
 ```python
-lambda <parametrit>: <lauseke>
+lambda <parameters>: <expression>
 ```
 :::
 
@@ -182,7 +186,7 @@ print(lambda x: x ** 2)
 ```
 :::
 
-Lambda-funktiot, kuten mitkä tahansa muutkin funktiot voi tallentaa muuttujaan
+Lambda function can be saved to a function:
 
 ::: code-box
 ```python
@@ -194,20 +198,19 @@ power(3, 4)
 
 ::: code-box
 ```python
-# Erilaisia lambda-funktioita
+# different lambda functions
 summer = lambda *args: sum(args)
 print(summer(1, 2, 3))
 
-without_params = lambda: print("Hello Lambda")  # Palauttaa None
+without_params = lambda: print("Hello Lambda")  # returns None
 without_params()
 ```
 :::
 
-::: hint-box
-Tyypillisesti lambda-funktioissa halutaan noudattaa [funktionaalista ohjelmointityyliä](https://fi.wikipedia.org/wiki/Funktionaalinen_ohjelmointi), jolloin mitään sivuvaikutuksia, kuten ylläolevassa esimerkissä tapahtuvaa merkkijonon tulostamista, ei tapahdu.
-:::
-
-Lambda-funktioita voi antaa parametreina esimerkiksi lajittelufunktiolla [`sorted`](https://docs.python.org/3/howto/sorting.html#sortinghowto), jolloin lajittelun järjestykseen voi vaikuttaa.
+Lambda functions can sometimes be given as parameters
+for example to sorting functions which affects the
+ordering. See
+[`sorted`](https://docs.python.org/3/howto/sorting.html#sortinghowto).
 
 ::: code-box
 ```python
@@ -219,15 +222,18 @@ print(sorted_digits_wih_evens_first)
 ```
 :::
 
-### Lisätehtävä 2.1
-Luo lambda-funktio `sign_switcher`, joka ottaa parametrikseen kaksi kokonaislukua ja laskee niiden summan, mutta kääntää samalla luvun etumerkin. Eli tuloksesta 10 tulisi -10 ja tuloksesta -4 tulisi 4.
+### Extra exercise 2.1
+
+Create a lambda function called `sign_switcher` which takes in
+two integers as a parameter and calculates their sum but also
+changes their sign. 
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
 ```python
-sign_switcher = lambda x, y: (x + y) # Millä laskutoimituksella käännät etumerkin? Lisää lausekkeen loppuun.
+sign_switcher = lambda x, y: (x + y) # how can you flip the sign?
 ```
 :::
 :::
@@ -242,9 +248,10 @@ sign_switcher = lambda x, y: (x + y) * -1
 :::
 :::
 
-## Aihe 3: Dekoraattorit
+## Topic 3: Decorators
 
-Pythonissa funktioita pystyy määrittelemään toisten funktioiden sisälle. Tällöin niillä on pääsy ylemmän funktion muuttujiin.
+In Python functions can be defined inside functions in which
+case they have access to the original function's variables
 
 ::: code-box
 ```python
@@ -259,8 +266,7 @@ print(multiply(2, 3))
 ```
 :::
 
-Samoin sisäkkäisiä funktioita pystyy palauttamaan.
-
+You can also return nested functions.
 
 ::: code-box
 ```python
@@ -279,8 +285,8 @@ print(multiply(3, 4))
 ```
 :::
 
-Jos ylempi funktio saa parametriksi funktion, voi sitäkin kutsua sisemmässä funktiossa.
-
+If the original function gets a function as a parameter
+it too can be called in the nested function.
 
 ::: code-box
 ```python
@@ -303,10 +309,9 @@ decorated_function()
 ```
 :::
 
-Yllä oleva esimerkkifunktio `printer` oli jo dekoraattori. Python tarjoaa kuitenkin
-huomattavasti helpomman syntaksin dekoraattoreiden kutsumiselle koristelemalla
-dekoroitava funktio `@dekoraattorin_nimi`-syntaksilla.
-
+In the example above the `printer` function is already a _decorator_.
+Python offers an easier way to use the decorator by decorating
+the function definition with the `@decorator_name` syntax.
 
 ::: code-box
 ```python
@@ -319,10 +324,11 @@ heavy_function2()
 ```
 :::
 
-### Lisätehtävä 3.1
+### Extra exercises 3.1
 
-Luo oma dekoraattorifunktio `timeit`, joka mittaa funktion suoritukseen kuluneen ajan ja tulostaa
-sen näkyviin. Käytä hyväksesi [`time`](https://docs.python.org/3/library/time.html)-moduulia.
+Create your own decorator funciont `timeit` which measures how much
+time executing the function takes and prints the result. Use the
+[`time`](https://docs.python.org/3/library/time.html) module.
 
 ::: code-box
 ```python
@@ -369,9 +375,10 @@ heavy_function()
 ```
 :::
 
-### Dekoraattorit ja parametrit
-Jos dekoroitavaan funktioon voi antaa parametrejä, pitää dekoraattorin ottaa myös vastaan parametri.
+### Decorators and parameters
 
+If the decorated function receives parameters
+the decorator also has to take in the parameter.
 
 ::: code-box
 ```python
@@ -394,8 +401,8 @@ tester(1)
 ```
 :::
 
-Yleisissä dekoraattoreissa kannattaa parametrit ((positional) arguments) ja nimetyt parametrit (keyword arguments) antaa käyttäen levitysoperaattoreita `*` ja `**`.
-
+Typically in decorators the positional arguments and keyword arguments
+should be given using the `*` and `**` unpacking operators.
 
 ::: code-box
 ```python
@@ -434,25 +441,25 @@ tester_with_lot_of_params(5, 4, 2, d=3, e=6)
 ```
 :::
 
-Käydään vielä läpi nopeasti, mitä levitysoperaattorit tekevät.
-
+Let's go over what the unpacking operators do:
 
 ::: code-box
 ```python
 a = [1, 2, 3, 4]
 d = {"a": 1, "b": 2, "c": 3}
 
-# Listan alkiot levitetään omiksi parametreikseen print-funktiolle
+# the items are unpacked as their own parameters to the print function
 print(a, 1, 2, 3, 4)
 print(a, *a)
 
-# Sanakirjan alkiot levitetään omiksi nimetyiksi parametreikseen dict-funktiolle
+# the items in the dictionary are unpacked as their own named parameters to the dict function
 print(dict(a=1, b=2, v=3))
 print(dict(**d))
 ```
 :::
 
-Parametrejä voi antaa myös dekoraattorille. Tällöin on käytettävä kolmea sisäkkäistä funktiota.
+Parameters can also be given to decorators. In this case you have to use
+three nested functions.
 
 ::: code-box
 ```python
@@ -481,22 +488,13 @@ tester(1)
 ```
 :::
 
-Tulostetaan vielä tuttuun tapaan `tester`-funktion ohje: 
+### Extra exercise 3.2
 
-
-::: code-box
-```python
-help(tester)
-```
-:::
-
-Yllä olevasta tulosteesta huomataan, että nyt ohje onkin `printer`-dekoraattorin `wrapper`-funktiosta. 
-
-### Lisätehtävä 3.2
-
-Tutustu Pythonin [`functools.wraps`](https://docs.python.org/3/library/functools.html?highlight=wraps#functools.wraps)-dekoraattoriin,
-jonka avulla on mahdollista tallentaa dekoroitavan funktion metadata, kuten docstring.
-Käytä dekoraattoria alla olevassa `printer`-dekoraattorissa.
+Inspect the
+[`functools.wraps`](https://docs.python.org/3/library/functools.html?highlight=wraps#functools.wraps)
+decorator in Python. It allows saving the metadata of a
+decorated functino such as the docstring. Use the
+decorator with the `printer` decorator below:
 
 ::: code-box
 ```python
@@ -552,21 +550,22 @@ help(greetings)
 :::
 :::
 
-## Aihe 4: Tyypitys
+## Topic 4: Typing
 
-Python on dynaamisesti tyypitetty kieli, mutta se tarjoaa nykyään mahdollisuuden käyttää staattista tyypitystä.
+Python is a dynamically typed language, but nowadays it offers a
+possibility to use static typing.
 
 ::: code-box
 ```python
-# Esimerkkejä tyypityksestä
+# examples of typing
 from typing import Dict, List, Optional, Set, Union
 
-local_int = 1  # ei tarvitse tyypittää
-set_of_integers = {1,2,3} # ei tarvitse tyypittää
+local_int = 1  # doesn't need typing
+set_of_integers = {1,2,3} # doesn't need typing
 set_of_integers: Set[int] = {}
 list_of_sets_of_strings: List[Set[str]] = []
 string_or_int: Union[str, int] = 1
-string_or_int = ""  # IDE ei valita, koska tyyppi voi olla int tai str
+string_or_int = ""  # this is okay because the type can be either str or int
 boolean_or_none: Optional[bool] = None
 dict_of_strings_and_booleans: Dict[str, bool] = {"a": True}
 
@@ -576,9 +575,9 @@ def multiply(a: int, b: int = 2) -> int:
 ```
 :::
 
-## Lisätehtävä 4.1
+## Extra exercises 4.1
 
-Lisää alla olevaan luokkaan tyypitykset kaikkiin löytämiisi kohtiin.
+Add typing to the following class.
 
 ::: code-box
 ```python
