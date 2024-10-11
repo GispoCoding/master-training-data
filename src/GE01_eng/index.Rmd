@@ -1,9 +1,9 @@
 ---
-title: "QGIS-lisäosien kehitys"
+title: "QGIS plugin development"
 author: "Gispo Suomi Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "Lisäosien kehitys Pythonilla"
+abstract: "Developing plugins for QGIS using Python"
 output:
     bookdown::html_book:
         toc: true
@@ -15,78 +15,77 @@ output:
 documentclass: book
 ---
 
-# QGIS-lisäosien kehitys
+# QGIS plugin development
 
-## Tervetuloa kurssille!
+## Welcome to the course!
 
-Tämän kurssin tarkoituksena on oppia, miten Python-ohjelmointikieltä voi käyttää QGIS-ohjelmiston kanssa, ja miten kehitetään lisäosia, jotka mahdollistavat monipuolisten lisäominaisuuksien käytön QGISissä.
+The purpose of this course is to learn how the Python programming language
+can be used with QGIS and how to develop plugins that can be used to
+extend QGIS in many ways.
 
-## Lukuohje
+## Reading Guide
 
-**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
+Commands to execute in a **web browser** are displayed as follows:
 
-::: note-box
-<http://localhost:8080/geoserver>
+:::{.note-box}
+http://localhost:8080/geoserver
 :::
 
-**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
+Commands to execute in a **command prompt/terminal** are displayed as follows:
 
 ::: commandline-box
-``` shell
-
+``` bash
 sudo lsb_release -a
 ```
 :::
 
-**Tiedostojen sisältö** on esitetty seuraavasti:
+**File content** is displayed as follows:
 
-::: file-content-box
-#IPv4 local connections: #host all all 127.0.0.1/32 md5
+:::{.file-content-box}
+#IPv4 local connections:
+#host all all 127.0.0.1/32 md5
 :::
 
-**HTML- ja CSS-koodit, SQL-komennot sekä Python-skriptit** on esitetty seuraavasti:
+**HTML and CSS code, SQL- queries and Python-scripts** are displayed as follows:
 
-::: code-box
+:::{.code-box}
 ``` sql
-
 SELECT version();
 ```
 :::
 
-**Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
+**Questions, notes and hints** are displayed as follows:
 
-::: hint-box
-Mistä löydät tietoa GeoServeristä?
+:::{.hint-box}
+Where do you find information about GeoServer? 
 
-GeoServerillä on omat kotisivut.
-
-Psst! Tietoa GeoServeristä löydät internetistä.
+GeoServer has its own website.
 :::
 
-## Mistä lisätietoja?
 
-Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+## Additional information
 
-::: note-box
-<http://www.qgis.org/>
+Here are a few helpful websites:
+
+:::{.note-box} 
+http://www.qgis.org/ 
+:::
+:::{.note-box}
+http://docs.qgis.org/ 
+:::
+:::{.note-box}
+http://gis.stackexchange.com/
+:::
+:::{.note-box}
+http://www.osgeo.fi
 :::
 
-::: note-box
-<http://docs.qgis.org/>
-:::
 
-::: note-box
-<http://gis.stackexchange.com/>
-:::
+## Mistakes
 
-::: note-box
-<http://www.osgeo.fi>
-:::
+If you notice mistakes in these course materials, we ask you to report either directly to the trainer or by email us at info@gispo.fi .
 
-## Virheet
+## License and permissions
 
-Jos havaitset materiaalissa virheitä, pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi](mailto:info@gispo.fi){.email}-osoitteeseen.
-
-## Lisenssi ja oikeudet
-
-Nämä materiaalit on "QGIS-lisäosien kehitys" -kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+These materials are developed for the "QGIS plugin development" course by Gispo Finland Ltd.
+The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
