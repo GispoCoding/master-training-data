@@ -1,35 +1,37 @@
-# Exercise 1: Python-konsoli
+# Exercise 1: Python console
 
-**Contents:** QGISin Python-konsoli ja skriptieditori.
+**Contents:** The QGIS Python console and script editor.
 
-**Goal:** Tutustua Python-komentojen ajamiseen konsolissa ja
-skriptien ajamiseen skriptieditorissa.
+**Goal:** To become familiar with the Python console and
+writing and running scripts in the script editor.
 
 ::: note-box
-Seuraavissa harjoituksissa oletetaan, että tunnet Python-kielen perusteet.
-Tarvittaessa voit kerrata Pythonia [täällä](00_harjoitus_0.html).
+In the following exercises it is assumed that you're familiar
+with the basics of Python. If necessary you can go through
+the Python refresher [here](00_harjoitus_0.html).
 :::
 
-Yksinkertaisin tapa käyttää Python-rajapintaa QGISissä on Python-konsolin kautta.
-Konsolin avulla voidaan syöttää ja ajaa yksittäisiä komentoja tai pidempiä skriptejä.
-Windowsilla QGIS-asennukseen sisältyy erillinen Python-tulkki, jonka versio on 3.12.
-Lisäksi asennukseen sisältyy joitain Python-paketteja standardikirjaston lisäksi.
-Asennukseen kuuluu myös QGIS- ja gdal/ogr-kirjastot, jotka mahdollistavat eri
-komponenttien hyödyntämisen konsolissa ja lisäosissa. Näiden lisäksi asennukseen
-kuuluu myös PyQt-kirjasto, eli Qt-käyttöliittymäkirjaston Python-sidonta (binding),
-joka mahdollistaa graafisen käyttöliittymän luomisen lisäosille.
+The simplest way to use the Python API in QGIS is through the
+Python console, into which you can enter and run single commands
+or longer script. On Windows a separate Python interpreter is
+included with the installation in addition to some Python packages.
+These include the QGIS python package (PyQGIS) and the gdal/ogr
+library. In addition to these PyQt is included which is the Python
+binding for the Qt library which can be used to create a graphical
+user interface (GUI) for plugins.
 
 ::: hint-box
-Python toimii käyttöjärjestelmien välillä hieman eri tavalla. Windows- ja
-MacOS-käyttöjärjestelmissä QGIS-asennukseen kuuluu oma Python-tulkki, kun
-taas Linux-pohjaisilla käyttöjärjestelmillä QGIS käyttää järjestelmän Python-tulkkia.
+Python is integrated slightly differently between operating systems.
+On Window and MacOS a Python interpreter is included in the QGIS
+installation while on Linux-based systems QGIS uses the system-wide
+Python interpreter.
 :::
 
-Python-konsoliin pääsee usealla tavalla (kts. alla oleva kuva): 
+You can access the Python console in a few different ways:
 
-- Sen voi avata QGISin ylävalikosta Lisäosat > Python-konsoli (Plugins > Python Console),
-- Pikanäppäinyhdistelmällä Ctrl + Alt + P,
-- Klikkaamalla työkalupalkista Python-logon kohdalta
+- Through the top menu: Plugins > Python Console
+- With a hot key: Ctrl + Alt + P
+- By clicking the Python logo in the toolbar
 
 ![](img/harjoitus_1/image1.png)
 
