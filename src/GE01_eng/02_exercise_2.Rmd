@@ -138,7 +138,7 @@ print(data_source)
 ```
 :::
 
-Tulos:
+Output:
 
 ```
 type=xyz&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0
@@ -147,18 +147,18 @@ type=xyz&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&
 
 ## Exercise 2.2
 
-Kirjoita skripti, joka käy läpi kaikki projektiin lisätyt tasot
-ja tulostaa **vain** vektoritasojen kenttien nimet.
+Write a script that goes through all the **vector** layers added to the
+project and prints the name of every field in the layer.
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
 ```python
-layers = [layer for layer in QgsProject.instance().mapLayer().values() <ehtolause>] # miten tarkistat onko kyseessä vektoritaso?
+layers = [layer for layer in QgsProject.instance().mapLayer().values() <condition>] # how to check if the layer is a vector layer?
 
 for layer in layers:
-    fields = <funktio> # miten saat QgsFields-olion tasosta?
+    fields = <funktio> # how to get the QgsFields object from the layer?
 
     for field in fields:
         <tulosta nimi>
@@ -187,26 +187,25 @@ for layer in layers:
 
 ## Exercise 2.3
 
-Kirjoita skripti, joka tulostaa kaikkien Etelä-Amerikan
-alueiden nimet **NaturalEarth**-tasolta. Valitse maanosa
-`CONTINENT`-sarakkeen perusteella. Tason oletusnimi
-QGISiin lisätessä on "NaturalEarth_10m_admin_0_countries — admin_0_countries".
+Write a script that prints out the name of every country
+in the continent of Soutch America from the NaturalEarth countries layer.
+Use the `CONTINENT` field to filter.
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
 
 ::: hidden-box
 ::: code-box
 ```python
-# Hae taso esim. nimen perusteella
+# get the layer, you can use its name
 layers = <funktio>
 
 layer = layers[0]
 
 for feature in layer.getFeatures():
-    # Millä metodilla haet kohteen ominaisuustiedon?
-    # Vertaa merkkijonoon
+    # What method to use to get the attribute?
+    # Compare to a string
     if <funktio> == "South America":
-        print(<kohteen nimi>)
+        print(<name of the country>)
 ```
 :::
 :::
