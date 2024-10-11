@@ -20,10 +20,10 @@ by many other classes which are specialized for some specific
 purpose. For example a **QPushButton** inherits QWidget and is a
 clickable button in a GUI.
 
-Some widgets work as containers and you can add so called child
-widgets to them. These can be set to different layout, for example
+Some widgets work as containers and you can add _child widgets_
+to them. These can be set to different layouts, for example
 organized horizontally, vertically or in a grid. This lets you
-design how the GUI is organized.
+organize the GUI.
 
 By inheriting the QWidget class you can also write your own widgets
 for some specialized purpose. QGIS has used this feature of Qt
@@ -112,7 +112,7 @@ and QPushButton. A QLabel is a text component. The Counter
 widget has value that you can increment by clicking the
 button. This value starts at 0 and is shown in the QLabel.
 
-![](img/exercise4/image1.gif)
+![](img/exercise_4/image1.gif)
 
 You can use this as a base:
 
@@ -251,7 +251,7 @@ However it does not return a QgsGeometry object directly.
 Find out what it returns and how you can create a geometry
 object from it.
 
-![](img/exercise4/image2.gif)
+![](img/exercise_4/image2.gif)
 
 You can use this as a base:
 

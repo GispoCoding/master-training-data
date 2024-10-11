@@ -5,10 +5,10 @@
 **Goal:** To become familiar with the Python console and
 writing and running scripts in the script editor.
 
-::: note-box
+::: hint-box
 In the following exercises it is assumed that you're familiar
 with the basics of Python. If necessary you can go through
-the Python refresher [here](00_exercise0.html).
+the Python refresher [here](00_exercise_0.html).
 :::
 
 The simplest way to use the Python API in QGIS is through the

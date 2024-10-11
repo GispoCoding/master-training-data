@@ -158,10 +158,10 @@ project and prints the name of every field in the layer.
 layers = [layer for layer in QgsProject.instance().mapLayer().values() <condition>] # how to check if the layer is a vector layer?
 
 for layer in layers:
-    fields = <funktio> # how to get the QgsFields object from the layer?
+    fields = <function> # how to get the QgsFields object from the layer?
 
     for field in fields:
-        <tulosta nimi>
+        <print the name>
 ```
 :::
 :::
@@ -188,7 +188,7 @@ for layer in layers:
 ## Exercise 2.3
 
 Write a script that prints out the name of every country
-in the continent of Soutch America from the NaturalEarth countries layer.
+in the continent of South America from the NaturalEarth countries layer.
 Use the `CONTINENT` field to filter.
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
@@ -204,7 +204,7 @@ layer = layers[0]
 for feature in layer.getFeatures():
     # What method to use to get the attribute?
     # Compare to a string
-    if <funktio> == "South America":
+    if <function> == "South America":
         print(<name of the country>)
 ```
 :::

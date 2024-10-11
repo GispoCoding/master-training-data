@@ -96,7 +96,7 @@ Defining a variable:
 
 ::: code-box
 ```python
-muuttuja = <value>
+variable = <value>
 ```
 :::
 
@@ -222,7 +222,7 @@ of the program according to some condition. Often we compare some
 values as a condition. Here is a list of comparison operators in
 Python,
 
-| Operaattori | Selite |
+| Operator | Explanation |
 |-|-|
 | == | Equal to |
 | != | Not equal to |

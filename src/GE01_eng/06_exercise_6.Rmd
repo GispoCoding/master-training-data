@@ -104,7 +104,7 @@ from testplugin.qgis_plugin_tools.tools.i18n import setup_translation, tr # add 
 ```
 :::
 
-::: note-box
+::: hint-box
 `tr()` is a function that translates string depending on the language that is
 selected. If you want to translate your plugin for different localities you
 should use the function for every string that is visible to the user one way
@@ -125,7 +125,7 @@ Next find the `initGui()` function inside the Plugin class. Edit the `self.add_c
 ```
 :::
 
-::: note-box
+::: hint-box
 Here you are defining QAction widgets which will me added to the QGIS
 plugin menu. In the plugin template a menu is added to the QGIS
 **Plugins** top menu. Here you define the buttons which are
@@ -285,7 +285,7 @@ Here the required information is fetched from the widgets and the
 `create_buffer_layer` method is called from the **BufferTool**
 class.
 
-::: note-box
+::: hint-box
 Organizing the coude to different classes into the separate **ui** and
 **core** folders may seem unnecessarily complex for a fairly simple
 plugin. However keeping the GUI and core functionalities separate has
@@ -413,7 +413,7 @@ or an object. Using these you can for example define a QGIS layer which
 can then be used in more than one test. The fixtures are defined in the
 `test-plugin/tests/conftest.py` file.
 
-::: note-box
+::: hint-box
 There is a common programming practice called _test-driven development_
 where you define a test first and implement the actual feature after
 that. In this course we write the functionalities first and tests later.
@@ -645,8 +645,8 @@ containing the same functionalities from the following links:
 [test-plugin/tests/test_buffer_tool.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/test_buffer_tool.py)                 \
 [test-plugin/testplugin/resources/ui/buffer_tool.ui](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/resources/ui/buffer_tool.ui)      \
 
-::: note-box
+::: hint-box
 The name of the sample plugin package is `sampleplugin`.
-This has to be changed in any import command that
+This has to be changed in every import command that
 references the package.
 :::

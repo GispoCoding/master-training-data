@@ -224,10 +224,10 @@ class ExampleProcessingAlgorithm(QgsProcessingAlgorithm):
 
 ### Calling a processing algorithm
 
-If you widh to call a processing algorithm using Python
+If you want to call a processing algorithm using Python
 from the console, script, plugin or another
 processing algorithm you can use the following code.
-`qgis.processing` has to bee imported. Note that
+`qgis.processing` has to be imported. Note that
 the parameters of the algorithm are given as a dictionary
 and the keys are the values of the constant variables
 defined in the algorithm.
