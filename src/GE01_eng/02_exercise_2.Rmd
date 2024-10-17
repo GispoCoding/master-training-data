@@ -1,0 +1,227 @@
+# Exercise 2: Introduction to PyQGIS
+
+**Contents:** Basics of using the QGIS Python package (PyQGIS).
+
+**Goal:** The trainee understands the basics of PyQGIS.
+
+Inside the QGIS Python console there is an already initialized
+object called `iface` which is of type `QgisInterface`.
+This object enables us to interact with the different components
+of the currently running QGIS process, for example you can manipulate
+QGIS layers or the main map canvas.
+
+## Layers
+
+Add the `NaturalEarth_10m_admin_0_countries.gpkg` file to QGIS.
+In the layer panel click on the layer to activate it.
+
+Accessing the active layer in PyQGIS:
+
+::: code-box
+```python
+layer = iface.activeLayer()
+print(layer)
+```
+:::
+
+You can get the number of features in the layer:
+
+::: code-box
+```python
+layer = iface.activeLayer()
+feature_count = layer.featureCount()
+
+print(feature_count)
+```
+:::
+
+You can iterate over the features and print their attributes:
+
+::: code-box
+```python
+layer = iface.activeLayer()
+
+for feature in layer.getFeatures():
+    attribute = feature.attribute('NAME_EN')
+
+    print(attribute)
+```
+:::
+
+Add another layer through the browser panel, add the
+**OpenStreetMap** layer from under the **XYZ Tiles**
+menu.
+
+You can list all layers in the project:
+
+::: code-box
+```python
+layers = QgsProject.instance().mapLayers()
+
+# Check the type of the layers variable
+print(type(layers))
+```
+:::
+
+The `mapLayers()` method returns a Python dictionary,
+which has a unique identifier as the key and the
+value is the actual layer object (QgsMapLayer).
+
+::: hint-box
+In this example we have one vector and raster layer each.
+The types of these objects are QgsVectorLayer and QgsRasterLayer.
+Note that both of these classes inherit the
+[QgsMapLayer](https://qgis.org/pyqgis/master/core/QgsMapLayer.html) class,
+which means they have some methods in common.
+:::
+
+You can iterate through layers:
+
+::: code-box
+```python
+# You can use list comprehension
+# see section 1 in the Python extra
+# exercises
+
+# In this case the layer's ID is not
+# necessary so we can retrieve the
+# layer objects directly
+layers = [layer for layer in QgsProject.instance().mapLayers().values()]
+
+for layer in layers:
+    print(f"name: {layer.name()}")
+```
+:::
+
+You can choose a layer based on its name:
+
+::: code-box
+```python
+layers = QgsProject.instance().mapLayersByName('OpenStreetMap')
+
+# the mapLayersByName() method returns
+# a list because you can have more than
+# one layer with the same name
+
+layer = layers[0]
+
+print(layer.name())
+```
+:::
+
+
+::: hint-box
+The `QgsProject` class implements the _singleton_ pattern, which
+means that there can only exist one object of its type. This
+object can be retrieved using the `instance()` method of
+the `QgsProject` class which always returns the same object.
+The method is static which means you have global access to the
+object.
+:::
+
+## Exercise 2.1
+
+Find out the data source of the `OpenStreetMap` layer. Go through
+the [PyQGIS documentation](https://qgis.org/pyqgis/latest/)
+if needed.
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = QgsProject.instance().mapLayersByName('OpenStreetMap')
+layer = layers[0]
+
+data_source = layer.source()
+print(data_source)
+```
+:::
+
+Output:
+
+```
+type=xyz&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&zmin=0
+```
+:::
+
+## Exercise 2.2
+
+Write a script that goes through all the **vector** layers added to the
+project and prints the name of every field in the layer.
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = [layer for layer in QgsProject.instance().mapLayer().values() <condition>] # how to check if the layer is a vector layer?
+
+for layer in layers:
+    fields = <function> # how to get the QgsFields object from the layer?
+
+    for field in fields:
+        <print the name>
+```
+:::
+:::
+
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = [layer for layer in QgsProject.instance().mapLayers().values() if layer.type() == QgsMapLayer.VectorLayer]
+
+for layer in layers:
+    fields = layer.fields()
+    
+    print(f"layer '{layer.name()}' fields:")
+    
+    for field in fields:
+        print(field.name())
+```
+:::
+:::
+
+## Exercise 2.3
+
+Write a script that prints out the name of every country
+in the continent of South America from the NaturalEarth countries layer.
+Use the `CONTINENT` field to filter.
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+```python
+# get the layer, you can use its name
+layers = <funktio>
+
+layer = layers[0]
+
+for feature in layer.getFeatures():
+    # What method to use to get the attribute?
+    # Compare to a string
+    if <function> == "South America":
+        print(<name of the country>)
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+
+layer = layers[0]
+
+for feature in layer.getFeatures():
+    if feature.attribute("CONTINENT") == "South America":
+        print(feature.attribute("SOVEREIGNT"))
+```
+:::
+:::
