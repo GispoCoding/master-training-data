@@ -6,7 +6,7 @@
 
 ## About Qt GUIs
 
-The QGIS user interface is create using Qt, which is a collection
+The QGIS user interface is created using Qt, which is a collection
 of libraries written in C++. It is likely most well-known for its
 graphical user interface (GUI) library. Qt has several bindings
 for different programming languages, such as Python.
@@ -67,14 +67,14 @@ Another central idea in the Qt library are **signals** and **slots**. These enab
 you to define the interactivity of the GUI, so that when clicking a QPushButton
 a pre-defined action takes place.
 
-When you interact with widgets, the _emit_ different **signalds** which can be
+When you interact with widgets, they _emit_ different **signals** which can be
 connected to a **slot** in the same or any other widget. The base Qt Widgets
 already have many defined signals and slots, which you can utilize by creating
 **connections** between the signals and slots. You can also define your own
-signals and slot.
+signals and slots.
 
-In PyQt a signal is an object of type **Signal** wheras a slot is a function
-that can be connected to a signals. You can then **emit** the signal wherever
+In PyQt a signal is an object of type **Signal** whereas a slot is a function
+that can be connected to a signal. You can then **emit** the signal wherever
 you want.
 
 Here's an example of creating a connection, using the previous example as a base:
@@ -240,8 +240,8 @@ from the extent of the selected layer.
 
 Also save a fid identifier and as another attribute the
 name of the layer from which the extent was calculated.
-Create the new polygon layer with the CRS EPSG:4326 and
-if needed transform the extent calculated from the source
+Create the new polygon layer with the CRS EPSG:4326 and,
+if needed, transform the extent calculated from the source
 layer to the same EPSG:4326 CRS. Use the **QgsMapLayerComboBox**
 widget for selecting the layers.
 

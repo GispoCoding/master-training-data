@@ -186,7 +186,7 @@ panel to the left side of the QGIS window.
 ## Exercise 7.2: Point Tool
 
 Next implement the functionality that was previously defined.
-If you need help you can as the trainer or look at the
+If you need help you can ask the trainer or look at the
 sample plugin:
 
 [test-plugin/testplugin/plugin.py](https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2/sampleplugin/plugin.py)                                                 \
@@ -197,9 +197,9 @@ sample plugin:
 
 ### Exercise 7.2.1: Extra challenge - labeling
 
-When the tool creates a new layer add a style to it which
-includes a label that shows the x and y coordinates of the
-point on the map:
+When the tool creates a new layer, add a style to it. The
+style should include a label that shows the x and y
+coordinates of the point on the map:
 
 ![](img/exercise_7/image5.png)
 
@@ -211,7 +211,7 @@ Write two tests:
 * `test_create_new_point_layer()`
 * `test_add_point_to_layer()`
 
-In the first test a point is create without a selected point layer
+In the first test a point is created without a selected point layer
 in which case the tool should create a new point layer. In the
 other one points are added to an existing layer.
 

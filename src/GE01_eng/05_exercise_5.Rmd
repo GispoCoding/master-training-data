@@ -23,7 +23,7 @@ set Path=%Path%;"C:\Program Files\Git\cmd"
 ```
 :::
 
-2. Configure your user name and email
+2. Configure your username and email
 
 ::: commandline-box
 ```bash
@@ -98,11 +98,11 @@ cookiecutter https://github.com/GispoCoding/cookiecutter-qgis-plugin.git
 ```
 :::
 
-* You can use the default settings **expect for**:
+* You can use the default settings **except for**:
 	* `Select a name for your plugin`: Test Plugin
 	* `Include processing algorithm in your plugin?`: y
 
-5. Deactivate the cookiecutter virtual environment and navigate the the plugin folder:
+5. Deactivate the cookiecutter virtual environment and navigate the plugin folder:
 
 ::: commandline-box
 ```bash
@@ -111,8 +111,8 @@ cd test-plugin
 ```
 :::
 
-6. Run the Python script which is already inside the folder which creates a new
-virtual environment suitable for plugin development.
+6. The folder already contains a Python script which creates a new
+virtual environment suitable for plugin development. Run the script.
 
 ::: commandline-box
 ```bash
@@ -121,7 +121,7 @@ python create_qgis_venv.py
 :::
 
 ::: hint-box
-If your computer has many QGIS installation the script might ask which one of
+If your computer has many QGIS installations the script might ask which one of
 them to use. Preferably choose the latest LTR version.
 :::
 
@@ -150,7 +150,7 @@ pip install pip-tools
 :::
 
 10. Use the pip-compile tool to compile a list
-of neede Python packages to a text file:
+of the needed Python packages to a text file:
 
 ::: commandline-box
 ```bash
@@ -168,7 +168,7 @@ pip install -r requirements-dev.txt
 :::
 
 12. After running the command it's good to confirm that the installation was
-successfull. You can use the `pip freeze` command and you should see
+successful. You can use the `pip freeze` command and you should see
 for example `pytest` and `pytest-qgis` in the listed packages.
 
 13. After this you can open Visual Studio Code. Open the `test-plugin.code-workspace`
@@ -181,13 +181,13 @@ from the **Help** menu **Show All Commands** and type to search
 ![](img/exercise_5/image3.png)
 
 15. When you close and reopen VS Code the development environment should be
-fully set up. You can confirm this by opening the `plygin.py` file inside
+fully set up. You can confirm this by opening the `plugin.py` file inside
 the `testplugin` folder. The import commands on the top of the file
 should not have any error messages.
 
 ![](img/exercise_5/image4.png)
 
-16. The project includes on test by default which you can check by opening
+16. The project includes one test by default which you can check by opening
 the panel from the left and running the tests.
 
 ![](img/exercise_5/image5.png)
@@ -222,8 +222,8 @@ Here's a simplified overview of the plugin folder structure.
 📦test-plugin
  ┣ 📂.git
  ┣ 📂testplugin
- | ┣ 📂qgis_plugin_tools
- | ┣ 📂resources
+ ┃ ┣ 📂qgis_plugin_tools
+ ┃ ┣ 📂resources
  ┃ ┣ 📜metadata.txt
  ┃ ┣ 📜plugin.py
  ┃ ┗ 📜__init__.py
