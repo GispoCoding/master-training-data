@@ -54,8 +54,7 @@ order than in a normal for loop:
 ```
 :::
 
-If you have to include a condition in the comprehension, they are included at the end.
-Jos koosteeseen halutaan asettaa ehtoja, ne laitetaan koosteen loppuun. 
+If you need to include conditions in the comprehension, they are included at the end. 
 
 ::: code-box
 ```python
@@ -80,7 +79,7 @@ The same syntax works with sets, only difference is having to use curly brackets
 ```
 :::
 
-With tuples you first have to create a list and create a tuple from it.
+With tuples you first have to create a list and then create a tuple from it.
 
 ::: code-box
 ```python
@@ -88,7 +87,7 @@ tuple([str(i) for i in range(11)])
 ```
 :::
 
-When using ellipses a generator is created. It evaluates only one element at a time using
+When using parentheses a generator is created. It evaluates only one element at a time using
 the `next` function.
 
 ::: code-box
@@ -112,7 +111,7 @@ You can also create a dictionary:
 
 ### Extra exercise 1.1
 
-Write a list compregension `chose_number` which gets integers 0-20 changed to string so that numbers 9-18 are
+Write a list comprehension `chose_number` which gets integers 0-20 changed to string so that numbers 9-18 are
 excluded.
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
@@ -169,9 +168,9 @@ You can have an arbitrary number of comprehensions:
 ```
 :::
 
-## Topic 2: Lambda function
+## Topic 2: Lambda functions
 
-In Python you can define one-line lambda functions with the following syntax:
+In Python you can define "anonymous" one-line lambda functions with the following syntax:
 
 ::: code-box
 ```python
@@ -326,7 +325,7 @@ heavy_function2()
 
 ### Extra exercises 3.1
 
-Create your own decorator funciont `timeit` which measures how much
+Create your own decorator function `timeit` which measures how much
 time executing the function takes and prints the result. Use the
 [`time`](https://docs.python.org/3/library/time.html) module.
 
@@ -493,7 +492,7 @@ tester(1)
 Inspect the
 [`functools.wraps`](https://docs.python.org/3/library/functools.html?highlight=wraps#functools.wraps)
 decorator in Python. It allows saving the metadata of a
-decorated functino such as the docstring. Use the
+decorated function such as the docstring. Use the
 decorator with the `printer` decorator below:
 
 ::: code-box

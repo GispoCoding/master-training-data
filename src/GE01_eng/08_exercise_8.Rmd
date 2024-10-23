@@ -6,13 +6,13 @@ The purpose of this exercise is to become familiar with writing
 processing algorithms.
 
 You can write processing algorithms which are independent and
-written to their owen `.py` file and added to the QGIS processing
+written to their own `.py` file and added to the QGIS processing
 panel. However an algorithm can also be included in a plugin, which
 has a few benefits. In this case a _provider_ is defined for the
 algorithm which allows for clearer organization of different
 algorithms.
 
-Multiple algorithms can be included in one plugin which allows
+Multiple algorithms can be included in one plugin which makes
 distributing algorithms easier. Different providers can be seen
 in the QGIS GUI:
 
@@ -485,7 +485,7 @@ class ProcessingAlgorithm(QgsProcessingAlgorithm):
 :::
 :::
 
-It has mostly the same structure than the example before.
+It has mostly the same structure as the example before.
 
 _provider.py:_
 
@@ -610,8 +610,8 @@ _Processing:_
 layer to the point chosen by the user.
 * If the point chosen by the user differs from the source layer CRS
 it is transformed into the correct CRS.
-* To the source layer a new field "distance" is added to which the distance
-between the points is added
+* A new field "distance" is added to the source layer. The distance
+between the points is added to this field.
   * All the other fields and values stay the same!
 * Update the progress bar and if needed send messages to the user,
 for example the CRS is transformed

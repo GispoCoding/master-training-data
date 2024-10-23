@@ -15,14 +15,14 @@ Here is a video showing the functionality of the tool:
 ## Exercise 6.1: Creating the GUI
 
 As learned previously you can create GUIs programmatically
-using PyQt. However especially creating more complex GUIs
+using PyQt. However, especially creating more complex GUIs
 by writing code can be difficult. Qt offers a solution in the
 form of a separate program called Qt Designer where you can
 design GUIs graphically. You can use it to build your GUI
 and save it as a **.ui** file which can be used as a part of
 the plugin. On Windows Qt Designer is typically included
 as a part of the QGIS installation and can be opened by
-searching its name.
+searching for its name.
 
 First create a minimal GUI and link it up with
 the plugin you created in the previous exercise.
@@ -36,10 +36,10 @@ Next from the top right "Object Inspector" menu change the
 name of the QDialog object to **BufferToolDialog** and edit
 the buttonBox object so that the **OK** button is removed.
 Select the buttonBox object and scroll down in the **Property
-Editor** which is located below from the Object Inspector.
+Editor** which is located below the Object Inspector.
 At the bottom you should see the attributes of the
 QDialogButtonBox class. Here you can open the standardButtons
-menu to edit the different buttons. Double click the OK button
+menu to edit the different buttons. Double-click the OK button
 to exclude it from the GUI.
 
 ![](img/exercise_6/image3.gif)
@@ -126,7 +126,7 @@ Next find the `initGui()` function inside the Plugin class. Edit the `self.add_c
 :::
 
 ::: hint-box
-Here you are defining QAction widgets which will me added to the QGIS
+Here you are defining QAction widgets which will be added to the QGIS
 plugin menu. In the plugin template a menu is added to the QGIS
 **Plugins** top menu. Here you define the buttons which are
 added to a secondary menu which is named after the plugin.
@@ -135,7 +135,7 @@ added to a secondary menu which is named after the plugin.
 
 In order the meaning of the arguments:
 
-1. Path to a icon file. If empty the button will have no icon.
+1. Path to an icon file. If empty the button will have no icon.
 2. The text of the button.
 3. Callback, i.e. the function that will be called when the button is clicked.
 4. Parent. Add to the QGIS main window
@@ -144,7 +144,7 @@ In order the meaning of the arguments:
 
 Then you can define the `open_buffer_tool()` function which was
 referred to previously. Find the `run()` method at the end of
-the Plugin class definition and delete it and copy this new
+the Plugin class definition, delete it and copy this new
 function over:
 
 ::: code-box
@@ -181,7 +181,7 @@ You can follow the following step:
 
 ![](img/exercise_6/image5.gif)
 
-4. Double click the label widget and write **Layer** as its text.
+4. Double-click the label widget and write **Layer** as its text.
 5. Change the name of the QgsMapLayerComboBox object to `layerComboBox`.
 6. If you prefer you can also rename the QLabel object.
 
@@ -206,7 +206,7 @@ functionality of the GUI is defined in Python files under the
 `test-plugin/testplugin/ui` folder. The actual buffer functionality
 is defined in `test-plugin/testplugin/core`.
 
-1. Create the core folder and add an emptry `__init__.py` file.
+1. Create the core folder and add an empty `__init__.py` file.
 2. To the same folder add a new file `buffertool.py` and add the following code:
 
 ::: code-box
@@ -254,7 +254,7 @@ Add to the class constructor (`__init__`() method):
 :::
 
 Here a filter is applied to the layerComboBox object which means only
-point, line and polygon layers are shown. A connection is create from the
+point, line and polygon layers are shown. A connection is created from the
 push buttons `clicked` signal to the `_create_buffer_layer` method that
 will be defined next.
 
@@ -286,7 +286,7 @@ Here the required information is fetched from the widgets and the
 class.
 
 ::: hint-box
-Organizing the coude to different classes into the separate **ui** and
+Organizing the code to different classes into the separate **ui** and
 **core** folders may seem unnecessarily complex for a fairly simple
 plugin. However keeping the GUI and core functionalities separate has
 its own benefits, for example later when writing tests.
@@ -399,14 +399,14 @@ In programming it is important to write tests and QGIS plugins are
 not an exception. You can use the **pytest** package to create and
 run tests.
 
-To write tests you create new files ins the `test-plugin/tests` folder.
-These files are **.py** files and their name has to begin with `test_`.
-Functions are defined in the file which use the classes and functions
-defined in the plugins. Then you check if you get the expected results
-from these classes and functions. The tests can be executed from the
-command line by running the `pytest` command assuming you're in the
-`test-plugin` folder. However you can also run tests inside VS Code
-like done in a previous exercise.
+To write tests you create new files in the `test-plugin/tests`
+folder. These files are **.py** files and their name has to begin with
+`test_`. In these files we can then create the tests themselves. Each test
+is a function that uses our plugin's classes and functions, and checks
+if the results are as expected. Assuming you're in the `test-plugin`
+folder, the tests can be executed from the command line by running the
+`pytest` command. However you can also run tests inside VS Code like
+done in a previous exercise.
 
 You can also define _fixtures_ which are funtions that return a value
 or an object. Using these you can for example define a QGIS layer which
@@ -550,7 +550,7 @@ def line_layer(fields, line_feature) -> QgsVectorLayer:
 
 ### Exercise 6.5.1: GUI test
 
-Write a simple for the plugin dialog. Create a new file
+Write a simple test for the plugin dialog. Create a new file
 `test-plugin/tests/test_buffer_tool_dialog.py`:
 
 ::: code-box
@@ -570,9 +570,9 @@ def test_dialog_close(dialog):
 ```
 :::
 
-At the end of the we `assert` that an expression
+At the end of the test we `assert` that an expression
 `result == QDialog.Rejected` is `True`. If it is not,
-then test fails.
+then the test fails.
 
 ### Exercise 6.5.2: BufferTool test
 
@@ -617,7 +617,7 @@ Note that a fixture is given as an argument in the test function.
 Pytest handles passing the arguments to the test function
 automatically.
 
-In the test variables are defined with which the BufferTool
+In the test we create variables with which the BufferTool
 method is called. When writing tests involving geometries
 the WKT format works well since you can't see the geometries
 visually.

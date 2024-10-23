@@ -17,7 +17,7 @@ The exercise could be technically be done with any text
 editor and Python interpreter, but it's recommended to
 use the QGIS Python console and the script editor which
 is included in the console. This way you can already
-become familiary with the tools that'll be used throughout
+become familiar with the tools that'll be used throughout
 the course.
 
 You can read the instructions from [**exercise 1**](01_exercise_1.html)
@@ -51,7 +51,7 @@ QGIS!
 
 In Python lines prepended with the `#` symbol
 do not affect the execution of the program.
-These lines are called _comments_ and they can
+These lines are called _comments_, and they can
 be used to explain the behavior of the program
 to yourself or to others. The comment can also
 be included at the end of a line.
@@ -220,7 +220,7 @@ print("GIS" / 2)
 In programming it's typical that we want to control the execution
 of the program according to some condition. Often we compare some
 values as a condition. Here is a list of comparison operators in
-Python,
+Python:
 
 | Operator | Explanation |
 |-|-|
@@ -233,11 +233,11 @@ Python,
 
 \
 
-Here is a sample program which compares the value of variable `a`
+Here is a sample program that compares the value of variable `a`
 to different strings. If the strings are equal the indented code
 block will be executed. Note that the condition after the `elif`
 keyword will be checked only if the prior condition after the `if`
-keyword is not met If neither the `if` or `elif` conditions are
+keyword is not met. If both the `if` and `elif` conditions are
 not met, the code block after the `else` keyword is executed.
 The final print command is executed in every case.
 
@@ -379,8 +379,8 @@ in various ways.
 #### List
 
 A list is a collection of data and it can be initialized with
-brackets `[]` where its items are delimited with commas `,`.
-braves
+brackets `[]`. The items of the list are included within these
+brackets, delimited with commas `,`.
 As an example here is a list that has items 1, 2 and 3.
 
 ::: code-box
@@ -512,7 +512,7 @@ Output:
 #### Tuple
 
 A tuple is similar to a list, but it is initialized with parentheses
-`()` and it is _immutable_ i.e. it or its items can't be edited
+`()` and it is _immutable_. Immutability means that it or its items can't be edited
 in any way.
 
 ::: code-box
@@ -561,7 +561,8 @@ Output:
 #### while loop
 
 A loop lets you repeat the same commands many times. In a `while` loop the
-code block is repeated until the condition of the loop is met.
+code block keeps repeating for as long as the condition of the loop is met,
+i.e. the condition evaluates to `True`.
 
 The syntax for a while loop is:
 
@@ -634,7 +635,7 @@ Output:
 
 #### for loop
 
-In Python a for loop the iterations are based on a data structure.
+In a for loop the iterations are based on a data structure.
 The loop goes through each item in a data structure one by one and
 ends once all the items have been iterated over.
 
@@ -647,8 +648,8 @@ for <variable> in <data>:
 ```
 :::
 
-The value of `<variable` is dependant on the data structure.
-In a list it has the value of item the loop is currently
+The value of `<variable` is dependent on the data structure.
+In a list it has the value of the item the loop is currently
 iterating over:
 
 ::: code-box
@@ -748,9 +749,10 @@ a cat is not a number!
 
 ### Modules
 
-In Python a module is any `.py` file. It contains Python code
-and their benefit is that you can use them in other modules
-allowing you to reuse code.
+In Python a module is any `.py` file, i.e a file containing Python
+code. An important benefit of modules is that they allow for using
+code from a given module in some other module, allowing you to reuse
+code.
 
 To use a module you have to use the `import` command. In the
 example below the built-in `math` module is imported and
@@ -795,17 +797,17 @@ numbers, strings and lists are objects of different types.
 
 #### Methods and attributes
 
-An object consists of data and different functionalities.
-For example a string has in addition to the sequence
-of characters different _methods_, which are function associated
-with the object's type. Data associated with
-the object is called an attribute. The methods and attributes
-are tied to the object's type. The methods of an integer
-object are different from a string object.
+An object consists of data and different functionalities. For
+example a string has, in addition to the sequence of characters it
+represents, different functionalities that are specifically tied to
+the `str` type. A piece of data associated with an object is called
+an attribute. Both the methods and attributes are tied to the object's
+type: For example, the methods of an integer object are different from
+a string object.
 
-As opposed to regular functions they must be called through
-an object. Same applies to attributes, unlike a regular
-variable it must be accessed through the object:
+Methods differ from functions in that they must be called through an
+object. This also applies to attributes: unlike regular variables they
+must be accessed through an object:
 
 ::: code-box
 ```python
@@ -865,16 +867,16 @@ Output:
 
 #### Constructors
 
-So far the creation of new objects hasn't given much attention.
+So far the creation of new objects hasn't been given much attention.
 Many built-in types in Python have a specific syntax with which
-the object is create, for example with lists the braces `[]` and
-with string double or single quotes `""` `''`.
+the object is created, for example with lists the brackets `[]` and
+with strings double or single quotes `""` `''`.
 
 However these examples are exceptions and not all objects have
 a built-in syntax for creating them. By default an object
 is created through its _constructor_ which is a special
 method for creating the object. As opposed to other methods
-it can be called separate from the object, since the object
+it is called separate from the object, since the object
 doesn't exist yet.
 
 For example this is how you create a `date` object:
@@ -914,7 +916,7 @@ Creating classes is therefore a way to create your own types.
 You can use the `class` keyword to create one. Typically you define
 a constructor for the class which is defined as a method called
 `__init__`. This method will be called implicitly when you
-construct a new object of the class and does't have to be
+construct a new object of the class. It doesn't have to be
 explicitly called.
 
 Other methods are also defined indented in the `class` code block.
@@ -948,7 +950,7 @@ my_object.method("c")
 ```
 :::
 
-Tulostaa:
+Output:
 ```
 <class '__console__.MyClass'>
 1
@@ -1004,10 +1006,10 @@ Below is a more advanced example where several classes are used
 to model a transaction in a store. Three classes are defined:
 `Item` which has _name_ and _price_ attributes, `Customer`
 which has _money_ and _items_ attributes and a method for
-paying and the `Counter` which has a _money_ attribute and
+paying, and the `Counter` which has a _money_ attribute and
 a method for charging the customer. In addition the `Customer`
 and `Counter` classes have a `show_info` method that prints
-our relevant information to demonstrate how the program
+out relevant information to demonstrate how the program
 works.
 
 ::: code-box

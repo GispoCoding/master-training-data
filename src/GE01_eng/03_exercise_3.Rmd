@@ -175,13 +175,13 @@ print(polygon_geom.asWkt())
 :::
 
 A geometry object contains the coordinates of the
-vertexes. It does not contain infromation about the
+vertexes. It does not contain information about the
 coordinate reference system (CRS) of those coordinates,
 but instead the layer object has that information.
 There is however a subclass of QgsGeometry called
 QgsReferencedGeometry, which also has the CRS information.
 
-Most of the time **QgsGeometry** is used however. If we
+Most of the time **QgsGeometry** is used, however. If we
 want to transform the CRS, we can use the
 **QgsCoordinateTransform** class.
 
@@ -246,9 +246,9 @@ print(new_geom.asWkt())
 ## Exercise 3.1
 
 Write a script that creates a polygon layer with the CRS EPSG:3857.
-Add two fieldsm named "fid" and "area". Add a feature with the
+Add two fields named "fid" and "area". Add a feature with the
 geometry that is included below. Calculate the area of geometry
-and add the result the the "area" field". Finally add the new
+and add the result the "area" field. Finally add the new
 layer to the QGIS project.
 
 Geometry:
@@ -296,7 +296,7 @@ country from its centroid to the centroid of Finland.
 The CRS of the layer is EPSG:4326 whose unit is degrees.
 Experssing distance as degrees is unideal so create a new
 point layer with the CSR ESPG:3857 whose unit is meters.
-The fields of the new layer should include a identifier
+The fields of the new layer should include an identifier
 fid, the distance and the name of the country from which
 the distance was calculated. Transform the centroid from
 the source layer to the correct CRS and set it as the
