@@ -1,0 +1,458 @@
+# Exercise 3: Layers, features and geometries
+
+**Contents:** Creating and editing QGIS layers.
+
+**Goal:** Learn how to process layers using PyQGIS in more detail.
+
+## Layer
+
+In QGIS a **QgsVectorLayer** class contains **features** which are
+of the [**QgsFeature**](https://qgis.org/pyqgis/latest/core/QgsFeature.html)
+type. A feature then (typically) has a geometry which is of the
+[**QgsGeometry**](https://qgis.org/pyqgis/latest/core/QgsGeometry.html)
+type.
+
+Vector layers and features also have a **QgsFields** object, which
+describes the attribute fields the layer has. This type itself
+consists of **QgsField** objects which contain the name
+of the field and its data type etc.
+
+## Creating a temporary layer
+
+You can create a temporary layer like this:
+
+::: code-box
+```python
+new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "New Layer", "memory")
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+
+In this case the layer is empty. Let's create a layer that has
+attribute fields. You can delete the layer that was added
+to the QGIS project in the step prior.
+
+::: code-box
+```python
+new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "New Layer", "memory")
+
+# because we're editing the layer we have to turn
+# editing on
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("name", QVariant.String))
+
+# you also have to save the changes
+new_layer.commitChanges()
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+
+Now the layer has two fields, but zero features. Let's
+add a point feature to the layer.
+
+::: code-box
+```python
+new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "New Layer", "memory")
+
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("name", QVariant.String))
+
+new_feature = QgsFeature(new_layer.fields())
+new_feature.setAttributes([1, "point"]) # note that the argument here is a list
+
+# let's create a geometry for the feature
+# since this is a point layer we can create
+# a QgsPoint object directly
+new_geom = QgsPoint(0, 0)
+new_feature.setGeometry(new_geom)
+
+new_layer.addFeature(new_feature)
+
+new_layer.commitChanges()
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+
+## Geometries
+
+Geometries can be created and manipulated with PyQGIS in many ways.
+QgsGeometry has static methods which can be used to create
+geometries:
+
+Point:
+
+::: code-box
+```python
+point_xy = QgsPointXY(0, 0)
+point_geom = QgsGeometry.fromPointXY(point_xy)
+```
+:::
+
+Line:
+
+::: code-box
+```python
+point_1 = QgsPointXY(0, 0)
+point_2 = QgsPointXY(1, 0)
+
+line_geom = QgsGeometry.fromPolylineXY(
+    [
+        point_1,
+        point_2,
+    ]
+)
+```
+:::
+
+Polygon:
+
+::: code-box
+```python
+point_1 = QgsPointXY(0, 0)
+point_2 = QgsPointXY(1, 0)
+point_3 = QgsPointXY(1, 1)
+point_4 = QgsPointXY(0, 1)
+
+polygon_geom = QgsGeometry.fromPolygonXY(
+    [
+        [
+            point_1,
+            point_2,
+            point_3,
+            point_4,
+        ]
+    ]
+)
+```
+:::
+
+You can create geometries from the
+[WKT (Well-Known Text)](https://libgeos.org/specifications/wkt/)
+format.
+
+::: code-box
+```python
+# point
+point_geom = QgsGeometry.fromWkt('POINT(0 0)')
+
+# line
+line_geom = QgsGeometry.fromWkt('LINESTRING(0 0, 0 1)')
+
+# multipolygon
+multipolygon_geom = QgsGeometry.fromWkt('MULTIPOLYGON(((0 0, 0 1, 1 1, 1 0, 0 0), (2 2, 2 3, 3 3, 3 2, 2 2)))')
+```
+:::
+
+You can also print the geometry as WKT:
+
+::: code-box
+```python
+point_1 = QgsPointXY(0, 0)
+point_2 = QgsPointXY(1, 0)
+point_3 = QgsPointXY(1, 1)
+point_4 = QgsPointXY(0, 1)
+
+polygon_geom = QgsGeometry.fromPolygonXY(
+    [
+        [
+            point_1,
+            point_2,
+            point_3,
+            point_4,
+        ]
+    ]
+)
+
+print(polygon_geom.asWkt())
+```
+:::
+
+A geometry object contains the coordinates of the
+vertexes. It does not contain information about the
+coordinate reference system (CRS) of those coordinates,
+but instead the layer object has that information.
+There is however a subclass of QgsGeometry called
+QgsReferencedGeometry, which also has the CRS information.
+
+Most of the time **QgsGeometry** is used, however. If we
+want to transform the CRS, we can use the
+**QgsCoordinateTransform** class.
+
+::: code-box
+```python
+# create a geometry with the assumption
+# that its CRS is WGS 84 (EPSG:4326)
+
+# transform to Pseudo Mercator (EPSG:3857)
+
+geom = QgsGeometry.fromWkt('POINT(0 0)')
+
+source_crs = QgsCoordinateReferenceSystem(4326)
+target_crs = QgsCoordinateReferenceSystem(3857)
+
+tf = QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())
+
+geom.transform(tf)
+
+print(geom.asWkt())
+```
+:::
+
+We can calculate different attributes of the geometry:
+
+::: code-box
+```python
+line_geom = QgsGeometry.fromWkt('LINESTRING(0 0, 0 1)')
+print(line_geom.length())
+
+polygon_geom = QgsGeometry.fromWkt('POLYGON((0 0, 0 1, 1 1, 1 0, 0 0))')
+print(polygon_geom.area())
+
+# on a polygon geometry the length() method
+# returns the perimeter
+
+print(polygon_geom.length())
+
+point_1 = QgsGeometry.fromWkt('POINT(0 0)')
+point_2 = QgsGeometry.fromWkt('POINT(10 10)')
+
+print(point_1.distance(point_2))
+```
+:::
+
+There are also many methods for manipulating the geometry.
+You can create a new polygon geometry from the intersection
+of two overlapping polygons. This corresponds to the
+Intersection processing tool in QGIS.
+
+::: code-box
+```python
+polygon_1 = QgsGeometry.fromWkt('POLYGON((1 1, 1 2, 2 2, 2 1, 1 1))')
+polygon_2 = QgsGeometry.fromWkt('POLYGON((0 0, 0 1.5, 1.5 1.5, 1.5 0, 0 0))')
+
+new_geom = polygon_1.intersection(polygon_2)
+
+print(new_geom.asWkt())
+```
+:::
+
+## Exercise 3.1
+
+Write a script that creates a polygon layer with the CRS EPSG:3857.
+Add two fields named "fid" and "area". Add a feature with the
+geometry that is included below. Calculate the area of geometry
+and add the result the "area" field. Finally add the new
+layer to the QGIS project.
+
+Geometry:
+
+::: code-box
+POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```python
+new_layer = QgsVectorLayer("Polygon?crs=EPSG:3857", "New Layer", "memory")
+
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("area", QVariant.Double))
+
+new_feature = QgsFeature(new_layer.fields())
+
+new_geom = QgsGeometry.fromWkt("POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))")
+new_feature.setGeometry(new_geom)
+
+area = new_geom.area()
+new_feature.setAttributes([1, area])
+
+new_layer.addFeature(new_feature)
+
+new_layer.commitChanges()
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+:::
+
+## Exercise 3.2: Distances
+
+Add the `NaturalEarth_10m_admin_0_countries.gpkg` file to
+QGIS.
+
+Write a script that calculates the distance between each
+country from its centroid to the centroid of Finland.
+The CRS of the layer is EPSG:4326 whose unit is degrees.
+Experssing distance as degrees is unideal so create a new
+point layer with the CSR ESPG:3857 whose unit is meters.
+The fields of the new layer should include an identifier
+fid, the distance and the name of the country from which
+the distance was calculated. Transform the centroid from
+the source layer to the correct CRS and set it as the
+geometry of the new features.
+
+You can use this as a base for the script:
+
+::: code-box
+```python
+# select the layer by name
+layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layer = layers[0]
+
+# create the new layer
+new_layer = QgsVectorLayer("Point?crs=EPSG:3857", "New Layer", "memory")
+
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("country", QVariant.String))
+new_layer.addAttribute(QgsField("distance", QVariant.Double))
+
+### ... ###
+
+new_layer.commitChanges()
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layer = layers[0]
+
+new_layer = QgsVectorLayer("Point?crs=EPSG:3857", "New Layer", "memory")
+
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("country", QVariant.String))
+new_layer.addAttribute(QgsField("distance", QVariant.Double))
+
+# you can create the QgsCoordinateTransform
+# object here and use it for each feature
+<save the object to a variable>
+
+# use a QGIS expression to find
+# the feature of Finland
+filter_expression = QgsExpression('''"NAME_EN" = 'Finland' ''')
+filtered_features = layer.getFeatures(QgsFeatureRequest(filter_expression))
+
+finland_feature = QgsFeature()
+for feat in filtered_features:
+    finland_feature = feat
+
+if finland_feature.isValid():
+    # if the feature was found
+    # save its centroid and
+    # perform the coordinate
+    # transformation
+    finland_centroid = finland_feature.geometry().centroid()
+    finland_centroid.transform(tf)
+
+    for old_feature in layer.getFeatures():
+        # iterate through the features of
+        # the source layer. Get and save
+        # the needed attributes
+
+        # also get the centroid of the old
+        # feature and calculate the distance
+        # to the finland_centroid
+
+        # if the CRS transformation is done
+        # correctly, the distance is in meters.
+        # Transform meters to kilometers
+        distance = <expression> / 1000
+
+        # create the new feature
+        new_feature = QgsFeature(new_layer.fields())
+        new_feature.setAttributes(
+            [
+                <values>
+            ]
+        )
+        new_feature.setGeometry(<centroid>)
+
+        new_layer.addFeature(new_feature)
+
+    new_layer.commitChanges()
+
+    QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layer = layers[0]
+
+new_layer = QgsVectorLayer("Point?crs=EPSG:3857", "New Layer", "memory")
+
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("country", QVariant.String))
+new_layer.addAttribute(QgsField("distance", QVariant.Double))
+
+source_crs = QgsCoordinateReferenceSystem(4326)
+target_crs = QgsCoordinateReferenceSystem(3857)
+
+tf = QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())
+
+filter_expression = QgsExpression('''"NAME_EN" = 'Finland' ''')
+filtered_features = layer.getFeatures(QgsFeatureRequest(filter_expression))
+
+finland_feature = QgsFeature()
+for feat in filtered_features:
+    finland_feature = feat
+
+if finland_feature.isValid():
+
+    finland_centroid = finland_feature.geometry().centroid()
+    finland_centroid.transform(tf)
+
+    for old_feature in layer.getFeatures():
+        fid = old_feature.attribute("fid")
+        country = old_feature.attribute("NAME_EN")
+        centroid = old_feature.geometry().centroid()
+        centroid.transform(tf)
+
+        distance = centroid.distance(finland_centroid) / 1000
+
+        new_feature = QgsFeature(new_layer.fields())
+        new_feature.setAttributes(
+            [
+                fid,
+                country,
+                distance
+            ]
+        )
+        new_feature.setGeometry(centroid)
+
+        new_layer.addFeature(new_feature)
+
+    new_layer.commitChanges()
+
+    QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+:::
+
