@@ -6,7 +6,7 @@ Harjoituksessa harjoitellaan vektoriaineiston visualisoitia.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii eri aineistotyyppien visualisointitapoja.
+Kouluttautuja oppii eri aineistotyyppien visualisointitapoja.
 
 ## Valmistautuminen
 

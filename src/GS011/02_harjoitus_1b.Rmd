@@ -13,9 +13,9 @@ käyttäen hyväksi sääntöpohjaista visualisointia.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii viivakohteiden visualisointitavat sekä
+Kouluttautuja oppii viivakohteiden visualisointitavat sekä
 ymmärtää, miten luoda sääntöpohjaisia kuvaustekniikoita
-tasoille. Koulutettava oppii myös tieaineistoihin liittyviä
+tasoille. Kouluttautuja oppii myös tieaineistoihin liittyviä
 edistyneempiä kuvaustekniikoita.
 
 ## Valmistautuminen

@@ -6,7 +6,7 @@ Harjoituksessa syvennytään QFieldin edistyneempiin ominaisuuksiin, joita ei vi
 
 ### Harjoituksen tavoite
 
-Koulutettava oppii käyttämään etenkin mobiililaitteen paikannusta mobiilikeruun tehostamiseksi QFieldin kanssa toimiessa.
+Kouluttautuja oppii käyttämään etenkin mobiililaitteen paikannusta mobiilikeruun tehostamiseksi QFieldin kanssa toimiessa.
 
 ### Arvioitu kesto
 

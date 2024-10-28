@@ -6,7 +6,7 @@ Tässä harjoituksessa muokataan projektissa olevien tasojen tietojen syötön l
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii muokkaamaan tiedon syöttötapoja QGISin widgettejä käyttäen, sekä osaa tunnistaa mobiilitiedonkeruussa ja etenkin Mergin Mapsissä tähän liittyvät erityispiirteet.
+Kouluttautuja oppii muokkaamaan tiedon syöttötapoja QGISin widgettejä käyttäen, sekä osaa tunnistaa mobiilitiedonkeruussa ja etenkin Mergin Mapsissä tähän liittyvät erityispiirteet.
 
 **Arvioitu kesto**
 

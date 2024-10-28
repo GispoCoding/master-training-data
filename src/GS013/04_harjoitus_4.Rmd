@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan graafiseen mallintajaan. Mallintajalla laaditaan pros
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii laatimaan monivaiheisen analyysiprosessin graafisen mallintajan avulla ja oppii käyttämään aiemmin ladattuja prosessimalleja.
+Kouluttautuja oppii laatimaan monivaiheisen analyysiprosessin graafisen mallintajan avulla ja oppii käyttämään aiemmin ladattuja prosessimalleja.
 
 **Arvioitu kesto**
 

@@ -6,7 +6,7 @@ Harjoituksessa luodaan QGIS-projektiin relaatio, jonka avulla kerättäviin lint
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii määrittelemään relaatioita tasojen välille QGISin projektin asetuksia käyttäen ja ottamaan tässä huomioon Mergin Mapsin ja mobiilikeruun ominaispiirteet.
+Kouluttautuja oppii määrittelemään relaatioita tasojen välille QGISin projektin asetuksia käyttäen ja ottamaan tässä huomioon Mergin Mapsin ja mobiilikeruun ominaispiirteet.
 
 **Arvioitu kesto**
 

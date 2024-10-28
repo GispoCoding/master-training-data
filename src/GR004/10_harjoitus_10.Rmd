@@ -6,7 +6,7 @@ Harjoituksessa tuodaan CAD-aineistoja QGIS-työtilaan
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii tuomaan sekä viemään CAD-aineistoja QGISissä.
+Kouluttautuja oppii tuomaan sekä viemään CAD-aineistoja QGISissä.
 
 ## Valmistautuminen
 
