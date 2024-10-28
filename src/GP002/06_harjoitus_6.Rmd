@@ -15,7 +15,7 @@ Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä
 ## Aineistojen lisääminen
 
 Tuo kurssihakemistosta tyhjä taso digitointia varten: **.../Harjoitus 6/Espoo.gpkg**. Aineisto näkyy QGISin tasot-paneelissa nimellä Espoo - Alueet.
-Digitointia varten tarvitset pohjakartan, jonka perusteella voit tehdä alueita aiemmin tuotuun GeoPackageen. Voit käyttää digitoinnin pohjana Maanmittauslaitoksen ilmakuvia. Lisää nyt ortoilmakuva **L4131F.jp2-rasteritiedosto** kansiosta **.../Harjoitus 6/L4131F** QGISiin. Muista, että myös rasteriaineistot saat käyttöösi helposti raahaamalla tiedoston karttaikkunaan tai **Tasot-paneeliin**. 
+Digitointia varten tarvitset pohjakartan, jonka perusteella voit tehdä alueita aiemmin tuotuun GeoPackageen. Voit käyttää digitoinnin pohjana Maanmittauslaitoksen ilmakuvia. Lisää nyt ortoilmakuva **L4131F.tif-rasteritiedosto** kansiosta **.../Harjoitus 6** QGISiin. Muista, että myös rasteriaineistot saat käyttöösi helposti raahaamalla tiedoston karttaikkunaan tai **Tasot-paneeliin**. 
 
 ![](img/harjoitus_6/image13.png)
 
