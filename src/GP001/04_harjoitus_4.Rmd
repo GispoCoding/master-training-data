@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan koordinaattijärjestelmien määrittelyyn QGISissä.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen koulutettava osaa määrittää koordinaattijärjestelmän niin kokonaiselle projektille kuin yksittäiselle paikkatietoaineistollekin.
+Harjoituksen jälkeen kouluttautuja osaa määrittää koordinaattijärjestelmän niin kokonaiselle projektille kuin yksittäiselle paikkatietoaineistollekin.
 
 **Arvioitu kesto**
 

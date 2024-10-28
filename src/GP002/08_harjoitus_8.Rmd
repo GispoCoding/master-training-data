@@ -12,7 +12,7 @@ Asennetaan ja tutustutaan QGISin lisäosiin
 
 ## Tavoite
 
-Koulutettava oppii asentamaan QGIS-lisäosia ja ymmärtää niiden toimintaperiaatteet.
+Kouluttautuja oppii asentamaan QGIS-lisäosia ja ymmärtää niiden toimintaperiaatteet.
 
 ## Valmistautuminen
 

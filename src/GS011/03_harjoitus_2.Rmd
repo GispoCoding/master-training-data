@@ -6,7 +6,7 @@ Harjoituksessa lisätään nimiöt tieviivastoon ja pistekohteisiin.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii QGISin nimiöintivalikon käyttämisen sekä Nimiöiden työkalupalkin työkalut. Koulutettavalla on ymmärrys QGISin nimiöiden luomisesta ja muokkaamisesta.
+Kouluttautuja oppii QGISin nimiöintivalikon käyttämisen sekä Nimiöiden työkalupalkin työkalut. Kouluttautujalla on ymmärrys QGISin nimiöiden luomisesta ja muokkaamisesta.
 
 ## Teiden nimiöinti
 

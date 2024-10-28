@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan QGISin mahdollisuuksiin 3D-aineiston visualisoinnissa
 
 **Harjoituksen tavoite**
 
-Koulutettava osaa hyödyntää kolmiulotteista aineistoa visualisoinnissa.
+Kouluttautuja osaa hyödyntää kolmiulotteista aineistoa visualisoinnissa.
 
 **Arvioitu kesto**
 

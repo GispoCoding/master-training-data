@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan QGISin Temporal controller -työkaluun ja temporaalis
 
 **Harjoituksen tavoite**
 
-Koulutettava ymmärtää, millaisesta datasta voi laatia animaatioita, ja hallitsee Temporal controllerin perustoiminnallisuudet.
+Kouluttautuja ymmärtää, millaisesta datasta voi laatia animaatioita, ja hallitsee Temporal controllerin perustoiminnallisuudet.
 
 **Arvioitu kesto**
 

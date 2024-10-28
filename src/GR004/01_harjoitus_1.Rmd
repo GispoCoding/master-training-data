@@ -7,7 +7,7 @@ perustoimintoihin.
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii käyttämään QGISin käyttöliittymää.
+Kouluttautuja oppii käyttämään QGISin käyttöliittymää.
 
 ## Kurssimateriaalien lataus
 

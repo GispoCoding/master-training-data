@@ -6,7 +6,7 @@ Harjoituksessa aktivoidaan Georefereroija-lisäosa ja harjoitellaan georeferoint
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii tuomaan kuvatiedoston QGIS-ohjelmaan ja georeferoimaan sen koordinaatistoon.
+Kouluttautuja oppii tuomaan kuvatiedoston QGIS-ohjelmaan ja georeferoimaan sen koordinaatistoon.
 
 **Arvioitu kesto**
 

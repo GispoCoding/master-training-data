@@ -6,7 +6,7 @@ Harjoituksessa kokeillaan muutamia paikkatietoanalyyseja
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii löytämään paikkatietoanalyysityökaluja
+Kouluttautuja oppii löytämään paikkatietoanalyysityökaluja
 
 ## Valmistautuminen
 

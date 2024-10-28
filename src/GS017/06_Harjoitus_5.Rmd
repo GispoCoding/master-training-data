@@ -6,7 +6,7 @@ Harjoituksessa syvennytään Mergin Mapsin edistyneempiin ominaisuuksiin, joita 
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii käyttämään etenkin mobiililaitteen paikannusta mobiilikeruun tehostamiseksi Mergin Mapsin kanssa toimiessa.
+Kouluttautuja oppii käyttämään etenkin mobiililaitteen paikannusta mobiilikeruun tehostamiseksi Mergin Mapsin kanssa toimiessa.
 
 **Arvioitu kesto**
 

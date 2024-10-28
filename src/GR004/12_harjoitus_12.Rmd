@@ -5,7 +5,7 @@ Harjoituksessa saadaan vanha digitalisoitu paperikartta QGISiin oikein georefero
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii georeferoimaan aineistoja joilla ei ole koordinaattijärjestelmätietoa
+Kouluttautuja oppii georeferoimaan aineistoja joilla ei ole koordinaattijärjestelmätietoa
 
 ## Valmistautuminen
 
