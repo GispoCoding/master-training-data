@@ -16,9 +16,9 @@ Harjoituksen jälkeen kouluttautuja osaa määrittää koordinaattijärjestelmä
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 4**". Lisää projektiin seuraavat aineistot:
 
--   **..kurssihakemisto/4. Harjoitus/TieViiva.gpkg**
+-   **..kurssihakemisto/4. Harjoitus/TieViiva.shp**
 
--   **..kurssihakemisto/4. Harjoitus/ne_10m_populated_places_suomi.gpkg**
+-   **..kurssihakemisto/4. Harjoitus/ne_10m_populated_places_suomi.shp**
 
 ::: hint-box
 **Psst! Paikkatietoaineistolla pitäisi aina olla asetettuna jokin koordinaattijärjestelmä!**
