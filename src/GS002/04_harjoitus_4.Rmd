@@ -14,7 +14,7 @@ Harjoituksen jälkeen opiskelija osaa tarkastaa aineistonsa geometrioita ja tehd
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä \"**QGIS-harjoitus 4**\". Lisää projektiin seuraavat aineistot:
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 4**". Lisää projektiin seuraavat aineistot:
 
 -   **Rakennukset_alueina_GK25.shp**
 
@@ -28,7 +28,7 @@ Aineisto näyttää silmämääräisesti olevan kunnossa, mutta entä sen konelu
 
 ## Tarkista kelpoisuus (Check validity)
 
-Aloitetaan aineiston koneluettavuuden (= aineiston laadun) tarkistus \"kevyimmällä\" tarkistustyökalulla. Valitse QGISin päävalikosta **Vektori \> Geometria-työkalut \> Tarkista kelpoisuus...**, jolloin QGISiin avautuu **Tarkista kelpoisuus -ikkuna**.
+Aloitetaan aineiston koneluettavuuden (= aineiston laadun) tarkistus "kevyimmällä" tarkistustyökalulla. Valitse QGISin päävalikosta **Vektori \> Geometria-työkalut \> Tarkista kelpoisuus...**, jolloin QGISiin avautuu **Tarkista kelpoisuus -ikkuna**.
 
 ![](img/harjoitus_4/image2.png)
 
@@ -44,7 +44,7 @@ Avaa **Virheellinen tulos -tason** attribuuttitaulu ja tarkastele **\_error-sara
 
 ## Topologian tarkastaja (Topology checker)
 
-Seuraava vaihtoehto aineiston laatutarkistukseen on **Topologian tarkastaja -työkalu**. Se on QGISin ns. **ytimeen kuuluva lisäosa**, eli se tulee QGISin mukana, mutta sitä ei ole aina aktivoitu. Mene ylävalikosta **Lisäosat \> Hallitse ja asenna lisäosia...** ja kirjoita hakukenttään **\"Topologian tarkastaja\"**. Klikkaa työkalu aktiiviseksi, jolloin se ilmestyy ylävalikon **Vektori-valikkoon**.
+Seuraava vaihtoehto aineiston laatutarkistukseen on **Topologian tarkastaja -työkalu**. Se on QGISin ns. **ytimeen kuuluva lisäosa**, eli se tulee QGISin mukana, mutta sitä ei ole aina aktivoitu. Mene ylävalikosta **Lisäosat \> Hallitse ja asenna lisäosia...** ja kirjoita hakukenttään **"Topologian tarkastaja"**. Klikkaa työkalu aktiiviseksi, jolloin se ilmestyy ylävalikon **Vektori-valikkoon**.
 
 ![](img/harjoitus_4/image5.png)
 
@@ -68,13 +68,11 @@ Kuten heti huomaat kyseisen työkalun valikosta, **Geometrian tarkistaja -työka
 
 ![](img/harjoitus_4/image12.png)
 
-
 Työkalu ajaa algoritmia hetken, mutta palauttaa sen jälkeen virheilmoitukset havaitsemistaan virheellisistä kohteista. Voit tarkastella yksittäistä virhettä klikkaamalla riviä; kartta zoomautuu oikeaan sijaintiin ja virheellinen kohde korostuu. Virheitä voi korjata yksitellen, mutta myös useamman virheen voi valita ja korjata isomman osion kerralla. Ennen varsinaista virheiden korjausta voit määrittää virheiden ratkaisumenetelmät valitsemalla **Aseta virheen ratkaisut**. Aseta **Duplikaattisolmu-kohtaan** ratkaisuksi **Poista duplikaattsolmu**.
 
 ![](img/harjoitus_4/image13.png)
 
 Korjaa virheet valitsemalla **Korjaa valitut virheet oletusratkaisulla**, jolloin QGIS poistaa duplikaattigeometriat, kuten määrittelimme äsken.
-
 
 ![](img/harjoitus_4/image14.png)
 
@@ -92,7 +90,7 @@ Voit välttää virheellisten geometrioiden muodostumista jo aineistoa digitoide
 
 ![](img/harjoitus_4/image15.png)
 
-Nimestään huolimatta tämä toiminto ei tee korjauksia automaattisesti, mutta huomauttaa virheellisistä geometrioista. 
+Nimestään huolimatta tämä toiminto ei tee korjauksia automaattisesti, mutta huomauttaa virheellisistä geometrioista.
 
 ![](img/harjoitus_4/image16.png)
 
