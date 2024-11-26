@@ -19,7 +19,7 @@ documentclass: book
 
 ## Tervetuloa QGIS-jatkokurssille!
 
-Kurssilla syvennytään QGIS-paikkatieto-ohjelmiston tilastoihin ja analyyseihin. Kurssilla koulutettava oppii mm. tuomaan QGISiin erilaista taulukkomuotoista dataa, hyödyntämään Tilastot-paneelia sekä käyttämään QGISin sisäänrakennettua graafista mallintajaa. Kurssin jälkeen koulutettava osaa hyödyntää ja jatkojalostaa erilaisia taulukkoaineistoja sekä ymmärtää QGISin tilastoihin liittyvien lisäosien toimintaperiaatteet. Kurssillä käydään läpi myös erilaisia vektorianalyysejä. 
+Kurssilla syvennytään QGIS-paikkatieto-ohjelmiston tilastoihin ja analyyseihin. Kurssilla kouluttautuja oppii mm. tuomaan QGISiin erilaista taulukkomuotoista dataa, hyödyntämään Tilastot-paneelia sekä käyttämään QGISin sisäänrakennettua graafista mallintajaa. Kurssin jälkeen kouluttautuja osaa hyödyntää ja jatkojalostaa erilaisia taulukkoaineistoja sekä ymmärtää QGISin tilastoihin liittyvien lisäosien toimintaperiaatteet. Kurssillä käydään läpi myös erilaisia vektorianalyysejä. 
 
 Kurssille osallistuvien tulee tuntea paikkatiedon ja QGIS-paikkatieto-ohjelmiston perusteet. Kurssi sopii etenkin niille, jotka käsittelevät paljon erilaisia tilastoja/taulukkoja ja haluavat automatisoida prosessejaan. 
 
@@ -28,9 +28,14 @@ Kurssille osallistuvien tulee tuntea paikkatiedon ja QGIS-paikkatieto-ohjelmisto
 Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
 
 
+::: note-box
+[Kurssihakemisto.zip](https://drive.google.com/file/d/1b6EWacI6Pq61ZWsBVQP882L_HfEdY5oz/view?usp=sharing)
+:::
+
+Ja kurssin harjoitukset PDF-muodossa tästä linkistä:
 
 ::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/file/d/1ftEkja0V2sXdjeuEc7L1qgrsfnaDnKaj/view?usp=sharing)
+[Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/GS013/GS013.pdf)
 :::
 
 

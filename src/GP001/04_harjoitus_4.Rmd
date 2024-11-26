@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan koordinaattijärjestelmien määrittelyyn QGISissä.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen koulutettava osaa määrittää koordinaattijärjestelmän niin kokonaiselle projektille kuin yksittäiselle paikkatietoaineistollekin.
+Harjoituksen jälkeen kouluttautuja osaa määrittää koordinaattijärjestelmän niin kokonaiselle projektille kuin yksittäiselle paikkatietoaineistollekin.
 
 **Arvioitu kesto**
 
@@ -16,9 +16,9 @@ Harjoituksen jälkeen koulutettava osaa määrittää koordinaattijärjestelmän
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 4**". Lisää projektiin seuraavat aineistot:
 
--   **..kurssihakemisto/4. Harjoitus/TieViiva.shp**
+-   **..kurssihakemisto/4. Harjoitus/TieViiva.gpkg**
 
--   **..kurssihakemisto/4. Harjoitus/ne_10m_populated_places_suomi.shp**
+-   **..kurssihakemisto/4. Harjoitus/ne_10m_populated_places_suomi.gpkg**
 
 ::: hint-box
 **Psst! Paikkatietoaineistolla pitäisi aina olla asetettuna jokin koordinaattijärjestelmä!**

@@ -12,7 +12,7 @@ Harjoituksessa tutustutaan QGISin erilaisiin paikkatietoanalyyseihin.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii käyttämään eri aineistoille tarkoitettuja paikkatietoanalyysejä tarkoituksenmukaisesti.
+Kouluttautuja oppii käyttämään eri aineistoille tarkoitettuja paikkatietoanalyysejä tarkoituksenmukaisesti.
 
 ## Valmistautuminen
 
@@ -80,11 +80,10 @@ Karttaikkunassa aineisto näyttää samalta kuin alkuperäinen aineisto.
 
 Vertaile tasojen (**natura2000sac_alueet** ja **Ristiinleikkaus (intersection)**) ominaisuustietoja.
 Mitä huomaat?
-Voit aktivoida myös **Näytä kohteiden lukumäärä** -toiminnon (paina hiiren oikealla näppäimellä tason nimen päällä Tasoluettelossa) katsoaksesi onko aineiston lukumäärä sama.
+Voit aktivoida myös **Näytä kohteiden lukumäärä** -toiminnon (paina hiiren oikealla näppäimellä tason nimen päällä Tasoluettelossa) katsoaksesi onko aineiston lukumäärä sama. Näet lukumäärän tasoluettelossa tason nimen oikealla puolella.
 
 Analyysin tuloksena ristiinleikatussa aineistossa tulisi olla enemmän kohteita ja ominaisuustietotaulukossa kunnat2024-aineiston sarakkeet lisänä.
 
-![](img/harjoitus_7/image24.gif)
 
 Koska saman kunnan alueella voi olla usempia eri Natura-alueita, seuraavaksi siis yhdistämme eri kuntien alueella olevat alueet **Sulauta**-työkalun avulla.
 Valitse työkalu **Vektori → Geoprosessointi → Sulauta**.

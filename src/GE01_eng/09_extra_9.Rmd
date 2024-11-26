@@ -1,0 +1,640 @@
+# Extra Python exercises
+
+This section contains examples and exercises for more
+advanced Python topics which you can go through
+if needed.
+
+## Topic 1: Comprehensions
+
+Comprehensions are a way to create lists and dictionaries _pythonically_ without for
+or while loops.
+
+Here's an example of a traditional way to create a list of
+numbers 0-10:
+
+
+::: code-box
+```python
+decimal_numbers = []
+for i in range(11):
+    decimal_numbers.append(float(i))
+print(decimal_numbers)
+```
+:::
+
+::: code-box
+```python
+decimal_numbers = []
+i = 0
+while i <= 10:
+    decimal_numbers.append(float(i))
+    i += 1
+
+print(decimal_numbers)
+```
+:::
+
+With a list comprehension you can do the same on one line:
+
+::: code-box
+```python
+[float(i) for i in range(11)]
+```
+:::
+
+In a list comprehension the elements are entered in a slightly different
+order than in a normal for loop:
+
+::: code-box
+```python
+[<expression> for <item> in <list>]
+
+# NOT this
+[for <item> in <list> <expression>]
+```
+:::
+
+If you need to include conditions in the comprehension, they are included at the end. 
+
+::: code-box
+```python
+[<expression> for <item> in <list> if <condition>]
+```
+:::
+
+
+The following list comprehension creates a list of odd decimal number from 0.0 to 10.0.
+
+::: code-box
+```python
+[float(i) for i in range(11) if i % 2]
+```
+:::
+
+The same syntax works with sets, only difference is having to use curly brackets.
+
+::: code-box
+```python
+{str(i) for i in range(11)}
+```
+:::
+
+With tuples you first have to create a list and then create a tuple from it.
+
+::: code-box
+```python
+tuple([str(i) for i in range(11)])
+```
+:::
+
+When using parentheses a generator is created. It evaluates only one element at a time using
+the `next` function.
+
+::: code-box
+```python
+print((i ** 2 for i in range(11)))
+generator = (i ** 2 for i in range(11))
+print(next(generator))
+print(next(generator))
+print(next(generator))
+print(list(generator))
+```
+:::
+
+You can also create a dictionary:
+
+::: code-box
+```python
+{f"{key}**2": val ** 2 for key, val in enumerate(range(10))}
+```
+:::
+
+### Extra exercise 1.1
+
+Write a list comprehension `chose_number` which gets integers 0-20 changed to string so that numbers 9-18 are
+excluded.
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+```python
+chosen_numbers = [str(value) for value in range(21) <ehtolause> # how to exclude numbers 9-18?
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```python
+chosen_numbers = [str(value) for value in range(21) if value < 9 or value > 18]
+```
+:::
+:::
+
+### Nested comprehensions
+
+Sometimes you need to use a comprehension inside a comprehension.
+Here the syntax is:
+
+::: code-box
+```python
+[<expression> for <item1> in <list1> for <item2> in <list2>]
+```
+:::
+
+::: code-box
+```python
+[(i, j) for i in range(3) for j in range(3)]
+```
+:::
+
+The order of the lists matters if values from the first list are used in the seconds
+condition.
+
+::: code-box
+```python
+[(i, j) for i in range(3) for j in range(3) if i == 2]
+```
+:::
+
+You can have an arbitrary number of comprehensions:
+
+::: code-box
+```python
+[(i, j, k) for i in range(2) for j in range(3) for k in range(4)]
+```
+:::
+
+## Topic 2: Lambda functions
+
+In Python you can define "anonymous" one-line lambda functions with the following syntax:
+
+::: code-box
+```python
+lambda <parameters>: <expression>
+```
+:::
+
+::: code-box
+```python
+print(lambda x: x ** 2)
+(lambda x: x ** 2)(3)
+```
+:::
+
+Lambda function can be saved to a function:
+
+::: code-box
+```python
+power = lambda x, y: x ** y
+power(3, 4)
+```
+:::
+
+
+::: code-box
+```python
+# different lambda functions
+summer = lambda *args: sum(args)
+print(summer(1, 2, 3))
+
+without_params = lambda: print("Hello Lambda")  # returns None
+without_params()
+```
+:::
+
+Lambda functions can sometimes be given as parameters
+for example to sorting functions which affects the
+ordering. See
+[`sorted`](https://docs.python.org/3/howto/sorting.html#sortinghowto).
+
+::: code-box
+```python
+digits = [2, 6, 8, 3, 9, 1, 0, 5, 4, 10, 7]
+sorted_digits = sorted(digits)
+sorted_digits_wih_evens_first = sorted(digits, key=lambda x: x % 2)
+print(sorted_digits)
+print(sorted_digits_wih_evens_first)
+```
+:::
+
+### Extra exercise 2.1
+
+Create a lambda function called `sign_switcher` which takes in
+two integers as a parameter and calculates their sum but also
+changes their sign. 
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+```python
+sign_switcher = lambda x, y: (x + y) # how can you flip the sign?
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```python
+sign_switcher = lambda x, y: (x + y) * -1
+```
+:::
+:::
+
+## Topic 3: Decorators
+
+In Python functions can be defined inside functions in which
+case they have access to the original function's variables
+
+::: code-box
+```python
+def multiply(num1, num2):
+    def do_multiply():
+        return num1 * num2
+
+    return do_multiply()
+
+
+print(multiply(2, 3))
+```
+:::
+
+You can also return nested functions.
+
+::: code-box
+```python
+def multiplier():
+    def do_multiply(num1, num2):
+        print("Berfore calculation")
+        value = num1 * num2
+        print("After calculation")
+        return value
+
+    return do_multiply
+
+
+multiply = multiplier()
+print(multiply(3, 4))
+```
+:::
+
+If the original function gets a function as a parameter
+it too can be called in the nested function.
+
+::: code-box
+```python
+def printer(func):
+    def wrapper():
+        print("Before")
+        value = func()
+        print("After")
+        return value
+
+    return wrapper
+
+
+def heavy_function():
+    print("Doing some hevy lifting...")
+
+
+decorated_function = printer(heavy_function)
+decorated_function()
+```
+:::
+
+In the example above the `printer` function is already a _decorator_.
+Python offers an easier way to use the decorator by decorating
+the function definition with the `@decorator_name` syntax.
+
+::: code-box
+```python
+@printer
+def heavy_function2():
+    print("This is maybe too much...")
+
+
+heavy_function2()
+```
+:::
+
+### Extra exercises 3.1
+
+Create your own decorator function `timeit` which measures how much
+time executing the function takes and prints the result. Use the
+[`time`](https://docs.python.org/3/library/time.html) module.
+
+::: code-box
+```python
+import time
+
+
+def timeit(func):
+    pass
+
+
+@timeit
+def heavy_function():
+    print("Doing heavy work...")
+    time.sleep(2)
+
+
+heavy_function()
+```
+:::
+
+
+::: code-box
+```python
+import time
+
+
+def timeit(func):
+    def wrapper():
+        t = time.time()
+        val = func()
+        print(time.time() - t)
+        return val
+
+    return wrapper
+
+
+@timeit
+def heavy_function():
+    print("Doing heavy work...")
+    time.sleep(2)
+
+
+heavy_function()
+```
+:::
+
+### Decorators and parameters
+
+If the decorated function receives parameters
+the decorator also has to take in the parameter.
+
+::: code-box
+```python
+def printer(func):
+    def wrapper(param):
+        print("Before")
+        value = func(param)
+        print("After")
+        return value
+
+    return wrapper
+
+
+@printer
+def tester(param):
+    print("Hello", param)
+
+
+tester(1)
+```
+:::
+
+Typically in decorators the positional arguments and keyword arguments
+should be given using the `*` and `**` unpacking operators.
+
+::: code-box
+```python
+def printer(func):
+    def wrapper(*args, **kwargs):
+        print("Arguments: ", args)
+        print("Keyword arguments: ", kwargs)
+        print("Before")
+        value = func(*args, **kwargs)
+        print("After")
+        return value
+
+    return wrapper
+
+
+@printer
+def tester(param):
+    print("Hello", param)
+
+
+@printer
+def tester_without_params():
+    print("I have no params")
+
+
+@printer
+def tester_with_lot_of_params(a, b, c, d=1, e=2):
+    print(a, b, c, d, e)
+
+
+tester(1)
+print("--------")
+tester_without_params()
+print("--------")
+tester_with_lot_of_params(5, 4, 2, d=3, e=6)
+```
+:::
+
+Let's go over what the unpacking operators do:
+
+::: code-box
+```python
+a = [1, 2, 3, 4]
+d = {"a": 1, "b": 2, "c": 3}
+
+# the items are unpacked as their own parameters to the print function
+print(a, 1, 2, 3, 4)
+print(a, *a)
+
+# the items in the dictionary are unpacked as their own named parameters to the dict function
+print(dict(a=1, b=2, v=3))
+print(dict(**d))
+```
+:::
+
+Parameters can also be given to decorators. In this case you have to use
+three nested functions.
+
+::: code-box
+```python
+def printer(something_else_to_print):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            print("Arguments: ", args)
+            print("Keyword arguments: ", kwargs)
+            print("Before", something_else_to_print)
+            value = func(*args, **kwargs)
+            print("After", something_else_to_print)
+            return value
+
+        return wrapper
+
+    return decorator
+
+
+@printer("the test function")
+def tester(param):
+    """Prints hello with a parameter"""
+    print("Hello", param)
+
+
+tester(1)
+```
+:::
+
+### Extra exercise 3.2
+
+Inspect the
+[`functools.wraps`](https://docs.python.org/3/library/functools.html?highlight=wraps#functools.wraps)
+decorator in Python. It allows saving the metadata of a
+decorated function such as the docstring. Use the
+decorator with the `printer` decorator below:
+
+::: code-box
+```python
+def printer(func):
+    def wrapper(*args, **kwargs):
+        print("Before")
+        value = func(*args, **kwargs)
+        print("After")
+        return value
+
+    return wrapper
+
+
+@printer
+def greetings(param):
+    """Prints hello with a parameter"""
+    print("Hello", param)
+
+
+greetings(1)
+help(greetings)
+```
+:::
+
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```python
+from functools import wraps
+
+
+def printer(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        print("Before")
+        value = func(*args, **kwargs)
+        print("After")
+        return value
+
+    return wrapper
+
+
+@printer
+def greetings(param):
+    """Prints hello with a parameter"""
+    print("Hello", param)
+
+
+help(greetings)
+```
+:::
+:::
+
+## Topic 4: Typing
+
+Python is a dynamically typed language, but nowadays it offers a
+possibility to use static typing.
+
+::: code-box
+```python
+# examples of typing
+from typing import Dict, List, Optional, Set, Union
+
+local_int = 1  # doesn't need typing
+set_of_integers = {1,2,3} # doesn't need typing
+set_of_integers: Set[int] = {}
+list_of_sets_of_strings: List[Set[str]] = []
+string_or_int: Union[str, int] = 1
+string_or_int = ""  # this is okay because the type can be either str or int
+boolean_or_none: Optional[bool] = None
+dict_of_strings_and_booleans: Dict[str, bool] = {"a": True}
+
+
+def multiply(a: int, b: int = 2) -> int:
+    return a * b
+```
+:::
+
+## Extra exercises 4.1
+
+Add typing to the following class.
+
+::: code-box
+```python
+from typing import List
+
+
+class UnTypedClass:
+    def __init__(self, a, b, c):
+        self.whole_number = a
+        self.string_var = b
+        self._secret_list_of_integers = c
+        self.dict_of_strings_and_list_of_booleans = []
+        self.floater = 0.1
+
+    @property
+    def list_of_integers(self):
+        forbidden_number = -1
+        if forbidden_number in self._secret_list_of_integers:
+            raise ValueError()
+        return self._secret_list_of_integers
+
+    def increase_whole_number(self, value=1):
+        self.whole_number += value
+
+    def union_with_string_var(self, another):
+        return self.string_var + another
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```python
+from typing import Dict, List
+
+
+class TypedClass:
+    def __init__(self, a: int, b: str, c: List[int]) -> None:
+        self.whole_number = a
+        self.string_var = b
+        self._secret_list_of_integers = c
+        self.dict_of_strings_and_list_of_booleans: Dict[str, List[bool]] = []
+        self.floater = 0.1
+
+    @property
+    def list_of_integers(self) -> List[int]:
+        forbidden_number = -1
+        if forbidden_number in self._secret_list_of_integers:
+            raise ValueError()
+        return self._secret_list_of_integers
+
+    def increase_whole_number(self, value: int = 1) -> None:
+        self.whole_number += value
+
+    def union_with_string_var(self, another: str) -> str:
+        return self.string_var + another
+```
+:::
+:::
+

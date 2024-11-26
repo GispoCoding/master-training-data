@@ -6,7 +6,7 @@ Harjoituksessa asennetaan QField-ohjelmisto mobiililaitteelle ja tutustutaan sen
 
 ### Harjoituksen tavoite
 
-Tavoite on, että koulutettava saa asennettua QField-mobiilisovelluksen käyttövalmiiksi laitteelleen, oppii sen käyttöliittymän eri osiot sekä osaa tarkastella karttanäkymää ja paikkatietoja sovelluksen avulla.
+Tavoite on, että kouluttautuja saa asennettua QField-mobiilisovelluksen käyttövalmiiksi laitteelleen, oppii sen käyttöliittymän eri osiot sekä osaa tarkastella karttanäkymää ja paikkatietoja sovelluksen avulla.
 
 ### Arvioitu kesto
 

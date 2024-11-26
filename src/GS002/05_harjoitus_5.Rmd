@@ -56,7 +56,7 @@ Hakeaksesi monta osoitetta kerralla tarvitset **csv-tiedoston**, johon osoitteet
 
 ![](img/harjoitus_5/image6.png)
 
-Valitse kurssihakemistosta tiedosto **CSV/elykeskukset.csv**. Anna työkalulle osoitekenttien nimet, jotta se osaa etsiä csv-tiedostosta osoitteet oikein. Tässä aineistossa osoitekentän nimi on katuosoite ja kunnan paikkakunta, ja ne täytyy muistaa erottaa toisistaan pilkulla. Klikkaa **Suorita** käynnistääksesi prosessoinnin.
+Valitse kurssihakemistosta tiedosto **elykeskukset.csv**. Anna työkalulle osoitekenttien nimet, jotta se osaa etsiä csv-tiedostosta osoitteet oikein. Tässä aineistossa osoitekentän nimi on katuosoite ja kunnan paikkakunta, ja ne täytyy muistaa erottaa toisistaan pilkulla. Klikkaa **Suorita** käynnistääksesi prosessoinnin.
 
 ![](img/harjoitus_5/image7.png)
 

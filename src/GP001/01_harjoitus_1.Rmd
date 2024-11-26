@@ -6,7 +6,7 @@ Harjoituksessa ladataan QGIS ja tallennetaan kurssimateriaalit käytettävälle 
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen koulutettava osaa asentaa QGISin ja tietää oman kurssihakemistonsa sijainnin.
+Harjoituksen jälkeen kouluttautuja osaa asentaa QGISin ja tietää oman kurssihakemistonsa sijainnin.
 
 **Arvioitu kesto**
 
@@ -36,7 +36,7 @@ Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google Drivestä lin
 
 
 :::{.note-box}
-[Kurssihakemisto.zip](https://drive.google.com/file/d/1CB2Nxqcv6zixxWzUcqzyfaJ7OmyR6Zxu/view?usp=sharing)
+[Kurssihakemisto.zip](https://drive.google.com/file/d/1fAd3jqUS82ANSiUVtUOhbDc2GPrW4TiV/view?usp=sharing)
 :::
 
 

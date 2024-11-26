@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan aineistojen nimiöinti- ja luokittelutoimintoihin.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii muodostamaan eri tyyppisille paikkatietokohteille tekstitykset ja oppii luokittelemaan paikkatietoaineistoja QGISin työkaluilla.
+Kouluttautuja oppii muodostamaan eri tyyppisille paikkatietokohteille tekstitykset ja oppii luokittelemaan paikkatietoaineistoja QGISin työkaluilla.
 
 ## Valmistautuminen
 Käynnistä QGIS-ohjelmisto. Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä…**) “**QGIS_harjoitus_4**”.
@@ -14,8 +14,6 @@ Avaa projektiin seuraavat aineistot:
 
 
 -   **.../Harjoitus 4/natura2000sac_alueet.gpkg**
-
--   **.../Harjoitus 4/Tieviiva.gpkg**
 
 -   **.../Harjoitus 4/Vaestotietoruudukko_2019.gpkg**
 

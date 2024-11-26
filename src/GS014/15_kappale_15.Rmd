@@ -4,7 +4,7 @@
 
 Tarkastele Helsingin alueen väestöruutuaineistoa. Luo aineistoon uusi sarake ja anna sen nimeksi asukkaita_sca (datatyyppi: Decimal number). Uuden attribuuttikentän arvojen tulee kuvata sitä, miten suuri kunkin ruudun asukasmäärä on suhteessa pienimmän ja suurimman asukasmäärän omaavaan ruutuun. Skaalaa arvot välille [0,100].
 
-**Aineisto**: ```hsy_vaesto2020_muok.gpkg```
+**Aineisto**: ```HSY_vaesto2022_muok.gpkg```
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
@@ -325,7 +325,7 @@ Luo funktio, jonka avulla voidaan selvittää kolmen attribuuttikentän painotet
 - Rajaa huomioitavat väestöruudut Select features by area -työkalulla!
 - Funktion syötteet: kolme attribuuttikenttää, kolme painokerrointa
 
-**Aineisto**: ```hsy_vaesto2020_muok.gpkg```
+**Aineisto**: ```HSY_vaesto2022_muok.gpkg```
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 

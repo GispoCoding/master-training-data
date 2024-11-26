@@ -6,7 +6,7 @@ Harjoituksessa harjoitellaan vektoriaineiston visualisoitia.
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii eri aineistotyyppien visualisointitapoja.
+Kouluttautuja oppii eri aineistotyyppien visualisointitapoja.
 
 ## Valmistautuminen
 
@@ -14,16 +14,16 @@ Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (**
 
 Lisää projektiin seuraavat aineistot:
 
--   **.../Harjoitus 3/TieViiva.shp**
+-   **.../Harjoitus 3/TieViiva.gpkg**
 
--   **.../Harjoitus 3/NaturaKohde_ma.shp**
+-   **.../Harjoitus 3/NaturaKohde_ma.gpkg**
 
--   **.../Harjoitus 3/ne_10m_populated_places.shp**
+-   **.../Harjoitus 3/ne_10m_populated_places_suomi.gpkg**
 
 
 ## Vektoriaineistojen visualisointi
 
-Aloita tutkimalla ne_10m_populated_places-tasoa, joka sisältää Natural Earth kaupunkiaineiston Suomesta. Jos et näe pisteitä kartallasi, vedä taso muiden tasojen päälle painamalla hiiren vasenta painiketta ja raahaa taso ylimmäksi listauksessa. Paina hiiren oikealla painikkeella tason nimeä (ne_10m_populated_places) tasoluettelossa. Valitse valikosta **Ominaisuudet**:
+Aloita tutkimalla ne_10m_populated_places_suomi-tasoa, joka sisältää Natural Earth kaupunkiaineiston Suomesta. Jos et näe pisteitä kartallasi, vedä taso muiden tasojen päälle painamalla hiiren vasenta painiketta ja raahaa taso ylimmäksi listauksessa. Paina hiiren oikealla painikkeella tason nimeä (ne_10m_populated_places_suomi) tasoluettelossa. Valitse valikosta **Ominaisuudet**:
 
 ![](img/harjoitus_3/image4.png)
 

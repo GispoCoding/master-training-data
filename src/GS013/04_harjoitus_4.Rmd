@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan graafiseen mallintajaan. Mallintajalla laaditaan pros
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii laatimaan monivaiheisen analyysiprosessin graafisen mallintajan avulla ja oppii käyttämään aiemmin ladattuja prosessimalleja.
+Kouluttautuja oppii laatimaan monivaiheisen analyysiprosessin graafisen mallintajan avulla ja oppii käyttämään aiemmin ladattuja prosessimalleja.
 
 **Arvioitu kesto**
 
@@ -16,11 +16,11 @@ Koulutettava oppii laatimaan monivaiheisen analyysiprosessin graafisen mallintaj
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 4**". Avaa projektiisi kurssihakemistosta aineistot 
 
--   **TieViiva.shp**
+-   **TieViiva.gpkg**
 
--   **Hallintoalue.shp**
+-   **kunnat2024.gpkg**
 
--   **NaturaKohde.shp**
+-   **NaturaKohde.gpkg**
 
 
 

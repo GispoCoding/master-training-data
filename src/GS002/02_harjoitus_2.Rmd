@@ -128,7 +128,7 @@ Aloita nyt **Rakennukset-tason** editointi.
 
 Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 30 metriä, sen voi tehdä digitoinnin lisätyökaluja hyödyntäen mm. seuraavasti:
 
-1.  Lisää kurssihakemistostasi kiinteistörajat sisältävä vektoritaso **MML_kiinteistorekisterikartta_05-2023.gpkg**
+1.  Lisää kurssihakemistostasi kiinteistörajat sisältävä vektoritaso **MML_kiinteistörekisterikartta_05-2023.gpkg**
 
 2.  Valitse **Rakennukset** taso aktiiviseksi.
 
@@ -162,7 +162,7 @@ Ota lopuksi tason editointi pois päältä ja tallenna tasoon tehdyt muutokset.
 
 ## Case rakennusala tontille: polygonin kopiointi toiseksi itseään pienemmäksi
 
-1.  Lisää **MML_kiinteistorekisterikartta_05-2023.gpkg** taso (jatkossa "lähtötaso").
+1.  Lisää **MML_kiinteistörekisterikartta_05-2023.gpkg** taso (jatkossa "lähtötaso").
 
 2.  Valitse polygoni/palsta, jonka haluat kopioida **valintatyökalulla** ![]()![](img/harjoitus_2/valintatyokalu.png).
 

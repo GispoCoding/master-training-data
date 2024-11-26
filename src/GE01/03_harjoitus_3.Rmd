@@ -1,0 +1,464 @@
+# Harjoitus 3: Tasot, kohteet ja geometriat
+
+**Harjoituksen sisältö:** QGIS-tasojen ja kohteiden luominen ja muokkaus.
+
+**Harjoituksen tavoite:** Oppia käsittelemään tasoja syvällisemmin.
+
+## Tasot
+
+QGISissä vektoritasolla (**QgsVectorLayer**-luokka) on
+**kohteita** eli **[QgsFeature](https://qgis.org/pyqgis/latest/core/QgsFeature.html)**-luokan olioita. Kohteella taas
+on (yleensä) geometria, eli **[QgsGeometry](https://qgis.org/pyqgis/latest/core/QgsGeometry.html)**-luokan olio.
+
+Tasolla sekä kohteella on **QgsFields**-olio, joka
+kuvaa ominaisuustietokenttiä. QgsFields itsessään
+koostuu **QgsField**-olioista, jotka sisältävät
+mm. kentän nimen ja datatyypin.
+
+## Väliaikaisen tason luominen
+
+Luodaan uusi väliaikainen taso:
+
+::: code-box
+```python
+new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "Uusi Taso", "memory")
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+
+Taso on kuitenkin tyhjä. Luodaan taso, jossa on kenttiä.
+Voit tässä vaiheessa halutessasi poistaa äsken luodun
+tason.
+
+::: code-box
+```python
+new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "Uusi Taso", "memory")
+
+# Koska muokkaamme tasoa, pitää se laittaa
+# editointitilaan
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("nimi", QVariant.String))
+
+# Tallennetaan muutokset
+new_layer.commitChanges()
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+
+Tasolla on nyt kaksi kenttää, mutta ei edelleenkään yhtään
+kohdetta. Lisätään seuraavaksi pistekohde tasolle.
+
+::: code-box
+```python
+new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "Uusi Taso", "memory")
+
+# Koska muokkaamme tasoa, pitää se laittaa
+# editointitilaan
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("nimi", QVariant.String))
+
+new_feature = QgsFeature(new_layer.fields())
+new_feature.setAttributes([1, "piste"]) # huomaa, että argumenttina on lista
+
+# Luodaan kohteelle geometria
+# Koska kyseessä on pistetaso, voidaan
+# luoda suoraan QgsPoint-olio
+new_geom = QgsPoint(0, 0)
+new_feature.setGeometry(new_geom)
+
+new_layer.addFeature(new_feature)
+
+# Tallennetaan muutokset
+new_layer.commitChanges()
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+
+## Geometriat
+
+Geometrioita voidaan luoda ja manipuloida Pythonilla eri tavoin.
+QgsGeometry-luokalla on mm. eri staattisia metodeja, joilla voidaan
+luodaan geometrioita:
+
+Tutustutaan seuraavaksi geometrioiden käsittelyyn PyQGISillä.
+
+Piste:
+
+::: code-box
+```python
+point_xy = QgsPointXY(0, 0)
+point_geom = QgsGeometry.fromPointXY(point_xy)
+```
+:::
+
+Viiva:
+
+::: code-box
+```python
+point_1 = QgsPointXY(0, 0)
+point_2 = QgsPointXY(1, 0)
+
+line_geom = QgsGeometry.fromPolylineXY(
+    [
+        point_1,
+        point_2,
+    ]
+)
+```
+:::
+
+Polygoni:
+
+::: code-box
+```python
+point_1 = QgsPointXY(0, 0)
+point_2 = QgsPointXY(1, 0)
+point_3 = QgsPointXY(1, 1)
+point_4 = QgsPointXY(0, 1)
+
+polygon_geom = QgsGeometry.fromPolygonXY(
+    [
+        [
+            point_1,
+            point_2,
+            point_3,
+            point_4,
+        ]
+    ]
+)
+```
+:::
+
+Geometrioita voi luoda myös [WKT (Well-Known Text)](https://libgeos.org/specifications/wkt/)-formaatista
+
+::: code-box
+```python
+# piste
+point_geom = QgsGeometry.fromWkt('POINT(0 0)')
+
+# viiva
+line_geom = QgsGeometry.fromWkt('LINESTRING(0 0, 0 1)')
+
+# multipolygoni
+multipolygon_geom = QgsGeometry.fromWkt('MULTIPOLYGON(((0 0, 0 1, 1 1, 1 0, 0 0), (2 2, 2 3, 3 3, 3 2, 2 2)))')
+```
+:::
+
+Geometrian voi tulostaa WKT-formaatissa:
+
+::: code-box
+```python
+point_1 = QgsPointXY(0, 0)
+point_2 = QgsPointXY(1, 0)
+point_3 = QgsPointXY(1, 1)
+point_4 = QgsPointXY(0, 1)
+
+polygon_geom = QgsGeometry.fromPolygonXY(
+    [
+        [
+            point_1,
+            point_2,
+            point_3,
+            point_4,
+        ]
+    ]
+)
+
+print(polygon_geom.asWkt())
+```
+:::
+
+Geometriaolioon tallentuu taitepisteiden koordinaatit.
+Siihen ei itsessään tallennu tieto
+koordinaattijärjestelmästä, vaan se tieto on vain
+taso-oliolla. Geometrialuokasta on tosin alaluokka
+QgsReferencedGeometry, jossa on myös tieto
+koordinaattijärjestelmästä.
+
+Jos halutaan muuttaa geometria koordinaattijärjestelmästä
+toiseen, voidaan käyttää **QgsCoordinateTransform**-luokkaa.
+
+::: code-box
+```python
+# luodaan geometria ja oletetaan
+# että lähtökoordinaattijärjestelmä
+# on WGS 84 (EPSG:4326)
+
+# muunnetaan geometria Suomen
+# valtakunnalliseen koordinaatti-
+# järjestelmään (EPSG:3067)
+
+geom = QgsGeometry.fromWkt('POINT(0 0)')
+
+source_crs = QgsCoordinateReferenceSystem(4326)
+target_crs = QgsCoordinateReferenceSystem(3067)
+
+tf = QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())
+
+geom.transform(tf)
+
+print(geom.asWkt())
+```
+:::
+
+Voimme myös laskea geometrioiden ominaisuuksia:
+
+::: code-box
+```python
+line_geom = QgsGeometry.fromWkt('LINESTRING(0 0, 0 1)')
+print(line_geom.length())
+
+polygon_geom = QgsGeometry.fromWkt('POLYGON((0 0, 0 1, 1 1, 1 0, 0 0))')
+print(polygon_geom.area())
+
+# length() funktio polygonigeometriasta
+# palauttaa polygonin piirin
+
+print(polygon_geom.length())
+
+point_1 = QgsGeometry.fromWkt('POINT(0 0)')
+point_2 = QgsGeometry.fromWkt('POINT(10 10)')
+
+print(point_1.distance(point_2))
+```
+:::
+
+Geometriaa voidaan myös manipuloida eri tavoin
+valmiilla metodeilla. Luodaan uusi polygonigeometria
+kahden olemassa olevan polygonin päällekkäin menevästä
+alueesta. Tämä vastaa Ristiinleikkaus (intersection)-
+prosessointityökalua QGISissä.
+
+::: code-box
+```python
+polygon_1 = QgsGeometry.fromWkt('POLYGON((1 1, 1 2, 2 2, 2 1, 1 1))')
+polygon_2 = QgsGeometry.fromWkt('POLYGON((0 0, 0 1.5, 1.5 1.5, 1.5 0, 0 0))')
+
+new_geom = polygon_1.intersection(polygon_2)
+
+print(new_geom.asWkt())
+```
+:::
+
+## Harjoitus 3.1
+
+Kirjoita skripti, joka luo uuden polygonitason koordinaattijärjestelmällä
+3857. Lisää polygonitasolle kentät "fid" ja "pinta_ala". Lisää
+kohteeseen alla oleva WKT-formaatissa kuvattu geometria ja laske
+sille pinta-ala. Lisää taso lopuksi QGIS-projektiin.
+
+WKT:
+
+::: code-box
+POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+```python
+new_layer = QgsVectorLayer("Polygon?crs=EPSG:3857", "Uusi Taso", "memory")
+
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("pinta_ala", QVariant.Double))
+
+new_feature = QgsFeature(new_layer.fields())
+
+new_geom = QgsGeometry.fromWkt("POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))")
+new_feature.setGeometry(new_geom)
+
+area = new_geom.area()
+new_feature.setAttributes([1, area])
+
+new_layer.addFeature(new_feature)
+
+new_layer.commitChanges()
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+:::
+
+## Harjoitus 3.2: Etäisyydet
+
+Avaa QGISiin kurssihakemistosta `NaturalEarth_10m_admin_0_countries.gpkg`-tiedosto.
+
+Kirjoita skripti, joka laskee jokaisen valtion etäisyyden sen
+painopisteestä (centroid) Suomen painopisteeseen.
+Lähtötason koordinaattijärjestelmä on EPSG:4326, jonka yksikkönä
+on asteet. Etäisyyksien esittäminen asteina ei ole välttämättä
+kovin selkeää. Luo siis uusi pistetaso koordinaattijärjestelmällä
+EPSG:3857, jonka yksikkö on metrit. Uuden tason kentät tulee sisältää
+fid-numerotunnisteen, etäisyyden ja valtion
+nimen, josta etäisyys laskettiin. Muunna lähtötason painopiste oikeaan
+koordinaattijärjestelmään ja aseta se uuden tason kohteiden geometriaksi.
+
+Voit käyttää tätä pohjana:
+
+::: code-box
+```python
+# hae NaturalEarth-taso esim. nimen perusteella
+layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layer = layers[0]
+
+# luodaan uusi taso
+new_layer = QgsVectorLayer("Point?crs=EPSG:3857", "New Layer", "memory")
+
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("country", QVariant.String))
+new_layer.addAttribute(QgsField("distance", QVariant.Double))
+
+### ... ###
+
+new_layer.commitChanges()
+
+QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+::: code-box
+```python
+# hae NaturalEarth-taso esim. nimen perusteella
+layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layer = layers[0]
+
+# luodaan uusi taso
+new_layer = QgsVectorLayer("Point?crs=EPSG:3857", "New Layer", "memory")
+
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("country", QVariant.String))
+new_layer.addAttribute(QgsField("distance", QVariant.Double))
+
+# QgsCoordinateTransform-olion
+# voi luoda jo nyt ja sitä voi
+# käyttää monta kertaa
+<tallenna olio muuttujaan>
+
+# Käytetään QGISin lauseketta
+# Suomi-kohteen etsimiseen
+filter_expression = QgsExpression('''"NAME_EN" = 'Finland' ''')
+filtered_features = layer.getFeatures(QgsFeatureRequest(filter_expression))
+
+finland_feature = QgsFeature()
+for feat in filtered_features:
+    finland_feature = feat
+
+if finland_feature.isValid():
+    # Jos Suomi-kohde löytyi
+    # tallennetaan sen painopiste
+    # ja suoritetaan koordinaatti-
+    # muunnos
+    finland_centroid = finland_feature.geometry().centroid()
+    finland_centroid.transform(tf)
+
+    for old_feature in layer.getFeatures():
+        # Käydään lähdetason kohteet läpi.
+        # Hae ja tallenna tarvitut kohteen
+        # tiedot
+
+        # Hae myös vanhan kohteen
+        # painopiste ja laske etäisyys.
+
+        # Jos koordinaattimuunnos on
+        # tehty oikein, laskutuloksen
+        # yksikkö on metrit, muutetaan
+        # kilometreiksi.
+        distance = <lauseke> / 1000
+
+        # Luodaan uusi kohde
+        new_feature = QgsFeature(new_layer.fields())
+        new_feature.setAttributes(
+            [
+                <arvot>
+            ]
+        )
+        new_feature.setGeometry(<painopiste>)
+
+        new_layer.addFeature(new_feature)
+
+    new_layer.commitChanges()
+
+    QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+```python
+layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layer = layers[0]
+
+new_layer = QgsVectorLayer("Point?crs=EPSG:3857", "New Layer", "memory")
+
+new_layer.startEditing()
+
+new_layer.addAttribute(QgsField("fid", QVariant.Int))
+new_layer.addAttribute(QgsField("country", QVariant.String))
+new_layer.addAttribute(QgsField("distance", QVariant.Double))
+
+source_crs = QgsCoordinateReferenceSystem(4326)
+target_crs = QgsCoordinateReferenceSystem(3857)
+
+tf = QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())
+
+# Käytetään QGISin lauseketta
+# Suomi-kohteen etsimiseen
+filter_expression = QgsExpression('''"NAME_EN" = 'Finland' ''')
+filtered_features = layer.getFeatures(QgsFeatureRequest(filter_expression))
+
+finland_feature = QgsFeature()
+for feat in filtered_features:
+    finland_feature = feat
+
+if finland_feature.isValid():
+
+    finland_centroid = finland_feature.geometry().centroid()
+    finland_centroid.transform(tf)
+
+    for old_feature in layer.getFeatures():
+        fid = old_feature.attribute("fid")
+        country = old_feature.attribute("NAME_EN")
+        centroid = old_feature.geometry().centroid()
+        centroid.transform(tf)
+
+        distance = centroid.distance(finland_centroid) / 1000
+
+        new_feature = QgsFeature(new_layer.fields())
+        new_feature.setAttributes(
+            [
+                fid,
+                country,
+                distance
+            ]
+        )
+        new_feature.setGeometry(centroid)
+
+        new_layer.addFeature(new_feature)
+
+    new_layer.commitChanges()
+
+    QgsProject.instance().addMapLayer(new_layer)
+```
+:::
+:::
+

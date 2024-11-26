@@ -6,7 +6,7 @@ Harjoituksessa lisätään erilaisia paikkatietoaineistoja ja -palveluita QGIS-o
 
 ## Harjoituksen tavoite
 
-Koulutettava oppii lisäämään erilaisia paikkatietoaineistoja ja -palveluja QGIS-projektiin.
+Kouluttautuja oppii lisäämään erilaisia paikkatietoaineistoja ja -palveluja QGIS-projektiin.
 
 ## Valmistautuminen
 
@@ -26,7 +26,7 @@ Tämä työkalu avaa WMS-palvelujen käyttö- ja määrityslomakkeen. Koneessasi
 
 ![](img/harjoitus_2/image2.png)
 
-Määrittele seuraavassa ikkunassa haluamasi nimi WMS-palvelulle. On tärkeää, että muistat itse, mikä nimi vastaa mitäkin aineistoa, mutta paras on tietysti olla johdonmukainen ja kuvata esimerkiksi tietyn kaupungin palvelurajapintaa kyseisen kaupungin nimeä hyödyntäen (kts. esim. alla). URL-kentälle laitetaan WMS-palvelun osoite sekä tarvittaessa käyttäjänimi ja salasana. Luo uusi yhteys Helsingin WMS-palveluun: <http://kartta.hel.fi/ws/geoserver/avoindata/wms>
+Määrittele seuraavassa ikkunassa haluamasi nimi WMS-palvelulle. On tärkeää, että muistat itse, mikä nimi vastaa mitäkin aineistoa, mutta paras on tietysti olla johdonmukainen ja kuvata esimerkiksi tietyn kaupungin palvelurajapintaa kyseisen kaupungin nimeä hyödyntäen (kts. esim. alla). URL-kentälle laitetaan WMS-palvelun osoite sekä tarvittaessa käyttäjänimi ja salasana. Luo uusi yhteys Helsingin WMS-palveluun: <https://kartta.hel.fi/ws/geoserver/avoindata/wms>
 
 ![](img/harjoitus_2/image4.png)
 

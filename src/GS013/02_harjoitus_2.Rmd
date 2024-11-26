@@ -6,7 +6,7 @@ Harjoituksessa tuodaan koordinaatteja sisältävä CSV-tekstitiedosto kartalle, 
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii tuomaan sekä geometrian sisältäviä että puhtaita attribuuttitaulukoita QGISiin sekä käsittelemään yleisimpiä ongelmia taulukoiden tuonnissa.
+Kouluttautuja oppii tuomaan sekä geometrian sisältäviä että puhtaita attribuuttitaulukoita QGISiin sekä käsittelemään yleisimpiä ongelmia taulukoiden tuonnissa.
 
 **Arvioitu kesto**
 
@@ -18,18 +18,18 @@ Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-h
 
 ## Pisteet tekstitiedostosta kartalle
 
-Lisää projektiisi kurssihakemiston aineisto **Tuulivoima_sopivat_paikat.csv**. Tämä aineisto on Helsingin kaupungin karttapohjaisella kyselyllä keräämä aineisto tuulivoiman hyväksyttävyydestä Helsingissä. Tiedosto sisältää lähes 8000 pistemäistä sijaintia, jotka ovat kyselyyn vastanneiden mielestä sopivia paikkoja tuulivoimalle. Lisää aineisto valitsemalla ylävalikosta **Tasot \>  Lisää taso \> Lisää erotinmerkkejä sisältävä tekstitiedosto**. Ota mallia seuraavan kuvan asetuksista:
+Lisää projektiisi kurssihakemiston aineisto **Tuulivoimakysely_sopivat_paikat.csv**. Tämä aineisto on Helsingin kaupungin karttapohjaisella kyselyllä keräämä aineisto tuulivoiman hyväksyttävyydestä Helsingissä. Tiedosto sisältää lähes 8000 pistemäistä sijaintia, jotka ovat kyselyyn vastanneiden mielestä sopivia paikkoja tuulivoimalle. Lisää aineisto valitsemalla ylävalikosta **Tasot \>  Lisää taso \> Lisää erotinmerkkejä sisältävä tekstitiedosto**. Pääset tietolähteiden hallintanäkymään myös näppäinyhdistelmällä **CTRL + L**. Ota mallia seuraavan kuvan asetuksista:
 
 ![](img/harjoitus_2/image1.png)
 
-Paina **OK**.
+Paina **Lisää** ja sulje tietolähteidenhallintaikkuna.
 
 Koska aineiston koordinaatit on tallennettu asteina WGS84-koordinaattijärjestelmässä, Helsinki näyttää hieman litistyneeltä. Vaihda projektin koordinaattijärjestelmäksi **ETRS89/TM35FIN (EPSG:3067)**. Nyt kartan muoto on tutumpi ja karttayksiköt ovat metrejä asteiden sijaan.
 
 
 ## Ilman geometriaa olevan taulukon tuominen
 
-Tuo kurssihakemistosta projektiisi aluemainen shapefile-taso Helsingin kaupunginosista vuoden 1899 aluejaon mukaan (**Helsingin kaupunginosat 1899.shp**). Lisää myös erotinmerkkejä sisältävä taulukkotiedosto **Hki_1900_asunnot_tulisijat.csv** ![](img/harjoitus_2/image3.png). **Tietolähteiden hallinta -ikkunassa** voit määritellä, mikä merkki toimii taulukossasi kenttien erottimena. Alareunan esimerkki-ikkunassa voit esikatsella, millä asetuksilla QGIS lukee taulukkoa oikein. Aseta koodaukseksi **windows-1252** ja erotinmerkiksi **;-merkki**. Tämä tiedosto ei sisällä geometriaa lainkaan, vaan tietää tilastotiedoista vain kaupunginosan nimen ja numeron. Valitse siis **Ei geometriaa (ainoastaan ominaisuustietojen taulu)**. Klikkaa lopuksi **Lisää**.
+Tuo kurssihakemistosta projektiisi aluemainen geopackage-taso Helsingin kaupunginosista vuoden 1899 aluejaon mukaan (**Helsingin kaupunginosat 1899.gpkg**). Lisää myös erotinmerkkejä sisältävä taulukkotiedosto **Hki_1900_asunnot_tulisijat.csv** ![](img/harjoitus_2/image3.png). **Tietolähteiden hallinta -ikkunassa** voit määritellä, mikä merkki toimii taulukossasi kenttien erottimena. Alareunan esimerkki-ikkunassa voit esikatsella, millä asetuksilla QGIS lukee taulukkoa oikein. Aseta koodaukseksi **windows-1252** ja erotinmerkiksi **;-merkki**. Tämä tiedosto ei sisällä geometriaa lainkaan, vaan tietää tilastotiedoista vain kaupunginosan nimen ja numeron. Valitse siis **Ei geometriaa (ainoastaan ominaisuustietojen taulu)**. Klikkaa lopuksi **Lisää**.
 
 ![](img/harjoitus_2/image4.png)
 
@@ -43,25 +43,27 @@ Avaa tulisijat-tason **ominaisuudet** ja tarkastele **Tietokentät**-välilehte�
 
 ![](img/harjoitus_2/image5.png)
 
-Kentän tyypin muuttaminen jälkikäteen on työlästä, mutta voit luoda uuden kentän, jolle asetat halutun tyypin ja johon muunnat olemassa olevan kentän arvot.
+Kentän tyypin muuttaminen jälkikäteen on työlästä. Usein on helpompaa ja vähemmän virheherkkää luoda uusi kenttä, jolle asetat halutun tyypin ja johon muunnat olemassa olevan kentän arvot.
 
-Avaa **Kentän arvojen laskin** ja luo uusi kenttä, jonka nimi on ilman tulisijaa num ja tyyppi kokonaisluku. Käytä funktiota to_int muuntaaksesi Ilman tulisijaa -kentän tiedot numeerisiksi.
+Avaa **Kentän arvojen laskin** (kuvake ympyröity alla kuvassa) ja luo uusi kenttä, jonka nimi on ilman tulisijaa num ja tyyppi kokonaisluku. Käytä funktiota to_int muuntaaksesi Ilman tulisijaa -kentän tiedot numeerisiksi.
+
+![](img/harjoitus_2/image9.png)
 
 ![](img/harjoitus_2/image6.png)
 
-Vastaavasti funktio to_string muuntaa numeerisesta kentästä luetut numerot tekstiksi. Jos aineistossa on rivejä, joille muunnosta ei voi tehdä, muunnosfunktio jättää ne solut tyhjiksi.
+Vastaavasti funktio **to_string** muuntaa numeerisesta kentästä luetut numerot tekstiksi. Jos aineistossa on rivejä, joille muunnosta ei voi tehdä, muunnosfunktio jättää ne solut tyhjiksi.
 
 Kentän arvojen laskin -työkalun ja lausekkeenmuodostustyökalun funktioissa on ryhmä **Muunnokset**, josta voit tutkia mitkä kaikki muunnokset ovat mahdollisia. Muunnosfunktiota voit käyttää myös osana pidempää lauseketta.
 
 ## Taulukkotiedon liittäminen geometriaan
 
-Saat taulukon tiedot käyttöön paikkatietona, kun luot liitoksen shapefile-tiedostosi ja taulukon välille. Klikkaa hiiren oikealla napilla **Helsingin kaupunginosat 1899-tasoa**, valitse **Ominaisuudet** ja vasemman reunan valikosta **Liitokset**. 
+Saat taulukon tiedot käyttöön paikkatietona, kun luot liitoksen geometriat sisältävän tasosi ja taulukon välille. Klikkaa hiiren oikealla napilla **Helsingin kaupunginosat 1899-tasoa**, valitse **Ominaisuudet** ja vasemman reunan valikosta **Liitokset**. 
 
-Luo uusi liitos ![](img/harjoitus_2/image7.png). Valitse pudotusvalikosta liitettäväksi tasoksi csv-taulukkosi, liitoskentäksi Kaupunginosan numero ja kohdekentäksi shp-tason kenttä **k_osa_nro**. Paina lopuksi **OK**.
+Luo uusi liitos ![](img/harjoitus_2/image7.png). Valitse pudotusvalikosta liitettäväksi tasoksi csv-taulukkosi (**Hki_1900_asunnot_tulisijat**), liitoskentäksi **Kaupunginosan numero** (csv-taulukon kenttä) ja kohdekentäksi **k_osa_nro** (Helsingin kaupunginosat 1899 -tason kenttä). Paina lopuksi **OK**.
 
 ![](img/harjoitus_2/image8.png)
 
-Tarkastele nyt **Helsingin kaupunginosat 1899 -tason** attribuuttitaulua. Csv-taulukko on lisätty shp-tason ominaisuuksien perään uusiksi sarakkeiksi. Jos liitettävä taulukkosi sisältää kohteita, joille ei löydy vastinetta toisessa aineistossa, ne putoavat automaattisesti pois liitosta tehtäessä.
+Tarkastele nyt **Helsingin kaupunginosat 1899 -tason** attribuuttitaulua. Csv-taulukko on lisätty aluetason ominaisuuksien perään uusiksi sarakkeiksi. Jos liitettävä taulukkosi sisältää kohteita, joille ei löydy vastinetta toisessa aineistossa, ne putoavat automaattisesti pois liitosta tehtäessä.
 
 Uusien kenttien nimet muodostuvat automaattisesti liitettävän taulukon nimestä ja alkuperäisestä kentän nimestä. Jos haluat muokata niitä helpommin luettavaksi, voit säätää liitoksen asetuksia joko liitosta tehdessäsi tai myöhemmin. Voit myös valita, liitätkö kaikki taulun kentät vaan vain osan. 
 

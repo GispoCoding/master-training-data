@@ -13,7 +13,7 @@ perustoimintoihin.
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii käyttämään QGISin käyttöliittymää.
+Kouluttautuja oppii käyttämään QGISin käyttöliittymää.
 
 **Valmistautuminen** Avaa web-selain ja mene QGISin suomenkielisille
 web-sivuille.
@@ -42,7 +42,7 @@ Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google
 Drivestä linkistä
 
 ::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/file/d/1EG91mrT0FZKAIj9KE8OKqMfWjFkVBalX/view?usp=share_link)
+[Kurssihakemisto.zip](https://drive.google.com/file/d/1IioT0e8dohTsp8mEdtt2sG_JynGvQcKj/view?usp=sharing)
 :::
 
 Avaa yllä oleva linkki ja klikkaa **Lataa**. Tämä lataa aineistot
@@ -68,7 +68,7 @@ Löydät saman toiminnon myös Tasot-valikosta **Lisää taso → Lisää
 vektoritaso...** (Ctrl+Shift+V). Valitse avautuvasta ikkunasta
 vasemmalta puolelta **Vektori-välilehti**. Lisää aineisto kurssin
 materiaaleista (**.../kurssihakemisto/Harjoitus 1**). Valitse nyt
-Maanmittauslaitoksen 1:1M-aineistosta **TieViiva.shp-tiedosto**. Paina
+Maanmittauslaitoksen 1:1M-aineistosta **TieViiva.gpkg-tiedosto**. Paina
 lopuksi **Lisää** ja sulje ikkuna.
 
 ![](img/harjoitus_1/image11.png){width="70%"}

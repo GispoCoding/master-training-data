@@ -3,12 +3,12 @@
 **Harjoituksen sisältö**
 
 Harjoituksessa tutustutaan eri paikkatietoaineistoihin käyttäen
-resurssienhallintaa, avataan ensimmäinen paikkatietoaineisto ja
+resurssienhallintaa. Avataan ensimmäinen paikkatietoaineisto ja
 tutustutaan QGISin käyttöliittymän perustoiminnallisuuksiin.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen koulutettava tuntee paikkatietoaineistojen
+Harjoituksen jälkeen kouluttautuja tuntee paikkatietoaineistojen
 perusominaisuudet, osaa tarkastella vektoriaineiston geometriaa ja
 ominaisuustietoja QGISissä sekä valita ja suodattaa aineistoa.
 
@@ -19,7 +19,7 @@ ominaisuustietoja QGISissä sekä valita ja suodattaa aineistoa.
 **Valmistautuminen** Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja
 tallenna se nimellä "**QGIS-harjoitus 2**".
 
-## Paikkatietoaineiston tiedostot
+## Ensimmäinen paikkatietoaineisto
 
 QGISin käyttöliittymä saattaa aueta englanninkielisenä ensimmäisellä
 käyttökerralla, mutta voit vaihtaa kielen suomeksi valitsemalla QGISin
@@ -31,59 +31,24 @@ interface translation \> suomi**. Paina lopuksi **OK**.
 Jotta juuri tekemäsi muutos tulee voimaan, sinun tulee käynnistää QGIS
 uudelleen.
 
-Mene seuraavaksi tietokoneesi resurssienhallinnan kautta
-**kurssihakemistoon**. Avaa sieltä kansio **../2. Harjoitus/** ja
-tarkastele tiedostoja. Voit huomata, että kansiosta löytyy useita
-samannimisiä tiedostoja, mutta tiedostopääte on eri. Tarkastele
-esimerkiksi **TieViiva-tiedostoja**.
-
-![](img/harjoitus_2/image2.png)
-
-Nämä samannimiset TieViiva-tiedostot muodostavat yhden kokonaisen
-paikkatietoaineiston. Tässä tapauksessa aineiston tiedostomuoto on ESRI
-shapefile (.shp), jossa paikkatietoaineistolle tarpeelliset komponentit
-on tallennettu eri tiedostoihin.
-
-Shp-muotoisen paikkatietoaineistotiedoston tärkeimmät tiedostot ovat:
-
-| Formaatti | Sisältö                                              |
-|:----------|:-----------------------------------------------------|
-| .shp      | Aineiston geometriatiedot                            |
-| .prj      | Käytetyn koordinaattijärjestelmän määritelmä         |
-| .dbf      | Paikkatiedon ominaisuustietotaulu (attribuuttitaulu) |
-
-Muita mahdollisia aputiedostoja shp-tiedostolle ovat:
-
-| Formaatti | Sisältö                   |
-|:----------|:--------------------------|
-| .shx      | Geometriatietojen indeksi |
-| .sbn/sbx  | Spatiaalinen indeksi      |
-| .cpg      | Kirjainmerkistön koodi    |
-
-Tarkastele seuraavaksi **2. Harjoitus- kansiota** **Selain-paneelissa**
-(löytyy ylhäältä vasemmalta tai, jos se ei ole näkyvillä, klikkaa
-yläpalkin harmaalla alueella hiiren oikeaa ja valitse Selain-paneeli).
-Huomaa, että paikkatietoaineistoja on nyt helpompi havainnoida, kun
-aputiedostoja ei näytetä.
+Tuodaan seuraavaksi paikkatietoaineisto QGISiin. Voit tarkastella
+Kurssihakemiston **2. Harjoitus- kansiota** QGISin **Selain-paneelissa** (löytyy
+ylhäältä vasemmalta tai, jos se ei ole näkyvillä, klikkaa yläpalkin harmaalla
+alueella hiiren oikeaa ja valitse Selain-paneeli).
 
 ![](img/harjoitus_2/image3.png)
 
-QGIS tunnistaa erilaiset paikkatietoaineistoformaatit (ja niihin
-sisältyvät aputiedostot) automaattisesti ja piilottavat aputiedostot
-tulkinnan helpottamiseksi.
+Lisää nyt **TieViiva.gpkg**-paikkatietoaineisto QGIS-projektiisi joko tuplaklikkaamalla
+aineistoa Selain-paneelissa tai valitsemalla **Avaa tietolähteiden
+hallinta** ![](img/harjoitus_2/image4.png). Sama toiminto löytyy myös QGISin
+ylävalikon kohdasta **Tasot \> Lisää taso \> Lisää vektoritaso...** . Valitse
+avautuvasta **Tietolähteiden hallinta -ikkunasta Vektori-välilehti** ja
+lisää **TieViiva-aineisto** kurssihakemistostasi **(../kurssihakemisto/2.
+Harjoitus)**. Paina lopuksi **Lisää** ja sulje ikkuna.
+
+![](img/harjoitus_2/image5.png){width="70%"}
 
 ## QGISin käyttöliittymä
-
-Lisää nyt TieViiva-paikkatietoaineisto QGIS-projektiisi joko
-tuplaklikkaamalla aineistoa Selain-paneelissa tai valitsemalla **Avaa
-tietolähteiden hallinta** ![](img/harjoitus_2/image4.png) . Sama
-toiminto löytyy myös QGISin ylävalikon kohdasta **Tasot \> Lisää taso \>
-Lisää vektoritaso...** . Valitse avautuvasta **Tietolähteiden hallinta
--ikkunasta Vektori-välilehti** ja lisää **TieViiva-aineisto**
-kurssihakemistostasi **(../kurssihakemisto/2. Harjoitus)**. Muista
-valita oikea tiedostomuoto! Paina lopuksi **Lisää** ja sulje ikkuna.
-
-![](img/harjoitus_2/image5.png)
 
 QGISin karttaikkunassa pitäisi nyt näkyä Maanmittauslaitoksen
 vektorimuotoinen tieaineisto. Viivan väri saattaa vaihdella, sillä

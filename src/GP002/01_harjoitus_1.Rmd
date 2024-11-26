@@ -7,7 +7,7 @@ perustoimintoihin.
 
 **Harjoituksen tavoite**
 
-Koulutettava oppii käyttämään QGISin käyttöliittymää.
+Kouluttautuja oppii käyttämään QGISin käyttöliittymää.
 
 **Valmistautuminen** Avaa web-selain ja mene QGISin web-sivuille.
 
@@ -36,7 +36,7 @@ Drivestä linkistä
 
 
 ::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/file/d/1yiZX1BaHJCQYDiHHNESvzJbVJI4woP_W/view?usp=drive_link)
+[Kurssihakemisto.zip](https://drive.google.com/file/d/1K0SUSVwM0PIPS7cMbDi4-gGiAIFA4igp/view?usp=sharing)
 :::
 
 
