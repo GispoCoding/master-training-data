@@ -17,7 +17,7 @@ Kouluttautuja oppii käyttämään eri aineistoille tarkoitettuja paikkatietoana
 Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...) "QGIS_harjoitus_9"**.
 Lisää projektiin seuraavat tasot:
 
--   **.../9. Harjoitus/kunnat2024.gpkg**
+-   **.../9. Harjoitus/HallintoAlue.gpkg**
 
 -   **.../9. Harjoitus/natura2000sac_alueet.gpkg**
 
@@ -58,7 +58,7 @@ VIRHEELLISET EPSG-koodit: EPSG:3126 - EPSG:3138
 Tässä harjoituksessa selvitetään Natura-alueiden pinta-ala kunnittain.
 Lyhyesti harjoituksen kulku on:
 
-- Tehdään spatiaalinen analyysi kunta- ja Natura-aineiston kanssa, jossa leikataan Natura-alueet kunnittain, jotta Natura-alueisiin saadaan kunta-aineiston sisältämät tiedot
+- Tehdään spatiaalinen analyysi HallintoAlue- ja Natura-aineiston kanssa, jossa leikataan Natura-alueet kunnittain, jotta Natura-alueisiin saadaan kunta-aineiston sisältämät tiedot
 
 - Yhdistetään Natura-alueet kunnittain ja lasketaan niiden pinta-ala
 
@@ -67,7 +67,7 @@ Seuraavaksi lähdemme käsittelemään aineistoja **Vektori**-ylämenusta, josta
 ![](img/harjoitus_9/image4.png)
 
 Käynnistä **Ristiinleikkaus (intersection...)**-työkalu **Geoprosessointi**-valikosta.
-Määrittele syötetasoksi natura2000sac_alueet ja leikkaavaksi tasoksi kunnat2024-aineisto. Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista. Paina syötetason vierestä Asetukset ![](img/harjoitus_9/image5.png) ja valitse **Virheellisten kohteiden suodatus** asetukseksi "Ohita kohteet, joilla on virheellinen geometria". Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
+Määrittele syötetasoksi natura2000sac_alueet ja leikkaavaksi tasoksi HallintoAlue-aineisto. Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista. Paina syötetason vierestä Asetukset ![](img/harjoitus_9/image5.png) ja valitse **Virheellisten kohteiden suodatus** asetukseksi "Ohita kohteet, joilla on virheellinen geometria". Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
 Teemme tälle aineistolle vielä toisen analyysin, joten voit luoda tilapäisen tason:
 
 ![](img/harjoitus_9/image6.png)
