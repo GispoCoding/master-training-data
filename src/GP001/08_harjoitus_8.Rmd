@@ -54,7 +54,7 @@ QGISin automaattisesti luoma fid-kenttä antaa jokaiselle digitoitavalle kohteel
 
 ![](img/harjoitus_8/image8.png)
 
-Valitse seuraavaksi listalta äsken luomasi **Aluetyyppi**-kenttä. Jos kenttä ei ole listassa, paina **OK** sulkeaksesi **Tason ominaisuudet** -ikkunan ja avaa se uudelleen. **Aluetyyppi**-kentän pitäisi nyt näkyä listauksessa. Attribuuttitietojen täyttöä varten voidaan määritellä erilaisia sääntöjä. Säännöillä helpotetaan editointia ja tietojen hallintaa. Valitse **Muokkauksen tyyppi** -kohdan alasvetovalikosta **Arvoluettelo**. Arvoluettelon avulla voit rajoittaa sitä, mitä arvoja kenttään voidaan täyttää. Nopeutat myös editointia, sillä jatkossa voit valita attribuutit alavetolaatikostosta, joka sisältää arvoluetteloon määritellyt arvot. Luo nyt kolme arvoa: **Metsä**, **Pelto** ja **Rakennus**. Lisää myös arvoille lyhyet kuvaukset: **Metsäalue**, **Peltoalue** ja **Rakennettu alue.** 
+Valitse seuraavaksi listalta äsken luomasi **Aluetyyppi**-kenttä. Jos kenttä ei ole listassa, paina **OK** sulkeaksesi **Tason ominaisuudet** -ikkunan ja avaa se uudelleen. **Aluetyyppi**-kentän pitäisi nyt näkyä listauksessa. Attribuuttitietojen täyttöä varten voidaan määritellä erilaisia sääntöjä. Säännöillä helpotetaan editointia ja tietojen hallintaa. Valitse **Widgetin tyyppi** -kohdan alasvetovalikosta **Arvoluettelo**. Arvoluettelon avulla voit rajoittaa sitä, mitä arvoja kenttään voidaan täyttää. Nopeutat myös editointia, sillä jatkossa voit valita attribuutit alavetolaatikostosta, joka sisältää arvoluetteloon määritellyt arvot. Luo nyt kolme arvoa: **Metsä**, **Pelto** ja **Rakennus**. Lisää myös arvoille lyhyet kuvaukset: **Metsäalue**, **Peltoalue** ja **Rakennettu alue.** 
 
 ![](img/harjoitus_8/image9.png)
 
