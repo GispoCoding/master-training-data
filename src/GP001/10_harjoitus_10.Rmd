@@ -66,6 +66,12 @@ Jos esiasetuksista ei löydä haluamaasi tasoa, yritä etsiä se avaimen ja arvo
 
 ## Lisätehtävä: Qgis2threejs
 
+Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä…) “QGIS_harjoitus_10”**. Lisää projektiin seuraavat tasot:
+
+- **…/10 Harjoitus/Vaestotietoruudukko_2022.gpkg**
+
+- **…/10 Harjoitus/L4133B.asc**
+
 Lisää vielä **Qgis2threejs**-lisäosa.
 Tämä lisäosa mahdollistaa nopean kolmiulotteisen visualisoinnin luomisen web-selaimelle käyttäen threejs-kirjastoa.
 Lisäosan valikko tulee myös **Verkko**-valikkoon.
