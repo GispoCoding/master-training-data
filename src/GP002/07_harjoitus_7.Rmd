@@ -19,11 +19,11 @@ Kouluttautuja oppii käyttämään eri aineistoille tarkoitettuja paikkatietoana
 Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...) "QGIS_harjoitus_7"**.
 Lisää projektiin seuraavat tasot:
 
--   **.../Harjoitus 7/kunnat2024.gpkg**
+-   **.../Harjoitus 7/kunnat.gpkg**
 
 -   **.../Harjoitus 7/natura2000sac_alueet.gpkg**
 
-Voit asettaa kunnat2024-monikulmion täytevärin pois ja saada siten natura2000sac_alueet-aineiston paremmin näkyviin:
+Voit asettaa kunnat-monikulmion täytevärin pois ja saada siten natura2000sac_alueet-aineiston paremmin näkyviin:
 
 ![](img/harjoitus_7/image22.gif)
 

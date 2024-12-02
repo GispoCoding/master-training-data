@@ -15,7 +15,7 @@ Avaa projektiin seuraavat aineistot:
 
 -   **.../Harjoitus 4/natura2000sac_alueet.gpkg**
 
--   **.../Harjoitus 4/Vaestotietoruudukko_2019.gpkg**
+-   **.../Harjoitus 4/Vaestotietoruudukko_2022.gpkg**
 
 Aseta aluksi **natura2000sac_alueet** -taso näkyviin ja muut näkymättömäksi
 
@@ -23,7 +23,7 @@ Aseta aluksi **natura2000sac_alueet** -taso näkyviin ja muut näkymättömäksi
 
 QGIS käyttöliittymässä paikkatietokohteiden tekstitykseen viitataan termillä **Nimiöt** (englanninkielinen termi on “**Labeling**”).
 Avaa **natura2000sac_alueet-tason Ominaisuudet-ikkuna** ja valitse **Nimiöt-välilehti**.
-Valitse **Yksinkertainen nimiöinti** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi, esim. “Nimi”.
+Valitse **Yksinkertainen nimiöinti** ja **Nimiöiden perustana -alasvetovalikosta** nimiöinnissä käytettävän sarakkeen nimi, esim. “nimisuomi”.
 Paina **Käytä**, niin kohteille syntyy nimiöt. Tämä nähdään nyt karttaikkunasta, johon nimiöt ovat jo päivittyneet:
 
 ![](img/harjoitus_4/image11.png)
@@ -124,7 +124,7 @@ Loitonna karttanäkymää siten, että kaikki tasojesi kohteet tulevat näkyvill
 ![](img/harjoitus_4/image15.jpg)
 
 Joissakin tapauksissa olisi hyödyllistä määrittää nimiöt eri mittakaavoille erikseen.
-Avaa taas **natura2000sac_alueet-tason ominaisuudet** ja valitse **Nimiöt-sivupalkista** ja **Piirtäminen-alateema**. Rastita **Show all labels for this layer (including colliding labels)**, varmista, ettei mittakaavaperusteinen näkyvyys ole valittuna ja paina **Käytä**. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä mittakaavalla. Rastita tämä asetus pois päältä ja paina Käytä. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt.
+Avaa taas **natura2000sac_alueet-tason ominaisuudet** ja valitse **Nimiöt-sivupalkista** ja **Karttanäyttö-alateema**. Rastita **Salli perääntyminen alempiarvoisiin sijoittelupaikoille** sekä valitse Tilaksi **Salli päällekkäisyydet ilman sakkoa** ja paina **Käytä**. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä tavalla. Rastita tämä asetus pois päältä ja paina **Käytä**. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä mittakaavalla. Rastita tämä asetus pois päältä ja paina Käytä. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt.
 Rastita päälle **Mittakaavaperusteinen näkyvyys** ja laita **Maksimi-kentän arvoksi** 500 000:
 
 ![](img/harjoitus_4/image12.png)
