@@ -4,7 +4,7 @@ editor_options:
     wrap: sentence
 ---
 
-# QGISin lisäosat
+# Harjoitus 8: QGISin lisäosat
 
 ## Sisältö
 
@@ -67,6 +67,12 @@ Testaa löytää esimerkiksi golfkentät tai pyörätiet jostain kaupungista.
 Jos esiasetuksista ei löydä haluamaasi tasoa, yritä etsiä se avaimen ja arvon avulla.
 
 ## Lisätehtävä: Qgis2threejs
+
+Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä…) “QGIS_harjoitus_10”**. Lisää projektiin seuraavat tasot:
+
+- **…/8 Harjoitus/Vaestotietoruudukko_2022.gpkg**
+
+- **…/8 Harjoitus/L4133B.asc**
 
 Lisää vielä **Qgis2threejs**-lisäosa.
 Tämä lisäosa mahdollistaa nopean kolmiulotteisen visualisoinnin luomisen web-selaimelle käyttäen threejs-kirjastoa.
