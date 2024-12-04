@@ -26,7 +26,7 @@ Tämä työkalu avaa WMS-palvelujen käyttö- ja määrityslomakkeen. Koneessasi
 
 ![](img/harjoitus_2/image2.png)
 
-Määrittele seuraavassa ikkunassa haluamasi nimi WMS-palvelulle. On tärkeää, että muistat itse, mikä nimi vastaa mitäkin aineistoa, mutta paras on tietysti olla johdonmukainen ja kuvata esimerkiksi tietyn kaupungin palvelurajapintaa kyseisen kaupungin nimeä hyödyntäen (kts. esim. alla). URL-kentälle laitetaan WMS-palvelun osoite sekä tarvittaessa käyttäjänimi ja salasana. Luo uusi yhteys Helsingin WMS-palveluun: <http://kartta.hel.fi/ws/geoserver/avoindata/wms>
+Määrittele seuraavassa ikkunassa haluamasi nimi WMS-palvelulle. On tärkeää, että muistat itse, mikä nimi vastaa mitäkin aineistoa, mutta paras on tietysti olla johdonmukainen ja kuvata esimerkiksi tietyn kaupungin palvelurajapintaa kyseisen kaupungin nimeä hyödyntäen (kts. esim. alla). URL-kentälle laitetaan WMS-palvelun osoite sekä tarvittaessa käyttäjänimi ja salasana. Luo uusi yhteys Maanmittauslaitoksen WMS-palveluun: <https://sopimus-karttakuva.maanmittauslaitos.fi/sopimus/service/wms>
 
 ![](img/harjoitus_2/image3.png)
 
@@ -34,7 +34,13 @@ Palvelun määrityksen jälkeen paina **OK**. Paina vielä **Yhdistä**. Näin o
 
 ![](img/harjoitus_2/image4.png){width="70%"}
 
-Luo nyt muutama WMS-palveluyhteys lisää. Voit hakea ja kopioida suoraan niin WMS- kuin WFS-palveluiden URL-osoitteita Gispon ylläpitämässä vapaasti käytettävästä rajapintaluettelosta seuraavan osoitteen takaa (<https://www.gispo.fi/blogi/avoimen-datan-wms-ja-wfs-karttapalveluita/>). Listaamme myös alle muutaman WMS-palvelun URL-osoitteen:
+Luo nyt muutama WMS-palveluyhteys lisää samaantapaan. Esimerkiksi Kuopion kaupungin wms-rajapintapalvelu:
+
+<https://ws.kuopio.fi/wms>
+
+(ei salasanaa tai käyttäjätunnusta)
+
+Voit myös hakea ja kopioida suoraan niin WMS- kuin WFS-palveluiden URL-osoitteita Gispon ylläpitämässä vapaasti käytettävästä rajapintaluettelosta seuraavan osoitteen takaa (<https://www.gispo.fi/blogi/avoimen-datan-wms-ja-wfs-karttapalveluita/>). Listaamme myös alle muutaman WMS-palvelun URL-osoitteen:
 
 -   <https://avoin-karttakuva.maanmittauslaitos.fi/avoin/wmts/1.0.0/WMTSCapabilities.xml>
 -   <https://avoinapi.vaylapilvi.fi/vaylatiedot/ows?service=wms&request=getCapabilities>
@@ -49,7 +55,9 @@ Seuraavaksi lisäämme QGISiin WFS (Web Feature Service) -palveluja käyttöömm
 
 WFS-palvelujen yhdistäminen toimii samalla logiikalla kuin edellä määritellyt WMS-palvelut.
 
-Lisää taas muutama WFS-palvelu ja nimeä ne haluamallasi tavalla. Jos et vielä avannut mainittua Gispon ylläpitämää WMS- ja WFS-rajapintojen listaa verkosta, avaa se nyt. Hae sieltä haluamasi WFS-palvelun URL tai lisää seuraavasta listasta WFS-palveluita:
+Lisää Maanmittauslaitoksen WFS-OGC -API- palvelu: <https://sopimus-paikkatieto.maanmittauslaitos.fi/kiinteisto-avoin/simple-features/v3/>
+
+Lisää taas muutama muukin WFS-palvelu ja nimeä ne haluamallasi tavalla. Jos et vielä avannut mainittua Gispon ylläpitämää WMS- ja WFS-rajapintojen listaa verkosta, avaa se nyt. Hae sieltä haluamasi WFS-palvelun URL tai lisää seuraavasta listasta WFS-palveluita:
 
 -   <https://avoinapi.vaylapilvi.fi/vaylatiedot/ows?service=wfs&request=getCapabilities>
 -   <https://avoinapi.vaylapilvi.fi/vaylatiedot/digiroad/ows?service=wfs&request=getCapabilities>
@@ -102,15 +110,11 @@ Sitten lisäämme tason QGISiin ja varmistamme, että SQL-kyselymme tuotti toivo
 
 ## Lisätehtävä: API-avaimen lisääminen QGISiin
 
-Mene ylävalikosta **Asetukset > Valinnat** ja avaa Autentikointi-välilehti. 
-QGIS saattaa ensin kysyä pääkäyttäjäsalasanaa, jos et ole luonut sellaista aiemmin. Valitse salasanaksi joku, jonka muistat hyvin, sitä ei voi palauttaa myöhemmin. Kun olet luonut salasanan, pääset jatkamaan API-avaimen lisäämistä.
+Mene ylävalikosta **Asetukset \> Valinnat** ja avaa Autentikointi-välilehti. QGIS saattaa ensin kysyä pääkäyttäjäsalasanaa, jos et ole luonut sellaista aiemmin. Valitse salasanaksi joku, jonka muistat hyvin, sitä ei voi palauttaa myöhemmin. Kun olet luonut salasanan, pääset jatkamaan API-avaimen lisäämistä.
 
-![](img/harjoitus_2/image11.png)
-Paina aluksi **+**-symbolia välilehden oikeasta ylänurkasta. 
-Vaihda pudotusvalikosta autentikoinniksi **Basic authentication** valinta. Syötä aukeavaan ikkunaan salasanan nimi (esim. "MML") ja lisää API-avaimesi **Käyttäjänimi**-kenttään. Muut kentät voit jättää tyhjiksi. Paina lopuksi **Tallenna** ja asetukset ikkunasta **OK**. API avain on nyt tallennettu ja voit käyttää sitä tehdessäsi WMS tai WFS yhteyttä.
+![](img/harjoitus_2/image11.png) Paina aluksi **+**-symbolia välilehden oikeasta ylänurkasta. Vaihda pudotusvalikosta autentikoinniksi **Basic authentication** valinta. Syötä aukeavaan ikkunaan salasanan nimi (esim. "MML") ja lisää API-avaimesi **Käyttäjänimi**-kenttään. Muut kentät voit jättää tyhjiksi. Paina lopuksi **Tallenna** ja asetukset ikkunasta **OK**. API avain on nyt tallennettu ja voit käyttää sitä tehdessäsi WMS tai WFS yhteyttä.
 
 ![](img/harjoitus_2/image12.png)
-
 
 ::: hint-box
 **Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.**

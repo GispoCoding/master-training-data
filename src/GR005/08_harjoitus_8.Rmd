@@ -1,1 +1,17 @@
 # Harjoitus 8: SQL-kyselyt
+
+## Harjoituksen sisältö
+
+Harjoituksessa harjoitellaan SQL-kyselyiden tekemistä aineistoilla
+
+## Harjoituksen tavoite
+
+Koulutettava oppii SQL-kyselyiden luonnin
+
+## Valmistautuminen
+
+Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_8**".
+
+Lisää projektiin seuraavat aineistot:
+
+-   **.../Harjoitus 8/jv-johdot.TAB**

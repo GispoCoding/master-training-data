@@ -1,3 +1,9 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
 # Harjoitus 1: QGIS käyttöliittymä ja perustoiminnot
 
 **Harjoituksen sisältö**
@@ -34,11 +40,9 @@ Voit halutessasi ladata kurssin luentokalvot täältä:
 Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google
 Drivestä linkistä
 
-
 ::: note-box
 [Kurssihakemisto.zip](https://drive.google.com/file/d/1yiZX1BaHJCQYDiHHNESvzJbVJI4woP_W/view?usp=drive_link)
 :::
-
 
 Avaa yllä oleva linkki ja klikkaa **Lataa**. Tämä lataa aineistot
 kokonaisuudessaan pakattuna zip-tiedostona **Kurssihakemisto.zip**. Pura
@@ -57,9 +61,9 @@ Paina lopuksi **OK**.
 ![](img/harjoitus_1/image1.png){width="70%"}
 
 Huomaa, että kielen vaihtamisen aktivoimiseksi sinun tulee käynnistää
-QGIS uudelleen.
-Lisää ensimmäinen vektorimuotoinen paikkatietoaineisto
-napsauttamalla **Avaa tietolähteiden hallinta --pikakuvakenäppäintä**: ![](img/harjoitus_1/image2.png){width="3%"}
+QGIS uudelleen. Lisää ensimmäinen vektorimuotoinen paikkatietoaineisto
+napsauttamalla **Avaa tietolähteiden hallinta --pikakuvakenäppäintä**:
+![](img/harjoitus_1/image2.png){width="3%"}
 
 Löydät saman toiminnon myös Tasot-valikosta **Lisää taso → Lisää
 vektoritaso...** (Ctrl+Shift+V). Valitse avautuvasta ikkunasta
@@ -89,8 +93,8 @@ raahata työkalupalkkeja eri kohtiin.
 
 **3. Karttaikkuna** Karttaikkunaan piirtyvät ne paikkatietoaineistot,
 jotka ovat tasoluettelossa aktivoituna näkyväksi. Voit lähentää ja
-loitontaa karttaa sekä vapaasti siirtää näkymää hiiren avulla (koita myös hiiren
-scrollia).
+loitontaa karttaa sekä vapaasti siirtää näkymää hiiren avulla (koita
+myös hiiren scrollia).
 
 **4. Tilapalkki** Tilapalkista näet hiiren kursorin koordinaatit, minkä
 lisäksi voit muuttaa mittakaavaa ja koordinaattijärjestelmää.
@@ -120,11 +124,11 @@ niiden tarkoitukset:
 
 <!--| Zoomaa täydeksi       | ![](img/harjoitus_1/image6.png) |-->
 
-|                       |                                 |
-|:---------------------:|:-------------------------------:|
-|    Zoomaa täydeksi    | ![](img/harjoitus_1/image6.png) |
-|     Zoomaa tasoon     | ![](img/harjoitus_1/image8.png) |
-| Näytä kohteen tiedot  | ![](img/harjoitus_1/image9.png) |
+|                       |                                  |
+|:---------------------:|:--------------------------------:|
+|    Zoomaa täydeksi    | ![](img/harjoitus_1/image6.png)  |
+|     Zoomaa tasoon     | ![](img/harjoitus_1/image8.png)  |
+| Näytä kohteen tiedot  | ![](img/harjoitus_1/image9.png)  |
 | Avaa attribuuttitaulu | ![](img/harjoitus_1/image10.png) |
 | Mittaa viivan pituus  | ![](img/harjoitus_1/image11.png) |
 
@@ -139,11 +143,12 @@ Tasoluettelon toiminnot (käyttöliittymässä vasemmalla puolella):
 
 ### Attribuuttitaulu
 
-Valitse Tieviiva-karttataso ja avaa ominaisuustietotaulukko, joko
+Valitse jv-johdot-karttataso ja avaa ominaisuustietotaulukko, joko
 painamalla pikakuvaketta ![](img/harjoitus_1/image10.png) tai painamalla
 hiiren oikealla näppäimellä karttatason kohdalla sekä valitsemalla
 **Avaa attribuuttitaulu**. Voit järjestää ominaisuustietotaulun minkä
-tahansa kentän mukaan laskevaan tai nousevaan järjestykseen.
+tahansa kentän mukaan laskevaan tai nousevaan järjestykseen klikkaamalla
+otsikkoa.
 
 ![](img/harjoitus_1/image15.png)
 
