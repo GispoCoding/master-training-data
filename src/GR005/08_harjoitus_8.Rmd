@@ -15,3 +15,119 @@ Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (**
 Lisää projektiin seuraavat aineistot:
 
 -   **.../Harjoitus 8/jv-johdot.TAB**
+
+QGIS mahdollistaa SQL-kyselyiden tekemisen suoraan aineistoihin, kuten PostGIS-tietokantoihin tai paikallisiin tiedostoihin (esim. GeoPackage). Tässä ohjeet, miten voit tehdä SQL-kyselyitä QGIS:llä:
+
+### 1. **Valmistaudu SQL-kyselyihin**
+
+#### Tarkista, että aineisto tukee SQL-kyselyitä:
+
+-   **PostGIS-tietokanta:** Voit käyttää SQL:ää suoraan, kun olet yhdistänyt QGIS:n PostGIS-tietokantaan.
+
+-   **GeoPackage-tiedosto:** GeoPackage-tiedostot tukevat SQL:ää.
+
+-   **Shapefile:** Shapefile ei tue suoria SQL-kyselyitä; muunna se ensin sopivampaan muotoon, kuten GeoPackage.
+
+### 2. **Avaa "DB Manager"**
+
+DB Manager on QGIS:n työkalu, jonka avulla voit tehdä SQL-kyselyitä:
+
+1.  Avaa **DB Manager**:
+
+    -   **Valikko:** *Tietokanta -\> DB Manager -\> DB Manager*.
+
+2.  Valitse tietolähde:
+
+    -   Jos käytät PostGIS:iä, yhdistä tietokantaan (jos et ole tehnyt sitä aiemmin, valitse *PostGIS -\> Yhdistä* ja anna tietokantatiedot).
+
+    -   Jos käytät GeoPackage-tiedostoa, valitse tiedosto paikallisista tietolähteistä.
+
+### 3. **Kirjoita SQL-kysely**
+
+1.  Klikkaa tietokannan nimeä ja valitse **SQL-kysely** (Query).
+
+2.  Kirjoita SQL-koodi editoriin:
+
+    -   Esimerkki: Valitse kaikki rivit tietyltä alueelta:
+
+        ```         
+        sql
+        ```
+
+        Kopioi koodi
+
+        `SELECT *  FROM taulun_nimi WHERE ST_Intersects(geometry, ST_Buffer(ST_MakePoint(25.5, 60.2)::geometry, 1000));`
+
+    -   Esimerkki: Laskenta:
+
+        ```         
+        sql
+        ```
+
+        Kopioi koodi
+
+        `SELECT luokka, COUNT(*) FROM taulun_nimi GROUP BY luokka;`
+
+3.  Suorita kysely:
+
+    -   Klikkaa **Suorita kysely (Execute)**.
+
+### 4. **Tallenna tulos kartalle**
+
+1.  Jos kysely tuottaa geometrioita:
+
+    -   Tulos näkyy DB Managerin alareunassa. Klikkaa **Tuo QGIS:iin (Load as layer)**.
+
+    -   Anna kerrokselle nimi ja määritä projektio.
+
+2.  Jos kysely ei tuota geometrioita:
+
+    -   Voit viedä tuloksen CSV-tiedostoksi ja lisätä sen myöhemmin taulukoksi.
+
+### 5. **SQL-kyselyt suoraan QGIS:n kerroksille**
+
+Jos haluat tehdä SQL-kyselyitä ilman DB Manageria, voit käyttää **suodattimia** tai **Virtual Layer -ominaisuutta**.
+
+#### **a) Käytä Suodatinta (Filter):**
+
+1.  Valitse kerros ja klikkaa sitä hiiren oikealla → **Suodatin**.
+
+2.  Kirjoita yksinkertainen kysely, esimerkiksi:
+
+    ```         
+    sql
+    ```
+
+    Kopioi koodi
+
+    `luokka = 'metsä' AND pinta_ala > 1000`
+
+3.  Klikkaa **OK**.
+
+#### **b) Käytä Virtual Layer -kerrosta:**
+
+1.  Lisää uusi virtuaalinen kerros:
+
+    -   **Valikko:** *Kerros -\> Luo kerros -\> Lisää virtuaalinen kerros*.
+
+2.  Kirjoita SQL-kysely, esimerkiksi:
+
+    ```         
+    sql
+    ```
+
+    Kopioi koodi
+
+    `SELECT * FROM "kerroksen_nimi" WHERE luokka = 'kaupunkialue';`
+
+3.  Klikkaa **OK**.
+
+### 6. **Hyviä käytäntöjä SQL-kyselyissä**
+
+-   **Projektio:** Varmista, että käytät oikeita koordinaattijärjestelmiä erityisesti geometriakyselyissä.
+
+-   **Optimoitu kysely:** Suuren tietoaineiston käsittely voi olla hidasta, joten käytä suodattimia (esim. `WHERE`) tarpeettomien rivien rajaamiseksi.
+
+-   **Testaa kyselyt pienemmässä mittakaavassa:** Varmista, että kysely toimii ennen kuin suoritat sen koko tietoaineistolle.
+
+Jos sinulla on tietty kysely mielessä, voin auttaa sen kirjoittamisessa!

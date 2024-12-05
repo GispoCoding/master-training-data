@@ -32,7 +32,7 @@ QGIS käyttöliittymässä paikkatietokohteiden tekstitykseen viitataan termill�
 Nimiöiden tekstien näkymistä kartalla voi määrittää monella eri tavalla. Alla kuvaukset QGISin nimiöiden muokkaamisen alateemoista:
 
 |               |                                                                                                                                                      |
-|:------------------------:|:---------------------------------------------|
+|:-------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
 |    Teksti     | Määritellään tekstin tyyli, väri ja muita yleisiä ominaisuuksia                                                                                      |
 |   Muotoilu    | Voit muodostaa useampirivisiä tekstejä, keskittää tekstiä ja määritellä lukujen muotoa                                                               |
 |    Vyöhyke    | Luodaan tekstiä korostavat puskurit (tekstin reunukset)                                                                                              |

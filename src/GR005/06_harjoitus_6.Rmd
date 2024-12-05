@@ -1,1 +1,82 @@
 # Harjoitus 6: Symbolien tekeminen symbolieditorilla
+
+SVG-symbolit ovat erittäin hyödyllisiä QGIS:ssä, sillä ne mahdollistavat mukautettujen karttasymbolien käytön. Tässä ohjeet omien SVG-symbolien tekemiseen ja niiden lisäämiseen QGIS:ään:
+
+### 1. **Luo SVG-symboli**
+
+Voit käyttää mitä tahansa vektorigrafiikkaohjelmaa, kuten:
+
+-   **Inkscape** (ilmainen ja avoimen lähdekoodin ohjelma)
+
+-   **Adobe Illustrator**
+
+-   **CorelDRAW**
+
+Toimi näin:
+
+1.  **Avaa ohjelma ja luo uusi tiedosto.**
+
+    -   Aseta kankaan koko esimerkiksi 100x100 pikseliä.
+
+2.  **Piirrä symboli.**
+
+    -   Käytä yksinkertaisia muotoja ja värejä.
+
+    -   Vältä liian monimutkaisia elementtejä, jotka saattavat hidastaa QGIS:n toimintaa.
+
+3.  **Vie tiedosto SVG-muodossa.**
+
+    -   Inkscapessa valitse **Tiedosto -\> Vie tallennettuna** ja valitse SVG.
+
+### 2. **Sijoita SVG-symboli oikeaan kansioon**
+
+Jotta QGIS löytää symbolisi:
+
+1.  Tallenna tiedosto paikkaan, jossa se on helposti saatavilla. Esimerkiksi:\
+    `C:/Users/[käyttäjänimi]/Documents/QGIS/SVG`
+
+2.  Vaihtoehtoisesti voit sijoittaa sen QGIS:n oletussymbolikansioon:
+
+    -   Windows: `C:/Program Files/QGIS 3.xx/apps/qgis/svg`
+
+    -   MacOS/Linux: `/usr/share/qgis/svg`
+
+### 3. **Lisää SVG-symboli QGIS:ssä**
+
+1.  Avaa **QGIS** ja avaa **Tyylieditori**:
+
+    -   Klikkaa kerrosta, jonka tyyliä haluat muokata.
+
+    -   Valitse **Ominaisuudet -\> Tyyli**.
+
+2.  Valitse **Symbolin tyyppi**:
+
+    -   Valitse **Markeri -\> SVG-marker**.
+
+3.  Klikkaa **Tiedosto-painiketta** ja etsi luomasi SVG-symboli.
+
+4.  Säädä tarvittaessa kokoa, värejä ja kiertoa.
+
+### 4. **Tee symbolista uudelleenkäytettävä**
+
+Jos haluat käyttää symbolia muissa projekteissa:
+
+1.  Tallenna tyyli tiedostoksi:
+
+    -   **Tiedosto -\> Vie tyyli -\> .qml** (QGIS-tyylitiedosto).
+
+2.  Voit myös käyttää **Tyylikirjastoa**:
+
+    -   QGIS:n päävalikosta: **Projektit -\> Tyylikirjasto**.
+
+### Vinkkejä onnistuneeseen SVG-symbolien luontiin
+
+-   **Yksinkertaisuus:** Vältä liian monimutkaisia symboleita.
+
+-   **Mittakaava:** Testaa symbolin näkyvyys eri mittakaavoissa.
+
+-   **Käytä kerroksia:** Kerrokset helpottavat symbolin muokkaamista myöhemmin.
+
+-   **Testaa symboli:** Lataa symboli QGIS:ään ja varmista, että se näyttää hyvältä ja toimii odotetusti.
+
+Onko sinulla tietty symboli, jonka haluat tehdä? Voin auttaa ideoinnissa!
