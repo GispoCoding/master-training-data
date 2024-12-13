@@ -1,4 +1,4 @@
-# Harjoitus 6: Lisäosien asentaminen uusien visualisointien hakeminen symbolikirjastoista ja omien symbolien tekeminen
+# Harjoitus 6: Lisäosien asentaminen, uusien visualisointien hakeminen symbolikirjastoista ja omien symbolien tekeminen
 
 SVG-symbolit ovat erittäin hyödyllisiä QGIS:ssä, sillä ne mahdollistavat mukautettujen karttasymbolien käytön.
 
@@ -70,7 +70,7 @@ Toimi näin:
 
     -   Inkscapessa valitse **Tiedosto -\> Vie tallennettuna** ja valitse SVG.
 
-4. **Sijoita SVG-symboli oikeaan kansioon**
+4.  **Sijoita SVG-symboli oikeaan kansioon**
 
 Jotta QGIS löytää symbolisi:
 
@@ -97,19 +97,23 @@ Jotta QGIS löytää symbolisi:
 
 9.  Klikkaa **Tiedosto-painiketta** ja etsi luomasi SVG-symboli.
 
-10.  Säädä tarvittaessa kokoa, värejä ja kiertoa.
+10. Säädä tarvittaessa kokoa, värejä ja kiertoa.
 
 **Tee symbolista uudelleenkäytettävä**
 
 Jos haluat käyttää symbolia muissa projekteissa:
 
-11.  Tallenna tyyli tiedostoksi:
+11. Tallenna tyyli tiedostoksi:
 
-    -   **Tiedosto -\> Vie tyyli -\> .qml** (QGIS-tyylitiedosto).
+```         
+-   **Tiedosto -\> Vie tyyli -\> .qml** (QGIS-tyylitiedosto).
+```
 
-12.  Voit myös käyttää **Tyylikirjastoa**:
+12. Voit myös käyttää **Tyylikirjastoa**:
 
-    -   QGIS:n päävalikosta: **Projektit -\> Tyylikirjasto**.
+```         
+-   QGIS:n päävalikosta: **Projektit -\> Tyylikirjasto**.
+```
 
 ### Vinkkejä onnistuneeseen SVG-symbolien luontiin
 
