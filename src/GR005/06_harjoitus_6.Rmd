@@ -1,5 +1,24 @@
 # Harjoitus 6: Lisäosien asentaminen, uusien visualisointien hakeminen symbolikirjastoista ja omien symbolien tekeminen
 
+## Harjoituksen sisältö
+
+Harjoituksessa tutustutaan lisäosien asentamiseen, uusien visualisointien hakmiseen valmiista symbolikirjastoista ja omien symbolien tekemiseen
+
+## Harjoituksen tavoite
+
+Koulutettava oppii asentamaan QGIS-lisäsoa ja lataamaan valmiita visualisointikirjastoja QGISiin ja asettamaan QGISiin oletuspolku SVG-kuvakkeille.
+
+## Valmistautuminen
+
+Käynnistä QGIS-ohjelmisto. Avaa harjoituksen 4 QGIS-projektisi ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_6**". Avaa projektiin seuraavat aineistot:
+
+-   Lisää projektiin seuraavat aineistot:
+    -   **.../jv-johdot.TAB**
+
+    -   **.../jv-varusteet.TAB**
+
+    -   **.../viemäripiirit.TAB**
+
 SVG-symbolit ovat erittäin hyödyllisiä QGIS:ssä, sillä ne mahdollistavat mukautettujen karttasymbolien käytön.
 
 Tässä harjoituksessa harjoittelemme sekä valmiiden symbolikirjastojen asentamista että omien symbolien tekemistä.

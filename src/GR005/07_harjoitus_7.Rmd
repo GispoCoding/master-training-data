@@ -10,7 +10,11 @@ Koulutettava oppii laatimaan karttatulosteen halutussa mittakaavassa sekä tehd�
 
 ## Valmistautuminen
 
-Käynnistä QGIS-ohjelmisto. Avaa harjoituksen 4 QGIS-projektisi ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_5**". Voit poistaa tai laittaa näkyvistä tasot TieViiva ja NaturaKohde_ma.
+Käynnistä QGIS-ohjelmisto. Avaa harjoituksen 6 QGIS-projektisi ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_7**".
+
+Lisää aineistoosi sopiva taustakartta. Esimerkiksi Kuopion WMS-palvelusta Kantakartta
+
+![](img/harjoitus_7/image1_1.png)
 
 ## Karttatuloste
 
@@ -32,13 +36,13 @@ Vedä tulosalueelle suorakulmio, karttanäkymän mukainen kartta piirtyy näytö
 
 Valitse **Elementin ominaisuudet -välilehti** ja muuta kartan parametrejä seuraavasti:
 
--   Kartan mittakaavaksi 1:200 000
+-   Kartan mittakaavaksi jokin hyvä tasaluku esimerkiksi 1:20 000
 -   Valitse Kehys (piirtää kartalle reunaviivat)
 
 Huomaa, että karttatulosteen hallinnassa on mahdollisuus siirtää yksittäisiä kohteita (nimikkeitä) tai muokata kartan sijaintia. Kohteen ollessa valittuna, voit siirtää/muokata sitä tulosteella seuraavien työkalujen avulla:
 
-|                                  |                                                         |
-|:------------------:|:--------------------------------------------------:|
+|                                 |                                                         |
+|:----------------------:|:----------------------------------------------:|
 | ![](img/harjoitus_7/image5.png) |                Valitse/siirrä elementtiä                |
 | ![](img/harjoitus_7/image6.png) | Siirrä elementin sisältöä (esimerkiksi kartan sisältöä) |
 | ![](img/harjoitus_7/image7.png) |                 Zoomaa taiton näkymässä                 |
@@ -59,10 +63,6 @@ Valitse sen jälkeen **Elementin ominaisuudet -ikkunasta** mieleisesi pohjoisnuo
 
 ![](img/harjoitus_7/image13.png)
 
-Lopputulos voi olla esimerkiksi seuraavanlainen:
-
-![](img/harjoitus_7/image14.png)
-
 Halutessasi voit tallentaa käyttämäsi tulostemallin (layout englanniksi) ja hyödyntää sitä jatkossa seuraavien karttatulosteiden tekemiseen. Voit esimerkiksi muotoilla kollegoidesi käyttöön karttatulostemallin organisaatiollesi (logot, värit, tekstin paikka, jne.). Tämä onnistuu **Tallenna malliksi -työkalulla**: ![](img/harjoitus_7/image15.png)
 
 Lopputuloksen voit tulostaa tiedostoksi (kuvaksi tai pdf:ksi) tai tulostimeen.
@@ -77,15 +77,11 @@ Sopiva resoluutio karttatulosteellesi riippuu kartan käyttötarkoituksesta, mut
 
 ## Lisätehtävä: kartta-atlas
 
-QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Seuraavassa esimerkissä tuotamme kartta-atlaksen Helsingin postinumeroalueista tutkien niitä väestön jakautumisen näkökulmasta. Tavoitteenamme on tuottaa 173 karttaa, jotka kattavat kaikki pääkaupunkiseudun postinumeroalueet.
+QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Tavoitteenamme on tuottaa jokaisesta kaupunginosasta kartta.
 
--   Lataa ensiksi postinumeroalueet paikkatietoaineiston avoindata.fi-sivustolta: <https://www.avoindata.fi/data/fi/dataset/paakaupunkiseudun-postinumeroalueet> Lataa aineisto haluamassasi muodossa kurssikansioosi ja lisää se oppimallasi tavalla QGIS-projektiin.
+Nyt projektissa on tasoina ainakin jv-johdot ja kaupunginosat. Voit myös lisätä muita haluamiasi tasoja projektiin. Avaa uusi tuloste ja aseta sen sommittelu haluamaasi kokoon (esimerkiksi A5).
 
-TAI \* - **Lisää .../kurssihakemisto/Harjoitus 7/Postinumeroalueet_2019.gpkg** eli HSY:n postinumeroaineisto QGIS-projektiisi. Huom! Tämä aineisto on tallennettu koordinaattijärjestelmässä EPSG: 3067.
-
-Nyt projektissa on tasoina ainakin väestöruutuaineisto ja postinumeroalueet. Voit myös lisätä muita haluamiasi tasoja projektiin (esimerkiksi tieviivat). Avaa uusi tuloste ja aseta sen sommittelu haluamaasi kokoon (esimerkiksi A5).
-
-Lisää tulosteelle kartta, johon piirtyvät karttaikkunassa näkyvät projektin tasot. Lisää otsikko, selite ja muut karttatulosteen graafiset tai kartografiset elementit (kuten logo tai pohjoisnuoli) totuttuun tapaan. Lähennä karttanäkymä n. yhden postinumeroalueen laajuiseksi (esim. 1:25 000), sillä lopputuloksessa kartta-atlaksen karttalehdet automaattisesti kohdentuvat postinumeroalueiden kokoon.
+Lisää tulosteelle kartta, johon piirtyvät karttaikkunassa näkyvät projektin tasot. Lisää otsikko, selite ja muut karttatulosteen graafiset tai kartografiset elementit (kuten logo tai pohjoisnuoli) totuttuun tapaan. Lähennä karttanäkymä n. yhden kaupunginosan laajuiseksi (esim. 1:20 000), sillä lopputuloksessa kartta-atlaksen karttalehdet automaattisesti kohdentuvat postinumeroalueiden kokoon.
 
 Sitten aloitetaan kartta-atlaksen tuottaminen. Aktivoimme tulosteelle kartta-atlastilan oikean ominaisuuspalkin Atlaksen luonti-välilehdestä kuvan osoittamalla tavalla. Karttalehtijakotasoksi valitsemme tason, jonka alueisiin kartta-atlas perustuu. Tässä tapauksessa se on postinumeroalueet-taso.
 
@@ -101,7 +97,9 @@ Tämän jälkeen voimme esikatsella kartta-atlastamme **Esikatsele Atlasta -työ
 
 ![](img/harjoitus_7/image20.jpg)
 
-Esikatselun avulla voit vilkaista, miltä kartta-atlas näyttäisi tulostaessa. Käytä nuolia esikatselutyöpalkista Huomaa, että voit tehdä samanaikaisesti muutoksia karttatulosteen tyyliasetuksiin tai vaikkapa tason luokitteluväreihin. Jos haluat voit lisätä tulosteeseen myös yleiskatsauskarttanäkymän, joka helpottaa kohteen sijainnin määrittämistä kartta-atlaksessa. Yleiskatsaus eli indeksikartta ilmaisee, millä alueella kartalla liikutaan. Lisää sitä varten tulosteeseen pienempi karttaikkuna, jota käytetään indeksikarttana. Valitse uuden karttaelementin **Elementin omaisuudet -paneelista Yleiskatsaukset** ja määritä asetukset kuvan mukaisesti:
+Esikatselun avulla voit vilkaista, miltä kartta-atlas näyttäisi tulostaessa. Käytä nuolia esikatselutyöpalkista Huomaa, että voit tehdä samanaikaisesti muutoksia karttatulosteen tyyliasetuksiin tai vaikkapa tason luokitteluväreihin.
+
+Jos haluat voit lisätä tulosteeseen myös yleiskatsauskarttanäkymän, joka helpottaa kohteen sijainnin määrittämistä kartta-atlaksessa. Yleiskatsaus eli indeksikartta ilmaisee, millä alueella kartalla liikutaan. Lisää sitä varten tulosteeseen pienempi karttaikkuna, jota käytetään indeksikarttana. Valitse uuden karttaelementin **Elementin omaisuudet -paneelista Yleiskatsaukset** ja määritä asetukset kuvan mukaisesti:
 
 ![](img/harjoitus_7/image21.png)
 
@@ -113,12 +111,7 @@ Voit tulostaa atlaksen yksittäisinä kuvina tai yhteen tiedostoon PDF-formaatis
 
 ![](img/harjoitus_7/image23.png)
 
-Kartta-atlastuloste voisi näyttää esimerkiksi tältä:
-
-![](img/harjoitus_7/image24.jpg)
-
-Kuvan esimerkissä on käyttöön otettu myös yleiskatsauskarttanäkymä (vasen alareuna) ja taustakarttana käytetty OpenStreetMap Finlandin WMS-palvelua avaa.fi-julkaisualustan kautta (<http://avaa.tdata.fi/openstreetmap>). Huomaa, kuinka yleiskarttanäkymän pieni vaaleanpunainen neliö vaihtaa paikkaa sitä mukaa kun kohdennetun kartan alue vaihtuu.
-
+Huomaa, kuinka yleiskarttanäkymän pieni vaaleanpunainen neliö vaihtaa paikkaa sitä mukaa kun kohdennetun kartan alue vaihtuu.
 
 ::: hint-box
 **Psst!** Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
