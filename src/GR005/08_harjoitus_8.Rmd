@@ -16,6 +16,41 @@ Lisää projektiin seuraavat aineistot:
 
 -   **.../Harjoitus 8/jv-johdot.TAB**
 
+## Tilastot
+
+Tuo projektiisi kurssihakemiston **Harjoitus 3** -kansiosta vektorimuotoinen taso **Vaestotietoruudukko_2022.gpkg**. Tutkitaan seuraavaksi tasoa QGISin tilastot-paneelissa, jossa voit tarkastella aineistosi arvojen tilastollista jakaumaa.
+
+Saat **Tilastot-paneelin** näkyviin QGISin käyttöliittymään klikkaamalla Näytä tilastollinen yhteenveto -painiketta ![](img/harjoitus_8/image4.png) tai valitsemalla päävalikosta **Näytä \> Paneelit \> Tilastot**. Avautuvassa ikkunassa valitse pudotusvalikosta **vaestotietoruudukko_2022-taso** ja sen jälkeen yksi tason attribuuttikenttä. Tarkastele esitettäviä tilastollisia tunnuslukuja. Voit myös valita aineistosta vain osan, jonka tilastoja haluat tarkastella. Valitse osa aineiston ruuduista joko kartalta tai attribuuttitaulusta, ja klikkaa **Tilastot-paneelin** ruutu **Käytetään vain valittuja kohteita** aktiiviseksi.
+
+![](img/harjoitus_8/image5.png)
+
+## Alueellisten summien laskeminen ja aggregointi
+
+Erilaisia paikkatietoaineistoja pitää välillä yhdistää ominaisuuksiensa tai sijainnin perusteella. Tässä harjoituksessa tutustuaan, miten ominaisuustietoja voidaan yhdistää eri tavoin. Harjoituksessa käytetään Helsingin kaupungin avointa aineistoa rajapinnalta ja lasketaan, kuinka paljon huoneistoja on eri Helsingin osa-alueilla.
+
+Tee yhteys Helsingin kaupungin WFS-osoitteeseen:
+
+<https://kartta.hel.fi/ws/geoserver/avoindata/wfs?request=getCapabilities>
+
+Lisää projektiisi rajapinnalta:
+
+-   **Piirijako_osaalue**
+-   **Rakennukset_piste_rekisteritiedot**
+
+Pisteaineisto on melko iso, joten sen lataamisessa voi kestää hetki. Aineistossa on jokainen rakennus pisteenä ja ominaisuustiedoissa huoneistojen lukumäärä kussakin rakennuksessa sarakkeessa **i_huoneistojen_lkm**. Liitetään tieto huoneistojen lukumäärästä Helsingin piirijakoon sijainnin perusteella. Avaa **Vektori -\> Tiedonhallinta -\> Yhdistä attribuutit sijainnin perusteella**. Valitse yhdistettäväksi tasoksi Piirijako_osaalue ja vertailukohteeksi Rakennukset_piste_rekisteritiedot. **Sisällytettävät kentät** kohdassa valitse listasta **i_huoneistojen_lkm**. Jos kenttä jää tyhjäksi niin kaikki Rakennus-tason sarakkeet lisätään. Tarkista vielä, että Join type on **Luo erillinen kohde jokaisesta täsmäävästä kohteesta (yksi-moneen)** , jotta jokainen piste huomiodaan uudessa tasossa.
+
+![](img/harjoitus_8/image31.png)
+
+Paina **Suorita**. Tasoluetteloon pitäisi tulla uusi taso nimeltään "Yhdistetty taso". Voit tarkistaa onko yhdistys tehty oikein tarkistamalla kohteiden lukumäärän. Klikkaa tasoa hiiren oikealla ja valitse "Näytä kohteiden lukumäärä" -täppä aktiiviseksi. Tee sama Rakennukset_piste -tasolle. Jos lukumäärä on sama, yhdistys on onnistunut! Attribuuttitaulukossa on sarake kaikista huoneistojen lukumääristä piirijaon attribuuttien lisäksi.
+
+Seuraavaksi tasot yhdistetään osa-alueittain aggregoimalla taso piirijaon mukaisesti. Aggregoimalla voidaan yhdistää sarakkeita jonkin ominaisuustiedon perusteella ja päättää, miten muut sarakkeet yhdistyvät toisiinsa. Etsi Prosessointityökaluista **Aggregaatti**. Valitse syötetasoksi aiemmin tehty Yhdistetty taso, ryhmittelylauseeksi tunnus. Kokoomat-lehdellä on kaikki aineiston sarakkeet ja voit valita miten sarakkeet yhdistyvät toisiinsa. Valitse teksti-sarakkeisiin esimerkiksi first_value, jolloin vain ensimmäinen alueen arvo tulee sarakkeeseen. Voit myös poistaa ylimääräisiä sarakkeita vasemmalta puolelta ![](img/harjoitus_3/image33.png) -napista. Tarkista, että i_huoneistojen_lkm sarakkeessa aggregaattifunktio on **sum**, jotta saamme huoneistojen yhteismäärän alueittain.
+
+![](img/harjoitus_8/image32.png)
+
+Paina vielä **Suorita**. Ajossa kestää hetki ja uusi Aggregated-taso ilmestyy projektiisi. Avaa tason attribuuttitaulukko. Jokaisella osa-alueella on summattuna alueella olevien huoneistojen määrä. Voit visualisoida aineiston esimerkiksi valitsemalla kuvaustekniikaksi porrastettu ja etsimällä aineistoon sopivat luokkavälit.
+
+## 
+
 QGIS mahdollistaa SQL-kyselyiden tekemisen suoraan aineistoihin, kuten PostGIS-tietokantoihin tai paikallisiin tiedostoihin (esim. GeoPackage). Tässä ohjeet, miten voit tehdä SQL-kyselyitä QGIS:llä:
 
 ### 1. **Valmistaudu SQL-kyselyihin**
