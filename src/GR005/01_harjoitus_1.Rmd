@@ -160,7 +160,7 @@ Kun olet tutkinut ominaisuustietotaulukkoa riittävästi, sulje taulukko.
 
 Tässä harjoituksessa ohjeistetaan kuinka käytetään QGISin "Tuo DWG/DXF”-työkalua, joka aineiston avaamisen lisäksi luo GeoPackage-tiedoston sen sisällöstä. 
 
-![](img/harjoitus_10/image1.png)
+![](img/harjoitus_1/CAD-aineistot/image1.png)
 
 Toinen vaihtoehto olisi tuoda aineisto projektiin uutena vektoritasona (Tasot -> Lisää taso -> Lisää vektoritaso). Näistä ensin mainittu työkalu antaa paremman näkymän aineistoon, sillä se jakaa aineiston CAD-ohjelmistossa nimettyihin tasoryhmiin. Sen sijaan aineiston tuonti vektoritasona tuo kaikki polygoni-, viiva- ja pisteaineistot projektiin geometrian mukaan jaettuina tasoina, minkä seurauksena haluamiaan tietoja joutuu kaivelemaan aineiston attribuuttitaulukoista. Joidenkin aineistojen tapauksessa myös Tuo DWG/DXF-työkalu on ainoa tapa saada aineisto auki QGISissä, jos jostain syystä vektoritasona tuominen ei toimi.
 
@@ -187,15 +187,15 @@ Valitse tämän jälkeen kolmen pisteen takaa Kohdepaketti-kohdasta hyvä sijain
 
 Paina seuraavaksi **Tuo** nappia. Riippuen piirrustuksen laajudesta niin voi kestää pieni hetki, että tasot latautuvat. Voit tämän jälkeen painaa **OK**-nappia. Nytkin voi kestää hetken, että QGIS saa auki kaikki tasot. 
 
-![](img/harjoitus_10/image2.png)
+![](img/harjoitus_1/CAD-aineistot/image2.png)
 
 Tämän jälkeen niin Tasot-paneeliin ilmestyy uusi tasoryhmä. Tämän tasoryhmän alla on monta alatasoryhmää. Näiden sisällä on sitten tasot. On hyvin mahdollista, että karttanäkymäsi on edelleen tyhjä. Kokeile painaa jotain tasoa tai ryhmää oikealla hiirennäppäimellä ja valitse **Zoomaa ryhmään/Zoomaa tasoihin**. 
 
-![](img/harjoitus_10/image3.png)
+![](img/harjoitus_1/CAD-aineistot/image3.png)
 
 Jos olet epävarma missä kohde sijaitsee voi lisätä haluamasi taustakartan esim. Espoon WMS-rajapinnan kautta. Voit myös mennä Selain-paneelissa XYZ-tiles-kohtaan ja tuplaklikkata OpenStreetMap-yhteyttä. Muista siirtää taustakarttaa alimmaksi tasoksi tasoluettelossa. Jos taustakarttasi paistaa liian paljon läpi, voit säätää sen läpinäkyvyyttä avaamalla tason tyylit ja menemällä **Läpinäkyvyys**-välilehdelle. Tästä voit säätää miten läpinäkyvä taustakarttasi on.
 
-![](img/harjoitus_10/image4.png)
+![](img/harjoitus_1/CAD-aineistot/image4.png)
 
 ::: hint-box
 Jos haluat saada auki piirrustuksesi QGISissä niin suosittelemme, että **käytät ensisijaisesti .dxf-muotoa** (ellei ohjelmistosi tue suoriltaan jotain paikkatietoformaattia, kuten GeoPackage). Eli vie ulos käyttämästäsi CAD-ohjelmistosta mieluiten .dxf tiedostoa. Jos tämä ei ole mahdollista niin tallenna vanhempaan (esim. versio 2013) .dwg-muotoon, tai vanhempaan (v7) .dgn-muotoon. Kokeile sitten tuoda nämä QGISiin. Jos ei kuitenkaan tunnu toimivan, niin voit kokeilla muuntaa dwg/dgn tiedoston .dxf-muotoon, muunnosohjelman kautta, joka toimii netissä. Hakukoneen kautta löytää monta vaihtoehtoa, esimerkiksi [tämä](https://cloudconvert.com/dwg-to-dxf). 
