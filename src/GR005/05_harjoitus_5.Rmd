@@ -122,7 +122,7 @@ Luodaan seuraavaksi jätevesijohtoverkostoa. Piirrä useampia viivoja, jotka tar
 
 ![](img/harjoitus_5/image15.png)
 
-Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot **Kentän arvojen laskin -työkalun** avulla. Avaa laskin klikkaamalla **Ominaisuustietojen työkalupalkista** **Avaa kentän arvojen laskin -painiketta** ![](img/harjoitus_5/image16.png) ![](img/harjoitus_5/image17.png)
+Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot **Kentän arvojen laskin -työkalun** avulla. Avaa laskin klikkaamalla **Ominaisuustietojen työkalupalkista** **Avaa kentän arvojen laskin -painiketta** ![](img/harjoitus_5/image16.png) 
 
 Klikkaa avautuvasta ikkunasta **Päivitä olemassa oleva kenttä** ja valitse alasvetovalikosta **Pituus-kenttä**. Kirjoita **Lauseke-kenttään** lauseke, joka laskee viivamaisen kohteen pituuden sekä pyöristää sen yhden desimaalin tarkkuudelle:
 
@@ -132,8 +132,14 @@ round(\$length, 1)
 
 ![](img/harjoitus_5/image18.png)
 
+Päivitä aluemaiselle tasolle samalla tavalla pinta-alatiedot kuin äsken päivitit viivatasolle viivojen pituudet. Pinta-alan saa laskettua käyttäen automaattista pinta-alafunktiota **\$area**, joka palauttaa alueen pinta-alan neliökilometreinä. Jos digitoimasi alueet ovat isoja, voit jakaa tuloksen miljoonalla, jolloin saadaan pinta-ala neliökilometreinä.
+
 Laita lopuksi molempien tasojen tason muokkaus pois päältä klikkaamalla kynäkuvaketta. Tallenna kaikki muutokset tasoihin. Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
 **Psst!** Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
+
+## Lisätehtävä
+
+Lisää GeoPackageen pistemäinen taso ja digitoi pistekohteita kartalle. Kun olet valmis, tallenna muutokset tasolle ja projektitiedostoon, kuten tehtiin edellisen digitointiharjoituksen päätteeksi.
