@@ -48,7 +48,7 @@ Luo uusi GeoPackage-taso valitsemalla päävalikosta **Tasot \> Luo taso \> Uusi
 
 ![](img/harjoitus_5/image4.png)
 
-GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi **"Aluesuunnitelma"** ja luotavan tason nimeksi **"Alueet"**. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi **3067**. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:
+GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi **"Jätevesi"** ja luotavan tason nimeksi **"Viemäripiirit"**. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi **3067**. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:
 
 -   Nimi: Alueen_nimi / Tyyppi: teksti
 
@@ -139,4 +139,3 @@ Laita lopuksi molempien tasojen tason muokkaus pois päältä klikkaamalla kynä
 ::: hint-box
 **Psst!** Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
-
