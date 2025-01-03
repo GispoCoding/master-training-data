@@ -13,7 +13,7 @@ Koulutettava oppii muodostamaan eri tyyppisille paikkatietokohteille tekstitykse
 Käynnistä QGIS-ohjelmisto. Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_4**". Mikäli et tallentanut harjoitusta 3,
 
 -   Lisää projektiin seuraavat aineistot:
-    -   **.../Harjoitus 8/jv-johdot.TAB**
+    -   **.../Harjoitus 3/jv-johdot.TAB**
 
     -   **.../Harjoitus 3/jv-varusteet.TAB**
 
