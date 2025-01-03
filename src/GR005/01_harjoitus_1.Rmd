@@ -193,18 +193,18 @@ käydään läpi CAD-aineistojen yhteensopivuus QGISin kanssa.
 Mene QGISin asetusvalikossa Projekti -\> Tuo/vie -\> Tuo tasoja
 DWG/DXF-tiedostoista. Uudessa ikkunassa pitää luoda uusi
 Geopackage-tiedosto, johon valittu DWG-tiedosto viedään. Valitse
-Lähdepiirrokseksi eli tuotavaksi DWG-sisällöksi kurssihakemistosta
-**210808b_2013v.dwg**. Tämä tiedosto on vanhempi versio .dwg-muodosta.
+Lähdepiirrokseksi eli tuotavaksi DXF-sisällöksi kurssihakemistosta
+**esim-gispo.dxf**.
 
 ::: hint-box
-Jos kokeilet tuoda uusimman version .dwg tiedosto (210808b.dwg), niin
-huomaat, että QGIS ilmoittaa että tiedostomuotoa ei tueta.
+Jos kokeilet tuoda uusimman version .dwg tiedosto, niin huomaat, että
+QGIS ilmoittaa että tiedostomuotoa ei tueta.
 :::
 
 Valitse tämän jälkeen kolmen pisteen takaa Kohdepaketti-kohdasta hyvä
 sijainti ja nimi uudelle GeoPackage-tiedostolle. Valitse myös oikea
 koordinaattijärjestelmä. Kurssihakemiston tiedostoilla
-koordinaattijärjestelmä on **ETRS89 / GK25FIN (EPSG:3879)**. Älä
+koordinaattijärjestelmä on **ETRS89 / GK27FIN (EPSG:3881)**. Älä
 huolestu pienestä kolmiosta. Pitämällä hiirtä komlmion päällä, niin
 selviää, että tällä koordinaattijärjestelmällä tarkkuus rajoittuu 0,1
 metriin.
@@ -225,15 +225,13 @@ painaa jotain tasoa tai ryhmää oikealla hiirennäppäimellä ja valitse
 ![](img/harjoitus_1/CAD-aineistot/image3.png)
 
 Jos olet epävarma missä kohde sijaitsee voi lisätä haluamasi
-taustakartan esim. Espoon WMS-rajapinnan kautta. Voit myös mennä
+taustakartan esim. WMS-rajapinnan kautta. Voit myös mennä
 Selain-paneelissa XYZ-tiles-kohtaan ja tuplaklikkata
 OpenStreetMap-yhteyttä. Muista siirtää taustakarttaa alimmaksi tasoksi
 tasoluettelossa. Jos taustakarttasi paistaa liian paljon läpi, voit
 säätää sen läpinäkyvyyttä avaamalla tason tyylit ja menemällä
 **Läpinäkyvyys**-välilehdelle. Tästä voit säätää miten läpinäkyvä
 taustakarttasi on.
-
-![](img/harjoitus_1/CAD-aineistot/image4.png)
 
 ::: hint-box
 Jos haluat saada auki piirrustuksesi QGISissä niin suosittelemme, että
