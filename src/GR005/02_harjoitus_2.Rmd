@@ -30,7 +30,7 @@ Määrittele seuraavassa ikkunassa haluamasi nimi WMS-palvelulle. On tärkeää,
 
 ![](img/harjoitus_2/image3.png)
 
-Palvelun määrityksen jälkeen paina **OK**. Paina vielä **Yhdistä**. Näin otamme yhteyden WMS-palveluun ja saamme alle listan palvelusta saatavilla olevista karttatasoista. Valitse **Ajantasa_asemakaava** tai haluamasi muu karttataso ja paina **Lisää**. Huomaa, että voit joutua odottamaan hetken, kun karttatasoa ladataan palvelimelta.
+Palvelun määrityksen jälkeen paina **OK**. Paina vielä **Yhdistä**. Näin otamme yhteyden WMS-palveluun ja saamme alle listan palvelusta saatavilla olevista karttatasoista. Valitse **taustakartta** tai jokin muu haluamasi karttataso ja paina **Lisää**. Huomaa, että voit joutua odottamaan hetken, kun karttatasoa ladataan palvelimelta.
 
 ![](img/harjoitus_2/image4.png){width="70%"}
 
