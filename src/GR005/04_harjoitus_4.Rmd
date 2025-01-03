@@ -10,7 +10,7 @@ Koulutettava oppii muodostamaan eri tyyppisille paikkatietokohteille tekstitykse
 
 ## Valmistautuminen
 
-Käynnistä QGIS-ohjelmisto. Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_4**". Avaa projektiin seuraavat aineistot:
+Käynnistä QGIS-ohjelmisto. Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_4**". Mikäli et tallentanut harjoitusta 3,
 
 -   Lisää projektiin seuraavat aineistot:
     -   **.../Harjoitus 8/jv-johdot.TAB**
@@ -32,7 +32,7 @@ QGIS käyttöliittymässä paikkatietokohteiden tekstitykseen viitataan termill�
 Nimiöiden tekstien näkymistä kartalla voi määrittää monella eri tavalla. Alla kuvaukset QGISin nimiöiden muokkaamisen alateemoista:
 
 |               |                                                                                                                                                      |
-|:-------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------:|:----------------------------------------------------------|
 |    Teksti     | Määritellään tekstin tyyli, väri ja muita yleisiä ominaisuuksia                                                                                      |
 |   Muotoilu    | Voit muodostaa useampirivisiä tekstejä, keskittää tekstiä ja määritellä lukujen muotoa                                                               |
 |    Vyöhyke    | Luodaan tekstiä korostavat puskurit (tekstin reunukset)                                                                                              |
