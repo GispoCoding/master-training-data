@@ -48,11 +48,9 @@ Luo uusi GeoPackage-taso valitsemalla päävalikosta **Tasot \> Luo taso \> Uusi
 
 ![](img/harjoitus_5/image4.png)
 
-GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi **"Jätevesi"** ja luotavan tason nimeksi **"Viemäripiirit"**. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi **3067**. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:
+GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi **"Jätevesi"** ja luotavan tason nimeksi **"Viemäripiirit"**. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi **3881**. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:
 
--   Nimi: Alueen_nimi / Tyyppi: teksti
-
--   Nimi: Rakennusala / Tyyppi: kokonaisluku
+-   Nimi: Nimi / Tyyppi: teksti
 
 -   Nimi: Pinta-ala / Tyyppi: desimaalinumero
 
@@ -82,14 +80,14 @@ Kolmanneksi pitäisi ottaa huomioon, että siirretäänkö kyseistä aineistoa j
 
 Etsitään editoitava alue kartalla hyödyntäen QGISin hakutoimintoa OSM-kartan kanssa. QGISin alapalkissa vasemmalla on upotettu Etsi-toiminto, johon on sisäänrakennettu esimerkiksi OpenStreetMapin aineistoon perustuva Nominatim Geocoder, jonka avulla voimme etsiä osoitteita.
 
-Etsiminen tapahtuu kirjoittamalla `>` ja sen perään osoite. Tässä harjoituksessa editoimme Vallilanlaakson aluetta Kumpulassa, joten kirjoitamme hakukenttään `> Vallilanlaakso` .
+Etsiminen tapahtuu kirjoittamalla `>` ja sen perään osoite. Tässä harjoituksessa editoimme Kuopion aluetta, joten kirjoitamme hakukenttään `> kuopio` .
 
 ![](img/harjoitus_5/image6.gif)
 
 ::: hint-box
-Jos QGIS-versiosi on vanhempi, voi olla, että tarvitset Nominatim Locator Filter -lisäosan. Asenna se Lisäosat-välilehden kautta. Kun olet asentanut lisäosan, hae kohdetta muutoin samaan tapaan, mutta aloita haettava osoite `osm`-sanalla eli kirjoita Etsi-laatikkoon `osm Vallilaanlaakso`
+Jos QGIS-versiosi on vanhempi, voi olla, että tarvitset Nominatim Locator Filter -lisäosan. Asenna se Lisäosat-välilehden kautta. Kun olet asentanut lisäosan, hae kohdetta muutoin samaan tapaan, mutta aloita haettava osoite `osm`-sanalla eli kirjoita Etsi-laatikkoon `osm Kuopio`
 
-Huomaa, että Vallilanlaakso-sanan jälkeen on lisättävä vielä välilyönti, jotta haku tapahtuu.
+Huomaa, että Kuopio-sanan jälkeen on lisättävä vielä välilyönti, jotta haku tapahtuu.
 :::
 
 Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla **Tason muokkaus päälle/pois -painiketta** ![](img/harjoitus_5/image7.png). Huomaa, että **Digitoinnin työkalupalkin** työkalut aktivoituvat. 
@@ -100,13 +98,15 @@ Valitse työkaluksi **Lisää polygonikohde** ja aloita alueiden digitointi. Hii
 
 ![](img/harjoitus_5/image9.png)
 
-Kun editointi on valmis, QGISiin avautuu **Alueet - Kohteen attribuutit -ikkuna**. Laita **Alueen_nimi-kohtaan "Aluerajaus"**. Muihin kenttiin ei vielä tarvitse täyttää mitään. Paina **OK**.
+Kun editointi on valmis, QGISiin avautuu **viemäripiirit - kohteen attribuutit -ikkuna**. Laita **Nimi-kohtaan "Alueen nimi"**. Muihin kenttiin ei vielä tarvitse täyttää mitään. Paina **OK**.
 
 ![](img/harjoitus_5/image10.png)
 
-Luodaan seuraavaksi uusi GeoPackage-taso, mutta kokonaan uuden tietokannan luomisen sijaan teemme aikaisemmin luotuun **Aluesuunnitelma-GeoPackageen** vain uuden tason. Anna taulun nimeksi **"Kulkureitit"** ja lisää siihen seuraavat kentät:
+Luodaan seuraavaksi uusi GeoPackage-taso, mutta kokonaan uuden tietokannan luomisen sijaan teemme aikaisemmin luotuun **Jätevesi-GeoPackageen** vain uuden tason. Anna taulun nimeksi **"jv_johdot"** ja lisää siihen seuraavat kentät:
 
--   Nimi: Reitin_nimi / Tyyppi: teksti
+-   Nimi: verkko / Tyyppi: teksti
+
+-   Nimi: materiaali / Tyyppi: teksti
 
 -   Nimi: Pituus / Tyyppi: desimaalinumero
 
@@ -116,11 +116,11 @@ Kun klikkaat **OK**, QGIS kysyy, haluatko korvata olemassa olevan GeoPackage-tie
 
 ![](img/harjoitus_5/image12.png)
 
-Laita nyt vuorostaan tämän juuri luodun tason editointi päälle klikkaamalla **Tason muokkaus päälle/pois -kuvaketta** (kynäikoni). Koska haluamme, että kulkureittien editointi alkaa aivan alueen reunasta, on kytkettävä **Tarttuminen (snapping)** päälle. Voit tehdä tämän klikkaamalla **Ota tarttuminen käyttöön -painiketta** ![](img/harjoitus_5/image13.png). Valitse ensimmäisestä alasvetovalikosta **Kaikki tasot** ja toisesta valikosta kuvan mukaisesti **Piste** ja **segmentti**. Aseta **tarttumisherkkyydeksi** 12 pikseliä (oletusherkkyys).
+Laita nyt vuorostaan tämän juuri luodun tason editointi päälle klikkaamalla **Tason muokkaus päälle/pois -kuvaketta** (kynäikoni). Koska haluamme, että johtoverkosto kytekytyy toisiinsa ilman välejä, on kytkettävä **Tarttuminen (snapping)** päälle. Voit tehdä tämän klikkaamalla **Ota tarttuminen käyttöön -painiketta** ![](img/harjoitus_5/image13.png). Valitse ensimmäisestä alasvetovalikosta **Kaikki tasot** ja toisesta valikosta kuvan mukaisesti **Piste** ja **segmentti**. Aseta **tarttumisherkkyydeksi** 12 pikseliä (oletusherkkyys).
 
 ![](img/harjoitus_5/image14.png)
 
-Luodaan seuraavaksi kulkureitti, joka kulkee alueen läpi kuvan mukaisesti. Anna tälle kulkureitille nimeksi **"Raitiotie"**. Jätä pituus-kenttä vielä tyhjäksi.
+Luodaan seuraavaksi jätevesijohtoverkostoa. Piirrä useampia viivoja, jotka tarttuvat toisiinsa. Anna tälle viivoille verkko kohtaan nimi jätevesi ja materiaaliksi esim. pvc. Jätä pituus-kenttä vielä tyhjäksi.
 
 ![](img/harjoitus_5/image15.png)
 
