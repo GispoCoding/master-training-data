@@ -90,3 +90,11 @@ Jos havaitset materiaalissa virheitä, pyydämme ilmoittamaan niistä kouluttaja
 ## Lisenssi ja oikeudet
 
 Nämä materiaalit on "QGIS-lisäosien kehitys" -kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+
+## Materiaali PDF-muodossa
+
+Voit ladata harjoitukset PDF-muodossa tästä linkistä:
+
+::: note-box
+[Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/GE01/GE01.pdf)
+:::

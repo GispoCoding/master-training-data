@@ -92,3 +92,11 @@ If you notice mistakes in these course materials, we ask you to report either di
 
 These materials are developed for the "Introduction to GeoServer" course by Gispo Finland Ltd.
 The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
+
+## Download a PDF version of the material
+
+You can download a PDF version of the material from this link:
+
+::: note-box
+[PDF version of the material](https://github.com/gispocoding/master-training-data/releases/download/GS006_eng/GS006_eng.pdf)
+:::
