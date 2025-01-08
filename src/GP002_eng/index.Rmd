@@ -108,3 +108,11 @@ License and permissions
 These materials are developed for the Introduction to QGIS course by Gispo Ltd.
 The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
 -->
+
+## Download a PDF version of the material
+
+You can download a PDF version of the material from this link:
+
+::: note-box
+[PDF version of the material](https://github.com/gispocoding/master-training-data/releases/download/GP002_eng/GP002_eng.pdf)
+:::
