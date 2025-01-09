@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 5: Uuden lisäosan luominen | QGIS-lisäosien kehitys" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-01-08" />
+
+
+<meta name="description" content="Harjoitus 5: Uuden lisäosan luominen | QGIS-lisäosien kehitys">
+
+<title>Harjoitus 5: Uuden lisäosan luominen | QGIS-lisäosien kehitys</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS-lisäosien kehitys</h1></div>
+<div class="abstract-sidebar"><p>Lisäosien kehitys Pythonilla</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-lisäosien-kehitys">QGIS-lisäosien kehitys</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille">Tervetuloa kurssille!</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_harjoitus_0.html#harjoitus-0-python-kertaus">Harjoitus 0: Python-kertaus</a>
+<ul>
+<li><a href="00_harjoitus_0.html#esivalmistelut">Esivalmistelut</a></li>
+<li class="has-sub"><a href="00_harjoitus_0.html#python-perusteita">Python-perusteita</a>
+<ul>
+<li><a href="00_harjoitus_0.html#komennot">Komennot</a></li>
+<li><a href="00_harjoitus_0.html#kommentit">Kommentit</a></li>
+<li><a href="00_harjoitus_0.html#luvuilla-laskeminen">Luvuilla laskeminen</a></li>
+<li><a href="00_harjoitus_0.html#muuttujat">Muuttujat</a></li>
+<li><a href="00_harjoitus_0.html#tyypit">Tyypit</a></li>
+<li><a href="00_harjoitus_0.html#ehtolauseet-ja-vertailu">Ehtolauseet ja vertailu</a></li>
+<li><a href="00_harjoitus_0.html#funktiot">Funktiot</a></li>
+<li><a href="00_harjoitus_0.html#tietorakenteita">Tietorakenteita</a></li>
+<li><a href="00_harjoitus_0.html#silmukat-ja-iterointi">Silmukat ja iterointi</a></li>
+<li><a href="00_harjoitus_0.html#moduulit">Moduulit</a></li>
+<li><a href="00_harjoitus_0.html#oliot">Oliot</a></li>
+<li><a href="00_harjoitus_0.html#luokat">Luokat</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-python-konsoli">Harjoitus 1: Python-konsoli</a>
+<ul>
+<li><a href="01_harjoitus_1.html#harjoitusten-rakenne">Harjoitusten rakenne</a></li>
+<li><a href="01_harjoitus_1.html#esimerkit">Esimerkit</a></li>
+<li><a href="01_harjoitus_1.html#harjoitukset">Harjoitukset</a></li>
+<li><a href="01_harjoitus_1.html#harjoitus-1.1">Harjoitus 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-pyqgis-perusteet">Harjoitus 2: PyQGIS-perusteet</a>
+<ul>
+<li><a href="02_harjoitus_2.html#tasojen-käsittely">Tasojen käsittely</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.1">Harjoitus 2.1</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.2">Harjoitus 2.2</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.3">Harjoitus 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-tasot-kohteet-ja-geometriat">Harjoitus 3: Tasot, kohteet ja geometriat</a>
+<ul>
+<li><a href="03_harjoitus_3.html#tasot">Tasot</a></li>
+<li><a href="03_harjoitus_3.html#väliaikaisen-tason-luominen">Väliaikaisen tason luominen</a></li>
+<li><a href="03_harjoitus_3.html#geometriat">Geometriat</a></li>
+<li><a href="03_harjoitus_3.html#harjoitus-3.1">Harjoitus 3.1</a></li>
+<li><a href="03_harjoitus_3.html#harjoitus-3.2-etäisyydet">Harjoitus 3.2: Etäisyydet</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-qt-käyttöliittymät">Harjoitus 4: Qt-käyttöliittymät</a>
+<ul>
+<li class="has-sub"><a href="04_harjoitus_4.html#qt-käyttöliittymistä">Qt-käyttöliittymistä</a>
+<ul>
+<li><a href="04_harjoitus_4.html#qwidget">QWidget</a></li>
+<li><a href="04_harjoitus_4.html#signaalit-ja-slotit">Signaalit ja slotit</a></li>
+</ul></li>
+<li><a href="04_harjoitus_4.html#harjoitus-4.1-counter-widget">Harjoitus 4.1: Counter-widget</a></li>
+<li><a href="04_harjoitus_4.html#harjoitus-4.2-qgisin-widgetit">Harjoitus 4.2: QGISin widgetit</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-uuden-lisäosan-luominen">Harjoitus 5: Uuden lisäosan luominen</a>
+<ul>
+<li><a href="05_harjoitus_5.html#gitin-konfigurointi">Gitin konfigurointi</a></li>
+<li><a href="05_harjoitus_5.html#lisäosan-luominen">Lisäosan luominen</a></li>
+<li><a href="05_harjoitus_5.html#ensimmäinen-commit">Ensimmäinen commit</a></li>
+<li><a href="05_harjoitus_5.html#lisäosan-käyttöönotto">Lisäosan käyttöönotto</a></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#lisäosan-rakenne">Lisäosan rakenne</a>
+<ul>
+<li><a href="05_harjoitus_5.html#tiedosto-plugin.py">Tiedosto: plugin.py</a></li>
+<li><a href="05_harjoitus_5.html#tiedosto-__init__.py">Tiedosto: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-buffer--työkalu">Harjoitus 6: Buffer- työkalu</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoitus-6.1-käyttöliittymän-suunnittelu">Harjoitus 6.1: Käyttöliittymän suunnittelu</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.2-käyttöliittymän-kytkeminen-lisäosaan">Harjoitus 6.2: Käyttöliittymän kytkeminen lisäosaan</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.3-työkalun-toiminta">Harjoitus 6.3: Työkalun toiminta</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.4-segmentit">Harjoitus 6.4: Segmentit</a></li>
+<li><a href="06_harjoitus_6.html#yksikkötestit">Yksikkötestit</a></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6.5-testit">Harjoitus 6.5: Testit</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.1-käyttöliittymätesti">Harjoitus 6.5.1: Käyttöliittymätesti</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.2-buffertool-testi">Harjoitus 6.5.2: BufferTool-testi</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.3-lisää-testejä">Harjoitus 6.5.3: Lisää testejä</a></li>
+</ul></li>
+<li><a href="06_harjoitus_6.html#mallilisäosa">Mallilisäosa</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-pistetyökalu">Harjoitus 7: Pistetyökalu</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoitus-7.1-paneelin-lisääminen">Harjoitus 7.1: Paneelin lisääminen</a></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7.2-työkalu">Harjoitus 7.2: Työkalu</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoitus-7.2.1-lisähaaste---nimiöinti">Harjoitus 7.2.1: Lisähaaste - nimiöinti</a></li>
+</ul></li>
+<li><a href="07_harjoitus_7.html#harjoitus-7.3-testit">Harjoitus 7.3: Testit</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-prosessointialgoritmi">Harjoitus 8: Prosessointialgoritmi</a>
+<ul>
+<li class="has-sub"><a href="08_harjoitus_8.html#taustaa">Taustaa</a>
+<ul>
+<li><a href="08_harjoitus_8.html#prosessointialgoritmin-kutsuminen">Prosessointialgoritmin kutsuminen</a></li>
+</ul></li>
+<li><a href="08_harjoitus_8.html#algoritmi-lisäosassa">Algoritmi lisäosassa</a></li>
+<li><a href="08_harjoitus_8.html#harjoitus-8.1-algoritmin-kirjoitus">Harjoitus 8.1: Algoritmin kirjoitus</a></li>
+<li><a href="08_harjoitus_8.html#harjoitus-8.2-testit-algoritmille">Harjoitus 8.2: Testit algoritmille</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#python-lisätehtäviä">Python-lisätehtäviä</a>
+<ul>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-1-listakoosteet">Aihe 1: Listakoosteet</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-1.1">Lisätehtävä 1.1</a></li>
+<li><a href="09_lisatehtavia_9.html#sisäkkäisiä-koosteita">Sisäkkäisiä koosteita</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-2-lambda-funktiot">Aihe 2: Lambda-funktiot</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-2.1">Lisätehtävä 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-3-dekoraattorit">Aihe 3: Dekoraattorit</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-3.1">Lisätehtävä 3.1</a></li>
+<li><a href="09_lisatehtavia_9.html#dekoraattorit-ja-parametrit">Dekoraattorit ja parametrit</a></li>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-3.2">Lisätehtävä 3.2</a></li>
+</ul></li>
+<li><a href="09_lisatehtavia_9.html#aihe-4-tyypitys">Aihe 4: Tyypitys</a></li>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-4.1">Lisätehtävä 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-5-uuden-lisäosan-luominen" class="section level1">
+<h1>Harjoitus 5: Uuden lisäosan luominen</h1>
+<p><strong>Harjoituksen sisältö:</strong> Lisäosien luominen käyttäen Cookiecutteria</p>
+<p><strong>Harjoituksen tavoite:</strong> Kurssilainen osaa luoda omia lisäosiaan</p>
+<p>Lisäosapohja luodaan komentorivityökaluilla. Käytetään komentorivinä
+QGIS-asennukseen kuuluvaa OSGeo4W Shelliä. Avaa se esimerkiksi hakupalkista
+kirjoittamalla OSGeo4W.</p>
+<p><img src="img/harjoitus_5/image1.png" /></p>
+<div id="gitin-konfigurointi" class="section level2">
+<h2>Gitin konfigurointi</h2>
+<p>Ennen lisäosan luomista konfiguroidaan <a href="https://git-scm.com/">git</a>-versionhallintatyökalu toimimaan oikein.</p>
+<ol style="list-style-type: decimal">
+<li>Ensin OSGeo4W shellissä polku git.exe:en täytyy lisätä ensin Path-ympäristömuuttujaan:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb117"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb117-1"><a href="05_harjoitus_5.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> Path=%Path%<span class="kw">;</span><span class="st">&quot;C:\Program Files\Git\cmd&quot;</span></span></code></pre></div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Aseta gitille käyttäjänimesi ja sähköpostiosoitteesi</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb118"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb118-1"><a href="05_harjoitus_5.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name käyttäjänimesi-gitissä</span></code></pre></div>
+</div>
+<div class="commandline-box">
+<div class="sourceCode" id="cb119"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb119-1"><a href="05_harjoitus_5.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email sähköpostiosoitteesi</span></code></pre></div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Aseta gitin submoduulien (kuten qgis_plugin_tools) päivittäminen tapahtumaan <code>git pull</code>:n yhteydessä</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb120"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb120-1"><a href="05_harjoitus_5.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> submodule.recurse true</span></code></pre></div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Seuraavaksi pakota git asettamaan tiedostojen rivinvaihdot Unix-yhteensopiviksi</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb121"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb121-1"><a href="05_harjoitus_5.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.autocrlf input</span></code></pre></div>
+</div>
+</div>
+<div id="lisäosan-luominen" class="section level2">
+<h2>Lisäosan luominen</h2>
+<p>Luo ensin sopivaan sijaintiin kansio lisäosalle ja navigoi kansioon
+OSGeo4W Shellissä:</p>
+<p><img src="img/harjoitus_5/image2.gif" /></p>
+<ol style="list-style-type: decimal">
+<li>Luo oma virtuaaliympäristö cookiecutter-pluginille</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb122"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb122-1"><a href="05_harjoitus_5.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="ex">%PYTHONHOME%/python.exe</span> <span class="at">-m</span> venv cookiecutter-venv</span></code></pre></div>
+</div>
+<div class="note-box">
+<p>%PYTHONHOME%-ympäristömuuttuja OSGeo4W-shellissä viittaa QGIS-asennukseen
+kuuluvaan Python-tulkkiin.</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Aktivoi luomasi virtuaaliympäristö <em>cookiecutter-venv</em></li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb123"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb123-1"><a href="05_harjoitus_5.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span><span class="dt">\c</span>ookiecutter-venv<span class="dt">\S</span>cripts<span class="dt">\a</span>ctivate</span></code></pre></div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Asenna virtuaaliympäristöön kirjastot <code>cookiecutter</code> ja <code>pip-tools</code></li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb124"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb124-1"><a href="05_harjoitus_5.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-U</span> pip</span>
+<span id="cb124-2"><a href="05_harjoitus_5.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install cookiecutter pip-tools</span></code></pre></div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Luo uusi template:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb125"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb125-1"><a href="05_harjoitus_5.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cookiecutter</span> https://github.com/GispoCoding/cookiecutter-qgis-plugin.git</span></code></pre></div>
+</div>
+<ul>
+<li>Voit käyttää oletusasetuksia <strong>paitsi kohdissa</strong>:
+<ul>
+<li><code>Select a name for your plugin</code>: Test Plugin</li>
+<li><code>Include processing algorithm in your plugin?</code>: y</li>
+</ul></li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Deaktivoi cookiecutteria varten luotu virtuaaliympäristö ja siirry cookiecutterin luomaan lisäosakansioon:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb126"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb126-1"><a href="05_harjoitus_5.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deactivate</span></span>
+<span id="cb126-2"><a href="05_harjoitus_5.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test-plugin</span></code></pre></div>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>Aja kansiossa oleva valmis Python-skripti, joka luo lisäosakehitykselle sopivan
+virtuaalisen ympäristön:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb127"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb127-1"><a href="05_harjoitus_5.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> create_qgis_venv.py</span></code></pre></div>
+</div>
+<div class="hint-box">
+<p>Jos tietokoneellasi on monta QGIS- asennusta, skripti saattaa kysyä mitä niistä halutaan käyttää kehityksessä.
+Valitse niistä parhaiten sopiva, mielellään uusin LTR- versio.</p>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>Aktivoi uusi virtuaaliympäristö:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb128"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb128-1"><a href="05_harjoitus_5.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv\Scripts\activate</span></span></code></pre></div>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Asenna virtuaaliympäristöön pip:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb129"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb129-1"><a href="05_harjoitus_5.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-U</span> pip</span></code></pre></div>
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li>Asenna pip-tools:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb130"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb130-1"><a href="05_harjoitus_5.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pip-tools</span></code></pre></div>
+</div>
+<ol start="10" style="list-style-type: decimal">
+<li>Käännä pip-compile-työkalulla tekstitiedostoon listaus
+tarvituista Python-paketeista:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb131"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb131-1"><a href="05_harjoitus_5.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip-compile</span> requirements-dev.in</span></code></pre></div>
+</div>
+<ol start="11" style="list-style-type: decimal">
+<li>Äskeisessä vaiheessa työkalu kirjoitti <code>requirements-dev.txt</code>-tiedostoon
+listan asennettavista Python-paketeista. Asenna ne seuraavaksi:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb132"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb132-1"><a href="05_harjoitus_5.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements-dev.txt</span></code></pre></div>
+</div>
+<ol start="12" style="list-style-type: decimal">
+<li><p>Komennon jälkeen on hyvä tarkistaa, että asennukset ovat onnistuneet komennolla
+<code>pip freeze</code>. Pakettien joukossa pitäisi olla mm. <code>pytest</code> ja <code>pytest-qgis</code>.</p></li>
+<li><p>Tässä vaiheessa päästään viimein avaamaan Visual Studio Code. Avaa kansiosta
+<code>test-plugin.code-workspace</code>-tiedosto. Sen pitäisi avautua automaattisesti VS Codessa.</p></li>
+<li><p>Ensin asetetaan VS Code käyttämään äsken luotua <code>.venv</code>-ympäristöä. Valitaan
+<strong>Help</strong>-valikosta <strong>Show All Commands</strong> ja kirjoitetaan hakuun <code>Python: Select Interpreter</code>.</p></li>
+</ol>
+<p><img src="img/harjoitus_5/image3.png" /></p>
+<ol start="15" style="list-style-type: decimal">
+<li>Kun poistut VS Codesta, avaat sen uudelleen ja avaat <code>test-plugin</code>-kansion,
+kehitysympäristön pitäisi olla täysin kunnossa. Voit todeta tämän avaamalla
+<code>testplugin</code>-kansion alta tiedoston <code>plugin.py</code>. Tiedoston yläosan
+importeissa ei pitäisi näkyä virheistä kertovia korostuksia.</li>
+</ol>
+<p><img src="img/harjoitus_5/image4.png" /></p>
+<ol start="16" style="list-style-type: decimal">
+<li>Projekti sisältää myös yhden testin, jonka avulla on hyvä tutustua VS Coden
+Testing-laajennukseen. Vasemman palkin symbolista avautuu paneeli, jonka kahden
+kolmion symbolilla pääsee ajamaan kaikki määritellyt testit.</li>
+</ol>
+<p><img src="img/harjoitus_5/image5.png" /></p>
+<p>Kehitysympäristö on nyt konfiguroitu ja valmiina käyttöä varten. Hienoa!</p>
+</div>
+<div id="ensimmäinen-commit" class="section level2">
+<h2>Ensimmäinen commit</h2>
+<p>Nyt on aika tehdä ensimmäinen <code>commit</code>, eli <code>git commit</code>. Avaa uusi komentorivi
+VS Coden sisällä klikkaamalla <em>Terminal-&gt;New Terminal</em>.</p>
+<blockquote>
+<p>Tarkastele komentorivin sisältöä. Se avautuu oletuksena PowerShellinä, mutta
+myös perinteinen komentorivi kelpaa hyvin. VS Code yrittää automaattisesti
+aktivoida virtuaaliympäristön. PowerShellillä tämä ei välttämättä onnistu ja
+voit saada virheilmoituksen: <code>Activate.ps1 cannot be loaded because running scripts is disabled on this system</code>, aja seuraava koodinpätkä ja avaa tämän
+jälkeen uusi terminaali-ikkuna: <code>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</code>.</p>
+</blockquote>
+<p>Sitten tehdään ensimmäinen commit</p>
+<ol style="list-style-type: decimal">
+<li>Lisää kaikki tiedostot lisättäväksi committiin kirjoittamalla:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb133"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb133-1"><a href="05_harjoitus_5.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span></code></pre></div>
+</div>
+<ol style="list-style-type: decimal">
+<li>Tarkastele <code>git status</code>-komennolla mitä kaikkea on nyt lisätty lisättäväksi.</li>
+<li>Kokeile nyt tehdä ensimmäinen commit komennolla:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb134"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb134-1"><a href="05_harjoitus_5.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Initial commit&quot;</span></span></code></pre></div>
+</div>
+<p>Onneksi olkoon, olet nyt onnistuneesti luonut ensimmäisen commitin lisäosaan!</p>
+</div>
+<div id="lisäosan-käyttöönotto" class="section level2">
+<h2>Lisäosan käyttöönotto</h2>
+<p>Ensimmäistä lisäosaa on hyvä kokeilla. Avataan siis QGIS ja testataan lisäosaa.</p>
+<ol style="list-style-type: decimal">
+<li>Avaa QGIS ja luo sille uusi profiili <code>training</code></li>
+<li>Muokkaa VS Codella <code>testplugin/build.py</code>-tiedostoa ja muuta: <code>profile = "training"</code></li>
+<li>Navigoi komentorivillä kansioon <code>testplugin</code> ja lataa lisäosa käyttöön käyttäen <code>build.py deploy</code> -komentoa.</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb135"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb135-1"><a href="05_harjoitus_5.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> testplugin</span>
+<span id="cb135-2"><a href="05_harjoitus_5.html#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> build.py deploy</span></code></pre></div>
+</div>
+<ol style="list-style-type: decimal">
+<li>Käynnistä nyt QGIS uudelleen ja varmistu, että se on profiilissa <strong>training</strong></li>
+<li>Avaa Lisäosien hallintatyökalu ja valitse paneelista <em>Asennettu</em> <strong>Test Plugin</strong>
+<ul>
+<li>Asenna samalla myös paneelista <em>Kaikki</em> lisäosa <strong>Plugin Reloader</strong>. Tarvitsemme sitä aina, kun haluamme ottaa uudet muutokset käyttöön käynnistämättä QGISiä uudelleen.</li>
+</ul></li>
+<li>Testaa nyt lisäosan toiminnallisuutta. Avaa ensin QGISin Python-konsoli ja käynnistä sitten lisäosa <em>Lisäosat -&gt; TestPlugin -&gt; Test Plugin</em>. Huomaat, että konsoliin ilmestyy tekstiä…</li>
+</ol>
+</div>
+<div id="lisäosan-rakenne" class="section level2">
+<h2>Lisäosan rakenne</h2>
+<p>Tutustutaan seuraavaksi lisäosan rakenteeseen. Alla on hieman yksinkertaistettu kaavio tärkeimmistä tiedostoista.</p>
+<pre><code>📦test-plugin
+ ┣ 📂.git
+ ┣ 📂testplugin
+ | ┣ 📂qgis_plugin_tools
+ | ┣ 📂resources
+ ┃ ┣ 📜metadata.txt
+ ┃ ┣ 📜plugin.py
+ ┃ ┗ 📜__init__.py
+ ┣ 📂tests
+ ┃ ┣ 📜test_plugin.py
+ ┣ 📜.gitignore
+ ┣ 📜LICENSE
+ ┣ 📜README.md
+ ┣ 📜requirements-dev.txt
+ ┗ 📜pyproject.toml</code></pre>
+<div id="tiedosto-plugin.py" class="section level3">
+<h3>Tiedosto: plugin.py</h3>
+<p>Tutustu ensin tiedostoon <code>testplugin/plugin.py</code> ja sen sisällä olevaan luokkaan
+<code>Plugin</code>. Siinä pitäisi olla ainakin seuraavat metodit:</p>
+<blockquote>
+<ul>
+<li><code>__init__</code>: luokan konstruktori, sitä kutsutaan <code>testplugin/__init__.py</code>-tiedostosta.</li>
+<li><code>initGui</code>: lisää lisäosan QGISin GUIhin, eli graafiseen käyttöliittymään</li>
+<li><code>unload</code>: poistaa lisäosan QGISin GUIsta</li>
+<li><code>run</code>: koodi, jota suoritetaan, kun käyttäjä käynnistää lisäosan</li>
+</ul>
+</blockquote>
+<p>Metodin <code>run</code> nimeä voi muuttaa, mutta muiden nimet pitää olla täsmälleen samat,
+sillä QGIS kutsuu niitä sisäisesti.</p>
+</div>
+<div id="tiedosto-__init__.py" class="section level3">
+<h3>Tiedosto: __init__.py</h3>
+<p>Tämä tiedosto sisältää tärkeän metodin <code>classFactory</code>. QGIS alustaa lisäosan kutsumalla tätä metodia. Se taas puolestaan palauttaa QGISille koko lisäosan yllä mainitun <code>Plugin</code>-luokan.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb137-1"><a href="05_harjoitus_5.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classFactory(iface: QgisInterface):</span>
+<span id="cb137-2"><a href="05_harjoitus_5.html#cb137-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> testplugin.plugin <span class="im">import</span> Plugin</span>
+<span id="cb137-3"><a href="05_harjoitus_5.html#cb137-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb137-4"><a href="05_harjoitus_5.html#cb137-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Plugin()</span></code></pre></div>
+</div>
+
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="04_harjoitus_4.html"><button class="btn btn-default">Previous</button></a>
+<a href="06_harjoitus_6.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS-lisäosien kehitys</h5>
+<span class="footer-version">v2025-01-08</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2024</span></h5>
+<span class="footer-contact-info">Firdonkatu 2 T 63
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
