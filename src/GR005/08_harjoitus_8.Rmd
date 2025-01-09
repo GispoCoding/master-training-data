@@ -14,54 +14,91 @@ Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (**
 
 Lisää projektiin seuraavat aineistot:
 
--   **.../Harjoitus 8/jv-johdot.TAB**
+-   **.../jv-johdot.gpkg**
 
 ## Tilastot
 
-Tuo projektiisi kurssihakemiston **Harjoitus 3** -kansiosta vektorimuotoinen taso **Vaestotietoruudukko_2022.gpkg**. Tutkitaan seuraavaksi tasoa QGISin tilastot-paneelissa, jossa voit tarkastella aineistosi arvojen tilastollista jakaumaa.
+Tuo projektiisi Harjoituksessa 5- tehty **jv_johdot.gpkg**. Tutkitaan seuraavaksi tasoa QGISin tilastot-paneelissa, jossa voit tarkastella aineistosi arvojen tilastollista jakaumaa.
 
-Saat **Tilastot-paneelin** näkyviin QGISin käyttöliittymään klikkaamalla Näytä tilastollinen yhteenveto -painiketta ![](img/harjoitus_8/image4.png) tai valitsemalla päävalikosta **Näytä \> Paneelit \> Tilastot**. Avautuvassa ikkunassa valitse pudotusvalikosta **vaestotietoruudukko_2022-taso** ja sen jälkeen yksi tason attribuuttikenttä. Tarkastele esitettäviä tilastollisia tunnuslukuja. Voit myös valita aineistosta vain osan, jonka tilastoja haluat tarkastella. Valitse osa aineiston ruuduista joko kartalta tai attribuuttitaulusta, ja klikkaa **Tilastot-paneelin** ruutu **Käytetään vain valittuja kohteita** aktiiviseksi.
+Saat **Tilastot-paneelin** näkyviin QGISin käyttöliittymään klikkaamalla Näytä tilastollinen yhteenveto -painiketta ![](img/harjoitus_8/image4.png) tai valitsemalla päävalikosta **Näytä \> Paneelit \> Tilastot**. Avautuvassa ikkunassa valitse pudotusvalikosta **jv_johdot-taso** ja sen jälkeen yksi tason attribuuttikenttä. Tarkastele esitettäviä tilastollisia tunnuslukuja. Voit myös valita aineistosta vain osan, jonka tilastoja haluat tarkastella. Valitse osa aineiston ruuduista joko kartalta tai attribuuttitaulusta, ja klikkaa **Tilastot-paneelin** ruutu **Käytetään vain valittuja kohteita** aktiiviseksi.
 
 ![](img/harjoitus_8/image5.png)
 
 ## Alueellisten summien laskeminen ja aggregointi
 
-Erilaisia paikkatietoaineistoja pitää välillä yhdistää ominaisuuksiensa tai sijainnin perusteella. Tässä harjoituksessa tutustuaan, miten ominaisuustietoja voidaan yhdistää eri tavoin. Harjoituksessa käytetään Helsingin kaupungin avointa aineistoa rajapinnalta ja lasketaan, kuinka paljon huoneistoja on eri Helsingin osa-alueilla.
+Erilaisia paikkatietoaineistoja pitää välillä yhdistää ominaisuuksiensa tai sijainnin perusteella. Tässä harjoituksessa tutustuaan, miten ominaisuustietoja voidaan yhdistää eri tavoin.
 
-Tee yhteys Helsingin kaupungin WFS-osoitteeseen:
+### Aggregointi
 
-<https://kartta.hel.fi/ws/geoserver/avoindata/wfs?request=getCapabilities>
+Valitse sopiva valintatyökalun asetus:
 
-Lisää projektiisi rajapinnalta:
+![](img/harjoitus_8/image7.png)
 
--   **Piirijako_osaalue**
--   **Rakennukset_piste_rekisteritiedot**
+ja tee valintatyökaluilla valinta halutulta alueelta.
 
-Pisteaineisto on melko iso, joten sen lataamisessa voi kestää hetki. Aineistossa on jokainen rakennus pisteenä ja ominaisuustiedoissa huoneistojen lukumäärä kussakin rakennuksessa sarakkeessa **i_huoneistojen_lkm**. Liitetään tieto huoneistojen lukumäärästä Helsingin piirijakoon sijainnin perusteella. Avaa **Vektori -\> Tiedonhallinta -\> Yhdistä attribuutit sijainnin perusteella**. Valitse yhdistettäväksi tasoksi Piirijako_osaalue ja vertailukohteeksi Rakennukset_piste_rekisteritiedot. **Sisällytettävät kentät** kohdassa valitse listasta **i_huoneistojen_lkm**. Jos kenttä jää tyhjäksi niin kaikki Rakennus-tason sarakkeet lisätään. Tarkista vielä, että Join type on **Luo erillinen kohde jokaisesta täsmäävästä kohteesta (yksi-moneen)** , jotta jokainen piste huomiodaan uudessa tasossa.
+Aggregoimalla voidaan yhdistää sarakkeita jonkin ominaisuustiedon perusteella ja päättää, miten muut sarakkeet yhdistyvät toisiinsa. Etsi Prosessointityökaluista **Aggregaatti**. Valitse syötetasoksi jv-johdot, laita valintapäälle "Käytetään vain valittuja kohteita" ja ryhmittelylauseeksi `"TYYPPI"`. Kokoomat-lehdellä on kaikki aineiston sarakkeet ja voit valita miten sarakkeet yhdistyvät toisiinsa. Poista kaikki ylimääräiset sarakkeet valitsemalla esimerkiksi CTRL-pohjassa sarakkeet ja painamalla ![](img/harjoitus_8/image18.png) nappia. Jätä näkyviin vain TYYPPI ja pituus. Lisää tämän jälkeen vielä toinen TYYPPI sarake. Määrittele seuraavat ryhmittelyfunktiot:
+
+-   TYYPPI --\> first_value
+
+-   pituus --\> sum
+
+-   TYYPPI --\> count
+
+    Vaihda tämän jälkeen vielä pituus sarakkeen nimeksi "YHTEISPITUUS" ja TYYPPI - count sarakkeen nimeksi "TYYPPIEN_lkm"
+
+    ![](img/harjoitus_8/image12.png)
+
+Paina vielä **Suorita**. Ajossa kestää hetki ja uusi Aggregated-taso ilmestyy projektiisi. Avaa tason attribuuttitaulukko. Jokaisella osa-alueella on summattuna alueella olevien jv-johtojen lukumäärä tyypeittäin. Voit visualisoida aineiston esimerkiksi valitsemalla kuvaustekniikaksi porrastettu ja etsimällä aineistoon sopivat luokkavälit.
+
+### Alueellisten summien laskeminen
+
+Harjoituksessa käytetään Kuopion kaupungin **kaupunginosat**- tasoa (**kaupunginosat.TAB**) ja lasketaan, kuinka paljon jv-johtoja on eri Kuopion osa-alueilla.
+
+::: hint-box
+Voit myös tehdä harjoituksen myös muulla aluejaolla esimerkiksi viemäripiirit tasolla.
+:::
+
+Liitetään tieto jv-johdoista Kuopion kaupunginosa jakoon sijainnin perusteella. Avaa **Vektori -\> Tiedonhallinta -\> Yhdistä attribuutit sijainnin perusteella**. Valitse yhdistettäväksi tasoksi Piirijako_osaalue ja vertailukohteeksi Rakennukset_piste_rekisteritiedot. Jätä Säilytettävät kentät tyhjäksi niin kaikki jv-johdot-tason sarakkeet lisätään. Tarkista vielä, että Join type on **Luo erillinen kohde jokaisesta täsmäävästä kohteesta (yksi-moneen)** , jotta jokainen piste huomiodaan uudessa tasossa.
 
 ![](img/harjoitus_8/image31.png)
 
-Paina **Suorita**. Tasoluetteloon pitäisi tulla uusi taso nimeltään "Yhdistetty taso". Voit tarkistaa onko yhdistys tehty oikein tarkistamalla kohteiden lukumäärän. Klikkaa tasoa hiiren oikealla ja valitse "Näytä kohteiden lukumäärä" -täppä aktiiviseksi. Tee sama Rakennukset_piste -tasolle. Jos lukumäärä on sama, yhdistys on onnistunut! Attribuuttitaulukossa on sarake kaikista huoneistojen lukumääristä piirijaon attribuuttien lisäksi.
+Paina **Suorita**. Tasoluetteloon pitäisi tulla uusi taso nimeltään "Yhdistetty taso". Voit tarkistaa onko yhdistys tehty oikein tarkistamalla kohteiden lukumäärän. Klikkaa tasoa hiiren oikealla ja valitse "Näytä kohteiden lukumäärä" -täppä aktiiviseksi. Tee sama jv-johdot -tasolle. Jos lukumäärä on lähes sama, yhdistys on onnistunut! (muutama kohde on kaupungosa-alueiden ulkopuolella). Attribuuttitaulukossa on sarake kaikista kaupunginosasta muiden attribuuttien lisäksi.
 
-Seuraavaksi tasot yhdistetään osa-alueittain aggregoimalla taso piirijaon mukaisesti. Aggregoimalla voidaan yhdistää sarakkeita jonkin ominaisuustiedon perusteella ja päättää, miten muut sarakkeet yhdistyvät toisiinsa. Etsi Prosessointityökaluista **Aggregaatti**. Valitse syötetasoksi aiemmin tehty Yhdistetty taso, ryhmittelylauseeksi tunnus. Kokoomat-lehdellä on kaikki aineiston sarakkeet ja voit valita miten sarakkeet yhdistyvät toisiinsa. Valitse teksti-sarakkeisiin esimerkiksi first_value, jolloin vain ensimmäinen alueen arvo tulee sarakkeeseen. Voit myös poistaa ylimääräisiä sarakkeita vasemmalta puolelta ![](img/harjoitus_3/image33.png) -napista. Tarkista, että i_huoneistojen_lkm sarakkeessa aggregaattifunktio on **sum**, jotta saamme huoneistojen yhteismäärän alueittain.
+Seuraavaksi tasot yhdistetään osa-alueittain aggregoimalla taso kaupunginosajaon ja johdon tyypin mukaisesti. Aggregoimalla voidaan yhdistää sarakkeita jonkin ominaisuustiedon perusteella ja päättää, miten muut sarakkeet yhdistyvät toisiinsa. Etsi Prosessointityökaluista **Aggregaatti**. Valitse syötetasoksi aiemmin tehty Yhdistetty taso, ryhmittelylauseeksi `"NIMI"  || "TYYPPI"` (eli siis kokoamme yhteen sekä kaupunginosa nimen perusteella että johdon tyypin). Kokoomat-lehdellä on kaikki aineiston sarakkeet ja voit valita miten sarakkeet yhdistyvät toisiinsa. Poista kaikki ylimääräiset sarakkeet ja jätä näkyviin vain NIMI, pituus, TYYPPI. Lisää tämän jälkeen vielä toinen TYYPPI sarake. Määrittele seuraavat ryhmittelyfunktiot:
 
-![](img/harjoitus_8/image32.png)
+-   NIMI --\> first_value
 
-Paina vielä **Suorita**. Ajossa kestää hetki ja uusi Aggregated-taso ilmestyy projektiisi. Avaa tason attribuuttitaulukko. Jokaisella osa-alueella on summattuna alueella olevien huoneistojen määrä. Voit visualisoida aineiston esimerkiksi valitsemalla kuvaustekniikaksi porrastettu ja etsimällä aineistoon sopivat luokkavälit.
+-   pituus --\> sum
 
-## 
+-   TYYPPI --\> first_value
+
+-   TYYPPI --\> count
+
+    Vaihda tämän jälkeen vielä pituus sarakkeen nimeksi "YHTEISPITUUS" ja TYYPPI - count sarakkeen nimeksi "TYYPPIEN_lkm"
+
+    <div>
+
+    ![](img/harjoitus_8/image32.png)
+
+    </div>
+
+Paina vielä **Suorita**. Ajossa kestää hetki ja uusi Aggregated-taso ilmestyy projektiisi. Avaa tason attribuuttitaulukko. Jokaisella osa-alueella on summattuna alueella olevien jv-johtojen lukumäärä tyypeittäin. Voit visualisoida aineiston esimerkiksi valitsemalla kuvaustekniikaksi porrastettu ja etsimällä aineistoon sopivat luokkavälit.
+
+## Lisätehtävä: Summien laskeminen SQL-lausekkeilla
 
 QGIS mahdollistaa SQL-kyselyiden tekemisen suoraan aineistoihin, kuten PostGIS-tietokantoihin tai paikallisiin tiedostoihin (esim. GeoPackage). Tässä ohjeet, miten voit tehdä SQL-kyselyitä QGIS:llä:
 
 ### 1. **Valmistaudu SQL-kyselyihin**
 
-#### Tarkista, että aineisto tukee SQL-kyselyitä:
+#### Tarkista, että aineisto tukee SQL-kyselyitä
 
 -   **PostGIS-tietokanta:** Voit käyttää SQL:ää suoraan, kun olet yhdistänyt QGIS:n PostGIS-tietokantaan.
 
 -   **GeoPackage-tiedosto:** GeoPackage-tiedostot tukevat SQL:ää.
 
 -   **Shapefile:** Shapefile ei tue suoria SQL-kyselyitä; muunna se ensin sopivampaan muotoon, kuten GeoPackage.
+
+-   **MapInfo-tiedostot kuten TAB:** eivät tue suoria SQL-kyselyitä; muunna se ensin sopivampaan muotoon, kuten GeoPackage.
 
 ### 2. **Avaa "DB Manager"**
 
@@ -73,55 +110,55 @@ DB Manager on QGIS:n työkalu, jonka avulla voit tehdä SQL-kyselyitä:
 
 2.  Valitse tietolähde:
 
-    -   Jos käytät PostGIS:iä, yhdistä tietokantaan (jos et ole tehnyt sitä aiemmin, valitse *PostGIS -\> Yhdistä* ja anna tietokantatiedot).
-
     -   Jos käytät GeoPackage-tiedostoa, valitse tiedosto paikallisista tietolähteistä.
 
 ### 3. **Kirjoita SQL-kysely**
 
-1.  Klikkaa tietokannan nimeä ja valitse **SQL-kysely** (Query).
+-   Klikkaa tietokannan nimeä ja valitse **SQL-kysely** (Query).
 
-2.  Kirjoita SQL-koodi editoriin:
+-   Kirjoita SQL-koodi editoriin:
 
-    -   Esimerkki: Valitse kaikki rivit tietyltä alueelta:
+    ::: code-box
+    SELECT geom, sum(ST_Length(geom)) AS kokonaispituus
 
-        ```         
-        sql
-        ```
+    FROM jv_johdot;
+    :::
 
-        Kopioi koodi
+    ![](img/harjoitus_8/image34.png)
 
-        `SELECT *  FROM taulun_nimi WHERE ST_Intersects(geometry, ST_Buffer(ST_MakePoint(25.5, 60.2)::geometry, 1000));`
+<!-- -->
 
-    -   Esimerkki: Laskenta:
-
-        ```         
-        sql
-        ```
-
-        Kopioi koodi
-
-        `SELECT luokka, COUNT(*) FROM taulun_nimi GROUP BY luokka;`
-
-3.  Suorita kysely:
+-   Suorita kysely:
 
     -   Klikkaa **Suorita kysely (Execute)**.
 
-### 4. **Tallenna tulos kartalle**
+-   Tässä myös muita SQL-lauseita:
 
-1.  Jos kysely tuottaa geometrioita:
+Lukumäärien laskenta:
 
-    -   Tulos näkyy DB Managerin alareunassa. Klikkaa **Tuo QGIS:iin (Load as layer)**.
+::: code-box
+SELECT TYYPPI, COUNT(\*) AS lukumäärä
 
-    -   Anna kerrokselle nimi ja määritä projektio.
+FROM jv_johdot
 
-2.  Jos kysely ei tuota geometrioita:
+GROUP BY LAJI;
+:::
 
-    -   Voit viedä tuloksen CSV-tiedostoksi ja lisätä sen myöhemmin taulukoksi.
+Lukumäärät, josta betoni materiaali ja omistaja Kuopion Vesi:
 
-### 5. **SQL-kyselyt suoraan QGIS:n kerroksille**
+::: code-box
+SELECT TYYPPI, COUNT(\*) AS lukumäärä
 
-Jos haluat tehdä SQL-kyselyitä ilman DB Manageria, voit käyttää **suodattimia** tai **Virtual Layer -ominaisuutta**.
+FROM jv_johdot
+
+where OMISTAJA IS "Kuopion Vesi" AND MATERIAALI IS "BET"
+
+GROUP BY LAJI;
+:::
+
+### **SQL-kyselyt suoraan QGIS:n tasoille**
+
+Jos haluat tehdä SQL-kyselyitä ilman DB Manageria, voit käyttää **suodattimia**
 
 #### **a) Käytä Suodatinta (Filter):**
 
@@ -129,40 +166,22 @@ Jos haluat tehdä SQL-kyselyitä ilman DB Manageria, voit käyttää **suodattim
 
 2.  Kirjoita yksinkertainen kysely, esimerkiksi:
 
-    ```         
-    sql
-    ```
+    ::: code-box
+    "TYYPPI" = 'Keräilyviemäri, digit. - Jäte'
+    :::
 
-    Kopioi koodi
+    TAI:
 
-    `luokka = 'metsä' AND pinta_ala > 1000`
-
-3.  Klikkaa **OK**.
-
-#### **b) Käytä Virtual Layer -kerrosta:**
-
-1.  Lisää uusi virtuaalinen kerros:
-
-    -   **Valikko:** *Kerros -\> Luo kerros -\> Lisää virtuaalinen kerros*.
-
-2.  Kirjoita SQL-kysely, esimerkiksi:
-
-    ```         
-    sql
-    ```
-
-    Kopioi koodi
-
-    `SELECT * FROM "kerroksen_nimi" WHERE luokka = 'kaupunkialue';`
+    ::: code-box
+    "TYYPPI" = 'Keräilyviemäri, digit. - Jäte' AND "OMISTAJA" = 'Kuopion Vesi'
+    :::
 
 3.  Klikkaa **OK**.
 
-### 6. **Hyviä käytäntöjä SQL-kyselyissä**
+### **Hyviä käytäntöjä SQL-kyselyissä**
 
 -   **Projektio:** Varmista, että käytät oikeita koordinaattijärjestelmiä erityisesti geometriakyselyissä.
 
 -   **Optimoitu kysely:** Suuren tietoaineiston käsittely voi olla hidasta, joten käytä suodattimia (esim. `WHERE`) tarpeettomien rivien rajaamiseksi.
 
 -   **Testaa kyselyt pienemmässä mittakaavassa:** Varmista, että kysely toimii ennen kuin suoritat sen koko tietoaineistolle.
-
-Jos sinulla on tietty kysely mielessä, voin auttaa sen kirjoittamisessa!
