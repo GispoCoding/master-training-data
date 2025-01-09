@@ -15,6 +15,8 @@ Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (**
 Lisää projektiin seuraavat aineistot:
 
 -   **.../jv-johdot.gpkg**
+-   **.../kaupunginosat.TAB**
+-   **.../viemäripiirit.TAB (tarvittaessa)**
 
 ## Tilastot
 
