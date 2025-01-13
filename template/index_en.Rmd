@@ -27,6 +27,13 @@ You can download the data used in the exercises from this link:
 [course_directory.zip](data_package_link_replace)
 :::
 
+and the exercises in PDF format from this link:
+
+::: note-box
+[Exercises in PDF format](https://github.com/gispocoding/master-training-data/releases/download/course_code_replace/course_code_replace.pdf)
+:::
+
+
 ## Reading Guide
 
 Commands to execute in a **web browser** are displayed as follows:
