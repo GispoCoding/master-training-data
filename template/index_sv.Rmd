@@ -27,6 +27,13 @@ Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
 [Kurskatalog.zip](data_package_link_replace)
 :::
 
+och kursens övningar i PDF-format:
+
+::: note-box
+[Övningar i PDF-format](https://github.com/gispocoding/master-training-data/releases/download/course_code_replace/course_code_replace.pdf)
+:::
+
+
 ## Läshjälp
 
 **Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
