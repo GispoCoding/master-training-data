@@ -14,11 +14,11 @@ Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (**
 
 Lisää projektiin seuraavat aineistot:
 
--   **.../Harjoitus 3/jv-johdot.TAB**
+-   **.../jv-johdot.TAB**
 
--   **.../Harjoitus 3/jv-varusteet.TAB**
+-   **.../jv-varusteet.TAB**
 
--   **.../Harjoitus 3/viemäripiirit.TAB**
+-   **.../viemäripiirit.TAB**
 
 ## Vektoriaineistojen visualisointi
 
