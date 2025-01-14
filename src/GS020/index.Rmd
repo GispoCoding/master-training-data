@@ -24,7 +24,7 @@ documentclass: book
 Lataa kurssin harjoitukset tästä linkistä:
 
 ::: note-box
-[Kurssimateriaali.zip](https://github.com/GispoCoding/python-gis-training/archive/refs/heads/main.zip)
+[Kurssimateriaali.zip](https://github.com/GispoCoding/python-gis-training/releases/download/default-release/python-gis-training.zip)
 :::
 
 Lisäksi voit ladata tämän ohjesivuston PDF-muodossa tästä linkistä:
