@@ -10,7 +10,7 @@ Koulutettava oppii asentamaan QGIS-lisäsoa ja lataamaan valmiita visualisointik
 
 ## Valmistautuminen
 
-Käynnistä QGIS-ohjelmisto. Avaa harjoituksen 4 QGIS-projektisi ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_6**". Avaa projektiin seuraavat aineistot:
+Käynnistä QGIS-ohjelmisto. Avaa harjoituksen 4 QGIS-projektisi ja tallenna se nimellä (**Projekti → Tallenna nimellä...**) "**QGIS_harjoitus_6**". Mikäli et tallentanut harjoitusta 4, avaa projektiin seuraavat aineistot:
 
 -   Lisää projektiin seuraavat aineistot:
     -   **.../jv-johdot.TAB**
@@ -31,7 +31,7 @@ Lisäosia lisätään käyttöön päävalikosta **Lisäosat → Hallitse ja ase
 
 ## QGIS Hub plugin
 
-Tämä QGIS lisäosa hakee visualisointeja [QGIS Hub](https://plugins.qgis.org/styles/?order_by=-upload_date&&is_gallery=true)- palvelusta. Tarjoaa kokoelman hyödyllisiä QGIS-resursseja QGIS-tyylistä, tasosta ja käsittelymallista. Tämä QGIS Hub -laajennus auttaa sinua selaamaan käytettävissä olevia visualisointeja ja lisäämään ne suoraan QGIS-järjestelmääsi.
+Tämä QGIS lisäosa hakee visualisointeja [QGIS Hub](https://plugins.qgis.org/styles/?order_by=-upload_date&&is_gallery=true)- palvelusta. Se tarjoaa kokoelman hyödyllisiä QGIS-resursseja QGIS-tyylistä, tasosta ja käsittelymallista. Tämä QGIS Hub -laajennus auttaa selaamaan käytettävissä olevia visualisointeja ja lisäämään ne suoraan QGIS-järjestelmään.
 
 Kokeile esimerkiski Water Flow- tyyliä. Etsi se haku palkin kautta ja lisää lopuksi QGISiin klikkaamalla **Add style to QGIS.**
 
@@ -43,7 +43,7 @@ Tämän jälkeen voit kokeilla visualisoida jv-johdot aineistoa tällä visualis
 
 ## QGIS Resource Sharing
 
-Tällä lisäosalla saat käyttöön jaettuja kokoelmia esimerkiksi SVG-ikoneita ja tyylitiedostoj. Väylävirasto on esimerkiksi jakanut tämän lisäosan kautta kaikki [Suomen liikennemerkit QGIS-kuvakirjastona](https://github.com/finnishtransportagency/liikennemerkit). (Löytyy lisäosasta hakukenttään syöttämällä "Väylävirasto". Lisäosasta löytyy myös kaikenlaisia muita symbolikirjastoja. Yksi hyödyllinen SVG-symbolikirjasto löytyy nimellä "svg symbols for the water network map repository" (suom. svg-symbolit vesiverkostolle". Kokeillaan seuraavaksi ladata tämä ja ottaa se käyttöön. Etsi symbolikirjasto syöttämällä hakukenttään esimerkiksi "water". Kun olet löytänyt oikean niin asenna se klikkaamalla **Install.** Tämä symbolikirjasto on lisensoitu CC-BY-NC-SA, joka tarkoittaa *Tekijä tai oikeudenomistaja mainittava asianmukaisesti, teoksen käyttö kaupallisiin tarkoituksiin on kielletty ja johdannaisteoksia saa levittää vain samalla lisenssillä kuin alkuperäistä teosta.*
+Tällä lisäosalla saat käyttöön jaettuja kokoelmia esimerkiksi SVG-ikoneita ja tyylitiedostoja. Väylävirasto on esimerkiksi jakanut tämän lisäosan kautta kaikki [Suomen liikennemerkit QGIS-kuvakirjastona](https://github.com/finnishtransportagency/liikennemerkit). (Löytyy lisäosasta hakukenttään syöttämällä "Väylävirasto". Lisäosasta löytyy myös kaikenlaisia muita symbolikirjastoja. Yksi hyödyllinen SVG-symbolikirjasto löytyy nimellä "svg symbols for the water network map repository" (suom. svg-symbolit vesiverkostolle". Kokeillaan seuraavaksi ladata tämä ja ottaa se käyttöön. Etsi symbolikirjasto syöttämällä hakukenttään esimerkiksi "water". Kun olet löytänyt oikean niin asenna se klikkaamalla **Install.** Tämä symbolikirjasto on lisensoitu CC-BY-NC-SA, joka tarkoittaa *Tekijä tai oikeudenomistaja mainittava asianmukaisesti, teoksen käyttö kaupallisiin tarkoituksiin on kielletty ja johdannaisteoksia saa levittää vain samalla lisenssillä kuin alkuperäistä teosta.*
 
 ![](img/harjoitus_6/kuva4.png)
 
@@ -143,5 +143,3 @@ Jos haluat käyttää symbolia muissa projekteissa:
 -   **Käytä kerroksia:** Kerrokset helpottavat symbolin muokkaamista myöhemmin.
 
 -   **Testaa symboli:** Lataa symboli QGIS:ään ja varmista, että se näyttää hyvältä ja toimii odotetusti.
-
-Onko sinulla tietty symboli, jonka haluat tehdä? Voin auttaa ideoinnissa!
