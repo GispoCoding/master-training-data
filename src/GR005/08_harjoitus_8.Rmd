@@ -16,7 +16,7 @@ Lisää projektiin seuraavat aineistot:
 
 -   **.../jv-johdot.TAB**
 -   **.../kaupunginosat.TAB**
--   **.../viemäripiirit.TAB (tarvittaessa)**
+-   **.../viemäripiirit.TAB (jos haluat käyttää tätä lakusissa kaupnginosien sijaan)**
 
 ## Tilastot
 
