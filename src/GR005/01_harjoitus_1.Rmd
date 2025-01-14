@@ -8,7 +8,7 @@ editor_options:
 
 **Harjoituksen sisältö**
 
-Harjoituksessa tutustutaan QGIS--ohjelmiston käyttöliittymään ja sen
+Harjoituksessa tutustutaan QGIS-ohjelmiston käyttöliittymään ja sen
 perustoimintoihin. Lisäksi Harjoituksessa tuodaan CAD-aineistoja
 QGIS-työtilaan.
 
@@ -43,7 +43,7 @@ Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google
 Drivestä linkistä
 
 ::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/file/d/1yiZX1BaHJCQYDiHHNESvzJbVJI4woP_W/view?usp=drive_link)
+[Kurssihakemisto.zip](https://drive.google.com/drive/folders/10RpHrMu1lordW-UwQ4F4BlS6EWDmzoUS?usp=sharing)
 :::
 
 Avaa yllä oleva linkki ja klikkaa **Lataa**. Tämä lataa aineistot
@@ -185,7 +185,7 @@ käydään läpi CAD-aineistojen yhteensopivuus QGISin kanssa.
 ## Erilaiset CAD-aineistot
 
 | Formaatti |                            Selite                             |                         Toimii QGISissä                          |
-|:----------------:|:-----------------------------:|:---------------------:|
+|:----------------:|:------------------------:|:--------------------------:|
 |   .dwg    |                   AutoCADin oletusformaatti                   | Versio 2018 ja uudemmat eivät toimi. Vanhemmat versiot toimivat. |
 |   .dgn    |                Microstationin oletusformaatti                 |        Ei, paitsi jos käyttää vanhaa (v7) dgn-tiedostoa.         |
 |   .dxf    | AutoCadin formaatti kun halutaan siirtyä toiseen ohjelmistoon |                              Kyllä                               |
