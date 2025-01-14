@@ -1,4 +1,4 @@
-## Kurssiympäristö kontissa
+# Kurssiympäristö kontissa
 
 Voit ajaa kurssiympäristöä kontissa, jolloin tarvitset vain docker- /
 podman-asennuksen.

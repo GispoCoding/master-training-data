@@ -3,7 +3,7 @@ title: "Pythonin perusteet ja paikkatieto Pythonissa"
 author: "Gispo Suomi Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "Pythonin perusteita paikkatietoperspektiivistä"
+abstract: "Johdanto ohjelmointiin ja paikkatietoanalyyseihin Pythonilla"
 output:
     bookdown::html_book:
         toc: true
@@ -21,13 +21,13 @@ documentclass: book
 
 ## Kurssimateriaalien lataaminen
 
-Voit ladata kurssin harjoitukset tästä linkistä:
+Lataa kurssin harjoitukset tästä linkistä:
 
 ::: note-box
-[Kurssihakemisto.zip](data_package_link_replace)
+[Kurssimateriaali.zip](https://github.com/GispoCoding/python-gis-training/archive/refs/heads/main.zip)
 :::
 
-ja kurssin harjoitukset PDF-muodossa tästä linkistä:
+Lisäksi voit ladata tämän ohjesivuston PDF-muodossa tästä linkistä:
 
 ::: note-box
 [Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/GS020/GS020.pdf)
