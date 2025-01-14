@@ -14,13 +14,15 @@ Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (**
 
 Lisää projektiin seuraavat aineistot:
 
--   **.../jv-johdot.gpkg**
+-   **.../jv-johdot.TAB**
 -   **.../kaupunginosat.TAB**
 -   **.../viemäripiirit.TAB (tarvittaessa)**
 
 ## Tilastot
 
-Tuo projektiisi Harjoituksessa 5- tehty **jv_johdot.gpkg**. Tutkitaan seuraavaksi tasoa QGISin tilastot-paneelissa, jossa voit tarkastella aineistosi arvojen tilastollista jakaumaa.
+Avaa projektiisi **jv_johdot.TAB** ja muunnetaan se harjoituksen aluksi GeoPackageksi. Tämä varmistaa sen, että saamme laskettua alueellisia summia ja tehtyä SQL-kyselyitä. Klikkaa Tasot-luettelossa jv-johdot tasoa hiiren oikealla ja valitse **Vie** \> **Tallenna kohteet nimellä.** Anna Tiedostomuodon olla GeoPackage. Valitse **Tiedostonimeksi** jv-johdot ja **Tason nimeksi** jv-johdot. Vaihda **koordinaattijärjestelmäksi** Ennalta määritelty koordinaattijärjestelmä ja valitse **ETR89/GK27FIN** (EPSG:3881). Tallenuksen jälkeen taso ilmestyy Tasot-paneeliin. Poista alkuperäinen jv-johdot.TAB painamalla tasoa hiiren oikealla ja valitsemalla **Poista taso**.
+
+Tutkitaan seuraavaksi tasoa QGISin tilastot-paneelissa, jossa voit tarkastella aineistosi arvojen tilastollista jakaumaa.
 
 Saat **Tilastot-paneelin** näkyviin QGISin käyttöliittymään klikkaamalla Näytä tilastollinen yhteenveto -painiketta ![](img/harjoitus_8/image4.png) tai valitsemalla päävalikosta **Näytä \> Paneelit \> Tilastot**. Avautuvassa ikkunassa valitse pudotusvalikosta **jv_johdot-taso** ja sen jälkeen yksi tason attribuuttikenttä. Tarkastele esitettäviä tilastollisia tunnuslukuja. Voit myös valita aineistosta vain osan, jonka tilastoja haluat tarkastella. Valitse osa aineiston ruuduista joko kartalta tai attribuuttitaulusta, ja klikkaa **Tilastot-paneelin** ruutu **Käytetään vain valittuja kohteita** aktiiviseksi.
 
