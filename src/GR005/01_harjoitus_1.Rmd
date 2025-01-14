@@ -36,7 +36,7 @@ väriskeemoissa ja tiedostopoluissa -- muuten erot ovat hyvin pieniä.
 Voit halutessasi ladata kurssin luentokalvot täältä:
 
 ::: note-box
-[Luentomateriaali](https://drive.google.com/file/d/17Ayqz2qR6i6UFlVSBY2lA1Yuzz_0DXNV/view?usp=sharing)
+[Luentomateriaali](https://docs.google.com/presentation/d/1azSOONaOn_deQBfHrm1X9qP2GjHD7VjdZ84ShKZqWiA/edit?usp=sharing)
 :::
 
 Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google
