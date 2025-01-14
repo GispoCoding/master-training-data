@@ -12,10 +12,11 @@ Asennukseen on sekä graafinen- että komentorivikäyttöliittymä.
 ### Asennus komentorivillä
 
 Noudata Minicondan omia
-[asennusohjeita](https://docs.anaconda.com/miniconda/#quick-command-line-install):
+[asennusohjeita](https://docs.anaconda.com/miniconda/install/#quick-command-line-install):
 
 1. Valitse yllä linkatulla ohjesivulla, kohdassa **Quick command line install**,
    välilehti **Windows Command Prompt**.
+1. Avaa tietokoneellasi komentorivi, eli **Windows Command Prompt**.
 1. Kopioi ohjesivuilta löytyvät kommennot ja aja komennot komentorivillä
    painamalla enteriä.
 1. Asennusikkuna saattaa aueta ja voit sulkea tämän kun asennus on valmis.
@@ -24,9 +25,9 @@ Noudata Minicondan omia
 
 ### Tarkista toimiiko asennus
 
-> **HUOM!** Jos tietokoneen varsinaisella käyttäjällä ei ole admin-oikeuksia
-> (eli esim. organisaation ict-tuki hoitaa asennuksen), täytyy siis seuraavien
-> toimintojen onnistua peruskäyttäjällä, ilman admin-oikeuksia.
+<!-- > **HUOM!** Jos tietokoneen varsinaisella käyttäjällä ei ole admin-oikeuksia -->
+<!-- > (eli esim. organisaation ict-tuki hoitaa asennuksen), täytyy siis seuraavien -->
+<!-- > toimintojen onnistua peruskäyttäjällä, ilman admin-oikeuksia. -->
 
 Condalla pitäisi nyt voida luoda ympäristöjä sekä asentaa paketteja.
 
@@ -73,3 +74,5 @@ jupyter lab
 JupyterLabin pitäisi käynnistyä selaimessa. Jos selainsivu ei aukea
 automaattisesti, kopioi komentorivi-ikkunassa näkyvä linkki selaimen
 URL-kenttään.
+
+Lopuksi voit sulkea selaimen ja komentorivi-ikkunan.
