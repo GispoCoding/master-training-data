@@ -6,7 +6,7 @@ Lataa kurssimateriaali alla olevasta linkistä, ja pura `.zip`-tiedosto
 sellaiseen hakemistoon, jonne löydät myöhemmin.
 
 <!-- TODO -->
-[Kurssimateriaali.zip](https://github.com/GispoCoding/python-gis-training/archive/refs/heads/main.zip)
+[Kurssimateriaali.zip](https://github.com/GispoCoding/python-gis-training/releases/download/default-release/python-gis-training.zip)
 
 ## Komentorivi ja kurssihakemistoon navigointi (windows)
 
