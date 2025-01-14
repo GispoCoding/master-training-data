@@ -38,7 +38,7 @@ Usein ensimmäinen tehtävä aineistojen luomisessa on taustakartan lisääminen
 
 ![](img/harjoitus_5/image3.png)
 
-Zoomaa kartta Suomen kohdalle, ja koska haluamme tehdä tarkkaa editointia oikeassa koordinaattijärjestelmässä, muutetaan projektin koordinaattijärjestelmä Suomen kansalliseen **EUREF-FIN 3067**-järjestelmään. Klikkaa projektin oikeasta alakulmasta, jossa lukee tällä hetkellä EPSG:3857. Tämä on QGISin taustakartan perusteella asettama koordinaattijärjestelmä, jota emme nyt siis halua käyttää.
+Zoomaa kartta Suomen kohdalle, ja koska haluamme tehdä tarkkaa editointia oikeassa koordinaattijärjestelmässä, muutetaan projektin koordinaattijärjestelmä Kuopin käyttämään **EPSG**:**3881 - ETRS89/GK27FIN**-järjestelmään. Klikkaa projektin oikeasta alakulmasta, jossa lukee tällä hetkellä EPSG:3857. Tämä on QGISin taustakartan perusteella asettama koordinaattijärjestelmä, jota emme nyt siis halua käyttää.
 
 Paina tämän jälkeen **OK,** minkä jälkeen avautuva ikkuna kysyy sinulta koordinaattimuunnoksesta. Valitse uudestaan **OK**. Nyt projektisi on oikeassa koordinaattijärjestelmässä.
 
@@ -48,7 +48,7 @@ Luo uusi GeoPackage-taso valitsemalla päävalikosta **Tasot \> Luo taso \> Uusi
 
 ![](img/harjoitus_5/image4.png)
 
-GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi **"Jätevesi"** ja luotavan tason nimeksi **"Viemäripiirit"**. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi **3881**. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:
+GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi **"Jätevesi"** ja luotavan tason nimeksi **"Viemäripiirit"**. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi **EPSG**:**3881 - ETRS89/GK27FIN**. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:
 
 -   Nimi: Nimi / Tyyppi: teksti
 
