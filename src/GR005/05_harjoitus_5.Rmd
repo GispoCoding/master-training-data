@@ -14,7 +14,7 @@ Harjoituksen jälkeen osallistuja osaa lisätä ja luoda tasoja QGISiin.
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 6**".
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 5**".
 
 ## Muokkauksen yleisasetukset
 
