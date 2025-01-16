@@ -32,7 +32,7 @@ QGIS käyttöliittymässä paikkatietokohteiden tekstitykseen viitataan termill�
 Nimiöiden tekstien näkymistä kartalla voi määrittää monella eri tavalla. Alla kuvaukset QGISin nimiöiden muokkaamisen alateemoista:
 
 |               |                                                                                                                                                      |
-|:-------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------:|:----------------------------------------------------------|
 |    Teksti     | Määritellään tekstin tyyli, väri ja muita yleisiä ominaisuuksia                                                                                      |
 |   Muotoilu    | Voit muodostaa useampirivisiä tekstejä, keskittää tekstiä ja määritellä lukujen muotoa                                                               |
 |    Vyöhyke    | Luodaan tekstiä korostavat puskurit (tekstin reunukset)                                                                                              |
@@ -57,7 +57,7 @@ Toinen työkalu tekstin korostamiseen on tekstipuskuri. Valitse **Vyöhyke-alate
 
 ![](img/harjoitus_4/image4.png)
 
-Avaa vielä nimiöiden **Sijoittaminen-alateema**, ja rastita **Seuraa viivaa** ja **Viivan päällä -toiminnot** päälle. Paina **Käytä**, ja tarkista, että nimiöinti toimii odotetulla tavalla. Katso esimerkkiasetukset kuvasta:
+Avaa vielä nimiöiden **Sijoittaminen-alateema**, ja valitse **Seuraa viivaa** ja **Viivasuunnasta riippuva sijoittelu -toiminnot** päälle. Paina **Käytä**, ja tarkista, että nimiöinti toimii odotetulla tavalla. Katso esimerkkiasetukset kuvasta:
 
 ![](img/harjoitus_4/image8.png)
 
