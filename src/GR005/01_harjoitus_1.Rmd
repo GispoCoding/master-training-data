@@ -43,7 +43,7 @@ Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google
 Drivestä linkistä
 
 ::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/drive/folders/10RpHrMu1lordW-UwQ4F4BlS6EWDmzoUS?usp=sharing)
+[Kurssihakemisto.zip](https://drive.google.com/file/d/1e--hPgLULVOJ5u25PJ-vywCPKhmWyHe0/view?usp=sharing)
 :::
 
 Avaa yllä oleva linkki ja klikkaa **Lataa**. Tämä lataa aineistot
