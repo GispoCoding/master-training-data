@@ -29,7 +29,7 @@ Kursilla käytetään harjoituksissa dataa. Voit ladata kurssihakemiston tästä
 [Kurssihakemisto.zip](https://drive.google.com/file/d/1FZtwX1PYxlwrFeW78e3FV0BVjEqZU6RX/view?usp=sharing)
 :::
 
-## Lukuohje_
+## Lukuohje
 
 **Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
 
