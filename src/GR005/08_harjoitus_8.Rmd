@@ -62,7 +62,7 @@ Harjoituksessa käytetään Kuopion kaupungin **kaupunginosat**- tasoa (**kaupun
 Voit myös tehdä harjoituksen myös muulla aluejaolla esimerkiksi viemäripiirit tasolla.
 :::
 
-Liitetään tieto jv-johdoista Kuopion kaupunginosa jakoon sijainnin perusteella. Avaa **Vektori -\> Tiedonhallinta -\> Yhdistä attribuutit sijainnin perusteella**. Valitse yhdistettäväksi tasoksi Piirijako_osaalue ja vertailukohteeksi Rakennukset_piste_rekisteritiedot. Jätä Säilytettävät kentät tyhjäksi niin kaikki jv-johdot-tason sarakkeet lisätään. Tarkista vielä, että Join type on **Luo erillinen kohde jokaisesta täsmäävästä kohteesta (yksi-moneen)** , jotta jokainen piste huomiodaan uudessa tasossa.
+Liitetään tieto jv-johdoista Kuopion kaupunginosa jakoon sijainnin perusteella. Avaa **Vektori -\> Tiedonhallinta -\> Yhdistä attribuutit sijainnin perusteella**. Valitse yhdistettäväksi tasoksi kaupungingosat ja vertailukohteeksi jv_johdot. Jätä Säilytettävät kentät tyhjäksi niin kaikki jv-johdot-tason sarakkeet lisätään. Tarkista vielä, että Join type on **Luo erillinen kohde jokaisesta täsmäävästä kohteesta (yksi-moneen)** , jotta jokainen piste huomiodaan uudessa tasossa.
 
 ![](img/harjoitus_8/image31.png)
 
