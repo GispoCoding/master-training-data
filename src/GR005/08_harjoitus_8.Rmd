@@ -20,7 +20,7 @@ Lisää projektiin seuraavat aineistot:
 
 ## Tilastot
 
-Avaa projektiisi **jv-johdot.TAB** ja muunnetaan se harjoituksen aluksi GeoPackageksi. Tämä varmistaa sen, että saamme laskettua alueellisia summia ja tehtyä SQL-kyselyitä. Klikkaa Tasot-luettelossa jv-johdot tasoa hiiren oikealla ja valitse **Vie** \> **Tallenna kohteet nimellä.** Anna Tiedostomuodon olla GeoPackage. Valitse **Tiedostonimeksi** jv-johdot ja **Tason nimeksi** jv-johdot. Vaihda **koordinaattijärjestelmäksi** Ennalta määritelty koordinaattijärjestelmä ja valitse **ETR89/GK27FIN** (EPSG:3881). Tallenuksen jälkeen taso ilmestyy Tasot-paneeliin. Poista alkuperäinen jv-johdot.TAB painamalla tasoa hiiren oikealla ja valitsemalla **Poista taso**. Varmista vielä, että projektille on määritetty koordinaatistoksi **ETR89/GK27FIN** (EPSG:3881). Voit tehdä sen esim. **Projekti** \> **Ominaisuudet** \> **Koordinaatijärjestelmä** tai QGISin oikean alalaidan kuvakkeen kautta.
+Avaa projektiisi **jv-johdot.TAB** ja muunnetaan se harjoituksen aluksi GeoPackageksi. Tämä varmistaa sen, että saamme laskettua alueellisia summia ja tehtyä SQL-kyselyitä. Klikkaa Tasot-luettelossa jv-johdot tasoa hiiren oikealla ja valitse **Vie** \> **Tallenna kohteet nimellä.** Anna Tiedostomuodon olla GeoPackage. Valitse **Tiedostonimeksi** jvjohdot ja **Tason nimeksi** jvjohdot. Vaihda **koordinaattijärjestelmäksi** Ennalta määritelty koordinaattijärjestelmä ja valitse **ETR89/GK27FIN** (EPSG:3881). Tallenuksen jälkeen taso ilmestyy Tasot-paneeliin. Poista alkuperäinen jv-johdot.TAB painamalla tasoa hiiren oikealla ja valitsemalla **Poista taso**. Varmista vielä, että projektille on määritetty koordinaatistoksi **ETR89/GK27FIN** (EPSG:3881). Voit tehdä sen esim. **Projekti** \> **Ominaisuudet** \> **Koordinaatijärjestelmä** tai QGISin oikean alalaidan kuvakkeen kautta.
 
 Tehdään vielä alkuvalmisteluina muutos ominaisuustietotauluun. Alkuperäisessä aineistossa pituustieto oli tekstimuodossa, joka estää laskuoperaatioiden tekemisen. Mene **Tason ominaisuudet** \> **Tietokentät** ja poista sarake **Pituus** aktivoimalla muokkaus kynäkuvakkeesta ja valitsemalla **Poista kenttä.** Paina **Uusi kenttä** ja anna Nimeksi Pituus ja Tyypiksi Desimaalinumero. Laske tämän jälkeen pituudet **Kentän arvojen laskin -työkalulla** kuten tehtiin Digitointiharjoituksessa.
 
@@ -125,7 +125,7 @@ DB Manager on QGIS:n työkalu, jonka avulla voit tehdä SQL-kyselyitä:
     ::: code-box
     SELECT geom, sum(ST_Length(geom)) AS kokonaispituus
 
-    FROM jv-johdot;
+    FROM jvjohdot;
     :::
 
     ![](img/harjoitus_8/image34.png)
@@ -143,7 +143,7 @@ Lukumäärien laskenta:
 ::: code-box
 SELECT TYYPPI, COUNT(\*) AS lukumäärä
 
-FROM jv-johdot
+FROM jvjohdot
 
 GROUP BY TYYPPI;
 :::
@@ -153,7 +153,7 @@ Lukumäärät, josta betoni materiaali ja omistaja Kuopion Vesi:
 ::: code-box
 SELECT TYYPPI, COUNT(\*) AS lukumäärä
 
-FROM jv_johdot
+FROM jvjohdot
 
 where OMISTAJA IS "Kuopion Vesi" AND MATERIAALI IS "BET"
 
