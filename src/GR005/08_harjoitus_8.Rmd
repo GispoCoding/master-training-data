@@ -104,13 +104,13 @@ Tarkista, että aineisto tukee SQL-kyselyitä
 
 -   **MapInfo-tiedostot kuten TAB:** eivät tue suoria SQL-kyselyitä; muunna se ensin sopivampaan muotoon, kuten GeoPackage.
 
-2\. **Avaa "DB Manager"**
+2\. **Avaa Tietokannan hallinta ("DB Manager")**
 
 DB Manager on QGIS:n työkalu, jonka avulla voit tehdä SQL-kyselyitä:
 
-1.  Avaa **DB Manager**:
+1.  Avaa **Tietokannan hallinta** (**DB Manager)**:
 
-    -   **Valikko:** *Tietokanta -\> DB Manager -\> DB Manager*.
+    -   **Valikko:** *Tietokanta -\> Tietokannan hallinta*.
 
 2.  Valitse tietolähde:
 
@@ -166,7 +166,7 @@ Jos haluat tehdä SQL-kyselyitä ilman DB Manageria, voit käyttää **suodattim
 
 **a) Käytä Suodatinta (Filter):**
 
-1.  Valitse kerros ja klikkaa sitä hiiren oikealla → **Suodatin**.
+1.  Valitse taso, jolle haluat tehdä kyselyn ja klikkaa sitä hiiren oikealla → **Suodatin**.
 
 2.  Kirjoita yksinkertainen kysely, esimerkiksi:
 
