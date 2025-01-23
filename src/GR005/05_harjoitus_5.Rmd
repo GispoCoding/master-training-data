@@ -118,7 +118,7 @@ Laita nyt vuorostaan tämän juuri luodun tason editointi päälle klikkaamalla 
 
 ![](img/harjoitus_5/image14.png)
 
-Luodaan seuraavaksi jätevesijohtoverkostoa. Piirrä useampia viivoja, jotka tarttuvat toisiinsa. Anna tälle viivoille verkko kohtaan nimi jätevesi ja materiaaliksi esim. pvc. Jätä pituus-kenttä vielä tyhjäksi.
+Luodaan seuraavaksi jätevesijohtoverkostoa. Piirrä useampia viivoja, jotka tarttuvat toisiinsa. Anna viivoille verkko kohtaan nimi jätevesi ja materiaaliksi esim. pvc. Jätä pituus-kenttä vielä tyhjäksi.
 
 ![](img/harjoitus_5/image15.png)
 
