@@ -65,7 +65,7 @@ Tämän jälkeen symbolit ovat käytettävissä suoraan pistemuotoisten tasojen 
 
 ![](img/harjoitus_6/kuva7.png)
 
-## Omien symbolien tekeminen
+## Lisätehtävä: Omien symbolien tekeminen
 
 Voit käyttää mitä tahansa vektorigrafiikkaohjelmaa, kuten:
 
