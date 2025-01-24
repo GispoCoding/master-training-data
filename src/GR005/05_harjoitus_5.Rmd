@@ -148,8 +148,8 @@ Lisää GeoPackageen pistemäinen taso ja digitoi pistekohteita kartalle. Kun ol
 
 Jos haluat, että esim. pinta-alat tai pituudet lasketaan kohteille suoraan digitoinnin yhteydessä, mene tason ominaisuuksiin klikkaamalla tasoa hiiren oikealla ja valitse **Ominaisuudet \> Attribuuttilomake** ja tee kuvan valinnat.
 
-1.  Valitse ensin Käytettävissä olevat widgetit kohdasta kenttä, jolle pituus tai pinta-ala lasketaan.
-2.  Kirjoita Oletusarvoon joko \$length (pituus) tai \$area (pinta-ala)
-3.  Laita ruksi Käytä oletusarvoa päivityksessä. Tämä ruksi varmistaa sen, että arvoa käytetään silloin kun kohde luodaan tai sitä muokataan.
+1.  Valitse ensin **Käytettävissä olevat widgetit** kohdasta kenttä, jolle pituus tai pinta-ala lasketaan.
+2.  Kirjoita **Oletusarvoon** joko \$length (pituus) tai \$area (pinta-ala)
+3.  Laita ruksi **Käytä oletusarvoa päivityksessä**. Tämä ruksi varmistaa sen, että arvoa käytetään silloin kun kohde luodaan tai sitä muokataan.
 
-![](images/clipboard-203978786.png)
+![](images/clipboard-2764830918.png)
