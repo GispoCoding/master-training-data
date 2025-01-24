@@ -2,7 +2,9 @@
 
 ## Harjoituksen sisältö
 
-Harjoituksessa tutustutaan lisäosien asentamiseen, uusien visualisointien hakmiseen valmiista symbolikirjastoista ja omien symbolien tekemiseen
+Harjoituksessa tutustutaan lisäosien asentamiseen, uusien visualisointien hakmiseen valmiista symbolikirjastoista ja omien symbolien tekemiseen.
+
+Voit tutustua QGISin lisäosiin [QGIS plugins portaalissa](https://plugins.qgis.org/). Gispon [blogista](https://www.gispo.fi/blogi/gispolaisten-suosimat-qgis-plugarit/) löydät tietoa henkilökunnan suosimista lisäosista suomeksi.
 
 ## Harjoituksen tavoite
 
