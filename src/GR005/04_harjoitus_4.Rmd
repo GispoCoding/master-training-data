@@ -125,6 +125,20 @@ Kokeile yhdistää kaksi saraketta samaan nimiöön **\|\| -merkin** avulla esim
 
 ![](img/harjoitus_4/image21.png)
 
+## Lisätehtävä: nimiöiden sijoittaminen
+
+Jos haluat nimiöidä esim. viiva-aineiston niin, että vain silloin kun viivan ominaisuuden arvo muuttuu, nimiö tulee näkyville, mene **tason** **ominaisuuksiin** esim. klikkaamalla hiiren oikeaa ja valitsemalla sen jälkeen **Nimiöt \> Karttanöyttö**. Tee kuvan mukaiset valinnat.
+
+![](images/clipboard-1445978728.png)
+
+Seuraavaksi mene **Sijoittaminen** osaan ja valitse **Nimiöiden ankkurointi** \> **Asetukset.**
+
+![](images/clipboard-1398422196.png)
+
+Tee kuvan valinnat.
+
+![](images/clipboard-2267780615.png)
+
 ::: hint-box
 **Psst!** Muista tallentaa QGIS-projekti harjoituksen lopuksi.
 :::
