@@ -39,19 +39,7 @@ Voit halutessasi ladata kurssin luentokalvot täältä:
 [Luentomateriaali](https://docs.google.com/presentation/d/1azSOONaOn_deQBfHrm1X9qP2GjHD7VjdZ84ShKZqWiA/edit?usp=sharing)
 :::
 
-Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google
-Drivestä linkistä
-
-::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/file/d/1e--hPgLULVOJ5u25PJ-vywCPKhmWyHe0/view?usp=sharing)
-:::
-
-Avaa yllä oleva linkki ja klikkaa **Lataa**. Tämä lataa aineistot
-kokonaisuudessaan pakattuna zip-tiedostona **Kurssihakemisto.zip**. Pura
-kurssimateriaalit omalle tietokoneellesi haluamaasi kansioon niin, että
-löydät ne helposti harjoituksia tehdessä. Kun kurssimateriaalissa
-viitataan **../kurssihakemisto/**, tarkoitetaan itse määrittelemääsi
-kurssihakemiston polkua. Kysy tarvittaessa apua kouluttajalta.
+Kurssilla tarvittavat paikkatieto-aineistot on jaettu kurssilaisille.
 
 ## QGISin käyttöliittymä
 

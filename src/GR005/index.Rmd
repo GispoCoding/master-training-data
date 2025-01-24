@@ -21,13 +21,12 @@ documentclass: book
 
 ## Kurssimateriaalien lataaminen
 
-Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
+Kurssin materiaali on jaettu osallistujille henkilökohtaisesti.
 
 ::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/file/d/1e--hPgLULVOJ5u25PJ-vywCPKhmWyHe0/view?usp=sharing)
 :::
 
-ja kurssin harjoitukset PDF-muodossa tästä linkistä:
+Kurssin harjoitukset saata ladattua PDF-muodossa tästä linkistä:
 
 ::: note-box
 [Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/GR005/GR005.pdf)
