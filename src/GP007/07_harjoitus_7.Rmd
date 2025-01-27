@@ -58,7 +58,7 @@ Valinnat järjestyksessä vasemmalta oikealle:
 
 Jos piirtämisen apuna tarvitaan etäisyyttä tietystä pisteestä tai tiettyä kulmaa johonkin olemassa olevaan linjaan, rakentamistilan avulla saa näkyville apuviivoja piirtämisen tueksi. Rakentamistilan ollessa aktiivisena ei voi piirtää, mutta sen avulla voidaan hakea näkyviin tarvittavia apuviivoja esim. etäisyyden tai kulman suhteen. Rakentamistilan voi aktivoida ennen tai kesken piirtämisen.
 
-Rakentamistila aktivoidaan laajennetun digitoinnin paneelista löytyvästä ![](img/harjoitus_7/image17.png)![]()-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla **C**.
+Rakentamistila aktivoidaan *Digitoinnin lisätyökalut-paneelista* löytyvästä ![](img/harjoitus_7/image17.png)![]()-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla **C**. Digitoinnin lisätyökalut-paneelin saa tarvittaessa auki klikkaamalla hiiren oikealla QGIS-projektissa työkalujen valintanauhasta tyhjää kohtaa ja rastittamalla Paneelit --> Digitoinnin lisätyökalut -paneeli.
 
 **Huom!** Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä ![](img/harjoitus_7/image19.png) tai **C**-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.
 
@@ -123,7 +123,7 @@ Aloita nyt **Rakennukset-tason** editointi.
 
 ## Rakennustilan hyödyntäminen rakennuksen piirtämisessä
 
-Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi, jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 30 metriä, sen voi tehdä laajennetun digitoinnin työkaluja hyödyntäen mm. seuraavasti:
+Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi, jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 35 metriä, sen voi tehdä laajennetun digitoinnin työkaluja hyödyntäen mm. seuraavasti:
 
 1.  Valitse **Rakennukset**-taso aktiiviseksi.
 
@@ -137,15 +137,15 @@ Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta p
 
 6.  Valitse haluttu etäisyys 15 metriä painamalla **D** (fokus siirtyy kohtaan d(istance)). Syötetään **luku 15**. Painetaan **enter**. Käyttöön tulee säde 15 metrin etäisyydelle kiinteistönrajaan piirretyn jälkimmäisen apupisteen mukaan. HUOM! Mitään ei ole vielä piirretty.
 
-7.  Aloita piirtäminen poistamalla **rakentamistila** käytöstä ![](img/harjoitus_7/image19.png) (tai painamalla **C**).
+7.  Aloita piirtäminen poistamalla **rakentamistila** käytöstä. ![](img/harjoitus_7/image19.png) (tai painamalla **C**).
 
-8.  **Piirrä** ensimmäinen piste kohtisuoraa apuviivaa ja -sädettä hyödyntäen.
+8. Klikkaa karttatasolle piste *15 m* kohdalle, eli kohtaan josta haluat aloittaa rakennuksen ensimmäisen seinän piirtämisen.
 
-9.  Suorakulma pysyy valittuna, mutta etäisyys halutaan muuttaa 35 metriin (rakennuksen 1. seinän mitta). Paina **D**, syötä arvoksi 35 ja paina **enter**. Apusäde muuttuu 35 metriin. Piirrä rakennuksen seuraava nurkka.
+9. Suorakulma pysyy valittuna, mutta etäisyys halutaan muuttaa 35 metriin (rakennuksen 1. seinän mitta). Paina **D**, syötä arvoksi 35 ja paina **enter**. Apusäde muuttuu 35 metriin. Piirrä rakennuksen seuraava nurkka.
 
 10. Vaihda etäisyydeksi 45 painamalla jälleen **D**, syöttämällä arvo ja painamalla **enter**. Ympyrä kasvaa ja piirtäminen voidaan tehdä sen ja kohtisuoran apuviivan avulla. Etäisyys ja kulma pysyvät samana: piirrä kolmas nurkkapiste.
 
-11. Toista kohta 8.
+11. Toista kohdat 9 ja 10.
 
 12. Paina lopuksi hiiren oikeaa näppäintä, jolloin alue sulkeutuu. Rakennus on valmis.
 
