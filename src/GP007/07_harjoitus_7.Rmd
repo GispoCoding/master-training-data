@@ -64,12 +64,12 @@ Rakentamistila aktivoidaan *Digitoinnin lisätyökalut-paneelista* löytyvästä
 
 ## Rakennuksen piirto apuviivojen avulla
 
-Lisätyökalujen avulla voi saada näkyville apuviivat ja tarttumisasetukset tiettyihin kulmiin, esimerkiksi 45 tai 90 asteen välein. Toiminnon saa päälle laajennetun digitoinnin paneelista (ikkunan vasemmassa laidassa) ![](img/harjoitus_7/snap_common_angles.png)-nappulasta. Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen alettua kulma lasketaan viimeisen piirretyn viivan mukaan ja näkyviin tulee tukiviivoja haluttujen kulmien kohdalle.
+Lisätyökalujen avulla voi saada näkyville apuviivat ja tarttumisasetukset tiettyihin kulmiin, esimerkiksi 45 tai 90 asteen välein. Toiminnon saa päälle Digitoinnin lisätyökalut-paneelista (ikkunan vasemmassa laidassa) ![](img/harjoitus_7/snap_common_angles.png)-nappulasta. Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen alettua kulma lasketaan viimeisen piirretyn viivan mukaan ja näkyviin tulee tukiviivoja haluttujen kulmien kohdalle.
 
 
 ### Sitten vain harjoittelemaan....
 
-Aseta **Rakennukset-tason** editointi päälle kynäkuvakkeesta. Kun valitset **Lisää polygonikohde -työkalun**, **Laajennettu digitointi -kuvake** aktivoituu ![](img/harjoitus_7/image15.png). Klikkaa kuvaketta niin saat **Laajennettu digitointi -hallintapaneeliin** QGISiin.
+Aseta **Rakennukset-tason** editointi päälle kynäkuvakkeesta. Kun valitset **Lisää monikulmiokohde -työkalun**, **Ota digitoinnin lisätyökalut käyttöön -painike** aktivoituu ![](img/harjoitus_7/image15.png). Klikkaa kuvaketta niin saat **Digitoinnin lisätyökalut -hallintapaneeliin** QGISiin.
 
 ![](img/harjoitus_7/image16.png)
 
@@ -83,7 +83,7 @@ Aloita nyt **Rakennukset-tason** editointi.
 
 2.  Seuraavaksi harjoitellaan alueen reunaviivan suuntaisesti rakennuksen piirtämistä. Toimi seuraavasti:
 
--   Varmista, että laajennettu digitointi ![](img/harjoitus_7/image15.png)![]() on päällä.
+-   Varmista, että **Ota digitoinnin lisätyökalut käyttöön-painike** ![](img/harjoitus_7/image15.png)![]() on päällä.
 
 -   Piirrä piste kartalle haluamaasi kohtaan. Laajennetun digitoinnin valikossa aktivoituvat kohtisuoruustyökalu ![](img/harjoitus_7/image18.png) ja yhdensuuntaisuustyökalu ![](img/harjoitus_7/yhdensuuntaisuus_tyokalu.png). Huom! Jos **tarttuminen** ei ole päällä, nämä työkalut eivät aktivoidu.
 
@@ -127,9 +127,9 @@ Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta p
 
 1.  Valitse **Rakennukset**-taso aktiiviseksi.
 
-2.  Laita **editointi** päälle ![](img/harjoitus_7/toggle_editing.png) **Rakennukset**-tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_7/monikulmio_kohde.png) sekä **laajennetun digitoinnin työkalut** aktiivisiksi ![](img/harjoitus_7/image15.png).
+2.  Laita **editointi** päälle ![](img/harjoitus_7/toggle_editing.png) **Rakennukset**-tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_7/monikulmio_kohde.png) sekä paina **Ota digitoinnin lisätyökalut käyttöön-painike** aktiiviseksi ![](img/harjoitus_7/image15.png).
 
-3.  Laita **laajennetun digitoinnin** paneelista (vasen reuna) **rakentamistila** päälle ![](img/harjoitus_7/image19.png) (tai painamalla **C**).
+3.  Laita **digitoinnin lisätyökalujen** paneelista (vasen reuna) **rakentamistila** päälle ![](img/harjoitus_7/image19.png) (tai painamalla **C**).
 
 4.  Aseta halutun kiinteistönrajan nollakulma valitsemalla rajalta kaksi pistettä.
 
