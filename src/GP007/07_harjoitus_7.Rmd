@@ -58,7 +58,7 @@ Valinnat järjestyksessä vasemmalta oikealle:
 
 Jos piirtämisen apuna tarvitaan etäisyyttä tietystä pisteestä tai tiettyä kulmaa johonkin olemassa olevaan linjaan, rakentamistilan avulla saa näkyville apuviivoja piirtämisen tueksi. Rakentamistilan ollessa aktiivisena ei voi piirtää, mutta sen avulla voidaan hakea näkyviin tarvittavia apuviivoja esim. etäisyyden tai kulman suhteen. Rakentamistilan voi aktivoida ennen tai kesken piirtämisen.
 
-Rakentamistila aktivoidaan *Digitoinnin lisätyökalut-paneelista* löytyvästä ![](img/harjoitus_7/image17.png)![]()-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla **C**. Digitoinnin lisätyökalut-paneelin saa tarvittaessa auki klikkaamalla hiiren oikealla QGIS-projektissa työkalujen valintanauhasta tyhjää kohtaa ja rastittamalla Paneelit --> Digitoinnin lisätyökalut -paneeli.
+Rakentamistila aktivoidaan **Digitoinnin lisätyökalut-paneelista** löytyvästä ![](img/harjoitus_7/image17.png)![]()-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla **C**. Digitoinnin lisätyökalut-paneelin saa tarvittaessa auki klikkaamalla QGIS-projektissa ylhäältä **Näytä**, valitsemalla sieltä **Paneelit** ja ruksittamalla valikosta **Digitoinnin lisätyökalut-paneeli**.
 
 **Huom!** Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä ![](img/harjoitus_7/image19.png) tai **C**-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.
 
@@ -107,7 +107,7 @@ Aloita nyt **Rakennukset-tason** editointi.
 
 1.  Laita tarttumisen työkalu (työtilan yläosassa) päälle **self-snapping** ![](img/harjoitus_7/image13.png).
 
-2.  Laita asteen mukaiset tukiviivat ja tarttuminen päälle laajennetun digitoinnin paneelista ![](img/harjoitus_7/snap_common_angles.png). Riittävä tarkkuus on tässä *"90, 180, 270, 360 astetta"*.
+2.  Laita asteen mukaiset tukiviivat ja tarttuminen päälle digitoinnin lisätyökalujen paneelista ![](img/harjoitus_7/snap_common_angles.png). Riittävä tarkkuus on tässä *"90, 180, 270, 360 astetta"*.
 
 3.  Aloita piirtäminen piirtämällä ensimmäiset kaksi pistettä haluttuihin kohtiin.
 
