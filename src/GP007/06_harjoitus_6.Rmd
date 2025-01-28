@@ -124,7 +124,7 @@ Luodaan seuraavaksi kulkureitti, joka kulkee alueen läpi kuvan mukaisesti. Anna
 
 ![](img/harjoitus_6/image19.png)
 
-Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot **Kentän arvojen laskin -työkalun** avulla. Avaa laskin klikkaamalla **Ominaisuustietojen työkalupalkista** **Avaa kentän arvojen laskin -painiketta** ![](img/harjoitus_6/image20.png) ![](img/harjoitus_6/image21.png)
+Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot **Kentän arvojen laskin -työkalun** avulla. Avaa laskin klikkaamalla hiiren oikealla **Kulkureitit-tason** päältä ja valitsemalla **Attribuuttitaulukko**. Attribuuttitaulukon valintanauhasta valitse **Avaa kentän arvojen laskin -työkalu** ![](img/harjoitus_6/image20.png) ![](img/harjoitus_6/image21.png)
 
 Klikkaa avautuvasta ikkunasta **Päivitä olemassa oleva kenttä** ja valitse alasvetovalikosta **Pituus-kenttä**. Kirjoita **Lauseke-kenttään** lauseke, joka laskee viivamaisen kohteen pituuden sekä pyöristää sen yhden desimaalin tarkkuudelle:
 
