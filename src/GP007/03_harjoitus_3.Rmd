@@ -72,7 +72,7 @@ Voit muokata viivoituksen kiertoa, jaottelua ja siirtymää **Täyttö viivakuos
 
 ![](img/harjoitus_3/image_26.png){width="70%"}
 
-Muuta vielä aineiston reunaviiva katkoviivaksi kohdasta **Piirron tyyli**. Viivan paksuudeksi voit määritellä 0,8 millimetriä. Lopuksi voit vielä määritellä **Tason piirto -kohdasta** (valikko aukeaa pientä nuolta klikkaamalla) **Peittävyys-kohtaan** arvoksi 70 %.
+Muuta vielä aineiston reunaviiva katkoviivaksi kohdasta **Viivan tyyli**. Viivan paksuudeksi voit määritellä 0,8 millimetriä. Lopuksi voit vielä määritellä **Tason piirto -kohdasta** (valikko aukeaa pientä nuolta klikkaamalla) **Peittävyys-kohtaan** arvoksi 70 %.
 
 
 ::: hint-box

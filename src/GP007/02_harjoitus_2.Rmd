@@ -45,7 +45,7 @@ Luo nyt muutama WMS-palveluyhteys lisää. Voit hakea ja kopioida suoraan niin W
 
 ## WFS-palvelun lisääminen
 
-Seuraavaksi lisäämme QGISiin WFS (Web Feature Service) -palveluja käyttöömme. Muistamme luento-osuudesta, että WFS-palvelu mahdollistaa itse paikkatietokohteiden kyselyn ja lataamisen vektorimuodossa asiakasohjelmaan (eli tapauksessamme QGISiin). Valitse WFS-palveluiden lisäystyökalu seuraavasta pikakuvakkeesta: ![](img/harjoitus_2/image1.png)
+Seuraavaksi lisäämme QGISiin WFS (Web Feature Service) -palveluja käyttöömme. Muistamme luento-osuudesta, että WFS-palvelu mahdollistaa itse paikkatietokohteiden kyselyn ja lataamisen vektorimuodossa asiakasohjelmaan (eli tapauksessamme QGISiin). Valitse WFS-palveluiden lisäystyökalu seuraavasta pikakuvakkeesta: ![](img/harjoitus_2/image1.png). Tarvittaessa pikakuvakkeiden valintanauhan saat auki valitsemalla ylhäältä **Näytä** --> **Työkalut** --> rastita **Tasojen hallinnan työkalupalkki.**
 
 WFS-palvelujen yhdistäminen toimii samalla logiikalla kuin edellä määritellyt WMS-palvelut.
 
@@ -89,7 +89,7 @@ API-avaimen voi myös tallentaa QGISiin, jolloin sinun ei tarvitse hakea ja kopi
 
 Voit myös kysellä ja filtteröidä rajapintapalveluita QGISin SQL-lauseke-toiminnolla. Toiminto löytyy samasta ikkunasta, josta WFS-tasoja voidaan lisätä kunkin palveluyhteyden osalta. Seuraavassa animaatiossa ladataan Tilastokeskuksen ylläpitämästä paikkatietopalvelusta vain vakavuuden "2" liikenneonnettomuudet vuodelta 2015 QGISiin.
 
-Lisää Tilastokeskuksen tieliikenteen **WFS-rajapinnasta** <http://geo.stat.fi/geoserver/tieliikenne/wfs> vektoritaso **Tieliikenneonnettomuudet 2017**.
+Valitse Tilastokeskuksen tieliikenteen **WFS-rajapinnasta** <http://geo.stat.fi/geoserver/tieliikenne/wfs> vektoritaso **Tieliikenneonnettomuudet 2017**.
 
 ![](img/harjoitus_2/image5.png)
 
