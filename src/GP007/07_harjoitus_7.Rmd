@@ -167,7 +167,7 @@ Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä
 
 1.  Avaa **Rakennukset-tason ominaisuudet**. Mene kohtaan **Attribuuttilomake**.
 
-2.  Valitse kentistä **Pinta-ala** ja selaa kohtaan **Oletusarvot**.
+2.  Valitse kentistä **Pohjan_ala** ja selaa kohtaan **Oletusarvot**.
 
 3.  Avaa oikean reunan funktio-painikkeesta auki **lausekkeen muokkaus -ikkuna**.
 
