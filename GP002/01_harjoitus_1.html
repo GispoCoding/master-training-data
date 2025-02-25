@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 1: QGISin käyttöliittymä | Johdanto QGISin käyttöön - Harjoitukset" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-01-08" />
+
+
+<meta name="description" content="Harjoitus 1: QGISin käyttöliittymä | Johdanto QGISin käyttöön - Harjoitukset">
+
+<title>Harjoitus 1: QGISin käyttöliittymä | Johdanto QGISin käyttöön - Harjoitukset</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Johdanto QGISin käyttöön - Harjoitukset</h1></div>
+<div class="abstract-sidebar"><p>Peruskurssi QGIS-ohjelmiston perusteisiin</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#johdanto-qgisin-käyttöön">Johdanto QGISin käyttöön</a>
+<ul>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-käyttöliittymä">Harjoitus 1: QGISin käyttöliittymä</a>
+<ul>
+<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus">Kurssimateriaalien lataus</a></li>
+<li><a href="01_harjoitus_1.html#qgisin-käyttöliittymä">QGISin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qgis-käyttöliittymän-osat">QGIS-käyttöliittymän osat</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#kokeile-itse">Kokeile itse</a>
+<ul>
+<li><a href="01_harjoitus_1.html#attribuuttitaulu">Attribuuttitaulu</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-paikkatietoaineistot-ja--palvelut">Harjoitus 2: Paikkatietoaineistot ja -palvelut</a>
+<ul>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#wms-palvelun-lisääminen">WMS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#wfs-palvelun-lisääminen">WFS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-wfs-rajapintapalvelun-kysely-ja-suodatus-sql-lausekkeella">Lisätehtävä: WFS-rajapintapalvelun kysely ja suodatus SQL-lausekkeella</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-paikkatietoaineiston-visualisointi">Harjoitus 3: Paikkatietoaineiston visualisointi</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#vektoriaineistojen-visualisointi">Vektoriaineistojen visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#viiva--ja-monikulmioaineiston-visualisointi">Viiva- ja monikulmioaineiston visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-monikulmioaineiston-edistynyt-visualisointi">Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-paikkatietoaineiston-nimiöinti-ja-luokittelu">Harjoitus 4: Paikkatietoaineiston nimiöinti ja luokittelu</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-2">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-2">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#nimiöt">Nimiöt</a></li>
+<li><a href="04_harjoitus_4.html#nimiöiden-tyyli--ja-yleisasetukset">Nimiöiden tyyli- ja yleisasetukset</a></li>
+<li><a href="04_harjoitus_4.html#nimiön-tekstityyli">Nimiön tekstityyli</a></li>
+<li><a href="04_harjoitus_4.html#vektoriaineiston-luokittelut">Vektoriaineiston luokittelut</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-nimiöiden-piirtäminen">Lisätehtävä: nimiöiden piirtäminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-karttatuloste">Harjoitus 5: Karttatuloste</a>
+<ul>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-3">Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-3">Harjoituksen tavoite</a></li>
+<li><a href="05_harjoitus_5.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="05_harjoitus_5.html#lisätehtävä-kartta-atlas">Lisätehtävä: kartta-atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-paikkatietoaineiston-editointi">Harjoitus 6: Paikkatietoaineiston editointi</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoituksen-sisältö-4">Harjoituksen sisältö</a></li>
+<li><a href="06_harjoitus_6.html#harjoituksen-tavoite-4">Harjoituksen tavoite</a></li>
+<li><a href="06_harjoitus_6.html#valmistautuminen-4">Valmistautuminen</a></li>
+<li><a href="06_harjoitus_6.html#aineistojen-lisääminen">Aineistojen lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#digitoinnin-aloittaminen">Digitoinnin aloittaminen</a></li>
+<li><a href="06_harjoitus_6.html#lisätehtävä-tarttumisen-työkalut">Lisätehtävä: Tarttumisen työkalut</a></li>
+<li><a href="06_harjoitus_6.html#lisätehtävä-cad-digitointi">Lisätehtävä: CAD-digitointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-paikkatietoanalyysit">Harjoitus 7: Paikkatietoanalyysit</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoituksen-sisältö-5">Harjoituksen sisältö</a></li>
+<li><a href="07_harjoitus_7.html#harjoituksen-tavoite-5">Harjoituksen tavoite</a></li>
+<li><a href="07_harjoitus_7.html#valmistautuminen-5">Valmistautuminen</a></li>
+<li><a href="07_harjoitus_7.html#vektorianalyysit">Vektorianalyysit</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-qgisin-lisäosat">Harjoitus 8: QGISin lisäosat</a>
+<ul>
+<li><a href="08_harjoitus_8.html#sisältö">Sisältö</a></li>
+<li><a href="08_harjoitus_8.html#tavoite">Tavoite</a></li>
+<li><a href="08_harjoitus_8.html#valmistautuminen-6">Valmistautuminen</a></li>
+<li><a href="08_harjoitus_8.html#lisäosien-hallinta">Lisäosien hallinta</a></li>
+<li><a href="08_harjoitus_8.html#quickmapservices">QuickMapServices</a></li>
+<li><a href="08_harjoitus_8.html#quickosm">QuickOSM</a></li>
+<li><a href="08_harjoitus_8.html#lisätehtävä-qgis2threejs">Lisätehtävä: Qgis2threejs</a></li>
+<li><a href="08_harjoitus_8.html#lisätehtävä-qgis2web">Lisätehtävä: Qgis2web</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-1-qgisin-käyttöliittymä" class="section level1">
+<h1>Harjoitus 1: QGISin käyttöliittymä</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tutustutaan QGIS–ohjelmiston käyttöliittymään ja sen
+perustoimintoihin.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Kouluttautuja oppii käyttämään QGISin käyttöliittymää.</p>
+<p><strong>Valmistautuminen</strong> Avaa web-selain ja mene QGISin web-sivuille.</p>
+<div class="note-box">
+<p><a href="https://www.qgis.org/" class="uri">https://www.qgis.org/</a></p>
+</div>
+<p>Löydät etusivulta linkin, jonka avulla pääset lataamaan
+QGIS-työpöytäohjelmiston. Lataa sivustolta <strong>QGISin pitkäaikaisversio
+(long term release)</strong>. Pitkäaikaisversio on stabiilein QGIS-versio,
+mutta siitä voi puuttua uudempien versioiden uusia ominaisuuksia. QGISin
+voi asentaa Windows-, Linux- tai Mac-käyttöjärjestelmään. Eri
+järjestelmien QGIS-versioiden välillä huomattavimmat erot ovat
+väriskeemoissa ja tiedostopoluissa – muuten erot ovat hyvin pieniä.</p>
+<div id="kurssimateriaalien-lataus" class="section level2">
+<h2>Kurssimateriaalien lataus</h2>
+<p>Voit halutessasi ladata kurssin luentokalvot täältä:</p>
+<div class="note-box">
+<p><a href="https://drive.google.com/file/d/17Ayqz2qR6i6UFlVSBY2lA1Yuzz_0DXNV/view?usp=sharing">Luentomateriaali</a></p>
+</div>
+<p>Kurssilla tarvittavat paikkatieto-aineistot on ladattavissa Google
+Drivestä linkistä</p>
+<div class="note-box">
+<p><a href="https://drive.google.com/file/d/1K0SUSVwM0PIPS7cMbDi4-gGiAIFA4igp/view?usp=sharing">Kurssihakemisto.zip</a></p>
+</div>
+<p>Avaa yllä oleva linkki ja klikkaa <strong>Lataa</strong>. Tämä lataa aineistot
+kokonaisuudessaan pakattuna zip-tiedostona <strong>Kurssihakemisto.zip</strong>. Pura
+kurssimateriaalit omalle tietokoneellesi haluamaasi kansioon niin, että
+löydät ne helposti harjoituksia tehdessä. Kun kurssimateriaalissa
+viitataan <strong>../kurssihakemisto/</strong>, tarkoitetaan itse määrittelemääsi
+kurssihakemiston polkua. Kysy tarvittaessa apua kouluttajalta.</p>
+</div>
+<div id="qgisin-käyttöliittymä" class="section level2">
+<h2>QGISin käyttöliittymä</h2>
+<p>Käynnistä QGIS. QGISin käyttöliittymä saattaa aueta englanninkielisenä
+ensimmäisellä käyttökerralla. Voit vaihtaa kielen suomeksi asetuksista
+<strong>Settings → Options → General → User Interface Translation → suomi</strong>.
+Paina lopuksi <strong>OK</strong>.</p>
+<p><img src="img/harjoitus_1/image15.png" style="width:70.0%" /></p>
+<p>Huomaa, että kielen vaihtamisen aktivoimiseksi sinun tulee käynnistää
+QGIS uudelleen.
+Lisää ensimmäinen vektorimuotoinen paikkatietoaineisto
+napsauttamalla <strong>Avaa tietolähteiden hallinta –pikakuvakenäppäintä</strong>: <img src="img/harjoitus_1/tietolahteidenhallinta.png" style="width:3.0%" /></p>
+<p>Löydät saman toiminnon myös Tasot-valikosta <strong>Lisää taso → Lisää
+vektoritaso…</strong> (Ctrl+Shift+V). Valitse avautuvasta ikkunasta
+vasemmalta puolelta <strong>Vektori-välilehti</strong>. Lisää aineisto kurssin
+materiaaleista (<strong>…/kurssihakemisto/Harjoitus 1/</strong>). Valitse <strong>Tieviiva.gpkg-tiedosto</strong>. Paina
+lopuksi <strong>Lisää</strong> ja sulje ikkuna.</p>
+<p><img src="img/harjoitus_1/image11.png" style="width:70.0%" /></p>
+<p>Aineiston pitäisi näkyä seuraavan sivun esimerkin mukaisesti (huom!
+viivan väri saattaa olla eri).</p>
+<p><img src="img/harjoitus_1/image10.png" /></p>
+</div>
+<div id="qgis-käyttöliittymän-osat" class="section level2">
+<h2>QGIS-käyttöliittymän osat</h2>
+<p><strong>1. Tasoluettelo</strong> Tähän osioon tulevat näkyviin paikkatietoaineistot,
+jotka näkyvät karttaikkunassa. Voit hallita tasojen järjestystä ja
+näkyvyyttä.</p>
+<p><strong>2. Työkalupalkit</strong> Työkalupalkit sisältävät erilaisia työkaluja.
+Omassa tietokoneessasi voi olla näkyvissä enemmän tai vähemmän
+työkalupalkkeja. Napauttamalla hiiren oikea näppäintä työkalupalkkien
+päällä, voit piilottaa tai ottaa esiin työkalupalkkeja. Voit myös
+raahata työkalupalkkeja eri kohtiin.</p>
+<p><strong>3. Karttaikkuna</strong> Karttaikkunaan piirtyvät ne paikkatietoaineistot,
+jotka ovat tasoluettelossa aktivoituna näkyväksi. Voit lähentää ja
+loitontaa karttaa sekä vapaasti siirtää näkymää hiiren avulla (koita myös hiiren
+scrollia).</p>
+<p><strong>4. Tilapalkki</strong> Tilapalkista näet hiiren kursorin koordinaatit, minkä
+lisäksi voit muuttaa mittakaavaa ja koordinaattijärjestelmää.</p>
+<p><strong>5. Prosessointi- ja selain-paneeli</strong> Aikaisemmassa harjoituksessa
+tutustuttiinkin jo hieman QGISin uuteen Selain-paneeliin, joka
+aikaisemmissa versioissa on ollut erillisenä ohjelmana. Myös
+Prosessointityökalut saa kätevästi esille paneeliksi, jolloin ne ovat
+aina helposti löydettävissä. Prosessointyökaluista löydät esim. vektori-
+ja rasterianalyysityökalut.</p>
+<p><strong>6. Hakutoiminto</strong> Joskus on vaikea muistaa, mistä mikäkin työkalu ja
+toiminto valikosta löytyy. Hakutoiminnolla voit helposti etsiä näitä
+näppäilemällä CTRL+K ja kirjoittamalla etsimäsi toiminnon hakukenttään.</p>
+</div>
+<div id="kokeile-itse" class="section level2">
+<h2>Kokeile itse</h2>
+<p>Kokeile erilaisia työkaluja ja tarkastele ainakin seuraavien työkalujen
+toimintaa. Työkalupalkin toiminnot (käyttöliittymän yläosassa):</p>
+<p><img src="img/harjoitus_1/image3.png" /></p>
+<p>Paikanna edellä näkyneestä työkalurivistä seuraavat työkalut ja tunnista
+niiden tarkoitukset:</p>
+<!--Format tables -->
+<!--| Zoomaa täydeksi       | ![](img/harjoitus_1/image5.png) |-->
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">Zoomaa täydeksi</td>
+<td align="center"><img src="img/harjoitus_1/image5.png" /></td>
+</tr>
+<tr class="even">
+<td align="center">Zoomaa tasoon</td>
+<td align="center"><img src="img/harjoitus_1/image6.png" /></td>
+</tr>
+<tr class="odd">
+<td align="center">Näytä kohteen tiedot</td>
+<td align="center"><img src="img/harjoitus_1/image1.png" /></td>
+</tr>
+<tr class="even">
+<td align="center">Avaa attribuuttitaulu</td>
+<td align="center"><img src="img/harjoitus_1/image2.png" /></td>
+</tr>
+<tr class="odd">
+<td align="center">Mittaa viivan pituus</td>
+<td align="center"><img src="img/harjoitus_1/image7.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Kokeile myös seuraavia tilapalkin toimintoja ja pohdi niiden
+tarkoituksia työkaluina:</p>
+<p><img src="img/harjoitus_1/image8.png" /></p>
+<p>Tasoluettelon toiminnot (käyttöliittymässä vasemmalla puolella):</p>
+<p><img src="img/harjoitus_1/image12.png" /></p>
+<div id="attribuuttitaulu" class="section level3">
+<h3>Attribuuttitaulu</h3>
+<p>Valitse Tieviiva-karttataso ja avaa ominaisuustietotaulukko, joko
+painamalla pikakuvaketta <img src="img/harjoitus_1/image2.png" /> tai painamalla
+hiiren oikealla näppäimellä karttatason kohdalla sekä valitsemalla
+<strong>Avaa attribuuttitaulu</strong>. Voit järjestää ominaisuustietotaulun minkä
+tahansa kentän mukaan laskevaan tai nousevaan järjestykseen.</p>
+<p><img src="img/harjoitus_1/image14.png" /></p>
+<p>Kun olet tutkinut ominaisuustietotaulukkoa riittävästi, sulje taulukko.</p>
+<p>Tallenna lopuksi aloittamasi QGIS-projekti omaksi projektitiedostokseen
+kurssihakemistoon, esimerkiksi nimellä
+<strong>../kurssihakemisto/QGIS_harjoitus_1.qgz</strong>.</p>
+<div class="hint-box">
+<p><strong>Psst! Muista tallentaa QGIS-projekti aina harjoituksen lopuksi.</strong></p>
+</div>
+
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="index.html"><button class="btn btn-default">Previous</button></a>
+<a href="02_harjoitus_2.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Johdanto QGISin käyttöön - Harjoitukset</h5>
+<span class="footer-version">v2025-01-08</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2024</span></h5>
+<span class="footer-contact-info">Firdonkatu 2 T 63
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
