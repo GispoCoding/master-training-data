@@ -18,7 +18,7 @@ Avaa QGIS tietokoneellasi ja avaa siellä aiemmin luomasi QGIS-projekti (**Proje
 
 ## Taustatietoja
 
-Tässä harjoituksessa muokataan projektissa olevien tasojen tietojen syötön lomakkeita digitoinnin helpottamiseen ja tehostamiseen. QGISissa on erityyppisille tiedoille ja niiden syöttötavoille valittavissa monenlaisia vimpaimia (widgets). Näitä kaikkia ei kuitenkaan ole vielä tuettuna QFieldissa, joten niitä ei voi siinä siis hyödyntää. QGIS-lomakkeisiin voi kyllä huoletta konfiguroida minkä tahansa syöttatavan, mutta ei-tuettujen widgettien tapauksessa QField jättää tämän huomiotta ja käyttää kyseessä olevan tietotyypin mukaista oletus-syöttötapaa. Tuettujen widget-tyyppien ajantasaisen listan näet dokumentaatiosta: <https://qfield.org/docs/prepare/attributes-form.html>.
+Tässä harjoituksessa muokataan projektissa olevien tasojen tietojen syötön lomakkeita digitoinnin helpottamiseen ja tehostamiseen. QGISissa on erityyppisille tiedoille ja niiden syöttötavoille valittavissa monenlaisia vimpaimia (widgets). Näitä kaikkia ei kuitenkaan ole vielä tuettuna QFieldissa, joten niitä ei voi siinä siis hyödyntää. QGIS-lomakkeisiin voi kyllä huoletta konfiguroida minkä tahansa syöttatavan, mutta ei-tuettujen widgettien tapauksessa QField jättää tämän huomiotta ja käyttää kyseessä olevan tietotyypin mukaista oletus-syöttötapaa. Tuettujen widget-tyyppien ajantasaisen listan näet dokumentaatiosta: <https://docs.qfield.org/how-to/attributes-form/>.
 
 ## Ominaisuustietolomakkeen muokkaus
 
@@ -36,7 +36,8 @@ Ruvetaan nyt muokkaamaan tietojen syöttötapoja. Klikkaa keskimmäisessä Lomak
 
 ## Ympärysmitta- ja korkeus-tietokentät
 
-Klikkaa nyt ympärysmitta-kenttää Taitosta-sarakkeessa. Sekä tämän että korkeus-kentän sisältö on numeerista, eli on luontevinta valita widgetin tyypiksi **rajat**. Tehdäänkin näin ja määritetään samalla sopivat minimi- ja maksimiarvot, missä mittayksiköissä nämä arvot annetaan (jälkiliite, esimerkiksi **cm** tai **m**) sekä se, kuinka suurin askelein arvoja kasvatetaan vimpainta käytettäessä (kts. kuva alla). Tähän ei sinällään ole yhtä oikeaa ratkaisua, vaan kannattaa miettiä, mikä on kyseessä olevan datan keräämisen kannalta järkevintä.
+Klikkaa nyt ympärysmitta-kenttää Taitosta-sarakkeessa. Sekä tämän että korkeus-kentän sisältö on numeerista, eli on luontevinta valita widgetin tyypiksi **rajat**. Vaihdetaan vielä seuraavasta alasvetovalikosta **muokattavan** (yksinkertainen numerosyöttö) sijaan **liukusäädin**, joka lienee mobiilikäytössä kätevämpi. 
+Tehdäänkin näin ja määritetään samalla sopivat minimi- ja maksimiarvot, missä mittayksiköissä nämä arvot annetaan (jälkiliite, esimerkiksi **cm** tai **m**) sekä se, kuinka suurin askelin arvoja kasvatetaan vimpainta käytettäessä (kts. kuva alla). Tähän ei sinällään ole yhtä oikeaa ratkaisua, vaan kannattaa miettiä, mikä on kyseessä olevan datan keräämisen kannalta järkevintä. Tee samankaltaisesti myös korkeus-kentän asetuksille.
 
 ![](img/harjoitus_3/image3.png)
 
@@ -46,7 +47,7 @@ Tähän olisi tarkoitus lisätä vapaamuotoisia lisähuomioita, joten tämän vo
 
 ## Valokuva
 
-Mobiililaitteella otettujen valokuvien lisäys tapahtuu QFieldillä liitteenä, joten valise widgetiksi **Liite** ja sen asetuksista **Suhteelliset polut**.
+Mobiililaitteella otettujen valokuvien lisäys tapahtuu QFieldillä liitteenä, joten valitse widgetiksi **Liite** ja sen asetuksista **Suhteelliset polut** (Relative to Project Path).
 
 ::: hint-box
 Pidä mielessä, että QField tallentaa tasolle kohteen tietoihin valokuvista (ja muista liitteistä) ainoastaan tiedostopolun, ei itse valokuvaa. Valokuvat tallentuvat mobiililaitteen kansioon. Tarkastellaan tätä lisää myöhemmin, kun synkronoidaan kerättyjä tietoja takaisin QGIS-projektiin. Tällöin valokuvat sisältävä kansio on siirrettävä erikseen tietokoneelle, projektitiedoston suhteen samaan paikkaan kuin mobiililaitteella.
@@ -56,7 +57,9 @@ Pidä mielessä, että QField tallentaa tasolle kohteen tietoihin valokuvista (j
 
 Luoja- ja muokkaaja-kentät ovat teksti-muotoisia kenttiä, jotka sisältävät tiedon muokkauksen tekijästä. Pidä siis widgettinä **Tekstin muokkaus**.
 
-Koska muokkaaja tietyllä laitteella on yleensä yksi ja sama henkilö, tätä ei haluta joka kerta lisätä manuaalisesti, vaan automaatio on suotavaa, ja se voidaan saavuttaa **Oletusarvot**-kohdan avulla. Olemme aiemmin määritelleet QFieldin asetuksissa käyttäjän oman muuttujan **username**. Tällaiseen muuttujan arvoon voi QGISissa viitata **\@**-merkillä. Kirjoita siis tähän Oletusarvo-kohtaan Luonti- ja muokkauskentille kummallekin erikseen **\@username**, jolloin QField osaa lisätä kohteelle käyttäjänimen.
+Koska muokkaaja tietyllä laitteella on yleensä yksi ja sama henkilö, tätä ei haluta joka kerta lisätä manuaalisesti, vaan automaatio on suotavaa, ja se voidaan saavuttaa **Oletusarvot**-kohdan avulla. 
+Olemme aiemmin määritelleet QFieldin asetuksissa käyttäjän oman muuttujan **username**. Tällaiseen muuttujan arvoon voi QGISissa viitata **\@**-merkillä. Kirjoita siis tähän Oletusarvo-kohtaan Luonti- ja 
+muokkauskentille kummallekin erikseen **\@username**, jolloin QField osaa lisätä kohteelle käyttäjänimen.
 
 ::: hint-box
 QGISissa itsessään ei ole muuttujaa **"username"** määritettynä, vaan QGISin käyttäjän nimi on muuttujassa **"user_full_name"**, ja tämä tietysti voi myös olla eri kuin mobiililaitteen käyttäjä. Jos siis halutaan lisätä ja muokata dataa myös QGISissa, kannattaa oletusarvo-kohtaan laittaa ylläolevan **\@username**-arvon sijasta esimerkiksi seuraavanlainen funktio joka osaa valita kussakin tapauksessa oikean käyttäjänimen: **if(\@username IS NOT NULL, \@username, \@user_full_name)**
@@ -68,7 +71,7 @@ Vastaavasti **Luoja**-tietokentässä kumpikaan näistä mainituista arvoista ei
 
 ## Luonti- ja muokkausaika-tietokentät
 
-Myös luonti- ja muokkausaika-kentille pätee sama, mitä edellä sanottiin luonnista ja muokkauksesta, ja ne käsitellään kumpikin melko samalla tavalla. Valitse kummallekin Widgetin tyypiksi **Päivä/Aika**. Näidenkin tietojen syöttö halutaan automatisoida, ja tämä onnistuu käyttämällä QGISin sisäistä funktiota **now()**, joka kirjoitetaan **Oletusarvo**-kohtaan kummallekin kentälle. **Muokattava, oletusarvon päivitys** ja **null-ehdot** määritetään täsmälleen kuten edellä **Luoja-** ja **Muokkaaja**-kentille ohjeistettiin.
+Myös luonti- ja muokkausaika-kentille pätee sama, mitä edellä sanottiin luonnista ja muokkauksesta, ja ne käsitellään kumpikin melko samalla tavalla. Valitse kummallekin Widgetin tyypiksi **Päivä/Aika**. Näidenkin tietojen syöttö halutaan automatisoida, ja tämä onnistuu käyttämällä QGISin sisäistä funktiota **now()**, joka kirjoitetaan **Oletusarvo**-kohtaan kummallekin kentälle. **Muokattava- ja oletusarvon päivitys -ehdot** määritetään täsmälleen kuten edellä **Luoja-** ja **Muokkaaja**-kentille ohjeistettiin.
 
 ## Kohteen uuid-kenttä
 
