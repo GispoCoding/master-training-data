@@ -57,19 +57,19 @@ kurssihakemiston polkua. Kysy tarvittaessa apua kouluttajalta.
 Käynnistä QGIS. QGISin käyttöliittymä saattaa aueta englanninkielisenä
 ensimmäisellä käyttökerralla. Voit vaihtaa kielen suomeksi asetuksista
 **Settings → Options → General → User Interface Translation → suomi**.
-Paina lopuksi **OK**.
+Paina lopuksi **OK**.  Huomaa, että kielen vaihtamisen aktivoimiseksi sinun
+tulee käynnistää QGIS uudelleen.
 
 ![](img/harjoitus_1/image15.png){width="70%"}
 
-Huomaa, että kielen vaihtamisen aktivoimiseksi sinun tulee käynnistää
-QGIS uudelleen. Lisää ensimmäinen vektorimuotoinen paikkatietoaineisto
-napsauttamalla **Avaa tietolähteiden hallinta --pikakuvakenäppäintä**:
-Löydät saman toiminnon myös Tasot-valikosta **Lisää taso → Lisää
-vektoritaso...** (Ctrl+Shift+V). Valitse avautuvasta ikkunasta
-vasemmalta puolelta **Vektori-välilehti**. Lisää aineisto kurssin
-materiaaleista (**.../kurssihakemisto/Harjoitus 1**). Valitse nyt
-Maanmittauslaitoksen 1:1M-aineistosta **TieViiva.gpkg-tiedosto**. Paina
-lopuksi **Lisää** ja sulje ikkuna.
+Lisää ensimmäinen vektorimuotoinen paikkatietoaineisto napsauttamalla
+**Avaa tietolähteiden hallinta --pikakuvakenäppäintä**: Löydät saman
+toiminnon myös Tasot-valikosta **Lisää taso → Lisää vektoritaso...**
+(Ctrl+Shift+V). Valitse avautuvasta ikkunasta vasemmalta puolelta
+**Vektori-välilehti**. Lisää aineisto kurssin materiaaleista
+(**.../kurssihakemisto/Harjoitus 1**). Valitse nyt Maanmittauslaitoksen
+1:1M-aineistosta **TieViiva.gpkg-tiedosto**. Paina lopuksi **Lisää** ja
+sulje ikkuna.
 
 ![](img/harjoitus_1/image11.png){width="70%"}
 

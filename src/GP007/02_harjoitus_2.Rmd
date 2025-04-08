@@ -45,9 +45,11 @@ Luo nyt muutama WMS-palveluyhteys lisää. Voit hakea ja kopioida suoraan niin W
 
 ## WFS-palvelun lisääminen
 
-Seuraavaksi lisäämme QGISiin WFS (Web Feature Service) -palveluja käyttöömme. Muistamme luento-osuudesta, että WFS-palvelu mahdollistaa itse paikkatietokohteiden kyselyn ja lataamisen vektorimuodossa asiakasohjelmaan (eli tapauksessamme QGISiin). Valitse WFS-palveluiden lisäystyökalu seuraavasta pikakuvakkeesta: ![](img/harjoitus_2/image1.png). Tarvittaessa pikakuvakkeiden valintanauhan saat auki valitsemalla ylhäältä **Näytä** --> **Työkalut** --> rastita **Tasojen hallinnan työkalupalkki.**
+Seuraavaksi lisäämme QGISiin WFS (Web Feature Service) -palveluja käyttöömme. Muistamme luento-osuudesta, että WFS-palvelu mahdollistaa itse paikkatietokohteiden kyselyn ja lataamisen vektorimuodossa asiakasohjelmaan (eli tapauksessamme QGISiin).
 
-WFS-palvelujen yhdistäminen toimii samalla logiikalla kuin edellä määritellyt WMS-palvelut.
+Voit lisätä WFS-palvelun QGISin tietolähteiden hallinnasta omalta välilehdeltään (välilehteä lukuunottamatta samoin kuin aiemmin WMS-palvelun). Huomaa myös, että palveluiden lisäys onnistuu myös QGISin tasojen hallinan työkalupalkista: Valitse WFS-palveluiden lisäystyökalu seuraavasta pikakuvakkeesta: ![](img/harjoitus_2/image1.png). Tarvittaessa pikakuvakkeiden valintanauhan saat auki valitsemalla ylhäältä **Näytä** --> **Työkalut** --> rastita **Tasojen hallinnan työkalupalkki.**
+
+WFS-palveluihin yhdistäminen toimii samalla logiikalla kuin edellä määritellyt WMS-palvelut.
 
 Lisää taas muutama WFS-palvelu ja nimeä ne haluamallasi tavalla. Jos et vielä avannut mainittua Gispon ylläpitämää WMS- ja WFS-rajapintojen listaa verkosta, avaa se nyt. Hae sieltä haluamasi WFS-palvelun URL tai lisää seuraavasta listasta WFS-palveluita:
 
@@ -68,7 +70,7 @@ Yllä olevassa kuvassa näkyy vain yksi taso, mutta sinulla on varmasti jo useam
 
 Maanmittauslaitoksen WMS ja WFS rajapintojen käyttämiseen tarvitsee API-avaimen. Voit luoda oman API-avaimen MML:n OmaTili-palvelussa.
 
-1.  Rekisteröidy OmaTili-palveluun täällä <https://omatili.maanmittauslaitos.fi/user/new/avoimet-rajapintapalvelut?lang=fi>. Tarvitset rekisteröitymiseen oman sähköpostisi, Maanmittauslaitos lähettää sinulle sähköpostiisi tilisi salasanan.
+1.  Rekisteröidy OmaTili-palveluun täällä <https://omatili.maanmittauslaitos.fi/user/new/avoimet-rajapintapalvelut?lang=fi>. Tarvitset rekisteröitymiseen oman sähköpostisi, Maanmittauslaitos lähettää sinulle sähköpostiisi jatko-ohjeet.
 
 2.  Rekisteröitymisen jälkeen voi kirjautua MML:n OmaTili-palveluun sähköpostiosoitteellasi ja saamallasi salasanalla.
 

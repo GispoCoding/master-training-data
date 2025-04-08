@@ -43,7 +43,7 @@ QGISillä on laaja käyttäjä- ja kehittäjäyhteisö,
 ja ohjelmistoon lisätään toiminnallisuutta
 sekä uusia lisäosia nopealla vauhdilla.
 
-- **QGIS on taipuu helposti omiin tarpeisiin**:
+- **QGIS taipuu helposti omiin tarpeisiin**:
 Lisätoiminnallisuutta kaivatessa ei usein tarvitse alkaa kehittämään QGISiä.
 Joku muu on todennäköisesti jo törmännyt samaan käyttötapaukseen,
 ja voit jo olemassaolevien lisäosien avulla toteuttaa omia prosesseja tukevia toimintoja.
