@@ -22,7 +22,7 @@ Ensimmäisenä kysytään uuden taiton nimeä. Anna taitolle jokin sitä hyvin k
 
 ![](img/harjoitus_5/image9.png)
 
-Paina tyhjän taittotulosteen päältä hiiren oikealla näppäimellä ja valitse **Sivun ominaisuudet**. Tarkista **Elementin ominaisuudet -välilehdestä** oikeasta paneelista, että paperin kooksi A4, suunta **Vaaka** ja **Taitto-välilehdestä**, että viennin resoluutio on 300 dpi. Tämän jälkeen voimme sijoittaa karttanäkymän tulosteelle, valitse työkalupalkista työkalu:
+Paina tyhjän taittotulosteen päältä hiiren oikealla näppäimellä ja valitse **Sivun ominaisuudet**. Tarkista **Elementin ominaisuudet -välilehdestä** oikeasta paneelista, että paperin koko on A4, suunta **Vaaka** ja **Taitto-välilehdestä**, että viennin resoluutio on 300 dpi. Tämän jälkeen voimme sijoittaa karttanäkymän tulosteelle, valitse työkalupalkista työkalu:
 
 ![](img/harjoitus_5/image1.png)
 

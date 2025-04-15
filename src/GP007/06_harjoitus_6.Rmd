@@ -96,7 +96,7 @@ Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla **Tason muokkaus pää
 
 ![](img/harjoitus_6/image12.png)
 
-Valitse työkaluksi **Lisää polygonikohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, napauta hiiren oikeaa näppäintä ja uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
+Valitse työkaluksi **Lisää monikulmiokohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, napauta hiiren oikeaa näppäintä ja uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
 
 ![](img/harjoitus_6/image13.png)
 
