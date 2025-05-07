@@ -12,9 +12,9 @@ Tässä harjoituksessa tehdään koropleettikartta, joka perustuu OpenStreetMapi
 
 ![](img/harjoitus3/img1.png)
 
-Mene **Vektori \> Tutkimuksen työkalut \> Luo Ruudukko**. Ruudukon tyypiksi valitaan heksagoni ja ruudukon laajuudeksi joko "Map Canvas" tai "Draw on map canvas". Valitse keskusta-alue piirtämällä.
+Mene **Vektori \> Tutkimuksen työkalut \> Luo Ruudukko**. Ruudukon tyypiksi valitaan heksagoni ja ruudukon laajuudeksi joko "Aseta nykyisen karttaikkunan laajuuteen" tai "Piirrä karttaikkunaan". Valitse keskusta-alue piirtämällä.
 
-Aseta vaakatason ja pystytason välitykseksi 100m. Koordinaattijärjestelmänä EPSG: 3067, luodaan toistaiseksi tilapäinen taso. Paina lopuksi **"Suorita"**.
+Aseta vaakatason ja pystytason välistykseksi 100m. Koordinaattijärjestelmänä EPSG: 3067, luodaan toistaiseksi tilapäinen taso. Paina lopuksi **"Suorita"**.
 
 ![](img/harjoitus3/img2.png)
 
@@ -34,7 +34,7 @@ Liukuvärinä on oletuksena Random colors. Klikkaa sen vieressä olevasta nuoles
 
 Gradientti-valinnalla voit luoda itse oman liukuvärin määrittämällä alku- ja loppuvärin. Color presets mahdollistaa uusien väripalettien määrittelyn itse ja niiden tallentamisen/tuomisen. Tutki nyt itse QGISin väripaletteja ja valitse mieleisesi paletti tähän tarkoitukseen.
 
-Tutki myös Tila-kohdassa olevaa oletusta **Equal count**. Miten visualisointi muuttuu, jos valitset jonkin toisen luokittelutavan tai muutat luokkien määrää? Voit tarkastella aineistoa myös "Pylväskaavio"-välilehdellä. Paina "Lataa arvot" -painiketta, jos mitään ei näy.
+Tutki myös Tila-kohdassa olevaa oletusta **Tasaväli**. Miten visualisointi muuttuu, jos valitset jonkin toisen luokittelutavan tai muutat luokkien määrää? Voit tarkastella aineistoa myös "Pylväskaavio"-välilehdellä. Paina "Lataa arvot" -painiketta, jos mitään ei näy.
 
 ![](img/harjoitus3/img5.png)
 
@@ -58,7 +58,7 @@ Kokeile miltä aineisto näyttää, jos sinulla olisi yksivärinen taustakartta.
 
 Tuplaklikkaa avautuvasta listasta **OpenStreetMapia**. Nyt QGIS tuo sinulle uuden taustakartan. Aseta tasoista ainoastaan se ja luomasi Lkm-taso näkyviin.
 
-Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan yksiväriseksi laittamalla täpän kohtaan "Väritys". Hae sitten heksagoneihin valitsemaasi väripalettiin sopiva väri, jolla värität taustakartan. Pyri siihen, että taustakartta jää taka-alalle ja nostaa selkeästi heksagoniaineiston näkyviin. Voit muuttaa kirkkaus-, kylläisyys- ja kontrastiasetuksia sekä gamma-asetusta. Voit myös säätää värityksen vahvuutta. Kokeile myös harmaasävyjen käyttöä!
+Klikkaa OpenStreetMapia tasoluettelossa ja aloita sen visualisointi. Saat kartan yksiväriseksi laittamalla täpän kohtaan "Väritä". Hae sitten heksagoneihin valitsemaasi väripalettiin sopiva väri, jolla värität taustakartan. Pyri siihen, että taustakartta jää taka-alalle ja nostaa selkeästi heksagoniaineiston näkyviin. Voit muuttaa kirkkaus-, kylläisyys- ja kontrastiasetuksia sekä gamma-asetusta. Voit myös säätää värityksen vahvuutta. Kokeile myös harmaasävyjen käyttöä!
 
 ![](img/harjoitus3/img7.png)
 
