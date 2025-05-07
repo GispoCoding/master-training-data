@@ -22,7 +22,7 @@ Kun haluat käyttää määrittämiäsi värejä visualisointiin, löydät palet
   
 ## Uusien oletusfonttien määrittely
 
-Saatat myös tarvita yhtenäisiä fontteja organisaatiosi tai työryhmäsi käyttöön. Tämä voidaan tehdä kohdasta Asetukset -> Tyylien hallinta. Tekstin muotoilu -välilehdeltä voit luoda uuden tyylin vihreästä + -merkistä kuten ennenkin.
+Saatat myös tarvita yhtenäisiä fontteja organisaatiosi tai työryhmäsi käyttöön. Tämä voidaan tehdä kohdasta **Asetukset -> Tyylien hallinta**. Tekstin muotoilu -välilehdeltä voit luoda uuden tyylin vihreästä + -merkistä kuten ennenkin.
  
 ![](img/harjoitus6/tyylienhallinta.png)
 
