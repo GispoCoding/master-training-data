@@ -1,6 +1,6 @@
 ---
-editor_options: 
-  markdown: 
+editor_options:
+  markdown:
     wrap: 72
 ---
 
@@ -44,8 +44,7 @@ mittakaavatasoissa.
 
 Haluamme valita visualisointiin kaikki talot, joten
 valitse suodattimeksi **"Else"**. Suodatuksen lisävalintoihin pääsemme
-tieaineiston parissa. Nyt meille riittää, että laitamme täpän Scale
-range -kohtaan ja täytämme pienimmäksi mittakaavaksi 1:10 000 ja
+tieaineiston parissa. Nyt meille riittää, että laitamme täpän Mittakaavaväli -kohtaan ja täytämme pienimmäksi mittakaavaksi 1:10 000 ja
 suurimmaksi 1:1. Tämä mittakaavaväli on se, jolla mm. monia opaskarttoja
 tarkastellaan.
 
@@ -81,11 +80,11 @@ alareunasta ![](img/harjoitus1/img9.png) -painikkeesta. Tästä tulee
 Lisää suodatin, scale range (mittakaavaperusteinen näkyvyys) sekä 
 kaksi visualisointitasoa kohteelle:
 
-**Otsikko:** Luokka 1
+**Nimiö:** Luokka 1
 
 **Suodatin**: `"kohdeluokka" = 12111 OR "kohdeluokka" =12112`
 
-**Scale range**: 1:100000000, 1:1
+**Mittakaavaväli**: 1:100000000, 1:1
 
 Valitse aineistolle ensin yksi yksinkertainen täyttö, jossa on haluamasi
 väri. Sen jälkeen paina ![](img/harjoitus1/img9.png) -painiketta ja
@@ -115,7 +114,7 @@ luokittelu ja mittakaavaperusteinen näkyvyys näillä arvoilla:
 ::: hint-box
 **Luokka 2** \"kohdeluokka\" =12121 OR \"kohdeluokka\" =12122
 
-Scale range: 1:20001, 1:1
+Mittakaavaväli: 1:20001, 1:1
 
 Viiva 1: täyttöväri: #f7e27c paksuus: 2,8 mm
 
@@ -123,7 +122,7 @@ Viiva 2: täyttöväri: #000000 paksuus: 3,1 mm
 
 **Luokka 3** \"kohdeluokka\" = 12131 OR \"kohdeluokka\" = 12132
 
-Scale range: 1:10001, 1:1
+Mittakaavaväli: 1:10001, 1:1
 
 Viiva 1: täyttöväri: #ffffff paksuus: 1,2
 
@@ -131,7 +130,7 @@ Viiva 2: täyttöväri: #7e7a7a paksuus 1,6
 
 **Luokka 4** \"kohdeluokka\" = 12141
 
-Scale range: 1:10 001, 1:1
+Mittakaavaväli: 1:10 001, 1:1
 
 Viiva 1: täyttöväri: #ffffff paksuus: 1,2
 
