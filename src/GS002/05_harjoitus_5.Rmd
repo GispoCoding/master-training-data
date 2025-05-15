@@ -34,7 +34,7 @@ Löydetyistä osoitteista syntyy uusi tilapäinen tulostaso projektiisi.
 
 ![](img/harjoitus_5/image3.png)
 
-Avaa nyt **GeoCoding-lisäosan** asetukset ja tutustu sen toimintaan. Se hyödyntää kerralla vain yhtä geokoodauspalvelua. Voit myös valita, mihin mittakaavaan kartta zoomautuu onnistuneen haun jälkeen. Vaihda Geocoding Engine toiseen vaihtoehtoon ja kokeile äsken tekemääsi hakua uudestaan. Ovatko tulokset samanlaiset? Uuden haun tulokset lisätään automaattisesti jo olemassa olevaan tulostasoon. Kuten huomaat, **GeoCoding-lisäosaan** voi syöttää vain yhden osoitteen kerrallaan, ja työkalu täytyy avata joka kerta uudelleen. Entä, jos geokoodattavana on pitkä lista osoitteita, esimerkiksi jonkin suuren yrityksen tai organisaation toimipisteet?
+Avaa nyt **GeoCoding-lisäosan** asetukset ja tutustu sen toimintaan. Se hyödyntää kerralla vain yhtä geokoodauspalvelua. Voit myös valita, mihin mittakaavaan kartta zoomautuu onnistuneen haun jälkeen. Uuden haun tulokset lisätään automaattisesti jo olemassa olevaan tulostasoon. Kuten huomaat, **GeoCoding-lisäosaan** voi syöttää vain yhden osoitteen kerrallaan, ja työkalu täytyy avata joka kerta uudelleen. Entä, jos geokoodattavana on pitkä lista osoitteita, esimerkiksi jonkin suuren yrityksen tai organisaation toimipisteet?
 
 ## DigiTransit.fi Geocoder
 
