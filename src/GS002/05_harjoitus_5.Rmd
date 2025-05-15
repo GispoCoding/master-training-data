@@ -14,13 +14,13 @@ Opiskelija ymmärtää mihin geokoodaus perustuu ja osaa valita omaan käyttöö
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (Projekti \> Uusi) ja tallenna se nimellä "QGIS-harjoitus 5".
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "QGIS-harjoitus 5".
 
 Avaa projektiisi jokin taustakartta, esimerkiksi OpenStreetMap. Löydät sen **Selain**-ikkunan alareunasta XYZ Tiles -valikosta.
 
 ## GeoCoding -lisäosa
 
-Avaa **Lisäosat**-valikko ja etsi **GeoCoding**-niminen lisäosa. Tutustu sen esittelytekstiin: lisäosa voi hyödyntää sekä Googlen että OpenStreetMapin osoitetietoja ja niiden omia hakupalveluita. Asenna lisäosa.
+Avaa **Lisäosat > Hallitse ja asenna lisäosia** ja etsi lisäosa "GeoCoding". Tutustu sen esittelytekstiin: lisäosa voi hyödyntää sekä Googlen että OpenStreetMapin osoitetietoja ja niiden omia hakupalveluita. Asenna lisäosa.
 
 Avaa GeoCoding Lisäosat-valikosta GeoCoding \> GeoCoding.
 
@@ -34,7 +34,7 @@ Löydetyistä osoitteista syntyy uusi tilapäinen tulostaso projektiisi.
 
 ![](img/harjoitus_5/image3.png)
 
-Avaa nyt **GeoCoding-lisäosan** asetukset ja tutustu sen toimintaan. Se hyödyntää kerralla vain yhtä geokoodauspalvelua. Voit myös valita, mihin mittakaavaan kartta zoomautuu onnistuneen haun jälkeen. Vaihda Geocoding Engine toiseen vaihtoehtoon ja kokeile äsken tekemääsi hakua uudestaan. Ovatko tulokset samanlaiset? Uuden haun tulokset lisätään automaattisesti jo olemassa olevaan tulostasoon. Kuten huomaat, **GeoCoding-lisäosaan** voi syöttää vain yhden osoitteen kerrallaan, ja työkalu täytyy avata joka kerta uudelleen. Entä, jos geokoodattavana on pitkä lista osoitteita, esimerkiksi jonkin suuren yrityksen tai organisaation toimipisteet?
+Avaa nyt **GeoCoding-lisäosan** asetukset ja tutustu sen toimintaan. Se hyödyntää kerralla vain yhtä geokoodauspalvelua. Voit myös valita, mihin mittakaavaan kartta zoomautuu onnistuneen haun jälkeen. Uuden haun tulokset lisätään automaattisesti jo olemassa olevaan tulostasoon. Kuten huomaat, **GeoCoding-lisäosaan** voi syöttää vain yhden osoitteen kerrallaan, ja työkalu täytyy avata joka kerta uudelleen. Entä, jos geokoodattavana on pitkä lista osoitteita, esimerkiksi jonkin suuren yrityksen tai organisaation toimipisteet?
 
 ## DigiTransit.fi Geocoder
 
@@ -64,7 +64,7 @@ Tuloksena syntyy tilapäinen tulostaso. Tarkastele tuloksia kartalla ja attribuu
 
 Vastaavanlainen työkalu, osoitteiden geokoodaus csv-tiedostosta, löytyy mm. lisäosasta MMQGIS. Sen tietolähteet ovat Google, OpenStreeetMap, US Census Bureau ja Esri.
 
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
+Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + S** tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
 Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.

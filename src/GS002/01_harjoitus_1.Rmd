@@ -24,7 +24,7 @@ Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa pää
 
 ## Editoinnin valmistelu
 
-Aloitetaan tekemällä editointia helpottavia valmisteluja. Ensimmäisenä aktivoi omaan projektiisi **Työkalut-valikosta** seuraavat työkalut:
+Aloitetaan tekemällä editointia helpottavia valmisteluja. Ensimmäisenä aktivoi omaan projektiisi **Työkalut-valikosta** (**Näytä -> Työkalut**) seuraavat työkalut:
 
 -   Digitoinnin työkalupalkki
 
@@ -61,7 +61,7 @@ GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan
 Muista aina klikata **Lisää kenttälistaan -painiketta**, jotta jokainen kenttä ilmestyy listaukseen.
 
 ::: hint-box
-Integer, 32bit integer vai Integer 64 bit? Tässä tapauksessa valitsemme kentän tyypiksi Integerin, mutta mistä tietää jatkossa, kumman valitsee?\
+Kokonaisluku (integer), 32-bittinen vai 64-bittinen? Mistä tietää, kumman valitsee?\
 \
 Ensin käyttötarkoitus: mitä lukuja kenttään tallennetaan?\
 \
@@ -92,11 +92,11 @@ Jos QGIS versiosi on vanhempi voi olla että tarvitset Nominatim Locator Filter-
 Huomaa että Vallilanlaakso -sanan jälkeen on lisättävä vielä välilyönti, jotta haku tapahtuu.
 :::
 
-Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla **Tason muokkaus päälle/pois -painiketta** ![](img/harjoitus_1/image11.png). Huomaa, että **Digitoinnin työkalupalkin** työkalut aktivoituvat.
+Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla **Editointi päälle/pois -painiketta** ![](img/harjoitus_1/image11.png). Huomaa, että **Digitoinnin työkalupalkin** työkalut aktivoituvat.
 
 ![](img/harjoitus_1/image12.png)
 
-Valitse työkaluksi **Lisää polygonikohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, niin napauta hiiren oikeaa näppäintä, uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
+Valitse työkaluksi **Lisää monikulmiokohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, niin napauta hiiren oikeaa näppäintä, uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
 
 ![](img/harjoitus_1/image13.png)
 
@@ -124,7 +124,7 @@ Luodaan seuraavaksi kulkureitti, joka kulkee alueen läpi kuvan mukaisesti. Anna
 
 ![](img/harjoitus_1/image19.png)
 
-Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot **Kentän arvojen laskin -työkalun** avulla. Avaa laskin klikkaamalla **Ominaisuustietojen työkalupalkista** **Avaa kentän arvojen laskin -painiketta** ![](img/harjoitus_1/image20.png) ![](img/harjoitus_1/image21.png)
+Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot **Kentän arvojen laskin -työkalun** avulla. Avaa laskin klikkaamalla **Attribuuttien työkalupalkista** **Avaa kentän arvojen laskin -painiketta** ![](img/harjoitus_1/image20.png) ![](img/harjoitus_1/image21.png)
 
 Klikkaa avautuvasta ikkunasta **Päivitä olemassa oleva kenttä** ja valitse alasvetovalikosta **Pituus-kenttä**. Kirjoita **Lauseke-kenttään** lauseke, joka laskee viivamaisen kohteen pituuden sekä pyöristää sen yhden desimaalin tarkkuudelle:
 
@@ -134,7 +134,7 @@ round(\$length, 1)
 
 ![](img/harjoitus_1/image22.png)
 
-Laita lopuksi molempien tasojen tason muokkaus pois päältä klikkaamalla kynäkuvaketta. Tallenna kaikki muutokset tasoihin. Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
+Laita lopuksi molempien tasojen tason muokkaus pois päältä klikkaamalla kynäkuvaketta. Tallenna kaikki muutokset tasoihin. Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + S** tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
 Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
