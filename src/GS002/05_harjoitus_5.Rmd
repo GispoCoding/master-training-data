@@ -14,13 +14,13 @@ Opiskelija ymmärtää mihin geokoodaus perustuu ja osaa valita omaan käyttöö
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (Projekti \> Uusi) ja tallenna se nimellä "QGIS-harjoitus 5".
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "QGIS-harjoitus 5".
 
 Avaa projektiisi jokin taustakartta, esimerkiksi OpenStreetMap. Löydät sen **Selain**-ikkunan alareunasta XYZ Tiles -valikosta.
 
 ## GeoCoding -lisäosa
 
-Avaa **Lisäosat**-valikko ja etsi **GeoCoding**-niminen lisäosa. Tutustu sen esittelytekstiin: lisäosa voi hyödyntää sekä Googlen että OpenStreetMapin osoitetietoja ja niiden omia hakupalveluita. Asenna lisäosa.
+Avaa **Lisäosat > Hallitse ja asenna lisäosia** ja etsi lisäosa "GeoCoding". Tutustu sen esittelytekstiin: lisäosa voi hyödyntää sekä Googlen että OpenStreetMapin osoitetietoja ja niiden omia hakupalveluita. Asenna lisäosa.
 
 Avaa GeoCoding Lisäosat-valikosta GeoCoding \> GeoCoding.
 
@@ -64,7 +64,7 @@ Tuloksena syntyy tilapäinen tulostaso. Tarkastele tuloksia kartalla ja attribuu
 
 Vastaavanlainen työkalu, osoitteiden geokoodaus csv-tiedostosta, löytyy mm. lisäosasta MMQGIS. Sen tietolähteet ovat Google, OpenStreeetMap, US Census Bureau ja Esri.
 
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
+Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + S** tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
 Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
