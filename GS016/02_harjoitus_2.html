@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 2: QGIS-projektin valmistelu, synkronointi ja digitointi | Paikkatiedon mobiilikeruu QFieldissä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-04-07" />
+
+
+<meta name="description" content="Harjoitus 2: QGIS-projektin valmistelu, synkronointi ja digitointi | Paikkatiedon mobiilikeruu QFieldissä">
+
+<title>Harjoitus 2: QGIS-projektin valmistelu, synkronointi ja digitointi | Paikkatiedon mobiilikeruu QFieldissä</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Paikkatiedon mobiilikeruu QFieldissä</h1></div>
+<div class="abstract-sidebar"><p>Peruskurssi QField-mobiilisovelluksen ja QGISin QField-lisäosan käytöstä</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#paikkatiedon-mobiilikeruu-qfieldillä">Paikkatiedon mobiilikeruu QFieldillä</a>
+<ul>
+<li><a href="index.html#tervetuloa-qfield-peruskurssille">Tervetuloa QField-peruskurssille!</a></li>
+<li><a href="index.html#qfieldin-taustaa">QFieldin taustaa</a></li>
+<li><a href="index.html#miksi-qfield">Miksi QField?</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-asennus-ja-käyttöönotto">Harjoitus 1: Asennus ja käyttöönotto</a>
+<ul>
+<li><a href="01_harjoitus_1.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="01_harjoitus_1.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="01_harjoitus_1.html#arvioitu-kesto">Arvioitu kesto</a></li>
+<li><a href="01_harjoitus_1.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="01_harjoitus_1.html#sovelluksen-asentaminen-google-play--kaupasta">Sovelluksen asentaminen Google Play -kaupasta</a></li>
+<li><a href="01_harjoitus_1.html#sovelluksen-avaaminen-ja-käyttöliittymä">Sovelluksen avaaminen ja käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qfieldin-käyttöliittymä">QFieldin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#selailutila">Selailutila</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-qgis-projektin-valmistelu-synkronointi-ja-digitointi">Harjoitus 2: QGIS-projektin valmistelu, synkronointi ja digitointi</a>
+<ul>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#arvioitu-kesto-1">Arvioitu kesto</a></li>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#qgis-projektitiedoston-valmistelu-ja-perusasetukset">QGIS-projektitiedoston valmistelu ja perusasetukset</a></li>
+<li><a href="02_harjoitus_2.html#taustakarttojen-lisäys">Taustakarttojen lisäys</a></li>
+<li><a href="02_harjoitus_2.html#tasojen-luonti">Tasojen luonti</a></li>
+<li><a href="02_harjoitus_2.html#qfield-sync--lisäosan-asentaminen-ja-käyttö">QField Sync -lisäosan asentaminen ja käyttö</a></li>
+<li><a href="02_harjoitus_2.html#qgis-projektin-siirto-mobiililaitteeseen">QGIS-projektin siirto mobiililaitteeseen</a></li>
+<li><a href="02_harjoitus_2.html#projektin-avaaminen-qfieldissä">Projektin avaaminen QFieldissä</a></li>
+<li><a href="02_harjoitus_2.html#digitointitila">Digitointitila</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-lomakkeet">Harjoitus 3: Lomakkeet</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-2">Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-2">Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#arvioitu-kesto-2">Arvioitu kesto</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#taustatietoja">Taustatietoja</a></li>
+<li><a href="03_harjoitus_3.html#ominaisuustietolomakkeen-muokkaus">Ominaisuustietolomakkeen muokkaus</a></li>
+<li><a href="03_harjoitus_3.html#laji-tietokenttä">Laji-tietokenttä</a></li>
+<li><a href="03_harjoitus_3.html#ympärysmitta--ja-korkeus-tietokentät">Ympärysmitta- ja korkeus-tietokentät</a></li>
+<li><a href="03_harjoitus_3.html#huomiot-tietokenttä">Huomiot-tietokenttä</a></li>
+<li><a href="03_harjoitus_3.html#valokuva">Valokuva</a></li>
+<li><a href="03_harjoitus_3.html#luoja--ja-muokkaaja-tietokenttien-automatisointi">Luoja- ja muokkaaja-tietokenttien automatisointi</a></li>
+<li><a href="03_harjoitus_3.html#luonti--ja-muokkausaika-tietokentät">Luonti- ja muokkausaika-tietokentät</a></li>
+<li><a href="03_harjoitus_3.html#kohteen-uuid-kenttä">Kohteen uuid-kenttä</a></li>
+<li><a href="03_harjoitus_3.html#lomakkeen-välilehdet">Lomakkeen välilehdet</a></li>
+<li><a href="03_harjoitus_3.html#näyttö-ja-kohdelistaus">Näyttö ja kohdelistaus</a></li>
+<li><a href="03_harjoitus_3.html#tarttumisen-asetukset">Tarttumisen asetukset</a></li>
+<li><a href="03_harjoitus_3.html#lomakkeet-qfieldissä">Lomakkeet QFieldissä</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-relaatioiden-käyttö">Harjoitus 4: Relaatioiden käyttö</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-3">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-3">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#arvioitu-kesto-3">Arvioitu kesto</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#kasvualusta-taso">Kasvualusta-taso</a></li>
+<li><a href="04_harjoitus_4.html#relaatioiden-luonti">Relaatioiden luonti</a></li>
+<li><a href="04_harjoitus_4.html#lomakkeen-asetusten-määrittäminen">Lomakkeen asetusten määrittäminen</a></li>
+<li><a href="04_harjoitus_4.html#lapsikohteiden-luominen-qfieldissä">Lapsikohteiden luominen QFieldissä</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-qfieldin-lisäominaisuudet">Harjoitus 5: QFieldin lisäominaisuudet</a>
+<ul>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-4">Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-4">Harjoituksen tavoite</a></li>
+<li><a href="05_harjoitus_5.html#arvioitu-kesto-4">Arvioitu kesto</a></li>
+<li><a href="05_harjoitus_5.html#valmistautuminen-4">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#hakutoiminnot">Hakutoiminnot</a></li>
+<li><a href="05_harjoitus_5.html#laitteen-paikannuksen-käyttäminen">Laitteen paikannuksen käyttäminen</a></li>
+<li><a href="05_harjoitus_5.html#tracking--eli-jäljitys-toiminto">Tracking- eli jäljitys-toiminto</a></li>
+<li><a href="05_harjoitus_5.html#edistyneemmät-digitointityökalut">Edistyneemmät digitointityökalut</a></li>
+<li><a href="05_harjoitus_5.html#tarttuminen-sekä-topologinen-editointi">Tarttuminen sekä topologinen editointi</a></li>
+<li><a href="05_harjoitus_5.html#taitepiste--ja-halkaisutyökalut">Taitepiste- ja halkaisutyökalut</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-kenttätyöt-ja-tietojen-yhdistäminen">Harjoitus 6: Kenttätyöt ja tietojen yhdistäminen</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoituksen-sisältö-5">Harjoituksen sisältö</a></li>
+<li><a href="06_harjoitus_6.html#harjoituksen-tavoite-5">Harjoituksen tavoite</a></li>
+<li><a href="06_harjoitus_6.html#arvioitu-kesto-5">Arvioitu kesto</a></li>
+<li><a href="06_harjoitus_6.html#valmistautuminen-5">Valmistautuminen</a></li>
+<li><a href="06_harjoitus_6.html#lyhyt-ohjeistus-kenttätöihin">Lyhyt ohjeistus kenttätöihin</a></li>
+<li><a href="06_harjoitus_6.html#tietojen-synkronoiminen-tietokoneelle">Tietojen synkronoiminen tietokoneelle</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-2-qgis-projektin-valmistelu-synkronointi-ja-digitointi" class="section level1">
+<h1>Harjoitus 2: QGIS-projektin valmistelu, synkronointi ja digitointi</h1>
+<div id="harjoituksen-sisältö-1" class="section level3">
+<h3>Harjoituksen sisältö</h3>
+<p>Harjoituksessa luodaan 1. versio kurssin puutietojen keruuprojektin projektitiedostosta QGIS-työpöytäohjelmistolla. Lisäksi asennetaan QGISin QField Sync -lisäosa, joka mahdollistaa projektitiedostojen siirron tietokoneen ja mobiililaitteen välillä.</p>
+</div>
+<div id="harjoituksen-tavoite-1" class="section level3">
+<h3>Harjoituksen tavoite</h3>
+<p>Kouluttautuja oppii luomaan QGIS-projektin sekä paketoimaan siirtämään sen mobiililaitteeseen QField Sync -lisäosaa käyttäen.</p>
+</div>
+<div id="arvioitu-kesto-1" class="section level3">
+<h3>Arvioitu kesto</h3>
+<p>45 minuuttia.</p>
+</div>
+<div id="valmistautuminen-1" class="section level2">
+<h2>Valmistautuminen</h2>
+<p>Avaa <strong>QGIS</strong>-työpöytäohjelmistotietokoneellasi ja aloita siellä uusi QGIS-projekti (ylävalikosta <strong>Projekti &gt; Uusi</strong>). Tallenna projektitiedosto <strong>(Projekti &gt; Tallenna nimellä...</strong>) nimellä <strong>“QField-kurssiprojekti”</strong>. Harjoituksessa oletetaan myös, että QField-ohjelmisto on valmiiksi asennettu mobiililaitteeseen (Harjoitus 1).</p>
+</div>
+<div id="qgis-projektitiedoston-valmistelu-ja-perusasetukset" class="section level2">
+<h2>QGIS-projektitiedoston valmistelu ja perusasetukset</h2>
+<p>Avaa QGISin ylävalikosta projektin ominaisuudet (<strong>Projekti &gt; Ominaisuudet</strong>) ja sieltä <strong>Yleiset</strong>-välilehti. Etsi sieltä asetus <strong>Tallenna polut</strong> ja valitse alasvetovalikosta arvoksi <strong>suhteellinen</strong>. Tällöin projektia siirrettäessä eri laitteille projekti ja sen aineistot löytyvät, sillä hakemistopolut viittaavat ainoastaan projektin kotihakemistoon, eivätkä esimerkiksi C-levyn  juureen ja laitekohtaiseen hakemistorakenteeseen.</p>
+<p>Tämän jälkeen mennään vielä samassa <strong>Projektin ominaisuudet</strong> -ikkunassa <strong>Koordinaattijärjestelmä</strong>-välilehdelle ja valitaan koordinaattijärjestelmäksi <strong>EPSG:3067</strong>.</p>
+</div>
+<div id="taustakarttojen-lisäys" class="section level2">
+<h2>Taustakarttojen lisäys</h2>
+<p>Lisätään nyt taustakarttataso paikkatiedon mobiilikeruuta helpottamaan. Tämän voi lisätä sekä esimerkiksi WMS-tasona, jos mobiililaite on varustettu internet-yhteydellä tai se voidaan lisätä tiedostotasona jos yhteyttä ei ole, se on liian hidas, tai sitä ei muusta syystä haluta käyttää.</p>
+<div class="hint-box">
+<p>Eräs mahdollisuus on myös lisätä taustakartta rajapintana QGIS-projektiin, mutta muuttaa se ilman internet-yhteyttä käytettäväksi Geopackage-tiedostoksi halutulta alueelta projektitiedoston siirron/synkronoinnin yhteydessä. Tästä lisää myöhemmin.</p>
+</div>
+<p>Lisätään nyt taustakartta koko Suomen alueelta käyttäen QGISin <strong>QuickMapServices</strong>-lisäosaa. Asennetaan ensin lisäosa QGISin ylävalikosta: <strong>Lisäosat &gt; Hallitse ja asenna lisäosia</strong>, kirjoita hakukenttään <strong>QuickMapServices</strong> ja klikkaa “<strong>Asenna lisäosa</strong>”. Lisäosan asennuttua se löytyy Verkko-ylävalikosta. Lisäksi QGIS-ikkunaan aukeaa “<strong>Search QMS</strong>”-paneeli, jolla saatavissa olevia taustakarttapalveluita voi etsiä. Jos paneeli ei aukea automaattisesti, sen voi avata ylävalikon kautta. Hae paneelin avulla “<strong>Kapsi - taustakartta</strong>” ja lisää projektiin kaksoisklikkaamalla.</p>
+<p><img src="img/harjoitus_2/image1.png" /></p>
+<div class="hint-box">
+<p>Toisinaan Kapsin taustakartan rajapintayhteys saattaa toimia melko hitaasti. Mikäli näin on, voi vaihtoehtoisesti käyttää QGISiin valmiiksi konfiguroitua
+OpenStreetMap-rajapintayhteyttä. Tämä löytyy Selain-paneelista “XYZ Tiles”-valikon alta, josta sen voi suoraan lisätä karttaikkunaan.</p>
+</div>
+<div class="hint-box">
+<p>Projektiin voi halutessaan lisätä useammankin taustakartan, joita voidaan käyttää QFieldissä yhtäaikaisesti. Tässä voi myös hyödyntää QGISin karttateemat-ominaisuutta.</p>
+</div>
+<div class="hint-box">
+<p>Digitointia auttamaan saattaisi olla hyödyllistä käyttää lisäksi esimerkiksi ortoilmakuvaa, joka löytyy myös QuickMapServicen “Kapsi”-haulla. Pidetään projekti nyt mahdollisimman yksinkertaisena ja jätetään vain yksi taustakartta-taso.</p>
+</div>
+</div>
+<div id="tasojen-luonti" class="section level2">
+<h2>Tasojen luonti</h2>
+<p>Luodaan uusi GeoPackage, johon kerättävät paikkatiedot tullaan lisäämään eri tasoina (ylävalikosta <strong>Tasot &gt; Luo taso &gt; Uusi GeoPackage-taso…</strong>). Valitse <strong>Tietokanta</strong>-kohdasta GeoPackagen tallennuspaikaksi sama kansio jossa itse QGIS-projekti sijaitsee. Tämä onnistuu painamalla <strong>Tietokanta</strong>-kohdan oikealta puolelta (painike, jossa 3 pistettä) ja navigoimalla kyseiseen kansioon. Anna GeoPackage-tiedoston nimeksi <strong>Puu-inventointi</strong> ja paina Tallenna/Save. Seuraavan kohdan <strong>Taulun nimeksi</strong> (eli luotavan tason nimeksi) tulee nyt automaattisesti tämä äsken annettu tiedoston nimi. Koska aiomme kuitenkin lisätä samaan GeoPackageen useamman tason, muutetaan <strong>Taulun nimi</strong> -kohtaan nimeksi nyt <strong>Puut</strong>. Valitaan tason geometriatyypiksi <strong>Piste</strong> ja koordinaattijärjestelmäksi <strong>EPSG:3067</strong>.</p>
+<p><img src="img/harjoitus_2/image2.png" /></p>
+<p>Lisätään vielä <strong>Uusi kenttä</strong> -kohdasta joitakin peruskenttiä tason ominaisuus-taulukkoon. Lisätään ensin <strong>laji</strong>-niminen kenttä ja valitaan alasvetovalikosta tyypiksi <strong>teksti</strong> (<strong>Text Data</strong>). Painetaan <strong>Lisää kenttälistaan</strong> -nappia. Lisätään lisäksi <strong>korkeus</strong>-kenttä kokonaisluku-tyyppisenä sekä <strong>ympärysmitta</strong> desimaalinumerona (double), sekä <strong>valokuva</strong> teksti-tyyppinä (tästä lisää myöhemmin). Muista klikata jokaisen kentän tietojen täytön jälkeen <strong>Lisää kenttälistaan.</strong></p>
+<p>Lisätään tämän jälkeen vielä seuraavat datan hallintaan/ <strong>metatietoihin</strong> liittyvät kentät:</p>
+<ul>
+<li><p><strong>uuid</strong> (tyyppi: teksti)</p></li>
+<li><p><strong>huomiot</strong> (teksti)</p></li>
+<li><p><strong>luoja</strong> (teksti)</p></li>
+<li><p><strong>muokkaaja</strong> (teksti)</p></li>
+<li><p><strong>luontiaika</strong> (päivämäärä ja aika)</p></li>
+<li><p><strong>muokkausaika</strong> (päivämäärä ja aika)</p></li>
+</ul>
+<p>Tämän jälkeen klikkaa OK, jolloin taso on luotu ja se ilmestyy QGISin Tasot-selaimen listaukseen.</p>
+<p>Lisätään vielä 2 muuta tasoa tähän GeoPackageen (<strong>Tasot &gt; Luo Taso &gt; Uusi GeoPackage-taso…</strong> ).</p>
+<ol style="list-style-type: decimal">
+<li><p>Navigoidaan nyt <strong>Tietokanta</strong>-kohdasta valiten äsken luotu <strong>Puu-inventointi</strong> -GeoPackage-tietokanta. Muutetaan nyt taulun nimeksi <strong>Alueet</strong>, geometriatyypiksi <strong>Polygoni</strong>, koordinaattijärjestelmäksi EPSG:3067 kuten edellä, sekä ominaisuustietokentiksi <strong>nimi</strong> (teksti), <strong>tyyppi</strong> (teksti), sekä samat <strong>metatiedot</strong> kuin edellä. Paina sitten OK. Esiin ponnahtaa ikkuna, jossa ilmoitetaan tiedoston jo olevan olemassa ja kysytään mitä sillä halutaan tehdä. Valitse <strong>Lisää uusi taso</strong>, jolloin samaan GeoPackage-tietokantaan lisätään uusi taso (<strong>Huom!</strong> “Korvaa”-vaihtoehto tässä kohtaa kirjoittaa edellä luodun Puut-tason päälle. Älä valitse sitä!).</p></li>
+<li><p>Toistetaan vaiheet kuten kohdassa 1., mutta laitetaan taulun nimeksi <strong>Reitti</strong> ja geometriatyypiksi <strong>viiva</strong> (koordinaattijärjestelmänä pidetään edelleen EPSG:3067</p></li>
+</ol>
+<p>). Ominaisuustietokentiksi asetetaan <strong>tyyppi</strong> (teksti), sekä samat <strong>metatiedot</strong> kuin edellä. Paina sitten OK ja valitse ponnahdusikkunasta <strong>Lisää uusi taso</strong>.</p>
+<p>Järjestä vielä projektiin luodut tasot Tasot-paneelissa, kuten alla olevassa kuvassa. Järjestyksen muuttaminen onnistuu esimerkiksi tasoja “raahaamalla” (ns. drag &amp; drop). Ylempänä listassa olevat taso piirretään alempana olevan päälle, joten on luontevaa, että taustakartta ja polygoni-tasot ovat alimpina. Ajan salliessa, voit myös muuttaa tasojen kuvaustyylejä haluamiksesi. Kysy tarvittaessa apua kouluttajalta.</p>
+<p><img src="img/harjoitus_2/image3.png" /></p>
+<p>Voit nyt vertailun vuoksi testata, miltä editointi ja tietojen lisäys näyttää QGISissa työskenneltäessä. Aseta siis <strong>Puut</strong>-taso editoitavaksi, esimerkiksi klikkaamalla tason kohdalta hiiren oikealla napilla ja valitsemalla <strong>Tason muokkaus päälle/pois</strong>. Paina <strong>Lisää pistekohde</strong> -nappia digitoinnin työkalupalkista (kts. kuvaa alla). Klikkaa kartalla lisätäksesi pistemäisen kohteen, jolloin lomake aukeaa. Testaa kutakin kenttää ja huomaa, että niihin lisätään tietoja eri tavoilla. Nyt ei kuitenkaan ole tarpeen lisätä kohdetta, joten testattuasi voit klikata <strong>Peru</strong>.</p>
+<p><img src="img/harjoitus_2/image4.png" /></p>
+<p>Kun olet valmis, tallenna vielä projektitiedosto pikanäppäimellä <strong>CTRL + T</strong> tai päävalikosta <strong>Projekti &gt; Tallenna</strong>. Nyt perustasot ja -aineistot on lisätty QGIS-projektiin, joten valmistellaan seuraavaksi projektin siirto mobiililaitteeseen.</p>
+<div class="hint-box">
+<p>QFieldin kehittäjät suosittelevat GeoPackagen käyttöä myös rasteridatalle, erityisesti mobiililaitteille suurten tiedostokokojen takia. Lisätietoja näiden esivalmistelusta löytyy <a href="https://qfield.org/docs/data-formats/">dokumentaatiosta</a>.</p>
+</div>
+</div>
+<div id="qfield-sync--lisäosan-asentaminen-ja-käyttö" class="section level2">
+<h2>QField Sync -lisäosan asentaminen ja käyttö</h2>
+<p>Asennetaan nyt <strong>QField Sync</strong> -niminen lisäosa QGISiin samoin kuin QuickMapServices-lisäosa aiemmin: <strong>Lisäosat &gt; Hallitse ja asenna lisäosia</strong>. QField Sync -lisäosaa käytetään QGIS-projektin paketointiin ja synkronointiin tietokoneen ja mobiililaitteen välillä. Lisäosan asennuttua, se löytyy <strong>Lisäosat</strong>-ylävalikosta.</p>
+<p><img src="img/harjoitus_2/image5.png" /></p>
+<p>Valmistellaan nyt projektin siirtoa mobiililaitteeseen konfiguroimalla paketoinnin asetukset QField Syncillä. Asetukset voi avata useammastakin paikkaa:</p>
+<ul>
+<li><p>projektin ominaisuuksiin on ilmestynyt uusi välilehti nimeltä <strong>QField</strong> (<strong>Projekti &gt; Projektin ominaisuudet</strong>)</p></li>
+<li><p>QField Sync -työkalupalkista työkalu-painikkeesta (“<strong>Määritä nykyinen projekti</strong>”)</p></li>
+<li><p>QGISin ylävalikosta: <strong>Lisäosat &gt; QFieldSync &gt; Määritä nykyinen projekti</strong></p></li>
+<li><p><strong>Pakkaa QFieldiä varten</strong> -toimintoa käytettäessä työkalupalkista (<strong>Määritä nykyinen projekti</strong> -nappi)</p></li>
+</ul>
+<p>Käytetään jotakin edellä mainituista tavoista ja konfiguroidaan projekti QFieldiä varten. Huomaa, että valitaan avautuvasta ikkunasta “Kaapeliyhteys”-välilehti QFieldCloudin sijaan. Välilehdellä näkyy nyt myös listaus projektin tasoista. Tasoille voi yksitellen määrittää jokin seuraavista valinnoista:</p>
+<ul>
+<li><p><strong>Kopioi/Copy</strong>: tekee tiedostopohjaisen tason kopion suoraan siirrettävän QField-projektin paketointikansioon</p></li>
+<li><p><strong>Säilytä olemassa olevat (kopioi jos puuttuu)</strong>/Keep existent (Copy if missing)</p></li>
+<li><p><strong>Offline-muokkaus/Offline editing</strong>: tasosta luodaan työstettävä kopio paketointikansioon ja tasolle tehtävistä muutoksista luodaan muutosloki, jonka perusteella tehdään muutokset alkuperäiselle datalle kun projektia synkronoidaan takaisin QGIS-projektiin. Tämä ei kuitenkaan sisällä mahdollisten digitoinnissa tapahtuneiden konfliktien ratkaisua.</p></li>
+<li><p><strong>Poista/Remove from project</strong>: ei siirrä tasoa QField-projektin paketointiin. Ei kuitenkaan poista sitä vastaavasta QGIS-projektista.</p></li>
+<li><p><strong>Directly access data source</strong>: säilyttää tason suoran rajapintayhteyden, vaatii datayhteyden mobiililaitteessa.</p></li>
+</ul>
+<p>Valitaan rasterimuotoiselle taustakartalle <strong>Directly access data source</strong> ja muille tasoille valitse <strong>Offline-muokkaus</strong>.</p>
+<p>Taso-asetusten alla voitaisiin määrittää taustakartta-asetukset, jos haluttaisiin että taustakartasta tehtäisiin geopackage-muotoinen tiedostotaso, jolloin datayhteyttä ei sille tarvita. Näissä asetuksissa määritellään minkä pohjalta taustakarttatiilet tehdään (jokin yksittäinen taso vai karttateema), tiilien koko ja resoluutio.
+Koska taustakarttaa käytetään kuitenkin nyt suoraan rajapinnalta, jätä <strong>Luo taustakartta</strong> -kohta rastittamatta. Lisäksi voitaisiin määritellä muita edistyneempiä asetuksia kuten geoaita (geofence), jolla osoitettaisiin esimerkiksi digitointialueet tai kielletyt alueet, mutta jätä nämä toistaiseksi määrittelemättä ja paina <strong>OK</strong>.</p>
+<p><img src="img/harjoitus_2/image6.png" /></p>
+<p>Suoritetaan nyt paketointi: <strong>Lisäosat &gt; QFieldSync &gt; Pakkaa QFieldiä varten</strong>. Voimme nyt myös siirtyä siihen karttanäkymään, jonka halutaan näkyvän kun projekti avataan QFieldissä.</p>
+<div class="hint-box">
+<p>Valitse pakatun projektin tallennuskansioksi eri kansio kuin mihin harjoituksen QGIS-projekti aiemmin luotiin. Ei ole myöskään suositeltavaa, että QField-projekti olisi harjoituksen QGIS-projektin alakansiona. Lähtökohtaisesti voit pitää vaikka kaikki QFieldSyncillä paketoimasi projektit erillään omissa kansioissaan, mutta saman pääkansion alla (esim. QField-projektit &gt; Harjoitus1, Harjoitus2 jne.). QFieldSyncissä oletuskansiota voi vaihtaa QFieldSync-lisäosan asetuksista.</p>
+</div>
+<p>Kun olet valinnut tallennuskansion, johon QFieldSync luo paketoidun projektin, paina <strong>Luo</strong>.</p>
+</div>
+<div id="qgis-projektin-siirto-mobiililaitteeseen" class="section level2">
+<h2>QGIS-projektin siirto mobiililaitteeseen</h2>
+<p>QGISillä paketoitu QGIS-projekti ja sen mukana kulkeva datatiedosto <strong>data.gpkg</strong> (löytyy samasta kansiosta projektitiedoston kanssa) voidaan siirtää mobiililaitteeseen useammalla eri tavalla: joko johdolla suoraan tietokoneelta mobiililaitteeseen, tai pilvipalvelun (esimerkiksi Google Driven) kautta mobiililaitteeseen. Käytetään tässä harjoituksessa ensimmäistä vaihtoehtoa.</p>
+<p>Liitä mobiililaitteesi johdolla tietokoneeseesi. Kun tietokone kysyy, miten liitetyn laitteen kanssa toimitaan, valitse <strong>Avaa kansio ja tarkastele tiedostoja</strong>. Kun Windows avaa mobiililaitteen kansioikkunan, siirrä paketoidun QGIS-projektin ja data.gpkg-tiedoston sisältävä kansio mobiililaitteeseen esimerkiksi raahaamalla se ikkunasta toiseen. QGIS-projektin kansiosijainnilla ei sinällään ole merkitystä, kunhan projekti on mobiililaitteessa – paina kuitenkin sijainnin nimi mieleesi, jotta tiedät mistä hakea projektia mobiililaitteesta. Huomaa myös, että tiedostoja ei kannata siirtää yksitellen, vaan kokonainen kansio kerralla.</p>
+</div>
+<div id="projektin-avaaminen-qfieldissä" class="section level2">
+<h2>Projektin avaaminen QFieldissä</h2>
+<p>Avataan nyt mobiililaitteeseen siirretty QGIS-projekti QFieldissä. Avaa QField-sovellus (jos QField kysyy hyväksytäänkö paikallisten tiedostojen käyttö ja paikannus, valitse salli), jolloin sinulle ilmestyy jälleen alla olevan kuvan mukainen etusivu. Valitse <strong>Avaa paikallinen tiedosto</strong>.</p>
+<p>Tällöin näytölle tulee “QField tiedostojen hakemisto” jonka alihakemistot ovat lähtökohtaisesti tyhjiä Android-käyttöjärjestelmässä. Tämä johtuu Googlen loppuvuonna 2021 tekemistä muutoksista, jotka eivät salli sovellusten suoraa pääsyä laitteen tallennusmuistiin. Siksi onkin  ensin importoitava se kansio, jonne projektin siirsit, jotta QField voi käyttää sitä. Se tapahtuu painamalla oikean alalaidan vihreää plus-nappia, valitse <strong>“Tuo projekti hakemistosta”</strong> jonka jälkeen navigoi mobiililaitteen kansioon johon projekti siirrettiin ja klikkaa <strong>“Use this folder”</strong>. Tämän toimenpiteen jälkeen projektin pitäisi löytyä kansion “QField tiedostojen hakemisto”/“Imported Projects” alta. Avaa QGIS-projekti klikkaamalla mobiililaitteen tiedostoista, jonka jälkeen QFieldiin avautuu karttanäkymä. </p>
+<p><img src="img/harjoitus_2/image7.png" /></p>
+<p>Tarkastele avattua projektia, ja varmistu että <strong>Valikosta</strong> löytyy kaikki lisätyt tasot ja ettei avattaessa esimerkiksi tule mitään virheilmoituksia.</p>
+</div>
+<div id="digitointitila" class="section level2">
+<h2>Digitointitila</h2>
+<p>Tarkastellaan vielä juuri luodulla projektillamme kuinka pistekohteiden digitointi tapahtuu QFieldissä. Emme ole vielä määrittäneet ominaisuustietojen syöttötapaa sen tarkemmin, vaan käytössä on oletusasetukset. Tietojen syöttäminen helpottuu ja tehostuu kuitenkin merkittävästi seuraavan harjoituksen jälkeen. Perehdymme nimittäin siinä tarkemmin QGISin lomakkeiden käyttöön QFieldissä.</p>
+<p>Avaa valikko, aktivoi muokkaus- eli digitointitila kynä-ikonia klikkaamalla. Klikkaa lisäksi Puut-tason kohdalta, jolloin taso tulee aktiiviseksi ja digitointi kohdistuu siihen. Sulje valikko. Huomaa että karttanäkymän keskelle on ilmestynyt tähtäinristikko. Tämä määrää mihin kohtaan digitoitava kohde tulee. Huomaa, että digitointitilassa karttanäkymän oikeasta alakulmasta löytyy myös vastaavankaltainen vihreä ristikkotähtäin-kuvake. Tätä klikkaamalla lisätään uusi kohde Puut-taso on. </p>
+<p><img src="img/harjoitus_2/image8.png" /></p>
+<p>Liikuta nyt karttaa kohtaan, johon haluat lisätä puun ja klikkaa vihreää nappia. Tällöin avautuu ominaisuustietolomake puu-kohteen tietojen lisäämistä varten. Huomaa, että tässä lomakkeessa on kaikki tason kentät, esimerkiksi fid ja uuid, jota emme yleensä halua erikseen manuaalisesti täyttää. Samaten luonti- ja muokkausaikoja lukuunottamatta tietojen syöttö tapahtuu yksinkertaisesti näppäimistön avulla kirjoittamalla, sillä muut kentät ovat joko teksti- tai luku-tyyppiä. Kirjoita nyt lomakkeen laji-kohtaan jotakin ja klikkaa lomakkeen vasemmasta yläkulmasta lisätäksesi kohteen.</p>
+<div class="hint-box">
+<p>Kohdetta lisättäessä tietojen syöttölomakkeen oikeassa laidassa kenttien kohdalla on  valintalaatikko. Ruksaamalla valintalaatikko QField muistaa kentän viimeksi syötetyn arvon ja täyttää sen valmiiksi seuraavalle kohteelle. Tästä voi olla hyötyä joissakin tilanteissa. Oletusarvoja pystyy toki määrittämään myös QGISin lomake-asetuksissa (Harjoitus 3).</p>
+</div>
+<p><img src="img/harjoitus_2/image9.png" /></p>
+<p>Voit poistaa nyt lisätyn Puut-tason yksittäisen testipisteen seuraavasti:</p>
+<ol style="list-style-type: decimal">
+<li><p>klikkaa kohdetta kartalla. Nyt aukeaa ikkuna, jossa valitut kohteet on listattu. </p></li>
+<li><p>Valitse kohde listasta, jolloin kohteen ominaisuustietolomake aukeaa.</p></li>
+<li><p>Klikkaa yläpalkin kolmea pistettä ja valitse <strong>Poista kohde</strong>. </p></li>
+</ol>
+<p>Yhden tai useamman kohteen voi poistaa myös hieman eri tavalla: </p>
+<ol style="list-style-type: decimal">
+<li><p>Paina pitkään tason nimeä sivuvalikossa, valitse <strong>Näytä kohdelista</strong>. Nyt aukeaa ikkuna, jossa tason kohteet on listattu. </p></li>
+<li><p>Klikkaa yläpalkin kolmea pistettä ja valitse <strong>Vaihda kohdevalinta</strong>.</p></li>
+<li><p> Tämän jälkeen merkkaa listauksen valintalaatikkoon kohteet, jotka haluat poistaa.</p></li>
+<li><p> klikkaa kolmea pistettä uudelleen ja <strong>Poista valittu kohde/kohteet</strong> </p></li>
+</ol>
+<p>Kuten ehkä huomasit, kohteiden tunnistaminen kohdelistasta on nykyisellään hieman hankalaa, sillä listauksessa näkyy ainoastaan kohteen id-arvo (esim. 1) tai laji. Korjaamme myös tämän ongelman seuraavassa harjoituksessa. Nyt voit jälleen sulkea QFieldin.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_harjoitus_1.html"><button class="btn btn-default">Previous</button></a>
+<a href="03_harjoitus_3.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Paikkatiedon mobiilikeruu QFieldissä</h5>
+<span class="footer-version">v2025-04-07</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2024</span></h5>
+<span class="footer-contact-info">Firdonkatu 2 T 63
+<br>00520 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
