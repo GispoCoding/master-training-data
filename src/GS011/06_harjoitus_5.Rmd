@@ -20,7 +20,7 @@ QGIS mahdollistaa myös kartta-atlaksen tekemisen.
 Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta.
 Seuraavassa esimerkissä tuotamme kartta-atlaksen Oulusta, jossa jokainen karttalehti perustuu käyttäjän itse tekemään karttalehtijakoon.
 
-Avaa QGISin pääikkuna. Luo uusi väliaikainen luonnostaso menemällä **Tasot -> Uusi taso -> Uusi väliaikainen luonnostaso**. Aseta tason geometriatyypiksi polygoni ja koordinaattijärjestelmäksi projektin koordinaattijärjestelmä (EPSG:3067). Nimeksi voit laittaa "Karttalehtijako". Tasolle ei tarvitse lisätä uusia kenttiä, paina vain **OK**.
+Avaa QGISin pääikkuna. Luo uusi väliaikainen luonnostaso menemällä **Tasot -> Luo taso -> Uusi väliaikainen luonnostaso**. Aseta tason geometriatyypiksi polygoni ja koordinaattijärjestelmäksi projektin koordinaattijärjestelmä (EPSG:3067). Nimeksi voit laittaa "Karttalehtijako". Tasolle ei tarvitse lisätä uusia kenttiä, paina vain **OK**.
 
 ![](img/harjoitus5/karttalehtijako.png)
 
@@ -34,10 +34,8 @@ Jätä tällä kertaa sivu vaakasuoraksi A4:ksi.
 Lisää tulosteelle kartta, johon piirtyvät karttaikkunassa näkyvät projektin tasot.
 Lisää otsikko, selite ja muut karttatulosteen graafiset tai kartografiset elementit (kuten logo tai pohjoisnuoli) totuttuun tapaan.
 
-Sitten aloitetaan kartta-atlaksen tuottaminen.
-Aktivoimme tulosteelle kartta-atlastilan oikean ominaisuuspalkin Atlaksen luonti-välilehdestä kuvan osoittamalla tavalla.
-Karttalehtijakotasoksi valitsemme tason, jonka alueisiin kartta-atlas perustuu.
-Tässä tapauksessa se on Uusi luonnostaso.
+Sitten aloitetaan kartta-atlaksen tuottaminen. Avaa Atlas-välilehti menemällä **Atlas -> Atlaksen asetukset**. Aktivoimme tulosteelle kartta-atlastilan laittamalla täpän kohtaan "Luo atlas". Karttalehtijakotasoksi valitsemme tason, jonka alueisiin kartta-atlas perustuu.
+Tässä tapauksessa se on Karttalehtijako.
 
 ![](img/harjoitus5/img3.png)
 
@@ -59,7 +57,7 @@ Voit myös muuttaa indeksikartan kehyksen tyylin.
 
 ![](img/harjoitus5/img7.png)
 
-Kun olet valmis, voit tulostaa kartta-atlaksen Vie atlas kuvina -työkalulla.
+Kun olet valmis, voit tulostaa kartta-atlaksen Vie Atlas kuviksi -työkalulla.
 Huomaa, että jokaisesta kartta-atlaksen sivusta syntyy kuva, eli tulostamisessa voi kestää.
 
 ![](img/harjoitus5/img8.png)

@@ -64,13 +64,15 @@ Seuraavaksi tarkastelemme, näkyvätkö kaikkien kohteiden nimiöt ja siirrämme
 Jos työkalupalkki ei ole oletuksena sinulle näkyvissä, saat sen näkyviin menemällä QGISin ylävalikosta Näytä > Työkalut > ja klikkaamalla kohtaa Nimiöiden työkalupalkki.
 
 Työkalupalkin toiminnot ovat järjestyksessä vasemmalta oikealle: 
-*Korosta kiinnitetyt kohteet
-Näytä sijoittamattomat (näkymättömät) nimiöinnit
-Kiinnitä/poista kiinnitys
-Näytä/poista näkyvistä nimiöinti
-Siirrä nimiöintiä
-Kierrä nimiöintiä
-Muokkaa nimiöinnin ominaisuuksia.*
+*Tason nimiöiden valinnat
+Tason kaavioiden valinnat
+Korosta kiinnitetyt nimiöinnit, kaaviot ja osoitinviivat
+Näytä/piilota ei-sijoitetut nimiöt
+Kiinnitä/vapauta nimiöt ja kaaviot
+Näytä/piilota valitun tason nimiöitä ja/tai kaavioita
+Siirrä nimiöintiä, kaaviota tai huomiotekstiä
+Käännä nimiötä
+Muuta nimiöinnin ominaisuuksia.*
 
 Aloita Nimiöiden työkalupalkin tutkiminen esimerkiksi siirtämällä joitain päällekkäisiä nimiöitä tai näyttämällä sijoittamattomat nimiöinnit. 
 Kun aloitat nimiöiden käsin siirtämisen, QGIS kysyy sinulta mihin kenttään nämä tiedot sidotaan QGIS-projektin sisällä. Valitse "fid"-kenttä. fid on jokaisen kohteen uniikki ID-tunnus, jolloin kun muokkaat yhtä nimiötä, QGIS tallentaa tekemäsi muutokset vain tuohon yhteen kohteeseen. Jos valitsisit jonkin toisen kentän, jossa kahdella tai useammalla eri kohteella olisi sama arvo, yhteen kohteeseen tehdyt muutokset tulisivat voimaan kaikissa näissä kohteissa.
