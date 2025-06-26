@@ -1,5 +1,5 @@
 ---
-title: "Pythonin perusteet ja paikkatieto Pythonissa"
+title: "Johdanto paikkatietoanalyyseihin Pythonilla"
 author: "Gispo Suomi Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
@@ -17,10 +17,11 @@ documentclass: book
 
 <!-- Harjoitukset -->
 
-# Pythonin perusteet ja paikkatieto Pythonissa
+# Johdanto paikkatietoanalyyseihin Pythonilla
 
 ## Kurssimateriaalien lataaminen
 
+Kurssin harjoitukset on toteutettu interaktiivisessa JupyterLab-ympäristössä.
 Lataa kurssin harjoitukset tästä linkistä:
 
 ::: note-box
@@ -30,7 +31,7 @@ Lataa kurssin harjoitukset tästä linkistä:
 Lisäksi voit ladata tämän ohjesivuston PDF-muodossa tästä linkistä:
 
 ::: note-box
-[Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/GS020/GS020.pdf)
+[ohjesivut PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/GS020/GS020.pdf)
 :::
 
 ## Lukuohje
