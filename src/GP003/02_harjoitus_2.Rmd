@@ -4,28 +4,62 @@ Vektorimuotoisten paikkatietoaineiston tyypillisiä formaatteja ovat Shapefile, 
 
 ## Shapefilen ja GeoPackagen erot
 
-1. Klikkaa **Selain**-paneelissa GeoPackagea hiiren oikealla ja valitse **Uusi Yhteys**.
+1.  Klikkaa **Selain**-paneelissa GeoPackagea hiiren oikealla ja valitse **Uusi Yhteys**.
 
 ![](img/harjoitus_2/image1.png)
 
-2. Etsi harjoitusmateriaalipaketissa tullut Retkeilydata.gpkg omalta koneeltasi ja paina Avaa. 
+2.  Etsi harjoitusmateriaalipaketissa tullut Retkeilydata.gpkg omalta koneeltasi ja paina Avaa.
 
 ![](img/harjoitus_2/image2.png)
 
-3. Paina Retkeilydata.gpkg edessä olevaa nuolta. Mitä GeoPackage sisältää?
+3.  Paina Retkeilydata.gpkg edessä olevaa nuolta. Mitä GeoPackage sisältää?
 
 ![](img/harjoitus_2/image3.png)
 
-4. Etsi seuraavaksi selainpaneelin kautta harjoitusmateriaalin mukana tullut shapefilekansio ja tarkastele sen sisältöä ensin Selain-paneelissa.
+4.  Etsi seuraavaksi selainpaneelin kautta harjoitusmateriaalin mukana tullut shapefilekansio ja tarkastele sen sisältöä ensin Selain-paneelissa.
 
 ![](img/harjoitus_2/image4.png)
 
-5. Tarkastele sitten shapefile-kansion sisältöä tiedostojen hallinnassa. Klikkaa hiiren oikealla shapefile-kansiota ja valitse Avaa hakemisto.
+5.  Tarkastele sitten shapefile-kansion sisältöä tiedostojen hallinnassa. Klikkaa hiiren oikealla shapefile-kansiota ja valitse Avaa hakemisto.
 
 ![](img/harjoitus_2/image5.png)
 
-6. Tutki Retkeilydata.gpkg aineistoa samalla tavalla.
+6.  Tutki Retkeilydata.gpkg aineistoa samalla tavalla.
 
 ![](img/harjoitus_2/image6.png)
 
-7. Miten aineistot eroavat toisistaan? Mitä etuja gpkg-tiedostolla on shapefileen verrattuna?
+7.  Miten aineistot eroavat toisistaan? Mitä etuja gpkg-tiedostolla on shapefileen verrattuna?
+
+## Paikkatietoaineistojen avaaminen
+
+QGIS -ohjelmaan voidaan avata paikkatietoaineistoja usealla tavalla:
+
+1.  perusvalikon kautta (perusvalikon kautta (**Tasot \> Lisää taso \> valitse millaisen tason haluat lisätä**)
+
+![](img/harjoitus_2/image7.png)
+
+2.  Pikavalikon kautta ![](img/harjoitus_2/image8.png)
+
+3.  Raahaamalla Selaimen kautta tai suoraan koneen resurssien hallinnan kautta.
+
+![](img/harjoitus_2/image9.png)
+
+Projektitiedostot puolestaan aukeavat:
+
+1.  Perusvalikon kautta
+
+![](img/harjoitus_2/image10.png)
+
+2.  Avaa -painikkeella ![](img/harjoitus_2/image11.png)
+
+3.  Tai raahaamalla
+
+Avaa seuraavaksi harjoitusmateriaaleja eri tavoilla.
+
+1.  Avaa vektoritasoja shapefilekansiosta eri tavalla: raahaamalla Selain-paneelista ja Avaa tietolähteiden hallinta painikkeen avulla. ![](img/harjoitus_2/image8.png)
+
+2. Avaa gpkg-tiedosto raahaamalla se selaimen kautta. 
+
+3. Avaa retkeilydatan sisällä oleva QGIS_kertaus-projektitiedosto, joko raahaamalla selaimen kautta tai Avaa-painikkeella. 
+
+4. Mikä tapa tuntuu helpoimmalta? Mikä hankalimmalta? Mitä tapaa olet aiemmin käyttänyt?
