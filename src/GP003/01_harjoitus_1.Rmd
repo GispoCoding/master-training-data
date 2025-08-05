@@ -1,0 +1,13 @@
+# Harjoitus 1: Profiilit
+
+## Uuden profiilin luominen
+
+QGISissä voidaan luoda valmiita profiileja erilaisiin käyttötarkoituksiin. Voit määrittää ja räätälöidä profiileihin esim. tietokantayhteyksiä, kieliasetuksia ja työkalupalkkeja, jotka ovat näkyvillä. Saat luotua uuden profiilin valitsemalla  **Asetukset > Käyttäjäprofiilit > Uusi profiili**.
+
+![](img/harjoitus_1/image1.png)
+
+Anna profiilille tarkoitukseen sopiva nimi. Tämän jälkeen QGIS käynnistää ohjelman uudestaan ja avaa äsken luomasi profiilin. Jos käytössäsi on useita profiileja, voit asettaa QGISin kysymään, mitä profiilia haluat käyttää, kun käynnistät QGISin. Valitse **Asetukset > Valinnat > Käyttäjäprofiilit > Valitse profiili käynnistyksen yhteydessä**.
+
+![](img/harjoitus_1/image2.png)
+
+![](img/harjoitus_1/image3.png)
