@@ -11,3 +11,13 @@ Anna profiilille tarkoitukseen sopiva nimi. Tämän jälkeen QGIS käynnistää 
 ![](img/harjoitus_1/image2.png)
 
 ![](img/harjoitus_1/image3.png)
+
+## Profiilin poistaminen
+
+Profiilin saa poistettu esimerkiksi valitsemalla **Asetukset > Käyttäjäprofiilit > Avaa aktiivisen profiilin hakemisto**. 
+
+![](img/harjoitus_1/image4.png)
+
+Näin löydät polun,  jonne koneesi tallentaa profiilit. Tässä esimerkissä profiilit ovat tallentuneet kuvan mukaisen polun päähän. Valitsemalla profiles -kansion sisältä jonkin profiilin aktiiviseksi ja painamalla delete, profiilin saa poistettua.
+
+![](img/harjoitus_1/image5.png)
