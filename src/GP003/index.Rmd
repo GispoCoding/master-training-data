@@ -1,6 +1,6 @@
 ---
 title: "QGIS kertaus"
-author: "Reetta Lindberg"
+author: "Gispo Suomi Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "QGISin kertauskurssi"
@@ -17,7 +17,7 @@ documentclass: book
 
 <!-- Harjoitukset -->
 
-# document_title_replace
+# QGIS kertaus
 
 ## Kurssimateriaalien lataaminen
 
@@ -33,16 +33,6 @@ ja kurssin harjoitukset PDF-muodossa tästä linkistä:
 [Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/course_code_replace/gp003.pdf)
 :::
 
-
-**Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
-
-::: hint-box
-Mistä löydät tietoa QGISistä
-
-QGISillä on omat kotisivut.
-
-Psst! Tietoa QGISistä löydät internetistä.
-:::
 
 ## Mistä lisätietoja?
 
