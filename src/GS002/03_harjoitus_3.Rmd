@@ -118,7 +118,7 @@ Kun tarvittava määrä vastinpisteitä on syötetty, voidaan niitä tarkastella
 
 ![Kuva 11: Syötettyjä oikaisupisteitä ja niiden vastinpisteitä voi tarkastella CGP-taulusta](img/harjoitus_3/image35.png)
 
-Muunnospistetaulussa on nähtävillä kaikki osoitetut vastinpisteet (kuva 10). Tässä esimerkissä on määritelty kymmenen vastinpistettä. Jokaisella vastinpisteelle esitetään taulussa sijainti georeferoitavalla kuvalla (Lähtö X ja Lähtö Y) ja sijainti tukiaineistossa (Kohd. X ja Kohde Y).
+Muunnospistetaulussa on nähtävillä kaikki osoitetut vastinpisteet (kuva 10). Tässä esimerkissä on määritelty kymmenen vastinpistettä. Jokaisella vastinpisteelle esitetään taulussa sijainti georeferoitavalla kuvalla (Lähtö X ja Lähtö Y) ja sijainti tukiaineistossa (Kohde X ja Kohde Y).
 
 Näiden tietojen lisäksi jokaiselle pisteelle lasketaan virhe X- ja Y-suunnassa. X- ja Y-suuntaisten virhelukujen lisäksi jokaiselle pisteelle on laskettu residuaali, joka kuvaa ko. pisteen kokonaisvirhettä. Ideaalitilanteessa residuaaliarvo olisi mahdollisimman lähellä nollaa.
 
@@ -147,5 +147,6 @@ Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä 
 ::: hint-box
 Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
+
 
 
