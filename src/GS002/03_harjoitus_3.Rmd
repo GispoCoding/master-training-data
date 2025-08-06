@@ -28,7 +28,7 @@ Toimi siis seuraavasti:
 
 1\. Kopioi ylläolevan osoitteen koko sisältö
 
-2\.  Avaa QGISin Python-konsoli (**Lisäosat → Python-konsoli**)
+2\. Avaa QGISin Python-konsoli (**Lisäosat → Python-konsoli**)
 
 3\. Avaa tekstieditori painamalla "Näytä editori" -nappulaa ![](img/harjoitus_3/image40.png).
 
@@ -147,4 +147,5 @@ Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä 
 ::: hint-box
 Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
 :::
+
 
