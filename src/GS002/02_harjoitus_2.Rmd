@@ -188,7 +188,7 @@ Ja sitten ei kun harjoittelemaan käyttöä! Esitellyt työkalut voivat tuntua h
 
 Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä](https://gispo.fi/blogi/cad-aineistot-ja-qgis/).
 
-## Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-alatieto päivittyy automaattisesti
+## Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pohjanalatieto (yhden kerroksen pinta-ala) päivittyy automaattisesti
 
 1.  Avaa Rakennukset-tason ominaisuudet. Mene kohtaan Attribuuttilomake
 
@@ -198,9 +198,9 @@ Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä
 
 4.  Valitse Geometrian alta `$area`. Funktion voi myös itse kirjoittaa suoraan oletusarvot-kenttään.
 
-5.  Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella, lauseke on `round($area,2)`
+5.  Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pohjanalan kahden desimaalin tarkkuudella, lauseke on `round($area,2)`
 
-6.  **Lopuksi muista laittaa täppä kohtaan "Käytä oletusarvoa päivityksessä"**, jolloin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
+6.  **Lopuksi muista laittaa täppä kohtaan "Käytä oletusarvoa päivityksessä"**, jolloin QGIS laskee uudelle polygonille automaattisesti pohjanalan! 🎉
 
     ![](img/harjoitus_2/Attribuuttilomake.png)![](img/harjoitus_2/Lauseke.png){width="519"}
 
