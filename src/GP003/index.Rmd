@@ -1,0 +1,63 @@
+---
+title: "QGIS kertaus"
+author: "Gispo Suomi Oy"
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "QGISin kertauskurssi"
+output:
+    bookdown::html_book:
+        toc: true
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+        number_sections: false
+documentclass: book
+---
+
+<!-- Harjoitukset -->
+
+# QGIS kertaus
+
+## Kurssimateriaalien lataaminen
+
+Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
+
+::: note-box
+[Kurssihakemisto]((https://drive.google.com/drive/folders/1uRSJ2OrOVgedDek3ipdkf05eR3Kc_euY?usp=sharing))
+:::
+
+ja kurssin harjoitukset PDF-muodossa tästä linkistä:
+
+::: note-box
+[Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/course_code_replace/gp003.pdf)
+:::
+
+
+## Mistä lisätietoja?
+
+Ohessa muutamia web-sivustoja, joista saat lisätietoja:
+
+::: note-box
+<http://www.qgis.org/>
+:::
+
+::: note-box
+<http://docs.qgis.org/>
+:::
+
+::: note-box
+<http://gis.stackexchange.com/>
+:::
+
+::: note-box
+<http://www.osgeo.fi>
+:::
+
+## Virheet
+
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+
+## Lisenssi ja oikeudet
+
+Nämä materiaalit on "QGIS kertaus"- kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

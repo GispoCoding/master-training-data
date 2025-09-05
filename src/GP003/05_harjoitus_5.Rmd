@@ -1,0 +1,31 @@
+# Harjoitus 5: Visualisointi
+
+Paikkatietoaineistojen visualisointi on keskeinen osa karttajulkaisuiden tekoa, sillä tasojen piirtotyyli vaikuttaa olennaisesti siihen miltä kartta näyttää. Palautetaan mieleen, miten vektoriaineistoja visualisoidaan QGISissä. Tässä harjoituksessa kerrataan visualisoinnin perusteet.
+
+1. Avaa harjoitusmateriaalin QGIS_kertaus projekti Retkeilydata-GeoPackagen kautta.
+
+![](img/harjoitus_5/image1.png)
+
+2. Paina hiiren oikealla painikkeella Retkeilydata_laavu_kota_kammi -tason päällä ja valitse auenneesta listasta **Ominaisuudet**, jolloin **Tason ominaisuudet** -ikkuna aukeaa.
+
+![](img/harjoitus_5/image2.png)
+
+3. Valitse auenneen ikkunan vasemmasta laidasta Kuvaustekniikka, jolloin pääset muokkaamaan tason kuvaustekniikkaa.
+
+![](img/harjoitus_5/image3.png)
+
+4. Vaihda kohteen väri  ja koko mieleiseksi. Painamalla **Käytä**, näet muutokset kartalla.
+
+5. Kokeile erilaisia tyylejä.
+
+6. Kun olet tyytyväinen muutoksiin paina **OK**.
+
+7. Pääset muuttamaan kuvaustekniikkaa myös Tasot-paneelin pensseli-kuvakkeen kautta. Paina pensselin kuvaa ja koita muuttaa kuvaustekniikkaa tätä kautta. Mitä eroja huomaat kuvaustekniikan muuttamisessa tätä kautta?
+
+![](img/harjoitus_5/image4.png)
+
+8. Muuta vielä viiva- ja aluekohteiden kuvaustekniikka mieleiseksi.
+
+9. Tallenna projekti nimellä Harj5 valitsemalla **Projekti → Tallenna nimellä**.
+
+![](img/harjoitus_5/image5.png)

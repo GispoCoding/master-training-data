@@ -1,0 +1,52 @@
+# Harjoitus 6: Karttatuloste
+
+Tässä harjoituksessa palautetaan mieleen karttatuloseen luominen laatimalla harjoituksessa 5 visualisoiduista kohteista karttatuloste. 
+
+Uuden tulosteen muodostaminen voidaan aloittaa kahdella tavalla: 
+
+1. valitse **Projekti → Uusi taitto**
+
+![](img/harjoitus_6/image1.png)
+
+2. paina työkalua: ![](img/harjoitus_6/image2.png)
+
+3. Tämän jälkeen taitolle annetaan nimi, joka kuvaa kartan sisältöä.
+
+4. Taiton ominaisuuksia kuten paperin kokoa ja suuntaa pääsee muuttamaan painamalla hiiren oikealla taittodokumentin päällä ja valitsemalla **Sivun ominaisuudet**.
+
+![](img/harjoitus_6/image3.png)
+
+5. Aseta sivun kooksi esimerkiksi A4 ja suunnaksi pysty.
+
+![](img/harjoitus_6/image4.png)
+
+6. Määritä Taitto-välilehdellä Viennin resoluutioksi esim. 300 dpi.
+
+![](img/harjoitus_6/image5.png)
+
+7. Lisää seuraavaksi taittoon karttanäkymä joko
+    a. Valitsemalla **Lisää elementti → Lisää kartta** tai
+    ![](img/harjoitus_6/image6.png)
+    b. suoraan kuvakkeen Lisää kartta kautta ![](img/harjoitus_6/image7.png)
+    
+ 8. Otsikko tai muu teksti voidaan lisätä Lisää uusi nimiö -työkalulla: ![](img/harjoitus_6/image8.png)
+ 
+ 9. Lisää uusi selite käyttäen: ![](img/harjoitus_6/image9.png)
+ 
+ 10. Lisää uusi mittakaava käyttäen: ![](img/harjoitus_6/image10.png)
+ 
+ Huomaa, että näiden taiton elementtien ominaisuuksia voit muokata oikeanpuoleisen sivupalkin Elementin ominaisuudet -välilehden avulla. Tekstiä voi muokata tekstinkäsittelyohjelmista tutuilla työkaluilla:
+ 
+ ![](img/harjoitus_6/image11.png)
+ 
+ 11. Voit myös muokata selitteen ominaisuuksia. Huomaa, että sinun on poistettava kohdan **Päivitä automaattisesti** rasti. 
+ 
+ 12. Pohjoisnuolen lisääminen tapahtuu lisäämällä kuva tällä työkalulla (vasemmasta palkista):  ![](img/harjoitus_6/image12.png)
+     a. Valitse sen jälkeen Elementin ominaisuudet -ikkunasta mieleisesi pohjoisnuoli-kuva (selaa sisältöä alaspäin, jos et heti näe nuolia).
+![](img/harjoitus_6/image13.png)
+
+Halutessasi voit tallentaa käyttämäsi tulostemallin (layout englanniksi) ja hyödyntää sitä jatkossa seuraavien karttatulosteiden tekemiseen. Voit esimerkiksi muotoilla kollegoidesi käyttöön karttatulostemallin organisaatiollesi (logot, värit, tekstin paikka, jne.). Tämä onnistuu Tallenna malliksi -työkalulla: ![](img/harjoitus_6/image14.png)
+
+Lopputuloksen voit tulostaa tiedostoksi (kuvaksi tai pdf:ksi) tai tulostimeen.
+
+![](img/harjoitus_6/image15.png)
