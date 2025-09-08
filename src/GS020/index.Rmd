@@ -3,7 +3,7 @@ title: "Johdanto paikkatietoanalyyseihin Pythonilla"
 author: "Gispo Suomi Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "Johdanto ohjelmointiin ja paikkatietoanalyyseihin Pythonilla"
+abstract: "Pythonin ohjelmointi-ja paikkatietoanalyysikurssi"
 output:
     bookdown::html_book:
         toc: true
@@ -16,8 +16,7 @@ documentclass: book
 ---
 
 <!-- Harjoitukset -->
-
-# Johdanto paikkatietoanalyyseihin Pythonilla
+# Näin pääset alkuun
 
 ## Kurssimateriaalien lataaminen
 
@@ -67,11 +66,9 @@ SELECT version();
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
 
 ::: hint-box
-Mistä löydät tietoa GeoServeristä?
+Mistä löydät tietoa Pythonista?
 
-GeoServerillä on omat kotisivut.
-
-Psst! Tietoa GeoServeristä löydät internetistä.
+Psst! Tietoa Pythonista löydät internetistä.
 :::
 
 ## Mistä lisätietoja?
@@ -79,11 +76,11 @@ Psst! Tietoa GeoServeristä löydät internetistä.
 Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ::: note-box
-<http://www.qgis.org/>
+<https://www.python.org/>
 :::
 
 ::: note-box
-<http://docs.qgis.org/>
+<https://docs.python.org/3/>
 :::
 
 ::: note-box
