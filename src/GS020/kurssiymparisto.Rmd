@@ -40,23 +40,30 @@ hakemistossa. Python-ympäristön luonti tai kurssilla käytettävän
 tilanteista.
 
 Navigoi siis kurssihakemistoon. Koska tiedät jo minne kurssihakemisto on
-tallennettu, voit siirtyä sinne seuraavalla komennolla:
+tallennettu, voit siirtyä sinne seuraavalla komennolla (vaihda polku sinulle sopivaksi):
 
 ::: commandline-box
 ```sh
-cd C:\Ohjelmat\miniconda3\python-gis-training-2024-11
+cd C:\user\gispolainen\python-gis-training
 ```
 :::
 
 *Jos* `dir`-komento näyttää, että hakemiston sisällä on vielä yksi
-`python-gis-training-2024-11`-niminen hakemisto, siirry vielä sinne:
+`python-gis-training`-niminen hakemisto, siirry vielä sinne:
 
 ::: commandline-box
 ```sh
-cd python-gis-training-2024-11
+cd python-gis-training
 ```
 :::
 
+::: hint-box
+Psst! Jos tarvitset liikkua ylöspäin kansiorakenteessa niin käytä 
+ 
+``` sh
+cd ..
+```
+:::
 ## Kurssiympäristön luominen
 
 Kun olet päässyt kurssihakemistoon, voit luoda kurssin Python-ympäristön
