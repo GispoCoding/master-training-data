@@ -1,0 +1,51 @@
+# 1. QGIS ja lausekkeet
+
+## Ennen tehtäviä
+
+Kurssin materiaalit on tehty QGISin englanninkieliselle versiolle. Mikäli käytät QGISin suomenkielistä versiota, on suositeltavaa vaihtaa kieliasetus.
+
+![](img/harjoitus_1/image1.png)
+
+1.  Klikkaa **Asetukset** -\> **Valinnat** -\> **Yleiset**-välilehti.
+
+2.  Klikkaa ruksi **Korvaa järjestelmän alue-** ruutuun.
+
+3.  Valitse alasvetovalikosta kieleksi **American English**.
+
+4.  Klikkaa **OK**.
+
+5.  Käynnistä QGIS uudelleen. Kieliasetus vaihtuu vasta uudelleenkäynnistyksen jälkeen.
+
+## Tehtävä 1.1
+
+Tunnista, mitä
+
+a)  lausekkeita
+b)  funktioita
+
+seuraava lauseke sisältää?
+
+::: code-box
+``` sql
+"puhnro" = '+358' || substr("phonenumber",1,(length("phonenumber")-1))
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+ratkaisu
+
+</button>
+
+::: hidden-box
+**a) Lausekkeet (sisin ensin):**
+
+-   length("phonenumber")-1
+-   "puhnro" = '+358' \|\| substr("phonenumber",1,(length("phonenumber")-1))
+
+**b) Funktiot (sisin ensin):**
+
+-   length()
+-   substr()
+-   \|\|
+:::

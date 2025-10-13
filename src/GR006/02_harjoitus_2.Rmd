@@ -1,0 +1,138 @@
+# Kappale 4: Kohteiden muokkaus - Field Calculator (Osa 1)
+
+## Tehtävä 4.1
+
+Tarkastele hallintoalueaineistoa. Luo uusi attribuuttikenttä (boolean), joka pitää sisällää tiedon siitä, sijaitseeko hallintoalue 50 km:n säteellä Tampereesta. Laske etäisyys polygonien painopisteiden välillä (centroid).
+
+**Aineisto**: ```hallintoalueet.gpkg```
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+Luo lauseke pala palalta.
+
+- Hae Tampere-kohde (```get_feature()```- funktio)
+- Hae Tampere-kohteen geometria (```geometry()```- funktio)
+- Laske Tampereen geometrialle painopiste (```centroid```- funktio)
+- Lausekkeen muodostaja suorittaa lausekkeen jokaiselle kohteelle. Miten viittaat lausekkeessa tällä hetkellä käsiteltävän kohteen geometriaan?
+- Laske tällä hetkellä käsiteltävälle geometrialla painopiste.
+- Millä funktiolla saat laskettua etäisyyden? Laske Tampereen geometrian ja tällä hetkellä käsiteltävän geometrian painopisteiden välinen etäisyys.
+- Tarkista onko etäisyys alle 50 km. Huomioi yksikkö!
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+``` sql
+distance(
+	centroid(
+		$geometry
+		), centroid(
+		geometry(
+			get_feature(
+				'hallintoalueet', 'Kunta_ni1', 'Tampere'
+				)
+			)
+		)
+	) < '50000'
+```
+:::
+:::
+
+## Tehtävä 4.2
+
+Tutki minkä hallintoalueiden 15 metrin vyöhykkeen (buffer) ulkorajan pituus on yli 100km. Määritä etäisyys karttatason yksiköissä (m). Luo uusi attribuuttikenttä, jonka arvoksi annat ehtolauseen tuloksesta riippuen joko ```iso``` tai ```pieni```.
+
+**Aineisto**: ```hallintoalueet.gpkg```
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+Rakenna lauseke pala palalta:
+
+- Millä funktiolla voit luoda bufferin?
+- Millä funktiolla voit laskea bufferin ulkorajan pituuden (eli piirin)?
+- Käytä ```ìf()```- ehtolausefunktiota.
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+``` sql
+if(
+	perimeter(
+		buffer(
+			$geometry, 15
+			)
+		) > 100000.0, 'iso', 'pieni'
+	)
+```
+:::
+:::
+
+## Tehtävä 4.3
+
+Tarkastele otosta Helsingin rakennusaineistosta. Huomioi, että valmistumispäivämäärä (```valm_pvm```- sarake) on ilmoitettu aineistossa teksti-datatyyppinä. Osassa kohteissa sarake sisältää myös ajankohdan ja päivämäärä on silloin ilmoitettu eri formaatissa. Luo uusi päivämääräsarake (esim. ```pvm_uusi```, datatyyppi Date), jossa rakennusten valmistumispäivämäärän ilmoitusmuoto on yhtenäistetty muotoon dd.MM.yyyy ja laske sen avulla uuteen sarakkeeseen (esim. ```rakennus_ika```) kuinka vanhoja rakennukset ovat (tähän päivään verrattuna).
+
+**Aineisto**: ```pikku_rakennukset.gpkg```
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+Prosessi tulee tehdä kahdessa vaiheessa.
+
+**Vaihe 1**:
+
+- Aineistossa on kaksi erilaista päivämäärän esitystapaa. Ne voi erottaa toisistaan esimerkiksi merkkijonon pituuden avulla. Millä funktiolla löydät merkkijonon pituuden?
+- Toinen esitystapa vastaa ```Datetime```-datatyyppiä ja toinen ```Date```-datatyyppiä, mutta ne on kuitenkin tallennettu tekstinä. Millä funktioilla saat muutettua tekstin oikeisiin formaatteihin?
+- Lopullisen formaatin tulee molemmissa tapauksissa olla ```Date```.
+- Suorita muunnos ```Date```- formaattiin, eritellen kahden eri esitystavan muunnokset  ```ìf()```- ehtolausefunktiolla.
+
+**Vaihe 2**:
+
+Kun ```uusi_pvm```- sarake on luotu:
+
+- Luo lausekkeessa käytettävä päivämäärämuuttuja ```make_date()```-funktiolla.
+- Laske ```age()```- funktiolla tämän päivämäärän ja ```pvm_uusi```-arvon välinen aikaväli.
+- ```age()```- funktio palauttaa tuloksen ```Interval``` (aikaväli)-muodossa.
+- ```Interval```-arvo pitää ajaa vielä yhden funktion läpi. ```day()```-funktiolla saat rakennuksen iän päivinä, ```year()```-funktiolla vuosina jne.
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+``` sql
+-- Vaihe 1
+if(
+	length(
+		"valm_pvm"
+		) > 10, to_date(
+		to_datetime(
+			"valm_pvm"
+			)
+		), to_date(
+		"valm_pvm", 'dd.MM.yyyy'
+		)
+		)
+-- Vaihe 2
+day(
+	age(
+		make_date(
+			yyyy,mm,dd    -- Täydennä tämänhetkinen päivämäärä
+			), "pvm_uusi"
+		)
+	)
+```
+:::
+:::
+
+## Lisätehtävät
+
+[Lisätehtävä 1](15_kappale_15.html#lisätehtävä-1-1)
+
+[Lisätehtävä 2](15_kappale_15.html#lisätehtävä-2-1)
+
+[Lisätehtävä 3](15_kappale_15.html#lisätehtävä-3-1)
