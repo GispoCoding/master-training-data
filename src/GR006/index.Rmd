@@ -1,6 +1,6 @@
 ---
 title: "Lausekkeet ja PyQGIS"
-author: "Gispo Oy."
+author: "Gispo Suomi Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Helsingin kaupungille räätälöity kurssi"
@@ -35,12 +35,6 @@ ja kurssin harjoitukset PDF-muodossa tästä linkistä:
 
 ## Lukuohje
 
-**Web-selaimessa** suoritettavat komennot on merkitty seuraavasti:
-
-::: note-box
-<http://localhost:8080/geoserver>
-:::
-
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
@@ -49,13 +43,8 @@ sudo lsb_release -a
 ```
 :::
 
-**Tiedostojen sisältö** on esitetty seuraavasti:
 
-::: file-content-box
-#IPv4 local connections: #host all all 127.0.0.1/32 md5
-:::
-
-**HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
+**HTML- ja CSS-koodit, SQL-komennot sekä Python- ja PyQGIS-scriptit** on esitetty seuraavasti:
 
 ::: code-box
 ``` sql
@@ -66,11 +55,11 @@ SELECT version();
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
 
 ::: hint-box
-Mistä löydät tietoa GeoServeristä?
+Mistä löydät tietoa PyQGISistä?
 
-GeoServerillä on omat kotisivut.
+QGISillä on omat kotisivut.
 
-Psst! Tietoa GeoServeristä löydät internetistä.
+Psst! Tietoa PyQGISistä löydät internetistä.
 :::
 
 ## Mistä lisätietoja?
