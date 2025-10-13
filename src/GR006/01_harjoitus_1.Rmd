@@ -1,20 +1,8 @@
 # 1. QGIS ja lausekkeet
 
-## Ennen tehtäviä
+## Mikä on lauseke?
 
-Kurssin materiaalit on tehty QGISin englanninkieliselle versiolle. Mikäli käytät QGISin suomenkielistä versiota, on suositeltavaa vaihtaa kieliasetus.
-
-![](img/harjoitus_1/image1.png)
-
-1.  Klikkaa **Asetukset** -\> **Valinnat** -\> **Yleiset**-välilehti.
-
-2.  Klikkaa ruksi **Korvaa järjestelmän alue-** ruutuun.
-
-3.  Valitse alasvetovalikosta kieleksi **American English**.
-
-4.  Klikkaa **OK**.
-
-5.  Käynnistä QGIS uudelleen. Kieliasetus vaihtuu vasta uudelleenkäynnistyksen jälkeen.
+QGIS tarjoaa monipuolit
 
 ## Tehtävä 1.1
 
@@ -49,3 +37,150 @@ ratkaisu
 -   substr()
 -   \|\|
 :::
+
+## Tehtävä 1.2
+
+Tutki alla olevaa lauseketta. Pohdi mitä eri funktiot tekevät ja mikä voisi olla funktion lopputulos? Avaa tarvittaessa QGISista lausekkeen muodostaja ja tutki funktioiden dokumentaatiota.
+
+::: code-box
+``` sql
+upper(
+	concat(
+		replace(
+			'Matti Matthias Meikäläinen', 'Matthias', 'Matias'
+			), ': Syntymävuosi ', '1975'
+		)
+	)
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+Lähde tutkimaan lauseketta palasittain. Lähde liikkeelle sisimmästä funktiosta ( ```replace() ```). Sen tulosta käytetään ```concat()```- funktiossa ja lopuksi sen tulosta käytetään vielä ```upper()```- funktiota. 
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+``` replace() ``` - Etsii löytyykö annetusta merkkijonosta 'Matti Matthias Meikäläinen' alamerkkijono 'Matthias' ja jos löytyy korvaa sen merkkijonolla 'Matias'.
+
+``` concat() ``` - Yhdistää useamman merkkijonon yhdeksi merkkijonoksi.
+
+``` upper() ``` - Muuntaa merkkijonon isoiksi kirjaimiksi.
+:::
+
+
+## Tehtävä 1.3
+
+Klikkaa **Select by Expression** -työkaluikonia QGISissä. Valitse kaikki liikuntakohteet, jotka sijaitsevat kotikuntasi alueella ja jotka kiinnostaavat sinua. Tallenna valitut kohteet uudeksi erilliseksi karttatasoksi.
+
+-   Vaihtoehtoinen tehtävänanto: valitse Turusta seuraavat liikuntapaikat: Pallokenttä, Jalkapallostadion tai Jalkapallohalli
+
+**Aineisto**: `lipas_kohteet.gpkg`
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+-   tarkista attribuuttitaulusta, missä sarakkeissa on tieto kunnan nimestä sekä liikuntapaikan tyypistä
+-   käytä `in` operaattoria ja listaa liikuntapaikan tyypit
+-   käytä `and` operaattoria
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+``` sql
+"tyyppi_nimi_fi" in ( 'Jalkapallostadion', 'Pallokenttä', 'Jalkapallohalli' )
+and
+"kunta_nimi_fi" = 'Turku'
+```
+:::
+:::
+
+## Tehtävä 1.4
+
+Suodata attribuuttitaulussa pois ne Pirkanmaan järvet, joihin seuraava väite **EI** päde: järvessä olevien saarten yhteenlaskettu pinta-ala kattaa vähintään 10 % järven pinta-alasta. Huomaa, että järven kokonaispinta-ala on ilmoitettu hehtaareina ja järven sisältämien saarten yhteenlaskettu pinta-ala neliömetreinä.
+
+**Aineisto**: `pirkanmaa_jarvet.gpkg`
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+vinkki
+
+</button>
+
+::: hidden-box
+-   muuta pinta-alat samaan yksikköön joko kerto- tai jakolaskulla (1 ha = 10 000 m²)
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+ratkaisu
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+"saari_pAla" / ( "pAla_ha" * 10000.0 ) > 0.10
+```
+:::
+:::
+
+## Tehtävä 1.5
+
+Suunnittelet **Manner-Suomeen** sijoittuvaa reissua ja haluat matkustaa sellaiseen paikkaan, missä todennäköisesti kuulet puhuttavan ruotsia.
+
+Avaa hallintoalueet- tasosta **Filter** valikko.
+
+-   Matkustusetäisyyksien vuoksi Lappi ja Itä-Suomi eivät tule kysymykseen
+-   Oletetaan, että ruotsinkielisyyttä indikoi sekä hallintoalueen ensisijainen kieli että se, sisältyykö kunnan jompaankumpaan viralliseen nimeen å-kirjain/kirjaimia.
+
+**Aineisto**: `hallintoalueet.gpkg`
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+vinkki
+
+</button>
+
+::: hidden-box
+Lähde rakentamaan lauseketta pala kerrallaan:
+
+-   Rajataan haku Manner-Suomeen -\> rajataan Ahvenanmaan maakunta pois (Maaku_ni1)
+-   JA valitaan kunnat, joiden ensisijainen kieli on 'Ruotsi' (Kieli_ni1)
+-   TAI valitaan kunnat, joiden suomen- tai ruotsinkielinen nimi sisältää kirjaimen å (käytä LIKE operaattoria!) (Kunta_ni1 ja Kunta_ni2)
+-   JA rajataan Itä-Suomi sekä Lappi pois aluehallintoviraston perusteella (AVI_ni1)
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+ratkaisu
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+"Maaku_ni1" != 'Ahvenanmaan maakunta'
+and
+(
+    "Kieli_ni1" = 'Ruotsi'
+    or
+    (
+        "Kunta_ni1" like '%å%'
+        or
+        "Kunta_ni2" like '%å%'
+        )
+    )
+and
+"AVI_ni1" not in
+(
+    'Lapin aluehallintovirasto', 'Itä-Suomen aluehallintovirasto'
+    )
+```
+:::
+:::
+
