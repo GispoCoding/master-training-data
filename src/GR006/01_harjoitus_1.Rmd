@@ -2,7 +2,7 @@
 
 ## Mikä on lauseke?
 
-QGIS tarjoaa monipuolit
+
 
 ## Tehtävä 1.1
 
