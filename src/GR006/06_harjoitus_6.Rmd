@@ -1,38 +1,45 @@
+---
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
 # 6. PyQGIS - tasojen muokkaus
 
-**Harjoituksen sisältö:** QGIS-tasojen ja kohteiden luominen ja muokkaus.
+**Harjoituksen sisältö:** QGIS-tasojen ja kohteiden luominen ja
+muokkaus.
 
 **Harjoituksen tavoite:** Oppia käsittelemään tasoja syvällisemmin.
 
 ## Tasot
 
-QGISissä vektoritasolla (**QgsVectorLayer**-luokka) on
-**kohteita** eli **[QgsFeature](https://qgis.org/pyqgis/latest/core/QgsFeature.html)**-luokan olioita. Kohteella taas
-on (yleensä) geometria, eli **[QgsGeometry](https://qgis.org/pyqgis/latest/core/QgsGeometry.html)**-luokan olio.
+QGISissä vektoritasolla (**QgsVectorLayer**-luokka) on **kohteita** eli
+[**QgsFeature**](https://qgis.org/pyqgis/latest/core/QgsFeature.html)-luokan
+olioita. Kohteella taas on (yleensä) geometria, eli
+[**QgsGeometry**](https://qgis.org/pyqgis/latest/core/QgsGeometry.html)-luokan
+olio.
 
-Tasolla sekä kohteella on **QgsFields**-olio, joka
-kuvaa ominaisuustietokenttiä. QgsFields itsessään
-koostuu **QgsField**-olioista, jotka sisältävät
-mm. kentän nimen ja datatyypin.
+Tasolla sekä kohteella on **QgsFields**-olio, joka kuvaa
+ominaisuustietokenttiä. QgsFields itsessään koostuu
+**QgsField**-olioista, jotka sisältävät mm. kentän nimen ja datatyypin.
 
 ## Väliaikaisen tason luominen
 
 Luodaan uusi väliaikainen taso:
 
 ::: code-box
-```python
+``` python
 new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "Uusi Taso", "memory")
 
 QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
 
-Taso on kuitenkin tyhjä. Luodaan taso, jossa on kenttiä.
-Voit tässä vaiheessa halutessasi poistaa äsken luodun
-tason.
+Taso on kuitenkin tyhjä. Luodaan taso, jossa on kenttiä. Voit tässä
+vaiheessa halutessasi poistaa äsken luodun tason.
 
 ::: code-box
-```python
+``` python
 new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "Uusi Taso", "memory")
 
 # Koska muokkaamme tasoa, pitää se laittaa
@@ -49,11 +56,11 @@ QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
 
-Tasolla on nyt kaksi kenttää, mutta ei edelleenkään yhtään
-kohdetta. Lisätään seuraavaksi pistekohde tasolle.
+Tasolla on nyt kaksi kenttää, mutta ei edelleenkään yhtään kohdetta.
+Lisätään seuraavaksi pistekohde tasolle.
 
 ::: code-box
-```python
+``` python
 new_layer = QgsVectorLayer("Point?crs=EPSG:4326", "Uusi Taso", "memory")
 
 # Koska muokkaamme tasoa, pitää se laittaa
@@ -92,7 +99,7 @@ Tutustutaan seuraavaksi geometrioiden käsittelyyn PyQGISillä.
 Piste:
 
 ::: code-box
-```python
+``` python
 point_xy = QgsPointXY(0, 0)
 point_geom = QgsGeometry.fromPointXY(point_xy)
 ```
@@ -101,7 +108,7 @@ point_geom = QgsGeometry.fromPointXY(point_xy)
 Viiva:
 
 ::: code-box
-```python
+``` python
 point_1 = QgsPointXY(0, 0)
 point_2 = QgsPointXY(1, 0)
 
@@ -117,7 +124,7 @@ line_geom = QgsGeometry.fromPolylineXY(
 Polygoni:
 
 ::: code-box
-```python
+``` python
 point_1 = QgsPointXY(0, 0)
 point_2 = QgsPointXY(1, 0)
 point_3 = QgsPointXY(1, 1)
@@ -136,10 +143,11 @@ polygon_geom = QgsGeometry.fromPolygonXY(
 ```
 :::
 
-Geometrioita voi luoda myös [WKT (Well-Known Text)](https://libgeos.org/specifications/wkt/)-formaatista
+Geometrioita voi luoda myös [WKT (Well-Known
+Text)](https://libgeos.org/specifications/wkt/)-formaatista
 
 ::: code-box
-```python
+``` python
 # piste
 point_geom = QgsGeometry.fromWkt('POINT(0 0)')
 
@@ -154,7 +162,7 @@ multipolygon_geom = QgsGeometry.fromWkt('MULTIPOLYGON(((0 0, 0 1, 1 1, 1 0, 0 0)
 Geometrian voi tulostaa WKT-formaatissa:
 
 ::: code-box
-```python
+``` python
 point_1 = QgsPointXY(0, 0)
 point_2 = QgsPointXY(1, 0)
 point_3 = QgsPointXY(1, 1)
@@ -175,18 +183,16 @@ print(polygon_geom.asWkt())
 ```
 :::
 
-Geometriaolioon tallentuu taitepisteiden koordinaatit.
-Siihen ei itsessään tallennu tieto
-koordinaattijärjestelmästä, vaan se tieto on vain
-taso-oliolla. Geometrialuokasta on tosin alaluokka
-QgsReferencedGeometry, jossa on myös tieto
-koordinaattijärjestelmästä.
+Geometriaolioon tallentuu taitepisteiden koordinaatit. Siihen ei
+itsessään tallennu tieto koordinaattijärjestelmästä, vaan se tieto on
+vain taso-oliolla. Geometrialuokasta on tosin alaluokka
+QgsReferencedGeometry, jossa on myös tieto koordinaattijärjestelmästä.
 
-Jos halutaan muuttaa geometria koordinaattijärjestelmästä
-toiseen, voidaan käyttää **QgsCoordinateTransform**-luokkaa.
+Jos halutaan muuttaa geometria koordinaattijärjestelmästä toiseen,
+voidaan käyttää **QgsCoordinateTransform**-luokkaa.
 
 ::: code-box
-```python
+``` python
 # luodaan geometria ja oletetaan
 # että lähtökoordinaattijärjestelmä
 # on WGS 84 (EPSG:4326)
@@ -211,7 +217,7 @@ print(geom.asWkt())
 Voimme myös laskea geometrioiden ominaisuuksia:
 
 ::: code-box
-```python
+``` python
 line_geom = QgsGeometry.fromWkt('LINESTRING(0 0, 0 1)')
 print(line_geom.length())
 
@@ -230,14 +236,13 @@ print(point_1.distance(point_2))
 ```
 :::
 
-Geometriaa voidaan myös manipuloida eri tavoin
-valmiilla metodeilla. Luodaan uusi polygonigeometria
-kahden olemassa olevan polygonin päällekkäin menevästä
-alueesta. Tämä vastaa Ristiinleikkaus (intersection)-
-prosessointityökalua QGISissä.
+Geometriaa voidaan myös manipuloida eri tavoin valmiilla metodeilla.
+Luodaan uusi polygonigeometria kahden olemassa olevan polygonin
+päällekkäin menevästä alueesta. Tämä vastaa Ristiinleikkaus
+(intersection)- prosessointityökalua QGISissä.
 
 ::: code-box
-```python
+``` python
 polygon_1 = QgsGeometry.fromWkt('POLYGON((1 1, 1 2, 2 2, 2 1, 1 1))')
 polygon_2 = QgsGeometry.fromWkt('POLYGON((0 0, 0 1.5, 1.5 1.5, 1.5 0, 0 0))')
 
@@ -249,22 +254,27 @@ print(new_geom.asWkt())
 
 ## Harjoitus 3.1
 
-Kirjoita skripti, joka luo uuden polygonitason koordinaattijärjestelmällä
-3857. Lisää polygonitasolle kentät "fid" ja "pinta_ala". Lisää
-kohteeseen alla oleva WKT-formaatissa kuvattu geometria ja laske
-sille pinta-ala. Lisää taso lopuksi QGIS-projektiin.
+Kirjoita skripti, joka luo uuden polygonitason
+koordinaattijärjestelmällä 3857. Lisää polygonitasolle kentät "fid" ja
+"pinta_ala". Lisää kohteeseen alla oleva WKT-formaatissa kuvattu
+geometria ja laske sille pinta-ala. Lisää taso lopuksi QGIS-projektiin.
 
 WKT:
 
 ::: code-box
-POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))
+POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0
+0))
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
 
-::: hidden-box
+ratkaisu
+
+</button>
+
+:::: hidden-box
 ::: code-box
-```python
+``` python
 new_layer = QgsVectorLayer("Polygon?crs=EPSG:3857", "Uusi Taso", "memory")
 
 new_layer.startEditing()
@@ -287,26 +297,27 @@ new_layer.commitChanges()
 QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
-:::
+::::
 
 ## Harjoitus 3.2: Etäisyydet
 
-Avaa QGISiin kurssihakemistosta `NaturalEarth_10m_admin_0_countries.gpkg`-tiedosto.
+Avaa QGISiin kurssihakemistosta
+`NaturalEarth_10m_admin_0_countries.gpkg`-tiedosto.
 
 Kirjoita skripti, joka laskee jokaisen valtion etäisyyden sen
-painopisteestä (centroid) Suomen painopisteeseen.
-Lähtötason koordinaattijärjestelmä on EPSG:4326, jonka yksikkönä
-on asteet. Etäisyyksien esittäminen asteina ei ole välttämättä
-kovin selkeää. Luo siis uusi pistetaso koordinaattijärjestelmällä
-EPSG:3857, jonka yksikkö on metrit. Uuden tason kentät tulee sisältää
-fid-numerotunnisteen, etäisyyden ja valtion
-nimen, josta etäisyys laskettiin. Muunna lähtötason painopiste oikeaan
-koordinaattijärjestelmään ja aseta se uuden tason kohteiden geometriaksi.
+painopisteestä (centroid) Suomen painopisteeseen. Lähtötason
+koordinaattijärjestelmä on EPSG:4326, jonka yksikkönä on asteet.
+Etäisyyksien esittäminen asteina ei ole välttämättä kovin selkeää. Luo
+siis uusi pistetaso koordinaattijärjestelmällä EPSG:3857, jonka yksikkö
+on metrit. Uuden tason kentät tulee sisältää fid-numerotunnisteen,
+etäisyyden ja valtion nimen, josta etäisyys laskettiin. Muunna
+lähtötason painopiste oikeaan koordinaattijärjestelmään ja aseta se
+uuden tason kohteiden geometriaksi.
 
 Voit käyttää tätä pohjana:
 
 ::: code-box
-```python
+``` python
 # hae NaturalEarth-taso esim. nimen perusteella
 layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
 layer = layers[0]
@@ -328,11 +339,15 @@ QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
 
-::: hidden-box
+vinkki
+
+</button>
+
+:::: hidden-box
 ::: code-box
-```python
+``` python
 # hae NaturalEarth-taso esim. nimen perusteella
 layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
 layer = layers[0]
@@ -398,13 +413,17 @@ if finland_feature.isValid():
     QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
-:::
+::::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
 
-::: hidden-box
+ratkaisu
+
+</button>
+
+:::: hidden-box
 ::: code-box
-```python
+``` python
 layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
 layer = layers[0]
 
@@ -460,5 +479,4 @@ if finland_feature.isValid():
     QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
-:::
-
+::::
