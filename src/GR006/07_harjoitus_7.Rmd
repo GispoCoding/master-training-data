@@ -1,4 +1,4 @@
-# Python-lisätehtäviä
+# 7. Skriptaus QGISin Python-kpnsolilla
 
 Tämä kappale sisältää erityisesti Pythoniin liittyviä
 edistyneempiä aiheita, joita voi tarvittaessa

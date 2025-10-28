@@ -1,6 +1,6 @@
-# Harjoitus 2: PyQGIS-perusteet
+# 5. PyQGIS-perusteet
 
-**Harjoituksen sisältö:** QGISin Python-paketin käytön perusteet
+**Harjoituksen sisältö:** PyQGIS käytön perusteet
 
 **Harjoituksen tavoite:** Harjoituksen jälkeen opiskelija hallitsee PyQGISin perusteet.
 

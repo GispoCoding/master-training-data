@@ -1,131 +1,1101 @@
-# 4. QGISin Python-konsoli
+# 3. Python-kertaus
 
-**Harjoituksen sisältö:** QGISin Python-konsoli ja skriptieditori.
+**Harjoituksen sisältö:** Python-ohjelmointikielen perusteiden kertaus.
 
-**Harjoituksen tavoite:** Tutustua Python-komentojen ajamiseen konsolissa ja
-skriptien ajamiseen skriptieditorissa.
+**Harjoituksen tavoite:** Harjoituksen jälkeen opiskelija hallitsee Pythonin perusteet.
 
-::: note-box
-Seuraavissa harjoituksissa oletetaan, että tunnet Python-kielen perusteet.
-Tarvittaessa voit kerrata Pythonia [täällä](00_harjoitus_0.html).
-:::
+Tämä harjoitus keskittyy PyQGIS-ohjelmoinnin sijasta Python-kielen perusteisiin.
+Kurssin osallistujilta ei vaadita täydellistä ohjelmointitaitoa,
+mutta jos ohjelmoinnin perusteet ovat hallussa,
+ehditään enemmän aikaa käyttää niiden soveltamiseen käytännössä.
 
-Yksinkertaisin tapa käyttää Python-rajapintaa QGISissä on Python-konsolin kautta.
-Konsolin avulla voidaan syöttää ja ajaa yksittäisiä komentoja tai pidempiä skriptejä.
-Windowsilla QGIS-asennukseen sisältyy erillinen Python-tulkki, jonka versio on 3.12.
-Lisäksi asennukseen sisältyy joitain Python-paketteja standardikirjaston lisäksi.
-Asennukseen kuuluu myös QGIS- ja gdal/ogr-kirjastot, jotka mahdollistavat eri
-komponenttien hyödyntämisen konsolissa ja lisäosissa. Näiden lisäksi asennukseen
-kuuluu myös PyQt-kirjasto, eli Qt-käyttöliittymäkirjaston Python-sidonta (binding),
-joka mahdollistaa graafisen käyttöliittymän luomisen lisäosille.
+## Esivalmistelut
 
-::: hint-box
-Python toimii käyttöjärjestelmien välillä hieman eri tavalla. Windows- ja
-MacOS-käyttöjärjestelmissä QGIS-asennukseen kuuluu oma Python-tulkki, kun
-taas Linux-pohjaisilla käyttöjärjestelmillä QGIS käyttää järjestelmän Python-tulkkia.
-:::
+Harjoituksen voi tehdä millä vain tekstieditorilla ja Python-tulkilla,
+mutta suoraviivaisin tapa lienee käyttää QGISin Python-konsolia sekä tekstieditoria.
+Näin tutustut samalla kurssin olennaisiin työkaluihin,
+ja voit käyttää suoraan QGISin mukana asennettua Pythonia.
 
-Python-konsoliin pääsee usealla tavalla (kts. alla oleva kuva): 
+QGISin Python-tulkkia saat auki **Lisäosat**-ylävalikon kautta.
 
-- Sen voi avata QGISin ylävalikosta Lisäosat > Python-konsoli (Plugins > Python Console),
-- Pikanäppäinyhdistelmällä Ctrl + Alt + P,
-- Klikkaamalla työkalupalkista Python-logon kohdalta
+## Python-perusteita
 
-![](img/harjoitus_4/image1.png)
+### Komennot
 
-Tarkastellaan konsoli-ikkunan eri osia: vihreästä kolmiosta klikkaamalla komennot
-suoritetaan (enter-näppäin ajaa saman asian). Muista ikoneista:
-
-- ![](https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/console/iconTabEditorConsole.svg)
-Avaa skriptieditorin. Editori helpottaa pidempien skriptien tekoa ja ajamista
-
-- ![](https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/console/iconClearConsole.svg)
-Tyhjentää konsoli-ikkunan edellisistä komennoista
-
-- ![](https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/console/iconHelpConsole.svg)
-Täältä löydät kätevästi linkit PyQGIs API -dokumentaatioon, PyQGIS Cookbookiin
-sekä konsolin ohjeisiin.
-
-Avaa konsolista skriptieditori ja tutki samoin sen ominaisuuksia.
-
-## Harjoitusten rakenne
-
-## Esimerkit
-
-Eri harjoitusosioissa on annettu esimerkkejä Python-koodista. Suosittelemme,
-että esimerkkejä läpikäydessä kopioit esimerkin QGIS-konsolin skriptieditorin
-puolelle ja ajat koodin. Esimerkkien yhteydessä voi myös muokata koodia
-kokeillakseen eri toimintoja ja lopputuloksia. Esimerkit on annettu
-koodilaatikossa, josta sen sisällön voi kopioida viemällä hiiren osoittimen
-laatikon päälle ja klikkaamalla laatikon oikeaan yläreunaan ilmestyvää
-painiketta.
+Kuten kaikki tietokoneohjelmat,
+myös Python-ohjelmat koostuvat komennoista (command).
+Alla esimerkkiohjelma,
+jossa `print`-komennolla tulostetaan konsoliin ensin `Hello`
+ja sitten `QGIS!`.
 
 ::: code-box
 ```python
-# Esimerkkikoodia
-
-print("Run me as an example!")
+print("Hello")
+print("QGIS!")
 ```
 :::
 
-## Harjoitukset
+Ohjelma tulostaa:
+```
+Hello
+QGIS!
+```
 
-Suosittelemme, että työstät myös harjoitusten vastaukset skriptieditorissa.
-Harjoitusten yhteydessä on joskus annettu oikeaan suuntaan ohjaava vinkki,
-sekä aina malliratkaisu. Saat nämä näkyville painamalla **Näytä ratkaisu** ja
-**Näytä vinkki** -painikkeita. Suosittelemme kuitenkin, ettet katso malliratkaisua
-liian aikaisin vaan yrität ensin keksiä ratkaisun itse.
-Saman asian voi myös tehdä usealla tavalla, ja malliratkaisu on vain yksi
-tapa ratkaista ongelma!
+### Kommentit
 
-## Harjoitus 1.1
+Python-kielessä rivit, joiden alussa on `#`-merkki,
+eivät vaikuta ohjelman toimintaan.
+Näitä kutsutaan kommenteiksi (comment),
+ja niillä voi selittää ohjelman toimintaa itselleen tai muille.
+Kommentti voi olla myös rivin lopussa.
 
-Aseta muuttujan a arvoksi 5 Python- konsolissa ja tulosta muuttujan arvo.
+Kommentoitu esimerkkiohjelma, jonka tuloste on sama kuin yllä:
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
-
-::: hidden-box
 ::: code-box
 ```python
-# Aseta ensin arvo
-a = 5
-
-# Millä funktiolla voit tulostaa muuttujan arvon?
+print("Hello")
+# Tämä rivi ei tee mitään
+print("QGIS!")  # Tulosta QGIS!
 ```
 :::
-:::
 
-<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+### Luvuilla laskeminen
 
-::: hidden-box
+`print`-komennon sisälle voi laittaa myös laskutoimituksen,
+jolloin tulostuu sen tulos.
+
 ::: code-box
 ```python
-a = 5
-
-print(5)
+print(1 + 1)
+print(5 / 2.5)
+print(10 - 4 * 2)
 ```
 :::
+
+Tulostaa:
+```
+2
+2.0
+2
+```
+
+### Muuttujat
+
+Ohjelman tarvitsemaa tietoa,
+esimerkiksi lukuarvon,
+voi tallentaa muuttujaan (variable).
+
+Muuttujan luonti:
+
+::: code-box
+```python
+muuttuja = <arvo>
+```
 :::
 
-\
-\
+jossa `<arvo>` voi olla mitä vaan tietoa, joka tallentuu muuttujaan.
 
-::: hint-box
-Lisävinkkejä konsolin käyttöön:
+Alla esimerkki muuttujien käytöstä:
 
-- Konsoli sopii hyvin myös esimerkiksi PyQGIS-olioiden ominaisuuksien tutkimiseen sekä
-testailuun, ja se tukee esimerkiksi PyQGIS-kirjastojen koodintäydennystä (code completion).
+::: code-box
+```python
+number1 = 10
+number2 = 5
 
-- Konsolissa voi myös suorittaa useammalle riville jatkuvia komentoja, kuten for-loopin.
-Konsoliin ilmestyy tällöin rivinvaihdon jälkeen kolme pistettä sen merkiksi, että se
-odottaa lisäkomentoja. Huomaa kuitenkin, että pisteet eivät vastaa Python-koodin
-sisennystä, vaan käyttäjän on huolehdittava tästä.
+summed = number1 + number2
+multiplied = number1 * number2
 
-- Nuolinäppäimillä ylös- ja alaspäin pääsee siirtymään konsoliin syötettyjen komentojen
-historiassa.
-
-- Konsolipaneeli aukeaa todennäköisesti karttaikkunan alapuolelle, mutta sen pystyy
-raahaamaan ja telakoimaan haluttaessa muuallekin QGISin käyttöliittymässä tai irrottamaan
-omaksi ikkunakseen.
+print(summed)
+print(multiplied)
+```
 :::
 
+Tulostaa:
+```
+15
+50
+```
+
+Muuttujan arvo voi muuttua:
+
+::: code-box
+```python
+variable = 10
+variable = "kymmenen"
+
+print(variable)
+```
+:::
+
+Tulostaa:
+```
+kymmenen
+```
+
+### Tyypit
+
+Olemme käsitelleet jo kolmen eri tyypin (type) tietoa:
+Lainausmerkeillä `""` merkittyjä merkkijonoja sekä kokonais- ja desimaalilukuja.
+
+`type`-komennolla voi selvittää tyyppejä:
+
+::: code-box
+```python
+print(type("merkkijono"))
+print(type(1))
+print(type(0.5))
+```
+:::
+
+Tulostaa:
+```
+<class 'str'>
+<class 'int'>
+<class 'float'>
+```
+
+Tulosteesta selviää,
+että Pythonissa `str` (string) tarkoittaa merkkijonoa,
+`int` (integer) kokonaislukua
+ja `float` (floating-point number) desimaalilukua.
+
+Tyyppejä on monia, ja niitä voi myös luoda itse.
+Tässä esimerkkinä vielä
+totuusarvot `True` ja `False` (`bool`).
+
+::: code-box
+```python
+print(type(True))
+print(type(False))
+```
+:::
+
+Tulostaa:
+```
+<class 'bool'>
+<class 'bool'>
+```
+
+Eri tyypit omaavat erilaisia ominaisuuksia.
+Esimerkiksi kokonais- ja desimaalilukuja voi käyttää
+matemaattisten operaattoreiden kanssa laskemiseen,
+kun taas muilla tyypeillä tämä ei välttämättä aina toimi.
+
+Nämä lausekkeet esimerkiksi toimivat:
+
+::: code-box
+```python
+print(1 + 1)
+print("merkki" + "jono")
+print(2 * "GIS")
+```
+:::
+
+Tulostaa:
+```
+2
+merkkijono
+GISGIS
+```
+
+Seuraavista lausekkeista tulostuu virheviesti,
+virheen syynä `TypeError`:
+
+::: code-box
+```python
+print(1 + "1")
+print("merkki" - "jono")
+print("GIS" / 2)
+```
+:::
+
+### Ehtolauseet ja vertailu
+
+On tyypillistä,
+että ohjelman suorituksen täytyy muuttua tiettyjen ehtojen mukaan.
+Usein ehdot perustuvat arvojen vertailuun.
+Alla Pythonin vertailuoperaattoorit:
+
+| Operaattori | Selite |
+|-|-|
+| == | Yhtä suuri |
+| != | Erisuuri |
+| > | Suurempi |
+| < | Pienempi |
+| >= | Suurempi tai yhtä suuri |
+| <= | Pienempi tai yhtä suuri |
+<br>
+Esimerkkinä ohjelma, joka vertaa muuttujan `a` arvoa erilaisiin merkkijonoihin.
+Jos merkkijonot yhtenevät,
+kyseisen ehdon sisennetty koodilohko suoritetaan.
+Huomaa, että `elif`-avainsanan ehto tarkastetaan vain jos
+edeltävän `if`-avainsanan ehto ei täyty.
+Jos `if` tai `elif` ehdot eivät kumpikaan täyty,
+suoritetaan `else`-avainsanan lohko.
+Kaikissa tapauksissa suoritetaan viimeinen tulostuskomento.
+
+::: code-box
+```python
+a = "GIS"
+
+if a == "GIS":
+    string_to_print = "Q" + a
+elif a == "jono":
+    string_to_print = "merkki" + a
+else:
+    string_to_print = a
+
+print(string_to_print)
+```
+:::
+
+Tulostaa:
+```
+QGIS
+```
+
+Ehtoja voi myös yhdistää loogisilla operaattoreilla `and` ja `or`:
+
+::: code-box
+```python
+temperature = 15
+
+if temperature < 25 and temperature > 10:
+    print("sopiva")
+elif temperature >= 25 or temperature <= 10:
+    print("liian kylmä tai kuuma")
+```
+:::
+
+### Funktiot
+
+Funktio (function) on koodia, joka kutsuttaessa suorittaa jonkin toiminnon.
+Funktio voi ottaa vastaan parametreja,
+jotka vaikuttavat sen suoritukseen,
+ja se voi myös palauttaa tietoa.
+
+Esimerkiksi `print` on pythonin sisäänrakennettu funktio,
+joka ottaa parametreinä tulostettavia arvoja,
+tulostaa ne, mutta ei palauta mitään.
+`type`-funktio sensijaan palauttaa parametrin tyypin.
+
+Funktiokutsu on siis muotoa:
+
+::: code-box
+```python
+funktio(parametri_1, parametri_2, ... parametri_n)
+```
+:::
+
+Uusi funktio määritellään `def`-avainsanalla:
+
+::: code-box
+```python
+# parametriton funktio, joka ei palauta mitään
+def greet():
+    print("Hello!")
+
+greet()
+```
+:::
+
+Tulostaa:
+```
+Hello!
+```
+
+Funktion parametrit määritellään suluissa `()`
+ja palautusarvo `return`-avainsanalla.
+
+Funktiota kutsuttaessa parametrit voi antaa joko
+lyhyesti, eli kirjoittamatta erikseen parametrien nimiä,
+tai kirjoittamalla sekä parametrin, että sille annettavan arvon:
+
+::: code-box
+```python
+def multiply(a, b):
+    return a * b
+
+multiply(2, 3)
+multiply(a=2, b=3)
+```
+:::
+
+Alla vielä kommentoitu esimerkki funktion käytöstä:
+
+::: code-box
+```python
+def make_greeting(name):  # yksi parametri: name
+    greeting = f"Hello {name}!"
+    return greeting  # palautetaan tervehdys
+
+greeting = make_greeting("QGIS")  # palautusarvo muuttujaan greeting
+print(greeting)
+print(make_greeting(name="Me"))  # palautusarvon tulostus suoraan
+```
+:::
+
+Tulostaa:
+```
+Hello QGIS!
+Hello Me!
+```
+
+Huomaa ylläolevassa esimerkissä myös
+pelkkien lainausmerkkien `""` sijaan `f""`-muotoa olevan merkkijono.
+f-syntaksi mahdollistaa
+merkkijonon täydentämisen aaltosulkuihin `{}` merkityllä sisällöllä.
+
+Funktion sisällä voi olla mitä vaan koodia ja muita funktioita:
+
+::: code-box
+```python
+def sum_two_positive_integers(a, b):
+    if type(a) != int or type(b) != int:
+        print("use integers only")
+        # tyhjä return lopettaa funktion suorituksen palauttamatta mitään
+        return
+    if a < 0 or b < 0:
+        print("integers must be positive")
+        return
+    return a + b  # palautetaan summa
+```
+:::
+
+### Tietorakenteita
+
+Yksittäisten arvojen lisäksi Pythonissa on myös tietorakenteita,
+joihin voi tallettaa useita arvoja ja joista voi hakea tietoa eri tavoin.
+
+#### Lista
+
+Lista (list) on kokoelma tietoa. Se luodaan hakasulkeilla `[]`,
+ja sen alkiot (item) erotetaan pilkulla `,`.
+
+Alla lista, jossa alkioina luvut 1, 2 ja 3.
+
+::: code-box
+```python
+my_list = [1, 2, 3]
+```
+:::
+
+Listan alkioihin pääsee käsiksi niiden indeksillä.
+Ensimmäisen alkion indeksi on 0, toisen 1, kolmannen 2 jne.
+Miinusmerkkiset indeksit viittaavat listan loppupäähän,
+eli listan viimeisen alkion indeksi on -1, toiseksi viimeinen -2 jne.
+
+::: code-box
+```python
+items = ["first_item", "second_item", "third_item"]
+
+print(items[0])
+print(items[1])
+print(items[2])
+
+print(items[-1])
+print(items[-2])
+print(items[-3])
+```
+:::
+
+Tulostaa:
+
+```
+first_item
+second_item
+third_item
+third_item
+second_item
+first_item
+```
+
+Listassa voi olla mitä vain tietoa, esim:
+
+::: code-box
+```python
+everything = [True, 3.14, "yes", [1, 2, 3]]
+```
+:::
+
+Listan alkioita voi muuttaa ja poistaa, ja siihen voi lisätä alkioita.
+
+::: code-box
+```python
+my_list = [1, 2, "some_item", "last_item"]
+
+my_list[0] = "new_value"  # muuta arvo alkiolle 0 indeksissä
+print(my_list)
+
+my_list.pop(2)  # list.pop poistaa indeksin mukaan
+print(my_list)
+
+my_list.remove("last_item")  # list.remove poistaa alkion arvon mukaan
+print(my_list)
+
+my_list.append("my_new_last_item")  # list.append lisää listan loppuun
+print(my_list)
+```
+:::
+
+Tulostaa:
+```
+['new_value', 2, 'some_item', 'last_item']
+['new_value', 2, 'last_item']
+['new_value', 2]
+['new_value', 2, 'my_new_last_item']
+```
+
+#### Sanakirja
+
+Sanakirjassa (dictionary) alkiot ovat yksittäisten arvojen sijaan
+avaimen (key) ja arvon (value) muodostamia pareja.
+Tietoon pääsee käsiksi avaimen perusteella.
+
+Sanakirja luodaa aaltosuluilla `{}`, avain ja arvo erotellaan kaksoispisteellä `:`
+ja avain-arvo-parit erotellaan pilkulla `,`:
+
+::: code-box
+```python
+my_dictionary = {"greeting": "Hello!", 10: 1000, "list": [1, 0]}
+
+print(my_dictionary["greeting"])
+print(my_dictionary[10])  # Huom! 10 on avain, vaikka onkin numero
+print(my_dictionary["list"])
+```
+:::
+
+Tulostaa:
+```
+Hello!
+1000
+[1, 0]
+```
+
+Sanakirjoja voi muokata lisäämällä uusia avain-arvo pareja.
+Avaimet ovat uniikkeja, eli saman avaimen käyttö korvaa arvon.
+Myös poistaminen onnistuu.
+
+::: code-box
+```python
+my_dictionary = {"fruit": "apple"}
+
+my_dictionary["fruit"] = "pear"
+my_dictionary["number"] = 42
+print(my_dictionary)
+
+# poistot avaimen mukaan
+my_dictionary.pop("fruit")
+del my_dictionary["number"]
+print(my_dictionary)
+```
+:::
+
+Tulostaa:
+```
+{'fruit': 'pear', 'number': 42}
+{}
+```
+
+
+#### Tuple
+
+Tuple on käytännössä muuten samanlainen kuin lista,
+mutta se luodaan kaarisuluilla `()` ja se on muuttumaton:
+sen alkioita ei voi muuttaa eikä siihen voi lisätä tai poistaa alkioita.
+
+::: code-box
+```python
+xyz = (3, 2, 1)
+xyz[0] = 0  # ei mahdollista, TypeError
+```
+:::
+
+#### Joukko
+
+Joukko (set) on myös samantyylinen kuin lista,
+mutta se luodaan aaltosuluilla `{}` ja jokainen sen alkio on uniikki.
+
+::: code-box
+```python
+my_set = {1, 1, 2, 2, 3, 3}
+print(my_set)
+```
+:::
+
+Tulostaa:
+```
+{1, 2, 3}
+```
+
+Pythonin sisäänrakennetuilla `set`- ja `list`-funktiolla voi karsia esim. listan
+vain sen uniikkeihin elementteihin.
+
+::: code-box
+```python
+list_with_duplicates = [1, 1, 1, 0]
+print(set(list_with_duplicates))
+print(list(set(list_with_duplicates)))
+```
+:::
+
+Tulostaa:
+```
+{0, 1}
+[0, 1]
+```
+
+### Silmukat ja iterointi
+
+#### while-silmukka
+
+Silmukka (loop) mahdollistaa samojen komentojen toistamisen useaan kertaan.
+`while`-silmukassa koodilohkoa toistetaan niin pitkään,
+kuin silmukan ehto on totta.
+
+Syntaksi on muotoa:
+
+::: code-box
+```python
+while <ehto>:
+    <suoritettava koodi>
+```
+:::
+
+`while`-silmukoissa on tärkeää, että emme luo niin sanottua ikuista silmukkaa:
+
+::: code-box
+```python
+while True:
+    print("this never ends")
+```
+:::
+
+Tulostaa:
+```
+this never ends
+this never ends
+this never ends
+...
+(jatkuu loputtomasti)
+```
+
+Seuraava silmukka loppuu kolmen kierroksen jälkeen:
+
+::: code-box
+```python
+number = 0
+
+while number < 3:
+    print(number)
+    number = number + 1
+```
+:::
+
+Tulostaa:
+```
+0
+1
+2
+```
+
+Silmukan voi myös lopettaa `break`-komennolla:
+
+::: code-box
+```python
+number = 0
+
+while True:
+    print(number)
+    number += 1  # lyhyempi tapa kirjoittaa number = number + 1
+    if number >= 3:
+        break
+```
+:::
+
+Tulostaa:
+```
+0
+1
+2
+```
+
+#### for-silmukka
+
+`for`-silmukassa toistaminen perustuu ehdon sijasta tietorakenteeseen.
+Tarkemmin sanottuna `for`-silmukka käy läpi tietorakenteen kaikki osat yksi kerrallaan:
+tätä kutsutaan iteroinniksi (iteration).
+`for`-silmukan suoritus loppuu automaattisesti,
+kun tietorakenne on läpikäyty.
+
+Syntaksi on muotoa:
+
+::: code-box
+```python
+for <muuttuja> in <rakenne>:
+    <suoritettava koodi>
+```
+:::
+
+`<muuttuja>`:n arvo siis riippuu tietorakenteesta.
+Esimerkiksi listassa se saa arvokseen jokaisen listan alkion vuorollaan:
+
+::: code-box
+```python
+my_list = [1, 2, 3]
+
+for item in my_list:
+    print(item)
+
+for i in my_list:  # for-silmukan muuttuja voidaan nimetä miten vain
+    print(i)
+```
+:::
+
+Tulostaa:
+```
+1
+2
+3
+1
+2
+3
+```
+
+Sanakirjoissa `for`-silmukan muuttuja on avain:
+
+::: code-box
+```python
+coordinates = {"city_1": (10, 4), "city_2": (1, 3)}
+
+for key in coordinates:
+    print(f"avain: {key}")
+    print(f"arvo: {coordinates[key]}")
+
+# ... mutta sanakirja.items mahdollistaa sekä avaimen että arvon suoran käytön
+for key, value in coordinates.items():
+    print(key, value)
+```
+:::
+
+Tulostaa:
+```
+avain: city_1
+arvo: (10, 4)
+avain: city_2
+arvo: (1, 3)
+city_1 (10, 4)
+city_2 (1, 3)
+```
+
+Silmukoita voi olla sisäkkäin:
+
+::: code-box
+```python
+list_of_lists = [[1, 2, 3], ["a", "b", "c"]]
+
+for inner_list in list_of_lists:
+    print(inner_list)
+    for item in inner_list:
+        print(item)
+```
+:::
+
+Tulostaa:
+```
+[1, 2, 3]
+1
+2
+3
+['a', 'b', 'c']
+a
+b
+c
+```
+
+`break`-komento toimii kaikissa silmukoissa:
+
+::: code-box
+```python
+numbers = [1, 2, 3, "a cat", 5, 6]
+
+for number in numbers:
+    if type(number) != int and type(number) != float:
+        print(f"{number} is not a number!")
+        break
+    print(number)
+```
+:::
+
+Tulostaa:
+```
+1
+2
+3
+a cat is not a number!
+```
+
+### Moduulit
+
+Moduuli (module) on mikä vain `.py`-loppuinen tiedosto.
+Se siis sisältää Python-koodia, esimerkiksi arvoja tai funktioita.
+Moduulien hyöty piilee siinä,
+että yhdessä moduulissa olevaa koodia voi käyttää muissa moduuleissa.
+Näin koodin uudelleenkäytettävyys paranee huomattavasti.
+
+Moduuli otetaan käyttöön `import` komennolla.
+Alla otetaan käyttöön Pythonin sisäänrakennettu `math`-moduuli,
+ja käytetään moduulin funktiota `sqrt` neliöjuuren laskemiseen:
+
+::: code-box
+```python
+import math
+
+print(math.sqrt(4))
+```
+:::
+
+Tulostaa:
+```
+2.0
+```
+
+Moduulin osia voi ottaa käyttöön myös suoraan `from`-syntaksilla:
+
+::: code-box
+```python
+from math import pi, sqrt
+
+print(pi)
+print(sqrt(4))
+```
+:::
+
+Tulostaa:
+```
+3.141592653589793
+2.0
+```
+
+
+## Lisäosio
+
+### Oliot
+
+Olio (object) on keskeinen käsite Pythonissa.
+Esimerkiksi kaikki kielessä esiintyvät arvot,
+kuten luvut, merkkijonot tai listat,
+ovat olioita -- kukin vain omaa tyyppiään.
+
+#### Metodit ja attribuutit
+
+Käytännössä olio tarkoittaa kokonaisuutta,
+joka voi pitää sisällään tietoa sekä toiminaallisuuksia.
+Esimerkiksi merkkijonoon liittyy itse merkkijonon lisäksi
+olion toteuttamia toiminnalisuuksia eli metodeja (method).
+Olioon liittyvää tietoa kutsutaan attribuutiksi (attribute).
+Kunkin olion metodit ja attribuutit ovat sidottuja olion tyyppiin:
+esim. kokonaisluku-olion metodit ovat merkkijonoon nähden erilaisia.
+
+Tavallisista funktioista metodit eroavat siinä,
+että niitä kutsutaan aina kohteena olevan olion kautta.
+Sama pätee attribuutteihin:
+toisin kuin tavallinen muuttuja, attribuutti haetaan olion kautta.
+Alla esimerkki syntaksista:
+
+::: code-box
+```python
+my_object.method()   # metodikutsu
+my_object.attribute  # attribuutti
+```
+:::
+
+Alla esimerkki merkkijonon metodista `count`,
+joka laskee kuinka monta kertaa parametrina annettu merkkijono sisältyy
+kohdemerkkijonoon:
+
+::: code-box
+```python
+print("abcdeeee".count("e"))
+```
+:::
+
+Tulostaa:
+```
+4
+```
+
+Lista-olion metodi `sort`:
+
+::: code-box
+```python
+my_list = [3, 1, 2]
+
+my_list.sort()
+
+print(my_list)
+```
+:::
+
+Tulostaa:
+```
+[1, 2, 3]
+```
+
+Totuusarvolla on attribuutti `real`,
+joka on kohdetotuusarvo reaalilukuna:
+
+::: code-box
+```python
+print(True.real)
+print(False.real)
+```
+:::
+
+Tulostaa:
+```
+1
+0
+```
+
+#### Konstruktorit
+
+Tähän mennessä olioiden luomiseen ei olla kiinnitetty erityistä huomiota.
+Monille pythonin sisäänrakennetuille tyypeille on tietty syntaksi,
+jolla olio luodaan, esimerkkinä listan luominen hakasulkeilla `[]` tai merkkijono
+lainausmerkeillä `""`.
+
+Yllämainitut tapaukset ovat kuitenkin erikoistapauksia:
+kaikkien eri tyyppien olioiden muodostamiseen ei ole sisäänrakennettua syntaksia.
+Oletusarvoisesti olio luodaankin konstruktorilla (constructor),
+joka on olion muodostamiseen tarkoitettu metodi.
+Muista metodeista eroten konstruktoria kutsutaan irrallaan oliosta,
+sillä oliota ei ole olemassa ennen konstruktorikutsua.
+
+Esimerkkinä päivämäärän, eli `date`-tyypin olion, luominen:
+
+::: code-box
+```python
+from datetime import date
+
+my_date = date(year=2024, month=6, day=19)
+
+print(my_date)
+print(type(my_date))
+print(my_date.year)
+print(my_date.isoweekday())
+```
+:::
+
+Tulostaa:
+```
+2024-06-19
+<class 'datetime.date'>
+2024
+3
+```
+
+`date` on siis konstruktori,
+jota kutsuttaessa annettiin vuosi, kuukausi ja päivä.
+Näin saatiin `date`-olio, johon liittyy monia attribuutteja ja metodeja:
+esim. tieto sen vuodesta ja metodi iso-formaatin viikonpäivän hakemiseen.
+
+### Luokat
+
+Olioiden attribuutit ja metodit määritellään luokissa (class).
+Toisin sanottuna luokka on siis tapa määritellä omia tyyppejä.
+
+#### Luokan syntaksi
+
+Luokka määritellään avainsanalla `class`.
+Luokan sisällä on tyypillisesti konstruktori,
+eli `__init__`-metodi.
+Tätä metodia kutsutaan taustalla silloin kun luokasta luodaan uusi olio.
+Huomaa kuitenkin, että olio luodaan kutsumalla suoraan luokan nimeä,
+eli luodessa ei kirjoitetakkaan erikseen `Luokka.__init__()`.
+
+Myös luokan muut metodit määritellään sisennettynä `class`-lohkoon.
+Metodit määritellään muuten samalla tavalla kuin mikä vain funktio,
+mutta ensimmäiseksi parametriksi asetetaan `self`.
+`self`-muuttujalla päästään käsiksi
+luokan attribuutteihin ja metodeihin luokan määrittelyn sisällä.
+
+Luokkien nimeämisessä hyödynnetään hyvien tyylisääntöjen mukaisesti CamelCase-notaatiota,
+kun taas kaikessa muussa käytetään snake_case-notaatiota.
+
+Esimerkki luokan määrittelystä ja käytöstä:
+
+::: code-box
+```python
+class MyClass:  # nimetään luokka
+
+    def __init__(self, parameter_1, parameter_2):  # konstruktori
+        self.attribute_1 = parameter_1  # attribuuteja
+        self.attribute_2 = parameter_2
+
+    def method(self, parameter):
+        print(f"{self.attribute_1}, {parameter}")
+
+my_object = MyClass(1, "b")  # luodaan olio
+
+print(type(my_object))
+print(my_object.attribute_1)
+print(my_object.attribute_2)
+my_object.method("c")
+```
+:::
+
+Tulostaa:
+```
+<class '__main__.MyClass'>
+1
+b
+1, c
+```
+
+#### Luokkien hyödyntäminen ohjelmoinnissa
+
+Luokilla voidaan mallintaa kokonaisuuksia,
+joiden tiedot ja toiminnallisuudet liittyvät loogisesti yhteen.
+
+Alla yksinkertainen esimerkki luokasta `Animal`:
+
+::: code-box
+```python
+class Animal:
+
+    def __init__(self, species, sound, name="Nimetön"):
+        self.species = species
+        self.sound = sound
+        self.name = name
+
+    def describe(self):
+        print(f"Nimi: {self.name}")
+        print(f"Laji: {self.species}")
+
+    def speak(self):
+        print(self.sound)
+
+cat = Animal(species="kissa", sound="Miau!")
+dog = Animal(species="koira", sound="Vuh!", name="Kerttu")
+
+cat.describe()
+cat.speak()
+
+dog.describe()
+dog.speak()
+```
+:::
+
+Tulostaa:
+```
+Nimi: Nimetön
+Laji: kissa
+Miau!
+Nimi: Kerttu
+Laji: koira
+Vuh!
+```
+
+Alla edistyneempi esimerkki,
+jossa useampia luokkia käytetään yhdessä
+mallintamaan ostotapahtumaa kaupassa.
+Esimerkissä määritellään kolme luokkaa:
+tuote (`Item`), jolla on attribuutteina nimi ja hinta,
+asiakas (`Customer`),
+jolla on attribuutteina rahaa ja tuotteita sekä metodi maksamiseen,
+ja kassa (`Counter`), jossa on rahaa ja jolla on metodi
+maksun veloitukseen asiakkaalta.
+Lisäksi `Customer`- ja `Counter`-luokille
+on toteutettu `show_info`-metodi,
+jotta ohjelman suorituksen seuraaminen olisi helpompaa.
+
+::: code-box
+```python
+# Määritellään luokat
+class Item:
+
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+
+class Customer:
+
+    def __init__(self, money):
+        self.money = money
+        self.items = []
+
+    def add_item(self, item):
+        self.items.append(item)
+
+    def pay(self, price):
+        self.money -= price
+
+    def show_info(self):
+        print("Customer items:")
+        for item in self.items:
+            print(f"{item.name}, price: {item.price}")
+        print(f"Customer money: {self.money}")
+        print("----")
+
+
+class Counter:
+
+    def __init__(self):
+        self.money = 100
+
+    def make_purchase(self, customer):
+        total_price = 0
+        for item in customer.items:
+            total_price += item.price
+        customer.pay(total_price)
+        self.money += total_price
+
+    def show_info(self):
+        print(f"Money in counter: {self.money}")
+        print("----")
+
+
+# Käytetään luokkia
+banana = Item(name="banana", price=1)
+coffee = Item(name="coffee", price=6)
+
+customer = Customer(money=10)
+
+counter = Counter()
+
+customer.show_info()
+counter.show_info()
+
+customer.add_item(item=banana)
+customer.add_item(item=coffee)
+customer.show_info()
+
+counter.make_purchase(customer=customer)
+
+customer.show_info()
+counter.show_info()
+```
+:::
+
+Tulostaa:
+```
+Customer items:
+Customer money: 10
+----
+Money in counter: 100
+----
+Customer items:
+banana, price: 1
+coffee, price: 6
+Customer money: 10
+----
+Customer items:
+banana, price: 1
+coffee, price: 6
+Customer money: 3
+----
+Money in counter: 107
+----
+```

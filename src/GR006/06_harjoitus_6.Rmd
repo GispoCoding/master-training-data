@@ -1,4 +1,4 @@
-# Harjoitus 3: Tasot, kohteet ja geometriat
+# 6. PyQGIS - tasojen muokkaus
 
 **Harjoituksen sisältö:** QGIS-tasojen ja kohteiden luominen ja muokkaus.
 
