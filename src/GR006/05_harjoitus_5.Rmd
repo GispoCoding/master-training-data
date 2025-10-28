@@ -80,8 +80,6 @@ Iteroidaan tasoja:
 ::: code-box
 ```python
 # Voidaan käyttää listakoostetta
-# (kts. tarvittaessa Python-lisätehtävistä
-# aihe 1).
 
 # Tason ID:tä ei välttämättä tarvita,
 # joten voidaan hakea suoraan vain
@@ -119,7 +117,7 @@ staattista metodia `instance()`, joka palauttaa aina saman olion.
 Koska metodi on staattinen, projektiolioon on globaali pääsy.
 :::
 
-## Harjoitus 2.1
+## Harjoitus 5.1
 
 Selvitä Pythonilla **OpenStreetMap**-tason datan lähde.
 Tutki tarvittaessa [PyQGIS-dokumentaatiota](https://qgis.org/pyqgis/latest/).
@@ -144,7 +142,7 @@ type=xyz&url=https://tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png&zmax=19&
 ```
 :::
 
-## Harjoitus 2.2
+## Harjoitus 5.2
 
 Kirjoita skripti, joka käy läpi kaikki projektiin lisätyt tasot
 ja tulostaa **vain** vektoritasojen kenttien nimet.
@@ -184,7 +182,7 @@ for layer in layers:
 :::
 :::
 
-## Harjoitus 2.3
+## Harjoitus 5.3
 
 Kirjoita skripti, joka tulostaa kaikkien Etelä-Amerikan
 alueiden nimet **NaturalEarth**-tasolta. Valitse maanosa
@@ -215,7 +213,7 @@ for feature in layer.getFeatures():
 ::: hidden-box
 ::: code-box
 ```python
-layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layers = QgsProject.instance().mapLayersByName(ne_10m_admin_0_countries — admin_0_countries')
 
 layer = layers[0]
 
