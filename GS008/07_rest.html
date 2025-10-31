@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="7. GeoServer REST API | Advanced GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Mikael Vaaltola" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="7. GeoServer REST API | Advanced GeoServer">
+
+<title>7. GeoServer REST API | Advanced GeoServer</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Advanced GeoServer</h1></div>
+<div class="abstract-sidebar"><p>A course covering advanced GeoServer topics.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#advanced-geoserver">Advanced GeoServer</a>
+<ul>
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_env.html#training-environment">1. Training environment</a>
+<ul>
+<li><a href="01_env.html#tools">Useful tools to install</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_security.html#security-and-user-management">2. Security and user management</a>
+<ul>
+<li class="has-sub"><a href="02_security.html#exercise---layer-security">Exercise - layer security</a>
+<ul>
+<li><a href="02_security.html#permissions">Check default permissions</a></li>
+<li><a href="02_security.html#prevent-unauthenticated-access">Prevent unauthenticated access</a></li>
+<li><a href="02_security.html#verify-rules">Verify rules</a></li>
+</ul></li>
+<li><a href="02_security.html#extra-service-level-settings">Extra — service-level settings</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_raster.html#rasters">3. Optimising rasters</a>
+<ul>
+<li class="has-sub"><a href="03_raster.html#gdal">GDAL</a>
+<ul>
+<li><a href="03_raster.html#setup">Setup</a></li>
+<li><a href="03_raster.html#gdalinfo">gdalinfo</a></li>
+</ul></li>
+<li><a href="03_raster.html#exercise-optimising-raster-data-for-geoserver">Exercise — Optimising raster data for GeoServer</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_vector.html#vectors">4. Optimising vector data</a>
+<ul>
+<li class="has-sub"><a href="04_vector.html#exercise---postgis-and-geoserver">Exercise - PostGIS and GeoServer</a>
+<ul>
+<li><a href="04_vector.html#loading-data-into-postgis">Loading data into PostGIS</a></li>
+<li><a href="04_vector.html#indexing">Indexing</a></li>
+<li><a href="04_vector.html#publish-to-geoserver">Publish to GeoServer</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="05_styles.html#styles">5. Map styles</a>
+<ul>
+<li><a href="05_styles.html#choosing-a-style-format">Choosing a style format</a></li>
+<li><a href="05_styles.html#exercise-creating-styles">Exercise — creating styles</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_clustering.html#cluster">6. Clustering</a>
+<ul>
+<li><a href="06_clustering.html#containerisation">Containerisation</a></li>
+<li><a href="06_clustering.html#passive-cluster">Passive clustering</a></li>
+<li><a href="06_clustering.html#active-cluster">Active clustering</a></li>
+<li><a href="06_clustering.html#data-and-configuration-concerns">Data and configuration concerns</a></li>
+<li><a href="06_clustering.html#exercise---clustering">Exercise - clustering</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_rest.html#rest">7. GeoServer REST API</a>
+<ul>
+<li><a href="07_rest.html#using-apis">Using APIs</a></li>
+<li><a href="07_rest.html#exercise-rest-api">Exercise — REST API</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_extensions.html#extensions">8. Extensions</a>
+<ul>
+<li><a href="08_extensions.html#gs-tools">Useful tools</a></li>
+<li><a href="08_extensions.html#jmeter">Exercise - JMeter</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="rest" class="section level1">
+<h1>7. GeoServer REST API</h1>
+<p>The GeoServer REST API can be used to perform the same actions that are available in the GeoServer web UI.
+The <a href="https://docs.geoserver.org/stable/en/user/rest/index.html">GeoServer REST API documentation</a> is a good resource for getting started with using the REST API.</p>
+<p>It’s useful to know some basic REST principles before getting started.
+REST, short for Representational state transfer, is a software architecture style especially common on the internet.
+REST APIs are commonly used for creating, reading, updating, or deleting pieces of content, called <em>resources</em>.</p>
+<p>RESTful APIs are commonly called by making requests using <strong>HTTP methods</strong> such as GET, POST, and DELETE.
+These requests may contain a data payload called a <strong>body</strong>, which is typically in JSON format.
+Additional <strong>headers</strong> may also be included to provide further information to the server, such as user authentication or the preferred response format.
+Requests are made to specific URLs/routes, called service <strong>endpoints</strong>.</p>
+<p>Based on the endpoint, HTTP method, body, and headers, the server processes the request and returns a response.
+Responses have a HTTP status code indicating the status of the response, see the list of <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">HTTP status codes</a>.
+There may also be a data payload, such as an error message, which is again typically in JSON format.</p>
+<p>The GeoServer REST API of the training machines can be accessed on <code>http://&lt;base-url&gt;/geoserver/rest</code>.
+The <code>geoserver/rest</code> endpoint is often called the <em>base URL</em> of the GeoServer REST API.</p>
+<div id="using-apis" class="section level2">
+<h2>Using APIs</h2>
+<p>Many tools exist for calling REST APIs.
+Two popular GUI tools are <a href="https://www.postman.com/">Postman</a> and <a href="https://insomnia.rest/">Insomnia</a>.
+Both allow users to generate and send requests to the GS REST API.
+These tools can also import OpenAPI definitions to show available paths and schemas.</p>
+<div class="note-box">
+<p><strong>Note:</strong> while the <a href="https://docs.geoserver.org/stable/en/user/rest/index.html">GeoServer REST API documentation</a> is useful for learning about the GS REST API, it is not suitable for reading the API schema and structure to tools such as Insomnia.
+As stated on the index page:</p>
+<p>“The API is documented as Swagger 2.0 files.
+However, these files have been written by hand back in 2017, and have not always been kept up to date with the evolution of the GeoServer configuration object structure.
+Also, they have not been tested for proper client generation, and will likely not work for that purpose.
+Take them only as a form of documentation.”</p>
+</div>
+<p>There’s also various options to call the GS REST API programmatically.
+These include the command-line tool curl, that’s not as intuitive to use compared to tools like Insomnia, but is widely available on Linux systems and can be easily used in scripts.
+Many text editors and IDEs such as Visual Studio Code and IntelliJ IDEA support defining and making API calls in <code>.rest</code> files.
+The GS API can also be called from various programming languages.</p>
+</div>
+<div id="exercise-rest-api" class="section level2">
+<h2>Exercise — REST API</h2>
+<p>The examples in this exercise are based on <a href="https://insomnia.rest">Insomnia</a>, a free tool for designing and testing APIs that can be <a href="https://docs.insomnia.rest/insomnia/install">installed</a> on most operating systems.
+While installing Insomnia is not strictly required to complete the exercise, it’s a highly useful tool especially for those unfamiliar with REST APIs.
+If using Insomnia, start by creating a new Request Collection called gs-training from the Create button in the top-right corner of the dashboard window.
+Then edit the base configuration with the keyboard shortcut <code>Ctrl + E</code> (or clicking No environment → Manage environments near the top-left corner) and fill in the following:</p>
+<pre><code>{
+  &quot;base_url&quot;: &quot;http://&lt;base-url&gt;/geoserver/rest&quot;
+}</code></pre>
+<p>Replacing <code>&lt;base-url&gt;</code> with the URL of your training machine.
+Click done.
+Create a new request (<code>Ctrl + N</code> or right-click the left panel → New request).
+Set the HTTP method type and request name as desired.
+You can use <code>base_url</code> as a <em>variable</em> in your HTTP requests by typing <code>{{ base_url }}</code> in the URL field.
+For example, to call <code>http://&lt;base-url&gt;/geoserver/rest/layers</code> simply type <code>{{ base_url }}/layers</code>.</p>
+<div class="hint-box">
+<p><strong>Hint:</strong> GeoServer accepts Basic authentication, read <a href="https://docs.geoserver.org/latest/en/user/security/auth/owsrest.html">Authentication to OWS and REST services</a> for more details.
+In Insomnia, Basic authentication details can be provided on the Auth tab.</p>
+</div>
+<p>One of the most common use cases for the REST API, especially when running a passive cluster, is triggering a catalog reload when the contents of the GS data directory change.
+While the implementation details differ based on programming language, the API call is always the same.
+Read the <a href="https://docs.geoserver.org/latest/en/api/#1.0.0/reload.yaml">/reload endpoint documentation</a> (and optionally, the <a href="https://docs.geoserver.org/master/en/user/rest/api/reload.html">GeoServer documentation article</a>) for details.</p>
+<p>Try triggering a catalog reload using the API.
+If using Insomnia, create a new request first.
+What response do you get, and what does it mean?
+Try until you get a successful result (HTTP return code 200).</p>
+<div class="figure">
+<img src="img/insomnia-reload.png" alt="" />
+<p class="caption">Successful reload request</p>
+</div>
+<p>You can also make GET requests in your web browser.
+Open a new Incognito window in your browser and try opening <code>http://&lt;base-url&gt;/geoserver/rest/layers</code>.
+You are likely prompted for credentials, <strong>click cancel</strong>.
+What result do you see, and why?</p>
+<div class="hint-box">
+<p><strong>Hint:</strong> the developer tools panel is a highly useful tool to inspect HTTP requests made by your browser.
+In Chrome, open the developer tools panel by hitting F12.
+Then, click on the Network tab, and reload the page with F5.</p>
+</div>
+<p>In the same incognito window, open the GS web interface at <code>http://&lt;base-url&gt;/geoserver/web/</code> and log in using your credentials.
+Then try opening <code>http://&lt;base-url&gt;/geoserver/rest/layers</code> again.
+Examine the HTTP requests made by the browser and see what headers are added to the request.</p>
+<div class="figure">
+<img src="img/browser-request.png" alt="" />
+<p class="caption">Network tab in the developer tools panel</p>
+</div>
+<p>After successfully completing the catalog reload using the REST API, create a new request.
+This time, try getting a list of all layers in the <code>topp</code> workspace in XML format.</p>
+<div class="hint-box">
+<p><strong>Hint:</strong> if using Insomnia, you can duplicate requests using <code>Ctrl+D</code> or right-clicking on the request in the side panel and selecting Duplicate.
+This way you don’t have to keep re-filling the authentication details to each request.</p>
+</div>
+<p>After getting all the layers, create two new requests to:</p>
+<ul>
+<li>Get information about the layer <code>topp:states</code> in JSON format.</li>
+<li>Download the default style used for <code>topp:states</code> in SLD format.</li>
+</ul>
+<p>Finally, let’s modify the layer a bit.
+This is a more challenging request, as you have to also provide a request body in either JSON or XML format.
+See if you can create <em>one</em> request to:</p>
+<ul>
+<li>Change the default style of <code>topp:states</code> to <code>polygon</code></li>
+<li>Remove the previous default style of <code>topp:states</code> from the list of available styles.</li>
+</ul>
+<div class="hint-box">
+<p><strong>Hint:</strong> If you can’t get the requests to work, the correct requests made by the <code>curl</code> tool are added as a comment to this HTML document.
+Right-click on <em>this text</em> and select Developer tools → Inspect element.
+Then scroll down in the developer tools panel to see the comment with the answers.</p>
+</div>
+<!--
+Answers
+
+Get a list of layers in the topp workspace in XML format:
+curl --request GET \
+  --url http://$BASE_URL/workspaces/topp/layers.xml \
+  --header 'Authorization: Basic YWRtaW46Z2lzcG90cmFpbmluZw=='
+
+Get information about the layer topp:states in JSON format:
+curl --request GET \
+  --url http://$BASE_URL/layers/topp:states.json \
+  --header 'Authorization: Basic YWRtaW46Z2lzcG90cmFpbmluZw=='
+
+Download the default style used for topp:states in SLD format.
+curl --request GET \
+  --url http://$BASE_URL/styles/population.sld \
+  --header 'Authorization: Basic YWRtaW46Z2lzcG90cmFpbmluZw=='
+
+Change default style to polygon and remove population style from list of available styles:
+curl --request PUT \
+  --url http://$BASE_URL/layers/topp:states.json \
+  --header 'Authorization: Basic YWRtaW46Z2lzcG90cmFpbmluZw==' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "layer": {
+    "defaultStyle": {
+      "name": "polygon",
+      "href": "http://$BASE_URL\/styles\/polygon.json"
+    },
+    "styles": {
+      "@class": "linked-hash-set",
+      "style": [
+        {
+          "name": "polygon",
+          "href": "http://$BASE_URL\/styles\/polygon.json"
+        }
+      ]
+    }
+  }
+}'
+-->
+<p>Verify the default style has changed by viewing the <code>topp:states</code> layer using GeoServer’s Layer Preview.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="06_clustering.html"><button class="btn btn-default">Previous</button></a>
+<a href="08_extensions.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Advanced GeoServer</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
