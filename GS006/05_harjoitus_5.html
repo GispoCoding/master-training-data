@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 1.5: WMS- ja WCS-palvelut | Johdanto GeoServerin käyttöön" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 1.5: WMS- ja WCS-palvelut | Johdanto GeoServerin käyttöön">
+
+<title>Harjoitus 1.5: WMS- ja WCS-palvelut | Johdanto GeoServerin käyttöön</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Johdanto GeoServerin käyttöön</h1></div>
+<div class="abstract-sidebar"><p>Johdantokurssi GeoServerin käyttöön</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#johdanto-geoserverin-käyttöön">Johdanto GeoServerin käyttöön</a>
+<ul>
+<li><a href="index.html#tervetuloa-geoserver-kurssille">Tervetuloa GeoServer-kurssille!</a></li>
+<li><a href="index.html#geoserverin-taustaa">GeoServerin taustaa</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1.1-asennus-ja-käyttöönotto">Harjoitus 1.1: Asennus ja käyttöönotto</a>
+<ul>
+<li><a href="01_harjoitus_1.html#valmistautuminen"><strong>Valmistautuminen</strong></a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#päävalikko"><strong>Päävalikko</strong></a>
+<ul>
+<li><a href="01_harjoitus_1.html#about-geoserver"><strong>About GeoServer</strong></a></li>
+<li><a href="01_harjoitus_1.html#layer-preview"><strong>Layer Preview</strong></a></li>
+<li><a href="01_harjoitus_1.html#service-capabilities-palvelutoiminnallisuudet"><strong>Service Capabilities (palvelutoiminnallisuudet)</strong></a></li>
+<li><a href="01_harjoitus_1.html#demos"><strong>Demos</strong></a></li>
+<li><a href="01_harjoitus_1.html#demo-requests"><strong>Demo requests</strong></a></li>
+</ul></li>
+<li><a href="01_harjoitus_1.html#srs-list-ja-reprojection-console"><strong>SRS List ja Reprojection console</strong></a></li>
+<li><a href="01_harjoitus_1.html#wcs-request-builder"><strong>WCS request builder</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-1.2-geoserverin-web-käyttöliittymä">Harjoitus 1.2: GeoServerin web-käyttöliittymä</a>
+<ul>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1"><strong>Valmistautuminen</strong></a></li>
+<li><a href="02_harjoitus_2.html#ylläpitäjän-käyttöliittymä"><strong>Ylläpitäjän käyttöliittymä</strong></a></li>
+<li><a href="02_harjoitus_2.html#master--ja-admin-käyttäjät"><strong>Master- ja Admin-käyttäjät</strong></a></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#about-status--asetukset"><strong>About &amp; Status -asetukset</strong></a>
+<ul>
+<li><a href="02_harjoitus_2.html#contact-information"><strong>Contact Information</strong></a></li>
+<li><a href="02_harjoitus_2.html#server-status"><strong>Server Status</strong></a></li>
+<li><a href="02_harjoitus_2.html#geoserver-logs"><strong>GeoServer Logs</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#data-valikko"><strong>Data-valikko</strong></a>
+<ul>
+<li><a href="02_harjoitus_2.html#layer-preview-1"><strong>Layer Preview</strong></a></li>
+<li><a href="02_harjoitus_2.html#workspaces"><strong>Workspaces</strong></a></li>
+<li><a href="02_harjoitus_2.html#stores"><strong>Stores</strong></a></li>
+<li><a href="02_harjoitus_2.html#layers"><strong>Layers</strong></a></li>
+</ul></li>
+<li><a href="02_harjoitus_2.html#layer-groups"><strong>Layer Groups</strong></a></li>
+<li><a href="02_harjoitus_2.html#styles"><strong>Styles</strong></a></li>
+<li><a href="02_harjoitus_2.html#services-1"><strong>Services</strong></a></li>
+<li><a href="02_harjoitus_2.html#settings"><strong>Settings</strong></a></li>
+<li><a href="02_harjoitus_2.html#tile-caching-1"><strong>Tile Caching</strong></a></li>
+<li><a href="02_harjoitus_2.html#security-1"><strong>Security</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-1.3-vektoriaineistot">Harjoitus 1.3: Vektoriaineistot</a>
+<ul>
+<li><a href="03_harjoitus_3.html#valmistautuminen-2"><strong>Valmistautuminen</strong></a></li>
+<li><a href="03_harjoitus_3.html#vektoriaineisto-storen-luominen"><strong>Vektoriaineisto-storen luominen</strong></a></li>
+<li><a href="03_harjoitus_3.html#vektoritason-julkaiseminen"><strong>Vektoritason julkaiseminen</strong></a></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#data-asetukset"><strong>Data-asetukset</strong></a>
+<ul>
+<li><a href="03_harjoitus_3.html#coordinate-reference-systems"><strong>Coordinate Reference Systems</strong></a></li>
+<li><a href="03_harjoitus_3.html#bounding-boxes"><strong>Bounding Boxes</strong></a></li>
+<li><a href="03_harjoitus_3.html#feature-type-details"><strong>Feature Type Details</strong></a></li>
+</ul></li>
+<li><a href="03_harjoitus_3.html#helsingin-tiestön-lisääminen"><strong>Helsingin tiestön lisääminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-1.4-kuvaustekniikan-perusteet-sld">Harjoitus 1.4: Kuvaustekniikan perusteet (SLD)</a>
+<ul>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3"><strong>Valmistautuminen</strong></a></li>
+<li><a href="04_harjoitus_4.html#geoserverin-kuvaustekniikka"><strong>GeoServerin kuvaustekniikka</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-kuvaustekniikka"><strong>SLD-kuvaustekniikka</strong></a></li>
+<li><a href="04_harjoitus_4.html#uuden-tyylin-luominen"><strong>Uuden tyylin luominen</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-kuvaustekniikan-käyttöönotto"><strong>SLD-kuvaustekniikan käyttöönotto</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-cookbook"><strong>SLD Cookbook</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-kuvaustekniikan-muokkaaminen"><strong>SLD-kuvaustekniikan muokkaaminen</strong></a></li>
+<li><a href="04_harjoitus_4.html#tiestön-tyylin-luominen"><strong>Tiestön tyylin luominen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-1.5-wms--ja-wcs-palvelut">Harjoitus 1.5: WMS- ja WCS-palvelut</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-4"><strong>Valmistautuminen</strong></a></li>
+<li><a href="05_harjoitus_5.html#ogc-standardit"><strong>OGC-standardit</strong></a></li>
+<li><a href="05_harjoitus_5.html#yleiset-karttapalveluasetukset"><strong>Yleiset karttapalveluasetukset</strong></a></li>
+<li><a href="05_harjoitus_5.html#wms"><strong>WMS</strong></a></li>
+<li><a href="05_harjoitus_5.html#workspace-kohtaiset-palvelimen-asetukset"><strong>Workspace-kohtaiset palvelimen asetukset</strong></a></li>
+<li><a href="05_harjoitus_5.html#wms-karttapalvelun-kuvan-dpi-resoluutio"><strong>WMS-karttapalvelun kuvan DPI-resoluutio</strong></a></li>
+<li><a href="05_harjoitus_5.html#wcs"><strong>WCS</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-1.6-rasteriaineistot">Harjoitus 1.6: Rasteriaineistot</a>
+<ul>
+<li><a href="06_harjoitus_6.html#valmistautuminen-5"><strong>Valmistautuminen</strong></a></li>
+<li><a href="06_harjoitus_6.html#rasteriaineiston-lisääminen"><strong>Rasteriaineiston lisääminen</strong></a></li>
+<li><a href="06_harjoitus_6.html#ilmakuvan-lisääminen"><strong>Ilmakuvan lisääminen</strong></a></li>
+<li><a href="06_harjoitus_6.html#image-mosaic"><strong>Image Mosaic</strong></a></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#layer-groups-1"><strong>Layer Groups</strong></a>
+<ul>
+<li><a href="06_harjoitus_6.html#ryhmätasojen-julkaisemisen-muoto"><strong>Ryhmätasojen julkaisemisen muoto</strong></a></li>
+<li><a href="06_harjoitus_6.html#muiden-wms-palvelujen-hyödyntäminen-cascading-wms"><strong>Muiden WMS-palvelujen hyödyntäminen (cascading WMS)</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-1.7-paikkatietokannat">Harjoitus 1.7: Paikkatietokannat</a>
+<ul>
+<li><a href="07_harjoitus_7.html#valmistautuminen-6"><strong>Valmistautuminen</strong></a></li>
+<li><a href="07_harjoitus_7.html#yhteyden-muodostaminen-paikkatietokantaan"><strong>Yhteyden muodostaminen paikkatietokantaan</strong></a></li>
+<li><a href="07_harjoitus_7.html#postgis-tason-lisääminen"><strong>PostGIS-tason lisääminen</strong></a></li>
+<li><a href="07_harjoitus_7.html#monikulmio--ja-viiva-tason-lisääminen-postgis-tietokannasta"><strong>Monikulmio- ja viiva-tason lisääminen PostGIS-tietokannasta</strong></a></li>
+<li><a href="07_harjoitus_7.html#tasojen-oletustyylien-asettaminen"><strong>Tasojen oletustyylien asettaminen</strong></a></li>
+<li><a href="07_harjoitus_7.html#sql-näkymät"><strong>SQL-näkymät</strong></a></li>
+<li><a href="07_harjoitus_7.html#paikkatietotoiminnot-sql-näkymien-kautta"><strong>Paikkatietotoiminnot SQL-näkymien kautta</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-2.1-wfs-palvelut">Harjoitus 2.1: WFS-palvelut</a>
+<ul>
+<li><a href="08_harjoitus_8.html#valmistautuminen-7"><strong>Valmistautuminen</strong></a></li>
+<li><a href="08_harjoitus_8.html#ogc-standardit-1"><strong>OGC-standardit</strong></a></li>
+<li><a href="08_harjoitus_8.html#wfs-asetukset"><strong>WFS-asetukset</strong></a></li>
+<li><a href="08_harjoitus_8.html#tietomäärä-pyynnöissä"><strong>Tietomäärä pyynnöissä</strong></a></li>
+<li><a href="08_harjoitus_8.html#useiden-koordinaattijärjestelmien-määrittäminen"><strong>Useiden koordinaattijärjestelmien määrittäminen</strong></a></li>
+<li><a href="08_harjoitus_8.html#service-levels"><strong>Service Levels</strong></a></li>
+<li><a href="08_harjoitus_8.html#gml-asetukset"><strong>GML-asetukset</strong></a></li>
+<li><a href="08_harjoitus_8.html#workspace-kohtaiset-asetukset"><strong>Workspace-kohtaiset asetukset</strong></a></li>
+<li><a href="08_harjoitus_8.html#editointi-wfs-t-palvelun-kautta"><strong>Editointi WFS-T-palvelun kautta</strong></a></li>
+<li><a href="08_harjoitus_8.html#muiden-wfs-palvelujen-hyödyntäminen-cascading-wfs"><strong>Muiden WFS-palvelujen hyödyntäminen (cascading WFS)</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="09_harjoitus_9.html#harjoitus-2.2-karttatiilipalvelut">Harjoitus 2.2: Karttatiilipalvelut</a>
+<ul>
+<li><a href="09_harjoitus_9.html#valmistautuminen-8"><strong>Valmistautuminen</strong></a></li>
+<li><a href="09_harjoitus_9.html#tile-caching-2"><strong>Tile Caching</strong></a></li>
+<li><a href="09_harjoitus_9.html#geowebcache-käyttöliittymä"><strong>GeoWebCache-käyttöliittymä</strong></a></li>
+<li><a href="09_harjoitus_9.html#tasokohtaiset-asetukset"><strong>Tasokohtaiset asetukset</strong></a></li>
+<li><a href="09_harjoitus_9.html#karttatiilien-esiluominen"><strong>Karttatiilien esiluominen</strong></a></li>
+<li><a href="09_harjoitus_9.html#karttatiilien-kovalevyn-käyttö"><strong>Karttatiilien kovalevyn käyttö</strong></a></li>
+<li><a href="09_harjoitus_9.html#karttatiiliruudukot"><strong>Karttatiiliruudukot</strong></a></li>
+<li><a href="09_harjoitus_9.html#jhs180-mukainen-karttatiiliruudukko"><strong>JHS180 mukainen karttatiiliruudukko</strong></a></li>
+<li><a href="09_harjoitus_9.html#uuden-karttatiiliruudukon-luominen"><strong>Uuden karttatiiliruudukon luominen</strong></a></li>
+<li><a href="09_harjoitus_9.html#suomen-openstreetmap-tiestö"><strong>Suomen OpenStreetMap-tiestö</strong></a></li>
+<li><a href="09_harjoitus_9.html#oman-karttatiiliruudukon-käyttöönotto"><strong>Oman karttatiiliruudukon käyttöönotto</strong></a></li>
+<li><a href="09_harjoitus_9.html#paikallisen-karttatiiliruudukon-muodostaminen"><strong>Paikallisen karttatiiliruudukon muodostaminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="10_harjoitus_10.html#harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto">Harjoitus 2.3: Arkkitehtuuri ja käyttöönotto</a>
+<ul>
+<li><a href="10_harjoitus_10.html#valmistautuminen-9"><strong>Valmistautuminen</strong></a></li>
+<li><a href="10_harjoitus_10.html#yleistiedot-geoserverin-palvelimesta"><strong>Yleistiedot GeoServerin palvelimesta</strong></a></li>
+<li><a href="10_harjoitus_10.html#image-processing--asetukset"><strong>Image Processing -asetukset</strong></a></li>
+<li><a href="10_harjoitus_10.html#raster-access"><strong>Raster Access</strong></a></li>
+<li><a href="10_harjoitus_10.html#geoserverin-loki"><strong>GeoServerin loki</strong></a></li>
+<li><a href="10_harjoitus_10.html#rest-apin-toimintaa"><strong>REST API:n toimintaa</strong></a></li>
+<li><a href="10_harjoitus_10.html#monitor-lisäosan-käyttö"><strong>Monitor-lisäosan käyttö</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="11_harjoitus_11.html#harjoitus-2.4-css-kuvaustekniikka">Harjoitus 2.4: CSS-kuvaustekniikka</a>
+<ul>
+<li><a href="11_harjoitus_11.html#valmistautuminen-10"><strong>Valmistautuminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#css-tyylit"><strong>CSS-tyylit</strong></a></li>
+<li><a href="11_harjoitus_11.html#tyylin-luominen"><strong>Tyylin luominen</strong></a></li>
+<li><a href="11_harjoitus_11.html#aineiston-luokittelu"><strong>Aineiston luokittelu</strong></a></li>
+<li><a href="11_harjoitus_11.html#tyylin-virittäminen"><strong>Tyylin virittäminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#luokkien-nimeäminen"><strong>Luokkien nimeäminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#mittakaavaperusteinen-näkyvyys"><strong>Mittakaavaperusteinen näkyvyys</strong></a></li>
+<li><a href="11_harjoitus_11.html#tekstityksen-lisääminen"><strong>Tekstityksen lisääminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#kuvaustekniikan-soveltaminen"><strong>Kuvaustekniikan soveltaminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="12_harjoitus_12.html#harjoitus-2.5-pääsynhallinta">Harjoitus 2.5: Pääsynhallinta</a>
+<ul>
+<li><a href="12_harjoitus_12.html#geoserverin-yleiset-turvallisuusasetukset"><strong>GeoServerin yleiset turvallisuusasetukset</strong></a></li>
+<li><a href="12_harjoitus_12.html#tunnistautuminen"><strong>Tunnistautuminen</strong></a></li>
+<li><a href="12_harjoitus_12.html#uuden-roolin-ja-käyttäjän-luominen"><strong>Uuden roolin ja käyttäjän luominen</strong></a></li>
+<li><a href="12_harjoitus_12.html#aineiston-käyttöoikeuksien-rajoittaminen"><strong>Aineiston käyttöoikeuksien rajoittaminen</strong></a></li>
+<li><a href="12_harjoitus_12.html#aineiston-käyttäjäkohtaiset-käyttöoikeudet"><strong>Aineiston käyttäjäkohtaiset käyttöoikeudet</strong></a></li>
+<li><a href="12_harjoitus_12.html#karttapalvelukohtaiset-oikeudet"><strong>Karttapalvelukohtaiset oikeudet</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="13_harjoitus_13.html#harjoitus-2.6-suodattimet">Harjoitus 2.6: Suodattimet</a>
+<ul>
+<li><a href="13_harjoitus_13.html#valmistautuminen-11"><strong>Valmistautuminen</strong></a></li>
+<li><a href="13_harjoitus_13.html#ominaisuustietosuodattimet"><strong>Ominaisuustietosuodattimet</strong></a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-1.5-wms--ja-wcs-palvelut" class="section level1">
+<h1>Harjoitus 1.5: WMS- ja WCS-palvelut</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tutustutaan GeoServerin WMS- ja WCS-palveluiden asetuksiin.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija ymmärtää eri karttapalvelujen kokonaisuudet ja osaa muokata niiden perusasetuksia.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>50 minuuttia.</p>
+<div id="valmistautuminen-4" class="section level2">
+<h2><strong>Valmistautuminen</strong></h2>
+<p>Aiemmissa harjoituksissa on luotu GeoServerin palvelimeen taso <strong>rakennukset</strong>, ja sille tasolle on luotu uusi kuvaustekniikka (rakennukset).</p>
+</div>
+<div id="ogc-standardit" class="section level2">
+<h2><strong>OGC-standardit</strong></h2>
+<p>Kaikista tasoista, jotka on lisätty GeoServeriin, voidaan julkaista erilaisia rajapintapalveluja.</p>
+<p>Yleisin rajapintapalvelu on karttapalvelu <strong>Web Map Service</strong> (<strong>WMS</strong>). GeoServerin avulla voidaan tuottaa WMS-palvelu eri paikkatietoaineistoja ja kuvaustekniikoita hyväksikäyttäen.</p>
+<p>Muita rajapintapalveluja ovat muun muassa <strong>Web Coverage Service</strong> (<strong>WCS</strong>), joka mahdollistaa raakarasteriaineistojen julkaisemisen ja <strong>Web Feature Service</strong> (<strong>WFS</strong>), jota käytetään vektoriaineistojen rajapintapalveluna.</p>
+</div>
+<div id="yleiset-karttapalveluasetukset" class="section level2">
+<h2><strong>Yleiset karttapalveluasetukset</strong></h2>
+<p>Eri rajapintapalvelujen yleiset asetukset löytyvät päävalikosta <strong>Services</strong>-kohdasta. Näitä yleisiä asetuksia käytetään oletuksena aina, kun aineistoja julkaistaan GeoServerin kautta.</p>
+<p>Käytännössä kaikki aiemmin lisätyt aineistot ovat jo valmiiksi julkaistu rajapintapalveluina, koska kaikki edellä käydyt kolme palvelua (WMS, WCS ja WFS) on aktivoitu koulutuksen GeoServerin oletusasennuksessa.</p>
+<p>Olemme esimerkiksi käyttäneet WMS-karttapalvelua aina, kun olemme esikatselleet jotain tasoa selaimella.</p>
+<p>Avaa <strong>Services → WMS-näkymä</strong>.</p>
+<p>Asetusten sivun alussa löytyy <strong>Service Metadata</strong> -tiedot.</p>
+<p>Tarkista, että <strong>Enable WMS</strong> -valinta on rastitettuna. Toiminnon ollessa valittuna GeoServer-palvelin tuottaa WMS-karttapalvelua. Jos tämä valinta ei ole rastittu, mikään aineisto ei ole saatavilla WMS-karttapalveluna. Rajapintapalveluiden saatavuutta voidaan hallita myös workspace-kohtaisesti.</p>
+<p>Kaikkien karttapalveluiden toiminnallisuutta ja palvelinasetuksia voi myös määrittää seuraavien kohtien mukaisesti: <strong>Maintainer</strong>, <strong>Online resource</strong>, <strong>Title</strong>, <strong>Abstract</strong>, <strong>Fees</strong>, <strong>Access Constraints</strong> ja <strong>Keywords</strong>-asetusten avulla määritetään tietoja palvelusta ja sen ylläpitäjästä.</p>
+<div class="hint-box">
+<p>Psst! Nämä metadatan asetukset ovat samankaltaiset myös WFS- ja WCS-palvelujen kohdalla.</p>
+</div>
+<p>Määrittele näitä tietoja WMS-palvelulle.
+<img src="img/harjoitus_5/image1.png" /></p>
+</div>
+<div id="wms" class="section level2">
+<h2><strong>WMS</strong></h2>
+<p><strong>Web Map Services</strong> (<strong>WMS</strong>) -karttapalvelu tuottaa georeferoituja karttakuvia.</p>
+<div class="hint-box">
+<p>Psst! Karttakuvat luodaan aina GeoServerin saadessa WMS-pyyntöjä käyttöliittymästä. Lisäksi GeoServer käyttää hyväkseen palvelimen välivarastossa (cache) olemassa olevia karttakuvia. GeoServer saa pyyntöjä aina kun palvelimeen otetaan yhteys, mutta myös silloin kun kartalla zoomataan (vaihdetaan mittakaavaa) tai siirrytään paikasta toiseen.</p>
+</div>
+<p>Avaa <strong>Services → WMS</strong> uudelleen.</p>
+<p>Perustietojen lisäksi jokaisella karttapalvelulla on omat asetuksensa, jotka määrittävät karttapalvelun toiminnallisuutta. Näitä on runsaasti WMS-palvelun osalta. Esimerkiksi, kuvien luomiseen voi valita interpoloinnin menetelmäksi <strong>Raster Rendering Options</strong> -kohdassa: <strong>Nearest Neighbor</strong>, <strong>Bilinear</strong> tai <strong>Bicubic</strong>. Oletuksena valittu <strong>Nearest neighbor</strong> -menetelmä on suositeltava valinta rasterien perusvisualisointiin.</p>
+<p>Yksi kiinnostava asetus WMS-palvelulle on vesileimojen käyttäminen. Vesileimoja voidaan lisätä WMS-karttakuviin <strong>Watermark Settings</strong> -kohdasta. Huomaa kuitenkin, että päävalikon WMS-asetuksissa määritellään oletuksia kaikille GeoServerin aineistoille. Tasokohtaisia vesileimoja ei voi määrittää, mutta vesileimoja voidaan määrittää workspace-kohtaisesti.</p>
+<p>Kokeillaan asettaa palvelimen WMS-palvelulle GeoServer-logo vesileimaksi.</p>
+<p>Avaa <strong>Services → WMS</strong> ja etsi kohta <strong>Watermark Settings</strong> ja varmista, että <strong>Enable watermark</strong> on rastittuna.</p>
+<p><img src="img/harjoitus_5/image2.png" /></p>
+<p>Käytä sitten <strong>Browse...</strong> valitsemaan GeoServerin logo (<strong>/koulutus/GeoServer_100.png)</strong></p>
+<p>Laita vielä läpinäkyvyyttä <strong>30</strong>:ksi ja sijainniksi <strong>Bottom right</strong>.</p>
+<p>Paina nyt <strong>Submit</strong> tallentaaksesi muutokset WMS-palveluun. Kaikkien WMS-palvelukartan kautta saatujen karttojen pitäisi nyt sisältää vesileima.</p>
+<p>Avaa <strong>Data → Layer Preview</strong>, ja esikatsele joitakin tasoja. Tarkista, että vesileima tulee näkyviin kaikissa WMS-pyynnöissä.</p>
+<p>Esimerkiksi, <strong>states</strong>-taso näyttää tältä OpenLayers-esikatselunäkymässä:
+<img src="img/harjoitus_5/image3.png" /></p>
+<p>Kokeile myös muita karttatasoja ja huomaa, että kaikissa on nähtävissä nyt GeoServer-logon vesileima ja se pysyy siellä karttaa liikuteltaessa. States-aineisto on vektoriaineisto.</p>
+<div class="hint-box">
+<p>Mikä GeoServer-palvelu (WMS, WFS tai WCS) käyttää OpenLayersia? Psst! Kannattaa katsoa selaimen osoitteeseen.</p>
+</div>
+<p>WMS-palvelua hyödyntävä verkkokartta tuotetaan alkuperäisten aineistojen ja tyylien kautta palvelimessa ja välitetään kuvana selaimen kautta. Vektoriaineistoja, rasteriaineistoja ja niiden yhdistelmiä (ryhmätasoina) voidaan välittää WMS-palvelun kautta.</p>
+</div>
+<div id="workspace-kohtaiset-palvelimen-asetukset" class="section level2">
+<h2><strong>Workspace-kohtaiset palvelimen asetukset</strong></h2>
+<p>Äsken määriteltiin vesileima WMS-karttapalvelulle yleisesti. Asetuksia voi määrittää myös workspace-kohtaisesti. Tätä tehdään workspace-asetusten näkymässä.</p>
+<p>Avaa <strong>Data → Workspaces</strong>.</p>
+<p>Muokataan seuraavaksi <strong>helsinki</strong>-workspacen asetuksia. Valitse se <strong>Workspace Names</strong> -kohdan alta. </p>
+<p>Rastita sitten <strong>Settings → Enabled</strong> ja oikealta <strong>Services</strong> → <strong>WMS</strong>.</p>
+<p>Voit täyttää nyt tämän workspace-kohtaiset yhteystiedot kuvaamaan Helsingin WMS-karttapalvelua.
+<img src="img/harjoitus_5/image4.png" /></p>
+<p>Selaa alaspäin ja paina <strong>Save</strong>.</p>
+<p>Nyt muut GeoServer-palvelimessasi olevat WMS-karttapalvelut sisältävät oletustiedot (määritelty <strong>About &amp; Status → Contact Information</strong>), kun taas <strong>helsinki</strong>-workspace WMS-palvelun tiedot ovat ne jotka juuri määritettiin.</p>
+<p>Tiedot voit tarkistaa Getcapabilities-pyynnöllä seuraavasti:</p>
+<ul>
+<li><p>Helsinki-workspace: <a href="http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=Getcapabilities">http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=GetCapabilities</a></p></li>
+<li><p>Tiger-workspace: <a href="http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=Getcapabilities">http://xx.xx.xx.xx/geoserver/tiger/wms?REQUEST=GetCapabilities</a></p></li>
+<li><p>Geoserver oletus: <a href="http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=Getcapabilities">http://xx.xx.xx.xx/geoserver/wms?REQUEST=GetCapabilities</a></p></li>
+</ul>
+<p><br />
+<img src="img/harjoitus_5/image5.png" /></p>
+</div>
+<div id="wms-karttapalvelun-kuvan-dpi-resoluutio" class="section level2">
+<h2><strong>WMS-karttapalvelun kuvan DPI-resoluutio</strong></h2>
+<p>Karttapalvelimet palauttavat kuvat oletuskuvaresoluutiossa, jonka OGC on määritellyt arvolla <strong>90 DPI</strong> (Dots Per Inch). Tämä dpi-arvo on varsin pieni, mutta sopiva yleisimmissä käyttöyhteyksissä eli tietokoneella tai älypuhelimella. Suurempi karttakuvaresoluutio on tarpeellista esimerkiksi silloin kun työasemapaikkatieto-ohjelmistojen avulla halutaan tuottaa karttatulosteita, joissa on WMS-tasoja.</p>
+<div class="hint-box">
+<p>Psst! DPI-arvo on oletusarvoisesti pieni, jotta se ei ylikuormita palvelinta ja mahdollistaa saumattoman karttapalveluiden toimimisen.</p>
+</div>
+<p>Palveluille on mahdollista määrittää muita kuvaresoluutioita muokkaamalla WMS-karttapyyntöjen parametreja.</p>
+<p>Kokeile nyt esikatsella <strong>poly_landmarks-</strong>tasoa JPEG-kuvana. Löydät tason helposti <strong>Layer preview</strong> -näkymästä:
+<img src="img/harjoitus_5/image6.png" /></p>
+<p>Tuloksena saat karttakuvan JPEG-formaatissa oletusresoluutiolla eli DPI-arvolla 90:<br />
+<img src="img/harjoitus_5/image7.png" /></p>
+<p>Jos suurennat kuvaa selaimessa (tai tallennat sen kovalevylle ja katselet sitä valokuvien/kuvien katseluohjelmassa) huomaat, että resoluutio on varsin huono.</p>
+<p><img src="img/harjoitus_5/image8.png" /></p>
+<p>Valitse ja kopioi koko selaimessa oleva osoitteen teksti. Avaa tekstinkäsittelyohjelma ja liimaa teksti siihen. Se on http-pyyntö GeoServerin palvelimellesi ja se muistuttaa seuraavaa tekstiä:</p>
+<div class="code-box">
+<p><a href="http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap" class="uri">http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap</a> &amp;layers=tiger:poly_landmarks&amp;styles=&amp;bbox=-74.047185,40.679648,-73.90782,40.882078 <strong>&amp;width=528&amp;height=768</strong>&amp;srs=EPSG:4326<strong>&amp;format=image%2Fjpeg</strong></p>
+</div>
+<p>Tekstiin on korostettu tärkeimmät parametrit koskien WMS-kuvaa. Niistä voi tulkita seuraavaa:</p>
+<ul>
+<li><p><strong>&amp;width</strong> ja <strong>&amp;height</strong>: kuvan koko on 528*768 pikseliä ja </p></li>
+<li><p><strong>&amp;format</strong>: formaatti on JPEG</p></li>
+<li><p>Kuvan resoluutiosta ei ole mainittu pyynnössä mitään, joten käytössä on oletusresoluutio.</p></li>
+</ul>
+<p>Määrittääksesi kuvaresoluutiota voit lisätä seuraavan parametrin http-pyynnön loppuun: <strong>&amp;format_options=dpi:300</strong>. Lisää se siis WMS-pyyntösi loppuun ja kopioi ja liimaa se kokonaisuudessaan uuteen selainikkunaan vertailua varten. Painamalla <strong>enter</strong> saat aikaiseksi uuden kuvan:
+<img src="img/harjoitus_5/image9.png" /></p>
+<p>Huomataan, että tyylit eivät täsmää aikaisempaan. Se johtuu siitä, että pyynnössä pitää myös muokata kuvan kokoa, joka on laskettu oletusresoluutiolle sopivaksi. Nyt WMS-karttapalvelun tuottama JPEG-kuva on tuotettu kuitenkin jo korkeammalla resoluutiolla kuin aikaisemmin.</p>
+<p>Resoluutiot voidaan tarkistaa halutessaan tallentamalla molemmat kuvat kovalevylle ja vertaamalla niitä zoomaamalla käyttämäsi käyttöjärjestelmän kuvien esikatseluohjelman avulla.</p>
+<p>Kuten sanottu, tyylit eivät nyt näytä oikeilta, koska oletuspyynnössä on kuvan koko laskettu 90 DPI -resoluution mukaiseksi. Nyt on siis muokattava <strong>&amp;width-</strong> ja <strong>&amp;height</strong>-parametrien arvot yhteensopivaksi uuteenresoluutioon eli arvolle <strong>300 DPI</strong>. Tämä tapahtuu käyttämällä seuraavaa yhtälöä:</p>
+<p><img src="img/harjoitus_5/image10.png" /></p>
+<p><img src="img/harjoitus_5/image11.png" /></p>
+<ul>
+<li><p>uusi_leveys = kuvan_oletusleveys * (uusi_resoluutio/90)</p></li>
+<li><p>uusi_pituus = kuvan_oletuspituus * (uusi_resoluutio/90)</p></li>
+</ul>
+<p>Eli tässä tapauksessa:</p>
+<ul>
+<li><p>uusi_leveys = 528 * (300/90) → <strong>&amp;width=1760</strong></p></li>
+<li><p>uusi_pituus = 768 * (300/90) → <strong>&amp;height=2560</strong></p></li>
+</ul>
+<p>Palaa uudelleen tekstinkäsittelyohjelmistoon ja muokkaa wms-pyyntöäsi yllä mainituilla tiedoilla. Kun kokeilet uutta pyyntöä selaimella, kuvan koko, resoluutio ja tyylit ovat oikein:
+<img src="img/harjoitus_5/image12.png" /></p>
+<p>WMS-palveluja käyttävät ohjelmistot, kuten QGIS, rakentavat automaattisesti edellä kuvatun prosessin mukaisia pyyntöjä esimerkiksi karttataitossa (tulostekartta), mikä säästää käyttäjän määrittämästä manuaalisesti kuvan kokoa ja resoluution arvoa.</p>
+</div>
+<div id="wcs" class="section level2">
+<h2><strong>WCS</strong></h2>
+<p>Avaa <strong>Services → WCS</strong>.</p>
+<p>Totuttuun tapaan voidaan päättää, halutaanko GeoServerin tuottavan raakarasterikarttaa. Se määritellään <strong>Enable WCS</strong> -valinnalla. Raakarasteriaineistojen jakamista on hyvä harkita tarkasti. Palvelu voi aiheuttaa suuria datasiirtomääriä verkkoyhteydelle. Lisäksi WCS-palvelun materiaaliksi sopii käytännössä vain luokitellut rasteriaineistot, ilma- ja satelliittikuvat. </p>
+<p><strong>Coverage processing</strong> -kohdan alta löytyy WCS-palvelun asetukset. <strong>Use subsampling</strong> -valinnan aktivointi pienentää käsiteltävää datamäärää, mikä on hyödyllistä käytettäessä aineistoa alkuperäistä pienemmällä resoluutiolla.</p>
+<p>Samalla tavalla, <strong>Overview policy</strong> -toiminto mahdollistaa aineiston yleiskatsausten käytön (näiden ollessa olemassa palvelimessa), mikä osaltansa vähentää siirrettävän tiedon määrää (vähemmän gigatavuja). Oletus on, ettei yleiskatsausta käytetä. Huomaa, että yleiskatsaukset aineistoista on luotava erikseen.</p>
+<p><strong>Resource Consumption Limits</strong> -valintaa käyttämällä ylläpitäjä voi asettaa resurssien käytölle rajoja raakarasteriaineistoja käsiteltäessä. Raaka-aineistojen koko voi olla hyvinkin suuri (lähtökohtaisesti kymmeniä tai satoja gigatavuja) ja palvelin voi ylikuormittua pyyntöjä käsiteltäessä.</p>
+<p><img src="img/harjoitus_5/image13.png" /></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="04_harjoitus_4.html"><button class="btn btn-default">Previous</button></a>
+<a href="06_harjoitus_6.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Johdanto GeoServerin käyttöön</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
