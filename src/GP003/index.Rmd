@@ -24,7 +24,7 @@ documentclass: book
 Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
 
 ::: note-box
-[Kurssihakemisto]((https://drive.google.com/drive/folders/1uRSJ2OrOVgedDek3ipdkf05eR3Kc_euY?usp=sharing))
+[Kurssihakemisto](https://drive.google.com/drive/folders/1ZbgqA5_VjP_8AiNP8T617Ti1Y4rAFBul?usp=sharing)
 :::
 
 ja kurssin harjoitukset PDF-muodossa tästä linkistä:
