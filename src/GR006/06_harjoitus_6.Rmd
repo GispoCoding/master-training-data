@@ -252,18 +252,17 @@ print(new_geom.asWkt())
 ```
 :::
 
-## Harjoitus 3.1
+## Harjoitus 6.1
 
 Kirjoita skripti, joka luo uuden polygonitason
-koordinaattijärjestelmällä 3857. Lisää polygonitasolle kentät "fid" ja
+koordinaattijärjestelmällä ETS89 / GK25FIN eli EPSG:3879. Lisää polygonitasolle kentät "fid" ja
 "pinta_ala". Lisää kohteeseen alla oleva WKT-formaatissa kuvattu
-geometria ja laske sille pinta-ala. Lisää taso lopuksi QGIS-projektiin.
+geometria ja laske sille pinta-ala. Lisää taso lopuksi QGIS-projektiin. PS. Huomaatko missä kohde sijaitsee?
 
 WKT:
 
 ::: code-box
-POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0
-0))
+POLYGON((25498691.416 6675066.090, 25498654.342 6675085.786,25498682.920 6675125.950, 25498694.120 6675186.582, 25498772.517 6675171.135, 25498765.566 6675142.556, 25498721.153 6675152.597, 25498713.816 6675109.344, 25498691.416 6675066.090))
 :::
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">
@@ -275,7 +274,7 @@ ratkaisu
 :::: hidden-box
 ::: code-box
 ``` python
-new_layer = QgsVectorLayer("Polygon?crs=EPSG:3857", "Uusi Taso", "memory")
+new_layer = QgsVectorLayer("Polygon?crs=EPSG:3879", "Mysteeritaso", "memory")
 
 new_layer.startEditing()
 
@@ -284,7 +283,7 @@ new_layer.addAttribute(QgsField("pinta_ala", QVariant.Double))
 
 new_feature = QgsFeature(new_layer.fields())
 
-new_geom = QgsGeometry.fromWkt("POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))")
+new_geom = QgsGeometry.fromWkt("POLYGON((25498691.416 6675066.090, 25498654.342 6675085.786,25498682.920 6675125.950, 25498694.120 6675186.582, 25498772.517 6675171.135, 25498765.566 6675142.556, 25498721.153 6675152.597, 25498713.816 6675109.344, 25498691.416 6675066.090))")
 new_feature.setGeometry(new_geom)
 
 area = new_geom.area()
@@ -299,10 +298,10 @@ QgsProject.instance().addMapLayer(new_layer)
 :::
 ::::
 
-## Harjoitus 3.2: Etäisyydet
+## Harjoitus 6.2: Etäisyydet
 
 Avaa QGISiin kurssihakemistosta
-`NaturalEarth_10m_admin_0_countries.gpkg`-tiedosto.
+`ne_10m_admin_0_countries.gpkg`-tiedosto.
 
 Kirjoita skripti, joka laskee jokaisen valtion etäisyyden sen
 painopisteestä (centroid) Suomen painopisteeseen. Lähtötason
@@ -319,7 +318,7 @@ Voit käyttää tätä pohjana:
 ::: code-box
 ``` python
 # hae NaturalEarth-taso esim. nimen perusteella
-layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layers = QgsProject.instance().mapLayersByName('ne_10m_admin_0_countries — admin_0_countries')
 layer = layers[0]
 
 # luodaan uusi taso
@@ -331,7 +330,7 @@ new_layer.addAttribute(QgsField("fid", QVariant.Int))
 new_layer.addAttribute(QgsField("country", QVariant.String))
 new_layer.addAttribute(QgsField("distance", QVariant.Double))
 
-### ... ###
+### ...
 
 new_layer.commitChanges()
 
@@ -349,7 +348,7 @@ vinkki
 ::: code-box
 ``` python
 # hae NaturalEarth-taso esim. nimen perusteella
-layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layers = QgsProject.instance().mapLayersByName('ne_10m_admin_0_countries — admin_0_countries')
 layer = layers[0]
 
 # luodaan uusi taso
@@ -424,7 +423,7 @@ ratkaisu
 :::: hidden-box
 ::: code-box
 ``` python
-layers = QgsProject.instance().mapLayersByName('NaturalEarth_10m_admin_0_countries — admin_0_countries')
+layers = QgsProject.instance().mapLayersByName('ne_10m_admin_0_countries — admin_0_countries')
 layer = layers[0]
 
 new_layer = QgsVectorLayer("Point?crs=EPSG:3857", "New Layer", "memory")
