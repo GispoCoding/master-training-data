@@ -1,8 +1,8 @@
-# Kappale 4: Kohteiden muokkaus - Field Calculator (Osa 1)
+# 2. Missä kaikkialla QGISissä voi käyttää lausekkeita?
 
-## Tehtävä 4.1
+## Tehtävä 2.1
 
-Tarkastele hallintoalueaineistoa. Luo uusi attribuuttikenttä (boolean), joka pitää sisällää tiedon siitä, sijaitseeko hallintoalue 50 km:n säteellä Tampereesta. Laske etäisyys polygonien painopisteiden välillä (centroid).
+Tarkastele hallintoalueaineistoa. Luo uusi attribuuttikenttä (boolean), joka pitää sisällää tiedon siitä, sijaitseeko hallintoalue 50 km:n säteellä Helsingistä. Laske etäisyys polygonien painopisteiden välillä (centroid).
 
 **Aineisto**: ```hallintoalueet.gpkg```
 
@@ -11,12 +11,12 @@ Tarkastele hallintoalueaineistoa. Luo uusi attribuuttikenttä (boolean), joka pi
 ::: hidden-box
 Luo lauseke pala palalta.
 
-- Hae Tampere-kohde (```get_feature()```- funktio)
-- Hae Tampere-kohteen geometria (```geometry()```- funktio)
-- Laske Tampereen geometrialle painopiste (```centroid```- funktio)
+- Hae Helsinki-kohde (```get_feature()```- funktio)
+- Hae Helsinki-kohteen geometria (```geometry()```- funktio)
+- Laske Helsingin geometrialle painopiste (```centroid```- funktio)
 - Lausekkeen muodostaja suorittaa lausekkeen jokaiselle kohteelle. Miten viittaat lausekkeessa tällä hetkellä käsiteltävän kohteen geometriaan?
 - Laske tällä hetkellä käsiteltävälle geometrialla painopiste.
-- Millä funktiolla saat laskettua etäisyyden? Laske Tampereen geometrian ja tällä hetkellä käsiteltävän geometrian painopisteiden välinen etäisyys.
+- Millä funktiolla saat laskettua etäisyyden? Laske Helsingin geometrian ja tällä hetkellä käsiteltävän geometrian painopisteiden välinen etäisyys.
 - Tarkista onko etäisyys alle 50 km. Huomioi yksikkö!
 :::
 
@@ -31,7 +31,7 @@ distance(
 		), centroid(
 		geometry(
 			get_feature(
-				'hallintoalueet', 'Kunta_ni1', 'Tampere'
+				'hallintoalueet', 'Kunta_ni1', 'Helsinki'
 				)
 			)
 		)
@@ -40,20 +40,49 @@ distance(
 :::
 :::
 
-## Tehtävä 4.2
 
-Tutki minkä hallintoalueiden 15 metrin vyöhykkeen (buffer) ulkorajan pituus on yli 100km. Määritä etäisyys karttatason yksiköissä (m). Luo uusi attribuuttikenttä, jonka arvoksi annat ehtolauseen tuloksesta riippuen joko ```iso``` tai ```pieni```.
 
-**Aineisto**: ```hallintoalueet.gpkg```
+
+## Tehtävä 2.2
+
+Tarkastele tieviiva-aineistoa. Laske ensimmäiseen prioriteettiluokkaan (```Tieluokka```) kuuluvien teiden yhteenlaskettu pituus.
+
+**Aineisto**: ```tieviiva_lappi.gpkg```
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
 
 ::: hidden-box
-Rakenna lauseke pala palalta:
+Käytä ```sum()```- funktiota.
+:::
 
-- Millä funktiolla voit luoda bufferin?
-- Millä funktiolla voit laskea bufferin ulkorajan pituuden (eli piirin)?
-- Käytä ```ìf()```- ehtolausefunktiota.
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+``` sql
+sum(
+	$length, group_by:="Tienumero", filter:="Tieluokka"='1'
+	)
+```
+:::
+:::
+
+## Tehtävä 2.5
+
+Tarkastele ```vaestoruudut.gpkg```- ja hallintoalueaineistoa. Luo hallintoalueaineistoon uusi attribuuttikenttä (```asukkaita```). Laske oman maakuntasi kunnissa asuvan väestön määrä.
+
+**Aineistot**: 
+
+- ```vaestoruudut.gpkg```
+- ```hallintoalueet.gpkg```
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+Käytä ```aggregate()```- funktiota.
+
+- Tutki lausekkeen muodostajassa ```aggregate()```- funktion käyttöohjetta. Täydennä oikeat argumentit kolmelle ensimmäiselle argumentille.
+- Käytä valinnaista **filter**- argumenttia. Hae ```attribute```- funktiolla hallintoalue- tason kuntanumeron sisältävä kentän arvo ja tarkista onko se yhtäsuuri kuin väestöruudut- tason kuntanumeron sisältävä kentän arvo.
 :::
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
@@ -62,17 +91,88 @@ Rakenna lauseke pala palalta:
 ::: code-box
 ``` sql
 if(
-	perimeter(
-		buffer(
-			$geometry, 15
-			)
-		) > 100000.0, 'iso', 'pieni'
+	"Maaku_ni1" = 'Pohjanmaa', 
+		aggregate(
+			layer:='vaestoruudut', aggregate:='sum', expression:="vaesto", filter:=attribute(
+				@parent,'Kunta'
+				) = "KUNTA"
+			), NULL)
+```
+:::
+:::
+
+## Tehtävä 2.6
+
+Lataa otos Helsingin rakennusaineistosta (``` rakennukset_dem.gpkg ```) [tästä linkistä](https://drive.google.com/uc?export=download&id=1Wr2fvPNWA7ST09VcGYt6Qz-3sn5x2S-y). Tarkastele korkeusmalli- (```dem2m.tif```) ja lataamaasi rakennusaineistoa. Selvitä korkeusmallin pikselin arvo rakennusten painopisteissä.
+
+**Aineistot**: 
+
+- ```dem2m.tif```
+- ```rakennukset_dem.gpkg```
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+Käytä ```raster_value()```- funktiota. Korkeusmalli on yksikanavainen rasteri.
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+``` sql
+raster_value(
+	'dem2m', 1, centroid($geometry)
 	)
 ```
 :::
 :::
 
-## Tehtävä 4.3
+## Tehtävä 2.7
+
+Käytä tehtävässä rasterilaskinta (Raster Calculator). Työkalu löytyy QGISin prosessointityökaluista.
+
+Luokittele korkeusaineisto kahteen luokkaan, jotka kuvastavat suurin piirtein maa- ja merialueita. Korkeusmallissa pikselin arvo kertoo korkeuden meren pinnasta ja yksikkö on metrejä.
+
+- Luokka 1: rasteritason pikselit, joiden korkeusarvo on alle 1.
+- Luokka 2: loput pikselit.
+
+**Aineisto**: ```dem2m.tif```
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+Rakenna lauseke paloittain. Lähde liikkeelle tästä:
+
+```("dem2m@1" >= 1)```
+
+- Mitä yllä oleva lauseke palauttaa?
+- Yllä oleva lauseke liittyy luokkaan 2. Mitä voit lisätä lausekkeeseen, että ehdon täyttävät pikselit saavat arvon 2 tehtävänannon mukaisesti?
+- Miten kirjoitat vastaavan lausekkeen luokalle 1?
+- Miten yhdistät lausekkeet siten, että saadaan tehtävänannon mukainen lopputulos?
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+Lauseke:
+
+::: code-box
+``` sql
+("dem2m@1" < 1) * 1 + ("dem2m@1" >= 1) * 2
+```
+:::
+Käytä seuraavia asetuksia:
+
+- Cell size: 2
+- Output extent: klikkaa nuolesta -> Calculate from Layer -> dem2m
+- Output CRS: EPSG:3067
+- Output: tallenna .tif tiedostoon
+:::
+
+## Lisätehtävät
+
+## Tehtävä 2.3
 
 Tarkastele otosta Helsingin rakennusaineistosta. Huomioi, että valmistumispäivämäärä (```valm_pvm```- sarake) on ilmoitettu aineistossa teksti-datatyyppinä. Osassa kohteissa sarake sisältää myös ajankohdan ja päivämäärä on silloin ilmoitettu eri formaatissa. Luo uusi päivämääräsarake (esim. ```pvm_uusi```, datatyyppi Date), jossa rakennusten valmistumispäivämäärän ilmoitusmuoto on yhtenäistetty muotoon dd.MM.yyyy ja laske sen avulla uuteen sarakkeeseen (esim. ```rakennus_ika```) kuinka vanhoja rakennukset ovat (tähän päivään verrattuna).
 
@@ -129,10 +229,3 @@ day(
 :::
 :::
 
-## Lisätehtävät
-
-[Lisätehtävä 1](15_kappale_15.html#lisätehtävä-1-1)
-
-[Lisätehtävä 2](15_kappale_15.html#lisätehtävä-2-1)
-
-[Lisätehtävä 3](15_kappale_15.html#lisätehtävä-3-1)
