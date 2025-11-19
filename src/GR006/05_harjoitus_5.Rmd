@@ -4,6 +4,8 @@
 
 **Harjoituksen tavoite:** Harjoituksen jälkeen opiskelija hallitsee PyQGISin perusteet.
 
+## PyQGIS ja iface-muuttuja
+
 QGISin Python-konsolissa on käytössä valmiiksi alustettu `iface`-muuttuja,
 joka on QgisInterface-luokan olio. Tämä olio mahdollistaa mm. vuorovaikutuksen
 tällä hetkellä käynnissä olevan QGIS-ohjelman eri komponenttien kanssa.

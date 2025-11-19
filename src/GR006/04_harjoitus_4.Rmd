@@ -1,6 +1,6 @@
 # 4. Pythonin perusteet jatkuvat
 
-Seuraavassa osiossa syvennetään meidän Python-osaamista. Lue ja testaile koodinpätkän QGISin Python-konsolissa.
+Seuraavassa osiossa syvennetään meidän Python-osaamista. Lue ja testaile koodinpätkiä QGISin Python-konsolissa.
 
 ### Silmukat ja iterointi
 

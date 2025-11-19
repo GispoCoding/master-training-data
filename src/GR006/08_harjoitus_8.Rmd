@@ -1,15 +1,16 @@
 # 8. Ratkaise ongelma työssäsi PyQGISin avulla
 
-Luodaan omat funktiot/skriptit ja kokeillaan niiden ajamista QGISin Python-konsolissa. Yritetään luoda jotain, joka helpottaa omaa työtä. Voi pohtia työkaverin tai kouluttajan kanssa mikä voisi olla sopiva haaste.
+Luodaan omat funktiot/skriptit ja kokeillaan niiden ajamista QGISin Python-konsolissa. Yritetään luoda jotain omaa työtä helpottavaa. Voit pohtia työkaverin tai kouluttajan kanssa mikä voisi olla sopiva haaste.
 
-Tämä tehtävä osio on varsin avoin ja voit itse miettiä, miten voisit sitä toteuttaa. Pohdi seuraavaa:
+Tämä tehtäväosio on varsin avoin ja voit itse miettiä, miten voisit sitä toteuttaa. Pohdi seuraavaa:
 
 **Miten voin käyttää uusia taitojani hyödyksi omassa työssäni?**
 
-**Mitä ongelmaa voisin ratkaista PyQGISillä?**
+**Minkä ongelman voisin ratkaista PyQGISillä?**
 
-**Voinko automatisoida jotain mitä teen usein?**
+**Voinko automatisoida jotain, mitä teen usein?**
 
+<!-- TODO: should this paragraph be under Prosessointialgoritmin kutsuminen? -->
 QGISiin voi kirjoittaa itsenäisiä prosessointialgoritmeja,
 siten että ne kirjoitetaan omaan `.py`-tiedostoon ja lisätään
 prosessointipaneeliin. .
@@ -24,7 +25,7 @@ prosessointialgoritmista, se voidaan tehdä seuraavasti.
 parametrit annetaan sanakirjana (dictionary), ja avaimina
 käytetään algoritmissa määriteltyjä vakiomuuttujien arvoja.
 
-Pidä valittuna esimerkiksi rautatieasema-tasoa ja ajaa alla oleva skripti. Mitä se tekee?
+Pidä valittuna esimerkiksi rautatieasema-tasoa ja aja alla oleva skripti. Mitä se tekee?
 
 ::: code-box
 ```python
@@ -43,7 +44,7 @@ parameters = {
 }
 
 output = processing.run('native:buffer', parameters)
-git s
+
 # Huomioi, että `processing.run()` metodi
 # palauttaa tässä sanakirjan.
 # Tulostaso voidaan hakea avaimella 'OUTPUT'
