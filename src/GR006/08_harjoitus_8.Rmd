@@ -43,7 +43,7 @@ parameters = {
 }
 
 output = processing.run('native:buffer', parameters)
-
+git s
 # Huomioi, että `processing.run()` metodi
 # palauttaa tässä sanakirjan.
 # Tulostaso voidaan hakea avaimella 'OUTPUT'
