@@ -52,3 +52,4 @@ buffered_layer = output.get('OUTPUT')
 QgsProject.instance().addMapLayer(buffered_layer)
 ```
 :::
+
