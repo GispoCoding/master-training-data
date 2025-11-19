@@ -1,112 +1,110 @@
 # Kappale 7 PyQGIS skriptaus
 
+Täsä kappaleessa käydään läpi lisää käyttätapoja PyQGISin osalta.
 
+Avaa valmiiksi QGISin Python-konsoli ja koodieditori.
 
-## Geoprosessointiesimerkki
+## Projektin tuominen
 
-Alta löytyy esimerkki yksinkertaisesta geoprosessointiskriptistä. Skripti muuttaa ```rautatieviiva_suomi.gpkg```-tason ```Sahkoistys```-sarakkeen arvot selkokieliseksi ja tallentaa tiedot uuteen CSV-taulukkotiedostoon. Voit kokeilla lisätä skriptin QGISiin ja ajaa sen.
+Projektin tuominen QGISin voidaan tehdä seuraavalla tavalla:
 
-**Aineisto:** ```rautatieviiva_suomi.gpkg```
-
-<button onclick="toggleAnswer(this)" class="btn answer_btn">geoprosessointiskripti</button>
-
-::: hidden-box
 ::: code-box
-``` python
-from PyQt5.QtCore import QCoreApplication
-from qgis.core import (QgsProcessing,
-                       QgsProcessingAlgorithm,
-                       QgsProcessingParameterFeatureSource,
-                       QgsProcessingParameterFileDestination,
-)
+```python
+data_dir = '<projektiedoston sijainti kovalevyllä>'
 
-class SaveAttributesAlgorithm(QgsProcessingAlgorithm):
-    """Saves the selected attribute fields values of a vector layer to a CSV file."""
-    OUTPUT = 'OUTPUT'
-    INPUT = 'INPUT'
-
-    def tr(self, string):
-        """
-        Returns a translatable string with the self.tr() function.
-        """
-        return QCoreApplication.translate('Processing', string)
-
-    def createInstance(self):
-        # Must return a new copy of your algorithm.
-        return SaveAttributesAlgorithm()
-
-    def name(self):
-        """
-        Returns the unique algorithm name.
-        """
-        return 'savefeaturesascsv'
-
-    def displayName(self):
-        """
-        Returns the translated algorithm name.
-        """
-        return self.tr('Save features as CSV')
-
-    def group(self):
-        """
-        Returns the name of the group this algorithm belongs to.
-        """
-        return self.tr('Example scripts')
-
-    def groupId(self):
-        """
-        Returns the unique ID of the group this algorithm belongs
-        to.
-        """
-        return 'examplescripts'
-
-    def shortHelpString(self):
-        """
-        Returns a localised short help string for the algorithm.
-        """
-        return self.tr('Saves selected features to a CSV file')
-    
-    def initAlgorithm(self, config=None):
-        self.addParameter(
-            QgsProcessingParameterFeatureSource(
-                self.INPUT,
-                self.tr('Input layer'),
-                [QgsProcessing.TypeVectorAnyGeometry]
-            )
-        )
-        # We add a file output of type CSV.
-        self.addParameter(
-            QgsProcessingParameterFileDestination(
-                self.OUTPUT,
-                self.tr('Output File'),
-                'CSV files (*.csv)',
-            )
-        )
-    
-    def processAlgorithm(self, parameters, context, feedback):
-        source = self.parameterAsSource(parameters, self.INPUT, context)
-        csv = self.parameterAsFileOutput(parameters, self.OUTPUT, context)
-        fieldnames = [field.name() for field in source.fields()]
-        # Compute the number of steps to display within the progress bar and get features from source
-        total = 100.0 / source.featureCount() if source.featureCount() else 0
-        features = source.getFeatures()
-        with open(csv, 'w') as output_file:
-            # Write header
-            line = ','.join(name for name in fieldnames if name=="Sahkoistys") + '\n'
-            output_file.write(line)
-            for current, f in enumerate(features):
-                # Stop the algorithm if cancel button has been clicked
-                if feedback.isCanceled():
-                    break
-                # Add a feature in the sink
-                if f["Sahkoistys"]==1:
-                    line = ','.join(str('Ei sahkoa') for name in fieldnames if name=="Sahkoistys") + '\n'
-                else:
-                    line = ','.join(str('Sahkoistetty') for name in fieldnames if name=="Sahkoistys") + '\n'
-                output_file.write(line)
-                # Update the progress bar
-                feedback.setProgress(int(current * total))
-        return {self.OUTPUT: csv}
+project = QgsProject.instance()
+project_name = 'projektitiedostonimi.qgz'
+project_path = os.path.join(data_dir, project_name)
+project.read(project_path)
 ```
 :::
+
+## Harjoitus 7.1
+
+Tuo oma QGIS-projektisi QGISiin yllä olevan koodin avulla. 
+
+## Tason lisääminen
+
+Uuden tason voi lisätä seuraavalla tavalla.
+
+::: code-box
+```python
+path = "<polku tiedostolle>"
+# lisätään tasonimi loppuun
+gpkg_layer = path + "|layername=<tasonimi>"
+vlayer = QgsVectorLayer(gpkg_layer, "<Nimi tasolle>", "ogr")
+if not vlayer.isValid():
+    print("Taso ei ole valiidi!")
+else:
+    QgsProject.instance().addMapLayer(vlayer)
+```
+:::
+
+## Harjoitus 7.2
+
+Tuo taso QGISiin PyQGISin avulla. Yllä olevassa esimerkissä käytetään GeoPackagea, mutta jos haluat hakea jotain muuta niin pitää soveltaa.
+
+[Täältä](https://docs.qgis.org/3.40/en/docs/pyqgis_developer_cookbook/loadlayer.html) saat apua!
+
+
+## Vaihda tason nimeä
+
+Jos haluat vaihtaa tason nimeä, voit tehdä sen käyttäen `.setName`. Alla olevassa esimerkissä muutetaan aktiivisen (eli valitun) tason nimeä.
+
+::: code-box
+```python
+layer = iface.activeLayer()
+name = layer.name()
+layer.setName('<uusi nimi>')
+```
+:::
+
+Jos haluat vaihtaa nimen tasolle joka on jo lisätty (etkä halua käyttää aktiivista tasoa) niin se tehdään näin:
+
+::: code-box
+```python
+layer = QgsProject.instance().mapLayersByName("vanha_nimi")[0]
+layer.setName("uusi_nimi")
+```
+:::
+
+## Harjoitus 7.3
+
+Vaihda jonkun tason nimeä käyttäen PyQGISiä.
+
+
+## Tason tallentaminen
+
+Opittiin aiemmin miten luodaan väliaikaisia tasoja. Nyt tarkoitus on luoda uusi taso sekä tallentaa se. Vaihda alla olevssa koodissa polku 
+
+::: code-box
+```python
+# Luodaan uusi vektoritaso
+vl = QgsVectorLayer("Point?crs=EPSG:3879", "rautatieasemat", "memory")
+pr = vl.dataProvider()  # dataprovider antaa muokata taso ilman, että ollaan muokkaustilassa
+
+pr.addAttributes([QgsField("nimi", QVariant.String)])
+vl.updateFields()
+
+f = QgsFeature(vl.fields())
+f.setGeometry(QgsGeometry.fromWkt("POINT(25496724.80 6673126.03)"))
+f["nimi"] = "Helsingin rautatieasema"
+pr.addFeature(f)
+
+# Tallennus levylle
+out_path = "/polku/jonnekin/rautatieasemat.gpkg"  # oikea polku pitää lisätä
+QgsVectorFileWriter.writeAsVectorFormat(
+    vl, out_path, "UTF-8", vl.crs(), "GPKG"
+)
+
+# Ladataan GeoPackage projektiin
+gpkg_layer = out_path + "|layername=rautatieasemat"
+vlayer = QgsVectorLayer(gpkg_layer, "rautatieasemat", "ogr")
+
+if not vlayer.isValid():
+    print("Taso ei ole valiidi!")
+else:
+    QgsProject.instance().addMapLayer(vlayer)
+
+```
 :::

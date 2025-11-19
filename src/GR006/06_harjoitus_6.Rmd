@@ -56,8 +56,8 @@ QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
 
-Tasolla on nyt kaksi kenttää, mutta ei edelleenkään yhtään kohdetta.
-Lisätään seuraavaksi pistekohde tasolle.
+Tasolla on nyt kaksi kenttää, mutta ei edelleenkään yhtään kohdetta. Tarkista attribuuttitaulukosta, että kentät näkyvät. 
+Lisätään seuraavaksi pistekohde tasolle. Voit taas poistaa edellistä tasoa.
 
 ::: code-box
 ``` python
@@ -76,7 +76,7 @@ new_feature.setAttributes([1, "piste"]) # huomaa, että argumenttina on lista
 # Luodaan kohteelle geometria
 # Koska kyseessä on pistetaso, voidaan
 # luoda suoraan QgsPoint-olio
-new_geom = QgsPoint(0, 0)
+new_geom = QgsPoint(24.9764, 60.1889)
 new_feature.setGeometry(new_geom)
 
 new_layer.addFeature(new_feature)
@@ -92,7 +92,7 @@ QgsProject.instance().addMapLayer(new_layer)
 
 Geometrioita voidaan luoda ja manipuloida Pythonilla eri tavoin.
 QgsGeometry-luokalla on mm. eri staattisia metodeja, joilla voidaan
-luodaan geometrioita:
+luoda geometrioita:
 
 Tutustutaan seuraavaksi geometrioiden käsittelyyn PyQGISillä.
 
@@ -262,7 +262,9 @@ geometria ja laske sille pinta-ala. Lisää taso lopuksi QGIS-projektiin. PS. Hu
 WKT:
 
 ::: code-box
+``` python
 POLYGON((25498691.416 6675066.090, 25498654.342 6675085.786,25498682.920 6675125.950, 25498694.120 6675186.582, 25498772.517 6675171.135, 25498765.566 6675142.556, 25498721.153 6675152.597, 25498713.816 6675109.344, 25498691.416 6675066.090))
+```
 :::
 
 <button onclick="toggleAnswer(this)" class="btn answer_btn">
@@ -271,7 +273,7 @@ ratkaisu
 
 </button>
 
-:::: hidden-box
+::: hidden-box
 ::: code-box
 ``` python
 new_layer = QgsVectorLayer("Polygon?crs=EPSG:3879", "Mysteeritaso", "memory")
@@ -296,12 +298,12 @@ new_layer.commitChanges()
 QgsProject.instance().addMapLayer(new_layer)
 ```
 :::
-::::
+:::
 
 ## Harjoitus 6.2: Etäisyydet
 
 Avaa QGISiin kurssihakemistosta
-`ne_10m_admin_0_countries.gpkg`-tiedosto.
+`ne_10m_admin_0_countries.gpkg`-tiedosto (jos ei se ole jo auki).
 
 Kirjoita skripti, joka laskee jokaisen valtion etäisyyden sen
 painopisteestä (centroid) Suomen painopisteeseen. Lähtötason
