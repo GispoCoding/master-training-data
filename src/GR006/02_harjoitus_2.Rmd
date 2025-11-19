@@ -1,5 +1,7 @@
 # 2. Lisää QGISin lausekkeita
 
+Tässä osiossa on lisää QGISin lausekkeisiin liittyvä tehtäviä. Näitä tehdään jos jää aikaa.
+
 ## Tehtävä 2.1
 
 Tarkastele hallintoalueaineistoa. Luo uusi attribuuttikenttä (boolean), joka pitää sisällää tiedon siitä, sijaitseeko hallintoalue 50 km:n säteellä Helsingistä. Laske etäisyys polygonien painopisteiden välillä (centroid).
@@ -101,9 +103,6 @@ if(
 :::
 :::
 
-
-
-## Lisätehtävät
 
 ## Tehtävä 2.4
 
