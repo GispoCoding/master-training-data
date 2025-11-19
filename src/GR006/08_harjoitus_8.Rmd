@@ -10,13 +10,14 @@ Tämä tehtäväosio on varsin avoin ja voit itse miettiä, miten voisit sitä t
 
 **Voinko automatisoida jotain, mitä teen usein?**
 
-<!-- TODO: should this paragraph be under Prosessointialgoritmin kutsuminen? -->
+Jos koet, että tarvitset käyttää jotain prosessialgoritmia, eli jotain QGISin sisäänrakennettuja työkaluja niin lue vielä alla oleva osio.
+
+## Prosessointialgoritmin kutsuminen
+
 QGISiin voi kirjoittaa itsenäisiä prosessointialgoritmeja,
 siten että ne kirjoitetaan omaan `.py`-tiedostoon ja lisätään
 prosessointipaneeliin. .
 
-
-### Prosessointialgoritmin kutsuminen
 
 Jos halutaan kutsua prosesointialgoritmia Pythonilla
 konsolista, skriptistä, lisäosasta tai toisesta
