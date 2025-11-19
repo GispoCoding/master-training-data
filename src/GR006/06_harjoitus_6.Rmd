@@ -239,7 +239,7 @@ print(point_1.distance(point_2))
 Geometriaa voidaan myös manipuloida eri tavoin valmiilla metodeilla.
 Luodaan uusi polygonigeometria kahden olemassa olevan polygonin
 päällekkäin menevästä alueesta. Tämä vastaa Ristiinleikkaus
-(intersection)- prosessointityökalua QGISissä.
+(intersection) -prosessointityökalua QGISissä.
 
 ::: code-box
 ``` python

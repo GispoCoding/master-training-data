@@ -1,6 +1,6 @@
 # Kappale 7 PyQGIS skriptaus
 
-Täsä kappaleessa käydään läpi lisää käyttätapoja PyQGISin osalta.
+Täsä kappaleessa käydään läpi lisää PyQGISin käyttötapoja.
 
 Avaa valmiiksi QGISin Python-konsoli ja koodieditori.
 
@@ -59,7 +59,7 @@ layer.setName('<uusi nimi>')
 ```
 :::
 
-Jos haluat vaihtaa nimen tasolle joka on jo lisätty (etkä halua käyttää aktiivista tasoa) niin se tehdään näin:
+Jos haluat vaihtaa nimen tasolle, joka on jo lisätty (etkä halua käyttää aktiivista tasoa), se tehdään näin:
 
 ::: code-box
 ```python
@@ -75,7 +75,7 @@ Vaihda jonkun tason nimeä käyttäen PyQGISiä.
 
 ## Tason tallentaminen
 
-Opittiin aiemmin miten luodaan väliaikaisia tasoja. Nyt tarkoitus on luoda uusi taso sekä tallentaa se. Vaihda alla olevssa koodissa polku 
+Aiemmin opimme, miten luodaan väliaikaisia tasoja. Nyt tarkoitus on luoda uusi taso sekä tallentaa se. Vaihda alla olevassa koodissa polku (`out_path`).
 
 ::: code-box
 ```python
