@@ -19,28 +19,10 @@ documentclass: book
 
 # Lausekkeet ja PyQGIS
 
-## Kurssimateriaalien lataaminen
-
-Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
-
-::: note-box
-[Kurssihakemisto.zip](data_package_link_replace)
-:::
-
-ja kurssin harjoitukset PDF-muodossa tästä linkistä:
-
-::: note-box
-[Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/course_code_replace/course_code_replace.pdf)
 :::
 
 ## Lukuohje
 
-**Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
-
-::: commandline-box
-``` bash
-sudo lsb_release -a
-```
 :::
 
 
