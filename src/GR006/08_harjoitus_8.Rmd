@@ -24,7 +24,7 @@ prosessointialgoritmista, se voidaan tehdä seuraavasti.
 parametrit annetaan sanakirjana (dictionary), ja avaimina
 käytetään algoritmissa määriteltyjä vakiomuuttujien arvoja.
 
-Pidä valittuna esimerkiksi rautatieasema-tasoa ja ajaa alla oleva skripti. Mitä se tekee?
+Pidä valittuna esimerkiksi rautatieasema-tasoa ja aja alla oleva skripti. Mitä se tekee?
 
 ::: code-box
 ```python
@@ -43,7 +43,7 @@ parameters = {
 }
 
 output = processing.run('native:buffer', parameters)
-git s
+
 # Huomioi, että `processing.run()` metodi
 # palauttaa tässä sanakirjan.
 # Tulostaso voidaan hakea avaimella 'OUTPUT'

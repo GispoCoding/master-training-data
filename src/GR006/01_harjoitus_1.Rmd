@@ -5,7 +5,7 @@ QGISin lausekkeet ovat monipuolisia ja voit ottaa niitä käyttöön helposti.
 
 Lataa ensin tarvittavat aineistot [täältä](https://drive.google.com/file/d/12xHFNq8pTGPPmcuZ1pGJwU6UhskKv2_C/view?usp=sharing).
 
-Zip-tiedostoa pitää purkaa ennen käyttöä.
+Zip-tiedosto pitää purkaa ennen käyttöä.
 
 ## Tehtävä 1.1
 
