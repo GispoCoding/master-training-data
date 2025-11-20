@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 3: Paikkatietoaineiston visualisointi | QGIS-työpaja Espoon kaupungille" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 3: Paikkatietoaineiston visualisointi | QGIS-työpaja Espoon kaupungille">
+
+<title>Harjoitus 3: Paikkatietoaineiston visualisointi | QGIS-työpaja Espoon kaupungille</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS-työpaja Espoon kaupungille</h1></div>
+<div class="abstract-sidebar"><p>Tämä on QGIS-työpaja joka on räätälöity Espoon kaupungin työntekijöille</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-työpaja-espoon-kaupungille">QGIS-työpaja Espoon kaupungille</a>
+<ul>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-käyttöliittymä">Harjoitus 1: QGISin käyttöliittymä</a>
+<ul>
+<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus">Kurssimateriaalien lataus</a></li>
+<li><a href="01_harjoitus_1.html#qgisin-käyttöliittymä">QGISin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qgis-käyttöliittymän-osat">QGIS-käyttöliittymän osat</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#kokeile-itse">Kokeile itse</a>
+<ul>
+<li><a href="01_harjoitus_1.html#attribuuttitaulu">Attribuuttitaulu</a></li>
+<li><a href="01_harjoitus_1.html#tiedoston-tallennus">Tiedoston tallennus</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-2-paikkatietoaineistot-ja--palvelut">Harjoitus 2: Paikkatietoaineistot ja -palvelut</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#wms-palvelun-lisääminen">WMS-palvelun lisääminen</a></li>
+<li><a href="03_harjoitus_3.html#wfs-palvelun-lisääminen">WFS-palvelun lisääminen</a></li>
+<li><a href="03_harjoitus_3.html#valitseminen-ja-tallentaminen">Valitseminen ja tallentaminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-3-paikkatietoaineiston-visualisointi">Harjoitus 3: Paikkatietoaineiston visualisointi</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#vektoriaineistojen-visualisointi">Vektoriaineistojen visualisointi</a></li>
+<li><a href="04_harjoitus_4.html#viiva--ja-monikulmioaineiston-visualisointi">Viiva- ja monikulmioaineiston visualisointi</a></li>
+<li><a href="04_harjoitus_4.html#tutustu-tyylien-hallintaan">Tutustu tyylien hallintaan</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-monikulmioaineiston-edistynyt-visualisointi">Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-4-digitoinnin-valmistelut">Harjoitus 4: Digitoinnin valmistelut</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#muokkauksen-yleisasetukset">Muokkauksen yleisasetukset</a></li>
+<li><a href="05_harjoitus_5.html#digitoinnin-valmistelu">Digitoinnin valmistelu</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-5-paikkatietoaineiston-digitointieditointi">Harjoitus 5: Paikkatietoaineiston digitointi/editointi</a>
+<ul>
+<li><a href="06_harjoitus_6.html#vektoriaineiston-luominen">Vektoriaineiston luominen</a></li>
+<li><a href="06_harjoitus_6.html#tietorakenteen-valmistelu-ja-editointiasetukset">Tietorakenteen valmistelu ja editointiasetukset</a></li>
+<li><a href="06_harjoitus_6.html#vektoriaineiston-editointi">Vektoriaineiston editointi</a></li>
+<li><a href="06_harjoitus_6.html#geometrioiden-lisääminen">Geometrioiden lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#ominaisuustietojen-lisääminen">Ominaisuustietojen lisääminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-6-edistyneet-digitointiominaisuudet">Harjoitus 6: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="07_harjoitus_7.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="07_harjoitus_7.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode">Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
+<li><a href="07_harjoitus_7.html#rakentamistila">Rakentamistila</a></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#rakennuksen-piirto-apuviivojen-avulla">Rakennuksen piirto apuviivojen avulla</a>
+<ul>
+<li><a href="07_harjoitus_7.html#sitten-vain-harjoittelemaan.">Sitten vain harjoittelemaan….</a></li>
+</ul></li>
+<li><a href="07_harjoitus_7.html#suorakulmaisen-polygonin-piirtäminen">Suorakulmaisen polygonin piirtäminen</a></li>
+<li><a href="07_harjoitus_7.html#rakennustilan-hyödyntäminen-rakennuksen-piirtämisessä">Rakennustilan hyödyntäminen rakennuksen piirtämisessä</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-7-paikkatietoaineiston-nimiöinti-ja-luokittelu">Harjoitus 7: Paikkatietoaineiston nimiöinti ja luokittelu</a>
+<ul>
+<li><a href="08_harjoitus_8.html#harjoituksen-sisältö-2">Harjoituksen sisältö</a></li>
+<li><a href="08_harjoitus_8.html#harjoituksen-tavoite-2">Harjoituksen tavoite</a></li>
+<li><a href="08_harjoitus_8.html#valmistautuminen-4">Valmistautuminen</a></li>
+<li><a href="08_harjoitus_8.html#nimiöt">Nimiöt</a></li>
+<li><a href="08_harjoitus_8.html#nimiöiden-tyyli--ja-yleisasetukset">Nimiöiden tyyli- ja yleisasetukset</a></li>
+<li><a href="08_harjoitus_8.html#nimiön-tekstityyli">Nimiön tekstityyli</a></li>
+<li><a href="08_harjoitus_8.html#vektoriaineiston-luokittelut">Vektoriaineiston luokittelut</a></li>
+<li><a href="08_harjoitus_8.html#lisätehtävä-nimiöiden-piirtäminen">Lisätehtävä: nimiöiden piirtäminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_harjoitus_9.html#harjoitus-8-karttatuloste">Harjoitus 8: Karttatuloste</a>
+<ul>
+<li><a href="09_harjoitus_9.html#harjoituksen-sisältö-3">Harjoituksen sisältö</a></li>
+<li><a href="09_harjoitus_9.html#harjoituksen-tavoite-3">Harjoituksen tavoite</a></li>
+<li><a href="09_harjoitus_9.html#valmistautuminen-5">Valmistautuminen</a></li>
+<li><a href="09_harjoitus_9.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="09_harjoitus_9.html#lisätehtävä-kartta-atlas">Lisätehtävä: kartta-atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_harjoitus_10.html#harjoitus-9-cad-aineistot-qgisissä">Harjoitus 9: CAD-aineistot QGISissä</a>
+<ul>
+<li><a href="10_harjoitus_10.html#harjoituksen-sisältö-4">Harjoituksen sisältö</a></li>
+<li><a href="10_harjoitus_10.html#harjoituksen-tavoite-4">Harjoituksen tavoite</a></li>
+<li><a href="10_harjoitus_10.html#valmistautuminen-6">Valmistautuminen</a></li>
+<li><a href="10_harjoitus_10.html#cad-aineiston-tuonti">CAD-aineiston tuonti</a></li>
+<li><a href="10_harjoitus_10.html#erilaiset-cad-aineistot">Erilaiset CAD-aineistot</a></li>
+<li><a href="10_harjoitus_10.html#paikkatietoaineiston-vienti-cad-muotoon">Paikkatietoaineiston vienti CAD-muotoon</a></li>
+</ul></li>
+<li class="has-sub"><a href="11_harjoitus_11.html#lisätehtävä-paikkatietoanalyysit">Lisätehtävä: Paikkatietoanalyysit</a>
+<ul>
+<li><a href="11_harjoitus_11.html#harjoituksen-sisältö-5">Harjoituksen sisältö</a></li>
+<li><a href="11_harjoitus_11.html#harjoituksen-tavoite-5">Harjoituksen tavoite</a></li>
+<li><a href="11_harjoitus_11.html#valmistautuminen-7">Valmistautuminen</a></li>
+<li><a href="11_harjoitus_11.html#rajaa-ja-sulauta">Rajaa ja sulauta</a></li>
+<li><a href="11_harjoitus_11.html#saavutettavuusanalyysi">Saavutettavuusanalyysi</a></li>
+</ul></li>
+<li class="has-sub"><a href="12_harjoitus_12.html#lisätehtävä-georeferointi">Lisätehtävä: Georeferointi</a>
+<ul>
+<li><a href="12_harjoitus_12.html#harjoituksen-sisältö-6">Harjoituksen sisältö</a></li>
+<li><a href="12_harjoitus_12.html#harjoituksen-tavoite-6">Harjoituksen tavoite</a></li>
+<li><a href="12_harjoitus_12.html#valmistautuminen-8">Valmistautuminen</a></li>
+<li><a href="12_harjoitus_12.html#georeferointi">Georeferointi</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-3-paikkatietoaineiston-visualisointi" class="section level1">
+<h1>Harjoitus 3: Paikkatietoaineiston visualisointi</h1>
+<div id="harjoituksen-sisältö-1" class="section level2">
+<h2>Harjoituksen sisältö</h2>
+<p>Harjoituksessa harjoitellaan vektoriaineiston visualisoitia</p>
+</div>
+<div id="harjoituksen-tavoite-1" class="section level2">
+<h2>Harjoituksen tavoite</h2>
+<p>Kouluttautuja oppii eri aineistotyyppien visualisointitapoja.</p>
+</div>
+<div id="valmistautuminen-1" class="section level2">
+<h2>Valmistautuminen</h2>
+<p>Käynnistä QGIS-ohjelmisto. Avaa uusi QGIS-projekti ja tallenna se nimellä (<strong>Projekti → Tallenna nimellä…</strong>) “<strong>QGIS_harjoitus_3</strong>”.</p>
+<p>Lisää Espoon kaupungin WFS-rajapinnasta seuraavat aineistot:</p>
+<ul>
+<li><p><strong>GIS:Lintutornit</strong></p></li>
+<li><p><strong>GIS:Luontopolut</strong></p></li>
+<li><p><strong>GIS:ArvokkaatLuontokohteet</strong></p></li>
+</ul>
+</div>
+<div id="vektoriaineistojen-visualisointi" class="section level2">
+<h2>Vektoriaineistojen visualisointi</h2>
+<p>Aloita tutkimalla Lintutornit -tasoa, joka sisältää Espoon lintutornit. Jos et näe pisteitä kartallasi, vedä taso muiden tasojen päälle painamalla hiiren vasenta painiketta ja raahaa taso ylimmäksi listauksessa. Paina hiiren oikealla painikkeella tason nimeä (GIS:Lintutornit) tasoluettelossa. Valitse valikosta <strong>Ominaisuudet</strong>.</p>
+<p><strong>Tason ominaisuudet</strong> -ikkuna aukeaa. Huomaa vasemmalla oleva sivupalkki, josta löytyy eri ominaisuudet jaoteltuna aihekohtaisesti. Samaisessa sivupalkissa on <strong>Kuvaustekniikka-alavalikko</strong>, jonka valittuasi pääset muokkaamaan tason tyyliominaisuuksia:</p>
+<p><img src="img/harjoitus_4/image2.png" style="width:70.0%" /></p>
+<p>Vaihda <strong>Väri- ja koko-arvot</strong>, ja paina <strong>Käytä</strong>. Sillä tavalla saat näkyviin tekemäsi muutokset sulkematta <strong>Tason ominaisuudet -ikkunaa</strong>. Avaa vielä jokin <strong>symbolikirjasto</strong>, esimerkiksi <strong>Suosikit</strong>, ja muuta pisteen tyyliksi jokin sinua miellyttävä tyyli. Voit myös kiertää symbolia vaihtamalla <strong>kierto-arvon</strong> astelukua. Paina sitten <strong>OK</strong>, ikkuna sulkeutuu ja luontotornitaso näkyy nyt määrittämäsi visualisointityylin tavalla.</p>
+<p>Saat avattua edistyneet visualisointiasetukset painamalla <strong>Yksinkertainen pistesymboli</strong> valintaa. Täältä saat muokattua symbolin lisäksi esimerkiksi reunojen väriä, paksuutta sekä viivan tyyliä. Voit myös poistaa ääriviivat tai symbolin värityksen kokonaan jättäen vain ääriviivat. Muut paikkatietoaineistojen visualisoinnin työkalut saa käyttöön samalla tavalla, avaamalla hiiren oikealla <strong>Ominaisuudet</strong> ja sivupalkista <strong>Kuvaustekniikka</strong>. Klikkaamalla sivellintä Tasot-paneelin yläreunasta tai pikanäppäimellä <strong>F7</strong> saat avatuksi <strong>Tason tyylit -ikkunan</strong>, joka on jatkuvasti avoinna karttaikkunan oikeassa laidassa. Tällöin voit helposti vaihtaa kaikkien tasojen kuvaustekniikkaa ja näet heti, miltä uusi tyyli näyttää.</p>
+<p>Eri vektoriaineistotyypeillä (piste, viiva, monikulmio) on erilaiset kuvaustekniikan työkalut, vaikkakin ne muistuttavat paljon toisiaan. Esimerkiksi pistetasolle ei voida tehdä samoja tyylittelyjä kuin viiva- tai monikulmiotasolle. Rasteriaineistojen työkalut taas eroavat melko paljon vektoriaineistojen työkaluista.</p>
+</div>
+<div id="viiva--ja-monikulmioaineiston-visualisointi" class="section level2">
+<h2>Viiva- ja monikulmioaineiston visualisointi</h2>
+<p>Kokeile nyt itse muokata viiva- ja monikulmioaineistoja haluamaksesi. Avaa aiemmin lisätty luontopolut-tason kuvaustekniikkaikkuna samalla tavalla kuin äsken pistetason yhteydessä. Huomaa erot viiva- ja pistetason kuvaustekniikan määrittelyissä:</p>
+<p><img src="img/harjoitus_4/image3.png" style="width:70.0%" /></p>
+<p>Vaihda viivan <strong>Väri</strong> ja <strong>Leveys</strong> ja paina taas <strong>Käytä</strong>. Tutki mitä valmiita tyylejä QGISiin on tallennettu ja testaa miltä ne näyttävät oman karttasi visualisoinnissa.</p>
+<p>Visualisoi vielä monikulmioaineisto haluamallasi tavalla. Avaa tason GIS:ArvokkaatLuontokohteet kuvaustekniikkaikkuna ja huomaa erot verrattuna piste- ja viiva-aineistojen ominaisuuksiin. Muokkaa tason väriä <strong>Väri-kohdasta</strong> ja valitse tasolle jokin symboli haluamastasi kirjastosta. Voit myös kokeilla eri <strong>Peittävyys-arvoja</strong>. Paina Käytä ja kun olet testannut tarpeeksi, paina <strong>OK</strong>.</p>
+<p>Saattaa olla, että aineistotasot peittävät toisensa vaikka siten, että monikulmio aineisto peittää muut sen alle jäävät aineistot. Kokeile muuttaa tasojen keskinäistä järjestystä ja siten tasojen näkymistä raahaamalla/vetämällä tasot uuteen järjestykseen <strong>Tasoluettelossa</strong>. Useimmiten monikulmiotasot on hyvä jättää alimmiksi tasoiksi. Jos kartalla halutaan visualisoida jotakin rasterikuvaa, kannattaa se/ne yleensä pitää myös alimpina tasoina. Uudelleen järjestettynä karttasi näyttää tältä:</p>
+<p><img src="img/harjoitus_4/image4.png" /></p>
+<p>Voit myös piilottaa tai näyttää tasoja painamalla tason nimen vasemmalla puolella olevaa ruutua.</p>
+</div>
+<div id="tutustu-tyylien-hallintaan" class="section level2">
+<h2>Tutustu tyylien hallintaan</h2>
+<p>Joskus tarvitaan samanlaista tyyliä usein. Silloin voidaan luoda valmiita tyylejä, mitä voi nopeasti saada käyttöön uusille aineistoille. Valitse tyylien hallinta seuraavasta napista:</p>
+<p><img src="img/harjoitus_4/image10.png" />
+Tässä näkymässä näet valmiita tyylejä. Alhaalla keskellä on vihreä plus-symbolia. Sillä voi luoda uusia tyylejä.</p>
+<p><img src="img/harjoitus_4/image11.png" /></p>
+<p>Kokeile luoda esimerkiksi pisteille uuden visualisoinnin. Voit tämän jälkeen tallentaa visualisoinnin “oletuksena” tai ainoastaan tähän projektiin. Jos aiot käyttää samaa visualiointia muualla niin tallenna se oletuksena. Visualisointiin voi myös lisätä tägejä, jotka helpottavat visualisoinnin löytämistä.</p>
+<p>Tyylit jotka tallennat tyylien hallinta-ikkunassa tulevat myös esiin kun olet asettamassa tyylejä tasoille. On myös mahodllista viedä omat tyylit ulos QGISistä XML-muodossa ja tuoda sisään jonkun toisen tekemiä tyylejä. Tämä tapahtuu <strong>Tuo/Vie</strong>-napin kautta.</p>
+<div class="hint-box">
+<p>Muista myös, että tyylejä voi kopioida tasosta toiseen klikkaamalla tasoa oikealla ja valitsemalla <strong>Tyylit -&gt; Kopioi tyylit -&gt; Kuvaustekniikka</strong></p>
+</div>
+</div>
+<div id="lisätehtävä-monikulmioaineiston-edistynyt-visualisointi" class="section level2">
+<h2>Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</h2>
+<p>Visualisointeihin voi tehdä myös useampia tasoja monipuolisemman kuvaustekniikan saavuttamiseksi. Muokataan <strong>GIS:ArvokkaatLuontokohteet</strong>-aineiston visualisointia. Tavoitteena on saada kutakuinkin tällainen visualisointi tasolle:</p>
+<p><img src="img/harjoitus_4/image5.png" /></p>
+<p>Ensimmäiseksi muutamme vektoriaineiston väriä. Avaa tason <strong>Ominaisuudet → Kuvaustekniikka</strong> ja klikkaa <strong>Väri-kohdassa</strong> olevaa väripalkkia. Valitse haluamasi väri vektoriaineistolle. Huomaa, että voit määritellä värit arvo <strong>HSV-</strong> (Hue, Saturation, Value) tai <strong>RGB-arvoilla</strong> (Red, Green, Blue). <strong>Peittävyys-arvolla</strong> säädät värin läpinäkyvyyttä. Kokeile myös <strong>Värikarttaa</strong>, <strong>Väripyörää</strong> ja <strong>Liukuväriä</strong> (välilehdet). Valittuasi sopivan värin, paina <strong>OK</strong>. Paina sen jälkeen <strong>Ominaisuudet-ikkunasta Käytä</strong>.</p>
+<p><img src="img/harjoitus_4/image6.png" style="width:70.0%" /></p>
+<p>Avaa edistyneet visualisointityökalut painamalla <strong>Yksinkertainen täyttö</strong>. Lisää toinen visualisointitaso täyttöön painamalla vihreää <img src="img/harjoitus_4/image7.png" /> nappia oikeasta reunasta. Tason tyyppiä voi vaihtaa <strong>Symbolitason tyyppi</strong> valikosta. Vaihda tason tyyliksi <strong>Täyttö viivakuosilla</strong>. Täyttöön tulee lisää valintoja, viivakuosin valinnat sekä itse viivoituksen muokkaamisen mahdollisuus.</p>
+<p><img src="img/harjoitus_4/image8.png" style="width:60.0%" /></p>
+<p>Voit muokata viivoituksen kiertoa, jaottelua ja siirtymää <strong>Täyttö viivakuosilla</strong>. Kierron voit asettaa esimerkiksi 45 °. Testaa mikä sopii sinun visualisointiinsi parhaiten painamalla <strong>Käytä</strong> ja katsomalla miltä karttasi näyttää. Viivan ominaisuuksia saa muokattua avaamalla viivan edistyneet visualisoinnit. Voit muokata viivan väriä, leveyttä sekä tyyliä.</p>
+<p><img src="img/harjoitus_4/image9.png" style="width:70.0%" /></p>
+<p>Muuta vielä aineiston reunaviiva katkoviivaksi kohdasta <strong>Piirron tyyli</strong>. Viivan paksuudeksi voit määritellä 0,8 millimetriä. Lopuksi voit vielä määritellä <strong>Tason piirto -kohdasta</strong> (valikko aukeaa pientä nuolta klikkaamalla) <strong>Peittävyys-kohtaan</strong> arvoksi 70%.</p>
+<div class="hint-box">
+<p><strong>Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="03_harjoitus_3.html"><button class="btn btn-default">Previous</button></a>
+<a href="05_harjoitus_5.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS-työpaja Espoon kaupungille</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

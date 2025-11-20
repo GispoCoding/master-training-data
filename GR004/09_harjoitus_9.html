@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 8: Karttatuloste | QGIS-työpaja Espoon kaupungille" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 8: Karttatuloste | QGIS-työpaja Espoon kaupungille">
+
+<title>Harjoitus 8: Karttatuloste | QGIS-työpaja Espoon kaupungille</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS-työpaja Espoon kaupungille</h1></div>
+<div class="abstract-sidebar"><p>Tämä on QGIS-työpaja joka on räätälöity Espoon kaupungin työntekijöille</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-työpaja-espoon-kaupungille">QGIS-työpaja Espoon kaupungille</a>
+<ul>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-käyttöliittymä">Harjoitus 1: QGISin käyttöliittymä</a>
+<ul>
+<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus">Kurssimateriaalien lataus</a></li>
+<li><a href="01_harjoitus_1.html#qgisin-käyttöliittymä">QGISin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qgis-käyttöliittymän-osat">QGIS-käyttöliittymän osat</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#kokeile-itse">Kokeile itse</a>
+<ul>
+<li><a href="01_harjoitus_1.html#attribuuttitaulu">Attribuuttitaulu</a></li>
+<li><a href="01_harjoitus_1.html#tiedoston-tallennus">Tiedoston tallennus</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-2-paikkatietoaineistot-ja--palvelut">Harjoitus 2: Paikkatietoaineistot ja -palvelut</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#wms-palvelun-lisääminen">WMS-palvelun lisääminen</a></li>
+<li><a href="03_harjoitus_3.html#wfs-palvelun-lisääminen">WFS-palvelun lisääminen</a></li>
+<li><a href="03_harjoitus_3.html#valitseminen-ja-tallentaminen">Valitseminen ja tallentaminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-3-paikkatietoaineiston-visualisointi">Harjoitus 3: Paikkatietoaineiston visualisointi</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#vektoriaineistojen-visualisointi">Vektoriaineistojen visualisointi</a></li>
+<li><a href="04_harjoitus_4.html#viiva--ja-monikulmioaineiston-visualisointi">Viiva- ja monikulmioaineiston visualisointi</a></li>
+<li><a href="04_harjoitus_4.html#tutustu-tyylien-hallintaan">Tutustu tyylien hallintaan</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-monikulmioaineiston-edistynyt-visualisointi">Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-4-digitoinnin-valmistelut">Harjoitus 4: Digitoinnin valmistelut</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#muokkauksen-yleisasetukset">Muokkauksen yleisasetukset</a></li>
+<li><a href="05_harjoitus_5.html#digitoinnin-valmistelu">Digitoinnin valmistelu</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-5-paikkatietoaineiston-digitointieditointi">Harjoitus 5: Paikkatietoaineiston digitointi/editointi</a>
+<ul>
+<li><a href="06_harjoitus_6.html#vektoriaineiston-luominen">Vektoriaineiston luominen</a></li>
+<li><a href="06_harjoitus_6.html#tietorakenteen-valmistelu-ja-editointiasetukset">Tietorakenteen valmistelu ja editointiasetukset</a></li>
+<li><a href="06_harjoitus_6.html#vektoriaineiston-editointi">Vektoriaineiston editointi</a></li>
+<li><a href="06_harjoitus_6.html#geometrioiden-lisääminen">Geometrioiden lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#ominaisuustietojen-lisääminen">Ominaisuustietojen lisääminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-6-edistyneet-digitointiominaisuudet">Harjoitus 6: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="07_harjoitus_7.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="07_harjoitus_7.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode">Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
+<li><a href="07_harjoitus_7.html#rakentamistila">Rakentamistila</a></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#rakennuksen-piirto-apuviivojen-avulla">Rakennuksen piirto apuviivojen avulla</a>
+<ul>
+<li><a href="07_harjoitus_7.html#sitten-vain-harjoittelemaan.">Sitten vain harjoittelemaan….</a></li>
+</ul></li>
+<li><a href="07_harjoitus_7.html#suorakulmaisen-polygonin-piirtäminen">Suorakulmaisen polygonin piirtäminen</a></li>
+<li><a href="07_harjoitus_7.html#rakennustilan-hyödyntäminen-rakennuksen-piirtämisessä">Rakennustilan hyödyntäminen rakennuksen piirtämisessä</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-7-paikkatietoaineiston-nimiöinti-ja-luokittelu">Harjoitus 7: Paikkatietoaineiston nimiöinti ja luokittelu</a>
+<ul>
+<li><a href="08_harjoitus_8.html#harjoituksen-sisältö-2">Harjoituksen sisältö</a></li>
+<li><a href="08_harjoitus_8.html#harjoituksen-tavoite-2">Harjoituksen tavoite</a></li>
+<li><a href="08_harjoitus_8.html#valmistautuminen-4">Valmistautuminen</a></li>
+<li><a href="08_harjoitus_8.html#nimiöt">Nimiöt</a></li>
+<li><a href="08_harjoitus_8.html#nimiöiden-tyyli--ja-yleisasetukset">Nimiöiden tyyli- ja yleisasetukset</a></li>
+<li><a href="08_harjoitus_8.html#nimiön-tekstityyli">Nimiön tekstityyli</a></li>
+<li><a href="08_harjoitus_8.html#vektoriaineiston-luokittelut">Vektoriaineiston luokittelut</a></li>
+<li><a href="08_harjoitus_8.html#lisätehtävä-nimiöiden-piirtäminen">Lisätehtävä: nimiöiden piirtäminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_harjoitus_9.html#harjoitus-8-karttatuloste">Harjoitus 8: Karttatuloste</a>
+<ul>
+<li><a href="09_harjoitus_9.html#harjoituksen-sisältö-3">Harjoituksen sisältö</a></li>
+<li><a href="09_harjoitus_9.html#harjoituksen-tavoite-3">Harjoituksen tavoite</a></li>
+<li><a href="09_harjoitus_9.html#valmistautuminen-5">Valmistautuminen</a></li>
+<li><a href="09_harjoitus_9.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="09_harjoitus_9.html#lisätehtävä-kartta-atlas">Lisätehtävä: kartta-atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_harjoitus_10.html#harjoitus-9-cad-aineistot-qgisissä">Harjoitus 9: CAD-aineistot QGISissä</a>
+<ul>
+<li><a href="10_harjoitus_10.html#harjoituksen-sisältö-4">Harjoituksen sisältö</a></li>
+<li><a href="10_harjoitus_10.html#harjoituksen-tavoite-4">Harjoituksen tavoite</a></li>
+<li><a href="10_harjoitus_10.html#valmistautuminen-6">Valmistautuminen</a></li>
+<li><a href="10_harjoitus_10.html#cad-aineiston-tuonti">CAD-aineiston tuonti</a></li>
+<li><a href="10_harjoitus_10.html#erilaiset-cad-aineistot">Erilaiset CAD-aineistot</a></li>
+<li><a href="10_harjoitus_10.html#paikkatietoaineiston-vienti-cad-muotoon">Paikkatietoaineiston vienti CAD-muotoon</a></li>
+</ul></li>
+<li class="has-sub"><a href="11_harjoitus_11.html#lisätehtävä-paikkatietoanalyysit">Lisätehtävä: Paikkatietoanalyysit</a>
+<ul>
+<li><a href="11_harjoitus_11.html#harjoituksen-sisältö-5">Harjoituksen sisältö</a></li>
+<li><a href="11_harjoitus_11.html#harjoituksen-tavoite-5">Harjoituksen tavoite</a></li>
+<li><a href="11_harjoitus_11.html#valmistautuminen-7">Valmistautuminen</a></li>
+<li><a href="11_harjoitus_11.html#rajaa-ja-sulauta">Rajaa ja sulauta</a></li>
+<li><a href="11_harjoitus_11.html#saavutettavuusanalyysi">Saavutettavuusanalyysi</a></li>
+</ul></li>
+<li class="has-sub"><a href="12_harjoitus_12.html#lisätehtävä-georeferointi">Lisätehtävä: Georeferointi</a>
+<ul>
+<li><a href="12_harjoitus_12.html#harjoituksen-sisältö-6">Harjoituksen sisältö</a></li>
+<li><a href="12_harjoitus_12.html#harjoituksen-tavoite-6">Harjoituksen tavoite</a></li>
+<li><a href="12_harjoitus_12.html#valmistautuminen-8">Valmistautuminen</a></li>
+<li><a href="12_harjoitus_12.html#georeferointi">Georeferointi</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-8-karttatuloste" class="section level1">
+<h1>Harjoitus 8: Karttatuloste</h1>
+<div id="harjoituksen-sisältö-3" class="section level2">
+<h2>Harjoituksen sisältö</h2>
+<p>Harjoituksessa tehdään karttatuloste.</p>
+</div>
+<div id="harjoituksen-tavoite-3" class="section level2">
+<h2>Harjoituksen tavoite</h2>
+<p>Kouluttautuja oppii laatimaan karttatulosteen halutussa mittakaavassa sekä tehdä tulosteesta PDF-tiedoston.</p>
+</div>
+<div id="valmistautuminen-5" class="section level2">
+<h2>Valmistautuminen</h2>
+<p>Käynnistä QGIS-ohjelmisto. Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (<strong>Projekti → Tallenna nimellä…</strong>) “<strong>QGIS_harjoitus_8</strong>”.</p>
+</div>
+<div id="karttatuloste" class="section level2">
+<h2>Karttatuloste</h2>
+<p>Uuden tulosteen muodostaminen voidaan aloittaa kahdella tavalla, valitse <strong>Projekti → Uusi taitto</strong> tai paina työkalua:</p>
+<p><img src="img/harjoitus_9/image1.png" /></p>
+<p>Ensimmäisenä kysytään uuden taiton nimeä. Anna taitolle jokin sitä hyvin kuvaava nimi. Taittoa varten avautuu uusi ikkuna.</p>
+<p><img src="img/harjoitus_9/image2.png" /></p>
+<p>Paina tulosalueella hiiren oikealla näppäimellä ja valitse <strong>Sivun ominaisuudet</strong>. Tarkista <strong>Elementin ominaisuudet -välilehdestä</strong> oikeasta paneelista, että paperin kooksi A4, suunta <strong>Vaaka</strong> ja <strong>Taitto-välilehdestä</strong>, että viennin resoluutio on 300 dpi.
+Tämän jälkeen voimme sijoittaa karttanäkymän tulosteelle, valitse työkalupalkista työkalu:</p>
+<p><img src="img/harjoitus_9/image3.png" /></p>
+<p>Vedä tulosalueelle suorakulmio, karttanäkymän mukainen kartta piirtyy näytölle.</p>
+<p><img src="img/harjoitus_9/image4.png" /></p>
+<p>Valitse <strong>Elementin ominaisuudet -välilehti</strong> ja muuta kartan parametrejä seuraavasti:</p>
+<ul>
+<li>Kartan mittakaavaksi 1:200 000</li>
+<li>Valitse Kehys (piirtää kartalle reunaviivat)</li>
+</ul>
+<p>Huomaa, että karttatulosteen hallinnassa on mahdollisuus siirtää yksittäisiä kohteita (nimikkeitä) tai muokata kartan sijaintia.
+Kohteen ollessa valittuna, voit siirtää sitä tulosteella seuraavan työkalun avulla:</p>
+<table>
+<colgroup>
+<col width="21%" />
+<col width="78%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="center"><img src="img/harjoitus_9/image5.png" /></td>
+<td align="center">Valitse/siirrä elementtiä</td>
+</tr>
+<tr class="even">
+<td align="center"><img src="img/harjoitus_9/image6.png" /></td>
+<td align="center">Siirrä elementin sisältöä (esimerkiksi kartan sisältöä)</td>
+</tr>
+<tr class="odd">
+<td align="center"><img src="img/harjoitus_9/image7.png" /></td>
+<td align="center">Zoomaa taiton näkymässä</td>
+</tr>
+</tbody>
+</table>
+<p>QGISin avulla voit muokata karttatulosteesi ulkoasua. Otsikko tai muu teksti voidaan lisätä <strong>Lisää uusi nimiö</strong> -työkalulla:
+<img src="img/harjoitus_9/image8.png" /></p>
+<p>Lisää uusi selite käyttäen:
+<img src="img/harjoitus_9/image9.png" /></p>
+<p>Ja lisää uusi mittakaava käyttäen:
+<img src="img/harjoitus_9/image10.png" /></p>
+<p>Huomaa, että näiden taiton elementtien ominaisuuksia voit muokata oikeanpuoleisen sivupalkin <strong>Elementin ominaisuudet -välilehden</strong> avulla.
+Tekstiä voi muokata tekstinkäsittelyohjelmista tutuilla työkaluilla:</p>
+<p><img src="img/harjoitus_9/image11.png" /></p>
+<p>Voit myös muokata selitteen ominaisuuksia. Huomaa, että sinun on poistettava kohdan <strong>Päivitä automaattisesti</strong> rasti.
+Pohjoisnuolen lisääminen tapahtuu lisäämällä kuva tällä työkalulla (vasemmasta palkista): <img src="img/harjoitus_9/image12.png" /></p>
+<p>Valitse sen jälkeen <strong>Elementin ominaisuudet -ikkunasta</strong> mieleisesi pohjoisnuoli-kuva (selaa sisältöä alaspäin, jos et heti näe nuolia).</p>
+<p><img src="img/harjoitus_9/image13.png" /></p>
+<p>Lopputulos voi olla esimerkiksi seuraavanlainen:</p>
+<p><img src="img/harjoitus_9/image14.png" /></p>
+<p>Halutessasi voit tallentaa käyttämäsi tulostemallin (layout englanniksi) ja hyödyntää sitä jatkossa seuraavien karttatulosteiden tekemiseen. Voit esimerkiksi muotoilla kollegoidesi käyttöön karttatulostemallin organisaatiollesi (logot, värit, tekstin paikka, jne.). Tämä onnistuu <strong>Tallenna malliksi -työkalulla</strong>: <img src="img/harjoitus_9/image15.png" /></p>
+<p>Lopputuloksen voit tulostaa tiedostoksi (kuvaksi tai pdf:ksi) tai tulostimeen.</p>
+<p><img src="img/harjoitus_9/image16.jpg" /></p>
+<p>Sopiva resoluutio karttatulosteellesi riippuu kartan käyttötarkoituksesta, mutta oletusarvoinen 300 dpi tallentaa resoluutioltaan hyvinkin tarkkoja kuvia. Voit valita arvoksi vaikkapa 200 dpi.</p>
+<div class="hint-box">
+<p><strong>Psst! Muista tallentaa QGIS-projekti harjoituksen lopuksi.</strong></p>
+</div>
+</div>
+<div id="lisätehtävä-kartta-atlas" class="section level2">
+<h2>Lisätehtävä: kartta-atlas</h2>
+<p>QGIS mahdollistaa myös kartta-atlaksen tekemisen. Kartta-atlas on ns. karttakirja, jonka avulla voidaan tuottaa automatisoidusti paljon karttoja samasta teemasta. Seuraavassa esimerkissä tuotamme kartta-atlaksen Pääkaupunkiseudun postinumeroalueista tutkien niitä väestön jakautumisen näkökulmasta. Tavoitteenamme on tuottaa 173 karttaa, jotka kattavat kaikki pääkaupunkiseudun postinumeroalueet.</p>
+<p><strong>Lisää PKS_postinumeroalueet_2023.gpkg</strong> eli HSY:n postinumeroaineisto QGIS-projektiisi. Huom! Tämä aineisto on tallennettu koordinaattijärjestelmässä EPSG: 3067.</p>
+<p>Nyt projektissa on tasoina ainakin väestöruutuaineisto ja postinumeroalueet. Voit myös lisätä muita haluamiasi tasoja projektiin (esimerkiksi tieviivat).
+Avaa uusi tuloste ja aseta sen sommittelu haluamaasi kokoon (esimerkiksi A5).</p>
+<p>Lisää tulosteelle kartta, johon piirtyvät karttaikkunassa näkyvät projektin tasot. Lisää otsikko, selite ja muut karttatulosteen graafiset tai kartografiset elementit (kuten logo tai pohjoisnuoli) totuttuun tapaan. Lähennä karttanäkymä n. yhden postinumeroalueen laajuiseksi (esim. 1:25 000), sillä lopputuloksessa kartta-atlaksen karttalehdet automaattisesti kohdentuvat postinumeroalueiden kokoon.</p>
+<p>Sitten aloitetaan kartta-atlaksen tuottaminen. Aktivoimme tulosteelle kartta-atlastilan oikean ominaisuuspalkin Atlaksen luonti-välilehdestä kuvan osoittamalla tavalla. Karttalehtijakotasoksi valitsemme tason, jonka alueisiin kartta-atlas perustuu. Tässä tapauksessa se on postinumeroalueet-taso.</p>
+<p><img src="img/harjoitus_9/image17.png" /></p>
+<p>Varmista, että karttakomponentti on valittuna, valitse se <strong>Valitse/Siirrä elementti -työkalulla</strong> vasemmasta työpalkista ja klikkaamalla kartta aktiiviseksi:
+<img src="img/harjoitus_9/image5.png" /></p>
+<p>Muokkaamme kartta-atlasasetuksia oikean puolen sivupalkissa <strong>Elementin ominaisuudet → Atlas ohjaa tätä</strong>.</p>
+<p><img src="img/harjoitus_9/image19.png" /></p>
+<p>Tämän jälkeen voimme esikatsella kartta-atlastamme <strong>Esikatsele Atlasta -työkalulla</strong> (käyttöliittymän yläreunassa):</p>
+<p><img src="img/harjoitus_9/image20.jpg" /></p>
+<p>Esikatselun avulla voit vilkaista, miltä kartta-atlas näyttäisi tulostaessa. Käytä nuolia esikatselutyöpalkista Huomaa, että voit tehdä samanaikaisesti muutoksia karttatulosteen tyyliasetuksiin tai vaikkapa tason luokitteluväreihin.
+Jos haluat voit lisätä tulosteeseen myös yleiskatsauskarttanäkymän, joka helpottaa kohteen sijainnin määrittämistä kartta-atlaksessa. Yleiskatsaus eli indeksikartta ilmaisee, millä alueella kartalla liikutaan.
+Lisää sitä varten tulosteeseen pienempi karttaikkuna, jota käytetään indeksikarttana. Valitse uuden karttaelementin <strong>Elementin omaisuudet -paneelista Yleiskatsaukset</strong> ja määritä asetukset kuvan mukaisesti:</p>
+<p><img src="img/harjoitus_9/image21.png" /></p>
+<p>Voit myös muuttaa indeksikartan <strong>Kehyksen tyylin</strong>.
+Kun olet valmis, voit tulostaa kartta-atlaksen <strong>Vie atlas kuvina -työkalulla</strong>. Huomaa, että jokaisesta kartta-atlaksen syntyy kuva eli tulostamisessa voi kestää.</p>
+<p><img src="img/harjoitus_9/image22.png" /></p>
+<p>Voit tulostaa atlaksen yksittäisinä kuvina tai yhteen tiedostoon PDF-formaatissa. Yhteen tiedostoon tallentaminen onnistuu aktivoimalla <strong>Yhden tiedoston vienti jos mahdollista</strong> -asetuksen Atlaksen luonti -välilehdessä:</p>
+<p><img src="img/harjoitus_9/image23.png" /></p>
+<p>Kartta-atlastuloste voisi näyttää esimerkiksi tältä:</p>
+<p><img src="img/harjoitus_9/image24.jpg" /></p>
+<p>Kuvan esimerkissä on käyttöön otettu myös yleiskatsauskarttanäkymä (vasen alareuna) ja taustakarttana käytetty OpenStreetMap. Huomaa, kuinka yleiskarttanäkymän pieni vaaleanpunainen neliö vaihtaa paikkaa sitä mukaa kun kohdennetun kartan alue vaihtuu.</p>
+<div class="hint-box">
+<p><strong>Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen <a href="mailto:koulutustuki@gispo.fi" class="email">koulutustuki@gispo.fi</a>!</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="08_harjoitus_8.html"><button class="btn btn-default">Previous</button></a>
+<a href="10_harjoitus_10.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS-työpaja Espoon kaupungille</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
