@@ -71,7 +71,7 @@ sum(
 
 ## Tehtävä 2.3
 
-Tarkastele ```vaestoruudut.gpkg```- ja hallintoalueaineistoa. Luo hallintoalueaineistoon uusi attribuuttikenttä (```asukkaita```). Laske oman maakuntasi kunnissa asuvan väestön määrä.
+Tarkastele ```vaestoruudut.gpkg```- ja hallintoalueaineistoa. Luo hallintoalueaineistoon uusi attribuuttikenttä (```asukkaita```). Laske Uudenamaan kunnissa asuvan väestön määrä.
 
 **Aineistot**: 
 
@@ -93,7 +93,7 @@ Käytä ```aggregate()```- funktiota.
 ::: code-box
 ``` sql
 if(
-	"Maaku_ni1" = 'Pohjanmaa', 
+	"Maaku_ni1" = 'Uusimaa', 
 		aggregate(
 			layer:='vaestoruudut', aggregate:='sum', expression:="vaesto", filter:=attribute(
 				@parent,'Kunta'
