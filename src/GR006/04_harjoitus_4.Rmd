@@ -559,7 +559,7 @@ Money in counter: 107
 
 
 
-### Lisävinkkejä konsolin käyttöön:
+### Lisävinkkejä konsolin käyttöön
 
 - Konsoli sopii hyvin myös esimerkiksi PyQGIS-olioiden ominaisuuksien tutkimiseen sekä testailuun, ja se tukee esimerkiksi PyQGIS-kirjastojen koodintäydennystä (code completion).
 - Konsolissa voi myös suorittaa useammalle riville jatkuvia komentoja, kuten for-loopin. Konsoliin ilmestyy tällöin rivinvaihdon jälkeen kolme pistettä sen merkiksi, että se odottaa lisäkomentoja. Huomaa kuitenkin, että pisteet eivät vastaa Python-koodin sisennystä, vaan käyttäjän on huolehdittava tästä.

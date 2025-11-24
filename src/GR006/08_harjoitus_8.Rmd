@@ -1,4 +1,4 @@
-# 8. Ratkaise ongelma työssäsi PyQGISin avulla
+# 8. LIsäosio: Ratkaise ongelma työssäsi PyQGISin avulla
 
 Luodaan omat funktiot/skriptit ja kokeillaan niiden ajamista QGISin Python-konsolissa. Yritetään luoda jotain omaa työtä helpottavaa. Voit pohtia työkaverin tai kouluttajan kanssa mikä voisi olla sopiva haaste.
 
