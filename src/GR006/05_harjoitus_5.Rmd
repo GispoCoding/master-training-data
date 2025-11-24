@@ -14,7 +14,7 @@ tasoja tai vaikka pääkarttanäkymää (QgsMapCanvas).
 
 ## Tasojen käsittely
 
-Avaa QGISiin `NaturalEarth_10m_admin_0_countries.gpkg`-tiedosto.
+Avaa QGISiin `ne_10m_admin_0_countries.gpkg`-tiedosto.
 
 Klikkaa se aktiiviseksi tasopaneelissa.
 
