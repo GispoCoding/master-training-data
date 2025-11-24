@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 3: Tasot, kohteet ja geometriat | QGIS-lisäosien kehitys" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 3: Tasot, kohteet ja geometriat | QGIS-lisäosien kehitys">
+
+<title>Harjoitus 3: Tasot, kohteet ja geometriat | QGIS-lisäosien kehitys</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS-lisäosien kehitys</h1></div>
+<div class="abstract-sidebar"><p>Lisäosien kehitys Pythonilla</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-lisäosien-kehitys">QGIS-lisäosien kehitys</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille">Tervetuloa kurssille!</a></li>
+<li><a href="index.html#kurssihakemisto">Kurssihakemisto</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_harjoitus_0.html#harjoitus-0-python-kertaus">Harjoitus 0: Python-kertaus</a>
+<ul>
+<li><a href="00_harjoitus_0.html#esivalmistelut">Esivalmistelut</a></li>
+<li class="has-sub"><a href="00_harjoitus_0.html#python-perusteita">Python-perusteita</a>
+<ul>
+<li><a href="00_harjoitus_0.html#komennot">Komennot</a></li>
+<li><a href="00_harjoitus_0.html#kommentit">Kommentit</a></li>
+<li><a href="00_harjoitus_0.html#luvuilla-laskeminen">Luvuilla laskeminen</a></li>
+<li><a href="00_harjoitus_0.html#muuttujat">Muuttujat</a></li>
+<li><a href="00_harjoitus_0.html#tyypit">Tyypit</a></li>
+<li><a href="00_harjoitus_0.html#ehtolauseet-ja-vertailu">Ehtolauseet ja vertailu</a></li>
+<li><a href="00_harjoitus_0.html#funktiot">Funktiot</a></li>
+<li><a href="00_harjoitus_0.html#tietorakenteita">Tietorakenteita</a></li>
+<li><a href="00_harjoitus_0.html#silmukat-ja-iterointi">Silmukat ja iterointi</a></li>
+<li><a href="00_harjoitus_0.html#moduulit">Moduulit</a></li>
+<li><a href="00_harjoitus_0.html#oliot">Oliot</a></li>
+<li><a href="00_harjoitus_0.html#luokat">Luokat</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-python-konsoli">Harjoitus 1: Python-konsoli</a>
+<ul>
+<li><a href="01_harjoitus_1.html#harjoitusten-rakenne">Harjoitusten rakenne</a></li>
+<li><a href="01_harjoitus_1.html#esimerkit">Esimerkit</a></li>
+<li><a href="01_harjoitus_1.html#harjoitukset">Harjoitukset</a></li>
+<li><a href="01_harjoitus_1.html#harjoitus-1.1">Harjoitus 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-pyqgis-perusteet">Harjoitus 2: PyQGIS-perusteet</a>
+<ul>
+<li><a href="02_harjoitus_2.html#tasojen-käsittely">Tasojen käsittely</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.1">Harjoitus 2.1</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.2">Harjoitus 2.2</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.3">Harjoitus 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-tasot-kohteet-ja-geometriat">Harjoitus 3: Tasot, kohteet ja geometriat</a>
+<ul>
+<li><a href="03_harjoitus_3.html#tasot">Tasot</a></li>
+<li><a href="03_harjoitus_3.html#väliaikaisen-tason-luominen">Väliaikaisen tason luominen</a></li>
+<li><a href="03_harjoitus_3.html#geometriat">Geometriat</a></li>
+<li><a href="03_harjoitus_3.html#harjoitus-3.1">Harjoitus 3.1</a></li>
+<li><a href="03_harjoitus_3.html#harjoitus-3.2-etäisyydet">Harjoitus 3.2: Etäisyydet</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-qt-käyttöliittymät">Harjoitus 4: Qt-käyttöliittymät</a>
+<ul>
+<li class="has-sub"><a href="04_harjoitus_4.html#qt-käyttöliittymistä">Qt-käyttöliittymistä</a>
+<ul>
+<li><a href="04_harjoitus_4.html#qwidget">QWidget</a></li>
+<li><a href="04_harjoitus_4.html#signaalit-ja-slotit">Signaalit ja slotit</a></li>
+</ul></li>
+<li><a href="04_harjoitus_4.html#harjoitus-4.1-counter-widget">Harjoitus 4.1: Counter-widget</a></li>
+<li><a href="04_harjoitus_4.html#harjoitus-4.2-qgisin-widgetit">Harjoitus 4.2: QGISin widgetit</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-uuden-lisäosan-luominen">Harjoitus 5: Uuden lisäosan luominen</a>
+<ul>
+<li><a href="05_harjoitus_5.html#gitin-konfigurointi">Gitin konfigurointi</a></li>
+<li><a href="05_harjoitus_5.html#lisäosan-luominen">Lisäosan luominen</a></li>
+<li><a href="05_harjoitus_5.html#ensimmäinen-commit">Ensimmäinen commit</a></li>
+<li><a href="05_harjoitus_5.html#lisäosan-käyttöönotto">Lisäosan käyttöönotto</a></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#lisäosan-rakenne">Lisäosan rakenne</a>
+<ul>
+<li><a href="05_harjoitus_5.html#tiedosto-plugin.py">Tiedosto: plugin.py</a></li>
+<li><a href="05_harjoitus_5.html#tiedosto-__init__.py">Tiedosto: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-buffer--työkalu">Harjoitus 6: Buffer- työkalu</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoitus-6.1-käyttöliittymän-suunnittelu">Harjoitus 6.1: Käyttöliittymän suunnittelu</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.2-käyttöliittymän-kytkeminen-lisäosaan">Harjoitus 6.2: Käyttöliittymän kytkeminen lisäosaan</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.3-työkalun-toiminta">Harjoitus 6.3: Työkalun toiminta</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.4-segmentit">Harjoitus 6.4: Segmentit</a></li>
+<li><a href="06_harjoitus_6.html#yksikkötestit">Yksikkötestit</a></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6.5-testit">Harjoitus 6.5: Testit</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.1-käyttöliittymätesti">Harjoitus 6.5.1: Käyttöliittymätesti</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.2-buffertool-testi">Harjoitus 6.5.2: BufferTool-testi</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.3-lisää-testejä">Harjoitus 6.5.3: Lisää testejä</a></li>
+</ul></li>
+<li><a href="06_harjoitus_6.html#mallilisäosa">Mallilisäosa</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-pistetyökalu">Harjoitus 7: Pistetyökalu</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoitus-7.1-paneelin-lisääminen">Harjoitus 7.1: Paneelin lisääminen</a></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7.2-työkalu">Harjoitus 7.2: Työkalu</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoitus-7.2.1-lisähaaste---nimiöinti">Harjoitus 7.2.1: Lisähaaste - nimiöinti</a></li>
+</ul></li>
+<li><a href="07_harjoitus_7.html#harjoitus-7.3-testit">Harjoitus 7.3: Testit</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-prosessointialgoritmi">Harjoitus 8: Prosessointialgoritmi</a>
+<ul>
+<li class="has-sub"><a href="08_harjoitus_8.html#taustaa">Taustaa</a>
+<ul>
+<li><a href="08_harjoitus_8.html#prosessointialgoritmin-kutsuminen">Prosessointialgoritmin kutsuminen</a></li>
+</ul></li>
+<li><a href="08_harjoitus_8.html#algoritmi-lisäosassa">Algoritmi lisäosassa</a></li>
+<li><a href="08_harjoitus_8.html#harjoitus-8.1-algoritmin-kirjoitus">Harjoitus 8.1: Algoritmin kirjoitus</a></li>
+<li><a href="08_harjoitus_8.html#harjoitus-8.2-testit-algoritmille">Harjoitus 8.2: Testit algoritmille</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#python-lisätehtäviä">Python-lisätehtäviä</a>
+<ul>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-1-listakoosteet">Aihe 1: Listakoosteet</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-1.1">Lisätehtävä 1.1</a></li>
+<li><a href="09_lisatehtavia_9.html#sisäkkäisiä-koosteita">Sisäkkäisiä koosteita</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-2-lambda-funktiot">Aihe 2: Lambda-funktiot</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-2.1">Lisätehtävä 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-3-dekoraattorit">Aihe 3: Dekoraattorit</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-3.1">Lisätehtävä 3.1</a></li>
+<li><a href="09_lisatehtavia_9.html#dekoraattorit-ja-parametrit">Dekoraattorit ja parametrit</a></li>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-3.2">Lisätehtävä 3.2</a></li>
+</ul></li>
+<li><a href="09_lisatehtavia_9.html#aihe-4-tyypitys">Aihe 4: Tyypitys</a></li>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-4.1">Lisätehtävä 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-3-tasot-kohteet-ja-geometriat" class="section level1">
+<h1>Harjoitus 3: Tasot, kohteet ja geometriat</h1>
+<p><strong>Harjoituksen sisältö:</strong> QGIS-tasojen ja kohteiden luominen ja muokkaus.</p>
+<p><strong>Harjoituksen tavoite:</strong> Oppia käsittelemään tasoja syvällisemmin.</p>
+<div id="tasot" class="section level2">
+<h2>Tasot</h2>
+<p>QGISissä vektoritasolla (<strong>QgsVectorLayer</strong>-luokka) on
+<strong>kohteita</strong> eli <strong><a href="https://qgis.org/pyqgis/latest/core/QgsFeature.html">QgsFeature</a></strong>-luokan olioita. Kohteella taas
+on (yleensä) geometria, eli <strong><a href="https://qgis.org/pyqgis/latest/core/QgsGeometry.html">QgsGeometry</a></strong>-luokan olio.</p>
+<p>Tasolla sekä kohteella on <strong>QgsFields</strong>-olio, joka
+kuvaa ominaisuustietokenttiä. QgsFields itsessään
+koostuu <strong>QgsField</strong>-olioista, jotka sisältävät
+mm. kentän nimen ja datatyypin.</p>
+</div>
+<div id="väliaikaisen-tason-luominen" class="section level2">
+<h2>Väliaikaisen tason luominen</h2>
+<p>Luodaan uusi väliaikainen taso:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="03_harjoitus_3.html#cb95-1" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:4326&quot;</span>, <span class="st">&quot;Uusi Taso&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb95-2"><a href="03_harjoitus_3.html#cb95-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="03_harjoitus_3.html#cb95-3" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+<p>Taso on kuitenkin tyhjä. Luodaan taso, jossa on kenttiä.
+Voit tässä vaiheessa halutessasi poistaa äsken luodun
+tason.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="03_harjoitus_3.html#cb96-1" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:4326&quot;</span>, <span class="st">&quot;Uusi Taso&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb96-2"><a href="03_harjoitus_3.html#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-3"><a href="03_harjoitus_3.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Koska muokkaamme tasoa, pitää se laittaa</span></span>
+<span id="cb96-4"><a href="03_harjoitus_3.html#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="co"># editointitilaan</span></span>
+<span id="cb96-5"><a href="03_harjoitus_3.html#cb96-5" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb96-6"><a href="03_harjoitus_3.html#cb96-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-7"><a href="03_harjoitus_3.html#cb96-7" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb96-8"><a href="03_harjoitus_3.html#cb96-8" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;nimi&quot;</span>, QVariant.String))</span>
+<span id="cb96-9"><a href="03_harjoitus_3.html#cb96-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-10"><a href="03_harjoitus_3.html#cb96-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Tallennetaan muutokset</span></span>
+<span id="cb96-11"><a href="03_harjoitus_3.html#cb96-11" aria-hidden="true" tabindex="-1"></a>new_layer.commitChanges()</span>
+<span id="cb96-12"><a href="03_harjoitus_3.html#cb96-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-13"><a href="03_harjoitus_3.html#cb96-13" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+<p>Tasolla on nyt kaksi kenttää, mutta ei edelleenkään yhtään
+kohdetta. Lisätään seuraavaksi pistekohde tasolle.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="03_harjoitus_3.html#cb97-1" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:4326&quot;</span>, <span class="st">&quot;Uusi Taso&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb97-2"><a href="03_harjoitus_3.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="03_harjoitus_3.html#cb97-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Koska muokkaamme tasoa, pitää se laittaa</span></span>
+<span id="cb97-4"><a href="03_harjoitus_3.html#cb97-4" aria-hidden="true" tabindex="-1"></a><span class="co"># editointitilaan</span></span>
+<span id="cb97-5"><a href="03_harjoitus_3.html#cb97-5" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb97-6"><a href="03_harjoitus_3.html#cb97-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-7"><a href="03_harjoitus_3.html#cb97-7" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb97-8"><a href="03_harjoitus_3.html#cb97-8" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;nimi&quot;</span>, QVariant.String))</span>
+<span id="cb97-9"><a href="03_harjoitus_3.html#cb97-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-10"><a href="03_harjoitus_3.html#cb97-10" aria-hidden="true" tabindex="-1"></a>new_feature <span class="op">=</span> QgsFeature(new_layer.fields())</span>
+<span id="cb97-11"><a href="03_harjoitus_3.html#cb97-11" aria-hidden="true" tabindex="-1"></a>new_feature.setAttributes([<span class="dv">1</span>, <span class="st">&quot;piste&quot;</span>]) <span class="co"># huomaa, että argumenttina on lista</span></span>
+<span id="cb97-12"><a href="03_harjoitus_3.html#cb97-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-13"><a href="03_harjoitus_3.html#cb97-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Luodaan kohteelle geometria</span></span>
+<span id="cb97-14"><a href="03_harjoitus_3.html#cb97-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Koska kyseessä on pistetaso, voidaan</span></span>
+<span id="cb97-15"><a href="03_harjoitus_3.html#cb97-15" aria-hidden="true" tabindex="-1"></a><span class="co"># luoda suoraan QgsPoint-olio</span></span>
+<span id="cb97-16"><a href="03_harjoitus_3.html#cb97-16" aria-hidden="true" tabindex="-1"></a>new_geom <span class="op">=</span> QgsPoint(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb97-17"><a href="03_harjoitus_3.html#cb97-17" aria-hidden="true" tabindex="-1"></a>new_feature.setGeometry(new_geom)</span>
+<span id="cb97-18"><a href="03_harjoitus_3.html#cb97-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-19"><a href="03_harjoitus_3.html#cb97-19" aria-hidden="true" tabindex="-1"></a>new_layer.addFeature(new_feature)</span>
+<span id="cb97-20"><a href="03_harjoitus_3.html#cb97-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-21"><a href="03_harjoitus_3.html#cb97-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Tallennetaan muutokset</span></span>
+<span id="cb97-22"><a href="03_harjoitus_3.html#cb97-22" aria-hidden="true" tabindex="-1"></a>new_layer.commitChanges()</span>
+<span id="cb97-23"><a href="03_harjoitus_3.html#cb97-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-24"><a href="03_harjoitus_3.html#cb97-24" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+</div>
+<div id="geometriat" class="section level2">
+<h2>Geometriat</h2>
+<p>Geometrioita voidaan luoda ja manipuloida Pythonilla eri tavoin.
+QgsGeometry-luokalla on mm. eri staattisia metodeja, joilla voidaan
+luodaan geometrioita:</p>
+<p>Tutustutaan seuraavaksi geometrioiden käsittelyyn PyQGISillä.</p>
+<p>Piste:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="03_harjoitus_3.html#cb98-1" aria-hidden="true" tabindex="-1"></a>point_xy <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb98-2"><a href="03_harjoitus_3.html#cb98-2" aria-hidden="true" tabindex="-1"></a>point_geom <span class="op">=</span> QgsGeometry.fromPointXY(point_xy)</span></code></pre></div>
+</div>
+<p>Viiva:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="03_harjoitus_3.html#cb99-1" aria-hidden="true" tabindex="-1"></a>point_1 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb99-2"><a href="03_harjoitus_3.html#cb99-2" aria-hidden="true" tabindex="-1"></a>point_2 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb99-3"><a href="03_harjoitus_3.html#cb99-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-4"><a href="03_harjoitus_3.html#cb99-4" aria-hidden="true" tabindex="-1"></a>line_geom <span class="op">=</span> QgsGeometry.fromPolylineXY(</span>
+<span id="cb99-5"><a href="03_harjoitus_3.html#cb99-5" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb99-6"><a href="03_harjoitus_3.html#cb99-6" aria-hidden="true" tabindex="-1"></a>        point_1,</span>
+<span id="cb99-7"><a href="03_harjoitus_3.html#cb99-7" aria-hidden="true" tabindex="-1"></a>        point_2,</span>
+<span id="cb99-8"><a href="03_harjoitus_3.html#cb99-8" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb99-9"><a href="03_harjoitus_3.html#cb99-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<p>Polygoni:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="03_harjoitus_3.html#cb100-1" aria-hidden="true" tabindex="-1"></a>point_1 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb100-2"><a href="03_harjoitus_3.html#cb100-2" aria-hidden="true" tabindex="-1"></a>point_2 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb100-3"><a href="03_harjoitus_3.html#cb100-3" aria-hidden="true" tabindex="-1"></a>point_3 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb100-4"><a href="03_harjoitus_3.html#cb100-4" aria-hidden="true" tabindex="-1"></a>point_4 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb100-5"><a href="03_harjoitus_3.html#cb100-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-6"><a href="03_harjoitus_3.html#cb100-6" aria-hidden="true" tabindex="-1"></a>polygon_geom <span class="op">=</span> QgsGeometry.fromPolygonXY(</span>
+<span id="cb100-7"><a href="03_harjoitus_3.html#cb100-7" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb100-8"><a href="03_harjoitus_3.html#cb100-8" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb100-9"><a href="03_harjoitus_3.html#cb100-9" aria-hidden="true" tabindex="-1"></a>            point_1,</span>
+<span id="cb100-10"><a href="03_harjoitus_3.html#cb100-10" aria-hidden="true" tabindex="-1"></a>            point_2,</span>
+<span id="cb100-11"><a href="03_harjoitus_3.html#cb100-11" aria-hidden="true" tabindex="-1"></a>            point_3,</span>
+<span id="cb100-12"><a href="03_harjoitus_3.html#cb100-12" aria-hidden="true" tabindex="-1"></a>            point_4,</span>
+<span id="cb100-13"><a href="03_harjoitus_3.html#cb100-13" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb100-14"><a href="03_harjoitus_3.html#cb100-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb100-15"><a href="03_harjoitus_3.html#cb100-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<p>Geometrioita voi luoda myös <a href="https://libgeos.org/specifications/wkt/">WKT (Well-Known Text)</a>-formaatista</p>
+<div class="code-box">
+<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="03_harjoitus_3.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># piste</span></span>
+<span id="cb101-2"><a href="03_harjoitus_3.html#cb101-2" aria-hidden="true" tabindex="-1"></a>point_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POINT(0 0)&#39;</span>)</span>
+<span id="cb101-3"><a href="03_harjoitus_3.html#cb101-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-4"><a href="03_harjoitus_3.html#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="co"># viiva</span></span>
+<span id="cb101-5"><a href="03_harjoitus_3.html#cb101-5" aria-hidden="true" tabindex="-1"></a>line_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;LINESTRING(0 0, 0 1)&#39;</span>)</span>
+<span id="cb101-6"><a href="03_harjoitus_3.html#cb101-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-7"><a href="03_harjoitus_3.html#cb101-7" aria-hidden="true" tabindex="-1"></a><span class="co"># multipolygoni</span></span>
+<span id="cb101-8"><a href="03_harjoitus_3.html#cb101-8" aria-hidden="true" tabindex="-1"></a>multipolygon_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;MULTIPOLYGON(((0 0, 0 1, 1 1, 1 0, 0 0), (2 2, 2 3, 3 3, 3 2, 2 2)))&#39;</span>)</span></code></pre></div>
+</div>
+<p>Geometrian voi tulostaa WKT-formaatissa:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="03_harjoitus_3.html#cb102-1" aria-hidden="true" tabindex="-1"></a>point_1 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb102-2"><a href="03_harjoitus_3.html#cb102-2" aria-hidden="true" tabindex="-1"></a>point_2 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb102-3"><a href="03_harjoitus_3.html#cb102-3" aria-hidden="true" tabindex="-1"></a>point_3 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb102-4"><a href="03_harjoitus_3.html#cb102-4" aria-hidden="true" tabindex="-1"></a>point_4 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb102-5"><a href="03_harjoitus_3.html#cb102-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-6"><a href="03_harjoitus_3.html#cb102-6" aria-hidden="true" tabindex="-1"></a>polygon_geom <span class="op">=</span> QgsGeometry.fromPolygonXY(</span>
+<span id="cb102-7"><a href="03_harjoitus_3.html#cb102-7" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb102-8"><a href="03_harjoitus_3.html#cb102-8" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb102-9"><a href="03_harjoitus_3.html#cb102-9" aria-hidden="true" tabindex="-1"></a>            point_1,</span>
+<span id="cb102-10"><a href="03_harjoitus_3.html#cb102-10" aria-hidden="true" tabindex="-1"></a>            point_2,</span>
+<span id="cb102-11"><a href="03_harjoitus_3.html#cb102-11" aria-hidden="true" tabindex="-1"></a>            point_3,</span>
+<span id="cb102-12"><a href="03_harjoitus_3.html#cb102-12" aria-hidden="true" tabindex="-1"></a>            point_4,</span>
+<span id="cb102-13"><a href="03_harjoitus_3.html#cb102-13" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb102-14"><a href="03_harjoitus_3.html#cb102-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb102-15"><a href="03_harjoitus_3.html#cb102-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb102-16"><a href="03_harjoitus_3.html#cb102-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-17"><a href="03_harjoitus_3.html#cb102-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(polygon_geom.asWkt())</span></code></pre></div>
+</div>
+<p>Geometriaolioon tallentuu taitepisteiden koordinaatit.
+Siihen ei itsessään tallennu tieto
+koordinaattijärjestelmästä, vaan se tieto on vain
+taso-oliolla. Geometrialuokasta on tosin alaluokka
+QgsReferencedGeometry, jossa on myös tieto
+koordinaattijärjestelmästä.</p>
+<p>Jos halutaan muuttaa geometria koordinaattijärjestelmästä
+toiseen, voidaan käyttää <strong>QgsCoordinateTransform</strong>-luokkaa.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="03_harjoitus_3.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># luodaan geometria ja oletetaan</span></span>
+<span id="cb103-2"><a href="03_harjoitus_3.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="co"># että lähtökoordinaattijärjestelmä</span></span>
+<span id="cb103-3"><a href="03_harjoitus_3.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="co"># on WGS 84 (EPSG:4326)</span></span>
+<span id="cb103-4"><a href="03_harjoitus_3.html#cb103-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-5"><a href="03_harjoitus_3.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="co"># muunnetaan geometria Suomen</span></span>
+<span id="cb103-6"><a href="03_harjoitus_3.html#cb103-6" aria-hidden="true" tabindex="-1"></a><span class="co"># valtakunnalliseen koordinaatti-</span></span>
+<span id="cb103-7"><a href="03_harjoitus_3.html#cb103-7" aria-hidden="true" tabindex="-1"></a><span class="co"># järjestelmään (EPSG:3067)</span></span>
+<span id="cb103-8"><a href="03_harjoitus_3.html#cb103-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-9"><a href="03_harjoitus_3.html#cb103-9" aria-hidden="true" tabindex="-1"></a>geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POINT(0 0)&#39;</span>)</span>
+<span id="cb103-10"><a href="03_harjoitus_3.html#cb103-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-11"><a href="03_harjoitus_3.html#cb103-11" aria-hidden="true" tabindex="-1"></a>source_crs <span class="op">=</span> QgsCoordinateReferenceSystem(<span class="dv">4326</span>)</span>
+<span id="cb103-12"><a href="03_harjoitus_3.html#cb103-12" aria-hidden="true" tabindex="-1"></a>target_crs <span class="op">=</span> QgsCoordinateReferenceSystem(<span class="dv">3067</span>)</span>
+<span id="cb103-13"><a href="03_harjoitus_3.html#cb103-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-14"><a href="03_harjoitus_3.html#cb103-14" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())</span>
+<span id="cb103-15"><a href="03_harjoitus_3.html#cb103-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-16"><a href="03_harjoitus_3.html#cb103-16" aria-hidden="true" tabindex="-1"></a>geom.transform(tf)</span>
+<span id="cb103-17"><a href="03_harjoitus_3.html#cb103-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-18"><a href="03_harjoitus_3.html#cb103-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(geom.asWkt())</span></code></pre></div>
+</div>
+<p>Voimme myös laskea geometrioiden ominaisuuksia:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="03_harjoitus_3.html#cb104-1" aria-hidden="true" tabindex="-1"></a>line_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;LINESTRING(0 0, 0 1)&#39;</span>)</span>
+<span id="cb104-2"><a href="03_harjoitus_3.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(line_geom.length())</span>
+<span id="cb104-3"><a href="03_harjoitus_3.html#cb104-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-4"><a href="03_harjoitus_3.html#cb104-4" aria-hidden="true" tabindex="-1"></a>polygon_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POLYGON((0 0, 0 1, 1 1, 1 0, 0 0))&#39;</span>)</span>
+<span id="cb104-5"><a href="03_harjoitus_3.html#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(polygon_geom.area())</span>
+<span id="cb104-6"><a href="03_harjoitus_3.html#cb104-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-7"><a href="03_harjoitus_3.html#cb104-7" aria-hidden="true" tabindex="-1"></a><span class="co"># length() funktio polygonigeometriasta</span></span>
+<span id="cb104-8"><a href="03_harjoitus_3.html#cb104-8" aria-hidden="true" tabindex="-1"></a><span class="co"># palauttaa polygonin piirin</span></span>
+<span id="cb104-9"><a href="03_harjoitus_3.html#cb104-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-10"><a href="03_harjoitus_3.html#cb104-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(polygon_geom.length())</span>
+<span id="cb104-11"><a href="03_harjoitus_3.html#cb104-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-12"><a href="03_harjoitus_3.html#cb104-12" aria-hidden="true" tabindex="-1"></a>point_1 <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POINT(0 0)&#39;</span>)</span>
+<span id="cb104-13"><a href="03_harjoitus_3.html#cb104-13" aria-hidden="true" tabindex="-1"></a>point_2 <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POINT(10 10)&#39;</span>)</span>
+<span id="cb104-14"><a href="03_harjoitus_3.html#cb104-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-15"><a href="03_harjoitus_3.html#cb104-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(point_1.distance(point_2))</span></code></pre></div>
+</div>
+<p>Geometriaa voidaan myös manipuloida eri tavoin
+valmiilla metodeilla. Luodaan uusi polygonigeometria
+kahden olemassa olevan polygonin päällekkäin menevästä
+alueesta. Tämä vastaa Ristiinleikkaus (intersection)-
+prosessointityökalua QGISissä.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="03_harjoitus_3.html#cb105-1" aria-hidden="true" tabindex="-1"></a>polygon_1 <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POLYGON((1 1, 1 2, 2 2, 2 1, 1 1))&#39;</span>)</span>
+<span id="cb105-2"><a href="03_harjoitus_3.html#cb105-2" aria-hidden="true" tabindex="-1"></a>polygon_2 <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POLYGON((0 0, 0 1.5, 1.5 1.5, 1.5 0, 0 0))&#39;</span>)</span>
+<span id="cb105-3"><a href="03_harjoitus_3.html#cb105-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-4"><a href="03_harjoitus_3.html#cb105-4" aria-hidden="true" tabindex="-1"></a>new_geom <span class="op">=</span> polygon_1.intersection(polygon_2)</span>
+<span id="cb105-5"><a href="03_harjoitus_3.html#cb105-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-6"><a href="03_harjoitus_3.html#cb105-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_geom.asWkt())</span></code></pre></div>
+</div>
+</div>
+<div id="harjoitus-3.1" class="section level2">
+<h2>Harjoitus 3.1</h2>
+<p>Kirjoita skripti, joka luo uuden polygonitason koordinaattijärjestelmällä
+3857. Lisää polygonitasolle kentät “fid” ja “pinta_ala”. Lisää
+kohteeseen alla oleva WKT-formaatissa kuvattu geometria ja laske
+sille pinta-ala. Lisää taso lopuksi QGIS-projektiin.</p>
+<p>WKT:</p>
+<div class="code-box">
+<p>POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))</p>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb106-1"><a href="03_harjoitus_3.html#cb106-1" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Polygon?crs=EPSG:3857&quot;</span>, <span class="st">&quot;Uusi Taso&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb106-2"><a href="03_harjoitus_3.html#cb106-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="03_harjoitus_3.html#cb106-3" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb106-4"><a href="03_harjoitus_3.html#cb106-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-5"><a href="03_harjoitus_3.html#cb106-5" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb106-6"><a href="03_harjoitus_3.html#cb106-6" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;pinta_ala&quot;</span>, QVariant.Double))</span>
+<span id="cb106-7"><a href="03_harjoitus_3.html#cb106-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-8"><a href="03_harjoitus_3.html#cb106-8" aria-hidden="true" tabindex="-1"></a>new_feature <span class="op">=</span> QgsFeature(new_layer.fields())</span>
+<span id="cb106-9"><a href="03_harjoitus_3.html#cb106-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-10"><a href="03_harjoitus_3.html#cb106-10" aria-hidden="true" tabindex="-1"></a>new_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&quot;POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))&quot;</span>)</span>
+<span id="cb106-11"><a href="03_harjoitus_3.html#cb106-11" aria-hidden="true" tabindex="-1"></a>new_feature.setGeometry(new_geom)</span>
+<span id="cb106-12"><a href="03_harjoitus_3.html#cb106-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-13"><a href="03_harjoitus_3.html#cb106-13" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> new_geom.area()</span>
+<span id="cb106-14"><a href="03_harjoitus_3.html#cb106-14" aria-hidden="true" tabindex="-1"></a>new_feature.setAttributes([<span class="dv">1</span>, area])</span>
+<span id="cb106-15"><a href="03_harjoitus_3.html#cb106-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-16"><a href="03_harjoitus_3.html#cb106-16" aria-hidden="true" tabindex="-1"></a>new_layer.addFeature(new_feature)</span>
+<span id="cb106-17"><a href="03_harjoitus_3.html#cb106-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-18"><a href="03_harjoitus_3.html#cb106-18" aria-hidden="true" tabindex="-1"></a>new_layer.commitChanges()</span>
+<span id="cb106-19"><a href="03_harjoitus_3.html#cb106-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-20"><a href="03_harjoitus_3.html#cb106-20" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="harjoitus-3.2-etäisyydet" class="section level2">
+<h2>Harjoitus 3.2: Etäisyydet</h2>
+<p>Avaa QGISiin kurssihakemistosta <code>NaturalEarth_10m_admin_0_countries.gpkg</code>-tiedosto.</p>
+<p>Kirjoita skripti, joka laskee jokaisen valtion etäisyyden sen
+painopisteestä (centroid) Suomen painopisteeseen.
+Lähtötason koordinaattijärjestelmä on EPSG:4326, jonka yksikkönä
+on asteet. Etäisyyksien esittäminen asteina ei ole välttämättä
+kovin selkeää. Luo siis uusi pistetaso koordinaattijärjestelmällä
+EPSG:3857, jonka yksikkö on metrit. Uuden tason kentät tulee sisältää
+fid-numerotunnisteen, etäisyyden ja valtion
+nimen, josta etäisyys laskettiin. Muunna lähtötason painopiste oikeaan
+koordinaattijärjestelmään ja aseta se uuden tason kohteiden geometriaksi.</p>
+<p>Voit käyttää tätä pohjana:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="03_harjoitus_3.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hae NaturalEarth-taso esim. nimen perusteella</span></span>
+<span id="cb107-2"><a href="03_harjoitus_3.html#cb107-2" aria-hidden="true" tabindex="-1"></a>layers <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">&#39;NaturalEarth_10m_admin_0_countries — admin_0_countries&#39;</span>)</span>
+<span id="cb107-3"><a href="03_harjoitus_3.html#cb107-3" aria-hidden="true" tabindex="-1"></a>layer <span class="op">=</span> layers[<span class="dv">0</span>]</span>
+<span id="cb107-4"><a href="03_harjoitus_3.html#cb107-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-5"><a href="03_harjoitus_3.html#cb107-5" aria-hidden="true" tabindex="-1"></a><span class="co"># luodaan uusi taso</span></span>
+<span id="cb107-6"><a href="03_harjoitus_3.html#cb107-6" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:3857&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb107-7"><a href="03_harjoitus_3.html#cb107-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-8"><a href="03_harjoitus_3.html#cb107-8" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb107-9"><a href="03_harjoitus_3.html#cb107-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-10"><a href="03_harjoitus_3.html#cb107-10" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb107-11"><a href="03_harjoitus_3.html#cb107-11" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;country&quot;</span>, QVariant.String))</span>
+<span id="cb107-12"><a href="03_harjoitus_3.html#cb107-12" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;distance&quot;</span>, QVariant.Double))</span>
+<span id="cb107-13"><a href="03_harjoitus_3.html#cb107-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-14"><a href="03_harjoitus_3.html#cb107-14" aria-hidden="true" tabindex="-1"></a><span class="co">### ... </span><span class="al">###</span></span>
+<span id="cb107-15"><a href="03_harjoitus_3.html#cb107-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-16"><a href="03_harjoitus_3.html#cb107-16" aria-hidden="true" tabindex="-1"></a>new_layer.commitChanges()</span>
+<span id="cb107-17"><a href="03_harjoitus_3.html#cb107-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-18"><a href="03_harjoitus_3.html#cb107-18" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="03_harjoitus_3.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co"># hae NaturalEarth-taso esim. nimen perusteella</span></span>
+<span id="cb108-2"><a href="03_harjoitus_3.html#cb108-2" aria-hidden="true" tabindex="-1"></a>layers <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">&#39;NaturalEarth_10m_admin_0_countries — admin_0_countries&#39;</span>)</span>
+<span id="cb108-3"><a href="03_harjoitus_3.html#cb108-3" aria-hidden="true" tabindex="-1"></a>layer <span class="op">=</span> layers[<span class="dv">0</span>]</span>
+<span id="cb108-4"><a href="03_harjoitus_3.html#cb108-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-5"><a href="03_harjoitus_3.html#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="co"># luodaan uusi taso</span></span>
+<span id="cb108-6"><a href="03_harjoitus_3.html#cb108-6" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:3857&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb108-7"><a href="03_harjoitus_3.html#cb108-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-8"><a href="03_harjoitus_3.html#cb108-8" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb108-9"><a href="03_harjoitus_3.html#cb108-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-10"><a href="03_harjoitus_3.html#cb108-10" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb108-11"><a href="03_harjoitus_3.html#cb108-11" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;country&quot;</span>, QVariant.String))</span>
+<span id="cb108-12"><a href="03_harjoitus_3.html#cb108-12" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;distance&quot;</span>, QVariant.Double))</span>
+<span id="cb108-13"><a href="03_harjoitus_3.html#cb108-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-14"><a href="03_harjoitus_3.html#cb108-14" aria-hidden="true" tabindex="-1"></a><span class="co"># QgsCoordinateTransform-olion</span></span>
+<span id="cb108-15"><a href="03_harjoitus_3.html#cb108-15" aria-hidden="true" tabindex="-1"></a><span class="co"># voi luoda jo nyt ja sitä voi</span></span>
+<span id="cb108-16"><a href="03_harjoitus_3.html#cb108-16" aria-hidden="true" tabindex="-1"></a><span class="co"># käyttää monta kertaa</span></span>
+<span id="cb108-17"><a href="03_harjoitus_3.html#cb108-17" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>tallenna olio muuttujaan<span class="op">&gt;</span></span>
+<span id="cb108-18"><a href="03_harjoitus_3.html#cb108-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-19"><a href="03_harjoitus_3.html#cb108-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Käytetään QGISin lauseketta</span></span>
+<span id="cb108-20"><a href="03_harjoitus_3.html#cb108-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Suomi-kohteen etsimiseen</span></span>
+<span id="cb108-21"><a href="03_harjoitus_3.html#cb108-21" aria-hidden="true" tabindex="-1"></a>filter_expression <span class="op">=</span> QgsExpression(<span class="st">&#39;&#39;&#39;&quot;NAME_EN&quot; = &#39;Finland&#39; &#39;&#39;&#39;</span>)</span>
+<span id="cb108-22"><a href="03_harjoitus_3.html#cb108-22" aria-hidden="true" tabindex="-1"></a>filtered_features <span class="op">=</span> layer.getFeatures(QgsFeatureRequest(filter_expression))</span>
+<span id="cb108-23"><a href="03_harjoitus_3.html#cb108-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-24"><a href="03_harjoitus_3.html#cb108-24" aria-hidden="true" tabindex="-1"></a>finland_feature <span class="op">=</span> QgsFeature()</span>
+<span id="cb108-25"><a href="03_harjoitus_3.html#cb108-25" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feat <span class="kw">in</span> filtered_features:</span>
+<span id="cb108-26"><a href="03_harjoitus_3.html#cb108-26" aria-hidden="true" tabindex="-1"></a>    finland_feature <span class="op">=</span> feat</span>
+<span id="cb108-27"><a href="03_harjoitus_3.html#cb108-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-28"><a href="03_harjoitus_3.html#cb108-28" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> finland_feature.isValid():</span>
+<span id="cb108-29"><a href="03_harjoitus_3.html#cb108-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Jos Suomi-kohde löytyi</span></span>
+<span id="cb108-30"><a href="03_harjoitus_3.html#cb108-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># tallennetaan sen painopiste</span></span>
+<span id="cb108-31"><a href="03_harjoitus_3.html#cb108-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ja suoritetaan koordinaatti-</span></span>
+<span id="cb108-32"><a href="03_harjoitus_3.html#cb108-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># muunnos</span></span>
+<span id="cb108-33"><a href="03_harjoitus_3.html#cb108-33" aria-hidden="true" tabindex="-1"></a>    finland_centroid <span class="op">=</span> finland_feature.geometry().centroid()</span>
+<span id="cb108-34"><a href="03_harjoitus_3.html#cb108-34" aria-hidden="true" tabindex="-1"></a>    finland_centroid.transform(tf)</span>
+<span id="cb108-35"><a href="03_harjoitus_3.html#cb108-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-36"><a href="03_harjoitus_3.html#cb108-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> old_feature <span class="kw">in</span> layer.getFeatures():</span>
+<span id="cb108-37"><a href="03_harjoitus_3.html#cb108-37" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Käydään lähdetason kohteet läpi.</span></span>
+<span id="cb108-38"><a href="03_harjoitus_3.html#cb108-38" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Hae ja tallenna tarvitut kohteen</span></span>
+<span id="cb108-39"><a href="03_harjoitus_3.html#cb108-39" aria-hidden="true" tabindex="-1"></a>        <span class="co"># tiedot</span></span>
+<span id="cb108-40"><a href="03_harjoitus_3.html#cb108-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-41"><a href="03_harjoitus_3.html#cb108-41" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Hae myös vanhan kohteen</span></span>
+<span id="cb108-42"><a href="03_harjoitus_3.html#cb108-42" aria-hidden="true" tabindex="-1"></a>        <span class="co"># painopiste ja laske etäisyys.</span></span>
+<span id="cb108-43"><a href="03_harjoitus_3.html#cb108-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-44"><a href="03_harjoitus_3.html#cb108-44" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Jos koordinaattimuunnos on</span></span>
+<span id="cb108-45"><a href="03_harjoitus_3.html#cb108-45" aria-hidden="true" tabindex="-1"></a>        <span class="co"># tehty oikein, laskutuloksen</span></span>
+<span id="cb108-46"><a href="03_harjoitus_3.html#cb108-46" aria-hidden="true" tabindex="-1"></a>        <span class="co"># yksikkö on metrit, muutetaan</span></span>
+<span id="cb108-47"><a href="03_harjoitus_3.html#cb108-47" aria-hidden="true" tabindex="-1"></a>        <span class="co"># kilometreiksi.</span></span>
+<span id="cb108-48"><a href="03_harjoitus_3.html#cb108-48" aria-hidden="true" tabindex="-1"></a>        distance <span class="op">=</span> <span class="op">&lt;</span>lauseke<span class="op">&gt;</span> <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb108-49"><a href="03_harjoitus_3.html#cb108-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-50"><a href="03_harjoitus_3.html#cb108-50" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Luodaan uusi kohde</span></span>
+<span id="cb108-51"><a href="03_harjoitus_3.html#cb108-51" aria-hidden="true" tabindex="-1"></a>        new_feature <span class="op">=</span> QgsFeature(new_layer.fields())</span>
+<span id="cb108-52"><a href="03_harjoitus_3.html#cb108-52" aria-hidden="true" tabindex="-1"></a>        new_feature.setAttributes(</span>
+<span id="cb108-53"><a href="03_harjoitus_3.html#cb108-53" aria-hidden="true" tabindex="-1"></a>            [</span>
+<span id="cb108-54"><a href="03_harjoitus_3.html#cb108-54" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;</span>arvot<span class="op">&gt;</span></span>
+<span id="cb108-55"><a href="03_harjoitus_3.html#cb108-55" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb108-56"><a href="03_harjoitus_3.html#cb108-56" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb108-57"><a href="03_harjoitus_3.html#cb108-57" aria-hidden="true" tabindex="-1"></a>        new_feature.setGeometry(<span class="op">&lt;</span>painopiste<span class="op">&gt;</span>)</span>
+<span id="cb108-58"><a href="03_harjoitus_3.html#cb108-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-59"><a href="03_harjoitus_3.html#cb108-59" aria-hidden="true" tabindex="-1"></a>        new_layer.addFeature(new_feature)</span>
+<span id="cb108-60"><a href="03_harjoitus_3.html#cb108-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-61"><a href="03_harjoitus_3.html#cb108-61" aria-hidden="true" tabindex="-1"></a>    new_layer.commitChanges()</span>
+<span id="cb108-62"><a href="03_harjoitus_3.html#cb108-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-63"><a href="03_harjoitus_3.html#cb108-63" aria-hidden="true" tabindex="-1"></a>    QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="03_harjoitus_3.html#cb109-1" aria-hidden="true" tabindex="-1"></a>layers <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">&#39;NaturalEarth_10m_admin_0_countries — admin_0_countries&#39;</span>)</span>
+<span id="cb109-2"><a href="03_harjoitus_3.html#cb109-2" aria-hidden="true" tabindex="-1"></a>layer <span class="op">=</span> layers[<span class="dv">0</span>]</span>
+<span id="cb109-3"><a href="03_harjoitus_3.html#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="03_harjoitus_3.html#cb109-4" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:3857&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb109-5"><a href="03_harjoitus_3.html#cb109-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="03_harjoitus_3.html#cb109-6" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb109-7"><a href="03_harjoitus_3.html#cb109-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-8"><a href="03_harjoitus_3.html#cb109-8" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb109-9"><a href="03_harjoitus_3.html#cb109-9" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;country&quot;</span>, QVariant.String))</span>
+<span id="cb109-10"><a href="03_harjoitus_3.html#cb109-10" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;distance&quot;</span>, QVariant.Double))</span>
+<span id="cb109-11"><a href="03_harjoitus_3.html#cb109-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-12"><a href="03_harjoitus_3.html#cb109-12" aria-hidden="true" tabindex="-1"></a>source_crs <span class="op">=</span> QgsCoordinateReferenceSystem(<span class="dv">4326</span>)</span>
+<span id="cb109-13"><a href="03_harjoitus_3.html#cb109-13" aria-hidden="true" tabindex="-1"></a>target_crs <span class="op">=</span> QgsCoordinateReferenceSystem(<span class="dv">3857</span>)</span>
+<span id="cb109-14"><a href="03_harjoitus_3.html#cb109-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-15"><a href="03_harjoitus_3.html#cb109-15" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())</span>
+<span id="cb109-16"><a href="03_harjoitus_3.html#cb109-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-17"><a href="03_harjoitus_3.html#cb109-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Käytetään QGISin lauseketta</span></span>
+<span id="cb109-18"><a href="03_harjoitus_3.html#cb109-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Suomi-kohteen etsimiseen</span></span>
+<span id="cb109-19"><a href="03_harjoitus_3.html#cb109-19" aria-hidden="true" tabindex="-1"></a>filter_expression <span class="op">=</span> QgsExpression(<span class="st">&#39;&#39;&#39;&quot;NAME_EN&quot; = &#39;Finland&#39; &#39;&#39;&#39;</span>)</span>
+<span id="cb109-20"><a href="03_harjoitus_3.html#cb109-20" aria-hidden="true" tabindex="-1"></a>filtered_features <span class="op">=</span> layer.getFeatures(QgsFeatureRequest(filter_expression))</span>
+<span id="cb109-21"><a href="03_harjoitus_3.html#cb109-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-22"><a href="03_harjoitus_3.html#cb109-22" aria-hidden="true" tabindex="-1"></a>finland_feature <span class="op">=</span> QgsFeature()</span>
+<span id="cb109-23"><a href="03_harjoitus_3.html#cb109-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feat <span class="kw">in</span> filtered_features:</span>
+<span id="cb109-24"><a href="03_harjoitus_3.html#cb109-24" aria-hidden="true" tabindex="-1"></a>    finland_feature <span class="op">=</span> feat</span>
+<span id="cb109-25"><a href="03_harjoitus_3.html#cb109-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-26"><a href="03_harjoitus_3.html#cb109-26" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> finland_feature.isValid():</span>
+<span id="cb109-27"><a href="03_harjoitus_3.html#cb109-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-28"><a href="03_harjoitus_3.html#cb109-28" aria-hidden="true" tabindex="-1"></a>    finland_centroid <span class="op">=</span> finland_feature.geometry().centroid()</span>
+<span id="cb109-29"><a href="03_harjoitus_3.html#cb109-29" aria-hidden="true" tabindex="-1"></a>    finland_centroid.transform(tf)</span>
+<span id="cb109-30"><a href="03_harjoitus_3.html#cb109-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-31"><a href="03_harjoitus_3.html#cb109-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> old_feature <span class="kw">in</span> layer.getFeatures():</span>
+<span id="cb109-32"><a href="03_harjoitus_3.html#cb109-32" aria-hidden="true" tabindex="-1"></a>        fid <span class="op">=</span> old_feature.attribute(<span class="st">&quot;fid&quot;</span>)</span>
+<span id="cb109-33"><a href="03_harjoitus_3.html#cb109-33" aria-hidden="true" tabindex="-1"></a>        country <span class="op">=</span> old_feature.attribute(<span class="st">&quot;NAME_EN&quot;</span>)</span>
+<span id="cb109-34"><a href="03_harjoitus_3.html#cb109-34" aria-hidden="true" tabindex="-1"></a>        centroid <span class="op">=</span> old_feature.geometry().centroid()</span>
+<span id="cb109-35"><a href="03_harjoitus_3.html#cb109-35" aria-hidden="true" tabindex="-1"></a>        centroid.transform(tf)</span>
+<span id="cb109-36"><a href="03_harjoitus_3.html#cb109-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-37"><a href="03_harjoitus_3.html#cb109-37" aria-hidden="true" tabindex="-1"></a>        distance <span class="op">=</span> centroid.distance(finland_centroid) <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb109-38"><a href="03_harjoitus_3.html#cb109-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-39"><a href="03_harjoitus_3.html#cb109-39" aria-hidden="true" tabindex="-1"></a>        new_feature <span class="op">=</span> QgsFeature(new_layer.fields())</span>
+<span id="cb109-40"><a href="03_harjoitus_3.html#cb109-40" aria-hidden="true" tabindex="-1"></a>        new_feature.setAttributes(</span>
+<span id="cb109-41"><a href="03_harjoitus_3.html#cb109-41" aria-hidden="true" tabindex="-1"></a>            [</span>
+<span id="cb109-42"><a href="03_harjoitus_3.html#cb109-42" aria-hidden="true" tabindex="-1"></a>                fid,</span>
+<span id="cb109-43"><a href="03_harjoitus_3.html#cb109-43" aria-hidden="true" tabindex="-1"></a>                country,</span>
+<span id="cb109-44"><a href="03_harjoitus_3.html#cb109-44" aria-hidden="true" tabindex="-1"></a>                distance</span>
+<span id="cb109-45"><a href="03_harjoitus_3.html#cb109-45" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb109-46"><a href="03_harjoitus_3.html#cb109-46" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb109-47"><a href="03_harjoitus_3.html#cb109-47" aria-hidden="true" tabindex="-1"></a>        new_feature.setGeometry(centroid)</span>
+<span id="cb109-48"><a href="03_harjoitus_3.html#cb109-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-49"><a href="03_harjoitus_3.html#cb109-49" aria-hidden="true" tabindex="-1"></a>        new_layer.addFeature(new_feature)</span>
+<span id="cb109-50"><a href="03_harjoitus_3.html#cb109-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-51"><a href="03_harjoitus_3.html#cb109-51" aria-hidden="true" tabindex="-1"></a>    new_layer.commitChanges()</span>
+<span id="cb109-52"><a href="03_harjoitus_3.html#cb109-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-53"><a href="03_harjoitus_3.html#cb109-53" aria-hidden="true" tabindex="-1"></a>    QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="02_harjoitus_2.html"><button class="btn btn-default">Previous</button></a>
+<a href="04_harjoitus_4.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS-lisäosien kehitys</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
