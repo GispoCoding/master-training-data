@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Introduction to GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Introduction to GeoServer">
+
+<title>Introduction to GeoServer</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to GeoServer</h1></div>
+<div class="abstract-sidebar"><p>A course covering basic GeoServer topics</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#introduction-to-geoserver">Introduction to GeoServer</a>
+<ul>
+<li><a href="index.html#welcome-to-this-geoserver-course">Welcome to this GeoServer Course!</a></li>
+<li><a href="index.html#background-of-geoserver">Background of GeoServer</a></li>
+<li><a href="index.html#how-to-read">How to read</a></li>
+<li><a href="index.html#additional-information">Additional information</a></li>
+<li><a href="index.html#mistakes">Mistakes</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1.1-installation-and-commissioning">Exercise 1.1: Installation and commissioning</a>
+<ul>
+<li><a href="01_exercise_1.html#preparation"><strong>Preparation</strong></a></li>
+<li class="has-sub"><a href="01_exercise_1.html#main-menu"><strong>Main menu</strong></a>
+<ul>
+<li><a href="01_exercise_1.html#about-geoserver"><strong>About GeoServer</strong></a></li>
+<li><a href="01_exercise_1.html#layer-preview"><strong>Layer Preview</strong></a></li>
+<li><a href="01_exercise_1.html#service-capabilities"><strong>Service Capabilities</strong></a></li>
+<li><a href="01_exercise_1.html#demos"><strong>Demos</strong></a></li>
+<li><a href="01_exercise_1.html#demo-requests"><strong>Demo requests</strong></a></li>
+</ul></li>
+<li><a href="01_exercise_1.html#srs-list-ja-reprojection-console"><strong>SRS List ja Reprojection console</strong></a></li>
+<li><a href="01_exercise_1.html#wcs-request-builder"><strong>WCS request builder</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-1.2-geoserver-web-interface">Exercise 1.2: GeoServer web interface</a>
+<ul>
+<li><a href="02_exercise_2.html#preparation-1"><strong>Preparation</strong></a></li>
+<li><a href="02_exercise_2.html#administrator-interface"><strong>Administrator interface</strong></a></li>
+<li><a href="02_exercise_2.html#master-and-administrator-users"><strong>Master and Administrator users</strong></a></li>
+<li class="has-sub"><a href="02_exercise_2.html#about-status-settings"><strong>About &amp; Status settings</strong></a>
+<ul>
+<li><a href="02_exercise_2.html#contact-information"><strong>Contact Information</strong></a></li>
+<li><a href="02_exercise_2.html#server-status"><strong>Server Status</strong></a></li>
+<li><a href="02_exercise_2.html#geoserver-logs"><strong>GeoServer Logs</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#data-menu"><strong>Data menu</strong></a>
+<ul>
+<li><a href="02_exercise_2.html#layer-preview-1"><strong>Layer Preview</strong></a></li>
+<li><a href="02_exercise_2.html#workspaces"><strong>Workspaces</strong></a></li>
+<li><a href="02_exercise_2.html#stores"><strong>Stores</strong></a></li>
+<li><a href="02_exercise_2.html#layers"><strong>Layers</strong></a></li>
+</ul></li>
+<li><a href="02_exercise_2.html#layer-groups"><strong>Layer Groups</strong></a></li>
+<li><a href="02_exercise_2.html#styles"><strong>Styles</strong></a></li>
+<li><a href="02_exercise_2.html#settings"><strong>Settings</strong></a></li>
+<li><a href="02_exercise_2.html#tile-caching-1"><strong>Tile Caching</strong></a></li>
+<li><a href="02_exercise_2.html#security-1"><strong>Security</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-1.3-vector-data">Exercise 1.3: Vector data</a>
+<ul>
+<li><a href="03_exercise_3.html#preparation-2"><strong>Preparation</strong></a></li>
+<li><a href="03_exercise_3.html#creating-vector-data-store"><strong>Creating vector data store</strong></a></li>
+<li><a href="03_exercise_3.html#publishing-vector-layer"><strong>Publishing vector layer</strong></a></li>
+<li class="has-sub"><a href="03_exercise_3.html#data-settings"><strong>Data settings</strong></a>
+<ul>
+<li><a href="03_exercise_3.html#coordinate-reference-systems"><strong>Coordinate Reference Systems</strong></a></li>
+<li><a href="03_exercise_3.html#bounding-boxes"><strong>Bounding Boxes</strong></a></li>
+<li><a href="03_exercise_3.html#feature-type-details"><strong>Feature Type Details</strong></a></li>
+</ul></li>
+<li><a href="03_exercise_3.html#add-helsinki-road-network"><strong>Add Helsinki road network</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-1.4-basics-of-styling-sld">Exercise 1.4: Basics of styling (SLD)</a>
+<ul>
+<li><a href="04_exercise_4.html#preparation-3"><strong>Preparation</strong></a></li>
+<li><a href="04_exercise_4.html#geoserver-styling-technique"><strong>GeoServer styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#sld-styling"><strong>SLD-styling</strong></a></li>
+<li><a href="04_exercise_4.html#creating-a-new-style"><strong>Creating a new style</strong></a></li>
+<li><a href="04_exercise_4.html#deployment-of-sld-styling-technique"><strong>Deployment of SLD styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#sld-cookbook"><strong>SLD Cookbook</strong></a></li>
+<li><a href="04_exercise_4.html#editing-sld-styling-technique"><strong>Editing SLD styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#create-a-road-style"><strong>Create a road style</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-1.5-wms-and-wcs-services">Exercise 1.5: WMS and WCS services</a>
+<ul>
+<li><a href="05_exercise_5.html#preparation-4"><strong>Preparation</strong></a></li>
+<li><a href="05_exercise_5.html#ogc-standards"><strong>OGC-standards</strong></a></li>
+<li><a href="05_exercise_5.html#general-map-service-settings"><strong>General map service settings</strong></a></li>
+<li><a href="05_exercise_5.html#wms"><strong>WMS</strong></a></li>
+<li><a href="05_exercise_5.html#workspace-specific-server-settings"><strong>Workspace-specific server settings</strong></a></li>
+<li><a href="05_exercise_5.html#dpi-resolution-of-the-wms-map-service-image"><strong>DPI resolution of the WMS map service image</strong></a></li>
+<li><a href="05_exercise_5.html#wcs"><strong>WCS</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-1.6-raster-data">Exercise 1.6: Raster data</a>
+<ul>
+<li><a href="06_exercise_6.html#preparation-5"><strong>Preparation</strong></a></li>
+<li><a href="06_exercise_6.html#adding-raster-data"><strong>Adding raster data</strong></a></li>
+<li><a href="06_exercise_6.html#adding-an-aerial-image"><strong>Adding an aerial image</strong></a></li>
+<li><a href="06_exercise_6.html#image-mosaic"><strong>Image Mosaic</strong></a></li>
+<li class="has-sub"><a href="06_exercise_6.html#layer-groups-1"><strong>Layer Groups</strong></a>
+<ul>
+<li><a href="06_exercise_6.html#form-of-publication-of-group-layers"><strong>Form of publication of group layers</strong></a></li>
+<li><a href="06_exercise_6.html#use-of-external-wms-services-cascading-wms"><strong>Use of external WMS services (cascading WMS)</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-1.7-spatial-databases">Exercise 1.7: Spatial databases</a>
+<ul>
+<li><a href="07_exercise_7.html#preparation-6"><strong>Preparation</strong></a></li>
+<li><a href="07_exercise_7.html#connecting-to-the-geodatabase"><strong>Connecting to the geodatabase</strong></a></li>
+<li><a href="07_exercise_7.html#adding-a-postgis-layer"><strong>Adding a PostGIS layer</strong></a></li>
+<li><a href="07_exercise_7.html#adding-a-polygon-and-line-layer-from-postgis-database"><strong>Adding a polygon and line layer from PostGIS database</strong></a></li>
+<li><a href="07_exercise_7.html#setting-default-styles-for-layers"><strong>Setting default styles for layers</strong></a></li>
+<li><a href="07_exercise_7.html#sql-views"><strong>SQL views</strong></a></li>
+<li><a href="07_exercise_7.html#geographical-data-functions-via-sql-views"><strong>Geographical data functions via SQL views</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-2.1-wfs-services">Exercise 2.1: WFS services</a>
+<ul>
+<li><a href="08_exercise_8.html#preparation-7"><strong>Preparation</strong></a></li>
+<li><a href="08_exercise_8.html#ogc-standards-1"><strong>OGC-standards</strong></a></li>
+<li><a href="08_exercise_8.html#wfs-settings"><strong>WFS settings</strong></a></li>
+<li><a href="08_exercise_8.html#number-of-data-requested"><strong>Number of data requested</strong></a></li>
+<li><a href="08_exercise_8.html#specifying-several-coordinate-systems"><strong>Specifying several coordinate systems</strong></a></li>
+<li><a href="08_exercise_8.html#service-levels"><strong>Service Levels</strong></a></li>
+<li><a href="08_exercise_8.html#gml-settings"><strong>GML settings</strong></a></li>
+<li><a href="08_exercise_8.html#workspace-specific-settings"><strong>Workspace specific settings</strong></a></li>
+<li><a href="08_exercise_8.html#editing-via-wfs-t-service"><strong>Editing via WFS-T service</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="09_exercise_9.html#exercise-2.2-map-tile-services">Exercise 2.2: Map tile services</a>
+<ul>
+<li><a href="09_exercise_9.html#preparation-8"><strong>Preparation</strong></a></li>
+<li><a href="09_exercise_9.html#tile-caching-2"><strong>Tile Caching</strong></a></li>
+<li><a href="09_exercise_9.html#geowebcache-user-interface"><strong>GeoWebCache user interface</strong></a></li>
+<li><a href="09_exercise_9.html#layer-specific-settings"><strong>Layer-specific settings</strong></a></li>
+<li><a href="09_exercise_9.html#pre-creation-of-map-tiles"><strong>Pre-creation of map tiles</strong></a></li>
+<li><a href="09_exercise_9.html#using-the-hard-disk-of-the-map-tiles"><strong>Using the hard disk of the map tiles</strong></a></li>
+<li><a href="09_exercise_9.html#map-tile-grids"><strong>Map tile grids</strong></a></li>
+<li><a href="09_exercise_9.html#map-tile-grid-according-to-jhs180"><strong>Map tile grid according to JHS180</strong></a></li>
+<li><a href="09_exercise_9.html#creating-a-new-gridset"><strong>Creating a new gridset</strong></a></li>
+<li><a href="09_exercise_9.html#finland-openstreetmap-road-network"><strong>Finland OpenStreetMap road network</strong></a></li>
+<li><a href="09_exercise_9.html#using-your-own-map-tile-grid"><strong>Using your own map tile grid</strong></a></li>
+<li><a href="09_exercise_9.html#create-a-local-map-tile-grid"><strong>Create a local map tile grid</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="10_exercise_10.html#exercise-2.3-architecture-and-deployment">Exercise 2.3: Architecture and deployment</a>
+<ul>
+<li><a href="10_exercise_10.html#preparation-9"><strong>Preparation</strong></a></li>
+<li><a href="10_exercise_10.html#general-information-about-the-geoserver-server"><strong>General information about the GeoServer server</strong></a></li>
+<li><a href="10_exercise_10.html#image-processing-settings"><strong>Image processing settings</strong></a></li>
+<li><a href="10_exercise_10.html#raster-access"><strong>Raster Access</strong></a></li>
+<li><a href="10_exercise_10.html#geoserver-log"><strong>GeoServer log</strong></a></li>
+<li><a href="10_exercise_10.html#rest-api-functionality"><strong>REST API functionality</strong></a></li>
+<li><a href="10_exercise_10.html#using-the-monitor-plugin-tarkista-nämä-vielä"><strong>Using the Monitor plugin (tarkista nämä vielä)</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="11_exercise_11.html#exercise-2.4-css-styles">Exercise 2.4: CSS styles</a>
+<ul>
+<li><a href="11_exercise_11.html#preparation-10"><strong>Preparation</strong></a></li>
+<li><a href="11_exercise_11.html#css-styles"><strong>CSS styles</strong></a></li>
+<li><a href="11_exercise_11.html#creating-a-style"><strong>Creating a style</strong></a></li>
+<li><a href="11_exercise_11.html#classification-of-data"><strong>Classification of data</strong></a></li>
+<li><a href="11_exercise_11.html#tuning-the-style"><strong>Tuning the style</strong></a></li>
+<li><a href="11_exercise_11.html#category-naming"><strong>Category naming</strong></a></li>
+<li><a href="11_exercise_11.html#multi-scale-visibility"><strong>Multi-scale visibility</strong></a></li>
+<li><a href="11_exercise_11.html#adding-subtitles"><strong>Adding subtitles</strong></a></li>
+<li><a href="11_exercise_11.html#application-of-styling-technology"><strong>Application of styling technology</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="12_exercise_12.html#exercise-2.5-access-control">Exercise 2.5: Access control</a>
+<ul>
+<li><a href="12_exercise_12.html#geoserver-general-security-settings"><strong>GeoServer general security settings</strong></a></li>
+<li><a href="12_exercise_12.html#identification"><strong>Identification</strong></a></li>
+<li><a href="12_exercise_12.html#create-a-new-role-and-user"><strong>Create a new role and user</strong></a></li>
+<li><a href="12_exercise_12.html#limiting-access-rights-to-the-data"><strong>Limiting access rights to the data</strong></a></li>
+<li><a href="12_exercise_12.html#user-specific-access-rights-for-the-data"><strong>User-specific access rights for the data</strong></a></li>
+<li><a href="12_exercise_12.html#map-service-specific-rights"><strong>Map service-specific rights</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="13_exercise_13.html#ecercise-2.6-filtering">Ecercise 2.6: Filtering</a>
+<ul>
+<li><a href="13_exercise_13.html#filtering-with-attributes">Filtering with attributes</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<!-- This title section is only rendered to index.html -->
+<div id="title-container">
+
+<h1 id="title-header">Introduction to GeoServer</h1>
+
+<h4 class="author">Gispo Finland Ltd.</h4>
+
+<h4 id="build-date">Version: 2025-10-31</h4>
+
+<div class="abstract"><p>A course covering basic GeoServer topics</p></div>
+
+</div>
+<div id="introduction-to-geoserver" class="section level1">
+<h1>Introduction to GeoServer</h1>
+<div id="welcome-to-this-geoserver-course" class="section level2">
+<h2>Welcome to this GeoServer Course!</h2>
+<p>The purpose of this course is to introduce you into using GeoServer. Exprience with spatial data or other GIS software is not a necessary prerequisite for attending, although it is useful. Don’t hesitate to ask for additional information from the trainer if any of the terminology or topics is left unclear.</p>
+</div>
+<div id="background-of-geoserver" class="section level2">
+<h2>Background of GeoServer</h2>
+<p>GeoServer is an open source server software where one can share, process and manage geospatial data. GeoServer has existed since the year 2001 through “The Open Planning Project”. In the year 2014 GeoServer was included under the OSGeo- project. GeoServer is updated every half a year and the userbase is quite active.</p>
+</div>
+<div id="how-to-read" class="section level2">
+<h2>How to read</h2>
+<p>Commands to execute in a <strong>web browser</strong> are displayed as follows:</p>
+<div class="note-box">
+<p><a href="http://localhost:8080/geoserver" class="uri">http://localhost:8080/geoserver</a></p>
+</div>
+<p>Commands to execute in a <strong>command prompt/terminal</strong> are displayed as follows:</p>
+<div class="commandline-box">
+<pre class="shell"><code>sudo lsb_release -a</code></pre>
+</div>
+<p><strong>File content</strong> is displayed as follows:</p>
+<div class="file-content-box">
+<p>#IPv4 local connections: #host all all 127.0.0.1/32 md5</p>
+</div>
+<p><strong>HTML and CSS code, SQL- queries and Python-scripts</strong> are displayed as follows:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> version();</span></code></pre></div>
+</div>
+<p><strong>Questions, notes and hints</strong> are displayed as follows:</p>
+<div class="hint-box">
+<p>Where do you find information about GeoServer?</p>
+<p>GeoServer has its own website.</p>
+</div>
+</div>
+<div id="additional-information" class="section level2">
+<h2>Additional information</h2>
+<p>Here are a few helpful websites:</p>
+<div class="note-box">
+<p><a href="https://geoserver.org/" class="uri">https://geoserver.org/</a></p>
+</div>
+<div class="note-box">
+<p><a href="https://docs.geoserver.org/" class="uri">https://docs.geoserver.org/</a></p>
+</div>
+<div class="note-box">
+<p><a href="http://gis.stackexchange.com/" class="uri">http://gis.stackexchange.com/</a></p>
+</div>
+<div class="note-box">
+<p><a href="http://www.osgeo.fi" class="uri">http://www.osgeo.fi</a></p>
+</div>
+</div>
+<div id="mistakes" class="section level2">
+<h2>Mistakes</h2>
+<p>If you notice mistakes in these course materials, we ask you to report either directly to the trainer or by email us at <a href="mailto:info@gispo.fi" class="email">info@gispo.fi</a> .</p>
+</div>
+<div id="license-and-permissions" class="section level2">
+<h2>License and permissions</h2>
+<p>These materials are developed for the “Introduction to GeoServer” course by Gispo Finland Ltd.
+The materials are licensed under <a href="https://creativecommons.org/licenses/by-nd/4.0/">CC BY-ND 4.0</a> license.</p>
+</div>
+<div id="download-a-pdf-version-of-the-material" class="section level2">
+<h2>Download a PDF version of the material</h2>
+<p>You can download a PDF version of the material from this link:</p>
+<div class="note-box">
+<p><a href="https://github.com/gispocoding/master-training-data/releases/download/GS006_eng/GS006_eng.pdf">PDF version of the material</a></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_exercise_1.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to GeoServer</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

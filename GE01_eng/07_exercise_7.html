@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Exercise 7: Point tool | QGIS plugin development" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Exercise 7: Point tool | QGIS plugin development">
+
+<title>Exercise 7: Point tool | QGIS plugin development</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS plugin development</h1></div>
+<div class="abstract-sidebar"><p>Developing plugins for QGIS using Python</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-plugin-development">QGIS plugin development</a>
+<ul>
+<li><a href="index.html#welcome-to-the-course">Welcome to the course!</a></li>
+<li><a href="index.html#reading-guide">Reading Guide</a></li>
+<li><a href="index.html#additional-information">Additional information</a></li>
+<li><a href="index.html#mistakes">Mistakes</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_exercise_0.html#exercise-0-python-basics">Exercise 0: Python basics</a>
+<ul>
+<li><a href="00_exercise_0.html#preparations">Preparations</a></li>
+<li class="has-sub"><a href="00_exercise_0.html#the-basics">The basics</a>
+<ul>
+<li><a href="00_exercise_0.html#commands">Commands</a></li>
+<li><a href="00_exercise_0.html#comments">Comments</a></li>
+<li><a href="00_exercise_0.html#calculations">Calculations</a></li>
+<li><a href="00_exercise_0.html#variables">Variables</a></li>
+<li><a href="00_exercise_0.html#types">Types</a></li>
+<li><a href="00_exercise_0.html#conditionals">Conditionals</a></li>
+<li><a href="00_exercise_0.html#functions">Functions</a></li>
+<li><a href="00_exercise_0.html#data-structures">Data structures</a></li>
+<li><a href="00_exercise_0.html#loops-and-iteration">Loops and iteration</a></li>
+<li><a href="00_exercise_0.html#modules">Modules</a></li>
+<li><a href="00_exercise_0.html#objects">Objects</a></li>
+<li><a href="00_exercise_0.html#classes">Classes</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-python-console">Exercise 1: Python console</a>
+<ul>
+<li><a href="01_exercise_1.html#structure-of-the-exercises">Structure of the exercises</a></li>
+<li><a href="01_exercise_1.html#examples">Examples</a></li>
+<li><a href="01_exercise_1.html#exercises">Exercises</a></li>
+<li><a href="01_exercise_1.html#exercise-1.1">Exercise 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-introduction-to-pyqgis">Exercise 2: Introduction to PyQGIS</a>
+<ul>
+<li><a href="02_exercise_2.html#layers">Layers</a></li>
+<li><a href="02_exercise_2.html#exercise-2.1">Exercise 2.1</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2">Exercise 2.2</a></li>
+<li><a href="02_exercise_2.html#exercise-2.3">Exercise 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-layers-features-and-geometries">Exercise 3: Layers, features and geometries</a>
+<ul>
+<li><a href="03_exercise_3.html#layer">Layer</a></li>
+<li><a href="03_exercise_3.html#creating-a-temporary-layer">Creating a temporary layer</a></li>
+<li><a href="03_exercise_3.html#geometries">Geometries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.1">Exercise 3.1</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2-distances">Exercise 3.2: Distances</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-guis-with-qt">Exercise 4: GUIs with Qt</a>
+<ul>
+<li class="has-sub"><a href="04_exercise_4.html#about-qt-guis">About Qt GUIs</a>
+<ul>
+<li><a href="04_exercise_4.html#qwidget">QWidget</a></li>
+<li><a href="04_exercise_4.html#signals-and-slots">Signals and slots</a></li>
+</ul></li>
+<li><a href="04_exercise_4.html#exercise-4.1-counter-widget">Exercise 4.1: Counter-widget</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-qgis-custom-widgets">Exercise 4.2: QGIS custom widgets</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-creating-a-plugin">Exercise 5: Creating a plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#configuring-git">Configuring Git</a></li>
+<li><a href="05_exercise_5.html#creating-the-plugin">Creating the plugin</a></li>
+<li><a href="05_exercise_5.html#adding-the-plugin-to-qgis">Adding the plugin to QGIS</a></li>
+<li class="has-sub"><a href="05_exercise_5.html#structure-of-the-plugin">Structure of the plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#file-plugin.py">File: plugin.py</a></li>
+<li><a href="05_exercise_5.html#file-__init__.py">File: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-buffer-tool">Exercise 6: Buffer tool</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1-creating-the-gui">Exercise 6.1: Creating the GUI</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2-connecting-the-gui-to-the-plugin">Exercise 6.2: Connecting the GUI to the plugin</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3-the-functionality-of-the-tool">Exercise 6.3: The functionality of the tool</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4-segments">Exercise 6.4: Segments</a></li>
+<li><a href="06_exercise_6.html#unit-tests">Unit tests</a></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6.5-tests">Exercise 6.5: Tests</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.5.1-gui-test">Exercise 6.5.1: GUI test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.2-buffertool-test">Exercise 6.5.2: BufferTool test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.3-more-tests">Exercise 6.5.3: More tests</a></li>
+</ul></li>
+<li><a href="06_exercise_6.html#sample-plugin">Sample plugin</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-point-tool">Exercise 7: Point tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-panel">Exercise 7.1: Creating a panel</a></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7.2-point-tool">Exercise 7.2: Point Tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.2.1-extra-challenge---labeling">Exercise 7.2.1: Extra challenge - labeling</a></li>
+</ul></li>
+<li><a href="07_exercise_7.html#exercise-7.3-tests">Exercise 7.3: Tests</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-processing-algorithms">Exercise 8: Processing algorithms</a>
+<ul>
+<li class="has-sub"><a href="08_exercise_8.html#background">Background</a>
+<ul>
+<li><a href="08_exercise_8.html#calling-a-processing-algorithm">Calling a processing algorithm</a></li>
+</ul></li>
+<li><a href="08_exercise_8.html#algorithms-in-a-plugin">Algorithms in a plugin</a></li>
+<li><a href="08_exercise_8.html#exercise-8.1-writing-an-algorithm">Exercise 8.1: Writing an algorithm</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-tests-for-the-algorithm">Exercise 8.2: Tests for the algorithm</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#extra-python-exercises">Extra Python exercises</a>
+<ul>
+<li class="has-sub"><a href="09_extra_9.html#topic-1-comprehensions">Topic 1: Comprehensions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-1.1">Extra exercise 1.1</a></li>
+<li><a href="09_extra_9.html#nested-comprehensions">Nested comprehensions</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-2-lambda-functions">Topic 2: Lambda functions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-2.1">Extra exercise 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-3-decorators">Topic 3: Decorators</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercises-3.1">Extra exercises 3.1</a></li>
+<li><a href="09_extra_9.html#decorators-and-parameters">Decorators and parameters</a></li>
+<li><a href="09_extra_9.html#extra-exercise-3.2">Extra exercise 3.2</a></li>
+</ul></li>
+<li><a href="09_extra_9.html#topic-4-typing">Topic 4: Typing</a></li>
+<li><a href="09_extra_9.html#extra-exercises-4.1">Extra exercises 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-7-point-tool" class="section level1">
+<h1>Exercise 7: Point tool</h1>
+<p>The point of this exercise is to create a point tool into which you can
+enter coordinates and create point features at that location. In the
+GUI there is a drop-down menu for suitable layers (only point layers
+are shown). If no layer is selected the user has to select a CRS and
+then the tool creates a new point layer with that chosen CRS. Then a
+new point feature is created to the layer and its coordinates saved
+to fields called <code>x</code> and <code>y</code>.</p>
+<p><img src="img/exercise_7/image1.gif" /></p>
+<p>If the user hasn’t chosen a layer <em>or</em> a CRS the tool gives an error.
+If the user has chosen a point layer the CRS widget deactivates and
+doesn’t affect the added points in any way.</p>
+<p><img src="img/exercise_7/image2.gif" /></p>
+<p>In the last exercise each step was gone over in a lot of detail.
+This exercise is more independent. However the tool has a different
+kind of GUI where it opens as a panel <code>QDockWidget</code>. Let’s go
+over creating a panel GUI first.</p>
+<div id="exercise-7.1-creating-a-panel" class="section level2">
+<h2>Exercise 7.1: Creating a panel</h2>
+<p>Open Qt Designer and in the <strong>New Form</strong> dialog select
+<strong>QDockWidget</strong> from under the <strong>Widgets</strong> menu.
+Change the name of the widget to <strong>PointToolDockWidget</strong>.
+Create a GUI similar to this image:</p>
+<p><img src="img/exercise_7/image3.png" /></p>
+<ul>
+<li>X: QgsDoubleSpinBox (name: xSpinBox)</li>
+<li>Y: QgsDoubleSpinBox (name: ySpinBox)</li>
+<li>QgsProjectionSelectionWidget (name: crsWidget)</li>
+<li>QgsMapLayerComboBox (name: layerComboBox)</li>
+<li>QPushButton (name: createPushButton)</li>
+</ul>
+<p>Save the GUI to this path: <code>test-plugin/testplugin/resources/ui/point_tool.ui</code>.
+If you prefer you can save an icon for the tool to the
+<code>test-plugin/testplugin/resources/icons/point_tool.png</code> path. You can
+create an icon yourself of download this image: <img src="img/exercise_7/image4.png" /></p>
+<p>Create a new file <code>test-plugin/testplugin/ui/point_tool_dockwidget.py</code> and add this code:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb152"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb152-1"><a href="07_exercise_7.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="cb152-2"><a href="07_exercise_7.html#cb152-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
+<span id="cb152-3"><a href="07_exercise_7.html#cb152-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-4"><a href="07_exercise_7.html#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> pyqtSignal</span>
+<span id="cb152-5"><a href="07_exercise_7.html#cb152-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-6"><a href="07_exercise_7.html#cb152-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.core.pointtool <span class="im">import</span> PointTool</span>
+<span id="cb152-7"><a href="07_exercise_7.html#cb152-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-8"><a href="07_exercise_7.html#cb152-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtWidgets <span class="im">import</span> (</span>
+<span id="cb152-9"><a href="07_exercise_7.html#cb152-9" aria-hidden="true" tabindex="-1"></a>    QDockWidget,</span>
+<span id="cb152-10"><a href="07_exercise_7.html#cb152-10" aria-hidden="true" tabindex="-1"></a>    QWidget,</span>
+<span id="cb152-11"><a href="07_exercise_7.html#cb152-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb152-12"><a href="07_exercise_7.html#cb152-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.custom_logging <span class="im">import</span> bar_msg</span>
+<span id="cb152-13"><a href="07_exercise_7.html#cb152-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.decorations <span class="im">import</span> log_if_fails</span>
+<span id="cb152-14"><a href="07_exercise_7.html#cb152-14" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.resources <span class="im">import</span> load_ui, plugin_name</span>
+<span id="cb152-15"><a href="07_exercise_7.html#cb152-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-16"><a href="07_exercise_7.html#cb152-16" aria-hidden="true" tabindex="-1"></a>FORM_CLASS: QWidget <span class="op">=</span> load_ui(<span class="st">&quot;point_tool.ui&quot;</span>)</span>
+<span id="cb152-17"><a href="07_exercise_7.html#cb152-17" aria-hidden="true" tabindex="-1"></a>LOGGER <span class="op">=</span> logging.getLogger(plugin_name())</span>
+<span id="cb152-18"><a href="07_exercise_7.html#cb152-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-19"><a href="07_exercise_7.html#cb152-19" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PointToolDockWidget(QDockWidget, FORM_CLASS):</span>
+<span id="cb152-20"><a href="07_exercise_7.html#cb152-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-21"><a href="07_exercise_7.html#cb152-21" aria-hidden="true" tabindex="-1"></a>    closingPlugin <span class="op">=</span> pyqtSignal()</span>
+<span id="cb152-22"><a href="07_exercise_7.html#cb152-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-23"><a href="07_exercise_7.html#cb152-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, iface, parent<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb152-24"><a href="07_exercise_7.html#cb152-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Constructor.&quot;&quot;&quot;</span></span>
+<span id="cb152-25"><a href="07_exercise_7.html#cb152-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>(PointToolDockWidget, <span class="va">self</span>).<span class="fu">__init__</span>(parent)</span>
+<span id="cb152-26"><a href="07_exercise_7.html#cb152-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-27"><a href="07_exercise_7.html#cb152-27" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.setupUi(<span class="va">self</span>)</span>
+<span id="cb152-28"><a href="07_exercise_7.html#cb152-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-29"><a href="07_exercise_7.html#cb152-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> close_event(<span class="va">self</span>, event):</span>
+<span id="cb152-30"><a href="07_exercise_7.html#cb152-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.closingPlugin.emit()</span>
+<span id="cb152-31"><a href="07_exercise_7.html#cb152-31" aria-hidden="true" tabindex="-1"></a>        event.accept()</span></code></pre></div>
+</div>
+<p>Open <code>test-plugin/testplugin/plugin.py</code> and make the following changes:</p>
+<p>Edit the imports:</p>
+<p>There should already exist an import for <code>QCoreApplication</code> and <code>QTranslator</code>.
+Add <code>Qt</code> to the same command.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="07_exercise_7.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> Qt, QCoreApplication, QTranslator</span></code></pre></div>
+</div>
+<p>There should already exist an import for <code>plugin_name</code>.
+Add <code>resources_path</code> to the same command.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb154-1"><a href="07_exercise_7.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.resources <span class="im">import</span> plugin_name, resources_path</span></code></pre></div>
+</div>
+<p>Import the dockwidget class which was previously defined.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="07_exercise_7.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.ui.point_tool_dockwidget <span class="im">import</span> PointToolDockWidget</span></code></pre></div>
+</div>
+<p>Edit the constructor (<code>__init__</code> method) of the <code>Plugin</code> class. Add
+these rows:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="07_exercise_7.html#cb156-1" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dockwidget <span class="op">=</span> PointToolDockWidget(iface)</span>
+<span id="cb156-2"><a href="07_exercise_7.html#cb156-2" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.pluginIsActive <span class="op">=</span> <span class="va">False</span></span></code></pre></div>
+</div>
+<p>Add to the <code>initGui()</code> method:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="07_exercise_7.html#cb157-1" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.add_action(</span>
+<span id="cb157-2"><a href="07_exercise_7.html#cb157-2" aria-hidden="true" tabindex="-1"></a>            resources_path(<span class="st">&quot;icons/point_tool.png&quot;</span>),</span>
+<span id="cb157-3"><a href="07_exercise_7.html#cb157-3" aria-hidden="true" tabindex="-1"></a>            text<span class="op">=</span>tr(<span class="st">&quot;Point Tool&quot;</span>),</span>
+<span id="cb157-4"><a href="07_exercise_7.html#cb157-4" aria-hidden="true" tabindex="-1"></a>            callback<span class="op">=</span><span class="va">self</span>.open_point_tool,</span>
+<span id="cb157-5"><a href="07_exercise_7.html#cb157-5" aria-hidden="true" tabindex="-1"></a>            parent<span class="op">=</span>iface.mainWindow(),</span>
+<span id="cb157-6"><a href="07_exercise_7.html#cb157-6" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
+</div>
+<p>Add to the <code>onClosePlugin()</code> method:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb158"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb158-1"><a href="07_exercise_7.html#cb158-1" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dockwidget.closingPlugin.disconnect(<span class="va">self</span>.onClosePlugin)</span>
+<span id="cb158-2"><a href="07_exercise_7.html#cb158-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-3"><a href="07_exercise_7.html#cb158-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.pluginIsActive <span class="op">=</span> <span class="va">False</span></span></code></pre></div>
+</div>
+<p>Add a new method <code>open_point_tool()</code>:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="07_exercise_7.html#cb159-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> open_point_tool(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb159-2"><a href="07_exercise_7.html#cb159-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Opens point tool dock widget&quot;&quot;&quot;</span></span>
+<span id="cb159-3"><a href="07_exercise_7.html#cb159-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="kw">not</span> <span class="va">self</span>.pluginIsActive:</span>
+<span id="cb159-4"><a href="07_exercise_7.html#cb159-4" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.pluginIsActive <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb159-5"><a href="07_exercise_7.html#cb159-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-6"><a href="07_exercise_7.html#cb159-6" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.dockwidget.closingPlugin.<span class="ex">connect</span>(<span class="va">self</span>.onClosePlugin)</span>
+<span id="cb159-7"><a href="07_exercise_7.html#cb159-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb159-8"><a href="07_exercise_7.html#cb159-8" aria-hidden="true" tabindex="-1"></a>            iface.addDockWidget(Qt.LeftDockWidgetArea, <span class="va">self</span>.dockwidget)</span>
+<span id="cb159-9"><a href="07_exercise_7.html#cb159-9" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.dockwidget.show()</span></code></pre></div>
+</div>
+<p>You can also already create a new file <code>test-plugin/testplugin/core/pointtool.py</code>:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="07_exercise_7.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.core.exceptions <span class="im">import</span> PointToolException</span>
+<span id="cb160-2"><a href="07_exercise_7.html#cb160-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-3"><a href="07_exercise_7.html#cb160-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-4"><a href="07_exercise_7.html#cb160-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PointTool:</span>
+<span id="cb160-5"><a href="07_exercise_7.html#cb160-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div>
+</div>
+<p>And add to the <code>test-plugin/testplugin/core/exceptions.py</code> file:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="07_exercise_7.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PointToolException(QgsPluginException):</span>
+<span id="cb161-2"><a href="07_exercise_7.html#cb161-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div>
+</div>
+<p>Reload the plugin. Clicking on the tool should open a new
+panel to the left side of the QGIS window.</p>
+</div>
+<div id="exercise-7.2-point-tool" class="section level2">
+<h2>Exercise 7.2: Point Tool</h2>
+<p>Next implement the functionality that was previously defined.
+If you need help you can ask the trainer or look at the
+sample plugin:</p>
+<p><a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2/sampleplugin/plugin.py">test-plugin/testplugin/plugin.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2/sampleplugin/ui/point_tool_dockwidget.py">test-plugin/testplugin/ui/point_tool_dockwidget.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2/sampleplugin/resources/ui/point_tool.ui">test-plugin/testplugin/resources/ui/point_tool.ui</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/c019b85ed7c7bb66b799f633e139d790f3ab21d0/sampleplugin/core/pointtool.py">test-plugin/testplugin/core/pointtool.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2/sampleplugin/core/exceptions.py">test-plugin/testplugin/core/exceptions.py</a><br />
+</p>
+<div id="exercise-7.2.1-extra-challenge---labeling" class="section level3">
+<h3>Exercise 7.2.1: Extra challenge - labeling</h3>
+<p>When the tool creates a new layer, add a style to it. The
+style should include a label that shows the x and y
+coordinates of the point on the map:</p>
+<p><img src="img/exercise_7/image5.png" /></p>
+</div>
+</div>
+<div id="exercise-7.3-tests" class="section level2">
+<h2>Exercise 7.3: Tests</h2>
+<p>Create a new file <code>test-plugin/tests/test_point_tool.py</code>.
+Write two tests:</p>
+<ul>
+<li><code>test_create_new_point_layer()</code></li>
+<li><code>test_add_point_to_layer()</code></li>
+</ul>
+<p>In the first test a point is created without a selected point layer
+in which case the tool should create a new point layer. In the
+other one points are added to an existing layer.</p>
+<p><a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-2-tests/tests/test_point_tool.py">test-plugin/tests/test_point_tool.py</a></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="06_exercise_6.html"><button class="btn btn-default">Previous</button></a>
+<a href="08_exercise_8.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS plugin development</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

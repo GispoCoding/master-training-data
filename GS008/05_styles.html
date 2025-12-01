@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="5. Map styles | Advanced GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Mikael Vaaltola" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="5. Map styles | Advanced GeoServer">
+
+<title>5. Map styles | Advanced GeoServer</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Advanced GeoServer</h1></div>
+<div class="abstract-sidebar"><p>A course covering advanced GeoServer topics.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#advanced-geoserver">Advanced GeoServer</a>
+<ul>
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_env.html#training-environment">1. Training environment</a>
+<ul>
+<li><a href="01_env.html#tools">Useful tools to install</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_security.html#security-and-user-management">2. Security and user management</a>
+<ul>
+<li class="has-sub"><a href="02_security.html#exercise---layer-security">Exercise - layer security</a>
+<ul>
+<li><a href="02_security.html#permissions">Check default permissions</a></li>
+<li><a href="02_security.html#prevent-unauthenticated-access">Prevent unauthenticated access</a></li>
+<li><a href="02_security.html#verify-rules">Verify rules</a></li>
+</ul></li>
+<li><a href="02_security.html#extra-service-level-settings">Extra — service-level settings</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_raster.html#rasters">3. Optimising rasters</a>
+<ul>
+<li class="has-sub"><a href="03_raster.html#gdal">GDAL</a>
+<ul>
+<li><a href="03_raster.html#setup">Setup</a></li>
+<li><a href="03_raster.html#gdalinfo">gdalinfo</a></li>
+</ul></li>
+<li><a href="03_raster.html#exercise-optimising-raster-data-for-geoserver">Exercise — Optimising raster data for GeoServer</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_vector.html#vectors">4. Optimising vector data</a>
+<ul>
+<li class="has-sub"><a href="04_vector.html#exercise---postgis-and-geoserver">Exercise - PostGIS and GeoServer</a>
+<ul>
+<li><a href="04_vector.html#loading-data-into-postgis">Loading data into PostGIS</a></li>
+<li><a href="04_vector.html#indexing">Indexing</a></li>
+<li><a href="04_vector.html#publish-to-geoserver">Publish to GeoServer</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="05_styles.html#styles">5. Map styles</a>
+<ul>
+<li><a href="05_styles.html#choosing-a-style-format">Choosing a style format</a></li>
+<li><a href="05_styles.html#exercise-creating-styles">Exercise — creating styles</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_clustering.html#cluster">6. Clustering</a>
+<ul>
+<li><a href="06_clustering.html#containerisation">Containerisation</a></li>
+<li><a href="06_clustering.html#passive-cluster">Passive clustering</a></li>
+<li><a href="06_clustering.html#active-cluster">Active clustering</a></li>
+<li><a href="06_clustering.html#data-and-configuration-concerns">Data and configuration concerns</a></li>
+<li><a href="06_clustering.html#exercise---clustering">Exercise - clustering</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_rest.html#rest">7. GeoServer REST API</a>
+<ul>
+<li><a href="07_rest.html#using-apis">Using APIs</a></li>
+<li><a href="07_rest.html#exercise-rest-api">Exercise — REST API</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_extensions.html#extensions">8. Extensions</a>
+<ul>
+<li><a href="08_extensions.html#gs-tools">Useful tools</a></li>
+<li><a href="08_extensions.html#jmeter">Exercise - JMeter</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="styles" class="section level1">
+<h1>5. Map styles</h1>
+<p>Styles define how GeoServer renders spatial data to maps.
+The GeoServer render engine uses SLD, but other styling languages such as (Geo)CSS are supported via extensions.
+All styling language extensions work functionally the same — they convert style definitions written in another syntax to SLD that the render engine can use.
+GeoServer also supports its own SLD extensions and vendor-options, described in the <a href="https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html">GeoServer documentation</a>.
+These extensions provide users many new and powerful options, such as performing on-the-fly <a href="">geometry translations</a>, and creating dynamic styles by allowing [SLD variable substitution].</p>
+<p>A more novel approach to styling is distributing map styles to clients.
+This is especially useful when distributing vector data — either through WFS or WMTS (vector tiles).
+Distributing map styles along with spatial vector data lets client software render the data in a meaningful way.
+This lowers the barrier for consuming vector data, as clients don’t have to “know” anything about the data or its properties to render it.</p>
+<div id="choosing-a-style-format" class="section level2">
+<h2>Choosing a style format</h2>
+<p>One of the main issues with distributing map styles is the lack of globally used standards.
+Many formats have been developed for storing style information, and it seems nearly every software uses its own implementation.
+While the SLD standard is commonly supported, it’s very flexible and allows vendor-options and other extensions that cause incompatibilities between software.
+In practice, this often means styles that are created in QGIS and exported to SLD may not work in GeoServer, despite using a common style definition language.</p>
+<div class="note-box">
+<p><strong>Note:</strong> while the SLD produced by QGIS is not guaranteed to be consumable by GeoServer, progress in ensuring compatibility has been made over the recent years.
+Most issues arise from the use of special QGIS rendering options, such as shapeburst symbologies, and more complex styles such as expression based symbology.
+See the <a href="https://docs.geoserver.org/master/en/user/styling/qgis/index.html">GeoServer documentation</a> for more information on converting QGIS SLD to GeoServer.</p>
+</div>
+<p>Selecting a suitable style format for distribution therefore requires some knowledge of the (intended) client software.
+If you are planning to use GeoServer as a backend for your mobile application written in MapBox GL, it makes sense to utilise the <a href="https://docs.geoserver.org/master/en/user/styling/mbstyle/index.html">MBStyles extension</a>.</p>
+<p>On the other hand, if you want to stick to SLD and ensure maximum compatibility between software, consider installing the <a href="https://docs.geoserver.org/master/en/user/community/geostyler/index.html">GeoStyler Extension</a>.
+The extension adds a new graphical style editor tab to the GeoServer style editor, allowing users to generate GeoServer-compatible SLD with relative ease.</p>
+</div>
+<div id="exercise-creating-styles" class="section level2">
+<h2>Exercise — creating styles</h2>
+<p>Try creating styles for your own vector data in GeoStyler on the <a href="https://geostyler.github.io/geostyler-demo/">GeoStyler demo page</a>.</p>
+<div class="figure">
+<img src="img/geostyler-demo.png" alt="" />
+<p class="caption">GeoStyler graphical style editor</p>
+</div>
+<p>Next, pick a new <a href="https://docs.geoserver.org/master/en/user/styling/sld/extensions/index.html">GeoServer SLD extension</a> you haven’t used before and try creating a new style with it.
+Use the GeoServer <a href="https://docs.geoserver.org/latest/en/user/styling/sld/cookbook/index.html">SLD</a>, <a href="https://docs.geoserver.org/latest/en/user/styling/css/cookbook/index.html">CSS</a>, and <a href="https://docs.geoserver.org/master/en/user/styling/ysld/cookbook/index.html">YSLD</a> cookbooks as reference.
+Think about the benefits and use cases for your chosen styling extension, but also try to assess potential issues such as impact on rendering performance and compatibility with other software.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="04_vector.html"><button class="btn btn-default">Previous</button></a>
+<a href="06_clustering.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Advanced GeoServer</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
