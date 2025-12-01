@@ -6,7 +6,7 @@ Tutustutaan erilaisiin geokoodauksen mahdollistaviin toimintoihin ja lisäosiin.
 
 **Harjoituksen tavoite**
 
-Opiskelija ymmärtää mihin geokoodaus perustuu ja osaa valita omaan käyttöönsä tarkoituksenmukaisen välineen.
+Osallistuja ymmärtää mihin geokoodaus perustuu ja osaa valita omaan käyttöönsä tarkoituksenmukaisen välineen.
 
 **Arvioitu kesto**
 

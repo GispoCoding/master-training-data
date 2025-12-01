@@ -6,7 +6,7 @@ Harjoituksessa opetellaan käyttämään QGISia topologian ja geometrian tarkist
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen opiskelija osaa tarkastaa aineistonsa geometrioita ja tehdä niihin manuaalisesti ja automaattisesti tarvittavia korjauksia.
+Harjoituksen jälkeen osallistuja osaa tarkastaa aineistonsa geometrioita ja tehdä niihin manuaalisesti ja automaattisesti tarvittavia korjauksia.
 
 **Arvioitu kesto**
 
