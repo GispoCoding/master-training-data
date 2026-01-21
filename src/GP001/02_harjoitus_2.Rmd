@@ -34,7 +34,9 @@ Lisää nyt **TieViiva.gpkg**-paikkatietoaineisto QGIS-projektiisi joko tuplakli
 
 Avataan seuraavaksi **Harjoitus 2- kansiosta postinumeroalueet_2025.shp** QGISiin. Tiedosto lisätään samalla tavalla kuin edellisessä kohdassa lisättiin GeoPackage. Katso esimerkkiä sieltä, jos et muista, miten aineisto lisättiin.
 
-Pohdi, mitä eroa on shapefilellä ja GeoPackagella.
+Tutki shapefileä ja geopackagea tiedostojen hallinnassa. Klikkaa hiiren oikealla shapefile-kansiota ja valitse Avaa hakemisto. Pohdi, mitä eroa on shapefilellä ja GeoPackagella.
+
+![](images/clipboard-2422632424.png)
 
 ## QGISin käyttöliittymä
 
@@ -78,7 +80,7 @@ Kokeile myös **tilapalkin** ja **tasoluettelon** toimintoja.
 
 ## Paikkatietoaineiston kohteiden valinta
 
-Kokeile työkalua **Valitse kohteet** ![](img/harjoitus_2/image15.png) . Klikkaa työkalu aktiiviseksi ja piirrä kartalle suorakaide. Kaikki Tieviiva-tason elementit, jotka osuvat edes osittain valintarajauksesi sisään, korostuvat keltaisella.
+Kokeile työkalua **Valitse kohteet** ![](img/harjoitus_2/image15.png) . Klikkaa työkalu aktiiviseksi ja piirrä kartalle suorakaide. Kaikki Tieviiva-tason elementit, jotka osuvat edes osittain valintarajauksesi sisään, korostuvat keltaisella. Huom. poista Tasot-paneelista postinumerotason näkyvyys piirrossa.![](images/clipboard-2013683466.png)
 
 ![](img/harjoitus_2/image16.png)
 
