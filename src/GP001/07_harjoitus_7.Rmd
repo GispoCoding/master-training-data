@@ -14,15 +14,14 @@ Opiskelija osaa laatia karttatulosteen halutussa mittakaavassa sekä tehdä tulo
 
 **Valmistautuminen**
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **\"QGIS-harjoitus 7\"**. Lisää projektiin seuraavat aineistot:
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **"QGIS-harjoitus 7"**. Lisää projektiin seuraavat aineistot:
 
--   **../kurssihakemisto/7. Harjoitus/Vaestotietoruudukko_2022.gpkg**
+-   **../kurssihakemisto/Harjoitus 7/Vaestotietoruudukko_2022.gpkg**
 
--   **../kurssihakemisto/7. Harjoitus/PKS_postinumeroalueet_2023.gpkg**
+-   **../kurssihakemisto/Harjoitus 7/PKS_postinumeroalueet_2023.gpkg**
 
 -   **Haluamasi taustakartta, esimerkiksi Selain \> XYZ Tiles \> OpenStreetMap**
 
- 
 ![](img/harjoitus_7/image1.png)
 
 ## Karttatuloste
