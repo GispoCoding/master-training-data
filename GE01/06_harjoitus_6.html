@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 6: Buffer- työkalu | QGIS-lisäosien kehitys" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 6: Buffer- työkalu | QGIS-lisäosien kehitys">
+
+<title>Harjoitus 6: Buffer- työkalu | QGIS-lisäosien kehitys</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS-lisäosien kehitys</h1></div>
+<div class="abstract-sidebar"><p>Lisäosien kehitys Pythonilla</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-lisäosien-kehitys">QGIS-lisäosien kehitys</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille">Tervetuloa kurssille!</a></li>
+<li><a href="index.html#kurssihakemisto">Kurssihakemisto</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_harjoitus_0.html#harjoitus-0-python-kertaus">Harjoitus 0: Python-kertaus</a>
+<ul>
+<li><a href="00_harjoitus_0.html#esivalmistelut">Esivalmistelut</a></li>
+<li class="has-sub"><a href="00_harjoitus_0.html#python-perusteita">Python-perusteita</a>
+<ul>
+<li><a href="00_harjoitus_0.html#komennot">Komennot</a></li>
+<li><a href="00_harjoitus_0.html#kommentit">Kommentit</a></li>
+<li><a href="00_harjoitus_0.html#luvuilla-laskeminen">Luvuilla laskeminen</a></li>
+<li><a href="00_harjoitus_0.html#muuttujat">Muuttujat</a></li>
+<li><a href="00_harjoitus_0.html#tyypit">Tyypit</a></li>
+<li><a href="00_harjoitus_0.html#ehtolauseet-ja-vertailu">Ehtolauseet ja vertailu</a></li>
+<li><a href="00_harjoitus_0.html#funktiot">Funktiot</a></li>
+<li><a href="00_harjoitus_0.html#tietorakenteita">Tietorakenteita</a></li>
+<li><a href="00_harjoitus_0.html#silmukat-ja-iterointi">Silmukat ja iterointi</a></li>
+<li><a href="00_harjoitus_0.html#moduulit">Moduulit</a></li>
+<li><a href="00_harjoitus_0.html#oliot">Oliot</a></li>
+<li><a href="00_harjoitus_0.html#luokat">Luokat</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-python-konsoli">Harjoitus 1: Python-konsoli</a>
+<ul>
+<li><a href="01_harjoitus_1.html#harjoitusten-rakenne">Harjoitusten rakenne</a></li>
+<li><a href="01_harjoitus_1.html#esimerkit">Esimerkit</a></li>
+<li><a href="01_harjoitus_1.html#harjoitukset">Harjoitukset</a></li>
+<li><a href="01_harjoitus_1.html#harjoitus-1.1">Harjoitus 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-pyqgis-perusteet">Harjoitus 2: PyQGIS-perusteet</a>
+<ul>
+<li><a href="02_harjoitus_2.html#tasojen-käsittely">Tasojen käsittely</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.1">Harjoitus 2.1</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.2">Harjoitus 2.2</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.3">Harjoitus 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-tasot-kohteet-ja-geometriat">Harjoitus 3: Tasot, kohteet ja geometriat</a>
+<ul>
+<li><a href="03_harjoitus_3.html#tasot">Tasot</a></li>
+<li><a href="03_harjoitus_3.html#väliaikaisen-tason-luominen">Väliaikaisen tason luominen</a></li>
+<li><a href="03_harjoitus_3.html#geometriat">Geometriat</a></li>
+<li><a href="03_harjoitus_3.html#harjoitus-3.1">Harjoitus 3.1</a></li>
+<li><a href="03_harjoitus_3.html#harjoitus-3.2-etäisyydet">Harjoitus 3.2: Etäisyydet</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-qt-käyttöliittymät">Harjoitus 4: Qt-käyttöliittymät</a>
+<ul>
+<li class="has-sub"><a href="04_harjoitus_4.html#qt-käyttöliittymistä">Qt-käyttöliittymistä</a>
+<ul>
+<li><a href="04_harjoitus_4.html#qwidget">QWidget</a></li>
+<li><a href="04_harjoitus_4.html#signaalit-ja-slotit">Signaalit ja slotit</a></li>
+</ul></li>
+<li><a href="04_harjoitus_4.html#harjoitus-4.1-counter-widget">Harjoitus 4.1: Counter-widget</a></li>
+<li><a href="04_harjoitus_4.html#harjoitus-4.2-qgisin-widgetit">Harjoitus 4.2: QGISin widgetit</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-uuden-lisäosan-luominen">Harjoitus 5: Uuden lisäosan luominen</a>
+<ul>
+<li><a href="05_harjoitus_5.html#gitin-konfigurointi">Gitin konfigurointi</a></li>
+<li><a href="05_harjoitus_5.html#lisäosan-luominen">Lisäosan luominen</a></li>
+<li><a href="05_harjoitus_5.html#ensimmäinen-commit">Ensimmäinen commit</a></li>
+<li><a href="05_harjoitus_5.html#lisäosan-käyttöönotto">Lisäosan käyttöönotto</a></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#lisäosan-rakenne">Lisäosan rakenne</a>
+<ul>
+<li><a href="05_harjoitus_5.html#tiedosto-plugin.py">Tiedosto: plugin.py</a></li>
+<li><a href="05_harjoitus_5.html#tiedosto-__init__.py">Tiedosto: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-buffer--työkalu">Harjoitus 6: Buffer- työkalu</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoitus-6.1-käyttöliittymän-suunnittelu">Harjoitus 6.1: Käyttöliittymän suunnittelu</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.2-käyttöliittymän-kytkeminen-lisäosaan">Harjoitus 6.2: Käyttöliittymän kytkeminen lisäosaan</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.3-työkalun-toiminta">Harjoitus 6.3: Työkalun toiminta</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.4-segmentit">Harjoitus 6.4: Segmentit</a></li>
+<li><a href="06_harjoitus_6.html#yksikkötestit">Yksikkötestit</a></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6.5-testit">Harjoitus 6.5: Testit</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.1-käyttöliittymätesti">Harjoitus 6.5.1: Käyttöliittymätesti</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.2-buffertool-testi">Harjoitus 6.5.2: BufferTool-testi</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.3-lisää-testejä">Harjoitus 6.5.3: Lisää testejä</a></li>
+</ul></li>
+<li><a href="06_harjoitus_6.html#mallilisäosa">Mallilisäosa</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-pistetyökalu">Harjoitus 7: Pistetyökalu</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoitus-7.1-paneelin-lisääminen">Harjoitus 7.1: Paneelin lisääminen</a></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7.2-työkalu">Harjoitus 7.2: Työkalu</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoitus-7.2.1-lisähaaste---nimiöinti">Harjoitus 7.2.1: Lisähaaste - nimiöinti</a></li>
+</ul></li>
+<li><a href="07_harjoitus_7.html#harjoitus-7.3-testit">Harjoitus 7.3: Testit</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-prosessointialgoritmi">Harjoitus 8: Prosessointialgoritmi</a>
+<ul>
+<li class="has-sub"><a href="08_harjoitus_8.html#taustaa">Taustaa</a>
+<ul>
+<li><a href="08_harjoitus_8.html#prosessointialgoritmin-kutsuminen">Prosessointialgoritmin kutsuminen</a></li>
+</ul></li>
+<li><a href="08_harjoitus_8.html#algoritmi-lisäosassa">Algoritmi lisäosassa</a></li>
+<li><a href="08_harjoitus_8.html#harjoitus-8.1-algoritmin-kirjoitus">Harjoitus 8.1: Algoritmin kirjoitus</a></li>
+<li><a href="08_harjoitus_8.html#harjoitus-8.2-testit-algoritmille">Harjoitus 8.2: Testit algoritmille</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#python-lisätehtäviä">Python-lisätehtäviä</a>
+<ul>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-1-listakoosteet">Aihe 1: Listakoosteet</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-1.1">Lisätehtävä 1.1</a></li>
+<li><a href="09_lisatehtavia_9.html#sisäkkäisiä-koosteita">Sisäkkäisiä koosteita</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-2-lambda-funktiot">Aihe 2: Lambda-funktiot</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-2.1">Lisätehtävä 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-3-dekoraattorit">Aihe 3: Dekoraattorit</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-3.1">Lisätehtävä 3.1</a></li>
+<li><a href="09_lisatehtavia_9.html#dekoraattorit-ja-parametrit">Dekoraattorit ja parametrit</a></li>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-3.2">Lisätehtävä 3.2</a></li>
+</ul></li>
+<li><a href="09_lisatehtavia_9.html#aihe-4-tyypitys">Aihe 4: Tyypitys</a></li>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-4.1">Lisätehtävä 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-6-buffer--työkalu" class="section level1">
+<h1>Harjoitus 6: Buffer- työkalu</h1>
+<p>Harjoituksen tarkoituksena on luoda yksinkertainen työkalu, jolla voi valita
+vektoritason ja luoda sen pohjalta uusi taso, jonka kohteille on luotu vyöhyke (buffer).
+Työkalulle tehdään dialogikäyttöliittymä, jossa voidaan valita lähdetaso,
+vyöhykkeen etäisyys ja vyöhykkeen segmenttien määrä.</p>
+<p>Alla havainnollistava esimerkkivideo työkalun ominaisuuksista:</p>
+<p><img src="img/harjoitus_6/image1.gif" /></p>
+<div id="harjoitus-6.1-käyttöliittymän-suunnittelu" class="section level2">
+<h2>Harjoitus 6.1: Käyttöliittymän suunnittelu</h2>
+<p>Kuten kappaleessa 4 opittiin, käyttöliittymiä voi luoda
+ohjelmallisesti kirjoittamalla koodia. Etenkin monimutkaisten
+käyttöliittymien suunnittelu ja toteutus tällä tavalla voi kuitenkin
+olla hankalaa. Qt tarjoaa tähän ongelmaan ratkaisuksi Qt Designer -ohjelman,
+jolla käyttöliittymiä voi suunnitella graafisesti. Sillä rakennetaan
+käyttöliittymä, joka voidaan tallentaa <strong>.ui</strong>-tiedostoksi, jota
+voidaan käyttää osana lisäosaa. Windowsilla Qt Designer kuuluu yleensä
+QGIS-asennukseen, ja sen voi avata hakemalla sitä nimellä.</p>
+<p>Luodaan aluksi minimaalinen käyttöliittymä ja yhdistetään se lisäosaan.
+Avaa Qt Designer, jolloin pitäisi avautua seuraavanlainen valikko:</p>
+<p><img src="img/harjoitus_6/image2.png" /></p>
+<p>Valitse pohjaksi <strong>Dialog with Buttons Bottom</strong> ja paina <strong>Create</strong>.
+Seuraavaksi vaihda oikeasta yläkulmasta “Object Inspector”-valikosta
+QDialog-olion nimeksi <strong>BufferToolDialog</strong> ja lopuksi muokkaa
+buttonBox-oliota siten, että poistetaan <strong>OK</strong>- painike. Valitse
+buttonBox-olio ja skrollaa Object Inspectorin alapuolella olevaa
+<strong>Property Editoria</strong> alas, kunnes näet QDialogButtonBox-luokan
+ominaisuudet. Täältä avaamalla standardButtons-valikon pystyy
+kontrolloimaan eri painikkeita. Kaksoisklikkaa OK-painike pois.</p>
+<p><img src="img/harjoitus_6/image3.gif" /></p>
+<p>Tallenna käyttöliittymätiedosto aiemmin luodon lisäosakansion polkuun
+<code>test-plugin/testplugin/resources/ui/buffer_tool.ui</code>.</p>
+<div class="hint-box">
+<p>On hyvä tallentaa tiedosto juuri tähän sijaintiin, koska lisäosassa pian
+käytettävä qgis_plugin_tools-paketti pystyy hakemaan kyseisen polun helposti.</p>
+</div>
+</div>
+<div id="harjoitus-6.2-käyttöliittymän-kytkeminen-lisäosaan" class="section level2">
+<h2>Harjoitus 6.2: Käyttöliittymän kytkeminen lisäosaan</h2>
+<p>Seuraavaksi muokataan lisäosaa siten, että saadaan käyttöliittymä avattua QGISin kautta.</p>
+<p>Määritellään ensin äsken luodulle dialogille oma luokka, joka perii
+QDialog-luokan.</p>
+<ol style="list-style-type: decimal">
+<li>Luo <code>test-plugin/testplugin/ui</code>-kansioon <code>__init.py__</code> ja <code>buffer_tool_dialog.py</code>
+tiedostot.</li>
+<li>Jätä <code>__init.py__</code> tyhjäksi.</li>
+<li>Kopioi <code>buffer_tool_dialog.py</code>:hyn koodi:</li>
+</ol>
+<div class="code-box">
+<div class="sourceCode" id="cb138"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb138-1"><a href="06_harjoitus_6.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="cb138-2"><a href="06_harjoitus_6.html#cb138-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
+<span id="cb138-3"><a href="06_harjoitus_6.html#cb138-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-4"><a href="06_harjoitus_6.html#cb138-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtWidgets <span class="im">import</span> (</span>
+<span id="cb138-5"><a href="06_harjoitus_6.html#cb138-5" aria-hidden="true" tabindex="-1"></a>    QDialog,</span>
+<span id="cb138-6"><a href="06_harjoitus_6.html#cb138-6" aria-hidden="true" tabindex="-1"></a>    QWidget,</span>
+<span id="cb138-7"><a href="06_harjoitus_6.html#cb138-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb138-8"><a href="06_harjoitus_6.html#cb138-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-9"><a href="06_harjoitus_6.html#cb138-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.resources <span class="im">import</span> load_ui, plugin_name</span>
+<span id="cb138-10"><a href="06_harjoitus_6.html#cb138-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-11"><a href="06_harjoitus_6.html#cb138-11" aria-hidden="true" tabindex="-1"></a>FORM_CLASS: QWidget <span class="op">=</span> load_ui(<span class="st">&quot;buffer_tool.ui&quot;</span>)</span>
+<span id="cb138-12"><a href="06_harjoitus_6.html#cb138-12" aria-hidden="true" tabindex="-1"></a>LOGGER <span class="op">=</span> logging.getLogger(plugin_name())</span>
+<span id="cb138-13"><a href="06_harjoitus_6.html#cb138-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-14"><a href="06_harjoitus_6.html#cb138-14" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BufferToolDialog(QDialog, FORM_CLASS):</span>
+<span id="cb138-15"><a href="06_harjoitus_6.html#cb138-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-16"><a href="06_harjoitus_6.html#cb138-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, parent: Optional[QWidget] <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb138-17"><a href="06_harjoitus_6.html#cb138-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Constructor.&quot;&quot;&quot;</span></span>
+<span id="cb138-18"><a href="06_harjoitus_6.html#cb138-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(parent)</span>
+<span id="cb138-19"><a href="06_harjoitus_6.html#cb138-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.setupUi(<span class="va">self</span>)</span></code></pre></div>
+</div>
+<p>Avaa seuraavaksi <code>test-plugin/testplugin/plugin.py</code> tiedosto. Lisää import-komentoihin:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb139-1"><a href="06_harjoitus_6.html#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.ui.buffer_tool_dialog <span class="im">import</span> BufferToolDialog</span></code></pre></div>
+</div>
+<p>Tiedostossa pitäisi olla seuraava import-komento valmiina. Lisää loppuun import
+<code>tr()</code> komennolle:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb140"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb140-1"><a href="06_harjoitus_6.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.i18n <span class="im">import</span> setup_translation, tr <span class="co"># lisää &#39;tr&#39;</span></span></code></pre></div>
+</div>
+<div class="note-box">
+<p>Kyseessä on funktio, joka riippuen valitusta kielestä vaihtaa merkkijonot
+vastaamaan valitun kielen käännöstä. Jos lisäosaan halutaan eri käännöksiä,
+<code>tr</code>-funktiota tulee käyttää kaikille merkkijonoille, jotka näkyvät tavalla tai
+toisella lisäosan käyttöliittymässä.</p>
+</div>
+<p>Seuraavaksi etsi Plugin-luokan koodista <code>initGui()</code>-funktio. Muokkaa <code>self.add_action</code>-funktiokutsua:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb141-1"><a href="06_harjoitus_6.html#cb141-1" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.add_action(</span>
+<span id="cb141-2"><a href="06_harjoitus_6.html#cb141-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;&quot;</span>,</span>
+<span id="cb141-3"><a href="06_harjoitus_6.html#cb141-3" aria-hidden="true" tabindex="-1"></a>            text<span class="op">=</span>tr(<span class="st">&quot;Buffer Tool&quot;</span>),</span>
+<span id="cb141-4"><a href="06_harjoitus_6.html#cb141-4" aria-hidden="true" tabindex="-1"></a>            callback<span class="op">=</span><span class="va">self</span>.open_buffer_tool,</span>
+<span id="cb141-5"><a href="06_harjoitus_6.html#cb141-5" aria-hidden="true" tabindex="-1"></a>            parent<span class="op">=</span>iface.mainWindow(),</span>
+<span id="cb141-6"><a href="06_harjoitus_6.html#cb141-6" aria-hidden="true" tabindex="-1"></a>            add_to_toolbar<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb141-7"><a href="06_harjoitus_6.html#cb141-7" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
+</div>
+<div class="note-box">
+<p>Tässä määritetään QGISin plugin-valikkoon lisättäviä QAction-widgettejä.
+Lisäosapohjassa oletuksena lisätään QGISin <strong>Lisäosat</strong>-ylävalikkoon
+valikko lisäosalle. Tässä määritellään painikkeet, jotka lisätään lisäosan
+nimeä kantavaan valikkoon.</p>
+<p><img src="img/harjoitus_6/image4.png" style="width:50.0%" /></p>
+<p>Järjestyksessä argumenttien merkitys:</p>
+<ol style="list-style-type: decimal">
+<li>Polku ikoniin. Tässä jätetty tyhjäksi.</li>
+<li>Painikkeen teksti.</li>
+<li>Callback. Funktio, joka kutsutaan kun painiketta klikataan.</li>
+<li>Parent. Lisätään QGISin pääikkunaan.</li>
+<li>Lisätäänkö työkalupainike myös työkalupalkkiin? Tässä tapauksessa ei.</li>
+</ol>
+</div>
+<p>Määritellään lopuksi <code>open_buffer_tool()</code>-funktio, johon äsken viitattiin.
+Etsi lopusta <code>run()</code>-metodi, jonka voi poistaa ja sen tilalle kirjoittaa
+uuden funktion:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb142"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb142-1"><a href="06_harjoitus_6.html#cb142-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> open_buffer_tool(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb142-2"><a href="06_harjoitus_6.html#cb142-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Opens buffer tool dialog&quot;&quot;&quot;</span></span>
+<span id="cb142-3"><a href="06_harjoitus_6.html#cb142-3" aria-hidden="true" tabindex="-1"></a>        BufferToolDialog().<span class="bu">exec</span>()</span></code></pre></div>
+</div>
+<p>Muista ajaa komentorivillä:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb143"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb143-1"><a href="06_harjoitus_6.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> build.py deploy</span></code></pre></div>
+</div>
+<p>Lataa lisäosa uudelleen <strong>Plugin Reloader</strong>illa.
+Nyt <strong>Lisäosat</strong>-valikosta pitäisi löytyä <strong>Test Plugin</strong> valikosta uusi
+vaihtoehto <strong>Buffer Tool</strong>, jota klikatessa avautuu aikaisemmin luotu
+käyttöliittymä.</p>
+</div>
+<div id="harjoitus-6.3-työkalun-toiminta" class="section level2">
+<h2>Harjoitus 6.3: Työkalun toiminta</h2>
+<p>Lisää seuraavaksi Qt Designerissa käyttöliittymän tarvittavat komponentit.
+Vasemmalla näkyy listaus erilaisista Widgeteistä, jota käyttöliittymään
+voi lisätä.</p>
+<p>Voit noudattaa esimerkiksi seuraavia askelia. Vedä vasemmalta
+dialogiin <strong>Horizontal Layout</strong>. Voit kasvattaa sen kokoa hieman.
+Seuravaaksi vedä ja pudota layoutiin <strong>Label</strong>-widget. Seuraavaksi
+raahaa layoutiin oikealle puolelle <strong>QgsMapLayerComboBox</strong>.</p>
+<p><img src="img/harjoitus_6/image5.gif" /></p>
+<p>Kaksoisklikkaa Label-widgettiä ja kirjoita tekstiksi <strong>Layer</strong>.
+Vaihda <strong>QgsMapLayerComboBox</strong>-olion nimeksi <code>layerComboBox</code>.
+Halutessasi voit myös vaihtaa <strong>QLabel</strong>-olion nimen.</p>
+<p>Toista äskeiset askeleet siten, että lopulta käyttöliittymässä on seuraavat
+komponentit <strong>Label</strong>eineen:</p>
+<p><img src="img/harjoitus_6/image6.png" style="width:33.0%" /></p>
+<ul>
+<li>Layer: QgsMapLayerComboBox (nimi: layerComboBox)</li>
+<li>Buffer Distance: QgsDoubleSpinBox (nimi: distanceSpinBox)</li>
+<li>New layer name: QLineEdit (nimi: newLayerLineEdit)</li>
+<li>QPushButton (nimi: newLayerPushButton, painikkeen teksti: Create new layer)</li>
+</ul>
+<p>Järjestele komponentit esimerkiksi allekkain ja lopuksi voit
+määrittää koko BufferToolDialog-oliolle layoutin klikkaamalla hiiren oikealla
+sen taustaa:</p>
+<p><img src="img/harjoitus_6/image7.png" style="width:50.0%" /></p>
+<p>Kun nämä muutokset on tehty, voidaan kirjoittaa lisäosan varsinainen
+toiminta askelittain. Organisoidaan lisäosan koodi siten, että lisäosan
+käyttöliittymän toiminta on määritelty <code>test-plugin/testplugin/ui</code>-kansion
+tiedostoissa. Varsinainen työkalun toiminta määritellään kuitenkin
+<code>test-plugin/testplugin/core</code>-kansiossa.</p>
+<ol style="list-style-type: decimal">
+<li>Luo kyseinen kansio ja lisää sinne tyhjä <code>__init__.py</code> tiedosto.</li>
+<li>Luo kansioon myös <code>buffertool.py</code>-tiedosto ja lisää seuraava koodi:</li>
+</ol>
+<div class="code-box">
+<div class="sourceCode" id="cb144"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb144-1"><a href="06_harjoitus_6.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb144-2"><a href="06_harjoitus_6.html#cb144-2" aria-hidden="true" tabindex="-1"></a>    QgsVectorLayer,</span>
+<span id="cb144-3"><a href="06_harjoitus_6.html#cb144-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb144-4"><a href="06_harjoitus_6.html#cb144-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-5"><a href="06_harjoitus_6.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BufferTool:</span>
+<span id="cb144-6"><a href="06_harjoitus_6.html#cb144-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-7"><a href="06_harjoitus_6.html#cb144-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb144-8"><a href="06_harjoitus_6.html#cb144-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> create_buffer_layer(src_layer: QgsVectorLayer, buffer_distance: <span class="bu">float</span>, new_layer_name: <span class="bu">str</span>, segments: <span class="bu">int</span>) <span class="op">-&gt;</span> Optional[QgsVectorLayer]:</span>
+<span id="cb144-9"><a href="06_harjoitus_6.html#cb144-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Creating buffer layer&quot;</span>)</span></code></pre></div>
+</div>
+<p>Toistaiseksi määritetään <code>create_buffer_layer()</code> vain tulostamaan
+viestin, lisätään varsinainen toiminto hieman myöhemmin. Määritetään
+metodi dekoraattorilla <code>@staticmethod</code>, joka tarkoittaa että meidän
+ei tarvitse luoda BufferTool-luokasta oliota.</p>
+<p>Muokkaa nyt <code>test-plugin/testplugin/ui/buffer_tool_dialog.py</code>-tiedostoa:</p>
+<p>Lisää import-komentoihin:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb145-1"><a href="06_harjoitus_6.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.core.buffertool <span class="im">import</span> BufferTool</span>
+<span id="cb145-2"><a href="06_harjoitus_6.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsMapLayerProxyModel</span></code></pre></div>
+</div>
+<p>Lisää BufferToolDialog-luokan konstruktoriin (<code>__init__</code>-metodi):</p>
+<div class="code-box">
+<div class="sourceCode" id="cb146"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb146-1"><a href="06_harjoitus_6.html#cb146-1" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.layerComboBox.setFilters(</span>
+<span id="cb146-2"><a href="06_harjoitus_6.html#cb146-2" aria-hidden="true" tabindex="-1"></a>            QgsMapLayerProxyModel.PointLayer <span class="op">|</span></span>
+<span id="cb146-3"><a href="06_harjoitus_6.html#cb146-3" aria-hidden="true" tabindex="-1"></a>            QgsMapLayerProxyModel.PolygonLayer <span class="op">|</span></span>
+<span id="cb146-4"><a href="06_harjoitus_6.html#cb146-4" aria-hidden="true" tabindex="-1"></a>            QgsMapLayerProxyModel.LineLayer</span>
+<span id="cb146-5"><a href="06_harjoitus_6.html#cb146-5" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb146-6"><a href="06_harjoitus_6.html#cb146-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-7"><a href="06_harjoitus_6.html#cb146-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.newLayerPushButton.clicked.<span class="ex">connect</span>(<span class="va">self</span>._create_buffer_layer)</span></code></pre></div>
+</div>
+<p>Tässä lisätään layerComboBox-oliolle suodatin, jolloin se näyttää vain
+piste-, viiva- ja polygonitasot. Lisäksi yhdistetään painikkeen
+<code>clicked</code>-signaali seuraavaksi määritettävään <code>_create_buffer_layer</code>-metodiin.</p>
+<p>Lisää uusi metodi dialogiluokalle:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="06_harjoitus_6.html#cb147-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@log_if_fails</span></span>
+<span id="cb147-2"><a href="06_harjoitus_6.html#cb147-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _create_buffer_layer(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb147-3"><a href="06_harjoitus_6.html#cb147-3" aria-hidden="true" tabindex="-1"></a>        selected_layer <span class="op">=</span> <span class="va">self</span>.layerComboBox.currentLayer()</span>
+<span id="cb147-4"><a href="06_harjoitus_6.html#cb147-4" aria-hidden="true" tabindex="-1"></a>        buffer_distance <span class="op">=</span> <span class="va">self</span>.distanceSpinBox.value()</span>
+<span id="cb147-5"><a href="06_harjoitus_6.html#cb147-5" aria-hidden="true" tabindex="-1"></a>        new_layer_name <span class="op">=</span> <span class="va">self</span>.newLayerLineEdit.text()</span>
+<span id="cb147-6"><a href="06_harjoitus_6.html#cb147-6" aria-hidden="true" tabindex="-1"></a>        segments <span class="op">=</span> <span class="dv">5</span> <span class="co"># tähän palataan myöhemmin</span></span>
+<span id="cb147-7"><a href="06_harjoitus_6.html#cb147-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-8"><a href="06_harjoitus_6.html#cb147-8" aria-hidden="true" tabindex="-1"></a>        new_layer <span class="op">=</span> BufferTool.create_buffer_layer(</span>
+<span id="cb147-9"><a href="06_harjoitus_6.html#cb147-9" aria-hidden="true" tabindex="-1"></a>            selected_layer,</span>
+<span id="cb147-10"><a href="06_harjoitus_6.html#cb147-10" aria-hidden="true" tabindex="-1"></a>            buffer_distance,</span>
+<span id="cb147-11"><a href="06_harjoitus_6.html#cb147-11" aria-hidden="true" tabindex="-1"></a>            new_layer_name,</span>
+<span id="cb147-12"><a href="06_harjoitus_6.html#cb147-12" aria-hidden="true" tabindex="-1"></a>            segments</span>
+<span id="cb147-13"><a href="06_harjoitus_6.html#cb147-13" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb147-14"><a href="06_harjoitus_6.html#cb147-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-15"><a href="06_harjoitus_6.html#cb147-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> new_layer <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb147-16"><a href="06_harjoitus_6.html#cb147-16" aria-hidden="true" tabindex="-1"></a>            QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+<p>Tässä haetaan widgeteistä tarvittavat tiedot ja kutsutaan aikaisemmin
+määritetystä <strong>BufferTool</strong>-luokasta metodia argumenteilla.</p>
+<div class="note-box">
+<p>Koodin organisointi eri luokkiin <strong>ui</strong> ja <strong>core</strong> kansioihin saattaa
+tuntua ainakin näin yksinkertaisessa lisäosassa tarpeettoman monimutkaiselta.
+Sillä on kuitenkin etunsa, näin voidaan pitää käyttöliittymän toiminta
+ja vyöhykkeen luominen erillään, joka helpottaa myös testien kirjoittamista.</p>
+</div>
+<p>Kokeile tässä vaiheessa, että työkalu toimii odotetusti. Muista jälleen
+päivittää muutokset:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb148"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb148-1"><a href="06_harjoitus_6.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> build.py deploy</span></code></pre></div>
+</div>
+<p>Lataa QGISissä lisäosa uudestaan <strong>Plugin Reloader</strong>illa. <strong>Create new layer</strong>
+-painiketta klikatessa Python-konsoliin pitäisi ilmestyä viesti.</p>
+<p>Kirjoitetaan sitten lopulta varsinainen vyöhyketyökalu. Muokkaa
+<code>test-plugin/testplugin/core/buffertool.py</code>-tiedostoa:</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+koodi
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="06_harjoitus_6.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
+<span id="cb149-2"><a href="06_harjoitus_6.html#cb149-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-3"><a href="06_harjoitus_6.html#cb149-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.i18n <span class="im">import</span> tr</span>
+<span id="cb149-4"><a href="06_harjoitus_6.html#cb149-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.core.exceptions <span class="im">import</span> BufferToolException</span>
+<span id="cb149-5"><a href="06_harjoitus_6.html#cb149-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-6"><a href="06_harjoitus_6.html#cb149-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb149-7"><a href="06_harjoitus_6.html#cb149-7" aria-hidden="true" tabindex="-1"></a>    QgsFeature,</span>
+<span id="cb149-8"><a href="06_harjoitus_6.html#cb149-8" aria-hidden="true" tabindex="-1"></a>    QgsProject,</span>
+<span id="cb149-9"><a href="06_harjoitus_6.html#cb149-9" aria-hidden="true" tabindex="-1"></a>    QgsVectorLayer,</span>
+<span id="cb149-10"><a href="06_harjoitus_6.html#cb149-10" aria-hidden="true" tabindex="-1"></a>    QgsWkbTypes,</span>
+<span id="cb149-11"><a href="06_harjoitus_6.html#cb149-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb149-12"><a href="06_harjoitus_6.html#cb149-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-13"><a href="06_harjoitus_6.html#cb149-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.custom_logging <span class="im">import</span> bar_msg</span>
+<span id="cb149-14"><a href="06_harjoitus_6.html#cb149-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-15"><a href="06_harjoitus_6.html#cb149-15" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BufferTool:</span>
+<span id="cb149-16"><a href="06_harjoitus_6.html#cb149-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-17"><a href="06_harjoitus_6.html#cb149-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb149-18"><a href="06_harjoitus_6.html#cb149-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> create_buffer_layer(src_layer: QgsVectorLayer, buffer_distance: <span class="bu">float</span>, new_layer_name: <span class="bu">str</span>, segments: <span class="bu">int</span>) <span class="op">-&gt;</span> Optional[QgsVectorLayer]:</span>
+<span id="cb149-19"><a href="06_harjoitus_6.html#cb149-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> src_layer.featureCount() <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb149-20"><a href="06_harjoitus_6.html#cb149-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> BufferToolException(</span>
+<span id="cb149-21"><a href="06_harjoitus_6.html#cb149-21" aria-hidden="true" tabindex="-1"></a>                tr(<span class="st">&quot;Buffer Tool&quot;</span>),</span>
+<span id="cb149-22"><a href="06_harjoitus_6.html#cb149-22" aria-hidden="true" tabindex="-1"></a>                bar_msg<span class="op">=</span>bar_msg(tr(<span class="st">&quot;Could not create buffer layer. Source layer has no features&quot;</span>))</span>
+<span id="cb149-23"><a href="06_harjoitus_6.html#cb149-23" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb149-24"><a href="06_harjoitus_6.html#cb149-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-25"><a href="06_harjoitus_6.html#cb149-25" aria-hidden="true" tabindex="-1"></a>        src_geom_type <span class="op">=</span> QgsWkbTypes.displayString(src_layer.wkbType()).lower()</span>
+<span id="cb149-26"><a href="06_harjoitus_6.html#cb149-26" aria-hidden="true" tabindex="-1"></a>        new_geom_type <span class="op">=</span> <span class="st">&#39;MultiPolygon&#39;</span> <span class="cf">if</span> <span class="st">&#39;multi&#39;</span> <span class="kw">in</span> src_geom_type <span class="cf">else</span> <span class="st">&#39;Polygon&#39;</span></span>
+<span id="cb149-27"><a href="06_harjoitus_6.html#cb149-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-28"><a href="06_harjoitus_6.html#cb149-28" aria-hidden="true" tabindex="-1"></a>        crs <span class="op">=</span> src_layer.crs().authid()</span>
+<span id="cb149-29"><a href="06_harjoitus_6.html#cb149-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-30"><a href="06_harjoitus_6.html#cb149-30" aria-hidden="true" tabindex="-1"></a>        geom_string <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>new_geom_type<span class="sc">}</span><span class="ss">?crs=</span><span class="sc">{</span>crs<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb149-31"><a href="06_harjoitus_6.html#cb149-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-32"><a href="06_harjoitus_6.html#cb149-32" aria-hidden="true" tabindex="-1"></a>        buffer_layer <span class="op">=</span> QgsVectorLayer(geom_string, new_layer_name, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb149-33"><a href="06_harjoitus_6.html#cb149-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-34"><a href="06_harjoitus_6.html#cb149-34" aria-hidden="true" tabindex="-1"></a>        buffer_layer.startEditing()</span>
+<span id="cb149-35"><a href="06_harjoitus_6.html#cb149-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-36"><a href="06_harjoitus_6.html#cb149-36" aria-hidden="true" tabindex="-1"></a>        src_fields <span class="op">=</span> src_layer.fields()</span>
+<span id="cb149-37"><a href="06_harjoitus_6.html#cb149-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-38"><a href="06_harjoitus_6.html#cb149-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> field <span class="kw">in</span> src_fields:</span>
+<span id="cb149-39"><a href="06_harjoitus_6.html#cb149-39" aria-hidden="true" tabindex="-1"></a>            buffer_layer.addAttribute(field)</span>
+<span id="cb149-40"><a href="06_harjoitus_6.html#cb149-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-41"><a href="06_harjoitus_6.html#cb149-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> feature <span class="kw">in</span> src_layer.getFeatures():</span>
+<span id="cb149-42"><a href="06_harjoitus_6.html#cb149-42" aria-hidden="true" tabindex="-1"></a>            old_geom <span class="op">=</span> feature.geometry()</span>
+<span id="cb149-43"><a href="06_harjoitus_6.html#cb149-43" aria-hidden="true" tabindex="-1"></a>            new_geom <span class="op">=</span> old_geom.<span class="bu">buffer</span>(buffer_distance, segments)</span>
+<span id="cb149-44"><a href="06_harjoitus_6.html#cb149-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-45"><a href="06_harjoitus_6.html#cb149-45" aria-hidden="true" tabindex="-1"></a>            new_feature <span class="op">=</span> QgsFeature(feature)</span>
+<span id="cb149-46"><a href="06_harjoitus_6.html#cb149-46" aria-hidden="true" tabindex="-1"></a>            new_feature.setGeometry(new_geom)</span>
+<span id="cb149-47"><a href="06_harjoitus_6.html#cb149-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-48"><a href="06_harjoitus_6.html#cb149-48" aria-hidden="true" tabindex="-1"></a>            buffer_layer.addFeature(new_feature)</span>
+<span id="cb149-49"><a href="06_harjoitus_6.html#cb149-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-50"><a href="06_harjoitus_6.html#cb149-50" aria-hidden="true" tabindex="-1"></a>        buffer_layer.updateFields()</span>
+<span id="cb149-51"><a href="06_harjoitus_6.html#cb149-51" aria-hidden="true" tabindex="-1"></a>        buffer_layer.commitChanges()</span>
+<span id="cb149-52"><a href="06_harjoitus_6.html#cb149-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-53"><a href="06_harjoitus_6.html#cb149-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> buffer_layer</span></code></pre></div>
+</div>
+</div>
+<p>Koodissa käytetään <strong>BufferToolException</strong>-poikkeusta, jota ei ole vielä
+olemassa. Luo tiedosto <code>test-plugin/testplugin/core/exceptions.py</code> ja
+lisää sinne seuraava koodi:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb150"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb150-1"><a href="06_harjoitus_6.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.exceptions <span class="im">import</span> QgsPluginException</span>
+<span id="cb150-2"><a href="06_harjoitus_6.html#cb150-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-3"><a href="06_harjoitus_6.html#cb150-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BufferToolException(QgsPluginException):</span>
+<span id="cb150-4"><a href="06_harjoitus_6.html#cb150-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div>
+</div>
+</div>
+<div id="harjoitus-6.4-segmentit" class="section level2">
+<h2>Harjoitus 6.4: Segmentit</h2>
+<p>Kun geometrialle luodaan vyöhyke on yhtenä parametrina segmentit, joka
+vaikuttaa siihen kuinka paljon vyöhykkeelle lisätään taitepisteitä.</p>
+<p>Oppimasi perusteella tee lisäosaan vaihtoehto määrittää segmenttien määrä
+käyttöliittymässä ja muokkaa koodia siten, että se huomioidaan
+vyöhykkeitä luodessa.</p>
+<p>Käyttöliittymässä voit käyttää <strong>QgsSpinBox</strong>-widgettiä.</p>
+</div>
+<div id="yksikkötestit" class="section level2">
+<h2>Yksikkötestit</h2>
+<p>Ohjelmoinnissa on tärkeää kirjoittaa testejä ja lisäosat eivät ole
+poikkeus. Lisäosien testaamiseen voidaan käyttää <strong>pytest</strong>-pakettia.</p>
+<p>Testien kirjoittaminen toimii siten, että
+<code>test-plugin/tests</code>-kansioon luodaan <code>test_</code>-alkuinen
+Python-tiedosto. Tiedostoon kirjoitetaan testifunktioita, joissa
+käytetään lisäosassa olevia luokkia ja funktioita. Lopuksi testataan
+saadaanko niistä odotetut tulokset. Testit voi ajaa komentoriviltä
+<code>pytest</code> komennolla, olettaen että olet <code>test-plugin/testplugin</code>-kansiossa.</p>
+<p>Testaus on kuitenkin integroitu myös VSCodeen, josta testit voi ajaa
+myös käyttöliittymän kautta, kuten edellisessä harjoituksessa nähtiin.</p>
+<p>Testejä varten voidaan luoda ns. fixtuureja, jotka ovat
+funktioita, joka palauttaa jonkin arvon tai olion. Näiden avulla voidaan
+määritellä esimerkiksi valmiiksi QGISin taso, jota voidaan sitten
+hyödyntää useammassa testeissä. Fixtuurit voi määrittää testikansiossa
+olevaan <code>conftest.py</code>-tiedostoon.</p>
+<div class="note-box">
+<p>On olemassa myös ohjelmointikäytäntö (ns. test-driven development), jossa
+ominaisuuksille kirjoitetaan ensin testi ja implementoidaan toiminta vasta
+sen jälkeen. Tällä kurssilla asia on tehty toisin päin, ajatuksena on ollut
+se että on selkeämpää päästä näkemään lisäosa ja sen käyttöliittymä toiminnassa
+ensin ennen testien kirjoittamista.</p>
+</div>
+</div>
+<div id="harjoitus-6.5-testit" class="section level2">
+<h2>Harjoitus 6.5: Testit</h2>
+<p>Määritellään ensin fixtuurit testeille, avaa <code>test-plugin/tests/conftest.py</code>
+ja lisää seuraavat fixtuurit:</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+fixtuurit
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="06_harjoitus_6.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb151-2"><a href="06_harjoitus_6.html#cb151-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb151-3"><a href="06_harjoitus_6.html#cb151-3" aria-hidden="true" tabindex="-1"></a>    QgsFeature,</span>
+<span id="cb151-4"><a href="06_harjoitus_6.html#cb151-4" aria-hidden="true" tabindex="-1"></a>    QgsField,</span>
+<span id="cb151-5"><a href="06_harjoitus_6.html#cb151-5" aria-hidden="true" tabindex="-1"></a>    QgsFields,</span>
+<span id="cb151-6"><a href="06_harjoitus_6.html#cb151-6" aria-hidden="true" tabindex="-1"></a>    QgsGeometry,</span>
+<span id="cb151-7"><a href="06_harjoitus_6.html#cb151-7" aria-hidden="true" tabindex="-1"></a>    QgsPointXY,</span>
+<span id="cb151-8"><a href="06_harjoitus_6.html#cb151-8" aria-hidden="true" tabindex="-1"></a>    QgsVectorLayer,</span>
+<span id="cb151-9"><a href="06_harjoitus_6.html#cb151-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb151-10"><a href="06_harjoitus_6.html#cb151-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> QVariant</span>
+<span id="cb151-11"><a href="06_harjoitus_6.html#cb151-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-12"><a href="06_harjoitus_6.html#cb151-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.ui.buffer_tool_dialog <span class="im">import</span> BufferToolDialog</span>
+<span id="cb151-13"><a href="06_harjoitus_6.html#cb151-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-14"><a href="06_harjoitus_6.html#cb151-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-15"><a href="06_harjoitus_6.html#cb151-15" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-16"><a href="06_harjoitus_6.html#cb151-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dialog():</span>
+<span id="cb151-17"><a href="06_harjoitus_6.html#cb151-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> BufferToolDialog(<span class="va">None</span>)</span>
+<span id="cb151-18"><a href="06_harjoitus_6.html#cb151-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-19"><a href="06_harjoitus_6.html#cb151-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-20"><a href="06_harjoitus_6.html#cb151-20" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-21"><a href="06_harjoitus_6.html#cb151-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> point() <span class="op">-&gt;</span> QgsGeometry:</span>
+<span id="cb151-22"><a href="06_harjoitus_6.html#cb151-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> QgsGeometry.fromPointXY(QgsPointXY(<span class="fl">0.0</span>, <span class="fl">0.0</span>))</span>
+<span id="cb151-23"><a href="06_harjoitus_6.html#cb151-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-24"><a href="06_harjoitus_6.html#cb151-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-25"><a href="06_harjoitus_6.html#cb151-25" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-26"><a href="06_harjoitus_6.html#cb151-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> line() <span class="op">-&gt;</span> QgsGeometry:</span>
+<span id="cb151-27"><a href="06_harjoitus_6.html#cb151-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> QgsGeometry.fromPolylineXY(</span>
+<span id="cb151-28"><a href="06_harjoitus_6.html#cb151-28" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb151-29"><a href="06_harjoitus_6.html#cb151-29" aria-hidden="true" tabindex="-1"></a>            QgsPointXY(<span class="fl">0.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb151-30"><a href="06_harjoitus_6.html#cb151-30" aria-hidden="true" tabindex="-1"></a>            QgsPointXY(<span class="fl">1.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb151-31"><a href="06_harjoitus_6.html#cb151-31" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb151-32"><a href="06_harjoitus_6.html#cb151-32" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb151-33"><a href="06_harjoitus_6.html#cb151-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-34"><a href="06_harjoitus_6.html#cb151-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-35"><a href="06_harjoitus_6.html#cb151-35" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-36"><a href="06_harjoitus_6.html#cb151-36" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> square() <span class="op">-&gt;</span> QgsGeometry:</span>
+<span id="cb151-37"><a href="06_harjoitus_6.html#cb151-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> QgsGeometry.fromPolygonXY(</span>
+<span id="cb151-38"><a href="06_harjoitus_6.html#cb151-38" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb151-39"><a href="06_harjoitus_6.html#cb151-39" aria-hidden="true" tabindex="-1"></a>            [</span>
+<span id="cb151-40"><a href="06_harjoitus_6.html#cb151-40" aria-hidden="true" tabindex="-1"></a>                QgsPointXY(<span class="fl">0.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb151-41"><a href="06_harjoitus_6.html#cb151-41" aria-hidden="true" tabindex="-1"></a>                QgsPointXY(<span class="fl">1.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb151-42"><a href="06_harjoitus_6.html#cb151-42" aria-hidden="true" tabindex="-1"></a>                QgsPointXY(<span class="fl">1.0</span>, <span class="fl">1.0</span>),</span>
+<span id="cb151-43"><a href="06_harjoitus_6.html#cb151-43" aria-hidden="true" tabindex="-1"></a>                QgsPointXY(<span class="fl">0.0</span>, <span class="fl">1.0</span>),</span>
+<span id="cb151-44"><a href="06_harjoitus_6.html#cb151-44" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb151-45"><a href="06_harjoitus_6.html#cb151-45" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb151-46"><a href="06_harjoitus_6.html#cb151-46" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb151-47"><a href="06_harjoitus_6.html#cb151-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-48"><a href="06_harjoitus_6.html#cb151-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-49"><a href="06_harjoitus_6.html#cb151-49" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-50"><a href="06_harjoitus_6.html#cb151-50" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fields() <span class="op">-&gt;</span> QgsFields:</span>
+<span id="cb151-51"><a href="06_harjoitus_6.html#cb151-51" aria-hidden="true" tabindex="-1"></a>    fields <span class="op">=</span> QgsFields()</span>
+<span id="cb151-52"><a href="06_harjoitus_6.html#cb151-52" aria-hidden="true" tabindex="-1"></a>    fields.append(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb151-53"><a href="06_harjoitus_6.html#cb151-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fields</span>
+<span id="cb151-54"><a href="06_harjoitus_6.html#cb151-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-55"><a href="06_harjoitus_6.html#cb151-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-56"><a href="06_harjoitus_6.html#cb151-56" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-57"><a href="06_harjoitus_6.html#cb151-57" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> point_feature(fields, point) <span class="op">-&gt;</span> QgsFeature:</span>
+<span id="cb151-58"><a href="06_harjoitus_6.html#cb151-58" aria-hidden="true" tabindex="-1"></a>    feature <span class="op">=</span> QgsFeature(fields)</span>
+<span id="cb151-59"><a href="06_harjoitus_6.html#cb151-59" aria-hidden="true" tabindex="-1"></a>    feature.setGeometry(point)</span>
+<span id="cb151-60"><a href="06_harjoitus_6.html#cb151-60" aria-hidden="true" tabindex="-1"></a>    feature.setAttribute(<span class="st">&quot;fid&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb151-61"><a href="06_harjoitus_6.html#cb151-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> feature</span>
+<span id="cb151-62"><a href="06_harjoitus_6.html#cb151-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-63"><a href="06_harjoitus_6.html#cb151-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-64"><a href="06_harjoitus_6.html#cb151-64" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-65"><a href="06_harjoitus_6.html#cb151-65" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> square_feature(fields, square) <span class="op">-&gt;</span> QgsFeature:</span>
+<span id="cb151-66"><a href="06_harjoitus_6.html#cb151-66" aria-hidden="true" tabindex="-1"></a>    feature <span class="op">=</span> QgsFeature(fields)</span>
+<span id="cb151-67"><a href="06_harjoitus_6.html#cb151-67" aria-hidden="true" tabindex="-1"></a>    feature.setGeometry(square)</span>
+<span id="cb151-68"><a href="06_harjoitus_6.html#cb151-68" aria-hidden="true" tabindex="-1"></a>    feature.setAttribute(<span class="st">&quot;fid&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb151-69"><a href="06_harjoitus_6.html#cb151-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> feature</span>
+<span id="cb151-70"><a href="06_harjoitus_6.html#cb151-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-71"><a href="06_harjoitus_6.html#cb151-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-72"><a href="06_harjoitus_6.html#cb151-72" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-73"><a href="06_harjoitus_6.html#cb151-73" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> line_feature(fields, line) <span class="op">-&gt;</span> QgsFeature:</span>
+<span id="cb151-74"><a href="06_harjoitus_6.html#cb151-74" aria-hidden="true" tabindex="-1"></a>    feature <span class="op">=</span> QgsFeature(fields)</span>
+<span id="cb151-75"><a href="06_harjoitus_6.html#cb151-75" aria-hidden="true" tabindex="-1"></a>    feature.setGeometry(line)</span>
+<span id="cb151-76"><a href="06_harjoitus_6.html#cb151-76" aria-hidden="true" tabindex="-1"></a>    feature.setAttribute(<span class="st">&quot;fid&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb151-77"><a href="06_harjoitus_6.html#cb151-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> feature</span>
+<span id="cb151-78"><a href="06_harjoitus_6.html#cb151-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-79"><a href="06_harjoitus_6.html#cb151-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-80"><a href="06_harjoitus_6.html#cb151-80" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-81"><a href="06_harjoitus_6.html#cb151-81" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> point_layer(fields, point_feature) <span class="op">-&gt;</span> QgsVectorLayer:</span>
+<span id="cb151-82"><a href="06_harjoitus_6.html#cb151-82" aria-hidden="true" tabindex="-1"></a>    layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=epsg:4326&amp;index=yes&quot;</span>, <span class="st">&quot;test_points&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb151-83"><a href="06_harjoitus_6.html#cb151-83" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> layer.dataProvider()</span>
+<span id="cb151-84"><a href="06_harjoitus_6.html#cb151-84" aria-hidden="true" tabindex="-1"></a>    provider.addAttributes(fields)</span>
+<span id="cb151-85"><a href="06_harjoitus_6.html#cb151-85" aria-hidden="true" tabindex="-1"></a>    layer.updateFields()</span>
+<span id="cb151-86"><a href="06_harjoitus_6.html#cb151-86" aria-hidden="true" tabindex="-1"></a>    provider.addFeature(point_feature)</span>
+<span id="cb151-87"><a href="06_harjoitus_6.html#cb151-87" aria-hidden="true" tabindex="-1"></a>    layer.updateExtents()</span>
+<span id="cb151-88"><a href="06_harjoitus_6.html#cb151-88" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> layer</span>
+<span id="cb151-89"><a href="06_harjoitus_6.html#cb151-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-90"><a href="06_harjoitus_6.html#cb151-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-91"><a href="06_harjoitus_6.html#cb151-91" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-92"><a href="06_harjoitus_6.html#cb151-92" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> square_layer(fields, square_feature) <span class="op">-&gt;</span> QgsVectorLayer:</span>
+<span id="cb151-93"><a href="06_harjoitus_6.html#cb151-93" aria-hidden="true" tabindex="-1"></a>    layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Polygon?crs=epsg:4326&amp;index=yes&quot;</span>, <span class="st">&quot;test_polygon&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb151-94"><a href="06_harjoitus_6.html#cb151-94" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> layer.dataProvider()</span>
+<span id="cb151-95"><a href="06_harjoitus_6.html#cb151-95" aria-hidden="true" tabindex="-1"></a>    provider.addAttributes(fields)</span>
+<span id="cb151-96"><a href="06_harjoitus_6.html#cb151-96" aria-hidden="true" tabindex="-1"></a>    layer.updateFields()</span>
+<span id="cb151-97"><a href="06_harjoitus_6.html#cb151-97" aria-hidden="true" tabindex="-1"></a>    provider.addFeature(square_feature)</span>
+<span id="cb151-98"><a href="06_harjoitus_6.html#cb151-98" aria-hidden="true" tabindex="-1"></a>    layer.updateExtents()</span>
+<span id="cb151-99"><a href="06_harjoitus_6.html#cb151-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> layer</span>
+<span id="cb151-100"><a href="06_harjoitus_6.html#cb151-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-101"><a href="06_harjoitus_6.html#cb151-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-102"><a href="06_harjoitus_6.html#cb151-102" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb151-103"><a href="06_harjoitus_6.html#cb151-103" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> line_layer(fields, line_feature) <span class="op">-&gt;</span> QgsVectorLayer:</span>
+<span id="cb151-104"><a href="06_harjoitus_6.html#cb151-104" aria-hidden="true" tabindex="-1"></a>    layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;LineString?crs=epsg:4326&amp;index=yes&quot;</span>, <span class="st">&quot;test_line&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb151-105"><a href="06_harjoitus_6.html#cb151-105" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> layer.dataProvider()</span>
+<span id="cb151-106"><a href="06_harjoitus_6.html#cb151-106" aria-hidden="true" tabindex="-1"></a>    provider.addAttributes(fields)</span>
+<span id="cb151-107"><a href="06_harjoitus_6.html#cb151-107" aria-hidden="true" tabindex="-1"></a>    layer.updateFields()</span>
+<span id="cb151-108"><a href="06_harjoitus_6.html#cb151-108" aria-hidden="true" tabindex="-1"></a>    provider.addFeature(line_feature)</span>
+<span id="cb151-109"><a href="06_harjoitus_6.html#cb151-109" aria-hidden="true" tabindex="-1"></a>    layer.updateExtents()</span>
+<span id="cb151-110"><a href="06_harjoitus_6.html#cb151-110" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> layer</span></code></pre></div>
+</div>
+</div>
+<div id="harjoitus-6.5.1-käyttöliittymätesti" class="section level3">
+<h3>Harjoitus 6.5.1: Käyttöliittymätesti</h3>
+<p>Kirjoitetaan yksinkertainen testi lisäosan dialogille. Luo uusi
+tiedosto <code>test-plugin/tests/test_buffer_tool_dialog.py</code>:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb152"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb152-1"><a href="06_harjoitus_6.html#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtWidgets <span class="im">import</span> QDialog, QDialogButtonBox</span>
+<span id="cb152-2"><a href="06_harjoitus_6.html#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="06_harjoitus_6.html#cb152-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-4"><a href="06_harjoitus_6.html#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_dialog_close(dialog):</span>
+<span id="cb152-5"><a href="06_harjoitus_6.html#cb152-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Test we can close the dialog.&quot;&quot;&quot;</span></span>
+<span id="cb152-6"><a href="06_harjoitus_6.html#cb152-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-7"><a href="06_harjoitus_6.html#cb152-7" aria-hidden="true" tabindex="-1"></a>    button <span class="op">=</span> dialog.buttonBox.button(QDialogButtonBox.Close)</span>
+<span id="cb152-8"><a href="06_harjoitus_6.html#cb152-8" aria-hidden="true" tabindex="-1"></a>    button.click()</span>
+<span id="cb152-9"><a href="06_harjoitus_6.html#cb152-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-10"><a href="06_harjoitus_6.html#cb152-10" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> dialog.result()</span>
+<span id="cb152-11"><a href="06_harjoitus_6.html#cb152-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-12"><a href="06_harjoitus_6.html#cb152-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> result <span class="op">==</span> QDialog.Rejected</span></code></pre></div>
+</div>
+<p>Lopussa esitetään väittämä <code>assert</code>. Jos lausekkeen tulos on
+<strong>False</strong>, testi ei mene läpi.</p>
+</div>
+<div id="harjoitus-6.5.2-buffertool-testi" class="section level3">
+<h3>Harjoitus 6.5.2: BufferTool-testi</h3>
+<p>Seuraavaksi tehdään testit varsinaiselle <strong>BufferTool</strong>-luokalle.
+Luo uusi tiedosto <code>test-plugin/tests/test_buffer_tool.py</code>:</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+testi
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="06_harjoitus_6.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsWkbTypes</span>
+<span id="cb153-2"><a href="06_harjoitus_6.html#cb153-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-3"><a href="06_harjoitus_6.html#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.core.buffertool <span class="im">import</span> BufferTool</span>
+<span id="cb153-4"><a href="06_harjoitus_6.html#cb153-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-5"><a href="06_harjoitus_6.html#cb153-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-6"><a href="06_harjoitus_6.html#cb153-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_create_buffer_layer_polygon(square_layer):</span>
+<span id="cb153-7"><a href="06_harjoitus_6.html#cb153-7" aria-hidden="true" tabindex="-1"></a>    buffer_distance <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb153-8"><a href="06_harjoitus_6.html#cb153-8" aria-hidden="true" tabindex="-1"></a>    new_layer_name <span class="op">=</span> <span class="st">&quot;Test buffer layer&quot;</span></span>
+<span id="cb153-9"><a href="06_harjoitus_6.html#cb153-9" aria-hidden="true" tabindex="-1"></a>    segments <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb153-10"><a href="06_harjoitus_6.html#cb153-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-11"><a href="06_harjoitus_6.html#cb153-11" aria-hidden="true" tabindex="-1"></a>    buffer_layer <span class="op">=</span> BufferTool.create_buffer_layer(</span>
+<span id="cb153-12"><a href="06_harjoitus_6.html#cb153-12" aria-hidden="true" tabindex="-1"></a>        square_layer,</span>
+<span id="cb153-13"><a href="06_harjoitus_6.html#cb153-13" aria-hidden="true" tabindex="-1"></a>        buffer_distance,</span>
+<span id="cb153-14"><a href="06_harjoitus_6.html#cb153-14" aria-hidden="true" tabindex="-1"></a>        new_layer_name,</span>
+<span id="cb153-15"><a href="06_harjoitus_6.html#cb153-15" aria-hidden="true" tabindex="-1"></a>        segments,</span>
+<span id="cb153-16"><a href="06_harjoitus_6.html#cb153-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb153-17"><a href="06_harjoitus_6.html#cb153-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-18"><a href="06_harjoitus_6.html#cb153-18" aria-hidden="true" tabindex="-1"></a>    buffered_feature <span class="op">=</span> buffer_layer.getFeature(<span class="dv">1</span>)</span>
+<span id="cb153-19"><a href="06_harjoitus_6.html#cb153-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-20"><a href="06_harjoitus_6.html#cb153-20" aria-hidden="true" tabindex="-1"></a>    expected_geometry <span class="op">=</span> <span class="st">&quot;Polygon ((-1 0, -1 1, 0 2, 1 2, 2 1, 2 0, 1 -1, 0 -1, -1 0))&quot;</span></span>
+<span id="cb153-21"><a href="06_harjoitus_6.html#cb153-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb153-22"><a href="06_harjoitus_6.html#cb153-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> buffered_feature.geometry().asWkt(<span class="dv">2</span>) <span class="op">==</span> expected_geometry</span>
+<span id="cb153-23"><a href="06_harjoitus_6.html#cb153-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> buffer_layer.featureCount() <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb153-24"><a href="06_harjoitus_6.html#cb153-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> buffer_layer.crs().authid() <span class="op">==</span> <span class="st">&quot;EPSG:4326&quot;</span></span>
+<span id="cb153-25"><a href="06_harjoitus_6.html#cb153-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> buffer_layer.wkbType() <span class="op">==</span> QgsWkbTypes.Polygon</span></code></pre></div>
+</div>
+</div>
+<p>Huomaa, että tässä testifunktiossa argumentiksi annetaan
+fixtuuri square_layer. Pytest hoitaa argumenttien
+lähettämisen testifunktioille automaattisesti. Testissä
+määritellään parametrit funktiolle, joka luo vyöhyketason.
+Geometrioita testatessa on kätevää käyttää WKT-formaattia.
+Lopuksi määritellään geometria, jota odotetaan funktion
+tuottavan ja testataan saatiinko oikea tulos. Lisäksi voidaan
+testata, että funktio ei lisää ylimääräisiä kohteita tai
+muuta tason koordinaattijärjestelmää tai geometriatyyppiä.</p>
+</div>
+<div id="harjoitus-6.5.3-lisää-testejä" class="section level3">
+<h3>Harjoitus 6.5.3: Lisää testejä</h3>
+<p>Seuraavaksi oppimasi perusteella kirjoita BufferToolille
+vastaavat testit piste- sekä viivatasolle.</p>
+</div>
+</div>
+<div id="mallilisäosa" class="section level2">
+<h2>Mallilisäosa</h2>
+<p>Voit tarvittaessa tarkastella mallilisäosan koodia
+seuraavista linkeistä:</p>
+<div class="note-box">
+<p>Mallilisäosan paketin nimi on <code>sampleplugin</code>. Tämä
+tulee huomioida import-komennoissa.</p>
+</div>
+<p><a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/plugin.py">test-plugin/testplugin/plugin.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/ui/buffer_tool_dialog.py">test-plugin/testplugin/ui/buffer_tool_dialog.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/core/buffertool.py">test-plugin/testplugin/core/buffertool.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/core/exceptions.py">test-plugin/testplugin/core/exceptions.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/conftest.py">test-plugin/tests/conftest.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/test_buffer_tool_dialog.py">test-plugin/tests/test_buffer_tool_dialog.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/test_buffer_tool.py">test-plugin/tests/test_buffer_tool.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/resources/ui/buffer_tool.ui">test-plugin/testplugin/resources/ui/buffer_tool.ui</a><br />
+</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="05_harjoitus_5.html"><button class="btn btn-default">Previous</button></a>
+<a href="07_harjoitus_7.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS-lisäosien kehitys</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

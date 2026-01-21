@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Kappale 10: Karttatulosteen kustomointi | Lausekkeet QGISissä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Kappale 10: Karttatulosteen kustomointi | Lausekkeet QGISissä">
+
+<title>Kappale 10: Karttatulosteen kustomointi | Lausekkeet QGISissä</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Lausekkeet QGISissä</h1></div>
+<div class="abstract-sidebar"><p>QGIS-jatkokurssi lausekkeiden hyödyntämisestä</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#tervetuloa-lausekkeet-qgisissä--kurssille">Tervetuloa Lausekkeet QGISissä -kurssille!</a>
+<ul>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_kappale_1.html#kappale-1-perusteet">Kappale 1: Perusteet</a>
+<ul>
+<li><a href="01_kappale_1.html#ennen-tehtäviä">Ennen tehtäviä</a></li>
+<li><a href="01_kappale_1.html#tehtävä-1.1">Tehtävä 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_kappale_2.html#kappale-2-lausekkeiden-kirjoittaminen">Kappale 2: Lausekkeiden kirjoittaminen</a>
+<ul>
+<li><a href="02_kappale_2.html#tehtävä-2.1">Tehtävä 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_kappale_3.html#kappale-3-kohteiden-valinta-ja-suodatus">Kappale 3: Kohteiden valinta ja suodatus</a>
+<ul>
+<li><a href="03_kappale_3.html#tehtävä-3.1">Tehtävä 3.1</a></li>
+<li><a href="03_kappale_3.html#tehtävä-3.2">Tehtävä 3.2</a></li>
+<li><a href="03_kappale_3.html#tehtävä-3.3">Tehtävä 3.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_kappale_4.html#kappale-4-kohteiden-muokkaus---field-calculator-osa-1">Kappale 4: Kohteiden muokkaus - Field Calculator (Osa 1)</a>
+<ul>
+<li><a href="04_kappale_4.html#tehtävä-4.1">Tehtävä 4.1</a></li>
+<li><a href="04_kappale_4.html#tehtävä-4.2">Tehtävä 4.2</a></li>
+<li><a href="04_kappale_4.html#tehtävä-4.3">Tehtävä 4.3</a></li>
+<li><a href="04_kappale_4.html#lisätehtävät">Lisätehtävät</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_kappale_5.html#kappale-5-kohteiden-muokkaus---field-calculator-osa-2">Kappale 5: Kohteiden muokkaus - Field Calculator (Osa 2)</a>
+<ul>
+<li><a href="05_kappale_5.html#tehtävä-5.1">Tehtävä 5.1</a></li>
+<li><a href="05_kappale_5.html#tehtävä-5.2">Tehtävä 5.2</a></li>
+<li><a href="05_kappale_5.html#tehtävä-5.3">Tehtävä 5.3</a></li>
+<li><a href="05_kappale_5.html#tehtävä-5.4">Tehtävä 5.4</a></li>
+<li><a href="05_kappale_5.html#lisätehtävät-1">Lisätehtävät</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_kappale_6.html#kappale-6-kohteiden-muokkaus---quick-field-calculation-ja-virtuaalikentät">Kappale 6: Kohteiden muokkaus - Quick Field Calculation ja virtuaalikentät</a>
+<ul>
+<li><a href="06_kappale_6.html#tehtävä-6.1">Tehtävä 6.1</a></li>
+<li><a href="06_kappale_6.html#tehtävä-6.2">Tehtävä 6.2</a></li>
+<li><a href="06_kappale_6.html#lisätehtävä">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_kappale_7.html#kappale-7-symbologian-kustomointi">Kappale 7: Symbologian kustomointi</a>
+<ul>
+<li><a href="07_kappale_7.html#tehtävä-7.1">Tehtävä 7.1</a></li>
+<li><a href="07_kappale_7.html#lisätehtävä-1">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_kappale_8.html#kappale-8-symbologian-kustomointi---lämpökartta-ja-geometry-generator">Kappale 8: Symbologian kustomointi - lämpökartta ja Geometry Generator</a>
+<ul>
+<li><a href="08_kappale_8.html#tehtävä-8.1">Tehtävä 8.1</a></li>
+<li><a href="08_kappale_8.html#tehtävä-8.2">Tehtävä 8.2</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_kappale_9.html#kappale-9-nimiöiden-kustomointi">Kappale 9: Nimiöiden kustomointi</a>
+<ul>
+<li><a href="09_kappale_9.html#tehtävä-9.1">Tehtävä 9.1</a></li>
+<li><a href="09_kappale_9.html#lisätehtävä-2">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_kappale_10.html#kappale-10-karttatulosteen-kustomointi">Kappale 10: Karttatulosteen kustomointi</a>
+<ul>
+<li><a href="10_kappale_10.html#tehtävä-10.1">Tehtävä 10.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="11_kappale_11.html#kappale-11-kartta-atlaksen-kustomointi">Kappale 11: Kartta-atlaksen kustomointi</a>
+<ul>
+<li><a href="11_kappale_11.html#tehtävä-11.1">Tehtävä 11.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="12_kappale_12.html#kappale-12-python--konsoli">Kappale 12: Python- konsoli</a>
+<ul>
+<li><a href="12_kappale_12.html#tehtävä-12.1">Tehtävä 12.1</a></li>
+<li><a href="12_kappale_12.html#tehtävä-12.2">Tehtävä 12.2</a></li>
+<li><a href="12_kappale_12.html#lisätehtävä-3">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="13_kappale_13.html#kappale-13-oman-funktion-luominen">Kappale 13: Oman funktion luominen</a>
+<ul>
+<li><a href="13_kappale_13.html#tehtävä-13.1">Tehtävä 13.1</a></li>
+<li><a href="13_kappale_13.html#lisätehtävä-4">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="14_kappale_14.html#kappale-14-kotitehtävät">Kappale 14: Kotitehtävät</a>
+<ul>
+<li><a href="14_kappale_14.html#kotitehtävä-1">Kotitehtävä 1</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-2">Kotitehtävä 2</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-3-haastava">Kotitehtävä 3 (haastava)</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-4">Kotitehtävä 4</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-5">Kotitehtävä 5</a></li>
+</ul></li>
+<li class="has-sub"><a href="15_kappale_15.html#kappale-15-lisätehtävät">Kappale 15: Lisätehtävät</a>
+<ul>
+<li><a href="15_kappale_15.html#lisätehtävä-1-1">Lisätehtävä 1</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-2-1">Lisätehtävä 2</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-3-1">Lisätehtävä 3</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-4-1">Lisätehtävä 4</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-5">Lisätehtävä 5</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-6">Lisätehtävä 6</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-7">Lisätehtävä 7</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-8">Lisätehtävä 8</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-9">Lisätehtävä 9</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-10">Lisätehtävä 10</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-11">Lisätehtävä 11</a></li>
+<li><a href="15_kappale_15.html#geoprosessointiesimerkki">Geoprosessointiesimerkki</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="kappale-10-karttatulosteen-kustomointi" class="section level1">
+<h1>Kappale 10: Karttatulosteen kustomointi</h1>
+<div id="tehtävä-10.1" class="section level2">
+<h2>Tehtävä 10.1</h2>
+<p>Tuota kuvan mukainen karttatuloste.</p>
+<p><img src="img/kappale_10/image1.png" /></p>
+<p><strong>Aineistot</strong>:</p>
+<ul>
+<li><code>hallintoalueet.gpkg</code></li>
+<li><code>lipas_kohteet.gpkg</code></li>
+</ul>
+<p>Karttatulosteeseen tulee tehdä seuraavat asiat:</p>
+<ul>
+<li>Luokittele hallintoalueet maakunnan nimen mukaan.</li>
+<li>Suodata Lipas-kohdeaineistoa (voit myös duplikoida tason) siten, että karttataso sisältää vain Jalkapallostadion-tyyppiset kohteet.</li>
+<li>Luo uusi karttatuloste ja siihen karttaikkunaobjekti.</li>
+<li>Muodosta karttatulosteeseen selite, joka sisältää kunkin luokan nimen (maakunnan nimi) lisäksi tiedon ko. luokan sisältämien kohteiden lukumäärästä (ts. <strong>kuntien määrä maakunnassa</strong>) ja niiden yhteenlasketusta pinta-alasta (tyyliin Varsinais-Suomi (11) - 500 ha).</li>
+<li>Luo karttatulostenimiö, joka sisältää listan karttaikkunaobjektin rajojen sisällä sijaitsevista jalkapallostadioneista (huomaa, että listan sisältö muuttuu, kun kartan zoomaustaso muuttuu).</li>
+</ul>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p><strong>Vaihe 1</strong>:</p>
+<ul>
+<li>Käytä luokitteluun <code>Maaku_ni1</code>-kenttää</li>
+</ul>
+<p><strong>Vaihe 2</strong>:</p>
+<ul>
+<li>Suodata <code>tyyppi_nimi_fi</code>-kentästä jalkapallostadionit.</li>
+</ul>
+<p><strong>Vaihe 3</strong>:</p>
+<ul>
+<li>Luo uusi taitto (Project &gt; New Print Layout)</li>
+</ul>
+<p><strong>Vaihe 4</strong>:</p>
+<ul>
+<li><p>Klikkaa selitteesta automaattinen päivitys (<strong>Auto update</strong>) pois päältä. Uudelleennimeä lipas_kohteet ja hallintoalueet- tasot.</p></li>
+<li><p>Valitse uudelleen nimetty hallintoalueet-taso ja klikkaa lausekepainiketta.
+<img src="img/kappale_10/image2.png" /></p></li>
+<li><p>Luo lauseke paloittain:</p>
+<ul>
+<li>Hae ensin maakunnan kuntien pinta-ala. Käytä <code>aggregate()</code>-funktiota. Viittaa tasoon <code>@layer</code>-muuttujalla. Suorita yhteenlasku. Suodata sen perusteella onko maakunnan nimi yhtäsuuri kuin <code>@symbol_label</code> muuttuja.</li>
+<li>Huomioi yksikkö! <code>$area</code>-funktio palauttaa pinta-alan karttayksiköissä, tässä tapauksessa neliömetreinä. Muunna hehtaareiksi.</li>
+<li>Rakenna seuraavaksi merkkijono. Voit käyttää <code>concat()</code>-funktiota tai yhdistää merkkijonot pystyviivoilla (putkimerkit) <code>||</code>.</li>
+<li>Millä funktiolla voit pyöristää <code>aggregate()</code>-funktion palauttaman pinta-alan tietyllä tarkkuudella?</li>
+<li><code>@symbol_label</code>-muuttuja kertoo maakunnan nimen.</li>
+<li><code>@symbol_count</code>-muuttuja kertoo maakuntaan kuuluvien kuntien määrän.</li>
+</ul></li>
+</ul>
+<p><strong>Vaihe 5</strong>:</p>
+<ul>
+<li><p>Luo uusi karttalehdelle uusi objekti, <strong>Add Label</strong> (nimiö) -työkalulla.</p></li>
+<li><p>Pääset muokkaamaan lauseketta <strong>Insert/Edit Expression…</strong> -painikkeesta:
+<img src="img/kappale_10/image3.png" /></p></li>
+<li><p>Määrittele ensin karttaikkunaobjektin laajuus ja tallenna se muuttujaan ‘extent’.</p>
+<ul>
+<li><code>item_variables()</code>-funktiolla saat haettua karttaobjektin muuttujat <code>Map</code>-datatyypissä.</li>
+<li><code>map_get()</code>-funktiolla saat haettua <code>Map</code>-objektista arvon. Hae <code>map_extent</code>.</li>
+<li><code>with_variable()</code>-funktiolla voit määrittää muuttujan ja sen arvon, sekä käyttää muuttujaa funktion sisältämässä lausekkeessa. Tallenna muuttujaan <code>extent</code> karttaobjektin laajuus.</li>
+</ul></li>
+<li><p>Käytä <code>aggregate()</code>-funktiota. Yhdistä Lipas-kohteiden merkkijonot. Suodata sillä perusteella leikkaako Lipas-kohde aikaisemmin määritellyn karttaobjektin laajuuden (<code>intersects()</code>-funktio).</p>
+<ul>
+<li>Voit määrittää <code>aggregate()</code>-funktioon myös välimerkin (‘concatenator’), jolloin kaikkien kohteiden sisältö ei ole yhdessä “pötkössä”.</li>
+</ul></li>
+<li><p>Kun olet määrittänyt lausekkeen, se näkyy nimiö-karttaobjektin tekstikentässä [% … %] symbolien ympäröimänä. Voit kirjoittaa kuvaavan tekstin alkuun, esim. Suomen jalkapallostadionit: [% …lauseke… %]</p></li>
+</ul>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb22"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb22-1"><a href="10_kappale_10.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Lipas-kohteiden suodatukseen</span></span>
+<span id="cb22-2"><a href="10_kappale_10.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="ot">&quot;tyyppi_nimi_fi&quot;</span> <span class="op">=</span> <span class="st">&#39;Jalkapallostadion&#39;</span></span>
+<span id="cb22-3"><a href="10_kappale_10.html#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="10_kappale_10.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- Legendan luontiin</span></span>
+<span id="cb22-5"><a href="10_kappale_10.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">concat</span>(</span>
+<span id="cb22-6"><a href="10_kappale_10.html#cb22-6" aria-hidden="true" tabindex="-1"></a>    @symbol_label, <span class="st">&#39; (&#39;</span>, @symbol_count, <span class="st">&#39; kpl) - &#39;</span>, <span class="fu">round</span>(</span>
+<span id="cb22-7"><a href="10_kappale_10.html#cb22-7" aria-hidden="true" tabindex="-1"></a>        aggregate(</span>
+<span id="cb22-8"><a href="10_kappale_10.html#cb22-8" aria-hidden="true" tabindex="-1"></a>            @layer, <span class="st">&#39;sum&#39;</span>, $area, <span class="kw">filter</span><span class="op">:=</span>  <span class="ot">&quot;Maaku_ni1&quot;</span> <span class="op">=</span> @symbol_label</span>
+<span id="cb22-9"><a href="10_kappale_10.html#cb22-9" aria-hidden="true" tabindex="-1"></a>            ) <span class="op">/</span> <span class="fl">10000.0</span></span>
+<span id="cb22-10"><a href="10_kappale_10.html#cb22-10" aria-hidden="true" tabindex="-1"></a>        ), <span class="st">&#39; ha&#39;</span></span>
+<span id="cb22-11"><a href="10_kappale_10.html#cb22-11" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-12"><a href="10_kappale_10.html#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="10_kappale_10.html#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co">-- Jalkapallostadion-listan luontiin</span></span>
+<span id="cb22-14"><a href="10_kappale_10.html#cb22-14" aria-hidden="true" tabindex="-1"></a>Suomen jalkapallostadionit: [%</span>
+<span id="cb22-15"><a href="10_kappale_10.html#cb22-15" aria-hidden="true" tabindex="-1"></a>with_variable(</span>
+<span id="cb22-16"><a href="10_kappale_10.html#cb22-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;extent&#39;</span>, map_get(</span>
+<span id="cb22-17"><a href="10_kappale_10.html#cb22-17" aria-hidden="true" tabindex="-1"></a>        item_variables(</span>
+<span id="cb22-18"><a href="10_kappale_10.html#cb22-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;Map 1&#39;</span></span>
+<span id="cb22-19"><a href="10_kappale_10.html#cb22-19" aria-hidden="true" tabindex="-1"></a>            ), <span class="st">&#39;map_extent&#39;</span></span>
+<span id="cb22-20"><a href="10_kappale_10.html#cb22-20" aria-hidden="true" tabindex="-1"></a>        ), aggregate(</span>
+<span id="cb22-21"><a href="10_kappale_10.html#cb22-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;lipas_kohteet&#39;</span>, <span class="st">&#39;concatenate&#39;</span>, <span class="ot">&quot;nimi_fi&quot;</span>, intersects(</span>
+<span id="cb22-22"><a href="10_kappale_10.html#cb22-22" aria-hidden="true" tabindex="-1"></a>                $geometry, @extent</span>
+<span id="cb22-23"><a href="10_kappale_10.html#cb22-23" aria-hidden="true" tabindex="-1"></a>                ), <span class="st">&#39;, &#39;</span></span>
+<span id="cb22-24"><a href="10_kappale_10.html#cb22-24" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb22-25"><a href="10_kappale_10.html#cb22-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb22-26"><a href="10_kappale_10.html#cb22-26" aria-hidden="true" tabindex="-1"></a>%]</span></code></pre></div>
+</div>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="09_kappale_9.html"><button class="btn btn-default">Previous</button></a>
+<a href="11_kappale_11.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Lausekkeet QGISissä</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

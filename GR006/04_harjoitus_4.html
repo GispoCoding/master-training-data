@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="4. Pythonin perusteet jatkuvat | Lausekkeet ja PyQGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-11-24" />
+
+
+<meta name="description" content="4. Pythonin perusteet jatkuvat | Lausekkeet ja PyQGIS">
+
+<title>4. Pythonin perusteet jatkuvat | Lausekkeet ja PyQGIS</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Lausekkeet ja PyQGIS</h1></div>
+<div class="abstract-sidebar"><p>Helsingin kaupungille räätälöity kurssi</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#lausekkeet-ja-pyqgis">Lausekkeet ja PyQGIS</a>
+<ul>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#qgisin-lausekkeet">1. QGISin lausekkeet</a>
+<ul>
+<li><a href="01_harjoitus_1.html#tehtävä-1.1">Tehtävä 1.1</a></li>
+<li><a href="01_harjoitus_1.html#tehtävä-1.2">Tehtävä 1.2</a></li>
+<li><a href="01_harjoitus_1.html#tehtävä-1.3">Tehtävä 1.3</a></li>
+<li><a href="01_harjoitus_1.html#tehtävä-1.4">Tehtävä 1.4</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#lisää-qgisin-lausekkeita">2. Lisää QGISin lausekkeita</a>
+<ul>
+<li><a href="02_harjoitus_2.html#tehtävä-2.1">Tehtävä 2.1</a></li>
+<li><a href="02_harjoitus_2.html#tehtävä-2.2">Tehtävä 2.2</a></li>
+<li><a href="02_harjoitus_2.html#tehtävä-2.3">Tehtävä 2.3</a></li>
+<li><a href="02_harjoitus_2.html#tehtävä-2.4">Tehtävä 2.4</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#pythonin-perusteet">3. Pythonin perusteet</a>
+<ul>
+<li><a href="03_harjoitus_3.html#esivalmistelut">Esivalmistelut</a></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#python-perusteita">Python-perusteita</a>
+<ul>
+<li><a href="03_harjoitus_3.html#komennot">Komennot</a></li>
+<li><a href="03_harjoitus_3.html#kommentit">Kommentit</a></li>
+<li><a href="03_harjoitus_3.html#luvuilla-laskeminen">Luvuilla laskeminen</a></li>
+<li><a href="03_harjoitus_3.html#muuttujat">Muuttujat</a></li>
+<li><a href="03_harjoitus_3.html#tyypit">Tyypit</a></li>
+<li><a href="03_harjoitus_3.html#ehtolauseet-ja-vertailu">Ehtolauseet ja vertailu</a></li>
+<li><a href="03_harjoitus_3.html#funktiot">Funktiot</a></li>
+<li><a href="03_harjoitus_3.html#tietorakenteita">Tietorakenteita</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#pythonin-perusteet-jatkuvat">4. Pythonin perusteet jatkuvat</a>
+<ul>
+<li><a href="04_harjoitus_4.html#silmukat-ja-iterointi">Silmukat ja iterointi</a></li>
+<li><a href="04_harjoitus_4.html#moduulit">Moduulit</a></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#syventävää-tietoa">Syventävää tietoa</a>
+<ul>
+<li><a href="04_harjoitus_4.html#oliot">Oliot</a></li>
+<li><a href="04_harjoitus_4.html#luokat">Luokat</a></li>
+<li><a href="04_harjoitus_4.html#lisävinkkejä-konsolin-käyttöön">Lisävinkkejä konsolin käyttöön</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#pyqgis-perusteet">5. PyQGIS-perusteet</a>
+<ul>
+<li><a href="05_harjoitus_5.html#pyqgis-ja-iface-muuttuja">PyQGIS ja iface-muuttuja</a></li>
+<li><a href="05_harjoitus_5.html#tasojen-käsittely">Tasojen käsittely</a></li>
+<li><a href="05_harjoitus_5.html#harjoitus-5.1">Harjoitus 5.1</a></li>
+<li><a href="05_harjoitus_5.html#harjoitus-5.2">Harjoitus 5.2</a></li>
+<li><a href="05_harjoitus_5.html#harjoitus-5.3">Harjoitus 5.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#pyqgis---tasojen-muokkaus">6. PyQGIS - tasojen muokkaus</a>
+<ul>
+<li><a href="06_harjoitus_6.html#tasot">Tasot</a></li>
+<li><a href="06_harjoitus_6.html#väliaikaisen-tason-luominen">Väliaikaisen tason luominen</a></li>
+<li><a href="06_harjoitus_6.html#geometriat">Geometriat</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.1">Harjoitus 6.1</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.2-etäisyydet">Harjoitus 6.2: Etäisyydet</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#kappale-7-pyqgis-skriptaus">Kappale 7 PyQGIS skriptaus</a>
+<ul>
+<li><a href="07_harjoitus_7.html#projektin-tuominen">Projektin tuominen</a></li>
+<li><a href="07_harjoitus_7.html#harjoitus-7.1">Harjoitus 7.1</a></li>
+<li><a href="07_harjoitus_7.html#tason-lisääminen">Tason lisääminen</a></li>
+<li><a href="07_harjoitus_7.html#harjoitus-7.2">Harjoitus 7.2</a></li>
+<li><a href="07_harjoitus_7.html#vaihda-tason-nimeä">Vaihda tason nimeä</a></li>
+<li><a href="07_harjoitus_7.html#harjoitus-7.3">Harjoitus 7.3</a></li>
+<li><a href="07_harjoitus_7.html#tason-tallentaminen">Tason tallentaminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#lisäosio-ratkaise-ongelma-työssäsi-pyqgisin-avulla">8. LIsäosio: Ratkaise ongelma työssäsi PyQGISin avulla</a>
+<ul>
+<li><a href="08_harjoitus_8.html#prosessointialgoritmin-kutsuminen">Prosessointialgoritmin kutsuminen</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="pythonin-perusteet-jatkuvat" class="section level1">
+<h1>4. Pythonin perusteet jatkuvat</h1>
+<p>Seuraavassa osiossa syvennetään meidän Python-osaamista. Lue ja testaile koodinpätkiä QGISin Python-konsolissa.</p>
+<div id="silmukat-ja-iterointi" class="section level3">
+<h3>Silmukat ja iterointi</h3>
+<div id="while-silmukka" class="section level4">
+<h4>while-silmukka</h4>
+<p>Silmukka (loop) mahdollistaa samojen komentojen toistamisen useaan kertaan.
+<code>while</code>-silmukassa koodilohkoa toistetaan niin pitkään,
+kuin silmukan ehto on totta.</p>
+<p>Syntaksi on muotoa:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="04_harjoitus_4.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="op">&lt;</span>ehto<span class="op">&gt;</span>:</span>
+<span id="cb52-2"><a href="04_harjoitus_4.html#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>suoritettava koodi<span class="op">&gt;</span></span></code></pre></div>
+</div>
+<p><code>while</code>-silmukoissa on tärkeää, että emme luo niin sanottua ikuista silmukkaa:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="04_harjoitus_4.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb53-2"><a href="04_harjoitus_4.html#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;this never ends&quot;</span>)</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>this never ends
+this never ends
+this never ends
+...
+(jatkuu loputtomasti)</code></pre>
+<p>Seuraava silmukka loppuu kolmen kierroksen jälkeen:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="04_harjoitus_4.html#cb55-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb55-2"><a href="04_harjoitus_4.html#cb55-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-3"><a href="04_harjoitus_4.html#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> number <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb55-4"><a href="04_harjoitus_4.html#cb55-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(number)</span>
+<span id="cb55-5"><a href="04_harjoitus_4.html#cb55-5" aria-hidden="true" tabindex="-1"></a>    number <span class="op">=</span> number <span class="op">+</span> <span class="dv">1</span></span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>0
+1
+2</code></pre>
+<p>Silmukan voi myös lopettaa <code>break</code>-komennolla:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="04_harjoitus_4.html#cb57-1" aria-hidden="true" tabindex="-1"></a>number <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb57-2"><a href="04_harjoitus_4.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="04_harjoitus_4.html#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb57-4"><a href="04_harjoitus_4.html#cb57-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(number)</span>
+<span id="cb57-5"><a href="04_harjoitus_4.html#cb57-5" aria-hidden="true" tabindex="-1"></a>    number <span class="op">+=</span> <span class="dv">1</span>  <span class="co"># lyhyempi tapa kirjoittaa number = number + 1</span></span>
+<span id="cb57-6"><a href="04_harjoitus_4.html#cb57-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> number <span class="op">&gt;=</span> <span class="dv">3</span>:</span>
+<span id="cb57-7"><a href="04_harjoitus_4.html#cb57-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>0
+1
+2</code></pre>
+</div>
+<div id="for-silmukka" class="section level4">
+<h4>for-silmukka</h4>
+<p><code>for</code>-silmukassa toistaminen perustuu ehdon sijasta tietorakenteeseen.
+Tarkemmin sanottuna <code>for</code>-silmukka käy läpi tietorakenteen kaikki osat yksi kerrallaan:
+tätä kutsutaan iteroinniksi (iteration).
+<code>for</code>-silmukan suoritus loppuu automaattisesti,
+kun tietorakenne on läpikäyty.</p>
+<p>Syntaksi on muotoa:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb59-1"><a href="04_harjoitus_4.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">&lt;</span>muuttuja<span class="op">&gt;</span> <span class="kw">in</span> <span class="op">&lt;</span>rakenne<span class="op">&gt;</span>:</span>
+<span id="cb59-2"><a href="04_harjoitus_4.html#cb59-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>suoritettava koodi<span class="op">&gt;</span></span></code></pre></div>
+</div>
+<p><code>&lt;muuttuja&gt;</code>:n arvo siis riippuu tietorakenteesta.
+Esimerkiksi listassa se saa arvokseen jokaisen listan alkion vuorollaan:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="04_harjoitus_4.html#cb60-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]</span>
+<span id="cb60-2"><a href="04_harjoitus_4.html#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="04_harjoitus_4.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> my_list:</span>
+<span id="cb60-4"><a href="04_harjoitus_4.html#cb60-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(item)</span>
+<span id="cb60-5"><a href="04_harjoitus_4.html#cb60-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-6"><a href="04_harjoitus_4.html#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> my_list:  <span class="co"># for-silmukan muuttuja voidaan nimetä miten vain</span></span>
+<span id="cb60-7"><a href="04_harjoitus_4.html#cb60-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i)</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>1
+2
+3
+1
+2
+3</code></pre>
+<p>Sanakirjoissa <code>for</code>-silmukan muuttuja on avain:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="04_harjoitus_4.html#cb62-1" aria-hidden="true" tabindex="-1"></a>coordinates <span class="op">=</span> {<span class="st">&quot;city_1&quot;</span>: (<span class="dv">10</span>, <span class="dv">4</span>), <span class="st">&quot;city_2&quot;</span>: (<span class="dv">1</span>, <span class="dv">3</span>)}</span>
+<span id="cb62-2"><a href="04_harjoitus_4.html#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="04_harjoitus_4.html#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> coordinates:</span>
+<span id="cb62-4"><a href="04_harjoitus_4.html#cb62-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;avain: </span><span class="sc">{</span>key<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb62-5"><a href="04_harjoitus_4.html#cb62-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f&quot;arvo: </span><span class="sc">{</span>coordinates[key]<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb62-6"><a href="04_harjoitus_4.html#cb62-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-7"><a href="04_harjoitus_4.html#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ... mutta sanakirja.items mahdollistaa sekä avaimen että arvon suoran käytön</span></span>
+<span id="cb62-8"><a href="04_harjoitus_4.html#cb62-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> coordinates.items():</span>
+<span id="cb62-9"><a href="04_harjoitus_4.html#cb62-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(key, value)</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>avain: city_1
+arvo: (10, 4)
+avain: city_2
+arvo: (1, 3)
+city_1 (10, 4)
+city_2 (1, 3)</code></pre>
+<p>Silmukoita voi olla sisäkkäin:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="04_harjoitus_4.html#cb64-1" aria-hidden="true" tabindex="-1"></a>list_of_lists <span class="op">=</span> [[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>], [<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>]]</span>
+<span id="cb64-2"><a href="04_harjoitus_4.html#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="04_harjoitus_4.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> inner_list <span class="kw">in</span> list_of_lists:</span>
+<span id="cb64-4"><a href="04_harjoitus_4.html#cb64-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(inner_list)</span>
+<span id="cb64-5"><a href="04_harjoitus_4.html#cb64-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> inner_list:</span>
+<span id="cb64-6"><a href="04_harjoitus_4.html#cb64-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(item)</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>[1, 2, 3]
+1
+2
+3
+[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+a
+b
+c</code></pre>
+<p><code>break</code>-komento toimii kaikissa silmukoissa:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="04_harjoitus_4.html#cb66-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">&quot;a cat&quot;</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb66-2"><a href="04_harjoitus_4.html#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="04_harjoitus_4.html#cb66-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> numbers:</span>
+<span id="cb66-4"><a href="04_harjoitus_4.html#cb66-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">type</span>(number) <span class="op">!=</span> <span class="bu">int</span> <span class="kw">and</span> <span class="bu">type</span>(number) <span class="op">!=</span> <span class="bu">float</span>:</span>
+<span id="cb66-5"><a href="04_harjoitus_4.html#cb66-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>number<span class="sc">}</span><span class="ss"> is not a number!&quot;</span>)</span>
+<span id="cb66-6"><a href="04_harjoitus_4.html#cb66-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb66-7"><a href="04_harjoitus_4.html#cb66-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(number)</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>1
+2
+3
+a cat is not a number!</code></pre>
+</div>
+</div>
+<div id="moduulit" class="section level3">
+<h3>Moduulit</h3>
+<p>Moduuli (module) on mikä vain <code>.py</code>-loppuinen tiedosto.
+Se siis sisältää Python-koodia, esimerkiksi arvoja tai funktioita.
+Moduulien hyöty piilee siinä,
+että yhdessä moduulissa olevaa koodia voi käyttää muissa moduuleissa.
+Näin koodin uudelleenkäytettävyys paranee huomattavasti.</p>
+<p>Moduuli otetaan käyttöön <code>import</code> komennolla.
+Alla otetaan käyttöön Pythonin sisäänrakennettu <code>math</code>-moduuli,
+ja käytetään moduulin funktiota <code>sqrt</code> neliöjuuren laskemiseen:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="04_harjoitus_4.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb68-2"><a href="04_harjoitus_4.html#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-3"><a href="04_harjoitus_4.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(math.sqrt(<span class="dv">4</span>))</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>2.0</code></pre>
+<p>Moduulin osia voi ottaa käyttöön myös suoraan <code>from</code>-syntaksilla:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="04_harjoitus_4.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> math <span class="im">import</span> pi, sqrt</span>
+<span id="cb70-2"><a href="04_harjoitus_4.html#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="04_harjoitus_4.html#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pi)</span>
+<span id="cb70-4"><a href="04_harjoitus_4.html#cb70-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sqrt(<span class="dv">4</span>))</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>3.141592653589793
+2.0</code></pre>
+</div>
+<div id="syventävää-tietoa" class="section level2">
+<h2>Syventävää tietoa</h2>
+<div id="oliot" class="section level3">
+<h3>Oliot</h3>
+<p>Olio (object) on keskeinen käsite Pythonissa.
+Esimerkiksi kaikki kielessä esiintyvät arvot,
+kuten luvut, merkkijonot tai listat,
+ovat olioita – kukin vain omaa tyyppiään.</p>
+<div id="metodit-ja-attribuutit" class="section level4">
+<h4>Metodit ja attribuutit</h4>
+<p>Käytännössä olio tarkoittaa kokonaisuutta,
+joka voi pitää sisällään tietoa sekä toiminaallisuuksia.
+Esimerkiksi merkkijonoon liittyy itse merkkijonon lisäksi
+olion toteuttamia toiminnalisuuksia eli metodeja (method).
+Olioon liittyvää tietoa kutsutaan attribuutiksi (attribute).
+Kunkin olion metodit ja attribuutit ovat sidottuja olion tyyppiin:
+esim. kokonaisluku-olion metodit ovat merkkijonoon nähden erilaisia.</p>
+<p>Tavallisista funktioista metodit eroavat siinä,
+että niitä kutsutaan aina kohteena olevan olion kautta.
+Sama pätee attribuutteihin:
+toisin kuin tavallinen muuttuja, attribuutti haetaan olion kautta.
+Alla esimerkki syntaksista:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="04_harjoitus_4.html#cb72-1" aria-hidden="true" tabindex="-1"></a>my_object.method()   <span class="co"># metodikutsu</span></span>
+<span id="cb72-2"><a href="04_harjoitus_4.html#cb72-2" aria-hidden="true" tabindex="-1"></a>my_object.attribute  <span class="co"># attribuutti</span></span></code></pre></div>
+</div>
+<p>Alla esimerkki merkkijonon metodista <code>count</code>,
+joka laskee kuinka monta kertaa parametrina annettu merkkijono sisältyy
+kohdemerkkijonoon:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb73-1"><a href="04_harjoitus_4.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">&quot;abcdeeee&quot;</span>.count(<span class="st">&quot;e&quot;</span>))</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>4</code></pre>
+<p>Lista-olion metodi <code>sort</code>:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb75-1"><a href="04_harjoitus_4.html#cb75-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb75-2"><a href="04_harjoitus_4.html#cb75-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-3"><a href="04_harjoitus_4.html#cb75-3" aria-hidden="true" tabindex="-1"></a>my_list.sort()</span>
+<span id="cb75-4"><a href="04_harjoitus_4.html#cb75-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-5"><a href="04_harjoitus_4.html#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_list)</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>[1, 2, 3]</code></pre>
+<p>Totuusarvolla on attribuutti <code>real</code>,
+joka on kohdetotuusarvo reaalilukuna:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb77-1"><a href="04_harjoitus_4.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="va">True</span>.real)</span>
+<span id="cb77-2"><a href="04_harjoitus_4.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="va">False</span>.real)</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>1
+0</code></pre>
+</div>
+<div id="konstruktorit" class="section level4">
+<h4>Konstruktorit</h4>
+<p>Tähän mennessä olioiden luomiseen ei olla kiinnitetty erityistä huomiota.
+Monille pythonin sisäänrakennetuille tyypeille on tietty syntaksi,
+jolla olio luodaan, esimerkkinä listan luominen hakasulkeilla <code>[]</code> tai merkkijono
+lainausmerkeillä <code>""</code>.</p>
+<p>Yllämainitut tapaukset ovat kuitenkin erikoistapauksia:
+kaikkien eri tyyppien olioiden muodostamiseen ei ole sisäänrakennettua syntaksia.
+Oletusarvoisesti olio luodaankin konstruktorilla (constructor),
+joka on olion muodostamiseen tarkoitettu metodi.
+Muista metodeista eroten konstruktoria kutsutaan irrallaan oliosta,
+sillä oliota ei ole olemassa ennen konstruktorikutsua.</p>
+<p>Esimerkkinä päivämäärän, eli <code>date</code>-tyypin olion, luominen:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb79-1"><a href="04_harjoitus_4.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> date</span>
+<span id="cb79-2"><a href="04_harjoitus_4.html#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="04_harjoitus_4.html#cb79-3" aria-hidden="true" tabindex="-1"></a>my_date <span class="op">=</span> date(year<span class="op">=</span><span class="dv">2024</span>, month<span class="op">=</span><span class="dv">6</span>, day<span class="op">=</span><span class="dv">19</span>)</span>
+<span id="cb79-4"><a href="04_harjoitus_4.html#cb79-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-5"><a href="04_harjoitus_4.html#cb79-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_date)</span>
+<span id="cb79-6"><a href="04_harjoitus_4.html#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(my_date))</span>
+<span id="cb79-7"><a href="04_harjoitus_4.html#cb79-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_date.year)</span>
+<span id="cb79-8"><a href="04_harjoitus_4.html#cb79-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_date.isoweekday())</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>2024-06-19
+&lt;class &#39;datetime.date&#39;&gt;
+2024
+3</code></pre>
+<p><code>date</code> on siis konstruktori,
+jota kutsuttaessa annettiin vuosi, kuukausi ja päivä.
+Näin saatiin <code>date</code>-olio, johon liittyy monia attribuutteja ja metodeja:
+esim. tieto sen vuodesta ja metodi iso-formaatin viikonpäivän hakemiseen.</p>
+</div>
+</div>
+<div id="luokat" class="section level3">
+<h3>Luokat</h3>
+<p>Olioiden attribuutit ja metodit määritellään luokissa (class).
+Toisin sanottuna luokka on siis tapa määritellä omia tyyppejä.</p>
+<div id="luokan-syntaksi" class="section level4">
+<h4>Luokan syntaksi</h4>
+<p>Luokka määritellään avainsanalla <code>class</code>.
+Luokan sisällä on tyypillisesti konstruktori,
+eli <code>__init__</code>-metodi.
+Tätä metodia kutsutaan taustalla silloin kun luokasta luodaan uusi olio.
+Huomaa kuitenkin, että olio luodaan kutsumalla suoraan luokan nimeä,
+eli luodessa ei kirjoitetakkaan erikseen <code>Luokka.__init__()</code>.</p>
+<p>Myös luokan muut metodit määritellään sisennettynä <code>class</code>-lohkoon.
+Metodit määritellään muuten samalla tavalla kuin mikä vain funktio,
+mutta ensimmäiseksi parametriksi asetetaan <code>self</code>.
+<code>self</code>-muuttujalla päästään käsiksi
+luokan attribuutteihin ja metodeihin luokan määrittelyn sisällä.</p>
+<p>Luokkien nimeämisessä hyödynnetään hyvien tyylisääntöjen mukaisesti CamelCase-notaatiota,
+kun taas kaikessa muussa käytetään snake_case-notaatiota.</p>
+<p>Esimerkki luokan määrittelystä ja käytöstä:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb81-1"><a href="04_harjoitus_4.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyClass:  <span class="co"># nimetään luokka</span></span>
+<span id="cb81-2"><a href="04_harjoitus_4.html#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-3"><a href="04_harjoitus_4.html#cb81-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, parameter_1, parameter_2):  <span class="co"># konstruktori</span></span>
+<span id="cb81-4"><a href="04_harjoitus_4.html#cb81-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.attribute_1 <span class="op">=</span> parameter_1  <span class="co"># attribuuteja</span></span>
+<span id="cb81-5"><a href="04_harjoitus_4.html#cb81-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.attribute_2 <span class="op">=</span> parameter_2</span>
+<span id="cb81-6"><a href="04_harjoitus_4.html#cb81-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-7"><a href="04_harjoitus_4.html#cb81-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> method(<span class="va">self</span>, parameter):</span>
+<span id="cb81-8"><a href="04_harjoitus_4.html#cb81-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>attribute_1<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>parameter<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb81-9"><a href="04_harjoitus_4.html#cb81-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-10"><a href="04_harjoitus_4.html#cb81-10" aria-hidden="true" tabindex="-1"></a>my_object <span class="op">=</span> MyClass(<span class="dv">1</span>, <span class="st">&quot;b&quot;</span>)  <span class="co"># luodaan olio</span></span>
+<span id="cb81-11"><a href="04_harjoitus_4.html#cb81-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-12"><a href="04_harjoitus_4.html#cb81-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(my_object))</span>
+<span id="cb81-13"><a href="04_harjoitus_4.html#cb81-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_object.attribute_1)</span>
+<span id="cb81-14"><a href="04_harjoitus_4.html#cb81-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_object.attribute_2)</span>
+<span id="cb81-15"><a href="04_harjoitus_4.html#cb81-15" aria-hidden="true" tabindex="-1"></a>my_object.method(<span class="st">&quot;c&quot;</span>)</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>&lt;class &#39;__main__.MyClass&#39;&gt;
+1
+b
+1, c</code></pre>
+</div>
+<div id="luokkien-hyödyntäminen-ohjelmoinnissa" class="section level4">
+<h4>Luokkien hyödyntäminen ohjelmoinnissa</h4>
+<p>Luokilla voidaan mallintaa kokonaisuuksia,
+joiden tiedot ja toiminnallisuudet liittyvät loogisesti yhteen.</p>
+<p>Alla yksinkertainen esimerkki luokasta <code>Animal</code>:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb83-1"><a href="04_harjoitus_4.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Animal:</span>
+<span id="cb83-2"><a href="04_harjoitus_4.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="04_harjoitus_4.html#cb83-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, species, sound, name<span class="op">=</span><span class="st">&quot;Nimetön&quot;</span>):</span>
+<span id="cb83-4"><a href="04_harjoitus_4.html#cb83-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.species <span class="op">=</span> species</span>
+<span id="cb83-5"><a href="04_harjoitus_4.html#cb83-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sound <span class="op">=</span> sound</span>
+<span id="cb83-6"><a href="04_harjoitus_4.html#cb83-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb83-7"><a href="04_harjoitus_4.html#cb83-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-8"><a href="04_harjoitus_4.html#cb83-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> describe(<span class="va">self</span>):</span>
+<span id="cb83-9"><a href="04_harjoitus_4.html#cb83-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Nimi: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>name<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb83-10"><a href="04_harjoitus_4.html#cb83-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Laji: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>species<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb83-11"><a href="04_harjoitus_4.html#cb83-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-12"><a href="04_harjoitus_4.html#cb83-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> speak(<span class="va">self</span>):</span>
+<span id="cb83-13"><a href="04_harjoitus_4.html#cb83-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="va">self</span>.sound)</span>
+<span id="cb83-14"><a href="04_harjoitus_4.html#cb83-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-15"><a href="04_harjoitus_4.html#cb83-15" aria-hidden="true" tabindex="-1"></a>cat <span class="op">=</span> Animal(species<span class="op">=</span><span class="st">&quot;kissa&quot;</span>, sound<span class="op">=</span><span class="st">&quot;Miau!&quot;</span>)</span>
+<span id="cb83-16"><a href="04_harjoitus_4.html#cb83-16" aria-hidden="true" tabindex="-1"></a>dog <span class="op">=</span> Animal(species<span class="op">=</span><span class="st">&quot;koira&quot;</span>, sound<span class="op">=</span><span class="st">&quot;Vuh!&quot;</span>, name<span class="op">=</span><span class="st">&quot;Kerttu&quot;</span>)</span>
+<span id="cb83-17"><a href="04_harjoitus_4.html#cb83-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-18"><a href="04_harjoitus_4.html#cb83-18" aria-hidden="true" tabindex="-1"></a>cat.describe()</span>
+<span id="cb83-19"><a href="04_harjoitus_4.html#cb83-19" aria-hidden="true" tabindex="-1"></a>cat.speak()</span>
+<span id="cb83-20"><a href="04_harjoitus_4.html#cb83-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-21"><a href="04_harjoitus_4.html#cb83-21" aria-hidden="true" tabindex="-1"></a>dog.describe()</span>
+<span id="cb83-22"><a href="04_harjoitus_4.html#cb83-22" aria-hidden="true" tabindex="-1"></a>dog.speak()</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>Nimi: Nimetön
+Laji: kissa
+Miau!
+Nimi: Kerttu
+Laji: koira
+Vuh!</code></pre>
+<p>Alla edistyneempi esimerkki,
+jossa useampia luokkia käytetään yhdessä
+mallintamaan ostotapahtumaa kaupassa.
+Esimerkissä määritellään kolme luokkaa:
+tuote (<code>Item</code>), jolla on attribuutteina nimi ja hinta,
+asiakas (<code>Customer</code>),
+jolla on attribuutteina rahaa ja tuotteita sekä metodi maksamiseen,
+ja kassa (<code>Counter</code>), jossa on rahaa ja jolla on metodi
+maksun veloitukseen asiakkaalta.
+Lisäksi <code>Customer</code>- ja <code>Counter</code>-luokille
+on toteutettu <code>show_info</code>-metodi,
+jotta ohjelman suorituksen seuraaminen olisi helpompaa.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="04_harjoitus_4.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Määritellään luokat</span></span>
+<span id="cb85-2"><a href="04_harjoitus_4.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Item:</span>
+<span id="cb85-3"><a href="04_harjoitus_4.html#cb85-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-4"><a href="04_harjoitus_4.html#cb85-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, name, price):</span>
+<span id="cb85-5"><a href="04_harjoitus_4.html#cb85-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb85-6"><a href="04_harjoitus_4.html#cb85-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.price <span class="op">=</span> price</span>
+<span id="cb85-7"><a href="04_harjoitus_4.html#cb85-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-8"><a href="04_harjoitus_4.html#cb85-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-9"><a href="04_harjoitus_4.html#cb85-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Customer:</span>
+<span id="cb85-10"><a href="04_harjoitus_4.html#cb85-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-11"><a href="04_harjoitus_4.html#cb85-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, money):</span>
+<span id="cb85-12"><a href="04_harjoitus_4.html#cb85-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.money <span class="op">=</span> money</span>
+<span id="cb85-13"><a href="04_harjoitus_4.html#cb85-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.items <span class="op">=</span> []</span>
+<span id="cb85-14"><a href="04_harjoitus_4.html#cb85-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-15"><a href="04_harjoitus_4.html#cb85-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> add_item(<span class="va">self</span>, item):</span>
+<span id="cb85-16"><a href="04_harjoitus_4.html#cb85-16" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.items.append(item)</span>
+<span id="cb85-17"><a href="04_harjoitus_4.html#cb85-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-18"><a href="04_harjoitus_4.html#cb85-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> pay(<span class="va">self</span>, price):</span>
+<span id="cb85-19"><a href="04_harjoitus_4.html#cb85-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.money <span class="op">-=</span> price</span>
+<span id="cb85-20"><a href="04_harjoitus_4.html#cb85-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-21"><a href="04_harjoitus_4.html#cb85-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> show_info(<span class="va">self</span>):</span>
+<span id="cb85-22"><a href="04_harjoitus_4.html#cb85-22" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Customer items:&quot;</span>)</span>
+<span id="cb85-23"><a href="04_harjoitus_4.html#cb85-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> item <span class="kw">in</span> <span class="va">self</span>.items:</span>
+<span id="cb85-24"><a href="04_harjoitus_4.html#cb85-24" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{</span>item<span class="sc">.</span>name<span class="sc">}</span><span class="ss">, price: </span><span class="sc">{</span>item<span class="sc">.</span>price<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb85-25"><a href="04_harjoitus_4.html#cb85-25" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Customer money: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>money<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb85-26"><a href="04_harjoitus_4.html#cb85-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;----&quot;</span>)</span>
+<span id="cb85-27"><a href="04_harjoitus_4.html#cb85-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-28"><a href="04_harjoitus_4.html#cb85-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-29"><a href="04_harjoitus_4.html#cb85-29" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter:</span>
+<span id="cb85-30"><a href="04_harjoitus_4.html#cb85-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-31"><a href="04_harjoitus_4.html#cb85-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb85-32"><a href="04_harjoitus_4.html#cb85-32" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.money <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb85-33"><a href="04_harjoitus_4.html#cb85-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-34"><a href="04_harjoitus_4.html#cb85-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> make_purchase(<span class="va">self</span>, customer):</span>
+<span id="cb85-35"><a href="04_harjoitus_4.html#cb85-35" aria-hidden="true" tabindex="-1"></a>        total_price <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb85-36"><a href="04_harjoitus_4.html#cb85-36" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> item <span class="kw">in</span> customer.items:</span>
+<span id="cb85-37"><a href="04_harjoitus_4.html#cb85-37" aria-hidden="true" tabindex="-1"></a>            total_price <span class="op">+=</span> item.price</span>
+<span id="cb85-38"><a href="04_harjoitus_4.html#cb85-38" aria-hidden="true" tabindex="-1"></a>        customer.pay(total_price)</span>
+<span id="cb85-39"><a href="04_harjoitus_4.html#cb85-39" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.money <span class="op">+=</span> total_price</span>
+<span id="cb85-40"><a href="04_harjoitus_4.html#cb85-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-41"><a href="04_harjoitus_4.html#cb85-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> show_info(<span class="va">self</span>):</span>
+<span id="cb85-42"><a href="04_harjoitus_4.html#cb85-42" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Money in counter: </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>money<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb85-43"><a href="04_harjoitus_4.html#cb85-43" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;----&quot;</span>)</span>
+<span id="cb85-44"><a href="04_harjoitus_4.html#cb85-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-45"><a href="04_harjoitus_4.html#cb85-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-46"><a href="04_harjoitus_4.html#cb85-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Käytetään luokkia</span></span>
+<span id="cb85-47"><a href="04_harjoitus_4.html#cb85-47" aria-hidden="true" tabindex="-1"></a>banana <span class="op">=</span> Item(name<span class="op">=</span><span class="st">&quot;banana&quot;</span>, price<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb85-48"><a href="04_harjoitus_4.html#cb85-48" aria-hidden="true" tabindex="-1"></a>coffee <span class="op">=</span> Item(name<span class="op">=</span><span class="st">&quot;coffee&quot;</span>, price<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb85-49"><a href="04_harjoitus_4.html#cb85-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-50"><a href="04_harjoitus_4.html#cb85-50" aria-hidden="true" tabindex="-1"></a>customer <span class="op">=</span> Customer(money<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb85-51"><a href="04_harjoitus_4.html#cb85-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-52"><a href="04_harjoitus_4.html#cb85-52" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> Counter()</span>
+<span id="cb85-53"><a href="04_harjoitus_4.html#cb85-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-54"><a href="04_harjoitus_4.html#cb85-54" aria-hidden="true" tabindex="-1"></a>customer.show_info()</span>
+<span id="cb85-55"><a href="04_harjoitus_4.html#cb85-55" aria-hidden="true" tabindex="-1"></a>counter.show_info()</span>
+<span id="cb85-56"><a href="04_harjoitus_4.html#cb85-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-57"><a href="04_harjoitus_4.html#cb85-57" aria-hidden="true" tabindex="-1"></a>customer.add_item(item<span class="op">=</span>banana)</span>
+<span id="cb85-58"><a href="04_harjoitus_4.html#cb85-58" aria-hidden="true" tabindex="-1"></a>customer.add_item(item<span class="op">=</span>coffee)</span>
+<span id="cb85-59"><a href="04_harjoitus_4.html#cb85-59" aria-hidden="true" tabindex="-1"></a>customer.show_info()</span>
+<span id="cb85-60"><a href="04_harjoitus_4.html#cb85-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-61"><a href="04_harjoitus_4.html#cb85-61" aria-hidden="true" tabindex="-1"></a>counter.make_purchase(customer<span class="op">=</span>customer)</span>
+<span id="cb85-62"><a href="04_harjoitus_4.html#cb85-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-63"><a href="04_harjoitus_4.html#cb85-63" aria-hidden="true" tabindex="-1"></a>customer.show_info()</span>
+<span id="cb85-64"><a href="04_harjoitus_4.html#cb85-64" aria-hidden="true" tabindex="-1"></a>counter.show_info()</span></code></pre></div>
+</div>
+<p>Tulostaa:</p>
+<pre><code>Customer items:
+Customer money: 10
+----
+Money in counter: 100
+----
+Customer items:
+banana, price: 1
+coffee, price: 6
+Customer money: 10
+----
+Customer items:
+banana, price: 1
+coffee, price: 6
+Customer money: 3
+----
+Money in counter: 107
+----</code></pre>
+</div>
+</div>
+<div id="lisävinkkejä-konsolin-käyttöön" class="section level3">
+<h3>Lisävinkkejä konsolin käyttöön</h3>
+<ul>
+<li>Konsoli sopii hyvin myös esimerkiksi PyQGIS-olioiden ominaisuuksien tutkimiseen sekä testailuun, ja se tukee esimerkiksi PyQGIS-kirjastojen koodintäydennystä (code completion).</li>
+<li>Konsolissa voi myös suorittaa useammalle riville jatkuvia komentoja, kuten for-loopin. Konsoliin ilmestyy tällöin rivinvaihdon jälkeen kolme pistettä sen merkiksi, että se odottaa lisäkomentoja. Huomaa kuitenkin, että pisteet eivät vastaa Python-koodin sisennystä, vaan käyttäjän on huolehdittava tästä.</li>
+<li>Nuolinäppäimillä ylös- ja alaspäin pääsee siirtymään konsoliin syötettyjen komentojen historiassa.</li>
+<li>Konsolipaneeli aukeaa todennäköisesti karttaikkunan alapuolelle, mutta sen pystyy raahaamaan ja telakoimaan haluttaessa muuallekin QGISin käyttöliittymässä tai irrottamaan omaksi ikkunakseen.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="03_harjoitus_3.html"><button class="btn btn-default">Previous</button></a>
+<a href="05_harjoitus_5.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Lausekkeet ja PyQGIS</h5>
+<span class="footer-version">v2025-11-24</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="2. Security and user management | Advanced GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Mikael Vaaltola" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="2. Security and user management | Advanced GeoServer">
+
+<title>2. Security and user management | Advanced GeoServer</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Advanced GeoServer</h1></div>
+<div class="abstract-sidebar"><p>A course covering advanced GeoServer topics.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#advanced-geoserver">Advanced GeoServer</a>
+<ul>
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_env.html#training-environment">1. Training environment</a>
+<ul>
+<li><a href="01_env.html#tools">Useful tools to install</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_security.html#security-and-user-management">2. Security and user management</a>
+<ul>
+<li class="has-sub"><a href="02_security.html#exercise---layer-security">Exercise - layer security</a>
+<ul>
+<li><a href="02_security.html#permissions">Check default permissions</a></li>
+<li><a href="02_security.html#prevent-unauthenticated-access">Prevent unauthenticated access</a></li>
+<li><a href="02_security.html#verify-rules">Verify rules</a></li>
+</ul></li>
+<li><a href="02_security.html#extra-service-level-settings">Extra — service-level settings</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_raster.html#rasters">3. Optimising rasters</a>
+<ul>
+<li class="has-sub"><a href="03_raster.html#gdal">GDAL</a>
+<ul>
+<li><a href="03_raster.html#setup">Setup</a></li>
+<li><a href="03_raster.html#gdalinfo">gdalinfo</a></li>
+</ul></li>
+<li><a href="03_raster.html#exercise-optimising-raster-data-for-geoserver">Exercise — Optimising raster data for GeoServer</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_vector.html#vectors">4. Optimising vector data</a>
+<ul>
+<li class="has-sub"><a href="04_vector.html#exercise---postgis-and-geoserver">Exercise - PostGIS and GeoServer</a>
+<ul>
+<li><a href="04_vector.html#loading-data-into-postgis">Loading data into PostGIS</a></li>
+<li><a href="04_vector.html#indexing">Indexing</a></li>
+<li><a href="04_vector.html#publish-to-geoserver">Publish to GeoServer</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="05_styles.html#styles">5. Map styles</a>
+<ul>
+<li><a href="05_styles.html#choosing-a-style-format">Choosing a style format</a></li>
+<li><a href="05_styles.html#exercise-creating-styles">Exercise — creating styles</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_clustering.html#cluster">6. Clustering</a>
+<ul>
+<li><a href="06_clustering.html#containerisation">Containerisation</a></li>
+<li><a href="06_clustering.html#passive-cluster">Passive clustering</a></li>
+<li><a href="06_clustering.html#active-cluster">Active clustering</a></li>
+<li><a href="06_clustering.html#data-and-configuration-concerns">Data and configuration concerns</a></li>
+<li><a href="06_clustering.html#exercise---clustering">Exercise - clustering</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_rest.html#rest">7. GeoServer REST API</a>
+<ul>
+<li><a href="07_rest.html#using-apis">Using APIs</a></li>
+<li><a href="07_rest.html#exercise-rest-api">Exercise — REST API</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_extensions.html#extensions">8. Extensions</a>
+<ul>
+<li><a href="08_extensions.html#gs-tools">Useful tools</a></li>
+<li><a href="08_extensions.html#jmeter">Exercise - JMeter</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="security-and-user-management" class="section level1">
+<h1>2. Security and user management</h1>
+<p>GeoServer can be used to serve private information and spatial data to authenticated users.
+One of the key functions of GS Layer security is preventing unauthorized access to such data.</p>
+<p>A common measure to prevent accidental data leaks is to set up strict default security rules that block unauthenticated users from reading any data.
+Read access can then be explicitly granted to specific workspaces or layers.</p>
+<div id="exercise---layer-security" class="section level2">
+<h2>Exercise - layer security</h2>
+<p>This exercise focuses on securing data access in GS.</p>
+<div id="permissions" class="section level3">
+<h3>Check default permissions</h3>
+<p>Open a new incognito browser window (Ctrl+Shift+N in Chrome).
+This is an easy way to test the behaviour of GS as an unauthenticated user.</p>
+<p>Open the URL of your GS instance, and see if you can open the WMS GetCapabilities document.
+If you have QGIS or another desktop GIS installed, add the WMS as a data source without providing a username/password and add a layer.</p>
+<div class="figure">
+<img src="img/qgis-wms.png" alt="" />
+<p class="caption">QGIS WMS settings</p>
+</div>
+<p>Optional: after opening the Capabilities document, pick a layer and form a GetMap query following the <a href="https://docs.geoserver.org/latest/en/user/services/wms/reference.html">WMS reference</a> of GS documentation.
+Run the GetMap query from your web browser, you should see an image as a result.
+Here’s an example that works if your GS instance uses the default demo dataset:</p>
+<pre><code>On one line for copying:
+http://&lt;base-url&gt;/geoserver/ows?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetMap&amp;BBOX=24.95596700000000112,-124.7314220000000091,49.37173500000000104,-66.96984899999999641&amp;CRS=EPSG:4326&amp;WIDTH=1827&amp;HEIGHT=772&amp;LAYERS=topp%3Astates&amp;STYLES=&amp;FORMAT=image/png&amp;DPI=96&amp;MAP_RESOLUTION=96&amp;FORMAT_OPTIONS=dpi:96&amp;TRANSPARENT=TRUE
+
+Split to multiple lines for clarity:
+http://&lt;base-url&gt;/geoserver/ows?SERVICE=WMS
+&amp;VERSION=1.3.0
+&amp;REQUEST=GetMap
+&amp;BBOX=24.95596700000000112,-124.7314220000000091,49.37173500000000104,-66.96984899999999641
+&amp;CRS=EPSG:4326
+&amp;WIDTH=1827
+&amp;HEIGHT=772
+&amp;LAYERS=topp%3Astates
+&amp;STYLES=
+&amp;FORMAT=image/png
+&amp;DPI=96
+&amp;MAP_RESOLUTION=96
+&amp;FORMAT_OPTIONS=dpi:96
+&amp;TRANSPARENT=TRUE</code></pre>
+<div class="hint-box">
+<p><strong>Hint</strong>: if you have QGIS, an easy way to generate such queries is to use the Debugging/Development Tools panel.</p>
+</div>
+<p>Open the panel from the QGIS menu under View → Panels.
+Click the red “record” button in the panel to start recording queries.
+Next, add a WMS layer and pan or zoom around the map.
+You should see a list of queries made by QGIS in the Debugging/Development Tools panel:</p>
+<div class="figure">
+<img src="img/debugwms.png" alt="" />
+<p class="caption">Debugging/Development Tools panel</p>
+</div>
+<p>Right-click a query and select “Open URL” to open the query in a browser window, you should see an image.</p>
+</div>
+<div id="prevent-unauthenticated-access" class="section level3">
+<h3>Prevent unauthenticated access</h3>
+<p>Now it’s time to create strict default rules to prevent access to any workspace.</p>
+<p>Log in to GS, and follow the example in <a href="https://docs.geoserver.org/latest/en/user/security/layer.html#locking-down-geoserver">Locking down GeoServer</a>
+to secure every layer and workspace from unauthenticated users.
+After setting the default rules, select 2 or 3 layers that you want to make publicly available.
+Create or modify layer security rules to publish these layers.</p>
+</div>
+<div id="verify-rules" class="section level3">
+<h3>Verify rules</h3>
+<p>After setting layer security rules, it’s time to test if they work.
+Open another incognito browser window, open the URL of your GS instance, and try to open the WMS Capabilities document.
+Can you open the document, why?</p>
+<p>Try a GetMap query on one of the layers you decided <em>not</em> to publish.
+The easiest way to do this is to open QGIS, add the WMS as a data source and add the layer to the map.
+You should get an error message and not be able to see any image output.
+You can also run the GetMap query in your web browser.</p>
+<p>Try another GetMap query, this time on one of the layers you decided to make publicly available.
+This time you should get an image as a result.</p>
+<p>Finally, make an authenticated GetMap query.
+This is easiest to do using QGIS by modifying the WMS data source (or adding a new one), and adding a username and password.
+Then try to add a private layer to the map, you should see an output image.</p>
+</div>
+</div>
+<div id="extra-service-level-settings" class="section level2">
+<h2>Extra — service-level settings</h2>
+<p>Access can be granted not only to layers but also services, and even to only specific service requests.
+Try allowing public access to WMS, but prevent unauthenticated users from accessing the GetFeatureInfo request.</p>
+<div class="hint-box">
+<p><strong>Hint:</strong> create a new rule from Security → Services.</p>
+</div>
+<p>Like GetMap requests, the response format of GetFeatureInfo requests can also be defined using a parameter.
+GetFeatureInfo supports GML2, plain text, GeoJSON, and HTML responses.
+You can read more about the GetFeatureInfo request in the <a href="https://docs.geoserver.org/latest/en/user/services/wms/reference.html#getfeatureinfo">GeoServer documentation</a>.
+GeoServer also supports <a href="https://docs.geoserver.org/latest/en/user/tutorials/GetFeatureInfo/index.html">GetFeatureInfo templates</a> that can be used to customise the response HTML/GeoJSON document.</p>
+<p>An easy way to test if your new rule works is with QGIS.
+Add a WMS layer, select the blue “info” button in the top toolbar (Identify Features tool) and click on a feature on the map.
+You should see attributes of the clicked layer in a side panel.
+QGIS fetches this information using a GetFeatureInfo request — see the Debugging/Development Tools panel to see the request and verify.
+Configure GS so the request does not work without providing login credentials.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_env.html"><button class="btn btn-default">Previous</button></a>
+<a href="03_raster.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Advanced GeoServer</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

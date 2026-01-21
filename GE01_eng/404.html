@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Page not found | QGIS plugin development" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Page not found | QGIS plugin development">
+
+<title>Page not found | QGIS plugin development</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS plugin development</h1></div>
+<div class="abstract-sidebar"><p>Developing plugins for QGIS using Python</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-plugin-development">QGIS plugin development</a>
+<ul>
+<li><a href="index.html#welcome-to-the-course">Welcome to the course!</a></li>
+<li><a href="index.html#reading-guide">Reading Guide</a></li>
+<li><a href="index.html#additional-information">Additional information</a></li>
+<li><a href="index.html#mistakes">Mistakes</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_exercise_0.html#exercise-0-python-basics">Exercise 0: Python basics</a>
+<ul>
+<li><a href="00_exercise_0.html#preparations">Preparations</a></li>
+<li class="has-sub"><a href="00_exercise_0.html#the-basics">The basics</a>
+<ul>
+<li><a href="00_exercise_0.html#commands">Commands</a></li>
+<li><a href="00_exercise_0.html#comments">Comments</a></li>
+<li><a href="00_exercise_0.html#calculations">Calculations</a></li>
+<li><a href="00_exercise_0.html#variables">Variables</a></li>
+<li><a href="00_exercise_0.html#types">Types</a></li>
+<li><a href="00_exercise_0.html#conditionals">Conditionals</a></li>
+<li><a href="00_exercise_0.html#functions">Functions</a></li>
+<li><a href="00_exercise_0.html#data-structures">Data structures</a></li>
+<li><a href="00_exercise_0.html#loops-and-iteration">Loops and iteration</a></li>
+<li><a href="00_exercise_0.html#modules">Modules</a></li>
+<li><a href="00_exercise_0.html#objects">Objects</a></li>
+<li><a href="00_exercise_0.html#classes">Classes</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-python-console">Exercise 1: Python console</a>
+<ul>
+<li><a href="01_exercise_1.html#structure-of-the-exercises">Structure of the exercises</a></li>
+<li><a href="01_exercise_1.html#examples">Examples</a></li>
+<li><a href="01_exercise_1.html#exercises">Exercises</a></li>
+<li><a href="01_exercise_1.html#exercise-1.1">Exercise 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-introduction-to-pyqgis">Exercise 2: Introduction to PyQGIS</a>
+<ul>
+<li><a href="02_exercise_2.html#layers">Layers</a></li>
+<li><a href="02_exercise_2.html#exercise-2.1">Exercise 2.1</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2">Exercise 2.2</a></li>
+<li><a href="02_exercise_2.html#exercise-2.3">Exercise 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-layers-features-and-geometries">Exercise 3: Layers, features and geometries</a>
+<ul>
+<li><a href="03_exercise_3.html#layer">Layer</a></li>
+<li><a href="03_exercise_3.html#creating-a-temporary-layer">Creating a temporary layer</a></li>
+<li><a href="03_exercise_3.html#geometries">Geometries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.1">Exercise 3.1</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2-distances">Exercise 3.2: Distances</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-guis-with-qt">Exercise 4: GUIs with Qt</a>
+<ul>
+<li class="has-sub"><a href="04_exercise_4.html#about-qt-guis">About Qt GUIs</a>
+<ul>
+<li><a href="04_exercise_4.html#qwidget">QWidget</a></li>
+<li><a href="04_exercise_4.html#signals-and-slots">Signals and slots</a></li>
+</ul></li>
+<li><a href="04_exercise_4.html#exercise-4.1-counter-widget">Exercise 4.1: Counter-widget</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-qgis-custom-widgets">Exercise 4.2: QGIS custom widgets</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-creating-a-plugin">Exercise 5: Creating a plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#configuring-git">Configuring Git</a></li>
+<li><a href="05_exercise_5.html#creating-the-plugin">Creating the plugin</a></li>
+<li><a href="05_exercise_5.html#adding-the-plugin-to-qgis">Adding the plugin to QGIS</a></li>
+<li class="has-sub"><a href="05_exercise_5.html#structure-of-the-plugin">Structure of the plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#file-plugin.py">File: plugin.py</a></li>
+<li><a href="05_exercise_5.html#file-__init__.py">File: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-buffer-tool">Exercise 6: Buffer tool</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1-creating-the-gui">Exercise 6.1: Creating the GUI</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2-connecting-the-gui-to-the-plugin">Exercise 6.2: Connecting the GUI to the plugin</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3-the-functionality-of-the-tool">Exercise 6.3: The functionality of the tool</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4-segments">Exercise 6.4: Segments</a></li>
+<li><a href="06_exercise_6.html#unit-tests">Unit tests</a></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6.5-tests">Exercise 6.5: Tests</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.5.1-gui-test">Exercise 6.5.1: GUI test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.2-buffertool-test">Exercise 6.5.2: BufferTool test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.3-more-tests">Exercise 6.5.3: More tests</a></li>
+</ul></li>
+<li><a href="06_exercise_6.html#sample-plugin">Sample plugin</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-point-tool">Exercise 7: Point tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-panel">Exercise 7.1: Creating a panel</a></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7.2-point-tool">Exercise 7.2: Point Tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.2.1-extra-challenge---labeling">Exercise 7.2.1: Extra challenge - labeling</a></li>
+</ul></li>
+<li><a href="07_exercise_7.html#exercise-7.3-tests">Exercise 7.3: Tests</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-processing-algorithms">Exercise 8: Processing algorithms</a>
+<ul>
+<li class="has-sub"><a href="08_exercise_8.html#background">Background</a>
+<ul>
+<li><a href="08_exercise_8.html#calling-a-processing-algorithm">Calling a processing algorithm</a></li>
+</ul></li>
+<li><a href="08_exercise_8.html#algorithms-in-a-plugin">Algorithms in a plugin</a></li>
+<li><a href="08_exercise_8.html#exercise-8.1-writing-an-algorithm">Exercise 8.1: Writing an algorithm</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-tests-for-the-algorithm">Exercise 8.2: Tests for the algorithm</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#extra-python-exercises">Extra Python exercises</a>
+<ul>
+<li class="has-sub"><a href="09_extra_9.html#topic-1-comprehensions">Topic 1: Comprehensions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-1.1">Extra exercise 1.1</a></li>
+<li><a href="09_extra_9.html#nested-comprehensions">Nested comprehensions</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-2-lambda-functions">Topic 2: Lambda functions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-2.1">Extra exercise 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-3-decorators">Topic 3: Decorators</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercises-3.1">Extra exercises 3.1</a></li>
+<li><a href="09_extra_9.html#decorators-and-parameters">Decorators and parameters</a></li>
+<li><a href="09_extra_9.html#extra-exercise-3.2">Extra exercise 3.2</a></li>
+</ul></li>
+<li><a href="09_extra_9.html#topic-4-typing">Topic 4: Typing</a></li>
+<li><a href="09_extra_9.html#extra-exercises-4.1">Extra exercises 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
+</div>
+<p style="text-align: center;">
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS plugin development</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

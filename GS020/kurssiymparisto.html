@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Kurssiympäristö | Johdanto paikkatietoanalyyseihin Pythonilla" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Kurssiympäristö | Johdanto paikkatietoanalyyseihin Pythonilla">
+
+<title>Kurssiympäristö | Johdanto paikkatietoanalyyseihin Pythonilla</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Johdanto paikkatietoanalyyseihin Pythonilla</h1></div>
+<div class="abstract-sidebar"><p>Pythonin ohjelmointi-ja paikkatietoanalyysikurssi</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#näin-pääset-alkuun">Näin pääset alkuun</a>
+<ul>
+<li><a href="index.html#kurssimateriaalien-lataaminen">Kurssimateriaalien lataaminen</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="asennukset-windows.html#asennukset---windows">Asennukset - Windows</a>
+<ul>
+<li class="has-sub"><a href="asennukset-windows.html#conda">Conda</a>
+<ul>
+<li><a href="asennukset-windows.html#asennus-komentorivillä">Asennus komentorivillä</a></li>
+<li><a href="asennukset-windows.html#tarkista-toimiiko-asennus">Tarkista toimiiko asennus</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="kurssiymparisto.html#kurssiympäristö">Kurssiympäristö</a>
+<ul>
+<li><a href="kurssiymparisto.html#kurssihakemisto-ja-sen-lataaminen">Kurssihakemisto ja sen lataaminen</a></li>
+<li class="has-sub"><a href="kurssiymparisto.html#komentorivi-ja-kurssihakemistoon-navigointi-windows">Komentorivi ja kurssihakemistoon navigointi (windows)</a>
+<ul>
+<li><a href="kurssiymparisto.html#anaconda-prompt">Anaconda Prompt</a></li>
+<li><a href="kurssiymparisto.html#navigointi-kurssihakemistoon">Navigointi kurssihakemistoon</a></li>
+</ul></li>
+<li><a href="kurssiymparisto.html#kurssiympäristön-luominen">Kurssiympäristön luominen</a></li>
+<li><a href="kurssiymparisto.html#ohjelmoinnin-aloitus-jupyterlabissa">Ohjelmoinnin aloitus JupyterLabissa</a></li>
+<li><a href="kurssiymparisto.html#kurssiympäristön-käyttö-jatkossa">Kurssiympäristön käyttö jatkossa</a></li>
+<li class="has-sub"><a href="kurssiymparisto.html#condan-käyttö-jatkossa">Condan käyttö jatkossa</a>
+<ul>
+<li><a href="kurssiymparisto.html#ympäristöjen-hallinta">Ympäristöjen hallinta</a></li>
+<li><a href="kurssiymparisto.html#pakettien-hallinta">Pakettien hallinta</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="kurssiympäristö" class="section level1">
+<h1>Kurssiympäristö</h1>
+<div id="kurssihakemisto-ja-sen-lataaminen" class="section level2">
+<h2>Kurssihakemisto ja sen lataaminen</h2>
+<p>Lataa kurssimateriaali alla olevasta linkistä, ja pura <code>.zip</code>-tiedosto
+sellaiseen hakemistoon, jonne löydät myöhemmin.</p>
+<!-- TODO -->
+<p><a href="https://github.com/GispoCoding/python-gis-training/releases/download/default-release/python-gis-training.zip">Kurssimateriaali.zip</a></p>
+</div>
+<div id="komentorivi-ja-kurssihakemistoon-navigointi-windows" class="section level2">
+<h2>Komentorivi ja kurssihakemistoon navigointi (windows)</h2>
+<div id="anaconda-prompt" class="section level3">
+<h3>Anaconda Prompt</h3>
+<p>Kurssilla käytetään Python-pakettien sekä -ympäristöjen hallintaan
+komentorivikäyttöliittymää, tarkemmin sanottuna <strong>Anaconda
+Prompt</strong>-komentoriviä. Anaconda Promptin löydät Windowsilla esimerkiksi
+etsimällä sanalla “Anaconda”.</p>
+<p>Avaa nyt <strong>Anaconda Prompt</strong>. Avautuvassa ikkunassa näkyy teksti <code>(base)</code>, sekä
+tiedostopolku. <code>(base)</code> tarkoittaa sitä, että tällä hetkellä aktiivinen
+conda-<strong>ympäristö</strong> on nimeltään <code>base</code>, kun taas tiedostopolku näyttää polun
+siihen hakemistoon, jossa komentorivi on nyt aktiivinen. Kulloinkin aktiivisena
+olevaa hakemistoa kutsutaan <strong>työhakemistoksi</strong> (working directory), ja sitä
+voidaan muuttaa navigoimalla johonkin muuhun hakemistoon.</p>
+</div>
+<div id="navigointi-kurssihakemistoon" class="section level3">
+<h3>Navigointi kurssihakemistoon</h3>
+<p>Tällä kurssilla käytetään lähes pelkästään conda-komentoja, mutta ainakin kaksi
+muutakin komentoa kannattaa opetella: <code>dir</code> ja <code>cd</code>.</p>
+<ul>
+<li><code>dir</code>-komennolla voit listata työhakemiston tiedostot ja hakemistot.</li>
+<li><code>cd</code> (change directory) vaihtaa työhakemistoa komennolle argumenttina
+annettuun hakemistoon.</li>
+</ul>
+<p>Työhakemistolla (ja täten myös komentorivillä navigoinnilla) on merkitystä
+tilanteissa, joissa komentoja täytyy tai kannattaa suorittaa tietyssä
+hakemistossa. Python-ympäristön luonti tai kurssilla käytettävän
+<strong>JupyterLab</strong>-ohjelmointityökalun käynnistys ovat esimerkkejä tällaisista
+tilanteista.</p>
+<p>Navigoi siis kurssihakemistoon. Koska tiedät jo minne kurssihakemisto on
+tallennettu, voit siirtyä sinne seuraavalla komennolla (vaihda polku sinulle sopivaksi):</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="kurssiymparisto.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> C:<span class="dt">\u</span>ser<span class="dt">\g</span>ispolainen<span class="dt">\p</span>ython-gis-training</span></code></pre></div>
+</div>
+<p><em>Jos</em> <code>dir</code>-komento näyttää, että hakemiston sisällä on vielä yksi
+<code>python-gis-training</code>-niminen hakemisto, siirry vielä sinne:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="kurssiymparisto.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> python-gis-training</span></code></pre></div>
+</div>
+<div class="hint-box">
+<p>Psst! Jos tarvitset liikkua ylöspäin kansiorakenteessa niin käytä</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="kurssiymparisto.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ..</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="kurssiympäristön-luominen" class="section level2">
+<h2>Kurssiympäristön luominen</h2>
+<p>Kun olet päässyt kurssihakemistoon, voit luoda kurssin Python-ympäristön
+seuraavalla komennolla:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="kurssiymparisto.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> environment.yml <span class="at">--name</span> gis</span></code></pre></div>
+</div>
+<p><code>conda env create</code> -komennolla luodaan uusi conda-ympärisö. Huomaa ettemme
+erittele erikseen ympäristöön asennettavia paketteja, vaan conda lukee ne
+suoraan <code>--file</code>-vivulle parametrina annetusta <code>environment.yml</code>-tiedostosta.
+Tiedosto löytyy kurssihakemistosta, eli komento onnistuu kun se ajetaan oikeassa
+hakemistossa. Lisäksi kurssin Python-ympäristölle annetaan nimeksi <code>gis</code>
+käyttämällä <code>--name</code>-vipua.</p>
+<p>Komennon suorituksessa saattaa mennä hetki, kun useita paketteja ladataan. Kun
+ympäristö on valmis, komentorivillä pitäisi näkyä:</p>
+<div class="commandline-box">
+<pre><code>Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate gis
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate</code></pre>
+</div>
+</div>
+<div id="ohjelmoinnin-aloitus-jupyterlabissa" class="section level2">
+<h2>Ohjelmoinnin aloitus JupyterLabissa</h2>
+<p>Kun ympäristö on luotu, aktivoi se:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="kurssiymparisto.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate gis</span></code></pre></div>
+</div>
+<p>Nyt komentorivillä pitäisi työhakemiston edessä näkyä <code>(gis)</code>, eli aktiivinen
+conda-ympäristö on <code>gis</code>.</p>
+<p>Voit käynnistää JupyterLab-ohjelmointiympäristön seuraavalla komennolla (huomaa
+väli ja pienet kirjaimet):</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="kurssiymparisto.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code></pre></div>
+</div>
+<p>JupyterLabin pitäisi käynnistyä internet-selaimessa. Jos selainsivu ei aukea
+automaattisesti, kopioi komentorivi-ikkunassa näkyvä linkki selaimen
+URL-kenttään.</p>
+<p>Huomaat, että JupyterLabin käyttöliittymä aukesi kurssihakemistoosi. Tämä johtuu
+siitä, että ajoit <code>jupyter lab</code> -komennon kurssihakemistossa. Kannattaa siis
+aina käynnistää JupyterLab ajamalla <code>jupyter lab</code> siinä hakemistossa, jossa aiot
+myös työskennellä.</p>
+</div>
+<div id="kurssiympäristön-käyttö-jatkossa" class="section level2">
+<h2>Kurssiympäristön käyttö jatkossa</h2>
+<p>Kun haluat palata käyttämään mitä vain aiemmin luomaasi conda-ympäristöä
+(esimerkiksi kurssiympäristöä), askeleet ovat varsin yksinkertaiset:</p>
+<ol style="list-style-type: decimal">
+<li>Navigoi komentorivillä hakemistoon jossa työskentelet (windowsilla käytä
+komentorivinä <strong>Anaconda Promptia</strong>)</li>
+<li>Aktivoi haluamasi ympäristö <code>conda activate</code> -komennolla (anna ympäristön
+nimi argumenttina, esim <code>conda activate gis</code>)</li>
+<li>Kurssiympäristön tapauksessa aja komento <code>jupyter lab</code></li>
+</ol>
+</div>
+<div id="condan-käyttö-jatkossa" class="section level2">
+<h2>Condan käyttö jatkossa</h2>
+<p>Tässä vielä muutama esimerkki hyödyllisistä conda-komennoista.</p>
+<p>Tämä materiaali ei edes yritä kattaa kaikkia condan tominnallisuuksia.
+Lisätietoa löydät monestakin paikasta googlaamalla, mutta hyvä paikka aloittaa
+on
+<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html#">condan dokumentaatio</a>.
+Kokeile myös ajaa komentorivillä:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="kurssiymparisto.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> <span class="at">--help</span></span></code></pre></div>
+</div>
+<div id="ympäristöjen-hallinta" class="section level3">
+<h3>Ympäristöjen hallinta</h3>
+<p>Uuden tyhjän ympäristön luonti:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="kurssiymparisto.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> <span class="op">&lt;</span>ympäriston nimi<span class="op">&gt;</span></span></code></pre></div>
+</div>
+<p>Ympäristön luonti tiedostosta:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="kurssiymparisto.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">--file</span> <span class="op">&lt;</span>tiedostopolku<span class="op">&gt;</span></span></code></pre></div>
+</div>
+<p>Ympäristön aktivointi:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="kurssiymparisto.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate <span class="op">&lt;</span>ympäristön nimi<span class="op">&gt;</span></span></code></pre></div>
+</div>
+<p>Aktiivisen ympäristön deaktivointi:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="kurssiymparisto.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> deactivate</span></code></pre></div>
+</div>
+<p>Olemassaolevien ympäristöjen listaus:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="kurssiymparisto.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env list</span></code></pre></div>
+</div>
+<p>Ympäristön poisto:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="kurssiymparisto.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env remove <span class="at">-n</span> <span class="op">&lt;</span>ympäristön nimi<span class="op">&gt;</span></span></code></pre></div>
+</div>
+</div>
+<div id="pakettien-hallinta" class="section level3">
+<h3>Pakettien hallinta</h3>
+<p>Paketin asennus aktiiviseen ympäristöön:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="kurssiymparisto.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge <span class="op">&lt;</span>paketin nimi<span class="op">&gt;</span></span></code></pre></div>
+</div>
+<p>Huomaa yllä valinta <code>-c conda-forge</code>! Tällä määritellään mistä kanavasta
+(channel) paketti ladataan. Conda-forge on lähes aina suositeltavin vaihtoehto.</p>
+<p>Voit myös määritellä tarkan version, kun asennat pakettia. Samalla komennolla
+voit myös muuttaa jo asennetun paketin versiota. Esimerkiksi paketin jupyterlab
+version 4.3.0 asentaminen:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="kurssiymparisto.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install <span class="at">-c</span> conda-forge jupyterlab=4.3.0</span></code></pre></div>
+</div>
+<p>Paketin poisto aktiivisesta ympäristöstä:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="kurssiymparisto.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> remove <span class="op">&lt;</span>paketin nimi<span class="op">&gt;</span></span></code></pre></div>
+</div>
+
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="asennukset-windows.html"><button class="btn btn-default">Previous</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Johdanto paikkatietoanalyyseihin Pythonilla</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

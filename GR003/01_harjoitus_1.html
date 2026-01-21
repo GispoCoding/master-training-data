@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 1: QGISin perustoiminnot | Porvoon QGIS -jatkokoulutus" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 1: QGISin perustoiminnot | Porvoon QGIS -jatkokoulutus">
+
+<title>Harjoitus 1: QGISin perustoiminnot | Porvoon QGIS -jatkokoulutus</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Porvoon QGIS -jatkokoulutus</h1></div>
+<div class="abstract-sidebar"><p>Porvoon kaupungille räätälöity QGISin jatkokoulutus</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#porvoon-qgis--jatkokoulutus">Porvoon QGIS -jatkokoulutus</a>
+<ul>
+<li><a href="index.html#kurssimateriaalien-lataaminen">Kurssimateriaalien lataaminen</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-perustoiminnot">Harjoitus 1: QGISin perustoiminnot</a>
+<ul>
+<li><a href="01_harjoitus_1.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="01_harjoitus_1.html#mapinfon-tiedostot-qgisiin">MapInfon tiedostot QGISiin</a></li>
+<li><a href="01_harjoitus_1.html#aineistomuunnos-tai-uuden-aineiston-tallentaminen">Aineistomuunnos tai uuden aineiston tallentaminen</a></li>
+<li><a href="01_harjoitus_1.html#väliaikainen-luonnostaso">Väliaikainen luonnostaso</a></li>
+<li><a href="01_harjoitus_1.html#selain-paneelin-käyttö">Selain-paneelin käyttö</a></li>
+<li><a href="01_harjoitus_1.html#kuvaustekniikan-tallentaminen">Kuvaustekniikan tallentaminen</a></li>
+<li><a href="01_harjoitus_1.html#projektin-tallentaminen-geopackageen">Projektin tallentaminen GeoPackageen</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-teemakartta">Harjoitus 2: Teemakartta</a>
+<ul>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-1-poista-rajalla-olevat-postinumeroalueet">Lisätehtävä 1: Poista rajalla olevat postinumeroalueet</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-2-lisää-nimiöt">Lisätehtävä 2: Lisää nimiöt</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-digitointi">Harjoitus 3: Digitointi</a>
+<ul>
+<li><a href="03_harjoitus_3.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#uusi-taso-ja-digitoinnin-perustyökalut">Uusi taso ja digitoinnin perustyökalut</a></li>
+<li><a href="03_harjoitus_3.html#tarttuminen">Tarttuminen</a></li>
+<li><a href="03_harjoitus_3.html#lisätyökalut-apuun">Lisätyökalut apuun</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-1-kokeile-työkaluja-rohkeast">Lisätehtävä 1: Kokeile työkaluja rohkeast</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-2-testaa-rakentamistila">Lisätehtävä 2: Testaa rakentamistila</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-3-lisää-rakennukset-tasolle-funktio-jolla-pinta-ala-tieto-päivittyy-automaattisesti">Lisätehtävä 3: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-karttatuloste">Harjoitus 4: Karttatuloste</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-tutustu-qgisin-kartta-atlakseen">Lisätehtävä: Tutustu QGISin kartta-atlakseen</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-1-qgisin-perustoiminnot" class="section level1">
+<h1>Harjoitus 1: QGISin perustoiminnot</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tehdään QGISin perustoimintoja, kuten aineistojen tallentaminen, konvertointi, koordinaattijärjestelmän muunnokset.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa käyttämään QGISin perustoimintoja.</p>
+<div id="valmistautuminen" class="section level2">
+<h2>Valmistautuminen</h2>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä “<strong>QGIS-harjoitus 1</strong>”.</p>
+</div>
+<div id="mapinfon-tiedostot-qgisiin" class="section level2">
+<h2>MapInfon tiedostot QGISiin</h2>
+<p>QGIS tukee kaikki keskeisimmät paikkatietoformaatit. Myös MapInfon tiedostoja voidaan helposti avata QGISissä. Yksinkertaisin tapa tuoda .tab, .mif ja .mid-tiedostoja QGISiin on vetää ne QGIS-ohjelmiston karttaikkunaan. Voit myös tehdä sen valikon kautta: <strong>Tasot -&gt; Lisää tasot -&gt; Lisää vekoritaso</strong>. Etsi oikea tiedosto ja paina <strong>OK</strong>. Huomioi, että esimerkiksi MapInfon .tab tiedoston kyljessä on muutama muu tiedosto (.ID, .MAP, .DAT) jotka pitää pysyä aina samassa paikassa .tab tiedoston kanssa. Muuten aineisto ei toimi oikealla tavalla.</p>
+<p>Tähän “monta tiedostoa samalle aineistolle”-rumbaan löytyy ratkaisu: GeoPackage. QGISin oletusformaatti GeoPackge on kuin pieni paikallinen tietokanta omana tiedostona, mihin voi tallentaa monta eri tasoa, tyylejä sekä jopa QGISin projektia. Tällä tavalla voit esimerkiksi näppärästi siirtää kaikki tarvittavat tasot oikeilla tyyleillä kolleegalle. Lähettämällä pelkän .gpkg-tiedoston vaikkapa sähköpostitse.</p>
+<p>Ensin tarvitaan taustakartta. Valitse Selain-paneelista XYZ-tiles ja tuplaklikkaa “OpenStreetMap”-yhteyttä. Siirry Porvoon alueelle. Projektin koordinaattijärjestelmäksi suositellaan tässä tapauksessa Porvoolle sopivaa EPSG:3880. Painamalla alaoikealla olevaa EPSG-koodia voit vaihtaa kyseisen projektin koordinaattijärjestelmää. Valitse tähän EPSG:3880. Paina <strong>OK</strong>.</p>
+<p><img src="img/harjoitus_1/image6.png" /></p>
+<p>Lisätään tässä vaiheessa QGIS-projektiin uutta aineistoa. Etsi kurssihakemistosta **mastot.tab* ja lisää se QGIS-projektiin. Aineisto pitäisi asettua oikeille paikolle. Aineisto sisältää Porvoon keskustan alueen mastoja (Maanmittauslaitoksen maastotietokannan mukaan). Haluamme nyt tehdä muunnoksen .tab formaatista .gpkg formaattiin. Helpoin tapa on silloin vaan tallentaa tasoa uudestaan, ja valitsemalla oikea tiedostoformaatti.</p>
+</div>
+<div id="aineistomuunnos-tai-uuden-aineiston-tallentaminen" class="section level2">
+<h2>Aineistomuunnos tai uuden aineiston tallentaminen</h2>
+<p>Eli aloita klikkamalla oikealla mastot-tasoa “Tasot”-paneelissa. Valitse <strong>Vie -&gt; Tallenna kohteet nimellä</strong>. Vaihda tiedostomuoto GeoPackageksi ja pienestä napista, missä on kolme pistettä niin valitset itsellesi järkevän paikan tiedostolle. Voit nimetä tiedoston esimerkiksi näin “harjoitus 1 data”. Tämä on siis nyt tämän harjoituksen GeoPackage-tiedosto ja tähän tallennetaan usempi taso (Huomaa, että logiikka MapInfon tiedostomuotoja verratuna on hiukan erilainen). Ensimmäisen tason nimi voi olla <strong>mastot</strong>. Koordinaattijärjestelmäksi valitaan EPSG:3880, pienen maapallo-napin takaa. Huomaat ehkä, että pieni varoituskolmio ilmenee. Jos pidät hiiren kolmion päällä, niin QGIS kertoo, että tämän koordinaattijärjestelmän tarkkuus on parhaimmillaan 0,1 metriä. Eli meidän tapauksessa tästä ei tarvitse huolehtia. Paina <strong>OK</strong>. Hienoa! Olet nyt muuntanut .tab tiedoston .gpkg-muotoon.</p>
+<p><img src="img/harjoitus_1/image1.png" /></p>
+</div>
+<div id="väliaikainen-luonnostaso" class="section level2">
+<h2>Väliaikainen luonnostaso</h2>
+<p>Luodaan seuraavaksi uusi väliaikainen luonnostaso joka sitten tallennetaan samaan GeoPackage-tiedostoon. Valitse <strong>Luo uusi väliaikainen luonnostaso</strong> <img src="img/harjoitus_1/image2.png" /></p>
+<div class="hint-box">
+<p>Psst! Väliaikaiset luonnostasot eivät tallennu omaksi tiedostoksi. Eli jos suljet tämän QGIS-projektin, niin väliaiksen luonnostason kohteet ovat hävinneet. Väliaikaiset luonnostasot ovat näppäriä silloin, kun tiedetään, että siitä ei ole tulossa omaa lopputuotosta, vaan ne ovat nimensä mukaisesti väliaikaisia luonnoksia.</p>
+</div>
+<p>Anna uudelle tasolle nimen “sillat”. Geometriatyyppi on LineString ja koordinattijärjestelmä sama kuin aiemmin. Voit lisätä uuden kentän jonka nimi on “nimi” ja tyyppi on Teksti. Lisää myös kenttä nimeltään “pituus” ja jonka tyyppi on Desimaaliluku.</p>
+<p><img src="img/harjoitus_1/image3.png" /></p>
+<p>Uusi väliaikainen luonnostaso näkyy nyt Tasot-paneelissa. Erotat tason pysyvistä tasoita pienen “ötökän” näköisestä symbolista.</p>
+<p><img src="img/harjoitus_1/image4.png" /></p>
+<p>Lisää yksi silta painamalla <img src="img/harjoitus_1/image5.png" />-symbolia ja vedä tämän jälkeen viiva kartalla. Painamalla hiiren oikeaa näppäintä lopetat uuden viivan piirtämistä ja pieni ikkuna avautuu, mihin voit kirjoittaa nimen ja pituuden. Voit myös jättää tiedot tyhjiksi. Tallenna väliaikaisen luonnostason uusi silta ja siirry pois tason editointitilasta painamalla kynä-symbolia. Klikkaa nyt hiiren oikealla samaa tasoa ja valitse “Tee pysyväksi”. Valitse tiedostonimeksi edellinen tiedosto ja anna tason nimeksi “sillat”. Paina <strong>OK</strong>. Hienoa! Nyt sinulla on jo kaksi tasoa samassa GeoPackage-tiedostossa.</p>
+<p><img src="img/harjoitus_1/image7.png" /></p>
+</div>
+<div id="selain-paneelin-käyttö" class="section level2">
+<h2>Selain-paneelin käyttö</h2>
+<p>Aineistoja voi lisätä QGISiin monella tavalla. Yksi hyvä tapa saada yleiskuvaa GeoPackagen sisällöstä on Selain-paneelin kautta. Tätä kautta pääset helposti näkemään omia tiedostojasi. Jos sinulla on esimerkiksi oma kansio tietylle aineistolle voit myös tallentaa sen suosikiksi. Alla olevassa videossa näet, miten voit lisätä kansion suosikkeihin jotta siihen on helpompi pääsy ja myös miten nopean yhteyden GeoPackage-tiedstoon luodaan.</p>
+<p><img src="img/harjoitus_1/image8.gif" /></p>
+</div>
+<div id="kuvaustekniikan-tallentaminen" class="section level2">
+<h2>Kuvaustekniikan tallentaminen</h2>
+<p>Muistatko vielä miten kuvaustekniikkaa voi muuttaa? Tasot paneelista valitset “Avaa tason tyylit-paneeli”. Vasemmalla näkyy nyt tason kuvaustekniikka. Kokeile lisätä sillan viivalle paksuutta ja vaihtaa sen väriä.</p>
+<p><img src="img/harjoitus_1/image8.png" /></p>
+<p>Kun olet tyytyväinen visualisointiin voit tallentaa sen. Kuvaustekniikat tallenntuu aina QGISin projektin mukana, eli usein ei ole tarpeen tallentaa kuvaustekniikkaa erikseen, jos käyttää samaa projektia. Jos olet lähettämässä aineiston kolleegalle, eli GeoPackage-tiedoston niin voit tallentaa kuvaustekniikan GeoPackage-tiedostoon.</p>
+<p>Klikkaa oikealla “Sillat”-tasoa ja valitse <strong>Vie</strong> ja <strong>Tallenna QGIS tason tyylitiedosto</strong>. Valitse tallennustapa “In datasource database”, anna tyylille nimi sekä valitse, että tyyli on oletuksena (kuva alla).</p>
+<p><img src="img/harjoitus_1/image9.png" /></p>
+<p>Jos haluat varmistaa, että kuvaustekniikka on pysynyt mukana voit esimerkiksi avata uuden tyhjän QGIS-projektin ja tuoda sillat-taso siihen. Jos kaikki näyttää hyvältä voisit esimerkiksi lähettää .gpkg-tiedoston eteenpäin ja vastaanottajalla olisi täsmälleen samanlainen kuvaustekniikka.</p>
+</div>
+<div id="projektin-tallentaminen-geopackageen" class="section level2">
+<h2>Projektin tallentaminen GeoPackageen</h2>
+<p>Joskus on tarvetta jakaa kokonainen projekti kollegan kanssa. Silloin koko projektin voi tallentaa samaan GeoPackage-tiedostoon aineistojen kanssa. Voidaan kokeilla sitä nyt. Mene ylävalikkon “Projekti” ja valitse sieltä <strong>Tallenna tiedostoon</strong> ja <strong>GeoPackage…</strong>. Uudessa ikkunassa valitset “Harjoitus 1 data”-tiedoston. Anna nimeksi vaikkapa “harjoitusprojekti” ja paina <strong>OK</strong>. Nyt projektikin on tallentunut GeoPackage-tiedostoon. Nyt avata uuden tyhjän projektin ja kokeilla avata projekti GeoPackage-tiedostosta. Eli <strong>Projekti -&gt; Avaa kohteet -&gt; GeoPackage…</strong></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="index.html"><button class="btn btn-default">Previous</button></a>
+<a href="02_harjoitus_2.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Porvoon QGIS -jatkokoulutus</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

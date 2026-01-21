@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Exercise 3: Layers, features and geometries | QGIS plugin development" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Exercise 3: Layers, features and geometries | QGIS plugin development">
+
+<title>Exercise 3: Layers, features and geometries | QGIS plugin development</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS plugin development</h1></div>
+<div class="abstract-sidebar"><p>Developing plugins for QGIS using Python</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-plugin-development">QGIS plugin development</a>
+<ul>
+<li><a href="index.html#welcome-to-the-course">Welcome to the course!</a></li>
+<li><a href="index.html#reading-guide">Reading Guide</a></li>
+<li><a href="index.html#additional-information">Additional information</a></li>
+<li><a href="index.html#mistakes">Mistakes</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_exercise_0.html#exercise-0-python-basics">Exercise 0: Python basics</a>
+<ul>
+<li><a href="00_exercise_0.html#preparations">Preparations</a></li>
+<li class="has-sub"><a href="00_exercise_0.html#the-basics">The basics</a>
+<ul>
+<li><a href="00_exercise_0.html#commands">Commands</a></li>
+<li><a href="00_exercise_0.html#comments">Comments</a></li>
+<li><a href="00_exercise_0.html#calculations">Calculations</a></li>
+<li><a href="00_exercise_0.html#variables">Variables</a></li>
+<li><a href="00_exercise_0.html#types">Types</a></li>
+<li><a href="00_exercise_0.html#conditionals">Conditionals</a></li>
+<li><a href="00_exercise_0.html#functions">Functions</a></li>
+<li><a href="00_exercise_0.html#data-structures">Data structures</a></li>
+<li><a href="00_exercise_0.html#loops-and-iteration">Loops and iteration</a></li>
+<li><a href="00_exercise_0.html#modules">Modules</a></li>
+<li><a href="00_exercise_0.html#objects">Objects</a></li>
+<li><a href="00_exercise_0.html#classes">Classes</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-python-console">Exercise 1: Python console</a>
+<ul>
+<li><a href="01_exercise_1.html#structure-of-the-exercises">Structure of the exercises</a></li>
+<li><a href="01_exercise_1.html#examples">Examples</a></li>
+<li><a href="01_exercise_1.html#exercises">Exercises</a></li>
+<li><a href="01_exercise_1.html#exercise-1.1">Exercise 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-introduction-to-pyqgis">Exercise 2: Introduction to PyQGIS</a>
+<ul>
+<li><a href="02_exercise_2.html#layers">Layers</a></li>
+<li><a href="02_exercise_2.html#exercise-2.1">Exercise 2.1</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2">Exercise 2.2</a></li>
+<li><a href="02_exercise_2.html#exercise-2.3">Exercise 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-layers-features-and-geometries">Exercise 3: Layers, features and geometries</a>
+<ul>
+<li><a href="03_exercise_3.html#layer">Layer</a></li>
+<li><a href="03_exercise_3.html#creating-a-temporary-layer">Creating a temporary layer</a></li>
+<li><a href="03_exercise_3.html#geometries">Geometries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.1">Exercise 3.1</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2-distances">Exercise 3.2: Distances</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-guis-with-qt">Exercise 4: GUIs with Qt</a>
+<ul>
+<li class="has-sub"><a href="04_exercise_4.html#about-qt-guis">About Qt GUIs</a>
+<ul>
+<li><a href="04_exercise_4.html#qwidget">QWidget</a></li>
+<li><a href="04_exercise_4.html#signals-and-slots">Signals and slots</a></li>
+</ul></li>
+<li><a href="04_exercise_4.html#exercise-4.1-counter-widget">Exercise 4.1: Counter-widget</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-qgis-custom-widgets">Exercise 4.2: QGIS custom widgets</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-creating-a-plugin">Exercise 5: Creating a plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#configuring-git">Configuring Git</a></li>
+<li><a href="05_exercise_5.html#creating-the-plugin">Creating the plugin</a></li>
+<li><a href="05_exercise_5.html#adding-the-plugin-to-qgis">Adding the plugin to QGIS</a></li>
+<li class="has-sub"><a href="05_exercise_5.html#structure-of-the-plugin">Structure of the plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#file-plugin.py">File: plugin.py</a></li>
+<li><a href="05_exercise_5.html#file-__init__.py">File: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-buffer-tool">Exercise 6: Buffer tool</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1-creating-the-gui">Exercise 6.1: Creating the GUI</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2-connecting-the-gui-to-the-plugin">Exercise 6.2: Connecting the GUI to the plugin</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3-the-functionality-of-the-tool">Exercise 6.3: The functionality of the tool</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4-segments">Exercise 6.4: Segments</a></li>
+<li><a href="06_exercise_6.html#unit-tests">Unit tests</a></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6.5-tests">Exercise 6.5: Tests</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.5.1-gui-test">Exercise 6.5.1: GUI test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.2-buffertool-test">Exercise 6.5.2: BufferTool test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.3-more-tests">Exercise 6.5.3: More tests</a></li>
+</ul></li>
+<li><a href="06_exercise_6.html#sample-plugin">Sample plugin</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-point-tool">Exercise 7: Point tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-panel">Exercise 7.1: Creating a panel</a></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7.2-point-tool">Exercise 7.2: Point Tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.2.1-extra-challenge---labeling">Exercise 7.2.1: Extra challenge - labeling</a></li>
+</ul></li>
+<li><a href="07_exercise_7.html#exercise-7.3-tests">Exercise 7.3: Tests</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-processing-algorithms">Exercise 8: Processing algorithms</a>
+<ul>
+<li class="has-sub"><a href="08_exercise_8.html#background">Background</a>
+<ul>
+<li><a href="08_exercise_8.html#calling-a-processing-algorithm">Calling a processing algorithm</a></li>
+</ul></li>
+<li><a href="08_exercise_8.html#algorithms-in-a-plugin">Algorithms in a plugin</a></li>
+<li><a href="08_exercise_8.html#exercise-8.1-writing-an-algorithm">Exercise 8.1: Writing an algorithm</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-tests-for-the-algorithm">Exercise 8.2: Tests for the algorithm</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#extra-python-exercises">Extra Python exercises</a>
+<ul>
+<li class="has-sub"><a href="09_extra_9.html#topic-1-comprehensions">Topic 1: Comprehensions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-1.1">Extra exercise 1.1</a></li>
+<li><a href="09_extra_9.html#nested-comprehensions">Nested comprehensions</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-2-lambda-functions">Topic 2: Lambda functions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-2.1">Extra exercise 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-3-decorators">Topic 3: Decorators</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercises-3.1">Extra exercises 3.1</a></li>
+<li><a href="09_extra_9.html#decorators-and-parameters">Decorators and parameters</a></li>
+<li><a href="09_extra_9.html#extra-exercise-3.2">Extra exercise 3.2</a></li>
+</ul></li>
+<li><a href="09_extra_9.html#topic-4-typing">Topic 4: Typing</a></li>
+<li><a href="09_extra_9.html#extra-exercises-4.1">Extra exercises 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-3-layers-features-and-geometries" class="section level1">
+<h1>Exercise 3: Layers, features and geometries</h1>
+<p><strong>Contents:</strong> Creating and editing QGIS layers.</p>
+<p><strong>Goal:</strong> Learn how to process layers using PyQGIS in more detail.</p>
+<div id="layer" class="section level2">
+<h2>Layer</h2>
+<p>In QGIS a <strong>QgsVectorLayer</strong> class contains <strong>features</strong> which are
+of the <a href="https://qgis.org/pyqgis/latest/core/QgsFeature.html"><strong>QgsFeature</strong></a>
+type. A feature then (typically) has a geometry which is of the
+<a href="https://qgis.org/pyqgis/latest/core/QgsGeometry.html"><strong>QgsGeometry</strong></a>
+type.</p>
+<p>Vector layers and features also have a <strong>QgsFields</strong> object, which
+describes the attribute fields the layer has. This type itself
+consists of <strong>QgsField</strong> objects which contain the name
+of the field and its data type etc.</p>
+</div>
+<div id="creating-a-temporary-layer" class="section level2">
+<h2>Creating a temporary layer</h2>
+<p>You can create a temporary layer like this:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb95-1"><a href="03_exercise_3.html#cb95-1" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:4326&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb95-2"><a href="03_exercise_3.html#cb95-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb95-3"><a href="03_exercise_3.html#cb95-3" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+<p>In this case the layer is empty. Let’s create a layer that has
+attribute fields. You can delete the layer that was added
+to the QGIS project in the step prior.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="03_exercise_3.html#cb96-1" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:4326&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb96-2"><a href="03_exercise_3.html#cb96-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-3"><a href="03_exercise_3.html#cb96-3" aria-hidden="true" tabindex="-1"></a><span class="co"># because we&#39;re editing the layer we have to turn</span></span>
+<span id="cb96-4"><a href="03_exercise_3.html#cb96-4" aria-hidden="true" tabindex="-1"></a><span class="co"># editing on</span></span>
+<span id="cb96-5"><a href="03_exercise_3.html#cb96-5" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb96-6"><a href="03_exercise_3.html#cb96-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-7"><a href="03_exercise_3.html#cb96-7" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb96-8"><a href="03_exercise_3.html#cb96-8" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;name&quot;</span>, QVariant.String))</span>
+<span id="cb96-9"><a href="03_exercise_3.html#cb96-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-10"><a href="03_exercise_3.html#cb96-10" aria-hidden="true" tabindex="-1"></a><span class="co"># you also have to save the changes</span></span>
+<span id="cb96-11"><a href="03_exercise_3.html#cb96-11" aria-hidden="true" tabindex="-1"></a>new_layer.commitChanges()</span>
+<span id="cb96-12"><a href="03_exercise_3.html#cb96-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-13"><a href="03_exercise_3.html#cb96-13" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+<p>Now the layer has two fields, but zero features. Let’s
+add a point feature to the layer.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb97-1"><a href="03_exercise_3.html#cb97-1" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:4326&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb97-2"><a href="03_exercise_3.html#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="03_exercise_3.html#cb97-3" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb97-4"><a href="03_exercise_3.html#cb97-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-5"><a href="03_exercise_3.html#cb97-5" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb97-6"><a href="03_exercise_3.html#cb97-6" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;name&quot;</span>, QVariant.String))</span>
+<span id="cb97-7"><a href="03_exercise_3.html#cb97-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-8"><a href="03_exercise_3.html#cb97-8" aria-hidden="true" tabindex="-1"></a>new_feature <span class="op">=</span> QgsFeature(new_layer.fields())</span>
+<span id="cb97-9"><a href="03_exercise_3.html#cb97-9" aria-hidden="true" tabindex="-1"></a>new_feature.setAttributes([<span class="dv">1</span>, <span class="st">&quot;point&quot;</span>]) <span class="co"># note that the argument here is a list</span></span>
+<span id="cb97-10"><a href="03_exercise_3.html#cb97-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-11"><a href="03_exercise_3.html#cb97-11" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s create a geometry for the feature</span></span>
+<span id="cb97-12"><a href="03_exercise_3.html#cb97-12" aria-hidden="true" tabindex="-1"></a><span class="co"># since this is a point layer we can create</span></span>
+<span id="cb97-13"><a href="03_exercise_3.html#cb97-13" aria-hidden="true" tabindex="-1"></a><span class="co"># a QgsPoint object directly</span></span>
+<span id="cb97-14"><a href="03_exercise_3.html#cb97-14" aria-hidden="true" tabindex="-1"></a>new_geom <span class="op">=</span> QgsPoint(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb97-15"><a href="03_exercise_3.html#cb97-15" aria-hidden="true" tabindex="-1"></a>new_feature.setGeometry(new_geom)</span>
+<span id="cb97-16"><a href="03_exercise_3.html#cb97-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-17"><a href="03_exercise_3.html#cb97-17" aria-hidden="true" tabindex="-1"></a>new_layer.addFeature(new_feature)</span>
+<span id="cb97-18"><a href="03_exercise_3.html#cb97-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-19"><a href="03_exercise_3.html#cb97-19" aria-hidden="true" tabindex="-1"></a>new_layer.commitChanges()</span>
+<span id="cb97-20"><a href="03_exercise_3.html#cb97-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-21"><a href="03_exercise_3.html#cb97-21" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+</div>
+<div id="geometries" class="section level2">
+<h2>Geometries</h2>
+<p>Geometries can be created and manipulated with PyQGIS in many ways.
+QgsGeometry has static methods which can be used to create
+geometries:</p>
+<p>Point:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="03_exercise_3.html#cb98-1" aria-hidden="true" tabindex="-1"></a>point_xy <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb98-2"><a href="03_exercise_3.html#cb98-2" aria-hidden="true" tabindex="-1"></a>point_geom <span class="op">=</span> QgsGeometry.fromPointXY(point_xy)</span></code></pre></div>
+</div>
+<p>Line:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb99-1"><a href="03_exercise_3.html#cb99-1" aria-hidden="true" tabindex="-1"></a>point_1 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb99-2"><a href="03_exercise_3.html#cb99-2" aria-hidden="true" tabindex="-1"></a>point_2 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb99-3"><a href="03_exercise_3.html#cb99-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-4"><a href="03_exercise_3.html#cb99-4" aria-hidden="true" tabindex="-1"></a>line_geom <span class="op">=</span> QgsGeometry.fromPolylineXY(</span>
+<span id="cb99-5"><a href="03_exercise_3.html#cb99-5" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb99-6"><a href="03_exercise_3.html#cb99-6" aria-hidden="true" tabindex="-1"></a>        point_1,</span>
+<span id="cb99-7"><a href="03_exercise_3.html#cb99-7" aria-hidden="true" tabindex="-1"></a>        point_2,</span>
+<span id="cb99-8"><a href="03_exercise_3.html#cb99-8" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb99-9"><a href="03_exercise_3.html#cb99-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<p>Polygon:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="03_exercise_3.html#cb100-1" aria-hidden="true" tabindex="-1"></a>point_1 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb100-2"><a href="03_exercise_3.html#cb100-2" aria-hidden="true" tabindex="-1"></a>point_2 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb100-3"><a href="03_exercise_3.html#cb100-3" aria-hidden="true" tabindex="-1"></a>point_3 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb100-4"><a href="03_exercise_3.html#cb100-4" aria-hidden="true" tabindex="-1"></a>point_4 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb100-5"><a href="03_exercise_3.html#cb100-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-6"><a href="03_exercise_3.html#cb100-6" aria-hidden="true" tabindex="-1"></a>polygon_geom <span class="op">=</span> QgsGeometry.fromPolygonXY(</span>
+<span id="cb100-7"><a href="03_exercise_3.html#cb100-7" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb100-8"><a href="03_exercise_3.html#cb100-8" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb100-9"><a href="03_exercise_3.html#cb100-9" aria-hidden="true" tabindex="-1"></a>            point_1,</span>
+<span id="cb100-10"><a href="03_exercise_3.html#cb100-10" aria-hidden="true" tabindex="-1"></a>            point_2,</span>
+<span id="cb100-11"><a href="03_exercise_3.html#cb100-11" aria-hidden="true" tabindex="-1"></a>            point_3,</span>
+<span id="cb100-12"><a href="03_exercise_3.html#cb100-12" aria-hidden="true" tabindex="-1"></a>            point_4,</span>
+<span id="cb100-13"><a href="03_exercise_3.html#cb100-13" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb100-14"><a href="03_exercise_3.html#cb100-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb100-15"><a href="03_exercise_3.html#cb100-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<p>You can create geometries from the
+<a href="https://libgeos.org/specifications/wkt/">WKT (Well-Known Text)</a>
+format.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb101-1"><a href="03_exercise_3.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co"># point</span></span>
+<span id="cb101-2"><a href="03_exercise_3.html#cb101-2" aria-hidden="true" tabindex="-1"></a>point_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POINT(0 0)&#39;</span>)</span>
+<span id="cb101-3"><a href="03_exercise_3.html#cb101-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-4"><a href="03_exercise_3.html#cb101-4" aria-hidden="true" tabindex="-1"></a><span class="co"># line</span></span>
+<span id="cb101-5"><a href="03_exercise_3.html#cb101-5" aria-hidden="true" tabindex="-1"></a>line_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;LINESTRING(0 0, 0 1)&#39;</span>)</span>
+<span id="cb101-6"><a href="03_exercise_3.html#cb101-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-7"><a href="03_exercise_3.html#cb101-7" aria-hidden="true" tabindex="-1"></a><span class="co"># multipolygon</span></span>
+<span id="cb101-8"><a href="03_exercise_3.html#cb101-8" aria-hidden="true" tabindex="-1"></a>multipolygon_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;MULTIPOLYGON(((0 0, 0 1, 1 1, 1 0, 0 0), (2 2, 2 3, 3 3, 3 2, 2 2)))&#39;</span>)</span></code></pre></div>
+</div>
+<p>You can also print the geometry as WKT:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="03_exercise_3.html#cb102-1" aria-hidden="true" tabindex="-1"></a>point_1 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb102-2"><a href="03_exercise_3.html#cb102-2" aria-hidden="true" tabindex="-1"></a>point_2 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb102-3"><a href="03_exercise_3.html#cb102-3" aria-hidden="true" tabindex="-1"></a>point_3 <span class="op">=</span> QgsPointXY(<span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb102-4"><a href="03_exercise_3.html#cb102-4" aria-hidden="true" tabindex="-1"></a>point_4 <span class="op">=</span> QgsPointXY(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb102-5"><a href="03_exercise_3.html#cb102-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-6"><a href="03_exercise_3.html#cb102-6" aria-hidden="true" tabindex="-1"></a>polygon_geom <span class="op">=</span> QgsGeometry.fromPolygonXY(</span>
+<span id="cb102-7"><a href="03_exercise_3.html#cb102-7" aria-hidden="true" tabindex="-1"></a>    [</span>
+<span id="cb102-8"><a href="03_exercise_3.html#cb102-8" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb102-9"><a href="03_exercise_3.html#cb102-9" aria-hidden="true" tabindex="-1"></a>            point_1,</span>
+<span id="cb102-10"><a href="03_exercise_3.html#cb102-10" aria-hidden="true" tabindex="-1"></a>            point_2,</span>
+<span id="cb102-11"><a href="03_exercise_3.html#cb102-11" aria-hidden="true" tabindex="-1"></a>            point_3,</span>
+<span id="cb102-12"><a href="03_exercise_3.html#cb102-12" aria-hidden="true" tabindex="-1"></a>            point_4,</span>
+<span id="cb102-13"><a href="03_exercise_3.html#cb102-13" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb102-14"><a href="03_exercise_3.html#cb102-14" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb102-15"><a href="03_exercise_3.html#cb102-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb102-16"><a href="03_exercise_3.html#cb102-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-17"><a href="03_exercise_3.html#cb102-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(polygon_geom.asWkt())</span></code></pre></div>
+</div>
+<p>A geometry object contains the coordinates of the
+vertexes. It does not contain information about the
+coordinate reference system (CRS) of those coordinates,
+but instead the layer object has that information.
+There is however a subclass of QgsGeometry called
+QgsReferencedGeometry, which also has the CRS information.</p>
+<p>Most of the time <strong>QgsGeometry</strong> is used, however. If we
+want to transform the CRS, we can use the
+<strong>QgsCoordinateTransform</strong> class.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="03_exercise_3.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a geometry with the assumption</span></span>
+<span id="cb103-2"><a href="03_exercise_3.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="co"># that its CRS is WGS 84 (EPSG:4326)</span></span>
+<span id="cb103-3"><a href="03_exercise_3.html#cb103-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-4"><a href="03_exercise_3.html#cb103-4" aria-hidden="true" tabindex="-1"></a><span class="co"># transform to Pseudo Mercator (EPSG:3857)</span></span>
+<span id="cb103-5"><a href="03_exercise_3.html#cb103-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-6"><a href="03_exercise_3.html#cb103-6" aria-hidden="true" tabindex="-1"></a>geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POINT(0 0)&#39;</span>)</span>
+<span id="cb103-7"><a href="03_exercise_3.html#cb103-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-8"><a href="03_exercise_3.html#cb103-8" aria-hidden="true" tabindex="-1"></a>source_crs <span class="op">=</span> QgsCoordinateReferenceSystem(<span class="dv">4326</span>)</span>
+<span id="cb103-9"><a href="03_exercise_3.html#cb103-9" aria-hidden="true" tabindex="-1"></a>target_crs <span class="op">=</span> QgsCoordinateReferenceSystem(<span class="dv">3857</span>)</span>
+<span id="cb103-10"><a href="03_exercise_3.html#cb103-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-11"><a href="03_exercise_3.html#cb103-11" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())</span>
+<span id="cb103-12"><a href="03_exercise_3.html#cb103-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-13"><a href="03_exercise_3.html#cb103-13" aria-hidden="true" tabindex="-1"></a>geom.transform(tf)</span>
+<span id="cb103-14"><a href="03_exercise_3.html#cb103-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-15"><a href="03_exercise_3.html#cb103-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(geom.asWkt())</span></code></pre></div>
+</div>
+<p>We can calculate different attributes of the geometry:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="03_exercise_3.html#cb104-1" aria-hidden="true" tabindex="-1"></a>line_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;LINESTRING(0 0, 0 1)&#39;</span>)</span>
+<span id="cb104-2"><a href="03_exercise_3.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(line_geom.length())</span>
+<span id="cb104-3"><a href="03_exercise_3.html#cb104-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-4"><a href="03_exercise_3.html#cb104-4" aria-hidden="true" tabindex="-1"></a>polygon_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POLYGON((0 0, 0 1, 1 1, 1 0, 0 0))&#39;</span>)</span>
+<span id="cb104-5"><a href="03_exercise_3.html#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(polygon_geom.area())</span>
+<span id="cb104-6"><a href="03_exercise_3.html#cb104-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-7"><a href="03_exercise_3.html#cb104-7" aria-hidden="true" tabindex="-1"></a><span class="co"># on a polygon geometry the length() method</span></span>
+<span id="cb104-8"><a href="03_exercise_3.html#cb104-8" aria-hidden="true" tabindex="-1"></a><span class="co"># returns the perimeter</span></span>
+<span id="cb104-9"><a href="03_exercise_3.html#cb104-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-10"><a href="03_exercise_3.html#cb104-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(polygon_geom.length())</span>
+<span id="cb104-11"><a href="03_exercise_3.html#cb104-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-12"><a href="03_exercise_3.html#cb104-12" aria-hidden="true" tabindex="-1"></a>point_1 <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POINT(0 0)&#39;</span>)</span>
+<span id="cb104-13"><a href="03_exercise_3.html#cb104-13" aria-hidden="true" tabindex="-1"></a>point_2 <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POINT(10 10)&#39;</span>)</span>
+<span id="cb104-14"><a href="03_exercise_3.html#cb104-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-15"><a href="03_exercise_3.html#cb104-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(point_1.distance(point_2))</span></code></pre></div>
+</div>
+<p>There are also many methods for manipulating the geometry.
+You can create a new polygon geometry from the intersection
+of two overlapping polygons. This corresponds to the
+Intersection processing tool in QGIS.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="03_exercise_3.html#cb105-1" aria-hidden="true" tabindex="-1"></a>polygon_1 <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POLYGON((1 1, 1 2, 2 2, 2 1, 1 1))&#39;</span>)</span>
+<span id="cb105-2"><a href="03_exercise_3.html#cb105-2" aria-hidden="true" tabindex="-1"></a>polygon_2 <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&#39;POLYGON((0 0, 0 1.5, 1.5 1.5, 1.5 0, 0 0))&#39;</span>)</span>
+<span id="cb105-3"><a href="03_exercise_3.html#cb105-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-4"><a href="03_exercise_3.html#cb105-4" aria-hidden="true" tabindex="-1"></a>new_geom <span class="op">=</span> polygon_1.intersection(polygon_2)</span>
+<span id="cb105-5"><a href="03_exercise_3.html#cb105-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-6"><a href="03_exercise_3.html#cb105-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(new_geom.asWkt())</span></code></pre></div>
+</div>
+</div>
+<div id="exercise-3.1" class="section level2">
+<h2>Exercise 3.1</h2>
+<p>Write a script that creates a polygon layer with the CRS EPSG:3857.
+Add two fields named “fid” and “area”. Add a feature with the
+geometry that is included below. Calculate the area of geometry
+and add the result the “area” field. Finally add the new
+layer to the QGIS project.</p>
+<p>Geometry:</p>
+<div class="code-box">
+<p>POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))</p>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb106-1"><a href="03_exercise_3.html#cb106-1" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Polygon?crs=EPSG:3857&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb106-2"><a href="03_exercise_3.html#cb106-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="03_exercise_3.html#cb106-3" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb106-4"><a href="03_exercise_3.html#cb106-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-5"><a href="03_exercise_3.html#cb106-5" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb106-6"><a href="03_exercise_3.html#cb106-6" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;area&quot;</span>, QVariant.Double))</span>
+<span id="cb106-7"><a href="03_exercise_3.html#cb106-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-8"><a href="03_exercise_3.html#cb106-8" aria-hidden="true" tabindex="-1"></a>new_feature <span class="op">=</span> QgsFeature(new_layer.fields())</span>
+<span id="cb106-9"><a href="03_exercise_3.html#cb106-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-10"><a href="03_exercise_3.html#cb106-10" aria-hidden="true" tabindex="-1"></a>new_geom <span class="op">=</span> QgsGeometry.fromWkt(<span class="st">&quot;POLYGON((0 0, 0 -1, 1 -1, 1 -2, 2 -2, 2 -1, 3 -1, 3 0, 3 1, 2 1, 2 0, 0 0))&quot;</span>)</span>
+<span id="cb106-11"><a href="03_exercise_3.html#cb106-11" aria-hidden="true" tabindex="-1"></a>new_feature.setGeometry(new_geom)</span>
+<span id="cb106-12"><a href="03_exercise_3.html#cb106-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-13"><a href="03_exercise_3.html#cb106-13" aria-hidden="true" tabindex="-1"></a>area <span class="op">=</span> new_geom.area()</span>
+<span id="cb106-14"><a href="03_exercise_3.html#cb106-14" aria-hidden="true" tabindex="-1"></a>new_feature.setAttributes([<span class="dv">1</span>, area])</span>
+<span id="cb106-15"><a href="03_exercise_3.html#cb106-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-16"><a href="03_exercise_3.html#cb106-16" aria-hidden="true" tabindex="-1"></a>new_layer.addFeature(new_feature)</span>
+<span id="cb106-17"><a href="03_exercise_3.html#cb106-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-18"><a href="03_exercise_3.html#cb106-18" aria-hidden="true" tabindex="-1"></a>new_layer.commitChanges()</span>
+<span id="cb106-19"><a href="03_exercise_3.html#cb106-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb106-20"><a href="03_exercise_3.html#cb106-20" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="exercise-3.2-distances" class="section level2">
+<h2>Exercise 3.2: Distances</h2>
+<p>Add the <code>NaturalEarth_10m_admin_0_countries.gpkg</code> file to
+QGIS.</p>
+<p>Write a script that calculates the distance between each
+country from its centroid to the centroid of Finland.
+The CRS of the layer is EPSG:4326 whose unit is degrees.
+Experssing distance as degrees is unideal so create a new
+point layer with the CSR ESPG:3857 whose unit is meters.
+The fields of the new layer should include an identifier
+fid, the distance and the name of the country from which
+the distance was calculated. Transform the centroid from
+the source layer to the correct CRS and set it as the
+geometry of the new features.</p>
+<p>You can use this as a base for the script:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="03_exercise_3.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="co"># select the layer by name</span></span>
+<span id="cb107-2"><a href="03_exercise_3.html#cb107-2" aria-hidden="true" tabindex="-1"></a>layers <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">&#39;NaturalEarth_10m_admin_0_countries — admin_0_countries&#39;</span>)</span>
+<span id="cb107-3"><a href="03_exercise_3.html#cb107-3" aria-hidden="true" tabindex="-1"></a>layer <span class="op">=</span> layers[<span class="dv">0</span>]</span>
+<span id="cb107-4"><a href="03_exercise_3.html#cb107-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-5"><a href="03_exercise_3.html#cb107-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create the new layer</span></span>
+<span id="cb107-6"><a href="03_exercise_3.html#cb107-6" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:3857&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb107-7"><a href="03_exercise_3.html#cb107-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-8"><a href="03_exercise_3.html#cb107-8" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb107-9"><a href="03_exercise_3.html#cb107-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-10"><a href="03_exercise_3.html#cb107-10" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb107-11"><a href="03_exercise_3.html#cb107-11" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;country&quot;</span>, QVariant.String))</span>
+<span id="cb107-12"><a href="03_exercise_3.html#cb107-12" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;distance&quot;</span>, QVariant.Double))</span>
+<span id="cb107-13"><a href="03_exercise_3.html#cb107-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-14"><a href="03_exercise_3.html#cb107-14" aria-hidden="true" tabindex="-1"></a><span class="co">### ... </span><span class="al">###</span></span>
+<span id="cb107-15"><a href="03_exercise_3.html#cb107-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-16"><a href="03_exercise_3.html#cb107-16" aria-hidden="true" tabindex="-1"></a>new_layer.commitChanges()</span>
+<span id="cb107-17"><a href="03_exercise_3.html#cb107-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-18"><a href="03_exercise_3.html#cb107-18" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="03_exercise_3.html#cb108-1" aria-hidden="true" tabindex="-1"></a>layers <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">&#39;NaturalEarth_10m_admin_0_countries — admin_0_countries&#39;</span>)</span>
+<span id="cb108-2"><a href="03_exercise_3.html#cb108-2" aria-hidden="true" tabindex="-1"></a>layer <span class="op">=</span> layers[<span class="dv">0</span>]</span>
+<span id="cb108-3"><a href="03_exercise_3.html#cb108-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-4"><a href="03_exercise_3.html#cb108-4" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:3857&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb108-5"><a href="03_exercise_3.html#cb108-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-6"><a href="03_exercise_3.html#cb108-6" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb108-7"><a href="03_exercise_3.html#cb108-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-8"><a href="03_exercise_3.html#cb108-8" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb108-9"><a href="03_exercise_3.html#cb108-9" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;country&quot;</span>, QVariant.String))</span>
+<span id="cb108-10"><a href="03_exercise_3.html#cb108-10" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;distance&quot;</span>, QVariant.Double))</span>
+<span id="cb108-11"><a href="03_exercise_3.html#cb108-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-12"><a href="03_exercise_3.html#cb108-12" aria-hidden="true" tabindex="-1"></a><span class="co"># you can create the QgsCoordinateTransform</span></span>
+<span id="cb108-13"><a href="03_exercise_3.html#cb108-13" aria-hidden="true" tabindex="-1"></a><span class="co"># object here and use it for each feature</span></span>
+<span id="cb108-14"><a href="03_exercise_3.html#cb108-14" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>save the <span class="bu">object</span> to a variable<span class="op">&gt;</span></span>
+<span id="cb108-15"><a href="03_exercise_3.html#cb108-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-16"><a href="03_exercise_3.html#cb108-16" aria-hidden="true" tabindex="-1"></a><span class="co"># use a QGIS expression to find</span></span>
+<span id="cb108-17"><a href="03_exercise_3.html#cb108-17" aria-hidden="true" tabindex="-1"></a><span class="co"># the feature of Finland</span></span>
+<span id="cb108-18"><a href="03_exercise_3.html#cb108-18" aria-hidden="true" tabindex="-1"></a>filter_expression <span class="op">=</span> QgsExpression(<span class="st">&#39;&#39;&#39;&quot;NAME_EN&quot; = &#39;Finland&#39; &#39;&#39;&#39;</span>)</span>
+<span id="cb108-19"><a href="03_exercise_3.html#cb108-19" aria-hidden="true" tabindex="-1"></a>filtered_features <span class="op">=</span> layer.getFeatures(QgsFeatureRequest(filter_expression))</span>
+<span id="cb108-20"><a href="03_exercise_3.html#cb108-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-21"><a href="03_exercise_3.html#cb108-21" aria-hidden="true" tabindex="-1"></a>finland_feature <span class="op">=</span> QgsFeature()</span>
+<span id="cb108-22"><a href="03_exercise_3.html#cb108-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feat <span class="kw">in</span> filtered_features:</span>
+<span id="cb108-23"><a href="03_exercise_3.html#cb108-23" aria-hidden="true" tabindex="-1"></a>    finland_feature <span class="op">=</span> feat</span>
+<span id="cb108-24"><a href="03_exercise_3.html#cb108-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-25"><a href="03_exercise_3.html#cb108-25" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> finland_feature.isValid():</span>
+<span id="cb108-26"><a href="03_exercise_3.html#cb108-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if the feature was found</span></span>
+<span id="cb108-27"><a href="03_exercise_3.html#cb108-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># save its centroid and</span></span>
+<span id="cb108-28"><a href="03_exercise_3.html#cb108-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># perform the coordinate</span></span>
+<span id="cb108-29"><a href="03_exercise_3.html#cb108-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># transformation</span></span>
+<span id="cb108-30"><a href="03_exercise_3.html#cb108-30" aria-hidden="true" tabindex="-1"></a>    finland_centroid <span class="op">=</span> finland_feature.geometry().centroid()</span>
+<span id="cb108-31"><a href="03_exercise_3.html#cb108-31" aria-hidden="true" tabindex="-1"></a>    finland_centroid.transform(tf)</span>
+<span id="cb108-32"><a href="03_exercise_3.html#cb108-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-33"><a href="03_exercise_3.html#cb108-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> old_feature <span class="kw">in</span> layer.getFeatures():</span>
+<span id="cb108-34"><a href="03_exercise_3.html#cb108-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># iterate through the features of</span></span>
+<span id="cb108-35"><a href="03_exercise_3.html#cb108-35" aria-hidden="true" tabindex="-1"></a>        <span class="co"># the source layer. Get and save</span></span>
+<span id="cb108-36"><a href="03_exercise_3.html#cb108-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># the needed attributes</span></span>
+<span id="cb108-37"><a href="03_exercise_3.html#cb108-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-38"><a href="03_exercise_3.html#cb108-38" aria-hidden="true" tabindex="-1"></a>        <span class="co"># also get the centroid of the old</span></span>
+<span id="cb108-39"><a href="03_exercise_3.html#cb108-39" aria-hidden="true" tabindex="-1"></a>        <span class="co"># feature and calculate the distance</span></span>
+<span id="cb108-40"><a href="03_exercise_3.html#cb108-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to the finland_centroid</span></span>
+<span id="cb108-41"><a href="03_exercise_3.html#cb108-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-42"><a href="03_exercise_3.html#cb108-42" aria-hidden="true" tabindex="-1"></a>        <span class="co"># if the CRS transformation is done</span></span>
+<span id="cb108-43"><a href="03_exercise_3.html#cb108-43" aria-hidden="true" tabindex="-1"></a>        <span class="co"># correctly, the distance is in meters.</span></span>
+<span id="cb108-44"><a href="03_exercise_3.html#cb108-44" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Transform meters to kilometers</span></span>
+<span id="cb108-45"><a href="03_exercise_3.html#cb108-45" aria-hidden="true" tabindex="-1"></a>        distance <span class="op">=</span> <span class="op">&lt;</span>expression<span class="op">&gt;</span> <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb108-46"><a href="03_exercise_3.html#cb108-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-47"><a href="03_exercise_3.html#cb108-47" aria-hidden="true" tabindex="-1"></a>        <span class="co"># create the new feature</span></span>
+<span id="cb108-48"><a href="03_exercise_3.html#cb108-48" aria-hidden="true" tabindex="-1"></a>        new_feature <span class="op">=</span> QgsFeature(new_layer.fields())</span>
+<span id="cb108-49"><a href="03_exercise_3.html#cb108-49" aria-hidden="true" tabindex="-1"></a>        new_feature.setAttributes(</span>
+<span id="cb108-50"><a href="03_exercise_3.html#cb108-50" aria-hidden="true" tabindex="-1"></a>            [</span>
+<span id="cb108-51"><a href="03_exercise_3.html#cb108-51" aria-hidden="true" tabindex="-1"></a>                <span class="op">&lt;</span>values<span class="op">&gt;</span></span>
+<span id="cb108-52"><a href="03_exercise_3.html#cb108-52" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb108-53"><a href="03_exercise_3.html#cb108-53" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb108-54"><a href="03_exercise_3.html#cb108-54" aria-hidden="true" tabindex="-1"></a>        new_feature.setGeometry(<span class="op">&lt;</span>centroid<span class="op">&gt;</span>)</span>
+<span id="cb108-55"><a href="03_exercise_3.html#cb108-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-56"><a href="03_exercise_3.html#cb108-56" aria-hidden="true" tabindex="-1"></a>        new_layer.addFeature(new_feature)</span>
+<span id="cb108-57"><a href="03_exercise_3.html#cb108-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-58"><a href="03_exercise_3.html#cb108-58" aria-hidden="true" tabindex="-1"></a>    new_layer.commitChanges()</span>
+<span id="cb108-59"><a href="03_exercise_3.html#cb108-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-60"><a href="03_exercise_3.html#cb108-60" aria-hidden="true" tabindex="-1"></a>    QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="03_exercise_3.html#cb109-1" aria-hidden="true" tabindex="-1"></a>layers <span class="op">=</span> QgsProject.instance().mapLayersByName(<span class="st">&#39;NaturalEarth_10m_admin_0_countries — admin_0_countries&#39;</span>)</span>
+<span id="cb109-2"><a href="03_exercise_3.html#cb109-2" aria-hidden="true" tabindex="-1"></a>layer <span class="op">=</span> layers[<span class="dv">0</span>]</span>
+<span id="cb109-3"><a href="03_exercise_3.html#cb109-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-4"><a href="03_exercise_3.html#cb109-4" aria-hidden="true" tabindex="-1"></a>new_layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=EPSG:3857&quot;</span>, <span class="st">&quot;New Layer&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb109-5"><a href="03_exercise_3.html#cb109-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-6"><a href="03_exercise_3.html#cb109-6" aria-hidden="true" tabindex="-1"></a>new_layer.startEditing()</span>
+<span id="cb109-7"><a href="03_exercise_3.html#cb109-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-8"><a href="03_exercise_3.html#cb109-8" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb109-9"><a href="03_exercise_3.html#cb109-9" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;country&quot;</span>, QVariant.String))</span>
+<span id="cb109-10"><a href="03_exercise_3.html#cb109-10" aria-hidden="true" tabindex="-1"></a>new_layer.addAttribute(QgsField(<span class="st">&quot;distance&quot;</span>, QVariant.Double))</span>
+<span id="cb109-11"><a href="03_exercise_3.html#cb109-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-12"><a href="03_exercise_3.html#cb109-12" aria-hidden="true" tabindex="-1"></a>source_crs <span class="op">=</span> QgsCoordinateReferenceSystem(<span class="dv">4326</span>)</span>
+<span id="cb109-13"><a href="03_exercise_3.html#cb109-13" aria-hidden="true" tabindex="-1"></a>target_crs <span class="op">=</span> QgsCoordinateReferenceSystem(<span class="dv">3857</span>)</span>
+<span id="cb109-14"><a href="03_exercise_3.html#cb109-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-15"><a href="03_exercise_3.html#cb109-15" aria-hidden="true" tabindex="-1"></a>tf <span class="op">=</span> QgsCoordinateTransform(source_crs, target_crs, QgsProject.instance())</span>
+<span id="cb109-16"><a href="03_exercise_3.html#cb109-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-17"><a href="03_exercise_3.html#cb109-17" aria-hidden="true" tabindex="-1"></a>filter_expression <span class="op">=</span> QgsExpression(<span class="st">&#39;&#39;&#39;&quot;NAME_EN&quot; = &#39;Finland&#39; &#39;&#39;&#39;</span>)</span>
+<span id="cb109-18"><a href="03_exercise_3.html#cb109-18" aria-hidden="true" tabindex="-1"></a>filtered_features <span class="op">=</span> layer.getFeatures(QgsFeatureRequest(filter_expression))</span>
+<span id="cb109-19"><a href="03_exercise_3.html#cb109-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-20"><a href="03_exercise_3.html#cb109-20" aria-hidden="true" tabindex="-1"></a>finland_feature <span class="op">=</span> QgsFeature()</span>
+<span id="cb109-21"><a href="03_exercise_3.html#cb109-21" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> feat <span class="kw">in</span> filtered_features:</span>
+<span id="cb109-22"><a href="03_exercise_3.html#cb109-22" aria-hidden="true" tabindex="-1"></a>    finland_feature <span class="op">=</span> feat</span>
+<span id="cb109-23"><a href="03_exercise_3.html#cb109-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-24"><a href="03_exercise_3.html#cb109-24" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> finland_feature.isValid():</span>
+<span id="cb109-25"><a href="03_exercise_3.html#cb109-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-26"><a href="03_exercise_3.html#cb109-26" aria-hidden="true" tabindex="-1"></a>    finland_centroid <span class="op">=</span> finland_feature.geometry().centroid()</span>
+<span id="cb109-27"><a href="03_exercise_3.html#cb109-27" aria-hidden="true" tabindex="-1"></a>    finland_centroid.transform(tf)</span>
+<span id="cb109-28"><a href="03_exercise_3.html#cb109-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-29"><a href="03_exercise_3.html#cb109-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> old_feature <span class="kw">in</span> layer.getFeatures():</span>
+<span id="cb109-30"><a href="03_exercise_3.html#cb109-30" aria-hidden="true" tabindex="-1"></a>        fid <span class="op">=</span> old_feature.attribute(<span class="st">&quot;fid&quot;</span>)</span>
+<span id="cb109-31"><a href="03_exercise_3.html#cb109-31" aria-hidden="true" tabindex="-1"></a>        country <span class="op">=</span> old_feature.attribute(<span class="st">&quot;NAME_EN&quot;</span>)</span>
+<span id="cb109-32"><a href="03_exercise_3.html#cb109-32" aria-hidden="true" tabindex="-1"></a>        centroid <span class="op">=</span> old_feature.geometry().centroid()</span>
+<span id="cb109-33"><a href="03_exercise_3.html#cb109-33" aria-hidden="true" tabindex="-1"></a>        centroid.transform(tf)</span>
+<span id="cb109-34"><a href="03_exercise_3.html#cb109-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-35"><a href="03_exercise_3.html#cb109-35" aria-hidden="true" tabindex="-1"></a>        distance <span class="op">=</span> centroid.distance(finland_centroid) <span class="op">/</span> <span class="dv">1000</span></span>
+<span id="cb109-36"><a href="03_exercise_3.html#cb109-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-37"><a href="03_exercise_3.html#cb109-37" aria-hidden="true" tabindex="-1"></a>        new_feature <span class="op">=</span> QgsFeature(new_layer.fields())</span>
+<span id="cb109-38"><a href="03_exercise_3.html#cb109-38" aria-hidden="true" tabindex="-1"></a>        new_feature.setAttributes(</span>
+<span id="cb109-39"><a href="03_exercise_3.html#cb109-39" aria-hidden="true" tabindex="-1"></a>            [</span>
+<span id="cb109-40"><a href="03_exercise_3.html#cb109-40" aria-hidden="true" tabindex="-1"></a>                fid,</span>
+<span id="cb109-41"><a href="03_exercise_3.html#cb109-41" aria-hidden="true" tabindex="-1"></a>                country,</span>
+<span id="cb109-42"><a href="03_exercise_3.html#cb109-42" aria-hidden="true" tabindex="-1"></a>                distance</span>
+<span id="cb109-43"><a href="03_exercise_3.html#cb109-43" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb109-44"><a href="03_exercise_3.html#cb109-44" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb109-45"><a href="03_exercise_3.html#cb109-45" aria-hidden="true" tabindex="-1"></a>        new_feature.setGeometry(centroid)</span>
+<span id="cb109-46"><a href="03_exercise_3.html#cb109-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-47"><a href="03_exercise_3.html#cb109-47" aria-hidden="true" tabindex="-1"></a>        new_layer.addFeature(new_feature)</span>
+<span id="cb109-48"><a href="03_exercise_3.html#cb109-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-49"><a href="03_exercise_3.html#cb109-49" aria-hidden="true" tabindex="-1"></a>    new_layer.commitChanges()</span>
+<span id="cb109-50"><a href="03_exercise_3.html#cb109-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-51"><a href="03_exercise_3.html#cb109-51" aria-hidden="true" tabindex="-1"></a>    QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="02_exercise_2.html"><button class="btn btn-default">Previous</button></a>
+<a href="04_exercise_4.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS plugin development</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

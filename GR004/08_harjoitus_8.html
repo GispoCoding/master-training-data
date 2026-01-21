@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 7: Paikkatietoaineiston nimiöinti ja luokittelu | QGIS-työpaja Espoon kaupungille" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 7: Paikkatietoaineiston nimiöinti ja luokittelu | QGIS-työpaja Espoon kaupungille">
+
+<title>Harjoitus 7: Paikkatietoaineiston nimiöinti ja luokittelu | QGIS-työpaja Espoon kaupungille</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS-työpaja Espoon kaupungille</h1></div>
+<div class="abstract-sidebar"><p>Tämä on QGIS-työpaja joka on räätälöity Espoon kaupungin työntekijöille</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-työpaja-espoon-kaupungille">QGIS-työpaja Espoon kaupungille</a>
+<ul>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-käyttöliittymä">Harjoitus 1: QGISin käyttöliittymä</a>
+<ul>
+<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus">Kurssimateriaalien lataus</a></li>
+<li><a href="01_harjoitus_1.html#qgisin-käyttöliittymä">QGISin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qgis-käyttöliittymän-osat">QGIS-käyttöliittymän osat</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#kokeile-itse">Kokeile itse</a>
+<ul>
+<li><a href="01_harjoitus_1.html#attribuuttitaulu">Attribuuttitaulu</a></li>
+<li><a href="01_harjoitus_1.html#tiedoston-tallennus">Tiedoston tallennus</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-2-paikkatietoaineistot-ja--palvelut">Harjoitus 2: Paikkatietoaineistot ja -palvelut</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#wms-palvelun-lisääminen">WMS-palvelun lisääminen</a></li>
+<li><a href="03_harjoitus_3.html#wfs-palvelun-lisääminen">WFS-palvelun lisääminen</a></li>
+<li><a href="03_harjoitus_3.html#valitseminen-ja-tallentaminen">Valitseminen ja tallentaminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-3-paikkatietoaineiston-visualisointi">Harjoitus 3: Paikkatietoaineiston visualisointi</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#vektoriaineistojen-visualisointi">Vektoriaineistojen visualisointi</a></li>
+<li><a href="04_harjoitus_4.html#viiva--ja-monikulmioaineiston-visualisointi">Viiva- ja monikulmioaineiston visualisointi</a></li>
+<li><a href="04_harjoitus_4.html#tutustu-tyylien-hallintaan">Tutustu tyylien hallintaan</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-monikulmioaineiston-edistynyt-visualisointi">Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-4-digitoinnin-valmistelut">Harjoitus 4: Digitoinnin valmistelut</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#muokkauksen-yleisasetukset">Muokkauksen yleisasetukset</a></li>
+<li><a href="05_harjoitus_5.html#digitoinnin-valmistelu">Digitoinnin valmistelu</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-5-paikkatietoaineiston-digitointieditointi">Harjoitus 5: Paikkatietoaineiston digitointi/editointi</a>
+<ul>
+<li><a href="06_harjoitus_6.html#vektoriaineiston-luominen">Vektoriaineiston luominen</a></li>
+<li><a href="06_harjoitus_6.html#tietorakenteen-valmistelu-ja-editointiasetukset">Tietorakenteen valmistelu ja editointiasetukset</a></li>
+<li><a href="06_harjoitus_6.html#vektoriaineiston-editointi">Vektoriaineiston editointi</a></li>
+<li><a href="06_harjoitus_6.html#geometrioiden-lisääminen">Geometrioiden lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#ominaisuustietojen-lisääminen">Ominaisuustietojen lisääminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-6-edistyneet-digitointiominaisuudet">Harjoitus 6: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="07_harjoitus_7.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="07_harjoitus_7.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode">Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
+<li><a href="07_harjoitus_7.html#rakentamistila">Rakentamistila</a></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#rakennuksen-piirto-apuviivojen-avulla">Rakennuksen piirto apuviivojen avulla</a>
+<ul>
+<li><a href="07_harjoitus_7.html#sitten-vain-harjoittelemaan.">Sitten vain harjoittelemaan….</a></li>
+</ul></li>
+<li><a href="07_harjoitus_7.html#suorakulmaisen-polygonin-piirtäminen">Suorakulmaisen polygonin piirtäminen</a></li>
+<li><a href="07_harjoitus_7.html#rakennustilan-hyödyntäminen-rakennuksen-piirtämisessä">Rakennustilan hyödyntäminen rakennuksen piirtämisessä</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-7-paikkatietoaineiston-nimiöinti-ja-luokittelu">Harjoitus 7: Paikkatietoaineiston nimiöinti ja luokittelu</a>
+<ul>
+<li><a href="08_harjoitus_8.html#harjoituksen-sisältö-2">Harjoituksen sisältö</a></li>
+<li><a href="08_harjoitus_8.html#harjoituksen-tavoite-2">Harjoituksen tavoite</a></li>
+<li><a href="08_harjoitus_8.html#valmistautuminen-4">Valmistautuminen</a></li>
+<li><a href="08_harjoitus_8.html#nimiöt">Nimiöt</a></li>
+<li><a href="08_harjoitus_8.html#nimiöiden-tyyli--ja-yleisasetukset">Nimiöiden tyyli- ja yleisasetukset</a></li>
+<li><a href="08_harjoitus_8.html#nimiön-tekstityyli">Nimiön tekstityyli</a></li>
+<li><a href="08_harjoitus_8.html#vektoriaineiston-luokittelut">Vektoriaineiston luokittelut</a></li>
+<li><a href="08_harjoitus_8.html#lisätehtävä-nimiöiden-piirtäminen">Lisätehtävä: nimiöiden piirtäminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_harjoitus_9.html#harjoitus-8-karttatuloste">Harjoitus 8: Karttatuloste</a>
+<ul>
+<li><a href="09_harjoitus_9.html#harjoituksen-sisältö-3">Harjoituksen sisältö</a></li>
+<li><a href="09_harjoitus_9.html#harjoituksen-tavoite-3">Harjoituksen tavoite</a></li>
+<li><a href="09_harjoitus_9.html#valmistautuminen-5">Valmistautuminen</a></li>
+<li><a href="09_harjoitus_9.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="09_harjoitus_9.html#lisätehtävä-kartta-atlas">Lisätehtävä: kartta-atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_harjoitus_10.html#harjoitus-9-cad-aineistot-qgisissä">Harjoitus 9: CAD-aineistot QGISissä</a>
+<ul>
+<li><a href="10_harjoitus_10.html#harjoituksen-sisältö-4">Harjoituksen sisältö</a></li>
+<li><a href="10_harjoitus_10.html#harjoituksen-tavoite-4">Harjoituksen tavoite</a></li>
+<li><a href="10_harjoitus_10.html#valmistautuminen-6">Valmistautuminen</a></li>
+<li><a href="10_harjoitus_10.html#cad-aineiston-tuonti">CAD-aineiston tuonti</a></li>
+<li><a href="10_harjoitus_10.html#erilaiset-cad-aineistot">Erilaiset CAD-aineistot</a></li>
+<li><a href="10_harjoitus_10.html#paikkatietoaineiston-vienti-cad-muotoon">Paikkatietoaineiston vienti CAD-muotoon</a></li>
+</ul></li>
+<li class="has-sub"><a href="11_harjoitus_11.html#lisätehtävä-paikkatietoanalyysit">Lisätehtävä: Paikkatietoanalyysit</a>
+<ul>
+<li><a href="11_harjoitus_11.html#harjoituksen-sisältö-5">Harjoituksen sisältö</a></li>
+<li><a href="11_harjoitus_11.html#harjoituksen-tavoite-5">Harjoituksen tavoite</a></li>
+<li><a href="11_harjoitus_11.html#valmistautuminen-7">Valmistautuminen</a></li>
+<li><a href="11_harjoitus_11.html#rajaa-ja-sulauta">Rajaa ja sulauta</a></li>
+<li><a href="11_harjoitus_11.html#saavutettavuusanalyysi">Saavutettavuusanalyysi</a></li>
+</ul></li>
+<li class="has-sub"><a href="12_harjoitus_12.html#lisätehtävä-georeferointi">Lisätehtävä: Georeferointi</a>
+<ul>
+<li><a href="12_harjoitus_12.html#harjoituksen-sisältö-6">Harjoituksen sisältö</a></li>
+<li><a href="12_harjoitus_12.html#harjoituksen-tavoite-6">Harjoituksen tavoite</a></li>
+<li><a href="12_harjoitus_12.html#valmistautuminen-8">Valmistautuminen</a></li>
+<li><a href="12_harjoitus_12.html#georeferointi">Georeferointi</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-7-paikkatietoaineiston-nimiöinti-ja-luokittelu" class="section level1">
+<h1>Harjoitus 7: Paikkatietoaineiston nimiöinti ja luokittelu</h1>
+<div id="harjoituksen-sisältö-2" class="section level2">
+<h2>Harjoituksen sisältö</h2>
+<p>Harjoituksessa tutustutaan aineistojen nimiöinti- ja luokittelutoimintoihin.</p>
+</div>
+<div id="harjoituksen-tavoite-2" class="section level2">
+<h2>Harjoituksen tavoite</h2>
+<p>Kouluttautuja oppii muodostamaan eri tyyppisille paikkatietokohteille tekstitykset ja oppii luokittelemaan paikkatietoaineistoja QGISin työkaluilla.</p>
+</div>
+<div id="valmistautuminen-4" class="section level2">
+<h2>Valmistautuminen</h2>
+<p>Käynnistä QGIS-ohjelmisto. Avaa edellisen harjoituksen QGIS-projekti ja tallenna se nimellä (<strong>Projekti → Tallenna nimellä…</strong>) “<strong>QGIS_harjoitus_7</strong>”.
+Avaa projektiin seuraavat aineistot:</p>
+<ul>
+<li><p><strong>…/Harjoitus 7/natura2000sac_alueet.gpkg</strong></p></li>
+<li><p><strong>…/Harjoitus 7/Tieviiva.gpkg</strong></p></li>
+<li><p><strong>…/Harjoitus 7/Vaestotietoruudukko.gpkg</strong></p></li>
+</ul>
+<p>Aseta aluksi <strong>natura2000sac_alueet</strong> -taso näkyviin ja muut näkymättömäksi</p>
+</div>
+<div id="nimiöt" class="section level2">
+<h2>Nimiöt</h2>
+<p>QGIS käyttöliittymässä paikkatietokohteiden tekstitykseen viitataan termillä <strong>Nimiöt</strong> (englanninkielinen termi on “<strong>Labeling</strong>”).
+Avaa <strong>natura2000sac_alueet-tason Ominaisuudet-ikkuna</strong> ja valitse <strong>Nimiöt-välilehti</strong>.
+Valitse <strong>Yksinkertainen nimiöinti</strong> ja <strong>Nimiöiden perustana -alasvetovalikosta</strong> nimiöinnissä käytettävän sarakkeen nimi, esim. “Nimi”.
+Paina <strong>Käytä</strong>, niin kohteille syntyy nimiöt. Tämä nähdään nyt karttaikkunasta, johon nimiöt ovat jo päivittyneet:</p>
+<p><img src="img/harjoitus_8/image1.png" /></p>
+</div>
+<div id="nimiöiden-tyyli--ja-yleisasetukset" class="section level2">
+<h2>Nimiöiden tyyli- ja yleisasetukset</h2>
+<p>Nimiöiden tekstien näkymistä kartalla voi määrittää monella eri tavalla. Alla kuvaukset QGISin nimiöiden muokkaamisen alateemoista:</p>
+<table>
+<colgroup>
+<col width="10%" />
+<col width="89%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="center">Teksti</td>
+<td align="left">Määritellään tekstin tyyli, väri ja muita yleisiä ominaisuuksia</td>
+</tr>
+<tr class="even">
+<td align="center">Muotoilu</td>
+<td align="left">Voit muodostaa useampirivisiä tekstejä, keskittää tekstiä ja määritellä lukujen muotoa</td>
+</tr>
+<tr class="odd">
+<td align="center">Vyöhyke</td>
+<td align="left">Luodaan tekstiä korostavat puskurit (tekstin reunukset)</td>
+</tr>
+<tr class="even">
+<td align="center">Maski</td>
+<td align="left">Tekstiä korostavat puskurit, joiden vaikutusta alla oleviin tasoihin voi säädellä Tason ominaisuuksien <strong>Masks</strong> -välilehdellä</td>
+</tr>
+<tr class="odd">
+<td align="center">Tausta</td>
+<td align="left">Tekstin taustalle voi piirtää suorakulmion tai muun muodon</td>
+</tr>
+<tr class="even">
+<td align="center">Varjo</td>
+<td align="left">Teksteille voidaan muodostaa varjo</td>
+</tr>
+<tr class="odd">
+<td align="center">Callouts</td>
+<td align="left">Voit siirtää nimiöitä karttanäkymässä vapaasti (Nimiöiden asetukset -työkalupalkin avulla) ja yhdistää tekstit niihin liittyviin kohteisiin viivalla</td>
+</tr>
+<tr class="even">
+<td align="center">Sijoittaminen</td>
+<td align="left">Määrittelee tekstien sijoittumista kohteiden suhteen</td>
+</tr>
+<tr class="odd">
+<td align="center">Karttanäyttö</td>
+<td align="left">Määrittelee tekstien mittakaavarajoja ja muita tekstien näkyvyyteen liittyviä asioita</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="nimiön-tekstityyli" class="section level2">
+<h2>Nimiön tekstityyli</h2>
+<p>Nimiöiden tekstien tyyleille voit asettaa esimerkiksi haluamasi fontin, tyylin ja koon.</p>
+<p><img src="img/harjoitus_8/image2.png" /></p>
+<p>Kokeile erilaisia tekstityylejä. Kokeile nimiöiden varjostamista, minkä avulla voimme korostaa nimiöitä taustalla olevista muista karttaelementeistä. Valitse <strong>Varjo-alateema</strong> ja rastita sitten <strong>Piirrä heittovarjo</strong>. Paina <strong>Käytä</strong>, jotta näkisit tulokset kartalla. Kokeile vaihtaa asetuksia kuten siirtymä, sumennussäde, peittävyys sekä väri, ja katso miten ne vaikuttavat nimiöinnin varjoon. Huomaat muutokset kartalta tai <strong>Esimerkki tekstistä -kentästä</strong>.</p>
+<p><img src="img/harjoitus_8/image3.png" /></p>
+<p>Toinen työkalu tekstin korostamiseen on tekstipuskuri. Valitse <strong>Vyöhyke-alateema</strong> ja lisää tekstille haluamasi puskuri rastimalla <strong>Piirrä tekstivyöhyke</strong>. Näin saat nimiöt erottumaan kartasta vielä paremmin. Kokeile erilaisia puskurin kokoja, värejä ja läpinäkyvyyttä.</p>
+<p><img src="img/harjoitus_8/image4.png" /></p>
+<p>Avaa vielä <strong>Sijoittaminen-alateema</strong> ja valitse <strong><em>Ympärille (kaareva)</em></strong>. Valitse <strong>Sallitut asemoinnit -kohdassa Viivan alla</strong>. Huomaa, että sallitut asemoinnit-kohdassa tulee aina olla vähintään yksi kohta valittuna. Jos useampi kohta on valittu, QGIS valitsee automaattisesti parhaan vaihtoehdon jokaiselle kohteelle. Paina OK, ja huomaa, että nyt nimiöt seuraavat monikulmioiden rajoja.</p>
+<p><img src="img/harjoitus_8/image5.png" /></p>
+<p><img src="img/harjoitus_8/image6.png" /></p>
+<p>Tulos voi näyttää oudolta, etenkin jos karttaikkunan mittakaavaa on asetettu ison alueen kattavaksi. Lähennä karttaa, jotta nimiöt näkyisivät johdonmukaisemmin ja pohdi, missä tapauksessa tämänkaltainen nimiöinti olisi sopivinta.</p>
+</div>
+<div id="vektoriaineiston-luokittelut" class="section level2">
+<h2>Vektoriaineiston luokittelut</h2>
+<p><strong>Väestötietoruudukko.gpkg</strong> on vektoriaineisto, jälleen geopackage-formaatissa. Voit lisätä sen projektiin <strong>Tietolähteiden hallinta -työkalulla</strong> ellet jo tehnyt sitä.
+Tutustu ensin aineistoon. Avaa <strong>Attribuuttitaulu</strong> painamalla aineistotason nimen päällä hiiren oikealla näppäimellä. Ominaisuustietojen ymmärtämiseksi on hyvä tarkastella taulun sisältöä sekä tutustua samalla aineiston metatietoihin (tietoa aineistosta). Metatiedot löytyvät usein aineistontuottajan nettisivuilta tai paikkatietojen löytämiseen tarkoitetuista hakemistoista. Metatiedot kertovat mm. kuka aineiston on tuottanut, mihin tarkoitukseen se on tehty, millä mittakaavalla ja missä koordinaattijärjestelmässä.
+Harjoituksessa käytettävän aineiston on tuottanut Helsingin seudun ympäristöpalvelut. Sen metatiedot löytyvät samasta kansiosta, <strong>Vaestoruudukko.pdf</strong> -tiedostosta. Avaa Vaestoruudukko.pdf-tiedosto ja tutustu eri kenttien (sarakkeiden) kuvauksiin. Sivun lopussa asiaa on hieman avattu.</p>
+<p><img src="img/harjoitus_8/image7.png" style="width:60.0%" /></p>
+<p>Ominaisuustietotauluissa sarakkeiden nimet ovat usein lyhennetyssä muodossa. Sarakkeiden merkitystä on tyypillisesti hiukan vaikea päätellä lyhenteistä. Tässä tapauksessa silmiinpistävää on lisäksi, että taulukossa luku 99 toistuu useaan otteeseen. Metatietojen avulla voimme kuitenkin selvittää muun muassa, miten ASUKKAITA sarakkeen tiedot on laskettu sekä millä tavalla tiedot on poistettu ruuduissa, joissa asuu 0-4 asukasta. IKA-sarakkeet sisältävät asukkaiden määrät ikäluokittain, mutta niille on annettu arvo 99 aina kun ruudukon asukasmäärä on ollut alle 100.</p>
+<p>Tarkastele aineistoa myös kartalla. Huomaatko yhden ruudun, joka näyttää sijaitsevan kaukana kaakossa keskellä merta?</p>
+<p><img src="img/harjoitus_8/image8.png" style="width:60.0%" /></p>
+<p>Irralliseen ruutuun on tässä aineistossa sijoitettu kaikki ne pk-seudun asukkaat, joilla ei ole vakituista kotiosoitetta. Info-työkalulla nähdään, että tämän ruudun asukasmäärä on kymmenkertaisesti suurempi kuin minkään muun aineiston ruudun. Se siis vääristää luokittelua ja aineistosta laskettuja tilastoja (mm. keskimääräinen asukastiheys ruutua kohti).</p>
+<p>Suodatetaan tämä ruutu pois aineistosta: laita editointi päälle ja klikkaa tason nimeä hiiren oikealla ja valitse <strong>Suodata…</strong> Kirjoita (tai valitse tietokentistä ja operaattoreista klikkaamalla) suodatuslausekkeeksi <strong>ASUKKAITA &lt; 5000</strong>. Voit testata suodatuksen toimivuutta klikkaamalla <strong>Testaa</strong>.</p>
+<p><img src="img/harjoitus_8/image9.png" style="width:70.0%" /></p>
+<p>Nyt QGIS näyttää aineistostasi vain ne ruudut, jotka täyttävät annetun ehdon eli joiden kokonaisasukasmäärä on alle 5000.
+Paikkatietoineiston ymmärtäminen ennen sen käsittelyä on välttämätöntä. Voimme nyt esimerkiksi päättää, että haluamme tuottaa teemakartan ASUKKAITA-sarakkeen tietojen pohjalta. Näin pystymme myös paremmin tulkitsemaan karttaa ja valitsemaan visualisointia varten sopivat asetukset.
+Avaa tason ominaisuudet ja valitse tason kuvaustekniikaksi <strong>Porrastettu</strong>.
+Aseta vielä oheisen kuvan mukaiset <strong>Sarake-, Liukuväri-, Tila- ja Luokat-määrittelyt</strong>.</p>
+<p><img src="img/harjoitus_8/image10.png" style="width:60.0%" /></p>
+<p>Kun olet saanut ne asetettua, paina <strong>Luokittele</strong>, niin luokitus tulee näkyviin.
+Voit myös muokata manuaalisesti arvovälejä kaksoisklikkaamalla <strong>Arvot-saraketta</strong> tai luokkien nimiä kaksoisklikkaamalla <strong>Selite-saraketta</strong>. Luokkien nimet näkyvät <strong>Tasot-paneelissa</strong> ja myös karttatulosteen selitteessä.
+Paina <strong>Käytä</strong>, niin näet muutokset kartalla. Karttanäytölle pitäisi muodostua jokseenkin tämän näköinen tilastoteemakartta.</p>
+<p><img src="img/harjoitus_8/image11.png" /></p>
+<p>Jos <strong>Tasot-paneelissasi</strong> ei näy selitettä, paina tason nimen vasemmalla olevaa pientä nuolta ja selitteet avautuvat tason alle kuvan mukaisesti.
+Palaa vielä <strong>Kuvaustekniikka-asetuksiin</strong> ja kokeile <strong>Tila → Tasaväli</strong> ja vaihda <strong>Luokat</strong>. Voit hävittää olemassa olevat luokat painamalla <strong>Poista kaikki</strong> (Delete All) ja sitten uudelleen luokitella painamalla <strong>Luokittele</strong>.
+Kokeile myös vaihtaa luokkien lukumäärää, luokitustapoja ja värityksiä, kunnes löydät mielestäsi sopivan tuloksen.</p>
+<p><img src="img/harjoitus_8/image12.png" /></p>
+<p>Voit vertailla eri luokittelumenetelmiä ja tutkia aineiston jakaumaa histogrammin avulla. Histogrammi löytyy omalta välilehdeltään. Paina <strong>Load values</strong> saadaksesi histogrammin ja luokkien rajat näkyviin.</p>
+<p><img src="img/harjoitus_8/image13.png" style="width:60.0%" /></p>
+<p><img src="img/harjoitus_8/image14.png" /></p>
+<p>Muuta vielä <strong>Symbolityyliä</strong>. Avaa uudelleen tason ominaisuustiedot ja paina <strong>Muuta…</strong>
+<strong>Symbolin valitsija -ikkuna</strong> aukene. Valitse soveltuva kuviointi monikulmioille. Valitse sitten <strong>Yksinkertainen täyttö</strong> symbolitasolle ja aseta <strong>Piirron tyyliksi Ei viivaa</strong>. Paina <strong>OK</strong> ja <strong>OK</strong>. Zoomaa karttaan tutkimaan tulosta ja palaa tyyliasetuksiin, jos haluat tehdä vielä muutoksia.</p>
+</div>
+<div id="lisätehtävä-nimiöiden-piirtäminen" class="section level2">
+<h2>Lisätehtävä: nimiöiden piirtäminen</h2>
+<p>Loitonna karttanäkymää siten, että kaikki tasojesi kohteet tulevat näkyville. Voit tehdä tämän seuraavan työkalun avulla:</p>
+<p><img src="img/harjoitus_8/image15.jpg" /></p>
+<p>Joissakin tapauksissa olisi hyödyllistä määrittää nimiöt eri mittakaavoille erikseen.
+Avaa taas <strong>natura2000sac_alueet-tason ominaisuudet</strong> ja valitse <strong>Nimiöt-sivupalkista</strong> ja <strong>Piirtäminen-alateema</strong>. Rastita <strong>Show all labels for this layer (including colliding labels)</strong>, varmista, ettei mittakaavaperusteinen näkyvyys ole valittuna ja paina <strong>Käytä</strong>. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä mittakaavalla. Rastita tämä asetus pois päältä ja paina Käytä. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt.
+Rastita päälle <strong>Mittakaavaperusteinen näkyvyys</strong> ja laita <strong>Maksimi-kentän arvoksi</strong> 500 000:</p>
+<p><img src="img/harjoitus_8/image16.png" /></p>
+<p>Paina <strong>OK</strong>. Natura-kohteiden nimiöt eivät enää näy 1:500 000 mittakaavan ulkopuolella. Loitonna karttaa, kunnes nimiöt näkyvät uudelleen.
+Voit myös testata muita tekstittämiseen liittyviä edistyneempiä toimia. Voit muun muassa ohjata nimiöiden tekstejä lausekepohjaisesti käyttämällä merkkijonoja QGISin lauseke-työkalulla:</p>
+<p><img src="img/harjoitus_8/image17.png" /></p>
+<p>Kokeile yhdistää kaksi saraketta samaan nimiöön <strong>|| -merkin</strong> avulla esimerkiksi seuraavalla tavalla: “<strong>sarake1 || sarake2</strong>”. Uuden rivin saat komennolla <strong><code>‘\n’</code></strong> . Huomaa, miten <strong>Tuloksen esikatselu -kohtaan</strong> tulee esille nimiöinnin oletettu tulos (aineistosta otetuilla esimerkkiarvoilla).</p>
+<p><img src="img/harjoitus_8/image18.png" /></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="07_harjoitus_7.html"><button class="btn btn-default">Previous</button></a>
+<a href="09_harjoitus_9.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS-työpaja Espoon kaupungille</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

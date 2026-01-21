@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Exercise 6: Buffer tool | QGIS plugin development" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Exercise 6: Buffer tool | QGIS plugin development">
+
+<title>Exercise 6: Buffer tool | QGIS plugin development</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS plugin development</h1></div>
+<div class="abstract-sidebar"><p>Developing plugins for QGIS using Python</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-plugin-development">QGIS plugin development</a>
+<ul>
+<li><a href="index.html#welcome-to-the-course">Welcome to the course!</a></li>
+<li><a href="index.html#reading-guide">Reading Guide</a></li>
+<li><a href="index.html#additional-information">Additional information</a></li>
+<li><a href="index.html#mistakes">Mistakes</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_exercise_0.html#exercise-0-python-basics">Exercise 0: Python basics</a>
+<ul>
+<li><a href="00_exercise_0.html#preparations">Preparations</a></li>
+<li class="has-sub"><a href="00_exercise_0.html#the-basics">The basics</a>
+<ul>
+<li><a href="00_exercise_0.html#commands">Commands</a></li>
+<li><a href="00_exercise_0.html#comments">Comments</a></li>
+<li><a href="00_exercise_0.html#calculations">Calculations</a></li>
+<li><a href="00_exercise_0.html#variables">Variables</a></li>
+<li><a href="00_exercise_0.html#types">Types</a></li>
+<li><a href="00_exercise_0.html#conditionals">Conditionals</a></li>
+<li><a href="00_exercise_0.html#functions">Functions</a></li>
+<li><a href="00_exercise_0.html#data-structures">Data structures</a></li>
+<li><a href="00_exercise_0.html#loops-and-iteration">Loops and iteration</a></li>
+<li><a href="00_exercise_0.html#modules">Modules</a></li>
+<li><a href="00_exercise_0.html#objects">Objects</a></li>
+<li><a href="00_exercise_0.html#classes">Classes</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-python-console">Exercise 1: Python console</a>
+<ul>
+<li><a href="01_exercise_1.html#structure-of-the-exercises">Structure of the exercises</a></li>
+<li><a href="01_exercise_1.html#examples">Examples</a></li>
+<li><a href="01_exercise_1.html#exercises">Exercises</a></li>
+<li><a href="01_exercise_1.html#exercise-1.1">Exercise 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-introduction-to-pyqgis">Exercise 2: Introduction to PyQGIS</a>
+<ul>
+<li><a href="02_exercise_2.html#layers">Layers</a></li>
+<li><a href="02_exercise_2.html#exercise-2.1">Exercise 2.1</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2">Exercise 2.2</a></li>
+<li><a href="02_exercise_2.html#exercise-2.3">Exercise 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-layers-features-and-geometries">Exercise 3: Layers, features and geometries</a>
+<ul>
+<li><a href="03_exercise_3.html#layer">Layer</a></li>
+<li><a href="03_exercise_3.html#creating-a-temporary-layer">Creating a temporary layer</a></li>
+<li><a href="03_exercise_3.html#geometries">Geometries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.1">Exercise 3.1</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2-distances">Exercise 3.2: Distances</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-guis-with-qt">Exercise 4: GUIs with Qt</a>
+<ul>
+<li class="has-sub"><a href="04_exercise_4.html#about-qt-guis">About Qt GUIs</a>
+<ul>
+<li><a href="04_exercise_4.html#qwidget">QWidget</a></li>
+<li><a href="04_exercise_4.html#signals-and-slots">Signals and slots</a></li>
+</ul></li>
+<li><a href="04_exercise_4.html#exercise-4.1-counter-widget">Exercise 4.1: Counter-widget</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-qgis-custom-widgets">Exercise 4.2: QGIS custom widgets</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-creating-a-plugin">Exercise 5: Creating a plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#configuring-git">Configuring Git</a></li>
+<li><a href="05_exercise_5.html#creating-the-plugin">Creating the plugin</a></li>
+<li><a href="05_exercise_5.html#adding-the-plugin-to-qgis">Adding the plugin to QGIS</a></li>
+<li class="has-sub"><a href="05_exercise_5.html#structure-of-the-plugin">Structure of the plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#file-plugin.py">File: plugin.py</a></li>
+<li><a href="05_exercise_5.html#file-__init__.py">File: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-buffer-tool">Exercise 6: Buffer tool</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1-creating-the-gui">Exercise 6.1: Creating the GUI</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2-connecting-the-gui-to-the-plugin">Exercise 6.2: Connecting the GUI to the plugin</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3-the-functionality-of-the-tool">Exercise 6.3: The functionality of the tool</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4-segments">Exercise 6.4: Segments</a></li>
+<li><a href="06_exercise_6.html#unit-tests">Unit tests</a></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6.5-tests">Exercise 6.5: Tests</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.5.1-gui-test">Exercise 6.5.1: GUI test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.2-buffertool-test">Exercise 6.5.2: BufferTool test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.3-more-tests">Exercise 6.5.3: More tests</a></li>
+</ul></li>
+<li><a href="06_exercise_6.html#sample-plugin">Sample plugin</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-point-tool">Exercise 7: Point tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-panel">Exercise 7.1: Creating a panel</a></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7.2-point-tool">Exercise 7.2: Point Tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.2.1-extra-challenge---labeling">Exercise 7.2.1: Extra challenge - labeling</a></li>
+</ul></li>
+<li><a href="07_exercise_7.html#exercise-7.3-tests">Exercise 7.3: Tests</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-processing-algorithms">Exercise 8: Processing algorithms</a>
+<ul>
+<li class="has-sub"><a href="08_exercise_8.html#background">Background</a>
+<ul>
+<li><a href="08_exercise_8.html#calling-a-processing-algorithm">Calling a processing algorithm</a></li>
+</ul></li>
+<li><a href="08_exercise_8.html#algorithms-in-a-plugin">Algorithms in a plugin</a></li>
+<li><a href="08_exercise_8.html#exercise-8.1-writing-an-algorithm">Exercise 8.1: Writing an algorithm</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-tests-for-the-algorithm">Exercise 8.2: Tests for the algorithm</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#extra-python-exercises">Extra Python exercises</a>
+<ul>
+<li class="has-sub"><a href="09_extra_9.html#topic-1-comprehensions">Topic 1: Comprehensions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-1.1">Extra exercise 1.1</a></li>
+<li><a href="09_extra_9.html#nested-comprehensions">Nested comprehensions</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-2-lambda-functions">Topic 2: Lambda functions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-2.1">Extra exercise 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-3-decorators">Topic 3: Decorators</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercises-3.1">Extra exercises 3.1</a></li>
+<li><a href="09_extra_9.html#decorators-and-parameters">Decorators and parameters</a></li>
+<li><a href="09_extra_9.html#extra-exercise-3.2">Extra exercise 3.2</a></li>
+</ul></li>
+<li><a href="09_extra_9.html#topic-4-typing">Topic 4: Typing</a></li>
+<li><a href="09_extra_9.html#extra-exercises-4.1">Extra exercises 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-6-buffer-tool" class="section level1">
+<h1>Exercise 6: Buffer tool</h1>
+<p>The goal of this exercise is to create a simple tool which can
+be used to select a vector layer and use it to create a new
+layer in which a buffer is created from the source layer to
+each new feature. A dialog interface is created for the
+tool where you can choose a source layer, the distance and
+segments of the buffer:</p>
+<p>Here is a video showing the functionality of the tool:</p>
+<p><img src="img/exercise_6/image1.gif" /></p>
+<div id="exercise-6.1-creating-the-gui" class="section level2">
+<h2>Exercise 6.1: Creating the GUI</h2>
+<p>As learned previously you can create GUIs programmatically
+using PyQt. However, especially creating more complex GUIs
+by writing code can be difficult. Qt offers a solution in the
+form of a separate program called Qt Designer where you can
+design GUIs graphically. You can use it to build your GUI
+and save it as a <strong>.ui</strong> file which can be used as a part of
+the plugin. On Windows Qt Designer is typically included
+as a part of the QGIS installation and can be opened by
+searching for its name.</p>
+<p>First create a minimal GUI and link it up with
+the plugin you created in the previous exercise.
+Open Qt Designer where you should be greeted with the following
+dialog:</p>
+<p><img src="img/exercise_6/image2.png" /></p>
+<p>Select <strong>Dialog with Buttons Bottom</strong> and press <strong>Create</strong>.
+Next from the top right “Object Inspector” menu change the
+name of the QDialog object to <strong>BufferToolDialog</strong> and edit
+the buttonBox object so that the <strong>OK</strong> button is removed.
+Select the buttonBox object and scroll down in the <strong>Property
+Editor</strong> which is located below the Object Inspector.
+At the bottom you should see the attributes of the
+QDialogButtonBox class. Here you can open the standardButtons
+menu to edit the different buttons. Double-click the OK button
+to exclude it from the GUI.</p>
+<p><img src="img/exercise_6/image3.gif" /></p>
+<p>Save this GUI into the plugin folder that was previously created
+with this path: <code>test-plugin/testplugin/resources/ui/buffer_tool.ui</code>.</p>
+<div class="hint-box">
+<p>You should save the file in this exact location, because the
+<code>qgis_plugin_tools</code> package will be used later on and can locate
+this path easily.</p>
+</div>
+</div>
+<div id="exercise-6.2-connecting-the-gui-to-the-plugin" class="section level2">
+<h2>Exercise 6.2: Connecting the GUI to the plugin</h2>
+<p>Next edit the plugin so that you can open the GUI through QGIS.</p>
+<p>Define a new class for the dialog you just created. It should
+inherit QDialog</p>
+<ol style="list-style-type: decimal">
+<li>Create two new files in the <code>test-plugin/testplugin/ui</code> directory: <code>__init__.py</code> and <code>buffer_tool_dialog.py</code></li>
+<li>Leave <code>__init__.py</code> as empty.</li>
+<li>Copy the following code to <code>buffer_tool_dialog.py</code>:</li>
+</ol>
+<div class="code-box">
+<div class="sourceCode" id="cb136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb136-1"><a href="06_exercise_6.html#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="cb136-2"><a href="06_exercise_6.html#cb136-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
+<span id="cb136-3"><a href="06_exercise_6.html#cb136-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-4"><a href="06_exercise_6.html#cb136-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtWidgets <span class="im">import</span> (</span>
+<span id="cb136-5"><a href="06_exercise_6.html#cb136-5" aria-hidden="true" tabindex="-1"></a>    QDialog,</span>
+<span id="cb136-6"><a href="06_exercise_6.html#cb136-6" aria-hidden="true" tabindex="-1"></a>    QWidget,</span>
+<span id="cb136-7"><a href="06_exercise_6.html#cb136-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb136-8"><a href="06_exercise_6.html#cb136-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-9"><a href="06_exercise_6.html#cb136-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.resources <span class="im">import</span> load_ui, plugin_name</span>
+<span id="cb136-10"><a href="06_exercise_6.html#cb136-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-11"><a href="06_exercise_6.html#cb136-11" aria-hidden="true" tabindex="-1"></a>FORM_CLASS: QWidget <span class="op">=</span> load_ui(<span class="st">&quot;buffer_tool.ui&quot;</span>)</span>
+<span id="cb136-12"><a href="06_exercise_6.html#cb136-12" aria-hidden="true" tabindex="-1"></a>LOGGER <span class="op">=</span> logging.getLogger(plugin_name())</span>
+<span id="cb136-13"><a href="06_exercise_6.html#cb136-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-14"><a href="06_exercise_6.html#cb136-14" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BufferToolDialog(QDialog, FORM_CLASS):</span>
+<span id="cb136-15"><a href="06_exercise_6.html#cb136-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-16"><a href="06_exercise_6.html#cb136-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, parent: Optional[QWidget] <span class="op">=</span> <span class="va">None</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb136-17"><a href="06_exercise_6.html#cb136-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Constructor.&quot;&quot;&quot;</span></span>
+<span id="cb136-18"><a href="06_exercise_6.html#cb136-18" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(parent)</span>
+<span id="cb136-19"><a href="06_exercise_6.html#cb136-19" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.setupUi(<span class="va">self</span>)</span></code></pre></div>
+</div>
+<p>Next open the <code>test-plugin/testplugin/plugin.py</code> file. Add to the import commands:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb137-1"><a href="06_exercise_6.html#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.ui.buffer_tool_dialog <span class="im">import</span> BufferToolDialog</span></code></pre></div>
+</div>
+<p>The next import command should already exist, but add <code>tr</code> to the end of it.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb138"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb138-1"><a href="06_exercise_6.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.i18n <span class="im">import</span> setup_translation, tr <span class="co"># add &#39;tr&#39;</span></span></code></pre></div>
+</div>
+<div class="hint-box">
+<p><code>tr()</code> is a function that translates string depending on the language that is
+selected. If you want to translate your plugin for different localities you
+should use the function for every string that is visible to the user one way
+or another.</p>
+</div>
+<p>Next find the <code>initGui()</code> function inside the Plugin class. Edit the <code>self.add_cation</code> function call:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb139-1"><a href="06_exercise_6.html#cb139-1" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.add_action(</span>
+<span id="cb139-2"><a href="06_exercise_6.html#cb139-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;&quot;</span>,</span>
+<span id="cb139-3"><a href="06_exercise_6.html#cb139-3" aria-hidden="true" tabindex="-1"></a>            text<span class="op">=</span>tr(<span class="st">&quot;Buffer Tool&quot;</span>),</span>
+<span id="cb139-4"><a href="06_exercise_6.html#cb139-4" aria-hidden="true" tabindex="-1"></a>            callback<span class="op">=</span><span class="va">self</span>.open_buffer_tool,</span>
+<span id="cb139-5"><a href="06_exercise_6.html#cb139-5" aria-hidden="true" tabindex="-1"></a>            parent<span class="op">=</span>iface.mainWindow(),</span>
+<span id="cb139-6"><a href="06_exercise_6.html#cb139-6" aria-hidden="true" tabindex="-1"></a>            add_to_toolbar<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb139-7"><a href="06_exercise_6.html#cb139-7" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div>
+</div>
+<div class="hint-box">
+<p>Here you are defining QAction widgets which will be added to the QGIS
+plugin menu. In the plugin template a menu is added to the QGIS
+<strong>Plugins</strong> top menu. Here you define the buttons which are
+added to a secondary menu which is named after the plugin.</p>
+<p><img src="img/exercise_6/image4.png" style="width:50.0%" /></p>
+<p>In order the meaning of the arguments:</p>
+<ol style="list-style-type: decimal">
+<li>Path to an icon file. If empty the button will have no icon.</li>
+<li>The text of the button.</li>
+<li>Callback, i.e. the function that will be called when the button is clicked.</li>
+<li>Parent. Add to the QGIS main window</li>
+<li>Should a button be added also to a toolbar? In this case no.</li>
+</ol>
+</div>
+<p>Then you can define the <code>open_buffer_tool()</code> function which was
+referred to previously. Find the <code>run()</code> method at the end of
+the Plugin class definition, delete it and copy this new
+function over:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb140"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb140-1"><a href="06_exercise_6.html#cb140-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> open_buffer_tool(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb140-2"><a href="06_exercise_6.html#cb140-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Opens buffer tool dialog&quot;&quot;&quot;</span></span>
+<span id="cb140-3"><a href="06_exercise_6.html#cb140-3" aria-hidden="true" tabindex="-1"></a>        BufferToolDialog().<span class="bu">exec</span>()</span></code></pre></div>
+</div>
+<p>Remember to run this on the commandline:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb141"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb141-1"><a href="06_exercise_6.html#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> build.py deploy</span></code></pre></div>
+</div>
+<p>Reload the plugin with <strong>Plugin Reloader</strong>. Now inside the
+<strong>Plugins</strong> &gt; <strong>Test Plugin</strong> menu there should be a new
+button <strong>Buffer Tool</strong> and by clicking it the GUI you saved
+earlier should open.</p>
+</div>
+<div id="exercise-6.3-the-functionality-of-the-tool" class="section level2">
+<h2>Exercise 6.3: The functionality of the tool</h2>
+<p>Next add the needed widgets to the GUI. On the left you have
+a list of widgets that can be added used.</p>
+<p>You can follow the following step:</p>
+<ol style="list-style-type: decimal">
+<li>Drag a <strong>Horizontal Layout</strong> to the dialog. You can make it a bit larger.</li>
+<li>Drag a <strong>Label</strong> widget <strong>into the layout</strong>.</li>
+<li>Drag a <strong>QgsMapLayerComboBox</strong> also into the layout, to the right of the label.</li>
+</ol>
+<p><img src="img/exercise_6/image5.gif" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Double-click the label widget and write <strong>Layer</strong> as its text.</li>
+<li>Change the name of the QgsMapLayerComboBox object to <code>layerComboBox</code>.</li>
+<li>If you prefer you can also rename the QLabel object.</li>
+</ol>
+<p>Repeat the previous steps so that finally you have the following components
+alongside a label for them as needed:</p>
+<p><img src="img/exercise_6/image6.png" style="width:33.0%" /></p>
+<ul>
+<li>Layer: QgsMapLayerComboBox (name: layerComboBox)</li>
+<li>Buffer Distance: QgsDoubleSpinBox (name: distanceSpinBox)</li>
+<li>New layer name: QLineEdit (name: newLayerLineEdit)</li>
+<li>QPushButton (name: newLayerPushButton, button text: Create new layer)</li>
+</ul>
+<p>Organize the widgets vertically and finally you can create a layout for the
+BufferToolDialog itself by right-clicking on the background:</p>
+<p><img src="img/exercise_6/image7.png" style="width:50.0%" /></p>
+<p>Once these changes have been made you can write the actual functionality
+of the tool step by step. Organize the code of the plugin so that the
+functionality of the GUI is defined in Python files under the
+<code>test-plugin/testplugin/ui</code> folder. The actual buffer functionality
+is defined in <code>test-plugin/testplugin/core</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Create the core folder and add an empty <code>__init__.py</code> file.</li>
+<li>To the same folder add a new file <code>buffertool.py</code> and add the following code:</li>
+</ol>
+<div class="code-box">
+<div class="sourceCode" id="cb142"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb142-1"><a href="06_exercise_6.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb142-2"><a href="06_exercise_6.html#cb142-2" aria-hidden="true" tabindex="-1"></a>    QgsVectorLayer,</span>
+<span id="cb142-3"><a href="06_exercise_6.html#cb142-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb142-4"><a href="06_exercise_6.html#cb142-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-5"><a href="06_exercise_6.html#cb142-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BufferTool:</span>
+<span id="cb142-6"><a href="06_exercise_6.html#cb142-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-7"><a href="06_exercise_6.html#cb142-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb142-8"><a href="06_exercise_6.html#cb142-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> create_buffer_layer(src_layer: QgsVectorLayer, buffer_distance: <span class="bu">float</span>, new_layer_name: <span class="bu">str</span>, segments: <span class="bu">int</span>) <span class="op">-&gt;</span> Optional[QgsVectorLayer]:</span>
+<span id="cb142-9"><a href="06_exercise_6.html#cb142-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">&quot;Creating buffer layer&quot;</span>)</span></code></pre></div>
+</div>
+<p>So far the <code>create_buffer_layer()</code> only prints a message, the actual
+functionality will be added later. A Python <em>decorator</em> <span class="citation">@staticmethod</span>
+is used, which means the function can be called without creating an
+object of the BufferTool class.</p>
+<p>Edit the <code>test-plugin/testplugin/ui/buffer_tool_dialog.py</code> file:</p>
+<p>Add to the import commands:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb143"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb143-1"><a href="06_exercise_6.html#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.core.buffertool <span class="im">import</span> BufferTool</span>
+<span id="cb143-2"><a href="06_exercise_6.html#cb143-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsMapLayerProxyModel</span></code></pre></div>
+</div>
+<p>Add to the class constructor (<code>__init__</code>() method):</p>
+<div class="code-box">
+<div class="sourceCode" id="cb144"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb144-1"><a href="06_exercise_6.html#cb144-1" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.layerComboBox.setFilters(</span>
+<span id="cb144-2"><a href="06_exercise_6.html#cb144-2" aria-hidden="true" tabindex="-1"></a>            QgsMapLayerProxyModel.PointLayer <span class="op">|</span></span>
+<span id="cb144-3"><a href="06_exercise_6.html#cb144-3" aria-hidden="true" tabindex="-1"></a>            QgsMapLayerProxyModel.PolygonLayer <span class="op">|</span></span>
+<span id="cb144-4"><a href="06_exercise_6.html#cb144-4" aria-hidden="true" tabindex="-1"></a>            QgsMapLayerProxyModel.LineLayer</span>
+<span id="cb144-5"><a href="06_exercise_6.html#cb144-5" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb144-6"><a href="06_exercise_6.html#cb144-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-7"><a href="06_exercise_6.html#cb144-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.newLayerPushButton.clicked.<span class="ex">connect</span>(<span class="va">self</span>._create_buffer_layer)</span></code></pre></div>
+</div>
+<p>Here a filter is applied to the layerComboBox object which means only
+point, line and polygon layers are shown. A connection is created from the
+push buttons <code>clicked</code> signal to the <code>_create_buffer_layer</code> method that
+will be defined next.</p>
+<p>Add a new method:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb145-1"><a href="06_exercise_6.html#cb145-1" aria-hidden="true" tabindex="-1"></a>    <span class="at">@log_if_fails</span></span>
+<span id="cb145-2"><a href="06_exercise_6.html#cb145-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _create_buffer_layer(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb145-3"><a href="06_exercise_6.html#cb145-3" aria-hidden="true" tabindex="-1"></a>        selected_layer <span class="op">=</span> <span class="va">self</span>.layerComboBox.currentLayer()</span>
+<span id="cb145-4"><a href="06_exercise_6.html#cb145-4" aria-hidden="true" tabindex="-1"></a>        buffer_distance <span class="op">=</span> <span class="va">self</span>.distanceSpinBox.value()</span>
+<span id="cb145-5"><a href="06_exercise_6.html#cb145-5" aria-hidden="true" tabindex="-1"></a>        new_layer_name <span class="op">=</span> <span class="va">self</span>.newLayerLineEdit.text()</span>
+<span id="cb145-6"><a href="06_exercise_6.html#cb145-6" aria-hidden="true" tabindex="-1"></a>        segments <span class="op">=</span> <span class="dv">5</span> <span class="co"># this&#39;ll be returned to later</span></span>
+<span id="cb145-7"><a href="06_exercise_6.html#cb145-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-8"><a href="06_exercise_6.html#cb145-8" aria-hidden="true" tabindex="-1"></a>        new_layer <span class="op">=</span> BufferTool.create_buffer_layer(</span>
+<span id="cb145-9"><a href="06_exercise_6.html#cb145-9" aria-hidden="true" tabindex="-1"></a>            selected_layer,</span>
+<span id="cb145-10"><a href="06_exercise_6.html#cb145-10" aria-hidden="true" tabindex="-1"></a>            buffer_distance,</span>
+<span id="cb145-11"><a href="06_exercise_6.html#cb145-11" aria-hidden="true" tabindex="-1"></a>            new_layer_name,</span>
+<span id="cb145-12"><a href="06_exercise_6.html#cb145-12" aria-hidden="true" tabindex="-1"></a>            segments</span>
+<span id="cb145-13"><a href="06_exercise_6.html#cb145-13" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb145-14"><a href="06_exercise_6.html#cb145-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-15"><a href="06_exercise_6.html#cb145-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> new_layer <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb145-16"><a href="06_exercise_6.html#cb145-16" aria-hidden="true" tabindex="-1"></a>            QgsProject.instance().addMapLayer(new_layer)</span></code></pre></div>
+</div>
+<p>Here the required information is fetched from the widgets and the
+<code>create_buffer_layer</code> method is called from the <strong>BufferTool</strong>
+class.</p>
+<div class="hint-box">
+<p>Organizing the code to different classes into the separate <strong>ui</strong> and
+<strong>core</strong> folders may seem unnecessarily complex for a fairly simple
+plugin. However keeping the GUI and core functionalities separate has
+its own benefits, for example later when writing tests.</p>
+</div>
+<p>Confirm that the tool works as expected. Remember to deploy the changes:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb146"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb146-1"><a href="06_exercise_6.html#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> build.py deploy</span></code></pre></div>
+</div>
+<p>Reload the plugin inside QGIS using <strong>Plugin Reloader</strong>. Now when
+you open the dialog and press the <strong>Create new layer</strong> button a
+message should appear inside the Python console.</p>
+<p>Now you can create the actual functionality for the buffer tool.
+Edit the <code>test-plugin/testplugin/core/buffertool.py</code> file:</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+code
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="06_exercise_6.html#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Optional</span>
+<span id="cb147-2"><a href="06_exercise_6.html#cb147-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-3"><a href="06_exercise_6.html#cb147-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.i18n <span class="im">import</span> tr</span>
+<span id="cb147-4"><a href="06_exercise_6.html#cb147-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.core.exceptions <span class="im">import</span> BufferToolException</span>
+<span id="cb147-5"><a href="06_exercise_6.html#cb147-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-6"><a href="06_exercise_6.html#cb147-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb147-7"><a href="06_exercise_6.html#cb147-7" aria-hidden="true" tabindex="-1"></a>    QgsFeature,</span>
+<span id="cb147-8"><a href="06_exercise_6.html#cb147-8" aria-hidden="true" tabindex="-1"></a>    QgsProject,</span>
+<span id="cb147-9"><a href="06_exercise_6.html#cb147-9" aria-hidden="true" tabindex="-1"></a>    QgsVectorLayer,</span>
+<span id="cb147-10"><a href="06_exercise_6.html#cb147-10" aria-hidden="true" tabindex="-1"></a>    QgsWkbTypes,</span>
+<span id="cb147-11"><a href="06_exercise_6.html#cb147-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb147-12"><a href="06_exercise_6.html#cb147-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-13"><a href="06_exercise_6.html#cb147-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.custom_logging <span class="im">import</span> bar_msg</span>
+<span id="cb147-14"><a href="06_exercise_6.html#cb147-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-15"><a href="06_exercise_6.html#cb147-15" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BufferTool:</span>
+<span id="cb147-16"><a href="06_exercise_6.html#cb147-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-17"><a href="06_exercise_6.html#cb147-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb147-18"><a href="06_exercise_6.html#cb147-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> create_buffer_layer(src_layer: QgsVectorLayer, buffer_distance: <span class="bu">float</span>, new_layer_name: <span class="bu">str</span>, segments: <span class="bu">int</span>) <span class="op">-&gt;</span> Optional[QgsVectorLayer]:</span>
+<span id="cb147-19"><a href="06_exercise_6.html#cb147-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> src_layer.featureCount() <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb147-20"><a href="06_exercise_6.html#cb147-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> BufferToolException(</span>
+<span id="cb147-21"><a href="06_exercise_6.html#cb147-21" aria-hidden="true" tabindex="-1"></a>                tr(<span class="st">&quot;Buffer Tool&quot;</span>),</span>
+<span id="cb147-22"><a href="06_exercise_6.html#cb147-22" aria-hidden="true" tabindex="-1"></a>                bar_msg<span class="op">=</span>bar_msg(tr(<span class="st">&quot;Could not create buffer layer. Source layer has no features&quot;</span>))</span>
+<span id="cb147-23"><a href="06_exercise_6.html#cb147-23" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb147-24"><a href="06_exercise_6.html#cb147-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-25"><a href="06_exercise_6.html#cb147-25" aria-hidden="true" tabindex="-1"></a>        src_geom_type <span class="op">=</span> QgsWkbTypes.displayString(src_layer.wkbType()).lower()</span>
+<span id="cb147-26"><a href="06_exercise_6.html#cb147-26" aria-hidden="true" tabindex="-1"></a>        new_geom_type <span class="op">=</span> <span class="st">&#39;MultiPolygon&#39;</span> <span class="cf">if</span> <span class="st">&#39;multi&#39;</span> <span class="kw">in</span> src_geom_type <span class="cf">else</span> <span class="st">&#39;Polygon&#39;</span></span>
+<span id="cb147-27"><a href="06_exercise_6.html#cb147-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-28"><a href="06_exercise_6.html#cb147-28" aria-hidden="true" tabindex="-1"></a>        crs <span class="op">=</span> src_layer.crs().authid()</span>
+<span id="cb147-29"><a href="06_exercise_6.html#cb147-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-30"><a href="06_exercise_6.html#cb147-30" aria-hidden="true" tabindex="-1"></a>        geom_string <span class="op">=</span> <span class="ss">f&quot;</span><span class="sc">{</span>new_geom_type<span class="sc">}</span><span class="ss">?crs=</span><span class="sc">{</span>crs<span class="sc">}</span><span class="ss">&quot;</span></span>
+<span id="cb147-31"><a href="06_exercise_6.html#cb147-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-32"><a href="06_exercise_6.html#cb147-32" aria-hidden="true" tabindex="-1"></a>        buffer_layer <span class="op">=</span> QgsVectorLayer(geom_string, new_layer_name, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb147-33"><a href="06_exercise_6.html#cb147-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-34"><a href="06_exercise_6.html#cb147-34" aria-hidden="true" tabindex="-1"></a>        buffer_layer.startEditing()</span>
+<span id="cb147-35"><a href="06_exercise_6.html#cb147-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-36"><a href="06_exercise_6.html#cb147-36" aria-hidden="true" tabindex="-1"></a>        src_fields <span class="op">=</span> src_layer.fields()</span>
+<span id="cb147-37"><a href="06_exercise_6.html#cb147-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-38"><a href="06_exercise_6.html#cb147-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> field <span class="kw">in</span> src_fields:</span>
+<span id="cb147-39"><a href="06_exercise_6.html#cb147-39" aria-hidden="true" tabindex="-1"></a>            buffer_layer.addAttribute(field)</span>
+<span id="cb147-40"><a href="06_exercise_6.html#cb147-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-41"><a href="06_exercise_6.html#cb147-41" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> feature <span class="kw">in</span> src_layer.getFeatures():</span>
+<span id="cb147-42"><a href="06_exercise_6.html#cb147-42" aria-hidden="true" tabindex="-1"></a>            old_geom <span class="op">=</span> feature.geometry()</span>
+<span id="cb147-43"><a href="06_exercise_6.html#cb147-43" aria-hidden="true" tabindex="-1"></a>            new_geom <span class="op">=</span> old_geom.<span class="bu">buffer</span>(buffer_distance, segments)</span>
+<span id="cb147-44"><a href="06_exercise_6.html#cb147-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-45"><a href="06_exercise_6.html#cb147-45" aria-hidden="true" tabindex="-1"></a>            new_feature <span class="op">=</span> QgsFeature(feature)</span>
+<span id="cb147-46"><a href="06_exercise_6.html#cb147-46" aria-hidden="true" tabindex="-1"></a>            new_feature.setGeometry(new_geom)</span>
+<span id="cb147-47"><a href="06_exercise_6.html#cb147-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-48"><a href="06_exercise_6.html#cb147-48" aria-hidden="true" tabindex="-1"></a>            buffer_layer.addFeature(new_feature)</span>
+<span id="cb147-49"><a href="06_exercise_6.html#cb147-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-50"><a href="06_exercise_6.html#cb147-50" aria-hidden="true" tabindex="-1"></a>        buffer_layer.updateFields()</span>
+<span id="cb147-51"><a href="06_exercise_6.html#cb147-51" aria-hidden="true" tabindex="-1"></a>        buffer_layer.commitChanges()</span>
+<span id="cb147-52"><a href="06_exercise_6.html#cb147-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-53"><a href="06_exercise_6.html#cb147-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> buffer_layer</span></code></pre></div>
+</div>
+</div>
+<p>An exception called <strong>BufferToolException</strong> is used. This hasn’t been
+defined yet so do that next. Create a new file <code>test-plugin/testplugin/core/exceptions.py</code>
+and add the following code:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb148-1"><a href="06_exercise_6.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.qgis_plugin_tools.tools.exceptions <span class="im">import</span> QgsPluginException</span>
+<span id="cb148-2"><a href="06_exercise_6.html#cb148-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-3"><a href="06_exercise_6.html#cb148-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BufferToolException(QgsPluginException):</span>
+<span id="cb148-4"><a href="06_exercise_6.html#cb148-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div>
+</div>
+</div>
+<div id="exercise-6.4-segments" class="section level2">
+<h2>Exercise 6.4: Segments</h2>
+<p>When a buffer is created from a geometry one parameter is <code>segments</code>
+which affects how many new vertexes the buffer geometry gets.</p>
+<p>Based on what you’ve learned add an option to the tool dialog to
+change the number of the segments in the GUI and edit the code
+so that the number defined in the GUI will be used.</p>
+<p>You can use the <strong>QgsSpinBox</strong> widget.</p>
+</div>
+<div id="unit-tests" class="section level2">
+<h2>Unit tests</h2>
+<p>In programming it is important to write tests and QGIS plugins are
+not an exception. You can use the <strong>pytest</strong> package to create and
+run tests.</p>
+<p>To write tests you create new files in the <code>test-plugin/tests</code>
+folder. These files are <strong>.py</strong> files and their name has to begin with
+<code>test_</code>. In these files we can then create the tests themselves. Each test
+is a function that uses our plugin’s classes and functions, and checks
+if the results are as expected. Assuming you’re in the <code>test-plugin</code>
+folder, the tests can be executed from the command line by running the
+<code>pytest</code> command. However you can also run tests inside VS Code like
+done in a previous exercise.</p>
+<p>You can also define <em>fixtures</em> which are funtions that return a value
+or an object. Using these you can for example define a QGIS layer which
+can then be used in more than one test. The fixtures are defined in the
+<code>test-plugin/tests/conftest.py</code> file.</p>
+<div class="hint-box">
+<p>There is a common programming practice called <em>test-driven development</em>
+where you define a test first and implement the actual feature after
+that. In this course we write the functionalities first and tests later.
+This is more of an educational choice, we think it’s clearer for the
+participants to see the plugin in action first instead of writing
+tests first, which might seem abstract for some participants. In actual
+development we’d recommend a test-driven approach.</p>
+</div>
+</div>
+<div id="exercise-6.5-tests" class="section level2">
+<h2>Exercise 6.5: Tests</h2>
+<p>First you can define some fixtures for the tests. Open the
+<code>test-plugin/tests/conftest.py</code> file and add the
+following fixtures:</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+fixtures
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="06_exercise_6.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
+<span id="cb149-2"><a href="06_exercise_6.html#cb149-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb149-3"><a href="06_exercise_6.html#cb149-3" aria-hidden="true" tabindex="-1"></a>    QgsFeature,</span>
+<span id="cb149-4"><a href="06_exercise_6.html#cb149-4" aria-hidden="true" tabindex="-1"></a>    QgsField,</span>
+<span id="cb149-5"><a href="06_exercise_6.html#cb149-5" aria-hidden="true" tabindex="-1"></a>    QgsFields,</span>
+<span id="cb149-6"><a href="06_exercise_6.html#cb149-6" aria-hidden="true" tabindex="-1"></a>    QgsGeometry,</span>
+<span id="cb149-7"><a href="06_exercise_6.html#cb149-7" aria-hidden="true" tabindex="-1"></a>    QgsPointXY,</span>
+<span id="cb149-8"><a href="06_exercise_6.html#cb149-8" aria-hidden="true" tabindex="-1"></a>    QgsVectorLayer,</span>
+<span id="cb149-9"><a href="06_exercise_6.html#cb149-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb149-10"><a href="06_exercise_6.html#cb149-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> QVariant</span>
+<span id="cb149-11"><a href="06_exercise_6.html#cb149-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-12"><a href="06_exercise_6.html#cb149-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.ui.buffer_tool_dialog <span class="im">import</span> BufferToolDialog</span>
+<span id="cb149-13"><a href="06_exercise_6.html#cb149-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-14"><a href="06_exercise_6.html#cb149-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-15"><a href="06_exercise_6.html#cb149-15" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-16"><a href="06_exercise_6.html#cb149-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dialog():</span>
+<span id="cb149-17"><a href="06_exercise_6.html#cb149-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> BufferToolDialog(<span class="va">None</span>)</span>
+<span id="cb149-18"><a href="06_exercise_6.html#cb149-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-19"><a href="06_exercise_6.html#cb149-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-20"><a href="06_exercise_6.html#cb149-20" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-21"><a href="06_exercise_6.html#cb149-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> point() <span class="op">-&gt;</span> QgsGeometry:</span>
+<span id="cb149-22"><a href="06_exercise_6.html#cb149-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> QgsGeometry.fromPointXY(QgsPointXY(<span class="fl">0.0</span>, <span class="fl">0.0</span>))</span>
+<span id="cb149-23"><a href="06_exercise_6.html#cb149-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-24"><a href="06_exercise_6.html#cb149-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-25"><a href="06_exercise_6.html#cb149-25" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-26"><a href="06_exercise_6.html#cb149-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> line() <span class="op">-&gt;</span> QgsGeometry:</span>
+<span id="cb149-27"><a href="06_exercise_6.html#cb149-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> QgsGeometry.fromPolylineXY(</span>
+<span id="cb149-28"><a href="06_exercise_6.html#cb149-28" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb149-29"><a href="06_exercise_6.html#cb149-29" aria-hidden="true" tabindex="-1"></a>            QgsPointXY(<span class="fl">0.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb149-30"><a href="06_exercise_6.html#cb149-30" aria-hidden="true" tabindex="-1"></a>            QgsPointXY(<span class="fl">1.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb149-31"><a href="06_exercise_6.html#cb149-31" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb149-32"><a href="06_exercise_6.html#cb149-32" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb149-33"><a href="06_exercise_6.html#cb149-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-34"><a href="06_exercise_6.html#cb149-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-35"><a href="06_exercise_6.html#cb149-35" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-36"><a href="06_exercise_6.html#cb149-36" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> square() <span class="op">-&gt;</span> QgsGeometry:</span>
+<span id="cb149-37"><a href="06_exercise_6.html#cb149-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> QgsGeometry.fromPolygonXY(</span>
+<span id="cb149-38"><a href="06_exercise_6.html#cb149-38" aria-hidden="true" tabindex="-1"></a>        [</span>
+<span id="cb149-39"><a href="06_exercise_6.html#cb149-39" aria-hidden="true" tabindex="-1"></a>            [</span>
+<span id="cb149-40"><a href="06_exercise_6.html#cb149-40" aria-hidden="true" tabindex="-1"></a>                QgsPointXY(<span class="fl">0.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb149-41"><a href="06_exercise_6.html#cb149-41" aria-hidden="true" tabindex="-1"></a>                QgsPointXY(<span class="fl">1.0</span>, <span class="fl">0.0</span>),</span>
+<span id="cb149-42"><a href="06_exercise_6.html#cb149-42" aria-hidden="true" tabindex="-1"></a>                QgsPointXY(<span class="fl">1.0</span>, <span class="fl">1.0</span>),</span>
+<span id="cb149-43"><a href="06_exercise_6.html#cb149-43" aria-hidden="true" tabindex="-1"></a>                QgsPointXY(<span class="fl">0.0</span>, <span class="fl">1.0</span>),</span>
+<span id="cb149-44"><a href="06_exercise_6.html#cb149-44" aria-hidden="true" tabindex="-1"></a>            ]</span>
+<span id="cb149-45"><a href="06_exercise_6.html#cb149-45" aria-hidden="true" tabindex="-1"></a>        ]</span>
+<span id="cb149-46"><a href="06_exercise_6.html#cb149-46" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb149-47"><a href="06_exercise_6.html#cb149-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-48"><a href="06_exercise_6.html#cb149-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-49"><a href="06_exercise_6.html#cb149-49" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-50"><a href="06_exercise_6.html#cb149-50" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fields() <span class="op">-&gt;</span> QgsFields:</span>
+<span id="cb149-51"><a href="06_exercise_6.html#cb149-51" aria-hidden="true" tabindex="-1"></a>    fields <span class="op">=</span> QgsFields()</span>
+<span id="cb149-52"><a href="06_exercise_6.html#cb149-52" aria-hidden="true" tabindex="-1"></a>    fields.append(QgsField(<span class="st">&quot;fid&quot;</span>, QVariant.Int))</span>
+<span id="cb149-53"><a href="06_exercise_6.html#cb149-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fields</span>
+<span id="cb149-54"><a href="06_exercise_6.html#cb149-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-55"><a href="06_exercise_6.html#cb149-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-56"><a href="06_exercise_6.html#cb149-56" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-57"><a href="06_exercise_6.html#cb149-57" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> point_feature(fields, point) <span class="op">-&gt;</span> QgsFeature:</span>
+<span id="cb149-58"><a href="06_exercise_6.html#cb149-58" aria-hidden="true" tabindex="-1"></a>    feature <span class="op">=</span> QgsFeature(fields)</span>
+<span id="cb149-59"><a href="06_exercise_6.html#cb149-59" aria-hidden="true" tabindex="-1"></a>    feature.setGeometry(point)</span>
+<span id="cb149-60"><a href="06_exercise_6.html#cb149-60" aria-hidden="true" tabindex="-1"></a>    feature.setAttribute(<span class="st">&quot;fid&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb149-61"><a href="06_exercise_6.html#cb149-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> feature</span>
+<span id="cb149-62"><a href="06_exercise_6.html#cb149-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-63"><a href="06_exercise_6.html#cb149-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-64"><a href="06_exercise_6.html#cb149-64" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-65"><a href="06_exercise_6.html#cb149-65" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> square_feature(fields, square) <span class="op">-&gt;</span> QgsFeature:</span>
+<span id="cb149-66"><a href="06_exercise_6.html#cb149-66" aria-hidden="true" tabindex="-1"></a>    feature <span class="op">=</span> QgsFeature(fields)</span>
+<span id="cb149-67"><a href="06_exercise_6.html#cb149-67" aria-hidden="true" tabindex="-1"></a>    feature.setGeometry(square)</span>
+<span id="cb149-68"><a href="06_exercise_6.html#cb149-68" aria-hidden="true" tabindex="-1"></a>    feature.setAttribute(<span class="st">&quot;fid&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb149-69"><a href="06_exercise_6.html#cb149-69" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> feature</span>
+<span id="cb149-70"><a href="06_exercise_6.html#cb149-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-71"><a href="06_exercise_6.html#cb149-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-72"><a href="06_exercise_6.html#cb149-72" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-73"><a href="06_exercise_6.html#cb149-73" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> line_feature(fields, line) <span class="op">-&gt;</span> QgsFeature:</span>
+<span id="cb149-74"><a href="06_exercise_6.html#cb149-74" aria-hidden="true" tabindex="-1"></a>    feature <span class="op">=</span> QgsFeature(fields)</span>
+<span id="cb149-75"><a href="06_exercise_6.html#cb149-75" aria-hidden="true" tabindex="-1"></a>    feature.setGeometry(line)</span>
+<span id="cb149-76"><a href="06_exercise_6.html#cb149-76" aria-hidden="true" tabindex="-1"></a>    feature.setAttribute(<span class="st">&quot;fid&quot;</span>, <span class="dv">1</span>)</span>
+<span id="cb149-77"><a href="06_exercise_6.html#cb149-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> feature</span>
+<span id="cb149-78"><a href="06_exercise_6.html#cb149-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-79"><a href="06_exercise_6.html#cb149-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-80"><a href="06_exercise_6.html#cb149-80" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-81"><a href="06_exercise_6.html#cb149-81" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> point_layer(fields, point_feature) <span class="op">-&gt;</span> QgsVectorLayer:</span>
+<span id="cb149-82"><a href="06_exercise_6.html#cb149-82" aria-hidden="true" tabindex="-1"></a>    layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Point?crs=epsg:4326&amp;index=yes&quot;</span>, <span class="st">&quot;test_points&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb149-83"><a href="06_exercise_6.html#cb149-83" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> layer.dataProvider()</span>
+<span id="cb149-84"><a href="06_exercise_6.html#cb149-84" aria-hidden="true" tabindex="-1"></a>    provider.addAttributes(fields)</span>
+<span id="cb149-85"><a href="06_exercise_6.html#cb149-85" aria-hidden="true" tabindex="-1"></a>    layer.updateFields()</span>
+<span id="cb149-86"><a href="06_exercise_6.html#cb149-86" aria-hidden="true" tabindex="-1"></a>    provider.addFeature(point_feature)</span>
+<span id="cb149-87"><a href="06_exercise_6.html#cb149-87" aria-hidden="true" tabindex="-1"></a>    layer.updateExtents()</span>
+<span id="cb149-88"><a href="06_exercise_6.html#cb149-88" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> layer</span>
+<span id="cb149-89"><a href="06_exercise_6.html#cb149-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-90"><a href="06_exercise_6.html#cb149-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-91"><a href="06_exercise_6.html#cb149-91" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-92"><a href="06_exercise_6.html#cb149-92" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> square_layer(fields, square_feature) <span class="op">-&gt;</span> QgsVectorLayer:</span>
+<span id="cb149-93"><a href="06_exercise_6.html#cb149-93" aria-hidden="true" tabindex="-1"></a>    layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;Polygon?crs=epsg:4326&amp;index=yes&quot;</span>, <span class="st">&quot;test_polygon&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb149-94"><a href="06_exercise_6.html#cb149-94" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> layer.dataProvider()</span>
+<span id="cb149-95"><a href="06_exercise_6.html#cb149-95" aria-hidden="true" tabindex="-1"></a>    provider.addAttributes(fields)</span>
+<span id="cb149-96"><a href="06_exercise_6.html#cb149-96" aria-hidden="true" tabindex="-1"></a>    layer.updateFields()</span>
+<span id="cb149-97"><a href="06_exercise_6.html#cb149-97" aria-hidden="true" tabindex="-1"></a>    provider.addFeature(square_feature)</span>
+<span id="cb149-98"><a href="06_exercise_6.html#cb149-98" aria-hidden="true" tabindex="-1"></a>    layer.updateExtents()</span>
+<span id="cb149-99"><a href="06_exercise_6.html#cb149-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> layer</span>
+<span id="cb149-100"><a href="06_exercise_6.html#cb149-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-101"><a href="06_exercise_6.html#cb149-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb149-102"><a href="06_exercise_6.html#cb149-102" aria-hidden="true" tabindex="-1"></a><span class="at">@pytest.fixture</span></span>
+<span id="cb149-103"><a href="06_exercise_6.html#cb149-103" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> line_layer(fields, line_feature) <span class="op">-&gt;</span> QgsVectorLayer:</span>
+<span id="cb149-104"><a href="06_exercise_6.html#cb149-104" aria-hidden="true" tabindex="-1"></a>    layer <span class="op">=</span> QgsVectorLayer(<span class="st">&quot;LineString?crs=epsg:4326&amp;index=yes&quot;</span>, <span class="st">&quot;test_line&quot;</span>, <span class="st">&quot;memory&quot;</span>)</span>
+<span id="cb149-105"><a href="06_exercise_6.html#cb149-105" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> layer.dataProvider()</span>
+<span id="cb149-106"><a href="06_exercise_6.html#cb149-106" aria-hidden="true" tabindex="-1"></a>    provider.addAttributes(fields)</span>
+<span id="cb149-107"><a href="06_exercise_6.html#cb149-107" aria-hidden="true" tabindex="-1"></a>    layer.updateFields()</span>
+<span id="cb149-108"><a href="06_exercise_6.html#cb149-108" aria-hidden="true" tabindex="-1"></a>    provider.addFeature(line_feature)</span>
+<span id="cb149-109"><a href="06_exercise_6.html#cb149-109" aria-hidden="true" tabindex="-1"></a>    layer.updateExtents()</span>
+<span id="cb149-110"><a href="06_exercise_6.html#cb149-110" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> layer</span></code></pre></div>
+</div>
+</div>
+<div id="exercise-6.5.1-gui-test" class="section level3">
+<h3>Exercise 6.5.1: GUI test</h3>
+<p>Write a simple test for the plugin dialog. Create a new file
+<code>test-plugin/tests/test_buffer_tool_dialog.py</code>:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb150"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb150-1"><a href="06_exercise_6.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtWidgets <span class="im">import</span> QDialog, QDialogButtonBox</span>
+<span id="cb150-2"><a href="06_exercise_6.html#cb150-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-3"><a href="06_exercise_6.html#cb150-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-4"><a href="06_exercise_6.html#cb150-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_dialog_close(dialog):</span>
+<span id="cb150-5"><a href="06_exercise_6.html#cb150-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Test we can close the dialog.&quot;&quot;&quot;</span></span>
+<span id="cb150-6"><a href="06_exercise_6.html#cb150-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-7"><a href="06_exercise_6.html#cb150-7" aria-hidden="true" tabindex="-1"></a>    button <span class="op">=</span> dialog.buttonBox.button(QDialogButtonBox.Close)</span>
+<span id="cb150-8"><a href="06_exercise_6.html#cb150-8" aria-hidden="true" tabindex="-1"></a>    button.click()</span>
+<span id="cb150-9"><a href="06_exercise_6.html#cb150-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-10"><a href="06_exercise_6.html#cb150-10" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> dialog.result()</span>
+<span id="cb150-11"><a href="06_exercise_6.html#cb150-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb150-12"><a href="06_exercise_6.html#cb150-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> result <span class="op">==</span> QDialog.Rejected</span></code></pre></div>
+</div>
+<p>At the end of the test we <code>assert</code> that an expression
+<code>result == QDialog.Rejected</code> is <code>True</code>. If it is not,
+then the test fails.</p>
+</div>
+<div id="exercise-6.5.2-buffertool-test" class="section level3">
+<h3>Exercise 6.5.2: BufferTool test</h3>
+<p>Next define a test for the actual <strong>BufferTool</strong> class.
+Create a new file <code>test-plugin/tests/test_buffer_tool.py</code>:</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+test
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="06_exercise_6.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsWkbTypes</span>
+<span id="cb151-2"><a href="06_exercise_6.html#cb151-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-3"><a href="06_exercise_6.html#cb151-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.core.buffertool <span class="im">import</span> BufferTool</span>
+<span id="cb151-4"><a href="06_exercise_6.html#cb151-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-5"><a href="06_exercise_6.html#cb151-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-6"><a href="06_exercise_6.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_create_buffer_layer_polygon(square_layer):</span>
+<span id="cb151-7"><a href="06_exercise_6.html#cb151-7" aria-hidden="true" tabindex="-1"></a>    buffer_distance <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb151-8"><a href="06_exercise_6.html#cb151-8" aria-hidden="true" tabindex="-1"></a>    new_layer_name <span class="op">=</span> <span class="st">&quot;Test buffer layer&quot;</span></span>
+<span id="cb151-9"><a href="06_exercise_6.html#cb151-9" aria-hidden="true" tabindex="-1"></a>    segments <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb151-10"><a href="06_exercise_6.html#cb151-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-11"><a href="06_exercise_6.html#cb151-11" aria-hidden="true" tabindex="-1"></a>    buffer_layer <span class="op">=</span> BufferTool.create_buffer_layer(</span>
+<span id="cb151-12"><a href="06_exercise_6.html#cb151-12" aria-hidden="true" tabindex="-1"></a>        square_layer,</span>
+<span id="cb151-13"><a href="06_exercise_6.html#cb151-13" aria-hidden="true" tabindex="-1"></a>        buffer_distance,</span>
+<span id="cb151-14"><a href="06_exercise_6.html#cb151-14" aria-hidden="true" tabindex="-1"></a>        new_layer_name,</span>
+<span id="cb151-15"><a href="06_exercise_6.html#cb151-15" aria-hidden="true" tabindex="-1"></a>        segments,</span>
+<span id="cb151-16"><a href="06_exercise_6.html#cb151-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb151-17"><a href="06_exercise_6.html#cb151-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-18"><a href="06_exercise_6.html#cb151-18" aria-hidden="true" tabindex="-1"></a>    buffered_feature <span class="op">=</span> buffer_layer.getFeature(<span class="dv">1</span>)</span>
+<span id="cb151-19"><a href="06_exercise_6.html#cb151-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-20"><a href="06_exercise_6.html#cb151-20" aria-hidden="true" tabindex="-1"></a>    expected_geometry <span class="op">=</span> <span class="st">&quot;Polygon ((-1 0, -1 1, 0 2, 1 2, 2 1, 2 0, 1 -1, 0 -1, -1 0))&quot;</span></span>
+<span id="cb151-21"><a href="06_exercise_6.html#cb151-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-22"><a href="06_exercise_6.html#cb151-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> buffered_feature.geometry().asWkt(<span class="dv">2</span>) <span class="op">==</span> expected_geometry</span>
+<span id="cb151-23"><a href="06_exercise_6.html#cb151-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> buffer_layer.featureCount() <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb151-24"><a href="06_exercise_6.html#cb151-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> buffer_layer.crs().authid() <span class="op">==</span> <span class="st">&quot;EPSG:4326&quot;</span></span>
+<span id="cb151-25"><a href="06_exercise_6.html#cb151-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> buffer_layer.wkbType() <span class="op">==</span> QgsWkbTypes.Polygon</span></code></pre></div>
+</div>
+</div>
+<p>Note that a fixture is given as an argument in the test function.
+Pytest handles passing the arguments to the test function
+automatically.</p>
+<p>In the test we create variables with which the BufferTool
+method is called. When writing tests involving geometries
+the WKT format works well since you can’t see the geometries
+visually.</p>
+<p>An expected buffered geometry is defined and then asserted for.
+It is also tested that the function doesn’t add extra features
+or change the CRS or geometry type.</p>
+</div>
+<div id="exercise-6.5.3-more-tests" class="section level3">
+<h3>Exercise 6.5.3: More tests</h3>
+<p>Based on what you’ve learned write two more tests for the BufferTool,
+testing the functionality for a point and a line layer.</p>
+</div>
+</div>
+<div id="sample-plugin" class="section level2">
+<h2>Sample plugin</h2>
+<p>If needed you can inspect the code of a sample plugin
+containing the same functionalities from the following links:</p>
+<p><a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/plugin.py">test-plugin/testplugin/plugin.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/ui/buffer_tool_dialog.py">test-plugin/testplugin/ui/buffer_tool_dialog.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/core/buffertool.py">test-plugin/testplugin/core/buffertool.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/core/exceptions.py">test-plugin/testplugin/core/exceptions.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/conftest.py">test-plugin/tests/conftest.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/test_buffer_tool_dialog.py">test-plugin/tests/test_buffer_tool_dialog.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1-tests/tests/test_buffer_tool.py">test-plugin/tests/test_buffer_tool.py</a><br />
+<a href="https://github.com/GispoCoding/pyqgis-training-sample-plugin/blob/feature-1/sampleplugin/resources/ui/buffer_tool.ui">test-plugin/testplugin/resources/ui/buffer_tool.ui</a><br />
+</p>
+<div class="hint-box">
+<p>The name of the sample plugin package is <code>sampleplugin</code>.
+This has to be changed in every import command that
+references the package.</p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="05_exercise_5.html"><button class="btn btn-default">Previous</button></a>
+<a href="07_exercise_7.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS plugin development</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

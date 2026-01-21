@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Exercise 8: Processing algorithms | QGIS plugin development" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Exercise 8: Processing algorithms | QGIS plugin development">
+
+<title>Exercise 8: Processing algorithms | QGIS plugin development</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS plugin development</h1></div>
+<div class="abstract-sidebar"><p>Developing plugins for QGIS using Python</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-plugin-development">QGIS plugin development</a>
+<ul>
+<li><a href="index.html#welcome-to-the-course">Welcome to the course!</a></li>
+<li><a href="index.html#reading-guide">Reading Guide</a></li>
+<li><a href="index.html#additional-information">Additional information</a></li>
+<li><a href="index.html#mistakes">Mistakes</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_exercise_0.html#exercise-0-python-basics">Exercise 0: Python basics</a>
+<ul>
+<li><a href="00_exercise_0.html#preparations">Preparations</a></li>
+<li class="has-sub"><a href="00_exercise_0.html#the-basics">The basics</a>
+<ul>
+<li><a href="00_exercise_0.html#commands">Commands</a></li>
+<li><a href="00_exercise_0.html#comments">Comments</a></li>
+<li><a href="00_exercise_0.html#calculations">Calculations</a></li>
+<li><a href="00_exercise_0.html#variables">Variables</a></li>
+<li><a href="00_exercise_0.html#types">Types</a></li>
+<li><a href="00_exercise_0.html#conditionals">Conditionals</a></li>
+<li><a href="00_exercise_0.html#functions">Functions</a></li>
+<li><a href="00_exercise_0.html#data-structures">Data structures</a></li>
+<li><a href="00_exercise_0.html#loops-and-iteration">Loops and iteration</a></li>
+<li><a href="00_exercise_0.html#modules">Modules</a></li>
+<li><a href="00_exercise_0.html#objects">Objects</a></li>
+<li><a href="00_exercise_0.html#classes">Classes</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-python-console">Exercise 1: Python console</a>
+<ul>
+<li><a href="01_exercise_1.html#structure-of-the-exercises">Structure of the exercises</a></li>
+<li><a href="01_exercise_1.html#examples">Examples</a></li>
+<li><a href="01_exercise_1.html#exercises">Exercises</a></li>
+<li><a href="01_exercise_1.html#exercise-1.1">Exercise 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-introduction-to-pyqgis">Exercise 2: Introduction to PyQGIS</a>
+<ul>
+<li><a href="02_exercise_2.html#layers">Layers</a></li>
+<li><a href="02_exercise_2.html#exercise-2.1">Exercise 2.1</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2">Exercise 2.2</a></li>
+<li><a href="02_exercise_2.html#exercise-2.3">Exercise 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-layers-features-and-geometries">Exercise 3: Layers, features and geometries</a>
+<ul>
+<li><a href="03_exercise_3.html#layer">Layer</a></li>
+<li><a href="03_exercise_3.html#creating-a-temporary-layer">Creating a temporary layer</a></li>
+<li><a href="03_exercise_3.html#geometries">Geometries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.1">Exercise 3.1</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2-distances">Exercise 3.2: Distances</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-guis-with-qt">Exercise 4: GUIs with Qt</a>
+<ul>
+<li class="has-sub"><a href="04_exercise_4.html#about-qt-guis">About Qt GUIs</a>
+<ul>
+<li><a href="04_exercise_4.html#qwidget">QWidget</a></li>
+<li><a href="04_exercise_4.html#signals-and-slots">Signals and slots</a></li>
+</ul></li>
+<li><a href="04_exercise_4.html#exercise-4.1-counter-widget">Exercise 4.1: Counter-widget</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-qgis-custom-widgets">Exercise 4.2: QGIS custom widgets</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-creating-a-plugin">Exercise 5: Creating a plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#configuring-git">Configuring Git</a></li>
+<li><a href="05_exercise_5.html#creating-the-plugin">Creating the plugin</a></li>
+<li><a href="05_exercise_5.html#adding-the-plugin-to-qgis">Adding the plugin to QGIS</a></li>
+<li class="has-sub"><a href="05_exercise_5.html#structure-of-the-plugin">Structure of the plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#file-plugin.py">File: plugin.py</a></li>
+<li><a href="05_exercise_5.html#file-__init__.py">File: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-buffer-tool">Exercise 6: Buffer tool</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1-creating-the-gui">Exercise 6.1: Creating the GUI</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2-connecting-the-gui-to-the-plugin">Exercise 6.2: Connecting the GUI to the plugin</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3-the-functionality-of-the-tool">Exercise 6.3: The functionality of the tool</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4-segments">Exercise 6.4: Segments</a></li>
+<li><a href="06_exercise_6.html#unit-tests">Unit tests</a></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6.5-tests">Exercise 6.5: Tests</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.5.1-gui-test">Exercise 6.5.1: GUI test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.2-buffertool-test">Exercise 6.5.2: BufferTool test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.3-more-tests">Exercise 6.5.3: More tests</a></li>
+</ul></li>
+<li><a href="06_exercise_6.html#sample-plugin">Sample plugin</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-point-tool">Exercise 7: Point tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-panel">Exercise 7.1: Creating a panel</a></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7.2-point-tool">Exercise 7.2: Point Tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.2.1-extra-challenge---labeling">Exercise 7.2.1: Extra challenge - labeling</a></li>
+</ul></li>
+<li><a href="07_exercise_7.html#exercise-7.3-tests">Exercise 7.3: Tests</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-processing-algorithms">Exercise 8: Processing algorithms</a>
+<ul>
+<li class="has-sub"><a href="08_exercise_8.html#background">Background</a>
+<ul>
+<li><a href="08_exercise_8.html#calling-a-processing-algorithm">Calling a processing algorithm</a></li>
+</ul></li>
+<li><a href="08_exercise_8.html#algorithms-in-a-plugin">Algorithms in a plugin</a></li>
+<li><a href="08_exercise_8.html#exercise-8.1-writing-an-algorithm">Exercise 8.1: Writing an algorithm</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-tests-for-the-algorithm">Exercise 8.2: Tests for the algorithm</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#extra-python-exercises">Extra Python exercises</a>
+<ul>
+<li class="has-sub"><a href="09_extra_9.html#topic-1-comprehensions">Topic 1: Comprehensions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-1.1">Extra exercise 1.1</a></li>
+<li><a href="09_extra_9.html#nested-comprehensions">Nested comprehensions</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-2-lambda-functions">Topic 2: Lambda functions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-2.1">Extra exercise 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-3-decorators">Topic 3: Decorators</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercises-3.1">Extra exercises 3.1</a></li>
+<li><a href="09_extra_9.html#decorators-and-parameters">Decorators and parameters</a></li>
+<li><a href="09_extra_9.html#extra-exercise-3.2">Extra exercise 3.2</a></li>
+</ul></li>
+<li><a href="09_extra_9.html#topic-4-typing">Topic 4: Typing</a></li>
+<li><a href="09_extra_9.html#extra-exercises-4.1">Extra exercises 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-8-processing-algorithms" class="section level1">
+<h1>Exercise 8: Processing algorithms</h1>
+<div id="background" class="section level2">
+<h2>Background</h2>
+<p>The purpose of this exercise is to become familiar with writing
+processing algorithms.</p>
+<p>You can write processing algorithms which are independent and
+written to their own <code>.py</code> file and added to the QGIS processing
+panel. However an algorithm can also be included in a plugin, which
+has a few benefits. In this case a <em>provider</em> is defined for the
+algorithm which allows for clearer organization of different
+algorithms.</p>
+<p>Multiple algorithms can be included in one plugin which makes
+distributing algorithms easier. Different providers can be seen
+in the QGIS GUI:</p>
+<div class="figure">
+<img src="img/exercise_8/image1.png" style="width:75.0%" alt="" />
+<p class="caption">Provider &gt; group &gt; algorithm</p>
+</div>
+<p>When writing algorithms creating the GUI for them works differently.
+There are specific widgets for algorithms and they are defined
+programmatically. This means that you cannot directly create a GUI
+for an algorithm with Qt Designer.</p>
+<p>Writing the actual processing script works similarly regardless
+of whether it’s independent or included in a plugin.</p>
+<p>Let’s look at a minimal example of a processing script. This
+is largely based on the script template included in QGIS.
+This algorithm takes in a source vector layer and as an output
+creates an exact copy of the source layer.</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+example
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb162"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb162-1"><a href="08_exercise_8.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-2"><a href="08_exercise_8.html#cb162-2" aria-hidden="true" tabindex="-1"></a><span class="co">***************************************************************************</span></span>
+<span id="cb162-3"><a href="08_exercise_8.html#cb162-3" aria-hidden="true" tabindex="-1"></a><span class="co">*                                                                         *</span></span>
+<span id="cb162-4"><a href="08_exercise_8.html#cb162-4" aria-hidden="true" tabindex="-1"></a><span class="co">*   This program is free software; you can redistribute it and/or modify  *</span></span>
+<span id="cb162-5"><a href="08_exercise_8.html#cb162-5" aria-hidden="true" tabindex="-1"></a><span class="co">*   it under the terms of the GNU General Public License as published by  *</span></span>
+<span id="cb162-6"><a href="08_exercise_8.html#cb162-6" aria-hidden="true" tabindex="-1"></a><span class="co">*   the Free Software Foundation; either version 2 of the License, or     *</span></span>
+<span id="cb162-7"><a href="08_exercise_8.html#cb162-7" aria-hidden="true" tabindex="-1"></a><span class="co">*   (at your option) any later version.                                   *</span></span>
+<span id="cb162-8"><a href="08_exercise_8.html#cb162-8" aria-hidden="true" tabindex="-1"></a><span class="co">*                                                                         *</span></span>
+<span id="cb162-9"><a href="08_exercise_8.html#cb162-9" aria-hidden="true" tabindex="-1"></a><span class="co">***************************************************************************</span></span>
+<span id="cb162-10"><a href="08_exercise_8.html#cb162-10" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-11"><a href="08_exercise_8.html#cb162-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-12"><a href="08_exercise_8.html#cb162-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> QCoreApplication</span>
+<span id="cb162-13"><a href="08_exercise_8.html#cb162-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (QgsProcessing,</span>
+<span id="cb162-14"><a href="08_exercise_8.html#cb162-14" aria-hidden="true" tabindex="-1"></a>                       QgsFeatureSink,</span>
+<span id="cb162-15"><a href="08_exercise_8.html#cb162-15" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingException,</span>
+<span id="cb162-16"><a href="08_exercise_8.html#cb162-16" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingAlgorithm,</span>
+<span id="cb162-17"><a href="08_exercise_8.html#cb162-17" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingParameterFeatureSource,</span>
+<span id="cb162-18"><a href="08_exercise_8.html#cb162-18" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingParameterFeatureSink)</span>
+<span id="cb162-19"><a href="08_exercise_8.html#cb162-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis <span class="im">import</span> processing</span>
+<span id="cb162-20"><a href="08_exercise_8.html#cb162-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-21"><a href="08_exercise_8.html#cb162-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-22"><a href="08_exercise_8.html#cb162-22" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ExampleProcessingAlgorithm(QgsProcessingAlgorithm):</span>
+<span id="cb162-23"><a href="08_exercise_8.html#cb162-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-24"><a href="08_exercise_8.html#cb162-24" aria-hidden="true" tabindex="-1"></a><span class="co">    This is an example algorithm that takes a vector layer and</span></span>
+<span id="cb162-25"><a href="08_exercise_8.html#cb162-25" aria-hidden="true" tabindex="-1"></a><span class="co">    creates a new identical one.</span></span>
+<span id="cb162-26"><a href="08_exercise_8.html#cb162-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-27"><a href="08_exercise_8.html#cb162-27" aria-hidden="true" tabindex="-1"></a><span class="co">    It is meant to be used as an example of how to create your own</span></span>
+<span id="cb162-28"><a href="08_exercise_8.html#cb162-28" aria-hidden="true" tabindex="-1"></a><span class="co">    algorithms and explain methods and variables used to do it. An</span></span>
+<span id="cb162-29"><a href="08_exercise_8.html#cb162-29" aria-hidden="true" tabindex="-1"></a><span class="co">    algorithm like this will be available in all elements, and there</span></span>
+<span id="cb162-30"><a href="08_exercise_8.html#cb162-30" aria-hidden="true" tabindex="-1"></a><span class="co">    is not need for additional work.</span></span>
+<span id="cb162-31"><a href="08_exercise_8.html#cb162-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-32"><a href="08_exercise_8.html#cb162-32" aria-hidden="true" tabindex="-1"></a><span class="co">    All Processing algorithms should extend the QgsProcessingAlgorithm</span></span>
+<span id="cb162-33"><a href="08_exercise_8.html#cb162-33" aria-hidden="true" tabindex="-1"></a><span class="co">    class.</span></span>
+<span id="cb162-34"><a href="08_exercise_8.html#cb162-34" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb162-35"><a href="08_exercise_8.html#cb162-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-36"><a href="08_exercise_8.html#cb162-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Constants used to refer to parameters and outputs. They will be</span></span>
+<span id="cb162-37"><a href="08_exercise_8.html#cb162-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># used when calling the algorithm from another algorithm, or when</span></span>
+<span id="cb162-38"><a href="08_exercise_8.html#cb162-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calling from the QGIS console.</span></span>
+<span id="cb162-39"><a href="08_exercise_8.html#cb162-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-40"><a href="08_exercise_8.html#cb162-40" aria-hidden="true" tabindex="-1"></a>    INPUT <span class="op">=</span> <span class="st">&#39;INPUT&#39;</span></span>
+<span id="cb162-41"><a href="08_exercise_8.html#cb162-41" aria-hidden="true" tabindex="-1"></a>    OUTPUT <span class="op">=</span> <span class="st">&#39;OUTPUT&#39;</span></span>
+<span id="cb162-42"><a href="08_exercise_8.html#cb162-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-43"><a href="08_exercise_8.html#cb162-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> tr(<span class="va">self</span>, string):</span>
+<span id="cb162-44"><a href="08_exercise_8.html#cb162-44" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-45"><a href="08_exercise_8.html#cb162-45" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a translatable string with the self.tr() function.</span></span>
+<span id="cb162-46"><a href="08_exercise_8.html#cb162-46" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb162-47"><a href="08_exercise_8.html#cb162-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> QCoreApplication.translate(<span class="st">&#39;Processing&#39;</span>, string)</span>
+<span id="cb162-48"><a href="08_exercise_8.html#cb162-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-49"><a href="08_exercise_8.html#cb162-49" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> createInstance(<span class="va">self</span>):</span>
+<span id="cb162-50"><a href="08_exercise_8.html#cb162-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ExampleProcessingAlgorithm()</span>
+<span id="cb162-51"><a href="08_exercise_8.html#cb162-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-52"><a href="08_exercise_8.html#cb162-52" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> name(<span class="va">self</span>):</span>
+<span id="cb162-53"><a href="08_exercise_8.html#cb162-53" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-54"><a href="08_exercise_8.html#cb162-54" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the algorithm name, used for identifying the algorithm. This</span></span>
+<span id="cb162-55"><a href="08_exercise_8.html#cb162-55" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb162-56"><a href="08_exercise_8.html#cb162-56" aria-hidden="true" tabindex="-1"></a><span class="co">        The name should be unique within each provider. Names should contain</span></span>
+<span id="cb162-57"><a href="08_exercise_8.html#cb162-57" aria-hidden="true" tabindex="-1"></a><span class="co">        lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb162-58"><a href="08_exercise_8.html#cb162-58" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb162-59"><a href="08_exercise_8.html#cb162-59" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb162-60"><a href="08_exercise_8.html#cb162-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&#39;myscript&#39;</span></span>
+<span id="cb162-61"><a href="08_exercise_8.html#cb162-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-62"><a href="08_exercise_8.html#cb162-62" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> displayName(<span class="va">self</span>):</span>
+<span id="cb162-63"><a href="08_exercise_8.html#cb162-63" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-64"><a href="08_exercise_8.html#cb162-64" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the translated algorithm name, which should be used for any</span></span>
+<span id="cb162-65"><a href="08_exercise_8.html#cb162-65" aria-hidden="true" tabindex="-1"></a><span class="co">        user-visible display of the algorithm name.</span></span>
+<span id="cb162-66"><a href="08_exercise_8.html#cb162-66" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb162-67"><a href="08_exercise_8.html#cb162-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="st">&#39;My Script&#39;</span>)</span>
+<span id="cb162-68"><a href="08_exercise_8.html#cb162-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-69"><a href="08_exercise_8.html#cb162-69" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> group(<span class="va">self</span>):</span>
+<span id="cb162-70"><a href="08_exercise_8.html#cb162-70" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-71"><a href="08_exercise_8.html#cb162-71" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the name of the group this algorithm belongs to. This string</span></span>
+<span id="cb162-72"><a href="08_exercise_8.html#cb162-72" aria-hidden="true" tabindex="-1"></a><span class="co">        should be localised.</span></span>
+<span id="cb162-73"><a href="08_exercise_8.html#cb162-73" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb162-74"><a href="08_exercise_8.html#cb162-74" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="st">&#39;Example scripts&#39;</span>)</span>
+<span id="cb162-75"><a href="08_exercise_8.html#cb162-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-76"><a href="08_exercise_8.html#cb162-76" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> groupId(<span class="va">self</span>):</span>
+<span id="cb162-77"><a href="08_exercise_8.html#cb162-77" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-78"><a href="08_exercise_8.html#cb162-78" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the unique ID of the group this algorithm belongs to. This</span></span>
+<span id="cb162-79"><a href="08_exercise_8.html#cb162-79" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb162-80"><a href="08_exercise_8.html#cb162-80" aria-hidden="true" tabindex="-1"></a><span class="co">        The group id should be unique within each provider. Group id should</span></span>
+<span id="cb162-81"><a href="08_exercise_8.html#cb162-81" aria-hidden="true" tabindex="-1"></a><span class="co">        contain lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb162-82"><a href="08_exercise_8.html#cb162-82" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb162-83"><a href="08_exercise_8.html#cb162-83" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb162-84"><a href="08_exercise_8.html#cb162-84" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&#39;examplescripts&#39;</span></span>
+<span id="cb162-85"><a href="08_exercise_8.html#cb162-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-86"><a href="08_exercise_8.html#cb162-86" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> shortHelpString(<span class="va">self</span>):</span>
+<span id="cb162-87"><a href="08_exercise_8.html#cb162-87" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-88"><a href="08_exercise_8.html#cb162-88" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a localised short helper string for the algorithm. This string</span></span>
+<span id="cb162-89"><a href="08_exercise_8.html#cb162-89" aria-hidden="true" tabindex="-1"></a><span class="co">        should provide a basic description about what the algorithm does and the</span></span>
+<span id="cb162-90"><a href="08_exercise_8.html#cb162-90" aria-hidden="true" tabindex="-1"></a><span class="co">        parameters and outputs associated with it..</span></span>
+<span id="cb162-91"><a href="08_exercise_8.html#cb162-91" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb162-92"><a href="08_exercise_8.html#cb162-92" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="st">&quot;Example algorithm short description&quot;</span>)</span>
+<span id="cb162-93"><a href="08_exercise_8.html#cb162-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-94"><a href="08_exercise_8.html#cb162-94" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initAlgorithm(<span class="va">self</span>, config<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb162-95"><a href="08_exercise_8.html#cb162-95" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-96"><a href="08_exercise_8.html#cb162-96" aria-hidden="true" tabindex="-1"></a><span class="co">        Here we define the inputs and output of the algorithm, along</span></span>
+<span id="cb162-97"><a href="08_exercise_8.html#cb162-97" aria-hidden="true" tabindex="-1"></a><span class="co">        with some other properties.</span></span>
+<span id="cb162-98"><a href="08_exercise_8.html#cb162-98" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb162-99"><a href="08_exercise_8.html#cb162-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-100"><a href="08_exercise_8.html#cb162-100" aria-hidden="true" tabindex="-1"></a>        <span class="co"># We add the input vector features source. It can have any kind of</span></span>
+<span id="cb162-101"><a href="08_exercise_8.html#cb162-101" aria-hidden="true" tabindex="-1"></a>        <span class="co"># geometry.</span></span>
+<span id="cb162-102"><a href="08_exercise_8.html#cb162-102" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb162-103"><a href="08_exercise_8.html#cb162-103" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSource(</span>
+<span id="cb162-104"><a href="08_exercise_8.html#cb162-104" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.INPUT,</span>
+<span id="cb162-105"><a href="08_exercise_8.html#cb162-105" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&#39;Input layer&#39;</span>),</span>
+<span id="cb162-106"><a href="08_exercise_8.html#cb162-106" aria-hidden="true" tabindex="-1"></a>                [QgsProcessing.SourceType.TypeVectorAnyGeometry]</span>
+<span id="cb162-107"><a href="08_exercise_8.html#cb162-107" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb162-108"><a href="08_exercise_8.html#cb162-108" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb162-109"><a href="08_exercise_8.html#cb162-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-110"><a href="08_exercise_8.html#cb162-110" aria-hidden="true" tabindex="-1"></a>        <span class="co"># We add a feature sink in which to store our processed features (this</span></span>
+<span id="cb162-111"><a href="08_exercise_8.html#cb162-111" aria-hidden="true" tabindex="-1"></a>        <span class="co"># usually takes the form of a newly created vector layer when the</span></span>
+<span id="cb162-112"><a href="08_exercise_8.html#cb162-112" aria-hidden="true" tabindex="-1"></a>        <span class="co"># algorithm is run in QGIS).</span></span>
+<span id="cb162-113"><a href="08_exercise_8.html#cb162-113" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb162-114"><a href="08_exercise_8.html#cb162-114" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSink(</span>
+<span id="cb162-115"><a href="08_exercise_8.html#cb162-115" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.OUTPUT,</span>
+<span id="cb162-116"><a href="08_exercise_8.html#cb162-116" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&#39;Output layer&#39;</span>)</span>
+<span id="cb162-117"><a href="08_exercise_8.html#cb162-117" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb162-118"><a href="08_exercise_8.html#cb162-118" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb162-119"><a href="08_exercise_8.html#cb162-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-120"><a href="08_exercise_8.html#cb162-120" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> processAlgorithm(<span class="va">self</span>, parameters, context, feedback):</span>
+<span id="cb162-121"><a href="08_exercise_8.html#cb162-121" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb162-122"><a href="08_exercise_8.html#cb162-122" aria-hidden="true" tabindex="-1"></a><span class="co">        Here is where the processing itself takes place.</span></span>
+<span id="cb162-123"><a href="08_exercise_8.html#cb162-123" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb162-124"><a href="08_exercise_8.html#cb162-124" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-125"><a href="08_exercise_8.html#cb162-125" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Retrieve the feature source and sink. The &#39;dest_id&#39; variable is used</span></span>
+<span id="cb162-126"><a href="08_exercise_8.html#cb162-126" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to uniquely identify the feature sink, and must be included in the</span></span>
+<span id="cb162-127"><a href="08_exercise_8.html#cb162-127" aria-hidden="true" tabindex="-1"></a>        <span class="co"># dictionary returned by the processAlgorithm function.</span></span>
+<span id="cb162-128"><a href="08_exercise_8.html#cb162-128" aria-hidden="true" tabindex="-1"></a>        source <span class="op">=</span> <span class="va">self</span>.parameterAsSource(</span>
+<span id="cb162-129"><a href="08_exercise_8.html#cb162-129" aria-hidden="true" tabindex="-1"></a>            parameters,</span>
+<span id="cb162-130"><a href="08_exercise_8.html#cb162-130" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.INPUT,</span>
+<span id="cb162-131"><a href="08_exercise_8.html#cb162-131" aria-hidden="true" tabindex="-1"></a>            context</span>
+<span id="cb162-132"><a href="08_exercise_8.html#cb162-132" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb162-133"><a href="08_exercise_8.html#cb162-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-134"><a href="08_exercise_8.html#cb162-134" aria-hidden="true" tabindex="-1"></a>        <span class="co"># If source was not found, throw an exception to indicate that the algorithm</span></span>
+<span id="cb162-135"><a href="08_exercise_8.html#cb162-135" aria-hidden="true" tabindex="-1"></a>        <span class="co"># encountered a fatal error. The exception text can be any string, but in this</span></span>
+<span id="cb162-136"><a href="08_exercise_8.html#cb162-136" aria-hidden="true" tabindex="-1"></a>        <span class="co"># case we use the pre-built invalidSourceError method to return a standard</span></span>
+<span id="cb162-137"><a href="08_exercise_8.html#cb162-137" aria-hidden="true" tabindex="-1"></a>        <span class="co"># helper text for when a source cannot be evaluated</span></span>
+<span id="cb162-138"><a href="08_exercise_8.html#cb162-138" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> source <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb162-139"><a href="08_exercise_8.html#cb162-139" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> QgsProcessingException(<span class="va">self</span>.invalidSourceError(parameters, <span class="va">self</span>.INPUT))</span>
+<span id="cb162-140"><a href="08_exercise_8.html#cb162-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-141"><a href="08_exercise_8.html#cb162-141" aria-hidden="true" tabindex="-1"></a>        (sink, dest_id) <span class="op">=</span> <span class="va">self</span>.parameterAsSink(</span>
+<span id="cb162-142"><a href="08_exercise_8.html#cb162-142" aria-hidden="true" tabindex="-1"></a>            parameters,</span>
+<span id="cb162-143"><a href="08_exercise_8.html#cb162-143" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.OUTPUT,</span>
+<span id="cb162-144"><a href="08_exercise_8.html#cb162-144" aria-hidden="true" tabindex="-1"></a>            context,</span>
+<span id="cb162-145"><a href="08_exercise_8.html#cb162-145" aria-hidden="true" tabindex="-1"></a>            source.fields(),</span>
+<span id="cb162-146"><a href="08_exercise_8.html#cb162-146" aria-hidden="true" tabindex="-1"></a>            source.wkbType(),</span>
+<span id="cb162-147"><a href="08_exercise_8.html#cb162-147" aria-hidden="true" tabindex="-1"></a>            source.sourceCrs()</span>
+<span id="cb162-148"><a href="08_exercise_8.html#cb162-148" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb162-149"><a href="08_exercise_8.html#cb162-149" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-150"><a href="08_exercise_8.html#cb162-150" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Send some information to the user</span></span>
+<span id="cb162-151"><a href="08_exercise_8.html#cb162-151" aria-hidden="true" tabindex="-1"></a>        feedback.pushInfo(<span class="ss">f&#39;CRS is </span><span class="sc">{</span>source<span class="sc">.</span>sourceCrs()<span class="sc">.</span>authid()<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb162-152"><a href="08_exercise_8.html#cb162-152" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-153"><a href="08_exercise_8.html#cb162-153" aria-hidden="true" tabindex="-1"></a>        <span class="co"># If sink was not created, throw an exception to indicate that the algorithm</span></span>
+<span id="cb162-154"><a href="08_exercise_8.html#cb162-154" aria-hidden="true" tabindex="-1"></a>        <span class="co"># encountered a fatal error. The exception text can be any string, but in this</span></span>
+<span id="cb162-155"><a href="08_exercise_8.html#cb162-155" aria-hidden="true" tabindex="-1"></a>        <span class="co"># case we use the pre-built invalidSinkError method to return a standard</span></span>
+<span id="cb162-156"><a href="08_exercise_8.html#cb162-156" aria-hidden="true" tabindex="-1"></a>        <span class="co"># helper text for when a sink cannot be evaluated</span></span>
+<span id="cb162-157"><a href="08_exercise_8.html#cb162-157" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> sink <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb162-158"><a href="08_exercise_8.html#cb162-158" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> QgsProcessingException(<span class="va">self</span>.invalidSinkError(parameters, <span class="va">self</span>.OUTPUT))</span>
+<span id="cb162-159"><a href="08_exercise_8.html#cb162-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-160"><a href="08_exercise_8.html#cb162-160" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the number of steps to display within the progress bar and</span></span>
+<span id="cb162-161"><a href="08_exercise_8.html#cb162-161" aria-hidden="true" tabindex="-1"></a>        <span class="co"># get features from source</span></span>
+<span id="cb162-162"><a href="08_exercise_8.html#cb162-162" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="fl">100.0</span> <span class="op">/</span> source.featureCount() <span class="cf">if</span> source.featureCount() <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb162-163"><a href="08_exercise_8.html#cb162-163" aria-hidden="true" tabindex="-1"></a>        features <span class="op">=</span> source.getFeatures()</span>
+<span id="cb162-164"><a href="08_exercise_8.html#cb162-164" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-165"><a href="08_exercise_8.html#cb162-165" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> current, feature <span class="kw">in</span> <span class="bu">enumerate</span>(features):</span>
+<span id="cb162-166"><a href="08_exercise_8.html#cb162-166" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Stop the algorithm if cancel button has been clicked</span></span>
+<span id="cb162-167"><a href="08_exercise_8.html#cb162-167" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> feedback.isCanceled():</span>
+<span id="cb162-168"><a href="08_exercise_8.html#cb162-168" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb162-169"><a href="08_exercise_8.html#cb162-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-170"><a href="08_exercise_8.html#cb162-170" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Add a feature in the sink</span></span>
+<span id="cb162-171"><a href="08_exercise_8.html#cb162-171" aria-hidden="true" tabindex="-1"></a>            sink.addFeature(feature, QgsFeatureSink.Flag.FastInsert)</span>
+<span id="cb162-172"><a href="08_exercise_8.html#cb162-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-173"><a href="08_exercise_8.html#cb162-173" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Update the progress bar</span></span>
+<span id="cb162-174"><a href="08_exercise_8.html#cb162-174" aria-hidden="true" tabindex="-1"></a>            feedback.setProgress(<span class="bu">int</span>(current <span class="op">*</span> total))</span>
+<span id="cb162-175"><a href="08_exercise_8.html#cb162-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb162-176"><a href="08_exercise_8.html#cb162-176" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Return the results of the algorithm. In this case our only result is</span></span>
+<span id="cb162-177"><a href="08_exercise_8.html#cb162-177" aria-hidden="true" tabindex="-1"></a>        <span class="co"># the feature sink which contains the processed features, but some</span></span>
+<span id="cb162-178"><a href="08_exercise_8.html#cb162-178" aria-hidden="true" tabindex="-1"></a>        <span class="co"># algorithms may return multiple feature sinks, calculated numeric</span></span>
+<span id="cb162-179"><a href="08_exercise_8.html#cb162-179" aria-hidden="true" tabindex="-1"></a>        <span class="co"># statistics, etc. These should all be included in the returned</span></span>
+<span id="cb162-180"><a href="08_exercise_8.html#cb162-180" aria-hidden="true" tabindex="-1"></a>        <span class="co"># dictionary, with keys matching the feature corresponding parameter</span></span>
+<span id="cb162-181"><a href="08_exercise_8.html#cb162-181" aria-hidden="true" tabindex="-1"></a>        <span class="co"># or output names.</span></span>
+<span id="cb162-182"><a href="08_exercise_8.html#cb162-182" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="va">self</span>.OUTPUT: dest_id}</span></code></pre></div>
+</div>
+</div>
+<div id="calling-a-processing-algorithm" class="section level3">
+<h3>Calling a processing algorithm</h3>
+<p>If you want to call a processing algorithm using Python
+from the console, script, plugin or another
+processing algorithm you can use the following code.
+<code>qgis.processing</code> has to be imported. Note that
+the parameters of the algorithm are given as a dictionary
+and the keys are the values of the constant variables
+defined in the algorithm.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="08_exercise_8.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from qgis import processing</span></span>
+<span id="cb163-2"><a href="08_exercise_8.html#cb163-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-3"><a href="08_exercise_8.html#cb163-3" aria-hidden="true" tabindex="-1"></a>input_layer_id <span class="op">=</span> iface.activeLayer().<span class="bu">id</span>()</span>
+<span id="cb163-4"><a href="08_exercise_8.html#cb163-4" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">=</span> {</span>
+<span id="cb163-5"><a href="08_exercise_8.html#cb163-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;INPUT&#39;</span>: input_layer_id,</span>
+<span id="cb163-6"><a href="08_exercise_8.html#cb163-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;DISTANCE&#39;</span>: <span class="fl">1.5</span>,</span>
+<span id="cb163-7"><a href="08_exercise_8.html#cb163-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;SEGMENTS&#39;</span>: <span class="dv">5</span>,</span>
+<span id="cb163-8"><a href="08_exercise_8.html#cb163-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;END_CAP_STYLE&#39;</span>: <span class="dv">0</span>,</span>
+<span id="cb163-9"><a href="08_exercise_8.html#cb163-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;JOIN_STYLE&#39;</span>: <span class="dv">0</span>,</span>
+<span id="cb163-10"><a href="08_exercise_8.html#cb163-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;MITER_LIMIT&#39;</span>: <span class="dv">2</span>,</span>
+<span id="cb163-11"><a href="08_exercise_8.html#cb163-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;DISSOLVE&#39;</span>: <span class="va">False</span>,</span>
+<span id="cb163-12"><a href="08_exercise_8.html#cb163-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;OUTPUT&#39;</span>: <span class="st">&#39;memory:&#39;</span></span>
+<span id="cb163-13"><a href="08_exercise_8.html#cb163-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb163-14"><a href="08_exercise_8.html#cb163-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-15"><a href="08_exercise_8.html#cb163-15" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> processing.run(<span class="st">&#39;native:buffer&#39;</span>, parameters)</span>
+<span id="cb163-16"><a href="08_exercise_8.html#cb163-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-17"><a href="08_exercise_8.html#cb163-17" aria-hidden="true" tabindex="-1"></a><span class="co"># note that here the processing.run() method</span></span>
+<span id="cb163-18"><a href="08_exercise_8.html#cb163-18" aria-hidden="true" tabindex="-1"></a><span class="co"># returns a dictionary.</span></span>
+<span id="cb163-19"><a href="08_exercise_8.html#cb163-19" aria-hidden="true" tabindex="-1"></a><span class="co"># The output layer can be retrieved with</span></span>
+<span id="cb163-20"><a href="08_exercise_8.html#cb163-20" aria-hidden="true" tabindex="-1"></a><span class="co"># the &#39;OUTPUT&#39; key</span></span>
+<span id="cb163-21"><a href="08_exercise_8.html#cb163-21" aria-hidden="true" tabindex="-1"></a>buffered_layer <span class="op">=</span> output.get(<span class="st">&#39;OUTPUT&#39;</span>)</span>
+<span id="cb163-22"><a href="08_exercise_8.html#cb163-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb163-23"><a href="08_exercise_8.html#cb163-23" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(buffered_layer)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="algorithms-in-a-plugin" class="section level2">
+<h2>Algorithms in a plugin</h2>
+<p>The actual structure of an algorithm which is included in
+a plugin is exactly the same. However a provider needs
+to be defined for the plugin with which the algorithms
+are added to the QGIS processing toolbox.</p>
+<p>When you created the plugin from the cookiecutter template
+it was instructed to choose to include a processing algorithm
+in the plugin. Because of this you already should have a
+base for writing your own algorithm.</p>
+<p>However let’s go over how the algorithm ends up in the QGIS
+GUI.</p>
+<p>The <code>test-plugin/testplugin</code> folder should have a subfolder
+called <code>testplugin_processing</code>. It includes two Python files,
+<code>provider.py</code> and <code>processing_algorithm.py</code>.</p>
+<p><em>processing_algorithm.py:</em></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+file
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="08_exercise_8.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> __future__ <span class="im">import</span> annotations</span>
+<span id="cb164-2"><a href="08_exercise_8.html#cb164-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-3"><a href="08_exercise_8.html#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Any</span>
+<span id="cb164-4"><a href="08_exercise_8.html#cb164-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-5"><a href="08_exercise_8.html#cb164-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis <span class="im">import</span> processing  <span class="co"># noqa: TCH002</span></span>
+<span id="cb164-6"><a href="08_exercise_8.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb164-7"><a href="08_exercise_8.html#cb164-7" aria-hidden="true" tabindex="-1"></a>    QgsFeatureSink,</span>
+<span id="cb164-8"><a href="08_exercise_8.html#cb164-8" aria-hidden="true" tabindex="-1"></a>    QgsProcessing,</span>
+<span id="cb164-9"><a href="08_exercise_8.html#cb164-9" aria-hidden="true" tabindex="-1"></a>    QgsProcessingAlgorithm,</span>
+<span id="cb164-10"><a href="08_exercise_8.html#cb164-10" aria-hidden="true" tabindex="-1"></a>    QgsProcessingContext,</span>
+<span id="cb164-11"><a href="08_exercise_8.html#cb164-11" aria-hidden="true" tabindex="-1"></a>    QgsProcessingFeedback,</span>
+<span id="cb164-12"><a href="08_exercise_8.html#cb164-12" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterFeatureSink,</span>
+<span id="cb164-13"><a href="08_exercise_8.html#cb164-13" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterFeatureSource,</span>
+<span id="cb164-14"><a href="08_exercise_8.html#cb164-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb164-15"><a href="08_exercise_8.html#cb164-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> QCoreApplication</span>
+<span id="cb164-16"><a href="08_exercise_8.html#cb164-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-17"><a href="08_exercise_8.html#cb164-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-18"><a href="08_exercise_8.html#cb164-18" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ProcessingAlgorithm(QgsProcessingAlgorithm):</span>
+<span id="cb164-19"><a href="08_exercise_8.html#cb164-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-20"><a href="08_exercise_8.html#cb164-20" aria-hidden="true" tabindex="-1"></a><span class="co">    This is an example algorithm that takes a vector layer and</span></span>
+<span id="cb164-21"><a href="08_exercise_8.html#cb164-21" aria-hidden="true" tabindex="-1"></a><span class="co">    creates a new identical one.</span></span>
+<span id="cb164-22"><a href="08_exercise_8.html#cb164-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-23"><a href="08_exercise_8.html#cb164-23" aria-hidden="true" tabindex="-1"></a><span class="co">    It is meant to be used as an example of how to create your own</span></span>
+<span id="cb164-24"><a href="08_exercise_8.html#cb164-24" aria-hidden="true" tabindex="-1"></a><span class="co">    algorithms and explain methods and variables used to do it. An</span></span>
+<span id="cb164-25"><a href="08_exercise_8.html#cb164-25" aria-hidden="true" tabindex="-1"></a><span class="co">    algorithm like this will be available in all elements, and there</span></span>
+<span id="cb164-26"><a href="08_exercise_8.html#cb164-26" aria-hidden="true" tabindex="-1"></a><span class="co">    is not need for additional work.</span></span>
+<span id="cb164-27"><a href="08_exercise_8.html#cb164-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-28"><a href="08_exercise_8.html#cb164-28" aria-hidden="true" tabindex="-1"></a><span class="co">    All Processing algorithms should extend the QgsProcessingAlgorithm</span></span>
+<span id="cb164-29"><a href="08_exercise_8.html#cb164-29" aria-hidden="true" tabindex="-1"></a><span class="co">    class.</span></span>
+<span id="cb164-30"><a href="08_exercise_8.html#cb164-30" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb164-31"><a href="08_exercise_8.html#cb164-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-32"><a href="08_exercise_8.html#cb164-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Constants used to refer to parameters and outputs. They will be</span></span>
+<span id="cb164-33"><a href="08_exercise_8.html#cb164-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># used when calling the algorithm from another algorithm, or when</span></span>
+<span id="cb164-34"><a href="08_exercise_8.html#cb164-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calling from the QGIS console.</span></span>
+<span id="cb164-35"><a href="08_exercise_8.html#cb164-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-36"><a href="08_exercise_8.html#cb164-36" aria-hidden="true" tabindex="-1"></a>    INPUT <span class="op">=</span> <span class="st">&quot;INPUT&quot;</span></span>
+<span id="cb164-37"><a href="08_exercise_8.html#cb164-37" aria-hidden="true" tabindex="-1"></a>    OUTPUT <span class="op">=</span> <span class="st">&quot;OUTPUT&quot;</span></span>
+<span id="cb164-38"><a href="08_exercise_8.html#cb164-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-39"><a href="08_exercise_8.html#cb164-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb164-40"><a href="08_exercise_8.html#cb164-40" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb164-41"><a href="08_exercise_8.html#cb164-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-42"><a href="08_exercise_8.html#cb164-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._name <span class="op">=</span> <span class="st">&quot;myprocessingalgorithm&quot;</span></span>
+<span id="cb164-43"><a href="08_exercise_8.html#cb164-43" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._display_name <span class="op">=</span> <span class="st">&quot;My Processing Algorithm&quot;</span></span>
+<span id="cb164-44"><a href="08_exercise_8.html#cb164-44" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._group_id <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb164-45"><a href="08_exercise_8.html#cb164-45" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._group <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb164-46"><a href="08_exercise_8.html#cb164-46" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._short_help_string <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb164-47"><a href="08_exercise_8.html#cb164-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-48"><a href="08_exercise_8.html#cb164-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> tr(<span class="va">self</span>, string) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb164-49"><a href="08_exercise_8.html#cb164-49" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-50"><a href="08_exercise_8.html#cb164-50" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a translatable string with the self.tr() function.</span></span>
+<span id="cb164-51"><a href="08_exercise_8.html#cb164-51" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb164-52"><a href="08_exercise_8.html#cb164-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> QCoreApplication.translate(<span class="st">&quot;Processing&quot;</span>, string)</span>
+<span id="cb164-53"><a href="08_exercise_8.html#cb164-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-54"><a href="08_exercise_8.html#cb164-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> createInstance(<span class="va">self</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb164-55"><a href="08_exercise_8.html#cb164-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ProcessingAlgorithm()</span>
+<span id="cb164-56"><a href="08_exercise_8.html#cb164-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-57"><a href="08_exercise_8.html#cb164-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> name(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb164-58"><a href="08_exercise_8.html#cb164-58" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-59"><a href="08_exercise_8.html#cb164-59" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the algorithm name, used for identifying the algorithm. This</span></span>
+<span id="cb164-60"><a href="08_exercise_8.html#cb164-60" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb164-61"><a href="08_exercise_8.html#cb164-61" aria-hidden="true" tabindex="-1"></a><span class="co">        The name should be unique within each provider. Names should contain</span></span>
+<span id="cb164-62"><a href="08_exercise_8.html#cb164-62" aria-hidden="true" tabindex="-1"></a><span class="co">        lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb164-63"><a href="08_exercise_8.html#cb164-63" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb164-64"><a href="08_exercise_8.html#cb164-64" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb164-65"><a href="08_exercise_8.html#cb164-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._name</span>
+<span id="cb164-66"><a href="08_exercise_8.html#cb164-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-67"><a href="08_exercise_8.html#cb164-67" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> displayName(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb164-68"><a href="08_exercise_8.html#cb164-68" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-69"><a href="08_exercise_8.html#cb164-69" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the translated algorithm name, which should be used for any</span></span>
+<span id="cb164-70"><a href="08_exercise_8.html#cb164-70" aria-hidden="true" tabindex="-1"></a><span class="co">        user-visible display of the algorithm name.</span></span>
+<span id="cb164-71"><a href="08_exercise_8.html#cb164-71" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb164-72"><a href="08_exercise_8.html#cb164-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._display_name)</span>
+<span id="cb164-73"><a href="08_exercise_8.html#cb164-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-74"><a href="08_exercise_8.html#cb164-74" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> groupId(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb164-75"><a href="08_exercise_8.html#cb164-75" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-76"><a href="08_exercise_8.html#cb164-76" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the unique ID of the group this algorithm belongs to. This</span></span>
+<span id="cb164-77"><a href="08_exercise_8.html#cb164-77" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb164-78"><a href="08_exercise_8.html#cb164-78" aria-hidden="true" tabindex="-1"></a><span class="co">        The group id should be unique within each provider. Group id should</span></span>
+<span id="cb164-79"><a href="08_exercise_8.html#cb164-79" aria-hidden="true" tabindex="-1"></a><span class="co">        contain lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb164-80"><a href="08_exercise_8.html#cb164-80" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb164-81"><a href="08_exercise_8.html#cb164-81" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb164-82"><a href="08_exercise_8.html#cb164-82" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._group_id</span>
+<span id="cb164-83"><a href="08_exercise_8.html#cb164-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-84"><a href="08_exercise_8.html#cb164-84" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> group(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb164-85"><a href="08_exercise_8.html#cb164-85" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-86"><a href="08_exercise_8.html#cb164-86" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the name of the group this algorithm belongs to. This string</span></span>
+<span id="cb164-87"><a href="08_exercise_8.html#cb164-87" aria-hidden="true" tabindex="-1"></a><span class="co">        should be localised.</span></span>
+<span id="cb164-88"><a href="08_exercise_8.html#cb164-88" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb164-89"><a href="08_exercise_8.html#cb164-89" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._group)</span>
+<span id="cb164-90"><a href="08_exercise_8.html#cb164-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-91"><a href="08_exercise_8.html#cb164-91" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> shortHelpString(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb164-92"><a href="08_exercise_8.html#cb164-92" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-93"><a href="08_exercise_8.html#cb164-93" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a localised short helper string for the algorithm. This string</span></span>
+<span id="cb164-94"><a href="08_exercise_8.html#cb164-94" aria-hidden="true" tabindex="-1"></a><span class="co">        should provide a basic description about what the algorithm does and the</span></span>
+<span id="cb164-95"><a href="08_exercise_8.html#cb164-95" aria-hidden="true" tabindex="-1"></a><span class="co">        parameters and outputs associated with it..</span></span>
+<span id="cb164-96"><a href="08_exercise_8.html#cb164-96" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb164-97"><a href="08_exercise_8.html#cb164-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._short_help_string)</span>
+<span id="cb164-98"><a href="08_exercise_8.html#cb164-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-99"><a href="08_exercise_8.html#cb164-99" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initAlgorithm(<span class="va">self</span>, config<span class="op">=</span><span class="va">None</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb164-100"><a href="08_exercise_8.html#cb164-100" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-101"><a href="08_exercise_8.html#cb164-101" aria-hidden="true" tabindex="-1"></a><span class="co">        Here we define the inputs and output of the algorithm, along</span></span>
+<span id="cb164-102"><a href="08_exercise_8.html#cb164-102" aria-hidden="true" tabindex="-1"></a><span class="co">        with some other properties.</span></span>
+<span id="cb164-103"><a href="08_exercise_8.html#cb164-103" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb164-104"><a href="08_exercise_8.html#cb164-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-105"><a href="08_exercise_8.html#cb164-105" aria-hidden="true" tabindex="-1"></a>        <span class="co"># We add the input vector features source. It can have any kind of</span></span>
+<span id="cb164-106"><a href="08_exercise_8.html#cb164-106" aria-hidden="true" tabindex="-1"></a>        <span class="co"># geometry.</span></span>
+<span id="cb164-107"><a href="08_exercise_8.html#cb164-107" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb164-108"><a href="08_exercise_8.html#cb164-108" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSource(</span>
+<span id="cb164-109"><a href="08_exercise_8.html#cb164-109" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.INPUT,</span>
+<span id="cb164-110"><a href="08_exercise_8.html#cb164-110" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&quot;Input layer&quot;</span>),</span>
+<span id="cb164-111"><a href="08_exercise_8.html#cb164-111" aria-hidden="true" tabindex="-1"></a>                [QgsProcessing.TypeVectorAnyGeometry],</span>
+<span id="cb164-112"><a href="08_exercise_8.html#cb164-112" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb164-113"><a href="08_exercise_8.html#cb164-113" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb164-114"><a href="08_exercise_8.html#cb164-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-115"><a href="08_exercise_8.html#cb164-115" aria-hidden="true" tabindex="-1"></a>        <span class="co"># We add a feature sink in which to store our processed features (this</span></span>
+<span id="cb164-116"><a href="08_exercise_8.html#cb164-116" aria-hidden="true" tabindex="-1"></a>        <span class="co"># usually takes the form of a newly created vector layer when the</span></span>
+<span id="cb164-117"><a href="08_exercise_8.html#cb164-117" aria-hidden="true" tabindex="-1"></a>        <span class="co"># algorithm is run in QGIS).</span></span>
+<span id="cb164-118"><a href="08_exercise_8.html#cb164-118" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(QgsProcessingParameterFeatureSink(<span class="va">self</span>.OUTPUT, <span class="va">self</span>.tr(<span class="st">&quot;Output layer&quot;</span>)))</span>
+<span id="cb164-119"><a href="08_exercise_8.html#cb164-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-120"><a href="08_exercise_8.html#cb164-120" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> processAlgorithm(  <span class="co"># noqa N802</span></span>
+<span id="cb164-121"><a href="08_exercise_8.html#cb164-121" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb164-122"><a href="08_exercise_8.html#cb164-122" aria-hidden="true" tabindex="-1"></a>        parameters: <span class="bu">dict</span>[<span class="bu">str</span>, Any],</span>
+<span id="cb164-123"><a href="08_exercise_8.html#cb164-123" aria-hidden="true" tabindex="-1"></a>        context: QgsProcessingContext,</span>
+<span id="cb164-124"><a href="08_exercise_8.html#cb164-124" aria-hidden="true" tabindex="-1"></a>        feedback: QgsProcessingFeedback,</span>
+<span id="cb164-125"><a href="08_exercise_8.html#cb164-125" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb164-126"><a href="08_exercise_8.html#cb164-126" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-127"><a href="08_exercise_8.html#cb164-127" aria-hidden="true" tabindex="-1"></a><span class="co">        Here is where the processing itself takes place.</span></span>
+<span id="cb164-128"><a href="08_exercise_8.html#cb164-128" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb164-129"><a href="08_exercise_8.html#cb164-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-130"><a href="08_exercise_8.html#cb164-130" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Initialize feedback if it is None</span></span>
+<span id="cb164-131"><a href="08_exercise_8.html#cb164-131" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feedback <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb164-132"><a href="08_exercise_8.html#cb164-132" aria-hidden="true" tabindex="-1"></a>            feedback <span class="op">=</span> QgsProcessingFeedback()</span>
+<span id="cb164-133"><a href="08_exercise_8.html#cb164-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-134"><a href="08_exercise_8.html#cb164-134" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Retrieve the feature source and sink. The &#39;dest_id&#39; variable is used</span></span>
+<span id="cb164-135"><a href="08_exercise_8.html#cb164-135" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to uniquely identify the feature sink, and must be included in the</span></span>
+<span id="cb164-136"><a href="08_exercise_8.html#cb164-136" aria-hidden="true" tabindex="-1"></a>        <span class="co"># dictionary returned by the processAlgorithm function.</span></span>
+<span id="cb164-137"><a href="08_exercise_8.html#cb164-137" aria-hidden="true" tabindex="-1"></a>        source <span class="op">=</span> <span class="va">self</span>.parameterAsSource(parameters, <span class="va">self</span>.INPUT, context)</span>
+<span id="cb164-138"><a href="08_exercise_8.html#cb164-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-139"><a href="08_exercise_8.html#cb164-139" aria-hidden="true" tabindex="-1"></a>        (sink, dest_id) <span class="op">=</span> <span class="va">self</span>.parameterAsSink(</span>
+<span id="cb164-140"><a href="08_exercise_8.html#cb164-140" aria-hidden="true" tabindex="-1"></a>            parameters,</span>
+<span id="cb164-141"><a href="08_exercise_8.html#cb164-141" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.OUTPUT,</span>
+<span id="cb164-142"><a href="08_exercise_8.html#cb164-142" aria-hidden="true" tabindex="-1"></a>            context,</span>
+<span id="cb164-143"><a href="08_exercise_8.html#cb164-143" aria-hidden="true" tabindex="-1"></a>            source.fields(),</span>
+<span id="cb164-144"><a href="08_exercise_8.html#cb164-144" aria-hidden="true" tabindex="-1"></a>            source.wkbType(),</span>
+<span id="cb164-145"><a href="08_exercise_8.html#cb164-145" aria-hidden="true" tabindex="-1"></a>            source.sourceCrs(),</span>
+<span id="cb164-146"><a href="08_exercise_8.html#cb164-146" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb164-147"><a href="08_exercise_8.html#cb164-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-148"><a href="08_exercise_8.html#cb164-148" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Send some information to the user</span></span>
+<span id="cb164-149"><a href="08_exercise_8.html#cb164-149" aria-hidden="true" tabindex="-1"></a>        feedback.pushInfo(<span class="ss">f&quot;CRS is </span><span class="sc">{</span>source<span class="sc">.</span>sourceCrs()<span class="sc">.</span>authid()<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb164-150"><a href="08_exercise_8.html#cb164-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-151"><a href="08_exercise_8.html#cb164-151" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the number of steps to display within the progress bar and</span></span>
+<span id="cb164-152"><a href="08_exercise_8.html#cb164-152" aria-hidden="true" tabindex="-1"></a>        <span class="co"># get features from source</span></span>
+<span id="cb164-153"><a href="08_exercise_8.html#cb164-153" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="fl">100.0</span> <span class="op">/</span> source.featureCount() <span class="cf">if</span> source.featureCount() <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb164-154"><a href="08_exercise_8.html#cb164-154" aria-hidden="true" tabindex="-1"></a>        features <span class="op">=</span> source.getFeatures()</span>
+<span id="cb164-155"><a href="08_exercise_8.html#cb164-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-156"><a href="08_exercise_8.html#cb164-156" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> current, feature <span class="kw">in</span> <span class="bu">enumerate</span>(features):</span>
+<span id="cb164-157"><a href="08_exercise_8.html#cb164-157" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Stop the algorithm if cancel button has been clicked</span></span>
+<span id="cb164-158"><a href="08_exercise_8.html#cb164-158" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> feedback.isCanceled():</span>
+<span id="cb164-159"><a href="08_exercise_8.html#cb164-159" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb164-160"><a href="08_exercise_8.html#cb164-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-161"><a href="08_exercise_8.html#cb164-161" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Add a feature in the sink</span></span>
+<span id="cb164-162"><a href="08_exercise_8.html#cb164-162" aria-hidden="true" tabindex="-1"></a>            sink.addFeature(feature, QgsFeatureSink.FastInsert)</span>
+<span id="cb164-163"><a href="08_exercise_8.html#cb164-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-164"><a href="08_exercise_8.html#cb164-164" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Update the progress bar</span></span>
+<span id="cb164-165"><a href="08_exercise_8.html#cb164-165" aria-hidden="true" tabindex="-1"></a>            feedback.setProgress(<span class="bu">int</span>(current <span class="op">*</span> total))</span>
+<span id="cb164-166"><a href="08_exercise_8.html#cb164-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-167"><a href="08_exercise_8.html#cb164-167" aria-hidden="true" tabindex="-1"></a>        <span class="co"># To run another Processing algorithm as part of this algorithm, you can use</span></span>
+<span id="cb164-168"><a href="08_exercise_8.html#cb164-168" aria-hidden="true" tabindex="-1"></a>        <span class="co"># processing.run(...). Make sure you pass the current context and feedback</span></span>
+<span id="cb164-169"><a href="08_exercise_8.html#cb164-169" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to processing.run to ensure that all temporary layer outputs are available</span></span>
+<span id="cb164-170"><a href="08_exercise_8.html#cb164-170" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to the executed algorithm, and that the executed algorithm can send feedback</span></span>
+<span id="cb164-171"><a href="08_exercise_8.html#cb164-171" aria-hidden="true" tabindex="-1"></a>        <span class="co"># reports to the user (and correctly handle cancellation and progress reports!)</span></span>
+<span id="cb164-172"><a href="08_exercise_8.html#cb164-172" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">False</span>:</span>
+<span id="cb164-173"><a href="08_exercise_8.html#cb164-173" aria-hidden="true" tabindex="-1"></a>            _buffered_layer <span class="op">=</span> processing.run(</span>
+<span id="cb164-174"><a href="08_exercise_8.html#cb164-174" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;native:buffer&quot;</span>,</span>
+<span id="cb164-175"><a href="08_exercise_8.html#cb164-175" aria-hidden="true" tabindex="-1"></a>                {</span>
+<span id="cb164-176"><a href="08_exercise_8.html#cb164-176" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;INPUT&quot;</span>: dest_id,</span>
+<span id="cb164-177"><a href="08_exercise_8.html#cb164-177" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;DISTANCE&quot;</span>: <span class="fl">1.5</span>,</span>
+<span id="cb164-178"><a href="08_exercise_8.html#cb164-178" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;SEGMENTS&quot;</span>: <span class="dv">5</span>,</span>
+<span id="cb164-179"><a href="08_exercise_8.html#cb164-179" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;END_CAP_STYLE&quot;</span>: <span class="dv">0</span>,</span>
+<span id="cb164-180"><a href="08_exercise_8.html#cb164-180" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;JOIN_STYLE&quot;</span>: <span class="dv">0</span>,</span>
+<span id="cb164-181"><a href="08_exercise_8.html#cb164-181" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;MITER_LIMIT&quot;</span>: <span class="dv">2</span>,</span>
+<span id="cb164-182"><a href="08_exercise_8.html#cb164-182" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;DISSOLVE&quot;</span>: <span class="va">False</span>,</span>
+<span id="cb164-183"><a href="08_exercise_8.html#cb164-183" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;OUTPUT&quot;</span>: <span class="st">&quot;memory:&quot;</span>,</span>
+<span id="cb164-184"><a href="08_exercise_8.html#cb164-184" aria-hidden="true" tabindex="-1"></a>                },</span>
+<span id="cb164-185"><a href="08_exercise_8.html#cb164-185" aria-hidden="true" tabindex="-1"></a>                context<span class="op">=</span>context,</span>
+<span id="cb164-186"><a href="08_exercise_8.html#cb164-186" aria-hidden="true" tabindex="-1"></a>                feedback<span class="op">=</span>feedback,</span>
+<span id="cb164-187"><a href="08_exercise_8.html#cb164-187" aria-hidden="true" tabindex="-1"></a>            )[<span class="st">&quot;OUTPUT&quot;</span>]</span>
+<span id="cb164-188"><a href="08_exercise_8.html#cb164-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-189"><a href="08_exercise_8.html#cb164-189" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Return the results of the algorithm. In this case our only result is</span></span>
+<span id="cb164-190"><a href="08_exercise_8.html#cb164-190" aria-hidden="true" tabindex="-1"></a>        <span class="co"># the feature sink which contains the processed features, but some</span></span>
+<span id="cb164-191"><a href="08_exercise_8.html#cb164-191" aria-hidden="true" tabindex="-1"></a>        <span class="co"># algorithms may return multiple feature sinks, calculated numeric</span></span>
+<span id="cb164-192"><a href="08_exercise_8.html#cb164-192" aria-hidden="true" tabindex="-1"></a>        <span class="co"># statistics, etc. These should all be included in the returned</span></span>
+<span id="cb164-193"><a href="08_exercise_8.html#cb164-193" aria-hidden="true" tabindex="-1"></a>        <span class="co"># dictionary, with keys matching the feature corresponding parameter</span></span>
+<span id="cb164-194"><a href="08_exercise_8.html#cb164-194" aria-hidden="true" tabindex="-1"></a>        <span class="co"># or output names.</span></span>
+<span id="cb164-195"><a href="08_exercise_8.html#cb164-195" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="va">self</span>.OUTPUT: dest_id}</span></code></pre></div>
+</div>
+</div>
+<p>It has mostly the same structure as the example before.</p>
+<p><em>provider.py:</em></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+file
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="08_exercise_8.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsProcessingProvider</span>
+<span id="cb165-2"><a href="08_exercise_8.html#cb165-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-3"><a href="08_exercise_8.html#cb165-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.testplugin_processing.processing_algorithm <span class="im">import</span> ProcessingAlgorithm</span>
+<span id="cb165-4"><a href="08_exercise_8.html#cb165-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-5"><a href="08_exercise_8.html#cb165-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-6"><a href="08_exercise_8.html#cb165-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Provider(QgsProcessingProvider):</span>
+<span id="cb165-7"><a href="08_exercise_8.html#cb165-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb165-8"><a href="08_exercise_8.html#cb165-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb165-9"><a href="08_exercise_8.html#cb165-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-10"><a href="08_exercise_8.html#cb165-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._id <span class="op">=</span> <span class="st">&quot;myprovider&quot;</span></span>
+<span id="cb165-11"><a href="08_exercise_8.html#cb165-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._name <span class="op">=</span> <span class="st">&quot;My provider&quot;</span></span>
+<span id="cb165-12"><a href="08_exercise_8.html#cb165-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-13"><a href="08_exercise_8.html#cb165-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="bu">id</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb165-14"><a href="08_exercise_8.html#cb165-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;The ID of your plugin, used to identify the provider.</span></span>
+<span id="cb165-15"><a href="08_exercise_8.html#cb165-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-16"><a href="08_exercise_8.html#cb165-16" aria-hidden="true" tabindex="-1"></a><span class="co">        This string should be a unique, short, character only string,</span></span>
+<span id="cb165-17"><a href="08_exercise_8.html#cb165-17" aria-hidden="true" tabindex="-1"></a><span class="co">        eg &quot;qgis&quot; or &quot;gdal&quot;. This string should not be localised.</span></span>
+<span id="cb165-18"><a href="08_exercise_8.html#cb165-18" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb165-19"><a href="08_exercise_8.html#cb165-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._id</span>
+<span id="cb165-20"><a href="08_exercise_8.html#cb165-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-21"><a href="08_exercise_8.html#cb165-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> name(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb165-22"><a href="08_exercise_8.html#cb165-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb165-23"><a href="08_exercise_8.html#cb165-23" aria-hidden="true" tabindex="-1"></a><span class="co">        The display name of your plugin in Processing.</span></span>
+<span id="cb165-24"><a href="08_exercise_8.html#cb165-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-25"><a href="08_exercise_8.html#cb165-25" aria-hidden="true" tabindex="-1"></a><span class="co">        This string should be as short as possible and localised.</span></span>
+<span id="cb165-26"><a href="08_exercise_8.html#cb165-26" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb165-27"><a href="08_exercise_8.html#cb165-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._name</span>
+<span id="cb165-28"><a href="08_exercise_8.html#cb165-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-29"><a href="08_exercise_8.html#cb165-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> load(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
+<span id="cb165-30"><a href="08_exercise_8.html#cb165-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.refreshAlgorithms()</span>
+<span id="cb165-31"><a href="08_exercise_8.html#cb165-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb165-32"><a href="08_exercise_8.html#cb165-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-33"><a href="08_exercise_8.html#cb165-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> icon(<span class="va">self</span>):</span>
+<span id="cb165-34"><a href="08_exercise_8.html#cb165-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb165-35"><a href="08_exercise_8.html#cb165-35" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a QIcon which is used for your provider inside the Processing toolbox.</span></span>
+<span id="cb165-36"><a href="08_exercise_8.html#cb165-36" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb165-37"><a href="08_exercise_8.html#cb165-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> QgsProcessingProvider.icon(<span class="va">self</span>)</span>
+<span id="cb165-38"><a href="08_exercise_8.html#cb165-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-39"><a href="08_exercise_8.html#cb165-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> loadAlgorithms(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb165-40"><a href="08_exercise_8.html#cb165-40" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb165-41"><a href="08_exercise_8.html#cb165-41" aria-hidden="true" tabindex="-1"></a><span class="co">        Adds individual processing algorithms to the provider.</span></span>
+<span id="cb165-42"><a href="08_exercise_8.html#cb165-42" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb165-43"><a href="08_exercise_8.html#cb165-43" aria-hidden="true" tabindex="-1"></a>        alg <span class="op">=</span> ProcessingAlgorithm()</span>
+<span id="cb165-44"><a href="08_exercise_8.html#cb165-44" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addAlgorithm(alg)</span></code></pre></div>
+</div>
+</div>
+<p>Here the attributes of the provider are defined including its name,
+icon and identifier etc. The most crucial function however is <code>loadAlgorithms()</code>.
+Here the actual algorithms are added to the provider. First the algorithm
+has to be imported which has already been done at the start of the file.
+The provider can have multiple algorithms, in which case all of them have to
+be imported and added to the <code>loadAlgorithms()</code> function.</p>
+<p>The <em>provider</em> itself is added to QGIS in the <code>test-plugin/testplugin/plugin.py</code>
+file.</p>
+<p><em>plugin.py (relevant parts):</em></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+file
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb166-1"><a href="08_exercise_8.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co"># importing the provider</span></span>
+<span id="cb166-2"><a href="08_exercise_8.html#cb166-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.testplugin_processing.provider <span class="im">import</span> Provider</span>
+<span id="cb166-3"><a href="08_exercise_8.html#cb166-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-4"><a href="08_exercise_8.html#cb166-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ... #</span></span>
+<span id="cb166-5"><a href="08_exercise_8.html#cb166-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-6"><a href="08_exercise_8.html#cb166-6" aria-hidden="true" tabindex="-1"></a><span class="co"># initializing processing</span></span>
+<span id="cb166-7"><a href="08_exercise_8.html#cb166-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initProcessing(<span class="va">self</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb166-8"><a href="08_exercise_8.html#cb166-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.provider <span class="op">=</span> Provider()</span>
+<span id="cb166-9"><a href="08_exercise_8.html#cb166-9" aria-hidden="true" tabindex="-1"></a>        QgsApplication.processingRegistry().addProvider(<span class="va">self</span>.provider)</span>
+<span id="cb166-10"><a href="08_exercise_8.html#cb166-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-11"><a href="08_exercise_8.html#cb166-11" aria-hidden="true" tabindex="-1"></a><span class="co"># initProcessing is called here</span></span>
+<span id="cb166-12"><a href="08_exercise_8.html#cb166-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initGui(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb166-13"><a href="08_exercise_8.html#cb166-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ... #</span></span>
+<span id="cb166-14"><a href="08_exercise_8.html#cb166-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.initProcessing()</span>
+<span id="cb166-15"><a href="08_exercise_8.html#cb166-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-16"><a href="08_exercise_8.html#cb166-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ... #</span></span>
+<span id="cb166-17"><a href="08_exercise_8.html#cb166-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-18"><a href="08_exercise_8.html#cb166-18" aria-hidden="true" tabindex="-1"></a><span class="co"># If the plugin is inactivated the</span></span>
+<span id="cb166-19"><a href="08_exercise_8.html#cb166-19" aria-hidden="true" tabindex="-1"></a><span class="co"># provider is deleted from the registry</span></span>
+<span id="cb166-20"><a href="08_exercise_8.html#cb166-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> unload(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb166-21"><a href="08_exercise_8.html#cb166-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Removes the plugin menu item and icon from QGIS GUI.&quot;&quot;&quot;</span></span>
+<span id="cb166-22"><a href="08_exercise_8.html#cb166-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> action <span class="kw">in</span> <span class="va">self</span>.actions:</span>
+<span id="cb166-23"><a href="08_exercise_8.html#cb166-23" aria-hidden="true" tabindex="-1"></a>            iface.removePluginMenu(Plugin.name, action)</span>
+<span id="cb166-24"><a href="08_exercise_8.html#cb166-24" aria-hidden="true" tabindex="-1"></a>            iface.removeToolBarIcon(action)</span>
+<span id="cb166-25"><a href="08_exercise_8.html#cb166-25" aria-hidden="true" tabindex="-1"></a>        teardown_logger(Plugin.name)</span>
+<span id="cb166-26"><a href="08_exercise_8.html#cb166-26" aria-hidden="true" tabindex="-1"></a>        QgsApplication.processingRegistry().removeProvider(<span class="va">self</span>.provider)</span></code></pre></div>
+</div>
+</div>
+<p>You can also add more than one provider to the plugin.</p>
+</div>
+<div id="exercise-8.1-writing-an-algorithm" class="section level2">
+<h2>Exercise 8.1: Writing an algorithm</h2>
+<p>Edit the algorithm in the
+<code>test-plugin/testplugin/testplugin_processing/processing_algorithm.py</code>
+so it works in the following way:</p>
+<p><em>Parameters:</em></p>
+<ul>
+<li>Source layer (QgsProcessingParameterFeatureSource): only point layers can be chosen.</li>
+<li>Point parameter (QgsProcessingParameterPoint)</li>
+<li>Output layer (QgsProcessingParameterFeatureSink)</li>
+</ul>
+<p><em>Processing:</em></p>
+<ul>
+<li>The algorithm calculates the distance between each point in the source
+layer to the point chosen by the user.</li>
+<li>If the point chosen by the user differs from the source layer CRS
+it is transformed into the correct CRS.</li>
+<li>A new field “distance” is added to the source layer. The distance
+between the points is added to this field.
+<ul>
+<li>All the other fields and values stay the same!</li>
+</ul></li>
+<li>Update the progress bar and if needed send messages to the user,
+for example the CRS is transformed</li>
+</ul>
+<p><img src="img/exercise_8/image2.gif" /></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="08_exercise_8.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> __future__ <span class="im">import</span> annotations</span>
+<span id="cb167-2"><a href="08_exercise_8.html#cb167-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-3"><a href="08_exercise_8.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Any</span>
+<span id="cb167-4"><a href="08_exercise_8.html#cb167-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-5"><a href="08_exercise_8.html#cb167-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb167-6"><a href="08_exercise_8.html#cb167-6" aria-hidden="true" tabindex="-1"></a>    QgsCoordinateTransform,</span>
+<span id="cb167-7"><a href="08_exercise_8.html#cb167-7" aria-hidden="true" tabindex="-1"></a>    QgsFeature,</span>
+<span id="cb167-8"><a href="08_exercise_8.html#cb167-8" aria-hidden="true" tabindex="-1"></a>    QgsFeatureSink,</span>
+<span id="cb167-9"><a href="08_exercise_8.html#cb167-9" aria-hidden="true" tabindex="-1"></a>    QgsField,</span>
+<span id="cb167-10"><a href="08_exercise_8.html#cb167-10" aria-hidden="true" tabindex="-1"></a>    QgsGeometry,</span>
+<span id="cb167-11"><a href="08_exercise_8.html#cb167-11" aria-hidden="true" tabindex="-1"></a>    QgsProcessing,</span>
+<span id="cb167-12"><a href="08_exercise_8.html#cb167-12" aria-hidden="true" tabindex="-1"></a>    QgsProcessingAlgorithm,</span>
+<span id="cb167-13"><a href="08_exercise_8.html#cb167-13" aria-hidden="true" tabindex="-1"></a>    QgsProcessingContext,</span>
+<span id="cb167-14"><a href="08_exercise_8.html#cb167-14" aria-hidden="true" tabindex="-1"></a>    QgsProcessingFeedback,</span>
+<span id="cb167-15"><a href="08_exercise_8.html#cb167-15" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterFeatureSink,</span>
+<span id="cb167-16"><a href="08_exercise_8.html#cb167-16" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterFeatureSource,</span>
+<span id="cb167-17"><a href="08_exercise_8.html#cb167-17" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterPoint,</span>
+<span id="cb167-18"><a href="08_exercise_8.html#cb167-18" aria-hidden="true" tabindex="-1"></a>    QgsProject,</span>
+<span id="cb167-19"><a href="08_exercise_8.html#cb167-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb167-20"><a href="08_exercise_8.html#cb167-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> QCoreApplication, QVariant</span>
+<span id="cb167-21"><a href="08_exercise_8.html#cb167-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-22"><a href="08_exercise_8.html#cb167-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-23"><a href="08_exercise_8.html#cb167-23" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ProcessingAlgorithm(QgsProcessingAlgorithm):</span>
+<span id="cb167-24"><a href="08_exercise_8.html#cb167-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-25"><a href="08_exercise_8.html#cb167-25" aria-hidden="true" tabindex="-1"></a><span class="co">    Sample Plugin Algorithm.</span></span>
+<span id="cb167-26"><a href="08_exercise_8.html#cb167-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-27"><a href="08_exercise_8.html#cb167-27" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculates the shortest distance to a given point</span></span>
+<span id="cb167-28"><a href="08_exercise_8.html#cb167-28" aria-hidden="true" tabindex="-1"></a><span class="co">    for each feature in a point layer.</span></span>
+<span id="cb167-29"><a href="08_exercise_8.html#cb167-29" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb167-30"><a href="08_exercise_8.html#cb167-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-31"><a href="08_exercise_8.html#cb167-31" aria-hidden="true" tabindex="-1"></a>    INPUT_LAYER <span class="op">=</span> <span class="st">&quot;INPUT_LAYER&quot;</span></span>
+<span id="cb167-32"><a href="08_exercise_8.html#cb167-32" aria-hidden="true" tabindex="-1"></a>    POINT_INPUT <span class="op">=</span> <span class="st">&quot;POINT_INPUT&quot;</span></span>
+<span id="cb167-33"><a href="08_exercise_8.html#cb167-33" aria-hidden="true" tabindex="-1"></a>    OUTPUT <span class="op">=</span> <span class="st">&quot;OUTPUT&quot;</span></span>
+<span id="cb167-34"><a href="08_exercise_8.html#cb167-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-35"><a href="08_exercise_8.html#cb167-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb167-36"><a href="08_exercise_8.html#cb167-36" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb167-37"><a href="08_exercise_8.html#cb167-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-38"><a href="08_exercise_8.html#cb167-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._name <span class="op">=</span> <span class="st">&quot;samplepluginalgorithm&quot;</span></span>
+<span id="cb167-39"><a href="08_exercise_8.html#cb167-39" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._display_name <span class="op">=</span> <span class="st">&quot;Sample Plugin Algorithm&quot;</span></span>
+<span id="cb167-40"><a href="08_exercise_8.html#cb167-40" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._group_id <span class="op">=</span> <span class="st">&quot;group&quot;</span></span>
+<span id="cb167-41"><a href="08_exercise_8.html#cb167-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._group <span class="op">=</span> <span class="st">&quot;Group 1&quot;</span></span>
+<span id="cb167-42"><a href="08_exercise_8.html#cb167-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._short_help_string <span class="op">=</span> <span class="st">&quot;This is a sample algorithm.&quot;</span></span>
+<span id="cb167-43"><a href="08_exercise_8.html#cb167-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-44"><a href="08_exercise_8.html#cb167-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> tr(<span class="va">self</span>, string) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb167-45"><a href="08_exercise_8.html#cb167-45" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-46"><a href="08_exercise_8.html#cb167-46" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a translatable string with the self.tr() function.</span></span>
+<span id="cb167-47"><a href="08_exercise_8.html#cb167-47" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-48"><a href="08_exercise_8.html#cb167-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> QCoreApplication.translate(<span class="st">&quot;Processing&quot;</span>, string)</span>
+<span id="cb167-49"><a href="08_exercise_8.html#cb167-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-50"><a href="08_exercise_8.html#cb167-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> createInstance(<span class="va">self</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb167-51"><a href="08_exercise_8.html#cb167-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ProcessingAlgorithm()</span>
+<span id="cb167-52"><a href="08_exercise_8.html#cb167-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-53"><a href="08_exercise_8.html#cb167-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> name(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb167-54"><a href="08_exercise_8.html#cb167-54" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-55"><a href="08_exercise_8.html#cb167-55" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the algorithm name, used for identifying the algorithm. This</span></span>
+<span id="cb167-56"><a href="08_exercise_8.html#cb167-56" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb167-57"><a href="08_exercise_8.html#cb167-57" aria-hidden="true" tabindex="-1"></a><span class="co">        The name should be unique within each provider. Names should contain</span></span>
+<span id="cb167-58"><a href="08_exercise_8.html#cb167-58" aria-hidden="true" tabindex="-1"></a><span class="co">        lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb167-59"><a href="08_exercise_8.html#cb167-59" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb167-60"><a href="08_exercise_8.html#cb167-60" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-61"><a href="08_exercise_8.html#cb167-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._name</span>
+<span id="cb167-62"><a href="08_exercise_8.html#cb167-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-63"><a href="08_exercise_8.html#cb167-63" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> displayName(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb167-64"><a href="08_exercise_8.html#cb167-64" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-65"><a href="08_exercise_8.html#cb167-65" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the translated algorithm name, which should be used for any</span></span>
+<span id="cb167-66"><a href="08_exercise_8.html#cb167-66" aria-hidden="true" tabindex="-1"></a><span class="co">        user-visible display of the algorithm name.</span></span>
+<span id="cb167-67"><a href="08_exercise_8.html#cb167-67" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-68"><a href="08_exercise_8.html#cb167-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._display_name)</span>
+<span id="cb167-69"><a href="08_exercise_8.html#cb167-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-70"><a href="08_exercise_8.html#cb167-70" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> groupId(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb167-71"><a href="08_exercise_8.html#cb167-71" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-72"><a href="08_exercise_8.html#cb167-72" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the unique ID of the group this algorithm belongs to. This</span></span>
+<span id="cb167-73"><a href="08_exercise_8.html#cb167-73" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb167-74"><a href="08_exercise_8.html#cb167-74" aria-hidden="true" tabindex="-1"></a><span class="co">        The group id should be unique within each provider. Group id should</span></span>
+<span id="cb167-75"><a href="08_exercise_8.html#cb167-75" aria-hidden="true" tabindex="-1"></a><span class="co">        contain lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb167-76"><a href="08_exercise_8.html#cb167-76" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb167-77"><a href="08_exercise_8.html#cb167-77" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-78"><a href="08_exercise_8.html#cb167-78" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._group_id</span>
+<span id="cb167-79"><a href="08_exercise_8.html#cb167-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-80"><a href="08_exercise_8.html#cb167-80" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> group(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb167-81"><a href="08_exercise_8.html#cb167-81" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-82"><a href="08_exercise_8.html#cb167-82" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the name of the group this algorithm belongs to. This string</span></span>
+<span id="cb167-83"><a href="08_exercise_8.html#cb167-83" aria-hidden="true" tabindex="-1"></a><span class="co">        should be localised.</span></span>
+<span id="cb167-84"><a href="08_exercise_8.html#cb167-84" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-85"><a href="08_exercise_8.html#cb167-85" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._group)</span>
+<span id="cb167-86"><a href="08_exercise_8.html#cb167-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-87"><a href="08_exercise_8.html#cb167-87" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> shortHelpString(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb167-88"><a href="08_exercise_8.html#cb167-88" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-89"><a href="08_exercise_8.html#cb167-89" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a localised short helper string for the algorithm. This string</span></span>
+<span id="cb167-90"><a href="08_exercise_8.html#cb167-90" aria-hidden="true" tabindex="-1"></a><span class="co">        should provide a basic description about what the algorithm does and the</span></span>
+<span id="cb167-91"><a href="08_exercise_8.html#cb167-91" aria-hidden="true" tabindex="-1"></a><span class="co">        parameters and outputs associated with it..</span></span>
+<span id="cb167-92"><a href="08_exercise_8.html#cb167-92" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-93"><a href="08_exercise_8.html#cb167-93" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._short_help_string)</span>
+<span id="cb167-94"><a href="08_exercise_8.html#cb167-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-95"><a href="08_exercise_8.html#cb167-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initAlgorithm(<span class="va">self</span>, config<span class="op">=</span><span class="va">None</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb167-96"><a href="08_exercise_8.html#cb167-96" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-97"><a href="08_exercise_8.html#cb167-97" aria-hidden="true" tabindex="-1"></a><span class="co">        Here we define the inputs and output of the algorithm, along</span></span>
+<span id="cb167-98"><a href="08_exercise_8.html#cb167-98" aria-hidden="true" tabindex="-1"></a><span class="co">        with some other properties.</span></span>
+<span id="cb167-99"><a href="08_exercise_8.html#cb167-99" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-100"><a href="08_exercise_8.html#cb167-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-101"><a href="08_exercise_8.html#cb167-101" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb167-102"><a href="08_exercise_8.html#cb167-102" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSource(</span>
+<span id="cb167-103"><a href="08_exercise_8.html#cb167-103" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.INPUT_LAYER,</span>
+<span id="cb167-104"><a href="08_exercise_8.html#cb167-104" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&quot;Input layer&quot;</span>),</span>
+<span id="cb167-105"><a href="08_exercise_8.html#cb167-105" aria-hidden="true" tabindex="-1"></a>                [QgsProcessing.TypeVectorPoint],</span>
+<span id="cb167-106"><a href="08_exercise_8.html#cb167-106" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb167-107"><a href="08_exercise_8.html#cb167-107" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb167-108"><a href="08_exercise_8.html#cb167-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-109"><a href="08_exercise_8.html#cb167-109" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb167-110"><a href="08_exercise_8.html#cb167-110" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterPoint(</span>
+<span id="cb167-111"><a href="08_exercise_8.html#cb167-111" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.POINT_INPUT,</span>
+<span id="cb167-112"><a href="08_exercise_8.html#cb167-112" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&quot;Point&quot;</span>),</span>
+<span id="cb167-113"><a href="08_exercise_8.html#cb167-113" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb167-114"><a href="08_exercise_8.html#cb167-114" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb167-115"><a href="08_exercise_8.html#cb167-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-116"><a href="08_exercise_8.html#cb167-116" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb167-117"><a href="08_exercise_8.html#cb167-117" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSink(</span>
+<span id="cb167-118"><a href="08_exercise_8.html#cb167-118" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.OUTPUT,</span>
+<span id="cb167-119"><a href="08_exercise_8.html#cb167-119" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&quot;Output layer&quot;</span>),</span>
+<span id="cb167-120"><a href="08_exercise_8.html#cb167-120" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb167-121"><a href="08_exercise_8.html#cb167-121" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb167-122"><a href="08_exercise_8.html#cb167-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-123"><a href="08_exercise_8.html#cb167-123" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> processAlgorithm(  <span class="co"># noqa N802</span></span>
+<span id="cb167-124"><a href="08_exercise_8.html#cb167-124" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb167-125"><a href="08_exercise_8.html#cb167-125" aria-hidden="true" tabindex="-1"></a>        parameters: <span class="bu">dict</span>[<span class="bu">str</span>, Any],</span>
+<span id="cb167-126"><a href="08_exercise_8.html#cb167-126" aria-hidden="true" tabindex="-1"></a>        context: QgsProcessingContext,</span>
+<span id="cb167-127"><a href="08_exercise_8.html#cb167-127" aria-hidden="true" tabindex="-1"></a>        feedback: QgsProcessingFeedback,</span>
+<span id="cb167-128"><a href="08_exercise_8.html#cb167-128" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb167-129"><a href="08_exercise_8.html#cb167-129" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-130"><a href="08_exercise_8.html#cb167-130" aria-hidden="true" tabindex="-1"></a><span class="co">        Here is where the processing itself takes place.</span></span>
+<span id="cb167-131"><a href="08_exercise_8.html#cb167-131" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-132"><a href="08_exercise_8.html#cb167-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-133"><a href="08_exercise_8.html#cb167-133" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feedback <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb167-134"><a href="08_exercise_8.html#cb167-134" aria-hidden="true" tabindex="-1"></a>            feedback <span class="op">=</span> QgsProcessingFeedback()</span>
+<span id="cb167-135"><a href="08_exercise_8.html#cb167-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-136"><a href="08_exercise_8.html#cb167-136" aria-hidden="true" tabindex="-1"></a>        source <span class="op">=</span> <span class="va">self</span>.parameterAsSource(parameters, <span class="va">self</span>.INPUT_LAYER, context)</span>
+<span id="cb167-137"><a href="08_exercise_8.html#cb167-137" aria-hidden="true" tabindex="-1"></a>        point <span class="op">=</span> <span class="va">self</span>.parameterAsPoint(parameters, <span class="va">self</span>.POINT_INPUT, context)</span>
+<span id="cb167-138"><a href="08_exercise_8.html#cb167-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-139"><a href="08_exercise_8.html#cb167-139" aria-hidden="true" tabindex="-1"></a>        point_crs <span class="op">=</span> <span class="va">self</span>.parameterAsPointCrs(parameters, <span class="va">self</span>.POINT_INPUT, context)</span>
+<span id="cb167-140"><a href="08_exercise_8.html#cb167-140" aria-hidden="true" tabindex="-1"></a>        source_crs <span class="op">=</span> source.sourceCrs()</span>
+<span id="cb167-141"><a href="08_exercise_8.html#cb167-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-142"><a href="08_exercise_8.html#cb167-142" aria-hidden="true" tabindex="-1"></a>        point_geom <span class="op">=</span> QgsGeometry.fromPointXY(point)</span>
+<span id="cb167-143"><a href="08_exercise_8.html#cb167-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-144"><a href="08_exercise_8.html#cb167-144" aria-hidden="true" tabindex="-1"></a>        feedback.pushInfo(<span class="ss">f&quot;Calculating distance to point at </span><span class="sc">{</span>point<span class="sc">.</span>x()<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>point<span class="sc">.</span>y()<span class="sc">}</span><span class="ss">.&quot;</span>)</span>
+<span id="cb167-145"><a href="08_exercise_8.html#cb167-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-146"><a href="08_exercise_8.html#cb167-146" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> point_crs <span class="op">!=</span> source_crs:</span>
+<span id="cb167-147"><a href="08_exercise_8.html#cb167-147" aria-hidden="true" tabindex="-1"></a>            feedback.pushWarning(</span>
+<span id="cb167-148"><a href="08_exercise_8.html#cb167-148" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f&quot;Coordinate systems do not match!</span><span class="ch">\</span></span>
+<span id="cb167-149"><a href="08_exercise_8.html#cb167-149" aria-hidden="true" tabindex="-1"></a><span class="ss">                Transforming point from </span><span class="sc">{</span>point_crs<span class="sc">.</span>authid()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>source_crs<span class="sc">.</span>authid()<span class="sc">}</span><span class="ss">.&quot;</span></span>
+<span id="cb167-150"><a href="08_exercise_8.html#cb167-150" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb167-151"><a href="08_exercise_8.html#cb167-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-152"><a href="08_exercise_8.html#cb167-152" aria-hidden="true" tabindex="-1"></a>            transform <span class="op">=</span> QgsCoordinateTransform(point_crs, source_crs, QgsProject.instance())</span>
+<span id="cb167-153"><a href="08_exercise_8.html#cb167-153" aria-hidden="true" tabindex="-1"></a>            point_geom.transform(transform)</span>
+<span id="cb167-154"><a href="08_exercise_8.html#cb167-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-155"><a href="08_exercise_8.html#cb167-155" aria-hidden="true" tabindex="-1"></a>        output_layer_fields <span class="op">=</span> source.fields()</span>
+<span id="cb167-156"><a href="08_exercise_8.html#cb167-156" aria-hidden="true" tabindex="-1"></a>        distance_field <span class="op">=</span> QgsField(<span class="st">&quot;distance&quot;</span>, QVariant.Double)</span>
+<span id="cb167-157"><a href="08_exercise_8.html#cb167-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-158"><a href="08_exercise_8.html#cb167-158" aria-hidden="true" tabindex="-1"></a>        output_layer_fields.append(distance_field)</span>
+<span id="cb167-159"><a href="08_exercise_8.html#cb167-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-160"><a href="08_exercise_8.html#cb167-160" aria-hidden="true" tabindex="-1"></a>        (sink, dest_id) <span class="op">=</span> <span class="va">self</span>.parameterAsSink(</span>
+<span id="cb167-161"><a href="08_exercise_8.html#cb167-161" aria-hidden="true" tabindex="-1"></a>            parameters,</span>
+<span id="cb167-162"><a href="08_exercise_8.html#cb167-162" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.OUTPUT,</span>
+<span id="cb167-163"><a href="08_exercise_8.html#cb167-163" aria-hidden="true" tabindex="-1"></a>            context,</span>
+<span id="cb167-164"><a href="08_exercise_8.html#cb167-164" aria-hidden="true" tabindex="-1"></a>            output_layer_fields,</span>
+<span id="cb167-165"><a href="08_exercise_8.html#cb167-165" aria-hidden="true" tabindex="-1"></a>            source.wkbType(),</span>
+<span id="cb167-166"><a href="08_exercise_8.html#cb167-166" aria-hidden="true" tabindex="-1"></a>            source_crs,</span>
+<span id="cb167-167"><a href="08_exercise_8.html#cb167-167" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb167-168"><a href="08_exercise_8.html#cb167-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-169"><a href="08_exercise_8.html#cb167-169" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="fl">100.0</span> <span class="op">/</span> source.featureCount() <span class="cf">if</span> source.featureCount() <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb167-170"><a href="08_exercise_8.html#cb167-170" aria-hidden="true" tabindex="-1"></a>        features <span class="op">=</span> source.getFeatures()</span>
+<span id="cb167-171"><a href="08_exercise_8.html#cb167-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-172"><a href="08_exercise_8.html#cb167-172" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> current, feature <span class="kw">in</span> <span class="bu">enumerate</span>(features):</span>
+<span id="cb167-173"><a href="08_exercise_8.html#cb167-173" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> feedback.isCanceled():</span>
+<span id="cb167-174"><a href="08_exercise_8.html#cb167-174" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb167-175"><a href="08_exercise_8.html#cb167-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-176"><a href="08_exercise_8.html#cb167-176" aria-hidden="true" tabindex="-1"></a>            new_feature <span class="op">=</span> feature</span>
+<span id="cb167-177"><a href="08_exercise_8.html#cb167-177" aria-hidden="true" tabindex="-1"></a>            feature.setFields(output_layer_fields, <span class="va">False</span>)</span>
+<span id="cb167-178"><a href="08_exercise_8.html#cb167-178" aria-hidden="true" tabindex="-1"></a>            new_feature.resizeAttributes(new_feature.fields().size())</span>
+<span id="cb167-179"><a href="08_exercise_8.html#cb167-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-180"><a href="08_exercise_8.html#cb167-180" aria-hidden="true" tabindex="-1"></a>            feature_geom <span class="op">=</span> feature.geometry()</span>
+<span id="cb167-181"><a href="08_exercise_8.html#cb167-181" aria-hidden="true" tabindex="-1"></a>            distance <span class="op">=</span> feature_geom.distance(point_geom)</span>
+<span id="cb167-182"><a href="08_exercise_8.html#cb167-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-183"><a href="08_exercise_8.html#cb167-183" aria-hidden="true" tabindex="-1"></a>            new_feature.setGeometry(feature_geom)</span>
+<span id="cb167-184"><a href="08_exercise_8.html#cb167-184" aria-hidden="true" tabindex="-1"></a>            new_feature.setAttribute(<span class="st">&quot;distance&quot;</span>, <span class="bu">round</span>(distance, <span class="dv">2</span>))</span>
+<span id="cb167-185"><a href="08_exercise_8.html#cb167-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-186"><a href="08_exercise_8.html#cb167-186" aria-hidden="true" tabindex="-1"></a>            sink.addFeature(new_feature, QgsFeatureSink.FastInsert)</span>
+<span id="cb167-187"><a href="08_exercise_8.html#cb167-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-188"><a href="08_exercise_8.html#cb167-188" aria-hidden="true" tabindex="-1"></a>            feedback.setProgress(<span class="bu">int</span>(current <span class="op">*</span> total))</span>
+<span id="cb167-189"><a href="08_exercise_8.html#cb167-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-190"><a href="08_exercise_8.html#cb167-190" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="va">self</span>.OUTPUT: dest_id}</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="exercise-8.2-tests-for-the-algorithm" class="section level2">
+<h2>Exercise 8.2: Tests for the algorithm</h2>
+<p>Create a file <code>test-plugin/tests/test_processing_algorithm</code>.
+Write a test which tests at least that the correct distance
+is calculated to the points in the output layer. You can
+use this as a base:</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+base
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb168-1"><a href="08_exercise_8.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis <span class="im">import</span> processing</span>
+<span id="cb168-2"><a href="08_exercise_8.html#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsWkbTypes</span>
+<span id="cb168-3"><a href="08_exercise_8.html#cb168-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-4"><a href="08_exercise_8.html#cb168-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sampleplugin.sampleplugin_processing.provider <span class="im">import</span> Provider</span>
+<span id="cb168-5"><a href="08_exercise_8.html#cb168-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-6"><a href="08_exercise_8.html#cb168-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-7"><a href="08_exercise_8.html#cb168-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_sample_algorithm(qgis_app, qgis_processing, point_layer):  <span class="co"># noqa: ARG001</span></span>
+<span id="cb168-8"><a href="08_exercise_8.html#cb168-8" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> Provider()</span>
+<span id="cb168-9"><a href="08_exercise_8.html#cb168-9" aria-hidden="true" tabindex="-1"></a>    qgis_app.processingRegistry().addProvider(provider)</span>
+<span id="cb168-10"><a href="08_exercise_8.html#cb168-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-11"><a href="08_exercise_8.html#cb168-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># call the algorithm</span></span>
+<span id="cb168-12"><a href="08_exercise_8.html#cb168-12" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> processing.run(</span>
+<span id="cb168-13"><a href="08_exercise_8.html#cb168-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;myprovider:myprocessingalgorithm&quot;</span>,</span>
+<span id="cb168-14"><a href="08_exercise_8.html#cb168-14" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb168-15"><a href="08_exercise_8.html#cb168-15" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>parameters<span class="op">&gt;</span></span>
+<span id="cb168-16"><a href="08_exercise_8.html#cb168-16" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb168-17"><a href="08_exercise_8.html#cb168-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb168-18"><a href="08_exercise_8.html#cb168-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-19"><a href="08_exercise_8.html#cb168-19" aria-hidden="true" tabindex="-1"></a>    output_layer <span class="op">=</span> result[<span class="st">&quot;OUTPUT&quot;</span>]</span>
+<span id="cb168-20"><a href="08_exercise_8.html#cb168-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-21"><a href="08_exercise_8.html#cb168-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># get the feature from the output layer</span></span>
+<span id="cb168-22"><a href="08_exercise_8.html#cb168-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and check the results</span></span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="08_exercise_8.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis <span class="im">import</span> processing</span>
+<span id="cb169-2"><a href="08_exercise_8.html#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsWkbTypes</span>
+<span id="cb169-3"><a href="08_exercise_8.html#cb169-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-4"><a href="08_exercise_8.html#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sampleplugin.sampleplugin_processing.provider <span class="im">import</span> Provider</span>
+<span id="cb169-5"><a href="08_exercise_8.html#cb169-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-6"><a href="08_exercise_8.html#cb169-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-7"><a href="08_exercise_8.html#cb169-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_sample_algorithm(qgis_app, qgis_processing, point_layer):  <span class="co"># noqa: ARG001</span></span>
+<span id="cb169-8"><a href="08_exercise_8.html#cb169-8" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> Provider()</span>
+<span id="cb169-9"><a href="08_exercise_8.html#cb169-9" aria-hidden="true" tabindex="-1"></a>    qgis_app.processingRegistry().addProvider(provider)</span>
+<span id="cb169-10"><a href="08_exercise_8.html#cb169-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-11"><a href="08_exercise_8.html#cb169-11" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> processing.run(</span>
+<span id="cb169-12"><a href="08_exercise_8.html#cb169-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;myprovider:myprocessingalgorithm&quot;</span>,</span>
+<span id="cb169-13"><a href="08_exercise_8.html#cb169-13" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb169-14"><a href="08_exercise_8.html#cb169-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;INPUT_LAYER&quot;</span>: point_layer,</span>
+<span id="cb169-15"><a href="08_exercise_8.html#cb169-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;POINT_INPUT&quot;</span>: <span class="st">&quot;1, 0 [EPSG:4326]&quot;</span>,</span>
+<span id="cb169-16"><a href="08_exercise_8.html#cb169-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;OUTPUT&quot;</span>: <span class="st">&quot;TEMPORARY_OUTPUT&quot;</span>,</span>
+<span id="cb169-17"><a href="08_exercise_8.html#cb169-17" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb169-18"><a href="08_exercise_8.html#cb169-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb169-19"><a href="08_exercise_8.html#cb169-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-20"><a href="08_exercise_8.html#cb169-20" aria-hidden="true" tabindex="-1"></a>    output_layer <span class="op">=</span> result[<span class="st">&quot;OUTPUT&quot;</span>]</span>
+<span id="cb169-21"><a href="08_exercise_8.html#cb169-21" aria-hidden="true" tabindex="-1"></a>    point_feature <span class="op">=</span> output_layer.getFeature(<span class="dv">1</span>)</span>
+<span id="cb169-22"><a href="08_exercise_8.html#cb169-22" aria-hidden="true" tabindex="-1"></a>    point_feature_distance <span class="op">=</span> point_feature.attribute(<span class="st">&quot;distance&quot;</span>)</span>
+<span id="cb169-23"><a href="08_exercise_8.html#cb169-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-24"><a href="08_exercise_8.html#cb169-24" aria-hidden="true" tabindex="-1"></a>    expected_distance <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb169-25"><a href="08_exercise_8.html#cb169-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-26"><a href="08_exercise_8.html#cb169-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> output_layer.featureCount() <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb169-27"><a href="08_exercise_8.html#cb169-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> output_layer.crs().authid() <span class="op">==</span> <span class="st">&quot;EPSG:4326&quot;</span></span>
+<span id="cb169-28"><a href="08_exercise_8.html#cb169-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> output_layer.wkbType() <span class="op">==</span> QgsWkbTypes.Point</span>
+<span id="cb169-29"><a href="08_exercise_8.html#cb169-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> point_feature_distance <span class="op">==</span> expected_distance</span></code></pre></div>
+</div>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="07_exercise_7.html"><button class="btn btn-default">Previous</button></a>
+<a href="09_extra_9.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS plugin development</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

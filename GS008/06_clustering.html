@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="6. Clustering | Advanced GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Mikael Vaaltola" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="6. Clustering | Advanced GeoServer">
+
+<title>6. Clustering | Advanced GeoServer</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Advanced GeoServer</h1></div>
+<div class="abstract-sidebar"><p>A course covering advanced GeoServer topics.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#advanced-geoserver">Advanced GeoServer</a>
+<ul>
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_env.html#training-environment">1. Training environment</a>
+<ul>
+<li><a href="01_env.html#tools">Useful tools to install</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_security.html#security-and-user-management">2. Security and user management</a>
+<ul>
+<li class="has-sub"><a href="02_security.html#exercise---layer-security">Exercise - layer security</a>
+<ul>
+<li><a href="02_security.html#permissions">Check default permissions</a></li>
+<li><a href="02_security.html#prevent-unauthenticated-access">Prevent unauthenticated access</a></li>
+<li><a href="02_security.html#verify-rules">Verify rules</a></li>
+</ul></li>
+<li><a href="02_security.html#extra-service-level-settings">Extra — service-level settings</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_raster.html#rasters">3. Optimising rasters</a>
+<ul>
+<li class="has-sub"><a href="03_raster.html#gdal">GDAL</a>
+<ul>
+<li><a href="03_raster.html#setup">Setup</a></li>
+<li><a href="03_raster.html#gdalinfo">gdalinfo</a></li>
+</ul></li>
+<li><a href="03_raster.html#exercise-optimising-raster-data-for-geoserver">Exercise — Optimising raster data for GeoServer</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_vector.html#vectors">4. Optimising vector data</a>
+<ul>
+<li class="has-sub"><a href="04_vector.html#exercise---postgis-and-geoserver">Exercise - PostGIS and GeoServer</a>
+<ul>
+<li><a href="04_vector.html#loading-data-into-postgis">Loading data into PostGIS</a></li>
+<li><a href="04_vector.html#indexing">Indexing</a></li>
+<li><a href="04_vector.html#publish-to-geoserver">Publish to GeoServer</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="05_styles.html#styles">5. Map styles</a>
+<ul>
+<li><a href="05_styles.html#choosing-a-style-format">Choosing a style format</a></li>
+<li><a href="05_styles.html#exercise-creating-styles">Exercise — creating styles</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_clustering.html#cluster">6. Clustering</a>
+<ul>
+<li><a href="06_clustering.html#containerisation">Containerisation</a></li>
+<li><a href="06_clustering.html#passive-cluster">Passive clustering</a></li>
+<li><a href="06_clustering.html#active-cluster">Active clustering</a></li>
+<li><a href="06_clustering.html#data-and-configuration-concerns">Data and configuration concerns</a></li>
+<li><a href="06_clustering.html#exercise---clustering">Exercise - clustering</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_rest.html#rest">7. GeoServer REST API</a>
+<ul>
+<li><a href="07_rest.html#using-apis">Using APIs</a></li>
+<li><a href="07_rest.html#exercise-rest-api">Exercise — REST API</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_extensions.html#extensions">8. Extensions</a>
+<ul>
+<li><a href="08_extensions.html#gs-tools">Useful tools</a></li>
+<li><a href="08_extensions.html#jmeter">Exercise - JMeter</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="cluster" class="section level1">
+<h1>6. Clustering</h1>
+<p>Clustering is a common way to improve the performance and/or availability of a GeoServer deployment by scaling out.
+While a cluster can run on a single machine by running multiple GeoServers on different ports, it’s typically done by deploying GS on separate server machines/VMs.
+Performance can be increased by running multiple GeoServer instances in parallel, thus decreasing the computational stress on a single server machine.
+On the other hand, availability can be improved by maintaining one or many fallback instances that take over when the active GS instance fails.
+In demanding situations even a hybrid approach can be considered, with multiple instances running in parallel but with a set of fallback instances ready to replace them on failure.</p>
+<div class="note-box">
+<p><strong>Note:</strong> while clustering is an effective way to increase the performance of GeoServer, it’s still important to remember to optimise the data first.
+Even the biggest and most powerful GS cluster will struggle with poorly optimised rasters or vector data stored in the wrong format.
+<em>Always</em> make sure to optimise data first before considering other ways to improve performance.</p>
+</div>
+<p>Theoretically, there are two methods to implement a GeoServer cluster.
+These are referred to as active and passive clustering.
+Both methods are explained in further detail below in Chapters <a href="06_clustering.html#passive-cluster"><strong>??</strong></a> and <a href="06_clustering.html#active-cluster"><strong>??</strong></a>.</p>
+<p>Both active and passive clustering provide the same result, a cluster of 2 … N GeoServer instances, but vary in technical details and implementation.
+The main difference is in how the GeoServer configuration, also called the catalog, is shared between the instances in the cluster.
+Nearly all GeoServer configuration, including layers, security settings, workspaces, and stores, is kept in the GeoServer data directory.
+One of the main challenges of clustering is propagating changes to the configuration to other GeoServer instances and keeping the configuration synchronised between multiple instances.</p>
+<p>While both active and passive clustering are viable solutions to the clustering problem with their own use cases, active clustering is technically more complex
+This makes it more prone to failure compared to passive clustering.
+An active cluster also introduces additional software dependencies and therefore requires more maintenance work.
+Passive clustering is sufficient for a majority of use cases, and should be preferred by default unless the situation demands the use of active clustering.</p>
+<p>No matter which approach is taken, a GS cluster needs a load-balancer to function efficiently.
+The load balancer is tasked with distributing incoming requests evenly to instances in the cluster.
+There’s many ways to spread the requests, and the simplest option is to spread an even number of requests per instance.
+However, not all requests are equal, e.g., processing a GetMap render request takes significantly more resources than returning a capabilities document.
+An ideal solution would involve the load balancer having access to CPU load or similar metrics to accurately assess which instance has the lowest current load.</p>
+<div id="containerisation" class="section level2">
+<h2>Containerisation</h2>
+<p>Clustering typically requires running GeoServer on multiple server machines.
+While ideally these machines are running the same OS and software, there’s no guarantee the environments are homogenous.
+A GS installation has various software dependencies, including Java and a Java application server such as Tomcat or Jetty.
+The installation procedure for these dependencies varies by environment, and there may be differences in which software versions are available for each platform.</p>
+<p>To make cluster maintenance easier, it’s recommended to run GeoServer inside software containers.
+Containers pack software and its dependencies inside a standardised, isolated environment.
+However, compared to full-fledged virtual machines, containers require significantly less system resources.
+These properties make containers a popular modern solution for scaling out various applications.
+They are also a good fit for creating a GeoServer cluster, as they reduce the burden of maintaining and updating GS software dependencies across multiple systems.</p>
+<p>Docker and Podman are the most popular solutions for software containerisation.
+Podman is newer and less popular, but has some advantages over Docker especially in security.
+Kubernetes (K8S) is an open-source container orchestration system designed to facilitate deploying and maintaining containers on multiple machines.
+This makes K8S a great solution for running a container-based GeoServer cluster that can self-heal and scale in or out based on current load.</p>
+</div>
+<div id="passive-cluster" class="section level2">
+<h2>Passive clustering</h2>
+<p>The passive clustering approach is based on multiple GeoServer instances sharing a common data directory.
+This can be implemented in various ways, but the most simple solution is to set up a shared network drive to contain the data directory.
+On startup, GeoServer loads the configuration stored in the data directory to memory.
+This in-memory configuration is called the catalog, and it defines how GeoServer functions.</p>
+<p>During operation, GeoServer does not watch the data directory contents, meaning any changes to files in the data directory are not automatically picked up until next restart.
+This means that when multiple GS instances share a data directory, changes made on one server are not automatically applied to other instances until they are restarted.
+To avoid having to constantly restart the server on file changes, GeoServer has a catalog reload function that triggers a complete update of the catalog by reading files from the data directory.</p>
+<p>Catalog reloads can be triggered using the GS REST API, discussed later in Chapter <a href="07_rest.html#rest"><strong>??</strong></a>.
+Passive clustering can be implemented by running a small program/script that watches for changes in the data directory and triggers a catalog reload for all GS instances in the cluster via the REST API.
+To avoid concurrency issues where multiple GeoServer instances edit the data directory at the same time, one GS instance is typically picked as the main instance that is used to make <strong>all</strong> configuration changes.
+The web UI of the other instances can be completely disabled/blocked to enforce this policy.</p>
+</div>
+<div id="active-cluster" class="section level2">
+<h2>Active clustering</h2>
+<p>Active clustering is based on the <a href="https://docs.geoserver.org/stable/en/user/community/jms-cluster/index.html">JMS based clustering extension</a>.
+Unlike in the passive clustering approach, each instance has its own private data directory.
+A Message Oriented Middleware (MOM) written in Java synchronises configuration changes between the primary instances and replicas.
+There can be one or many primary instances, which are used to edit the configuration, and replicas, which simply replicate the primary instance configuration based on messages from the MOM.
+The active approach relies on the MOM for catalog synchronisation, meaning catalog reloads should never be issued on primary instances.</p>
+<p>Compared to passive clustering, the active clustering approach is more prone to failure.
+While the active approach has its own benefits, including helping with data synchronisation when multiple configuration changes are made simultaneously, there are ways to circumvent these issues in the relatively simple passive clustering approach.
+On the other hand, the MOM adds another layer of complexity and is an additional piece of software that needs to be updated and maintained.
+While both active and passive clustering are perfectly valid approaches to the same issue, passive clustering is likely a better fit for most use cases.</p>
+</div>
+<div id="data-and-configuration-concerns" class="section level2">
+<h2>Data and configuration concerns</h2>
+<p>Sharing a configuration between multiple GeoServer instances requires some special considerations.
+For example, all data used in published layers must be available for every instance in the cluster.
+If for example one instance in a cluster cannot access data, end users of the GS cluster will encounter seemingly random errors and render failures.</p>
+<p>A simple way to ensure all instances have access to data is to store the data on the same network drive or storage platform as the shared data directory.
+While this is an easy way to ensure access to data, it’s a good practice to keep data separate from configuration.
+A good way to approach the GS config is to treat it the same as software source code.
+If spatial data is stored in the GS data directory, the size of the data directory may become inconveniently large.
+This makes it difficult to e.g., store the data directory in a version control system such as Git.</p>
+<p>With GeoServer, it’s often a good idea to take the separation of data and source code (configuration) one step further, by keeping data on a completely separate storage platform.
+Both should also be separated from the underlying operating system.
+The spatial data published with GeoServer has a tendency to accumulate as users upload more data to publish new layers and use services such as WMTS that keep tile caches on disk.
+Unless working with cloud storage, it’s not unlikely for the available space to run out at some point.
+This may result in unexpected issues if the data shares a common location with the OS and/or GeoServer.
+For example, a completely full disk prevents applications from writing to log files, which may result in the service crashing.
+Setting up monitoring and alerts can help warn administrators of the impending disk space shortage, but in a production environment it’s always best to play it safe and avoid as many potential breakers of the system as possible.</p>
+<p>Not all spatial data is stored on a network filesystem, or even in files.
+Vector data is commonly kept in spatial databases, and raster data may be stored on a cloud storage platform such as AWS S3.
+Depending on the architecture of the GeoServer cluster, you may prefer to use multiple data backends in the same cluster.
+For example, imagine a global cluster deployed on a cloud platform, with servers in Europe, America, and Asia to minimise latency.
+It does not make sense for all instances of such a cluster to share the same PostGIS database.
+Another example would be setting up a staging environment that shares the same configuration with production but uses a different staging database.
+Logging presents its own challenge — multiple GS instances cannot write their logging output to the same log file at the same time.</p>
+<p>Fortunately, the GeoServer configuration supports <a href="https://docs.geoserver.org/latest/en/user/datadirectory/configtemplate.html">catalog setting parametrisation</a>.
+Parameters are defined in the GS configuration XML files using a <code>${parameter_name}</code> syntax.
+Parameter values are defined in a <code>geoserver-environment.properties</code> file, and parameters in configuration file are replaced on GS startup.
+This means that any changes to the properties file require a full GS restart to take effect.</p>
+<div class="note-box">
+<p><strong>Note:</strong> variables that you want to parametrise can also be set via the GS web UI.
+It’s not necessary to go edit the XML files directly, although you can do so if you prefer.</p>
+</div>
+</div>
+<div id="exercise---clustering" class="section level2">
+<h2>Exercise - clustering</h2>
+<p>The goal of this exercise is to start planning how to implement a GeoServer cluster that fits your or your organisation’s needs.
+While a cluster could be implemented on a single computer by running multiple GS instances on the same machine, we unfortunately don’t have sufficient access to the training environment.
+Actually implementing the cluster would also require more time than we have available for a single exercise.
+Instead of implementing a cluster, think about your or your organisation’s needs for GeoServer.</p>
+<p>Try to answer the following questions:</p>
+<ul>
+<li>Do you need to implement clustering now or in the future? Why, or why not?</li>
+<li>If you don’t need clustering now, are there potential scenarios where you would need to scale out your GS implementation with clustering?</li>
+<li>Which clustering approach/implementation would suit your needs better, active or passive?</li>
+<li>How would you share data between instances?</li>
+<li>Would you need to parametrise the configuration file?</li>
+</ul>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="05_styles.html"><button class="btn btn-default">Previous</button></a>
+<a href="07_rest.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Advanced GeoServer</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

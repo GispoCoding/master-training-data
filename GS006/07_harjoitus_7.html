@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 1.7: Paikkatietokannat | Johdanto GeoServerin käyttöön" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 1.7: Paikkatietokannat | Johdanto GeoServerin käyttöön">
+
+<title>Harjoitus 1.7: Paikkatietokannat | Johdanto GeoServerin käyttöön</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Johdanto GeoServerin käyttöön</h1></div>
+<div class="abstract-sidebar"><p>Johdantokurssi GeoServerin käyttöön</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#johdanto-geoserverin-käyttöön">Johdanto GeoServerin käyttöön</a>
+<ul>
+<li><a href="index.html#tervetuloa-geoserver-kurssille">Tervetuloa GeoServer-kurssille!</a></li>
+<li><a href="index.html#geoserverin-taustaa">GeoServerin taustaa</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1.1-asennus-ja-käyttöönotto">Harjoitus 1.1: Asennus ja käyttöönotto</a>
+<ul>
+<li><a href="01_harjoitus_1.html#valmistautuminen"><strong>Valmistautuminen</strong></a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#päävalikko"><strong>Päävalikko</strong></a>
+<ul>
+<li><a href="01_harjoitus_1.html#about-geoserver"><strong>About GeoServer</strong></a></li>
+<li><a href="01_harjoitus_1.html#layer-preview"><strong>Layer Preview</strong></a></li>
+<li><a href="01_harjoitus_1.html#service-capabilities-palvelutoiminnallisuudet"><strong>Service Capabilities (palvelutoiminnallisuudet)</strong></a></li>
+<li><a href="01_harjoitus_1.html#demos"><strong>Demos</strong></a></li>
+<li><a href="01_harjoitus_1.html#demo-requests"><strong>Demo requests</strong></a></li>
+</ul></li>
+<li><a href="01_harjoitus_1.html#srs-list-ja-reprojection-console"><strong>SRS List ja Reprojection console</strong></a></li>
+<li><a href="01_harjoitus_1.html#wcs-request-builder"><strong>WCS request builder</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-1.2-geoserverin-web-käyttöliittymä">Harjoitus 1.2: GeoServerin web-käyttöliittymä</a>
+<ul>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1"><strong>Valmistautuminen</strong></a></li>
+<li><a href="02_harjoitus_2.html#ylläpitäjän-käyttöliittymä"><strong>Ylläpitäjän käyttöliittymä</strong></a></li>
+<li><a href="02_harjoitus_2.html#master--ja-admin-käyttäjät"><strong>Master- ja Admin-käyttäjät</strong></a></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#about-status--asetukset"><strong>About &amp; Status -asetukset</strong></a>
+<ul>
+<li><a href="02_harjoitus_2.html#contact-information"><strong>Contact Information</strong></a></li>
+<li><a href="02_harjoitus_2.html#server-status"><strong>Server Status</strong></a></li>
+<li><a href="02_harjoitus_2.html#geoserver-logs"><strong>GeoServer Logs</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#data-valikko"><strong>Data-valikko</strong></a>
+<ul>
+<li><a href="02_harjoitus_2.html#layer-preview-1"><strong>Layer Preview</strong></a></li>
+<li><a href="02_harjoitus_2.html#workspaces"><strong>Workspaces</strong></a></li>
+<li><a href="02_harjoitus_2.html#stores"><strong>Stores</strong></a></li>
+<li><a href="02_harjoitus_2.html#layers"><strong>Layers</strong></a></li>
+</ul></li>
+<li><a href="02_harjoitus_2.html#layer-groups"><strong>Layer Groups</strong></a></li>
+<li><a href="02_harjoitus_2.html#styles"><strong>Styles</strong></a></li>
+<li><a href="02_harjoitus_2.html#services-1"><strong>Services</strong></a></li>
+<li><a href="02_harjoitus_2.html#settings"><strong>Settings</strong></a></li>
+<li><a href="02_harjoitus_2.html#tile-caching-1"><strong>Tile Caching</strong></a></li>
+<li><a href="02_harjoitus_2.html#security-1"><strong>Security</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-1.3-vektoriaineistot">Harjoitus 1.3: Vektoriaineistot</a>
+<ul>
+<li><a href="03_harjoitus_3.html#valmistautuminen-2"><strong>Valmistautuminen</strong></a></li>
+<li><a href="03_harjoitus_3.html#vektoriaineisto-storen-luominen"><strong>Vektoriaineisto-storen luominen</strong></a></li>
+<li><a href="03_harjoitus_3.html#vektoritason-julkaiseminen"><strong>Vektoritason julkaiseminen</strong></a></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#data-asetukset"><strong>Data-asetukset</strong></a>
+<ul>
+<li><a href="03_harjoitus_3.html#coordinate-reference-systems"><strong>Coordinate Reference Systems</strong></a></li>
+<li><a href="03_harjoitus_3.html#bounding-boxes"><strong>Bounding Boxes</strong></a></li>
+<li><a href="03_harjoitus_3.html#feature-type-details"><strong>Feature Type Details</strong></a></li>
+</ul></li>
+<li><a href="03_harjoitus_3.html#helsingin-tiestön-lisääminen"><strong>Helsingin tiestön lisääminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-1.4-kuvaustekniikan-perusteet-sld">Harjoitus 1.4: Kuvaustekniikan perusteet (SLD)</a>
+<ul>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3"><strong>Valmistautuminen</strong></a></li>
+<li><a href="04_harjoitus_4.html#geoserverin-kuvaustekniikka"><strong>GeoServerin kuvaustekniikka</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-kuvaustekniikka"><strong>SLD-kuvaustekniikka</strong></a></li>
+<li><a href="04_harjoitus_4.html#uuden-tyylin-luominen"><strong>Uuden tyylin luominen</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-kuvaustekniikan-käyttöönotto"><strong>SLD-kuvaustekniikan käyttöönotto</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-cookbook"><strong>SLD Cookbook</strong></a></li>
+<li><a href="04_harjoitus_4.html#sld-kuvaustekniikan-muokkaaminen"><strong>SLD-kuvaustekniikan muokkaaminen</strong></a></li>
+<li><a href="04_harjoitus_4.html#tiestön-tyylin-luominen"><strong>Tiestön tyylin luominen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-1.5-wms--ja-wcs-palvelut">Harjoitus 1.5: WMS- ja WCS-palvelut</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-4"><strong>Valmistautuminen</strong></a></li>
+<li><a href="05_harjoitus_5.html#ogc-standardit"><strong>OGC-standardit</strong></a></li>
+<li><a href="05_harjoitus_5.html#yleiset-karttapalveluasetukset"><strong>Yleiset karttapalveluasetukset</strong></a></li>
+<li><a href="05_harjoitus_5.html#wms"><strong>WMS</strong></a></li>
+<li><a href="05_harjoitus_5.html#workspace-kohtaiset-palvelimen-asetukset"><strong>Workspace-kohtaiset palvelimen asetukset</strong></a></li>
+<li><a href="05_harjoitus_5.html#wms-karttapalvelun-kuvan-dpi-resoluutio"><strong>WMS-karttapalvelun kuvan DPI-resoluutio</strong></a></li>
+<li><a href="05_harjoitus_5.html#wcs"><strong>WCS</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-1.6-rasteriaineistot">Harjoitus 1.6: Rasteriaineistot</a>
+<ul>
+<li><a href="06_harjoitus_6.html#valmistautuminen-5"><strong>Valmistautuminen</strong></a></li>
+<li><a href="06_harjoitus_6.html#rasteriaineiston-lisääminen"><strong>Rasteriaineiston lisääminen</strong></a></li>
+<li><a href="06_harjoitus_6.html#ilmakuvan-lisääminen"><strong>Ilmakuvan lisääminen</strong></a></li>
+<li><a href="06_harjoitus_6.html#image-mosaic"><strong>Image Mosaic</strong></a></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#layer-groups-1"><strong>Layer Groups</strong></a>
+<ul>
+<li><a href="06_harjoitus_6.html#ryhmätasojen-julkaisemisen-muoto"><strong>Ryhmätasojen julkaisemisen muoto</strong></a></li>
+<li><a href="06_harjoitus_6.html#muiden-wms-palvelujen-hyödyntäminen-cascading-wms"><strong>Muiden WMS-palvelujen hyödyntäminen (cascading WMS)</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-1.7-paikkatietokannat">Harjoitus 1.7: Paikkatietokannat</a>
+<ul>
+<li><a href="07_harjoitus_7.html#valmistautuminen-6"><strong>Valmistautuminen</strong></a></li>
+<li><a href="07_harjoitus_7.html#yhteyden-muodostaminen-paikkatietokantaan"><strong>Yhteyden muodostaminen paikkatietokantaan</strong></a></li>
+<li><a href="07_harjoitus_7.html#postgis-tason-lisääminen"><strong>PostGIS-tason lisääminen</strong></a></li>
+<li><a href="07_harjoitus_7.html#monikulmio--ja-viiva-tason-lisääminen-postgis-tietokannasta"><strong>Monikulmio- ja viiva-tason lisääminen PostGIS-tietokannasta</strong></a></li>
+<li><a href="07_harjoitus_7.html#tasojen-oletustyylien-asettaminen"><strong>Tasojen oletustyylien asettaminen</strong></a></li>
+<li><a href="07_harjoitus_7.html#sql-näkymät"><strong>SQL-näkymät</strong></a></li>
+<li><a href="07_harjoitus_7.html#paikkatietotoiminnot-sql-näkymien-kautta"><strong>Paikkatietotoiminnot SQL-näkymien kautta</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-2.1-wfs-palvelut">Harjoitus 2.1: WFS-palvelut</a>
+<ul>
+<li><a href="08_harjoitus_8.html#valmistautuminen-7"><strong>Valmistautuminen</strong></a></li>
+<li><a href="08_harjoitus_8.html#ogc-standardit-1"><strong>OGC-standardit</strong></a></li>
+<li><a href="08_harjoitus_8.html#wfs-asetukset"><strong>WFS-asetukset</strong></a></li>
+<li><a href="08_harjoitus_8.html#tietomäärä-pyynnöissä"><strong>Tietomäärä pyynnöissä</strong></a></li>
+<li><a href="08_harjoitus_8.html#useiden-koordinaattijärjestelmien-määrittäminen"><strong>Useiden koordinaattijärjestelmien määrittäminen</strong></a></li>
+<li><a href="08_harjoitus_8.html#service-levels"><strong>Service Levels</strong></a></li>
+<li><a href="08_harjoitus_8.html#gml-asetukset"><strong>GML-asetukset</strong></a></li>
+<li><a href="08_harjoitus_8.html#workspace-kohtaiset-asetukset"><strong>Workspace-kohtaiset asetukset</strong></a></li>
+<li><a href="08_harjoitus_8.html#editointi-wfs-t-palvelun-kautta"><strong>Editointi WFS-T-palvelun kautta</strong></a></li>
+<li><a href="08_harjoitus_8.html#muiden-wfs-palvelujen-hyödyntäminen-cascading-wfs"><strong>Muiden WFS-palvelujen hyödyntäminen (cascading WFS)</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="09_harjoitus_9.html#harjoitus-2.2-karttatiilipalvelut">Harjoitus 2.2: Karttatiilipalvelut</a>
+<ul>
+<li><a href="09_harjoitus_9.html#valmistautuminen-8"><strong>Valmistautuminen</strong></a></li>
+<li><a href="09_harjoitus_9.html#tile-caching-2"><strong>Tile Caching</strong></a></li>
+<li><a href="09_harjoitus_9.html#geowebcache-käyttöliittymä"><strong>GeoWebCache-käyttöliittymä</strong></a></li>
+<li><a href="09_harjoitus_9.html#tasokohtaiset-asetukset"><strong>Tasokohtaiset asetukset</strong></a></li>
+<li><a href="09_harjoitus_9.html#karttatiilien-esiluominen"><strong>Karttatiilien esiluominen</strong></a></li>
+<li><a href="09_harjoitus_9.html#karttatiilien-kovalevyn-käyttö"><strong>Karttatiilien kovalevyn käyttö</strong></a></li>
+<li><a href="09_harjoitus_9.html#karttatiiliruudukot"><strong>Karttatiiliruudukot</strong></a></li>
+<li><a href="09_harjoitus_9.html#jhs180-mukainen-karttatiiliruudukko"><strong>JHS180 mukainen karttatiiliruudukko</strong></a></li>
+<li><a href="09_harjoitus_9.html#uuden-karttatiiliruudukon-luominen"><strong>Uuden karttatiiliruudukon luominen</strong></a></li>
+<li><a href="09_harjoitus_9.html#suomen-openstreetmap-tiestö"><strong>Suomen OpenStreetMap-tiestö</strong></a></li>
+<li><a href="09_harjoitus_9.html#oman-karttatiiliruudukon-käyttöönotto"><strong>Oman karttatiiliruudukon käyttöönotto</strong></a></li>
+<li><a href="09_harjoitus_9.html#paikallisen-karttatiiliruudukon-muodostaminen"><strong>Paikallisen karttatiiliruudukon muodostaminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="10_harjoitus_10.html#harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto">Harjoitus 2.3: Arkkitehtuuri ja käyttöönotto</a>
+<ul>
+<li><a href="10_harjoitus_10.html#valmistautuminen-9"><strong>Valmistautuminen</strong></a></li>
+<li><a href="10_harjoitus_10.html#yleistiedot-geoserverin-palvelimesta"><strong>Yleistiedot GeoServerin palvelimesta</strong></a></li>
+<li><a href="10_harjoitus_10.html#image-processing--asetukset"><strong>Image Processing -asetukset</strong></a></li>
+<li><a href="10_harjoitus_10.html#raster-access"><strong>Raster Access</strong></a></li>
+<li><a href="10_harjoitus_10.html#geoserverin-loki"><strong>GeoServerin loki</strong></a></li>
+<li><a href="10_harjoitus_10.html#rest-apin-toimintaa"><strong>REST API:n toimintaa</strong></a></li>
+<li><a href="10_harjoitus_10.html#monitor-lisäosan-käyttö"><strong>Monitor-lisäosan käyttö</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="11_harjoitus_11.html#harjoitus-2.4-css-kuvaustekniikka">Harjoitus 2.4: CSS-kuvaustekniikka</a>
+<ul>
+<li><a href="11_harjoitus_11.html#valmistautuminen-10"><strong>Valmistautuminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#css-tyylit"><strong>CSS-tyylit</strong></a></li>
+<li><a href="11_harjoitus_11.html#tyylin-luominen"><strong>Tyylin luominen</strong></a></li>
+<li><a href="11_harjoitus_11.html#aineiston-luokittelu"><strong>Aineiston luokittelu</strong></a></li>
+<li><a href="11_harjoitus_11.html#tyylin-virittäminen"><strong>Tyylin virittäminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#luokkien-nimeäminen"><strong>Luokkien nimeäminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#mittakaavaperusteinen-näkyvyys"><strong>Mittakaavaperusteinen näkyvyys</strong></a></li>
+<li><a href="11_harjoitus_11.html#tekstityksen-lisääminen"><strong>Tekstityksen lisääminen</strong></a></li>
+<li><a href="11_harjoitus_11.html#kuvaustekniikan-soveltaminen"><strong>Kuvaustekniikan soveltaminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="12_harjoitus_12.html#harjoitus-2.5-pääsynhallinta">Harjoitus 2.5: Pääsynhallinta</a>
+<ul>
+<li><a href="12_harjoitus_12.html#geoserverin-yleiset-turvallisuusasetukset"><strong>GeoServerin yleiset turvallisuusasetukset</strong></a></li>
+<li><a href="12_harjoitus_12.html#tunnistautuminen"><strong>Tunnistautuminen</strong></a></li>
+<li><a href="12_harjoitus_12.html#uuden-roolin-ja-käyttäjän-luominen"><strong>Uuden roolin ja käyttäjän luominen</strong></a></li>
+<li><a href="12_harjoitus_12.html#aineiston-käyttöoikeuksien-rajoittaminen"><strong>Aineiston käyttöoikeuksien rajoittaminen</strong></a></li>
+<li><a href="12_harjoitus_12.html#aineiston-käyttäjäkohtaiset-käyttöoikeudet"><strong>Aineiston käyttäjäkohtaiset käyttöoikeudet</strong></a></li>
+<li><a href="12_harjoitus_12.html#karttapalvelukohtaiset-oikeudet"><strong>Karttapalvelukohtaiset oikeudet</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="13_harjoitus_13.html#harjoitus-2.6-suodattimet">Harjoitus 2.6: Suodattimet</a>
+<ul>
+<li><a href="13_harjoitus_13.html#valmistautuminen-11"><strong>Valmistautuminen</strong></a></li>
+<li><a href="13_harjoitus_13.html#ominaisuustietosuodattimet"><strong>Ominaisuustietosuodattimet</strong></a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-1.7-paikkatietokannat" class="section level1">
+<h1>Harjoitus 1.7: Paikkatietokannat</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa lisätään aineistoja GeoServeriin tietokantalähteestä.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa yhdistää paikkatietokannan tietoja GeoServeriin ja julkaista sillä niiden aineistoja.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>30 minuuttia.</p>
+<div id="valmistautuminen-6" class="section level2">
+<h2><strong>Valmistautuminen</strong></h2>
+<p>Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:</p>
+<div class="note-box">
+<p><a href="http://localhost:8080/geoserver" class="uri">http://localhost:8080/geoserver</a></p>
+</div>
+<p>Palvelinkoneeseen on asennettu PostgreSQL-tietokanta ja sen PostGIS-laajennos. Tietokantaan on ladattu valmiiksi erilaisia vektoriaineistoja.</p>
+</div>
+<div id="yhteyden-muodostaminen-paikkatietokantaan" class="section level2">
+<h2><strong>Yhteyden muodostaminen paikkatietokantaan</strong></h2>
+<p>GeoServer tukee useimpia paikkatietokantoja, kuten PostGIS, ArcSDE, Oracle ja Microsoft SQL Server. </p>
+<p>PostGIS-paikkatietokannat ovat hyödynnettävissä automaattisesti GeoServerin oletusasennuksien kautta. Muiden tietokantojen tuki asennetaan lisäosien kautta.</p>
+<p>Koulutusympäristöön on asennettu valmiiksi PostGIS-tietokanta, josta löytyy valmiina erilaisia vektoriaineistoja. Aineistot ovat <strong>Helsinki Region Infoshare</strong>, <strong>Jyväskylän yliopiston avoimen datan palveluista</strong> ja <strong>OpenStreetMap -kartta-aineistosta</strong> (geofabrik.de-palvelusta).</p>
+<p>Kuten muiden aineistojen kanssa, jotta aineistoja voidaan käyttää GeoServerissa, niihin on viitattava luomalla sopiva store.</p>
+<p>Luo uusi store (<strong>Data → Stores → Add new Store</strong>).</p>
+<p>Valitse formaatiksi <strong>PostGIS - PostGIS Database</strong>:
+<img src="img/harjoitus_7/image1.png" /></p>
+<p>Valitse <strong>Workspaceksi</strong> tuttu <strong>helsinki</strong>-workspace ja nimeä se <strong>hki_lipas</strong> (<strong>Data Source Name</strong>).</p>
+<p>Täytä sitten PostGIS-tietokannan <strong>Connection Parameters</strong> -yhteysasetukset seuraavasti:</p>
+<table style="width:51%;">
+<colgroup>
+<col width="29%" />
+<col width="22%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><h5 id="dbtype"><strong>Dbtype</strong></h5></td>
+<td>postgis</td>
+</tr>
+<tr class="even">
+<td><h5 id="host"><strong>Host</strong></h5></td>
+<td>localhost</td>
+</tr>
+<tr class="odd">
+<td><h5 id="port"><strong>Port</strong></h5></td>
+<td>5432</td>
+</tr>
+<tr class="even">
+<td><h5 id="database"><strong>Database</strong></h5></td>
+<td>gs_training</td>
+</tr>
+<tr class="odd">
+<td><h5 id="schema"><strong>Schema</strong></h5></td>
+<td>lipas</td>
+</tr>
+<tr class="even">
+<td><h5 id="user"><strong>User</strong></h5></td>
+<td>postgres</td>
+</tr>
+<tr class="odd">
+<td><h5 id="passwd"><strong>Passwd</strong></h5></td>
+<td>gispo</td>
+</tr>
+</tbody>
+</table>
+<p>Jätä loput asetukset oletuksiin ja paina lopulta <strong>Save</strong>.</p>
+<p><img src="img/harjoitus_7/image2.png" /></p>
+<p>Samalla tavalla kuin aiemmin, uuden tason luomisen näkymä tulee esiin automaattisesti storen luomisen jälkeen. Näkymässä on listattu kaikki tasot, jotka löytyvät kyseisessä tietokannassa.</p>
+<p>Aineistoon on nyt tehty viittaukset <strong>hki_lipas</strong>-storen kautta ja voit nähdä, mitä aineistoja se sisältää:
+<img src="img/harjoitus_7/image3.png" /></p>
+</div>
+<div id="postgis-tason-lisääminen" class="section level2">
+<h2><strong>PostGIS-tason lisääminen</strong></h2>
+<p>Voit heti julkaista jonkin tason storen luomisen jälkeen painamalla <strong>Publish</strong>. Julkaise nyt <strong>pisteet</strong>-taso. Lipas on Jyväskylän yliopiston hallinnoima valtakunnallinen liikunnan paikkatietojärjestelmä.</p>
+<div class="hint-box">
+<p>Psst! Kun myöhemmin haluat julkaista muita tasoja hki_HRI-storesta se onnistuu päävalikosta Data → Layers → Add a new layers ja valitsemalla haluamasi store.</p>
+</div>
+<p>Tason editoinnin näkymässä, tason nimi ja otsikko on automaattisesti täytettynä. Pidä oletusnimet ja lisää halutessasi lisätietoja <strong>Abstract</strong>-kentälle.</p>
+<p>Tarkista, että <strong>Enabled</strong> ja <strong>Advertised</strong> ovat rastittuina.</p>
+<p>Kuten olet varmasti jo huomannut, uuden tason asetukset ovat samanlaiset, oli kyseessä sitten shapefile-formaatti tai PostGIS-tietokanta.</p>
+<p>Katso vielä <strong>Coordinate Reference Systems</strong> -osiosta, että GeoServer on tunnistanut koordinaattijärjestelmäksi <strong>EPSG:3067</strong>. PostGIS ja GeoServer käyttävät EPSG-koodeja määrittääkseen koordinaattijärjestelmän, joten useimmiten koordinaattijärjestelmä tulee oikein määritellyksi automaattisesti.</p>
+<p><img src="img/harjoitus_7/image4.png" /></p>
+<p>Ennen kuin tallennetaan tason julkaisuasetukset, määritä tason <strong>Bounding Boxes</strong> samalla tavalla kuin aikaisemmin lisäämiesi aineistojen kanssa.
+<img src="img/harjoitus_7/image5.png" /></p>
+<p>Paina lopulta <strong>Save</strong>. Voit esikatsella uutta tasoa <strong>Layer Preview</strong>:n kautta.<br />
+<img src="img/harjoitus_7/image6.png" /></p>
+</div>
+<div id="monikulmio--ja-viiva-tason-lisääminen-postgis-tietokannasta" class="section level2">
+<h2><strong>Monikulmio- ja viiva-tason lisääminen PostGIS-tietokannasta</strong></h2>
+<p>Lisää samalla tavalla vielä kaksi uutta tasoa PostGIS-tietokannasta:</p>
+<ul>
+<li><p><strong>lipas_kaikki_alueet</strong></p></li>
+<li><p><strong>lipas_kaikki_reitit</strong></p></li>
+</ul>
+<p>Muista, että saat tasoja lisättyä <strong>Data → Layers → Add new layer</strong> -toiminnon kautta ja valitsemalla <strong>helsinki:hki_lipas</strong> lähteeksi. Esikatsele sen jälkeen näitä tasoja tarkistaen niiden toimivuus.</p>
+<div class="hint-box">
+<p>Mitkä vaiheet ovat pakollisia tason julkaisemiseksi? Mitkä ovat tasojen koordinaattijärjestelmät ja niiden laajuudet?</p>
+</div>
+</div>
+<div id="tasojen-oletustyylien-asettaminen" class="section level2">
+<h2><strong>Tasojen oletustyylien asettaminen</strong></h2>
+<p>Vaihda lopuksi oletustyylit kyseisille tasoille käyttäen GeoServerin valmiita kuvaustekniikoita (default styles). Voit vaihtaa tason tyylin päävalikosta <strong>Data → Layers</strong> ja avaamalla haluamasi tason. Tyylit määritellään <strong>Publish</strong> välilehdestä. Käytä seuraavia tyylejä:</p>
+<table style="width:62%;">
+<colgroup>
+<col width="37%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Taso</strong></th>
+<th><strong>Tyyli</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>lipas_kaikki_pisteet</strong></td>
+<td>burg</td>
+</tr>
+<tr class="even">
+<td><strong>lipas_kaikki_alueet</strong></td>
+<td>giant_polygon</td>
+</tr>
+<tr class="odd">
+<td><strong>lipas_kaikki_reitit</strong></td>
+<td>simple_roads</td>
+</tr>
+</tbody>
+</table>
+<p>Voit vielä lopuksi tehdä aineistoista ryhmätason. Kuvassa on yhdistetty Helsingin taustakartta-ryhmätaso ja lipas-aineistot yhteen karttapalvelutasoon:
+<img src="img/harjoitus_7/image7.png" /></p>
+</div>
+<div id="sql-näkymät" class="section level2">
+<h2><strong>SQL-näkymät</strong></h2>
+<p>GeoServerin avulla voidaan hyödyntää myös SQL-kyselyitä paikkatietoaineistojen jakamisessa.</p>
+<p>Lisätään toistamiseen <strong>lipas_kaikki_reitit</strong>-aineisto uutena tasona palvelimelle. Tavoite on luoda taso, jossa ainoastaan Helsingissä olevat aineistot näytetään.</p>
+<p>Annan nimeksi <strong>lipas_kaikki_reitit_helsinki</strong>.</p>
+<div class="hint-box">
+<p>Psst! SQL-näkymä voitaisiin luoda myös suoraan tietokantaan ja käyttää tuota näkymää (view) tason luomiseen.</p>
+</div>
+<p>SQL-kyselyjen tekemiseksi on hyvä ensin selvittää tietokannan taulujen kenttien nimet ja tyypit. Voit tarkistaa aineiston kentät avaamalla tason <strong>Data → Layers</strong>-näkymästä; kentät on lueteltu <strong>Data</strong>-välilehden lopussa. Aineiston ominaisuustietojen tyyppejä pääset tarkastelemaan parhaiten käyttäen muita ohjelmistoja kuten pgAdmin tai QGIS. Voit  myös tutustua niihin Lipas-sivuilta (<a href="http://www.liikuntapaikat.fi/lipas" class="uri">http://www.liikuntapaikat.fi/lipas</a>). Attribuuttitiedot GeoServerissä näyttävät tältä:</p>
+<p><img src="img/harjoitus_7/image8.png" /></p>
+<p>Aineiston tarkastelemisen jälkeen voidaan päätellä, että paikkakuntatieto löytyy <strong>kunta_nimi</strong>-kentästä.</p>
+<p>Avaa <strong>Data → Layers → Add new layer</strong> ja valitse <strong>helsinki:hki_lipas</strong>. Painamalla <strong>Configure new SQL view…</strong> pääset määrittelemään SQL-kielellä, mitkä tiedot haluat julkaista kyseisestä aineistosta.
+<img src="img/harjoitus_7/image9.png" /></p>
+<p>Määrittele näkymän nimeksi <strong>lipas_kaikki_reitit_helsinki</strong>. Kirjoita <strong>SQL statement</strong> -kenttään seuraavaa SQL-lauseke:</p>
+<div class="code-box">
+<p>SELECT *</p>
+<p>FROM lipas.reitit</p>
+<p>WHERE kunta_nimi = ‘Helsinki’</p>
+</div>
+<p>Rastita <strong>Guess geometry type and srid</strong> -toiminto ja paina sitten <strong>Refresh</strong>. Huomaa, että olla olevassa kuvassa on virhe SQL-kyselyssä. Ole tarkkana! kunta_nimi_fi-tekstin sijaan siinä pitäisi lukea vain kunta_nimi.
+<img src="img/harjoitus_7/image10.png" /></p>
+<p>Tarkista sitten, että <strong>geom</strong>-nimisen kentän kohdalla <strong>SRID</strong> on määritelty oikean EPSG-tunnuksen mukaisesti (meidän tapauksessamme tunnus on <strong>3067</strong>).</p>
+<p><img src="img/harjoitus_7/image11.png" /></p>
+<p>Paina lopulta <strong>Save</strong>.</p>
+<p>Määrittele seuraavaksi tason ulottuvuudet (Bounding Box) ja paina <strong>Save</strong>. Voit esikatsella Helsingin liikuntareitit -tasoa nyt.
+<img src="img/harjoitus_7/image12.png" /></p>
+</div>
+<div id="paikkatietotoiminnot-sql-näkymien-kautta" class="section level2">
+<h2><strong>Paikkatietotoiminnot SQL-näkymien kautta</strong></h2>
+<p>Voit käyttää SQL-lausekkeissa myös paikkatietofunktioita. Käytetään esimerkkinä vyöhyke-funktiota (ST_Buffer).</p>
+<p>Avaa taso  <strong>lipas_kaikki_reitit_helsinki</strong> uudelleen (<strong>Data → Layers</strong>).</p>
+<p>Selaa <strong>Data</strong> välilehdessä sivun loppuun. Sieltä löytyy <strong>Edit sql view</strong> -toiminto.</p>
+<p>Päivitä <strong>SQL statement</strong> seuraavaksi:</p>
+<div class="code-box">
+<p>SELECT ST_Union (ST_Buffer ( geom, 10 ))</p>
+<p>FROM lipas.reitit</p>
+<p>WHERE kunta_nimi = ‘Helsinki’</p>
+</div>
+<p>Päivitä taas attribuuttien formaatti ja paina sitten <strong>Save</strong>.
+<img src="img/harjoitus_7/image13.png" /></p>
+<p>Esikatselussa huomaat, että reitit-aineisto on nyt puskuroitu 10 metrillä:
+<img src="img/harjoitus_7/image14.png" /></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="06_harjoitus_6.html"><button class="btn btn-default">Previous</button></a>
+<a href="08_harjoitus_8.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Johdanto GeoServerin käyttöön</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

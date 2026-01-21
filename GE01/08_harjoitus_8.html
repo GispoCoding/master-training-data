@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 8: Prosessointialgoritmi | QGIS-lisäosien kehitys" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 8: Prosessointialgoritmi | QGIS-lisäosien kehitys">
+
+<title>Harjoitus 8: Prosessointialgoritmi | QGIS-lisäosien kehitys</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS-lisäosien kehitys</h1></div>
+<div class="abstract-sidebar"><p>Lisäosien kehitys Pythonilla</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-lisäosien-kehitys">QGIS-lisäosien kehitys</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille">Tervetuloa kurssille!</a></li>
+<li><a href="index.html#kurssihakemisto">Kurssihakemisto</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_harjoitus_0.html#harjoitus-0-python-kertaus">Harjoitus 0: Python-kertaus</a>
+<ul>
+<li><a href="00_harjoitus_0.html#esivalmistelut">Esivalmistelut</a></li>
+<li class="has-sub"><a href="00_harjoitus_0.html#python-perusteita">Python-perusteita</a>
+<ul>
+<li><a href="00_harjoitus_0.html#komennot">Komennot</a></li>
+<li><a href="00_harjoitus_0.html#kommentit">Kommentit</a></li>
+<li><a href="00_harjoitus_0.html#luvuilla-laskeminen">Luvuilla laskeminen</a></li>
+<li><a href="00_harjoitus_0.html#muuttujat">Muuttujat</a></li>
+<li><a href="00_harjoitus_0.html#tyypit">Tyypit</a></li>
+<li><a href="00_harjoitus_0.html#ehtolauseet-ja-vertailu">Ehtolauseet ja vertailu</a></li>
+<li><a href="00_harjoitus_0.html#funktiot">Funktiot</a></li>
+<li><a href="00_harjoitus_0.html#tietorakenteita">Tietorakenteita</a></li>
+<li><a href="00_harjoitus_0.html#silmukat-ja-iterointi">Silmukat ja iterointi</a></li>
+<li><a href="00_harjoitus_0.html#moduulit">Moduulit</a></li>
+<li><a href="00_harjoitus_0.html#oliot">Oliot</a></li>
+<li><a href="00_harjoitus_0.html#luokat">Luokat</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-python-konsoli">Harjoitus 1: Python-konsoli</a>
+<ul>
+<li><a href="01_harjoitus_1.html#harjoitusten-rakenne">Harjoitusten rakenne</a></li>
+<li><a href="01_harjoitus_1.html#esimerkit">Esimerkit</a></li>
+<li><a href="01_harjoitus_1.html#harjoitukset">Harjoitukset</a></li>
+<li><a href="01_harjoitus_1.html#harjoitus-1.1">Harjoitus 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-pyqgis-perusteet">Harjoitus 2: PyQGIS-perusteet</a>
+<ul>
+<li><a href="02_harjoitus_2.html#tasojen-käsittely">Tasojen käsittely</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.1">Harjoitus 2.1</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.2">Harjoitus 2.2</a></li>
+<li><a href="02_harjoitus_2.html#harjoitus-2.3">Harjoitus 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-tasot-kohteet-ja-geometriat">Harjoitus 3: Tasot, kohteet ja geometriat</a>
+<ul>
+<li><a href="03_harjoitus_3.html#tasot">Tasot</a></li>
+<li><a href="03_harjoitus_3.html#väliaikaisen-tason-luominen">Väliaikaisen tason luominen</a></li>
+<li><a href="03_harjoitus_3.html#geometriat">Geometriat</a></li>
+<li><a href="03_harjoitus_3.html#harjoitus-3.1">Harjoitus 3.1</a></li>
+<li><a href="03_harjoitus_3.html#harjoitus-3.2-etäisyydet">Harjoitus 3.2: Etäisyydet</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-qt-käyttöliittymät">Harjoitus 4: Qt-käyttöliittymät</a>
+<ul>
+<li class="has-sub"><a href="04_harjoitus_4.html#qt-käyttöliittymistä">Qt-käyttöliittymistä</a>
+<ul>
+<li><a href="04_harjoitus_4.html#qwidget">QWidget</a></li>
+<li><a href="04_harjoitus_4.html#signaalit-ja-slotit">Signaalit ja slotit</a></li>
+</ul></li>
+<li><a href="04_harjoitus_4.html#harjoitus-4.1-counter-widget">Harjoitus 4.1: Counter-widget</a></li>
+<li><a href="04_harjoitus_4.html#harjoitus-4.2-qgisin-widgetit">Harjoitus 4.2: QGISin widgetit</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-uuden-lisäosan-luominen">Harjoitus 5: Uuden lisäosan luominen</a>
+<ul>
+<li><a href="05_harjoitus_5.html#gitin-konfigurointi">Gitin konfigurointi</a></li>
+<li><a href="05_harjoitus_5.html#lisäosan-luominen">Lisäosan luominen</a></li>
+<li><a href="05_harjoitus_5.html#ensimmäinen-commit">Ensimmäinen commit</a></li>
+<li><a href="05_harjoitus_5.html#lisäosan-käyttöönotto">Lisäosan käyttöönotto</a></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#lisäosan-rakenne">Lisäosan rakenne</a>
+<ul>
+<li><a href="05_harjoitus_5.html#tiedosto-plugin.py">Tiedosto: plugin.py</a></li>
+<li><a href="05_harjoitus_5.html#tiedosto-__init__.py">Tiedosto: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-buffer--työkalu">Harjoitus 6: Buffer- työkalu</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoitus-6.1-käyttöliittymän-suunnittelu">Harjoitus 6.1: Käyttöliittymän suunnittelu</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.2-käyttöliittymän-kytkeminen-lisäosaan">Harjoitus 6.2: Käyttöliittymän kytkeminen lisäosaan</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.3-työkalun-toiminta">Harjoitus 6.3: Työkalun toiminta</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.4-segmentit">Harjoitus 6.4: Segmentit</a></li>
+<li><a href="06_harjoitus_6.html#yksikkötestit">Yksikkötestit</a></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6.5-testit">Harjoitus 6.5: Testit</a>
+<ul>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.1-käyttöliittymätesti">Harjoitus 6.5.1: Käyttöliittymätesti</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.2-buffertool-testi">Harjoitus 6.5.2: BufferTool-testi</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6.5.3-lisää-testejä">Harjoitus 6.5.3: Lisää testejä</a></li>
+</ul></li>
+<li><a href="06_harjoitus_6.html#mallilisäosa">Mallilisäosa</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-pistetyökalu">Harjoitus 7: Pistetyökalu</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoitus-7.1-paneelin-lisääminen">Harjoitus 7.1: Paneelin lisääminen</a></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7.2-työkalu">Harjoitus 7.2: Työkalu</a>
+<ul>
+<li><a href="07_harjoitus_7.html#harjoitus-7.2.1-lisähaaste---nimiöinti">Harjoitus 7.2.1: Lisähaaste - nimiöinti</a></li>
+</ul></li>
+<li><a href="07_harjoitus_7.html#harjoitus-7.3-testit">Harjoitus 7.3: Testit</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-prosessointialgoritmi">Harjoitus 8: Prosessointialgoritmi</a>
+<ul>
+<li class="has-sub"><a href="08_harjoitus_8.html#taustaa">Taustaa</a>
+<ul>
+<li><a href="08_harjoitus_8.html#prosessointialgoritmin-kutsuminen">Prosessointialgoritmin kutsuminen</a></li>
+</ul></li>
+<li><a href="08_harjoitus_8.html#algoritmi-lisäosassa">Algoritmi lisäosassa</a></li>
+<li><a href="08_harjoitus_8.html#harjoitus-8.1-algoritmin-kirjoitus">Harjoitus 8.1: Algoritmin kirjoitus</a></li>
+<li><a href="08_harjoitus_8.html#harjoitus-8.2-testit-algoritmille">Harjoitus 8.2: Testit algoritmille</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#python-lisätehtäviä">Python-lisätehtäviä</a>
+<ul>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-1-listakoosteet">Aihe 1: Listakoosteet</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-1.1">Lisätehtävä 1.1</a></li>
+<li><a href="09_lisatehtavia_9.html#sisäkkäisiä-koosteita">Sisäkkäisiä koosteita</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-2-lambda-funktiot">Aihe 2: Lambda-funktiot</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-2.1">Lisätehtävä 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_lisatehtavia_9.html#aihe-3-dekoraattorit">Aihe 3: Dekoraattorit</a>
+<ul>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-3.1">Lisätehtävä 3.1</a></li>
+<li><a href="09_lisatehtavia_9.html#dekoraattorit-ja-parametrit">Dekoraattorit ja parametrit</a></li>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-3.2">Lisätehtävä 3.2</a></li>
+</ul></li>
+<li><a href="09_lisatehtavia_9.html#aihe-4-tyypitys">Aihe 4: Tyypitys</a></li>
+<li><a href="09_lisatehtavia_9.html#lisätehtävä-4.1">Lisätehtävä 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-8-prosessointialgoritmi" class="section level1">
+<h1>Harjoitus 8: Prosessointialgoritmi</h1>
+<div id="taustaa" class="section level2">
+<h2>Taustaa</h2>
+<p>Harjoituksen tarkoituksena on tutustua prosessointialgoritmin
+kirjoittamiseen.</p>
+<p>QGISiin voi kirjoittaa itsenäisiä prosessointialgoritmeja,
+siten että ne kirjoitetaan omaan <code>.py</code>-tiedostoon ja lisätään
+prosessointipaneeliin. Algoritmin voi sisällyttää myös lisäosaan,
+mistä on muutama hyöty. Tällöin algoritmeille määritetään
+oma ns. <strong>provider</strong> ja algoritmit voi selkeämmin kategorisoida.
+Lisäosaan voi myös sisällyttää useampia algoritmeja, jolloin
+on helpompaa jakaa käyttäjille lisäosa, joka sisältää useamman
+algoritmin, kuin jakaa joukko yksittäisiä skriptitiedostoja.
+Provider näkyy käyttöliittymässä siten, että se on prosessointityökaluvalikossa
+ylimmän tason kategoria:</p>
+<div class="figure">
+<img src="img/harjoitus_8/image1.png" style="width:75.0%" alt="" />
+<p class="caption">Provider &gt; ryhmä &gt; algoritmi</p>
+</div>
+<p>Algoritmeissä käyttöliittymän luominen tapahtuu
+eri tavalla. Prosessointityökalujen käyttöön on ennalta määritetty
+joukko widgettejä, jotka määritetään algoritmiluokkaan
+ohjelmallisesti. Käyttöliittymää ei voi siis algoritmien
+tapauksessa luoda itse Qt Designerilla.</p>
+<p>Varsinaisen prosessointiskriptin kirjoittaminen toimii
+samalla tavalla riippumatta onko se itsenäinen vai lisäosaan liitetty.</p>
+<p>Tarkastellaan minimiesimerkkiä prosessointiskriptistä (pohjautuu
+QGISin mukana tulevaan skriptimalliin). Tässä algoritmissa
+lähtötasoksi annetaan vektoritaso, ja tulostasona se tuottaa
+kopion lähtötasosta.</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+esimerkki
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="08_harjoitus_8.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-2"><a href="08_harjoitus_8.html#cb164-2" aria-hidden="true" tabindex="-1"></a><span class="co">***************************************************************************</span></span>
+<span id="cb164-3"><a href="08_harjoitus_8.html#cb164-3" aria-hidden="true" tabindex="-1"></a><span class="co">*                                                                         *</span></span>
+<span id="cb164-4"><a href="08_harjoitus_8.html#cb164-4" aria-hidden="true" tabindex="-1"></a><span class="co">*   This program is free software; you can redistribute it and/or modify  *</span></span>
+<span id="cb164-5"><a href="08_harjoitus_8.html#cb164-5" aria-hidden="true" tabindex="-1"></a><span class="co">*   it under the terms of the GNU General Public License as published by  *</span></span>
+<span id="cb164-6"><a href="08_harjoitus_8.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="co">*   the Free Software Foundation; either version 2 of the License, or     *</span></span>
+<span id="cb164-7"><a href="08_harjoitus_8.html#cb164-7" aria-hidden="true" tabindex="-1"></a><span class="co">*   (at your option) any later version.                                   *</span></span>
+<span id="cb164-8"><a href="08_harjoitus_8.html#cb164-8" aria-hidden="true" tabindex="-1"></a><span class="co">*                                                                         *</span></span>
+<span id="cb164-9"><a href="08_harjoitus_8.html#cb164-9" aria-hidden="true" tabindex="-1"></a><span class="co">***************************************************************************</span></span>
+<span id="cb164-10"><a href="08_harjoitus_8.html#cb164-10" aria-hidden="true" tabindex="-1"></a><span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb164-11"><a href="08_harjoitus_8.html#cb164-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-12"><a href="08_harjoitus_8.html#cb164-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> QCoreApplication</span>
+<span id="cb164-13"><a href="08_harjoitus_8.html#cb164-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (QgsProcessing,</span>
+<span id="cb164-14"><a href="08_harjoitus_8.html#cb164-14" aria-hidden="true" tabindex="-1"></a>                       QgsFeatureSink,</span>
+<span id="cb164-15"><a href="08_harjoitus_8.html#cb164-15" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingException,</span>
+<span id="cb164-16"><a href="08_harjoitus_8.html#cb164-16" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingAlgorithm,</span>
+<span id="cb164-17"><a href="08_harjoitus_8.html#cb164-17" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingParameterFeatureSource,</span>
+<span id="cb164-18"><a href="08_harjoitus_8.html#cb164-18" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingParameterFeatureSink)</span>
+<span id="cb164-19"><a href="08_harjoitus_8.html#cb164-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis <span class="im">import</span> processing</span>
+<span id="cb164-20"><a href="08_harjoitus_8.html#cb164-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-21"><a href="08_harjoitus_8.html#cb164-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-22"><a href="08_harjoitus_8.html#cb164-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Luodaan luokka, joka perii</span></span>
+<span id="cb164-23"><a href="08_harjoitus_8.html#cb164-23" aria-hidden="true" tabindex="-1"></a><span class="co"># QgsProcessingAlgorithmin.</span></span>
+<span id="cb164-24"><a href="08_harjoitus_8.html#cb164-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Luokan tulee määrittää tietyn</span></span>
+<span id="cb164-25"><a href="08_harjoitus_8.html#cb164-25" aria-hidden="true" tabindex="-1"></a><span class="co"># nimiset funktiot, joita QGIS</span></span>
+<span id="cb164-26"><a href="08_harjoitus_8.html#cb164-26" aria-hidden="true" tabindex="-1"></a><span class="co"># kutsuu sisäisesti</span></span>
+<span id="cb164-27"><a href="08_harjoitus_8.html#cb164-27" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SampleAlgorithm(QgsProcessingAlgorithm):</span>
+<span id="cb164-28"><a href="08_harjoitus_8.html#cb164-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tässä määritetään ns. vakiomuuttujat (constant),</span></span>
+<span id="cb164-29"><a href="08_harjoitus_8.html#cb164-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># joilla viitataan algoritmin parametreihin.</span></span>
+<span id="cb164-30"><a href="08_harjoitus_8.html#cb164-30" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Näitä käytetään luokassa sisäisesti, mutta</span></span>
+<span id="cb164-31"><a href="08_harjoitus_8.html#cb164-31" aria-hidden="true" tabindex="-1"></a>    <span class="co"># niitä tarvitaan myös jos algoritmi</span></span>
+<span id="cb164-32"><a href="08_harjoitus_8.html#cb164-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># kutsutaan ulkoisesti Pythonilla esimerkiksi</span></span>
+<span id="cb164-33"><a href="08_harjoitus_8.html#cb164-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># konsolissa tai lisäosassa.</span></span>
+<span id="cb164-34"><a href="08_harjoitus_8.html#cb164-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-35"><a href="08_harjoitus_8.html#cb164-35" aria-hidden="true" tabindex="-1"></a>    INPUT <span class="op">=</span> <span class="st">&#39;INPUT&#39;</span></span>
+<span id="cb164-36"><a href="08_harjoitus_8.html#cb164-36" aria-hidden="true" tabindex="-1"></a>    OUTPUT <span class="op">=</span> <span class="st">&#39;OUTPUT&#39;</span></span>
+<span id="cb164-37"><a href="08_harjoitus_8.html#cb164-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-38"><a href="08_harjoitus_8.html#cb164-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Voidaan määrittää kieliversiointia</span></span>
+<span id="cb164-39"><a href="08_harjoitus_8.html#cb164-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># varten funktio käännettäviä</span></span>
+<span id="cb164-40"><a href="08_harjoitus_8.html#cb164-40" aria-hidden="true" tabindex="-1"></a>    <span class="co"># merkkijonoja varten.</span></span>
+<span id="cb164-41"><a href="08_harjoitus_8.html#cb164-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Koska tässä esimerkissä on kyseessä</span></span>
+<span id="cb164-42"><a href="08_harjoitus_8.html#cb164-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># itsenäinen skripti, ei voida käyttää</span></span>
+<span id="cb164-43"><a href="08_harjoitus_8.html#cb164-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># QGIS Plugin Toolsista tuotua</span></span>
+<span id="cb164-44"><a href="08_harjoitus_8.html#cb164-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># funktiota</span></span>
+<span id="cb164-45"><a href="08_harjoitus_8.html#cb164-45" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> tr(<span class="va">self</span>, string):</span>
+<span id="cb164-46"><a href="08_harjoitus_8.html#cb164-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> QCoreApplication.translate(<span class="st">&#39;Processing&#39;</span>, string)</span>
+<span id="cb164-47"><a href="08_harjoitus_8.html#cb164-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-48"><a href="08_harjoitus_8.html#cb164-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Palauttaa olion tästä luokasta.</span></span>
+<span id="cb164-49"><a href="08_harjoitus_8.html#cb164-49" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> createInstance(<span class="va">self</span>):</span>
+<span id="cb164-50"><a href="08_harjoitus_8.html#cb164-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> SampleAlgorithm()</span>
+<span id="cb164-51"><a href="08_harjoitus_8.html#cb164-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-52"><a href="08_harjoitus_8.html#cb164-52" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Palauttaa algoritmin nimen sisäiseen käyttöön.</span></span>
+<span id="cb164-53"><a href="08_harjoitus_8.html#cb164-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tämä ei näy käyttöliittymässä,</span></span>
+<span id="cb164-54"><a href="08_harjoitus_8.html#cb164-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ja sen tulee olla algoritmille uniikki.</span></span>
+<span id="cb164-55"><a href="08_harjoitus_8.html#cb164-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Sitä ei myöskään saa lokalisoida, eli</span></span>
+<span id="cb164-56"><a href="08_harjoitus_8.html#cb164-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># ei käytetä tr()-metodia</span></span>
+<span id="cb164-57"><a href="08_harjoitus_8.html#cb164-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> name(<span class="va">self</span>):</span>
+<span id="cb164-58"><a href="08_harjoitus_8.html#cb164-58" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&#39;myscript&#39;</span></span>
+<span id="cb164-59"><a href="08_harjoitus_8.html#cb164-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-60"><a href="08_harjoitus_8.html#cb164-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Palauttaa käyttöliittymässä näkyvän skriptin nimen</span></span>
+<span id="cb164-61"><a href="08_harjoitus_8.html#cb164-61" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> displayName(<span class="va">self</span>):</span>
+<span id="cb164-62"><a href="08_harjoitus_8.html#cb164-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="st">&#39;Sample Script&#39;</span>)</span>
+<span id="cb164-63"><a href="08_harjoitus_8.html#cb164-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-64"><a href="08_harjoitus_8.html#cb164-64" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Palauttaa ryhmän nimen, johon skripti kuuluu</span></span>
+<span id="cb164-65"><a href="08_harjoitus_8.html#cb164-65" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> group(<span class="va">self</span>):</span>
+<span id="cb164-66"><a href="08_harjoitus_8.html#cb164-66" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="st">&#39;Sample Scripts&#39;</span>)</span>
+<span id="cb164-67"><a href="08_harjoitus_8.html#cb164-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-68"><a href="08_harjoitus_8.html#cb164-68" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Palauttaa ryhmän sisäisessä käytössä olevan</span></span>
+<span id="cb164-69"><a href="08_harjoitus_8.html#cb164-69" aria-hidden="true" tabindex="-1"></a>    <span class="co"># tunnisteen. </span></span>
+<span id="cb164-70"><a href="08_harjoitus_8.html#cb164-70" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> groupId(<span class="va">self</span>):</span>
+<span id="cb164-71"><a href="08_harjoitus_8.html#cb164-71" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&#39;sample&#39;</span></span>
+<span id="cb164-72"><a href="08_harjoitus_8.html#cb164-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-73"><a href="08_harjoitus_8.html#cb164-73" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Palauttaa tekstin, joka näkyy algoritmin</span></span>
+<span id="cb164-74"><a href="08_harjoitus_8.html#cb164-74" aria-hidden="true" tabindex="-1"></a>    <span class="co"># käyttöliittymän oikeassa reunassa</span></span>
+<span id="cb164-75"><a href="08_harjoitus_8.html#cb164-75" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> shortHelpString(<span class="va">self</span>):</span>
+<span id="cb164-76"><a href="08_harjoitus_8.html#cb164-76" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="st">&quot;This sample algorithm reproduces a vector layer as is.&quot;</span>)</span>
+<span id="cb164-77"><a href="08_harjoitus_8.html#cb164-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-78"><a href="08_harjoitus_8.html#cb164-78" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Tässä alustetaan algoritmi ja määritellään</span></span>
+<span id="cb164-79"><a href="08_harjoitus_8.html#cb164-79" aria-hidden="true" tabindex="-1"></a>    <span class="co"># sen lähtöparametreja, mutta myös</span></span>
+<span id="cb164-80"><a href="08_harjoitus_8.html#cb164-80" aria-hidden="true" tabindex="-1"></a>    <span class="co"># tulostasoa. Nämä parametrit näkyvät myös</span></span>
+<span id="cb164-81"><a href="08_harjoitus_8.html#cb164-81" aria-hidden="true" tabindex="-1"></a>    <span class="co"># algoritmin käyttöliittymässä.</span></span>
+<span id="cb164-82"><a href="08_harjoitus_8.html#cb164-82" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initAlgorithm(<span class="va">self</span>, config<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb164-83"><a href="08_harjoitus_8.html#cb164-83" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb164-84"><a href="08_harjoitus_8.html#cb164-84" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSource(</span>
+<span id="cb164-85"><a href="08_harjoitus_8.html#cb164-85" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.INPUT, <span class="co"># tässä viitataan aikaisemmin määriteltyy vakiomuuttujaan</span></span>
+<span id="cb164-86"><a href="08_harjoitus_8.html#cb164-86" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&#39;Input layer&#39;</span>),</span>
+<span id="cb164-87"><a href="08_harjoitus_8.html#cb164-87" aria-hidden="true" tabindex="-1"></a>                [QgsProcessing.SourceType.TypeVectorAnyGeometry]</span>
+<span id="cb164-88"><a href="08_harjoitus_8.html#cb164-88" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb164-89"><a href="08_harjoitus_8.html#cb164-89" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb164-90"><a href="08_harjoitus_8.html#cb164-90" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb164-91"><a href="08_harjoitus_8.html#cb164-91" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSink(</span>
+<span id="cb164-92"><a href="08_harjoitus_8.html#cb164-92" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.OUTPUT,</span>
+<span id="cb164-93"><a href="08_harjoitus_8.html#cb164-93" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&#39;Output layer&#39;</span>)</span>
+<span id="cb164-94"><a href="08_harjoitus_8.html#cb164-94" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb164-95"><a href="08_harjoitus_8.html#cb164-95" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb164-96"><a href="08_harjoitus_8.html#cb164-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-97"><a href="08_harjoitus_8.html#cb164-97" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Funktio, jossa suoritetaan algoritmin</span></span>
+<span id="cb164-98"><a href="08_harjoitus_8.html#cb164-98" aria-hidden="true" tabindex="-1"></a>    <span class="co"># varsinainen toiminta.</span></span>
+<span id="cb164-99"><a href="08_harjoitus_8.html#cb164-99" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> processAlgorithm(<span class="va">self</span>, parameters, context, feedback):</span>
+<span id="cb164-100"><a href="08_harjoitus_8.html#cb164-100" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Haetaan lähtötaso. Huomaa, että</span></span>
+<span id="cb164-101"><a href="08_harjoitus_8.html#cb164-101" aria-hidden="true" tabindex="-1"></a>        <span class="co"># prosessointialgoritmeissa tasoja ym.</span></span>
+<span id="cb164-102"><a href="08_harjoitus_8.html#cb164-102" aria-hidden="true" tabindex="-1"></a>        <span class="co"># parametreja käsitellään eri tavalla</span></span>
+<span id="cb164-103"><a href="08_harjoitus_8.html#cb164-103" aria-hidden="true" tabindex="-1"></a>        <span class="co"># kuin aikaisemmin.</span></span>
+<span id="cb164-104"><a href="08_harjoitus_8.html#cb164-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-105"><a href="08_harjoitus_8.html#cb164-105" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Tässä funktio ei palauta esim.</span></span>
+<span id="cb164-106"><a href="08_harjoitus_8.html#cb164-106" aria-hidden="true" tabindex="-1"></a>        <span class="co"># QgsMapLayer-oliota, vaan</span></span>
+<span id="cb164-107"><a href="08_harjoitus_8.html#cb164-107" aria-hidden="true" tabindex="-1"></a>        <span class="co"># QgsProcessingFeatureSourcen</span></span>
+<span id="cb164-108"><a href="08_harjoitus_8.html#cb164-108" aria-hidden="true" tabindex="-1"></a>        source <span class="op">=</span> <span class="va">self</span>.parameterAsSource(</span>
+<span id="cb164-109"><a href="08_harjoitus_8.html#cb164-109" aria-hidden="true" tabindex="-1"></a>            parameters,</span>
+<span id="cb164-110"><a href="08_harjoitus_8.html#cb164-110" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.INPUT,</span>
+<span id="cb164-111"><a href="08_harjoitus_8.html#cb164-111" aria-hidden="true" tabindex="-1"></a>            context</span>
+<span id="cb164-112"><a href="08_harjoitus_8.html#cb164-112" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb164-113"><a href="08_harjoitus_8.html#cb164-113" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-114"><a href="08_harjoitus_8.html#cb164-114" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> source <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb164-115"><a href="08_harjoitus_8.html#cb164-115" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> QgsProcessingException(<span class="va">self</span>.invalidSourceError(parameters, <span class="va">self</span>.INPUT))</span>
+<span id="cb164-116"><a href="08_harjoitus_8.html#cb164-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-117"><a href="08_harjoitus_8.html#cb164-117" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Tässä palautetaan QgsFeatureSink,</span></span>
+<span id="cb164-118"><a href="08_harjoitus_8.html#cb164-118" aria-hidden="true" tabindex="-1"></a>        <span class="co"># johon voidaan lisätä vektoritason</span></span>
+<span id="cb164-119"><a href="08_harjoitus_8.html#cb164-119" aria-hidden="true" tabindex="-1"></a>        <span class="co"># kohteita. Tulostaso luodaan</span></span>
+<span id="cb164-120"><a href="08_harjoitus_8.html#cb164-120" aria-hidden="true" tabindex="-1"></a>        <span class="co"># automaattisesti tämän pohjalta.</span></span>
+<span id="cb164-121"><a href="08_harjoitus_8.html#cb164-121" aria-hidden="true" tabindex="-1"></a>        (sink, dest_id) <span class="op">=</span> <span class="va">self</span>.parameterAsSink(</span>
+<span id="cb164-122"><a href="08_harjoitus_8.html#cb164-122" aria-hidden="true" tabindex="-1"></a>            parameters,</span>
+<span id="cb164-123"><a href="08_harjoitus_8.html#cb164-123" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.OUTPUT,</span>
+<span id="cb164-124"><a href="08_harjoitus_8.html#cb164-124" aria-hidden="true" tabindex="-1"></a>            context,</span>
+<span id="cb164-125"><a href="08_harjoitus_8.html#cb164-125" aria-hidden="true" tabindex="-1"></a>            source.fields(),</span>
+<span id="cb164-126"><a href="08_harjoitus_8.html#cb164-126" aria-hidden="true" tabindex="-1"></a>            source.wkbType(),</span>
+<span id="cb164-127"><a href="08_harjoitus_8.html#cb164-127" aria-hidden="true" tabindex="-1"></a>            source.sourceCrs()</span>
+<span id="cb164-128"><a href="08_harjoitus_8.html#cb164-128" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb164-129"><a href="08_harjoitus_8.html#cb164-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-130"><a href="08_harjoitus_8.html#cb164-130" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Feedback on QgsProcessingFeedback-luokan</span></span>
+<span id="cb164-131"><a href="08_harjoitus_8.html#cb164-131" aria-hidden="true" tabindex="-1"></a>        <span class="co"># olio, joka syötetään algoritmille kun</span></span>
+<span id="cb164-132"><a href="08_harjoitus_8.html#cb164-132" aria-hidden="true" tabindex="-1"></a>        <span class="co"># se käynnistetään. Sillä voidaan lähettää</span></span>
+<span id="cb164-133"><a href="08_harjoitus_8.html#cb164-133" aria-hidden="true" tabindex="-1"></a>        <span class="co"># info-, varoitus- tai virheviestejä</span></span>
+<span id="cb164-134"><a href="08_harjoitus_8.html#cb164-134" aria-hidden="true" tabindex="-1"></a>        <span class="co"># käyttäjälle. Viestit näkyvät algoritmi-</span></span>
+<span id="cb164-135"><a href="08_harjoitus_8.html#cb164-135" aria-hidden="true" tabindex="-1"></a>        <span class="co"># käyttöliittymän lokissa.</span></span>
+<span id="cb164-136"><a href="08_harjoitus_8.html#cb164-136" aria-hidden="true" tabindex="-1"></a>        feedback.pushInfo(<span class="ss">f&#39;CRS is </span><span class="sc">{</span>source<span class="sc">.</span>sourceCrs()<span class="sc">.</span>authid()<span class="sc">}</span><span class="ss">&#39;</span>)</span>
+<span id="cb164-137"><a href="08_harjoitus_8.html#cb164-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-138"><a href="08_harjoitus_8.html#cb164-138" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> sink <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb164-139"><a href="08_harjoitus_8.html#cb164-139" aria-hidden="true" tabindex="-1"></a>            <span class="cf">raise</span> QgsProcessingException(<span class="va">self</span>.invalidSinkError(parameters, <span class="va">self</span>.OUTPUT))</span>
+<span id="cb164-140"><a href="08_harjoitus_8.html#cb164-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-141"><a href="08_harjoitus_8.html#cb164-141" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Lasketaan kerroin, jolla voidaan päivittää</span></span>
+<span id="cb164-142"><a href="08_harjoitus_8.html#cb164-142" aria-hidden="true" tabindex="-1"></a>        <span class="co"># edistymispalkkia</span></span>
+<span id="cb164-143"><a href="08_harjoitus_8.html#cb164-143" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="fl">100.0</span> <span class="op">/</span> source.featureCount() <span class="cf">if</span> source.featureCount() <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb164-144"><a href="08_harjoitus_8.html#cb164-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-145"><a href="08_harjoitus_8.html#cb164-145" aria-hidden="true" tabindex="-1"></a>        features <span class="op">=</span> source.getFeatures()</span>
+<span id="cb164-146"><a href="08_harjoitus_8.html#cb164-146" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> current, feature <span class="kw">in</span> <span class="bu">enumerate</span>(features):</span>
+<span id="cb164-147"><a href="08_harjoitus_8.html#cb164-147" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Jos käyttäjä peruu algoritmin, lopetetaan</span></span>
+<span id="cb164-148"><a href="08_harjoitus_8.html#cb164-148" aria-hidden="true" tabindex="-1"></a>            <span class="co"># prosessointi.</span></span>
+<span id="cb164-149"><a href="08_harjoitus_8.html#cb164-149" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> feedback.isCanceled():</span>
+<span id="cb164-150"><a href="08_harjoitus_8.html#cb164-150" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb164-151"><a href="08_harjoitus_8.html#cb164-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-152"><a href="08_harjoitus_8.html#cb164-152" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Lisätään QgsFeatureSink-olioon</span></span>
+<span id="cb164-153"><a href="08_harjoitus_8.html#cb164-153" aria-hidden="true" tabindex="-1"></a>            <span class="co"># kohde sellaisenaan</span></span>
+<span id="cb164-154"><a href="08_harjoitus_8.html#cb164-154" aria-hidden="true" tabindex="-1"></a>            sink.addFeature(feature, QgsFeatureSink.Flag.FastInsert)</span>
+<span id="cb164-155"><a href="08_harjoitus_8.html#cb164-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-156"><a href="08_harjoitus_8.html#cb164-156" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Päivitetään edistymispalkki</span></span>
+<span id="cb164-157"><a href="08_harjoitus_8.html#cb164-157" aria-hidden="true" tabindex="-1"></a>            feedback.setProgress(<span class="bu">int</span>(current <span class="op">*</span> total))</span>
+<span id="cb164-158"><a href="08_harjoitus_8.html#cb164-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-159"><a href="08_harjoitus_8.html#cb164-159" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="va">self</span>.OUTPUT: dest_id}</span></code></pre></div>
+</div>
+</div>
+<div id="prosessointialgoritmin-kutsuminen" class="section level3">
+<h3>Prosessointialgoritmin kutsuminen</h3>
+<p>Jos halutaan kutsua prosesointialgoritmia Pythonilla
+konsolista, skriptistä, lisäosasta tai toisesta
+prosessointialgoritmista, se voidaan tehdä seuraavasti.
+<code>qgis.processing</code> tulee olla importoitu. Huomaa, että algoritmin
+parametrit annetaan sanakirjana (dictionary), ja avaimina
+käytetään algoritmissa määriteltyjä vakiomuuttujien arvoja.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="08_harjoitus_8.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from qgis import processing</span></span>
+<span id="cb165-2"><a href="08_harjoitus_8.html#cb165-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-3"><a href="08_harjoitus_8.html#cb165-3" aria-hidden="true" tabindex="-1"></a>input_layer_id <span class="op">=</span> iface.activeLayer().<span class="bu">id</span>()</span>
+<span id="cb165-4"><a href="08_harjoitus_8.html#cb165-4" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">=</span> {</span>
+<span id="cb165-5"><a href="08_harjoitus_8.html#cb165-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;INPUT&#39;</span>: input_layer_id,</span>
+<span id="cb165-6"><a href="08_harjoitus_8.html#cb165-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;DISTANCE&#39;</span>: <span class="fl">1.5</span>,</span>
+<span id="cb165-7"><a href="08_harjoitus_8.html#cb165-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;SEGMENTS&#39;</span>: <span class="dv">5</span>,</span>
+<span id="cb165-8"><a href="08_harjoitus_8.html#cb165-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;END_CAP_STYLE&#39;</span>: <span class="dv">0</span>,</span>
+<span id="cb165-9"><a href="08_harjoitus_8.html#cb165-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;JOIN_STYLE&#39;</span>: <span class="dv">0</span>,</span>
+<span id="cb165-10"><a href="08_harjoitus_8.html#cb165-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;MITER_LIMIT&#39;</span>: <span class="dv">2</span>,</span>
+<span id="cb165-11"><a href="08_harjoitus_8.html#cb165-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;DISSOLVE&#39;</span>: <span class="va">False</span>,</span>
+<span id="cb165-12"><a href="08_harjoitus_8.html#cb165-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;OUTPUT&#39;</span>: <span class="st">&#39;memory:&#39;</span></span>
+<span id="cb165-13"><a href="08_harjoitus_8.html#cb165-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb165-14"><a href="08_harjoitus_8.html#cb165-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-15"><a href="08_harjoitus_8.html#cb165-15" aria-hidden="true" tabindex="-1"></a>output <span class="op">=</span> processing.run(<span class="st">&#39;native:buffer&#39;</span>, parameters)</span>
+<span id="cb165-16"><a href="08_harjoitus_8.html#cb165-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-17"><a href="08_harjoitus_8.html#cb165-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Huomioi, että `processing.run()` metodi</span></span>
+<span id="cb165-18"><a href="08_harjoitus_8.html#cb165-18" aria-hidden="true" tabindex="-1"></a><span class="co"># palauttaa tässä sanakirjan.</span></span>
+<span id="cb165-19"><a href="08_harjoitus_8.html#cb165-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Tulostaso voidaan hakea avaimella &#39;OUTPUT&#39;</span></span>
+<span id="cb165-20"><a href="08_harjoitus_8.html#cb165-20" aria-hidden="true" tabindex="-1"></a>buffered_layer <span class="op">=</span> output.get(<span class="st">&#39;OUTPUT&#39;</span>)</span>
+<span id="cb165-21"><a href="08_harjoitus_8.html#cb165-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb165-22"><a href="08_harjoitus_8.html#cb165-22" aria-hidden="true" tabindex="-1"></a>QgsProject.instance().addMapLayer(buffered_layer)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="algoritmi-lisäosassa" class="section level2">
+<h2>Algoritmi lisäosassa</h2>
+<p>Varsinainen algoritmiluokan rakenne on lisäosaan
+sisällytetyssä algoritmissa samanlainen. Lisäosaan
+täytyy vain määrittää ns. provider, jonka avulla
+algoritmit lisätään prosessointityökaluihin.</p>
+<p>Kun loimme lisäosalle pohjan harjoituksessa 5,
+valitsimme vaihtoehdoksi sen, että lisäosaan lisätään
+myös prosessointialgoritmi. Tällöin meillä on jo
+valmis pohja lähteä kirjoittamaan omaa algoritmia.</p>
+<p>Käydään kuitenkin läpi, miten algoritmi varsinaisesti
+päätyy QGISin käyttöliittymään.</p>
+<p><code>test-plugin/testplugin</code>-kansiossa pitäisi olla kansio
+nimeltä <code>testplugin_processing</code>. Se sisältää Python-tiedostot
+<code>provider.py</code> ja <code>processing_algorithm.py</code>.</p>
+<p><em>processing_algorithm.py:</em></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+tiedosto
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb166-1"><a href="08_harjoitus_8.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> __future__ <span class="im">import</span> annotations</span>
+<span id="cb166-2"><a href="08_harjoitus_8.html#cb166-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-3"><a href="08_harjoitus_8.html#cb166-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Any</span>
+<span id="cb166-4"><a href="08_harjoitus_8.html#cb166-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-5"><a href="08_harjoitus_8.html#cb166-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis <span class="im">import</span> processing  <span class="co"># noqa: TCH002</span></span>
+<span id="cb166-6"><a href="08_harjoitus_8.html#cb166-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb166-7"><a href="08_harjoitus_8.html#cb166-7" aria-hidden="true" tabindex="-1"></a>    QgsFeatureSink,</span>
+<span id="cb166-8"><a href="08_harjoitus_8.html#cb166-8" aria-hidden="true" tabindex="-1"></a>    QgsProcessing,</span>
+<span id="cb166-9"><a href="08_harjoitus_8.html#cb166-9" aria-hidden="true" tabindex="-1"></a>    QgsProcessingAlgorithm,</span>
+<span id="cb166-10"><a href="08_harjoitus_8.html#cb166-10" aria-hidden="true" tabindex="-1"></a>    QgsProcessingContext,</span>
+<span id="cb166-11"><a href="08_harjoitus_8.html#cb166-11" aria-hidden="true" tabindex="-1"></a>    QgsProcessingFeedback,</span>
+<span id="cb166-12"><a href="08_harjoitus_8.html#cb166-12" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterFeatureSink,</span>
+<span id="cb166-13"><a href="08_harjoitus_8.html#cb166-13" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterFeatureSource,</span>
+<span id="cb166-14"><a href="08_harjoitus_8.html#cb166-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb166-15"><a href="08_harjoitus_8.html#cb166-15" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> QCoreApplication</span>
+<span id="cb166-16"><a href="08_harjoitus_8.html#cb166-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-17"><a href="08_harjoitus_8.html#cb166-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-18"><a href="08_harjoitus_8.html#cb166-18" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ProcessingAlgorithm(QgsProcessingAlgorithm):</span>
+<span id="cb166-19"><a href="08_harjoitus_8.html#cb166-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb166-20"><a href="08_harjoitus_8.html#cb166-20" aria-hidden="true" tabindex="-1"></a><span class="co">    This is an example algorithm that takes a vector layer and</span></span>
+<span id="cb166-21"><a href="08_harjoitus_8.html#cb166-21" aria-hidden="true" tabindex="-1"></a><span class="co">    creates a new identical one.</span></span>
+<span id="cb166-22"><a href="08_harjoitus_8.html#cb166-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-23"><a href="08_harjoitus_8.html#cb166-23" aria-hidden="true" tabindex="-1"></a><span class="co">    It is meant to be used as an example of how to create your own</span></span>
+<span id="cb166-24"><a href="08_harjoitus_8.html#cb166-24" aria-hidden="true" tabindex="-1"></a><span class="co">    algorithms and explain methods and variables used to do it. An</span></span>
+<span id="cb166-25"><a href="08_harjoitus_8.html#cb166-25" aria-hidden="true" tabindex="-1"></a><span class="co">    algorithm like this will be available in all elements, and there</span></span>
+<span id="cb166-26"><a href="08_harjoitus_8.html#cb166-26" aria-hidden="true" tabindex="-1"></a><span class="co">    is not need for additional work.</span></span>
+<span id="cb166-27"><a href="08_harjoitus_8.html#cb166-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-28"><a href="08_harjoitus_8.html#cb166-28" aria-hidden="true" tabindex="-1"></a><span class="co">    All Processing algorithms should extend the QgsProcessingAlgorithm</span></span>
+<span id="cb166-29"><a href="08_harjoitus_8.html#cb166-29" aria-hidden="true" tabindex="-1"></a><span class="co">    class.</span></span>
+<span id="cb166-30"><a href="08_harjoitus_8.html#cb166-30" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb166-31"><a href="08_harjoitus_8.html#cb166-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-32"><a href="08_harjoitus_8.html#cb166-32" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Constants used to refer to parameters and outputs. They will be</span></span>
+<span id="cb166-33"><a href="08_harjoitus_8.html#cb166-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># used when calling the algorithm from another algorithm, or when</span></span>
+<span id="cb166-34"><a href="08_harjoitus_8.html#cb166-34" aria-hidden="true" tabindex="-1"></a>    <span class="co"># calling from the QGIS console.</span></span>
+<span id="cb166-35"><a href="08_harjoitus_8.html#cb166-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-36"><a href="08_harjoitus_8.html#cb166-36" aria-hidden="true" tabindex="-1"></a>    INPUT <span class="op">=</span> <span class="st">&quot;INPUT&quot;</span></span>
+<span id="cb166-37"><a href="08_harjoitus_8.html#cb166-37" aria-hidden="true" tabindex="-1"></a>    OUTPUT <span class="op">=</span> <span class="st">&quot;OUTPUT&quot;</span></span>
+<span id="cb166-38"><a href="08_harjoitus_8.html#cb166-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-39"><a href="08_harjoitus_8.html#cb166-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb166-40"><a href="08_harjoitus_8.html#cb166-40" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb166-41"><a href="08_harjoitus_8.html#cb166-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-42"><a href="08_harjoitus_8.html#cb166-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._name <span class="op">=</span> <span class="st">&quot;myprocessingalgorithm&quot;</span></span>
+<span id="cb166-43"><a href="08_harjoitus_8.html#cb166-43" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._display_name <span class="op">=</span> <span class="st">&quot;My Processing Algorithm&quot;</span></span>
+<span id="cb166-44"><a href="08_harjoitus_8.html#cb166-44" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._group_id <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb166-45"><a href="08_harjoitus_8.html#cb166-45" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._group <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb166-46"><a href="08_harjoitus_8.html#cb166-46" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._short_help_string <span class="op">=</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb166-47"><a href="08_harjoitus_8.html#cb166-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-48"><a href="08_harjoitus_8.html#cb166-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> tr(<span class="va">self</span>, string) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb166-49"><a href="08_harjoitus_8.html#cb166-49" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb166-50"><a href="08_harjoitus_8.html#cb166-50" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a translatable string with the self.tr() function.</span></span>
+<span id="cb166-51"><a href="08_harjoitus_8.html#cb166-51" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb166-52"><a href="08_harjoitus_8.html#cb166-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> QCoreApplication.translate(<span class="st">&quot;Processing&quot;</span>, string)</span>
+<span id="cb166-53"><a href="08_harjoitus_8.html#cb166-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-54"><a href="08_harjoitus_8.html#cb166-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> createInstance(<span class="va">self</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb166-55"><a href="08_harjoitus_8.html#cb166-55" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ProcessingAlgorithm()</span>
+<span id="cb166-56"><a href="08_harjoitus_8.html#cb166-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-57"><a href="08_harjoitus_8.html#cb166-57" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> name(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb166-58"><a href="08_harjoitus_8.html#cb166-58" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb166-59"><a href="08_harjoitus_8.html#cb166-59" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the algorithm name, used for identifying the algorithm. This</span></span>
+<span id="cb166-60"><a href="08_harjoitus_8.html#cb166-60" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb166-61"><a href="08_harjoitus_8.html#cb166-61" aria-hidden="true" tabindex="-1"></a><span class="co">        The name should be unique within each provider. Names should contain</span></span>
+<span id="cb166-62"><a href="08_harjoitus_8.html#cb166-62" aria-hidden="true" tabindex="-1"></a><span class="co">        lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb166-63"><a href="08_harjoitus_8.html#cb166-63" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb166-64"><a href="08_harjoitus_8.html#cb166-64" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb166-65"><a href="08_harjoitus_8.html#cb166-65" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._name</span>
+<span id="cb166-66"><a href="08_harjoitus_8.html#cb166-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-67"><a href="08_harjoitus_8.html#cb166-67" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> displayName(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb166-68"><a href="08_harjoitus_8.html#cb166-68" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb166-69"><a href="08_harjoitus_8.html#cb166-69" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the translated algorithm name, which should be used for any</span></span>
+<span id="cb166-70"><a href="08_harjoitus_8.html#cb166-70" aria-hidden="true" tabindex="-1"></a><span class="co">        user-visible display of the algorithm name.</span></span>
+<span id="cb166-71"><a href="08_harjoitus_8.html#cb166-71" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb166-72"><a href="08_harjoitus_8.html#cb166-72" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._display_name)</span>
+<span id="cb166-73"><a href="08_harjoitus_8.html#cb166-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-74"><a href="08_harjoitus_8.html#cb166-74" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> groupId(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb166-75"><a href="08_harjoitus_8.html#cb166-75" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb166-76"><a href="08_harjoitus_8.html#cb166-76" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the unique ID of the group this algorithm belongs to. This</span></span>
+<span id="cb166-77"><a href="08_harjoitus_8.html#cb166-77" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb166-78"><a href="08_harjoitus_8.html#cb166-78" aria-hidden="true" tabindex="-1"></a><span class="co">        The group id should be unique within each provider. Group id should</span></span>
+<span id="cb166-79"><a href="08_harjoitus_8.html#cb166-79" aria-hidden="true" tabindex="-1"></a><span class="co">        contain lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb166-80"><a href="08_harjoitus_8.html#cb166-80" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb166-81"><a href="08_harjoitus_8.html#cb166-81" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb166-82"><a href="08_harjoitus_8.html#cb166-82" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._group_id</span>
+<span id="cb166-83"><a href="08_harjoitus_8.html#cb166-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-84"><a href="08_harjoitus_8.html#cb166-84" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> group(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb166-85"><a href="08_harjoitus_8.html#cb166-85" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb166-86"><a href="08_harjoitus_8.html#cb166-86" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the name of the group this algorithm belongs to. This string</span></span>
+<span id="cb166-87"><a href="08_harjoitus_8.html#cb166-87" aria-hidden="true" tabindex="-1"></a><span class="co">        should be localised.</span></span>
+<span id="cb166-88"><a href="08_harjoitus_8.html#cb166-88" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb166-89"><a href="08_harjoitus_8.html#cb166-89" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._group)</span>
+<span id="cb166-90"><a href="08_harjoitus_8.html#cb166-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-91"><a href="08_harjoitus_8.html#cb166-91" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> shortHelpString(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb166-92"><a href="08_harjoitus_8.html#cb166-92" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb166-93"><a href="08_harjoitus_8.html#cb166-93" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a localised short helper string for the algorithm. This string</span></span>
+<span id="cb166-94"><a href="08_harjoitus_8.html#cb166-94" aria-hidden="true" tabindex="-1"></a><span class="co">        should provide a basic description about what the algorithm does and the</span></span>
+<span id="cb166-95"><a href="08_harjoitus_8.html#cb166-95" aria-hidden="true" tabindex="-1"></a><span class="co">        parameters and outputs associated with it..</span></span>
+<span id="cb166-96"><a href="08_harjoitus_8.html#cb166-96" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb166-97"><a href="08_harjoitus_8.html#cb166-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._short_help_string)</span>
+<span id="cb166-98"><a href="08_harjoitus_8.html#cb166-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-99"><a href="08_harjoitus_8.html#cb166-99" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initAlgorithm(<span class="va">self</span>, config<span class="op">=</span><span class="va">None</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb166-100"><a href="08_harjoitus_8.html#cb166-100" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb166-101"><a href="08_harjoitus_8.html#cb166-101" aria-hidden="true" tabindex="-1"></a><span class="co">        Here we define the inputs and output of the algorithm, along</span></span>
+<span id="cb166-102"><a href="08_harjoitus_8.html#cb166-102" aria-hidden="true" tabindex="-1"></a><span class="co">        with some other properties.</span></span>
+<span id="cb166-103"><a href="08_harjoitus_8.html#cb166-103" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb166-104"><a href="08_harjoitus_8.html#cb166-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-105"><a href="08_harjoitus_8.html#cb166-105" aria-hidden="true" tabindex="-1"></a>        <span class="co"># We add the input vector features source. It can have any kind of</span></span>
+<span id="cb166-106"><a href="08_harjoitus_8.html#cb166-106" aria-hidden="true" tabindex="-1"></a>        <span class="co"># geometry.</span></span>
+<span id="cb166-107"><a href="08_harjoitus_8.html#cb166-107" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb166-108"><a href="08_harjoitus_8.html#cb166-108" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSource(</span>
+<span id="cb166-109"><a href="08_harjoitus_8.html#cb166-109" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.INPUT,</span>
+<span id="cb166-110"><a href="08_harjoitus_8.html#cb166-110" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&quot;Input layer&quot;</span>),</span>
+<span id="cb166-111"><a href="08_harjoitus_8.html#cb166-111" aria-hidden="true" tabindex="-1"></a>                [QgsProcessing.TypeVectorAnyGeometry],</span>
+<span id="cb166-112"><a href="08_harjoitus_8.html#cb166-112" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb166-113"><a href="08_harjoitus_8.html#cb166-113" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb166-114"><a href="08_harjoitus_8.html#cb166-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-115"><a href="08_harjoitus_8.html#cb166-115" aria-hidden="true" tabindex="-1"></a>        <span class="co"># We add a feature sink in which to store our processed features (this</span></span>
+<span id="cb166-116"><a href="08_harjoitus_8.html#cb166-116" aria-hidden="true" tabindex="-1"></a>        <span class="co"># usually takes the form of a newly created vector layer when the</span></span>
+<span id="cb166-117"><a href="08_harjoitus_8.html#cb166-117" aria-hidden="true" tabindex="-1"></a>        <span class="co"># algorithm is run in QGIS).</span></span>
+<span id="cb166-118"><a href="08_harjoitus_8.html#cb166-118" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(QgsProcessingParameterFeatureSink(<span class="va">self</span>.OUTPUT, <span class="va">self</span>.tr(<span class="st">&quot;Output layer&quot;</span>)))</span>
+<span id="cb166-119"><a href="08_harjoitus_8.html#cb166-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-120"><a href="08_harjoitus_8.html#cb166-120" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> processAlgorithm(  <span class="co"># noqa N802</span></span>
+<span id="cb166-121"><a href="08_harjoitus_8.html#cb166-121" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb166-122"><a href="08_harjoitus_8.html#cb166-122" aria-hidden="true" tabindex="-1"></a>        parameters: <span class="bu">dict</span>[<span class="bu">str</span>, Any],</span>
+<span id="cb166-123"><a href="08_harjoitus_8.html#cb166-123" aria-hidden="true" tabindex="-1"></a>        context: QgsProcessingContext,</span>
+<span id="cb166-124"><a href="08_harjoitus_8.html#cb166-124" aria-hidden="true" tabindex="-1"></a>        feedback: QgsProcessingFeedback,</span>
+<span id="cb166-125"><a href="08_harjoitus_8.html#cb166-125" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb166-126"><a href="08_harjoitus_8.html#cb166-126" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb166-127"><a href="08_harjoitus_8.html#cb166-127" aria-hidden="true" tabindex="-1"></a><span class="co">        Here is where the processing itself takes place.</span></span>
+<span id="cb166-128"><a href="08_harjoitus_8.html#cb166-128" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb166-129"><a href="08_harjoitus_8.html#cb166-129" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-130"><a href="08_harjoitus_8.html#cb166-130" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Initialize feedback if it is None</span></span>
+<span id="cb166-131"><a href="08_harjoitus_8.html#cb166-131" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feedback <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb166-132"><a href="08_harjoitus_8.html#cb166-132" aria-hidden="true" tabindex="-1"></a>            feedback <span class="op">=</span> QgsProcessingFeedback()</span>
+<span id="cb166-133"><a href="08_harjoitus_8.html#cb166-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-134"><a href="08_harjoitus_8.html#cb166-134" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Retrieve the feature source and sink. The &#39;dest_id&#39; variable is used</span></span>
+<span id="cb166-135"><a href="08_harjoitus_8.html#cb166-135" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to uniquely identify the feature sink, and must be included in the</span></span>
+<span id="cb166-136"><a href="08_harjoitus_8.html#cb166-136" aria-hidden="true" tabindex="-1"></a>        <span class="co"># dictionary returned by the processAlgorithm function.</span></span>
+<span id="cb166-137"><a href="08_harjoitus_8.html#cb166-137" aria-hidden="true" tabindex="-1"></a>        source <span class="op">=</span> <span class="va">self</span>.parameterAsSource(parameters, <span class="va">self</span>.INPUT, context)</span>
+<span id="cb166-138"><a href="08_harjoitus_8.html#cb166-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-139"><a href="08_harjoitus_8.html#cb166-139" aria-hidden="true" tabindex="-1"></a>        (sink, dest_id) <span class="op">=</span> <span class="va">self</span>.parameterAsSink(</span>
+<span id="cb166-140"><a href="08_harjoitus_8.html#cb166-140" aria-hidden="true" tabindex="-1"></a>            parameters,</span>
+<span id="cb166-141"><a href="08_harjoitus_8.html#cb166-141" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.OUTPUT,</span>
+<span id="cb166-142"><a href="08_harjoitus_8.html#cb166-142" aria-hidden="true" tabindex="-1"></a>            context,</span>
+<span id="cb166-143"><a href="08_harjoitus_8.html#cb166-143" aria-hidden="true" tabindex="-1"></a>            source.fields(),</span>
+<span id="cb166-144"><a href="08_harjoitus_8.html#cb166-144" aria-hidden="true" tabindex="-1"></a>            source.wkbType(),</span>
+<span id="cb166-145"><a href="08_harjoitus_8.html#cb166-145" aria-hidden="true" tabindex="-1"></a>            source.sourceCrs(),</span>
+<span id="cb166-146"><a href="08_harjoitus_8.html#cb166-146" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb166-147"><a href="08_harjoitus_8.html#cb166-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-148"><a href="08_harjoitus_8.html#cb166-148" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Send some information to the user</span></span>
+<span id="cb166-149"><a href="08_harjoitus_8.html#cb166-149" aria-hidden="true" tabindex="-1"></a>        feedback.pushInfo(<span class="ss">f&quot;CRS is </span><span class="sc">{</span>source<span class="sc">.</span>sourceCrs()<span class="sc">.</span>authid()<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="cb166-150"><a href="08_harjoitus_8.html#cb166-150" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-151"><a href="08_harjoitus_8.html#cb166-151" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the number of steps to display within the progress bar and</span></span>
+<span id="cb166-152"><a href="08_harjoitus_8.html#cb166-152" aria-hidden="true" tabindex="-1"></a>        <span class="co"># get features from source</span></span>
+<span id="cb166-153"><a href="08_harjoitus_8.html#cb166-153" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="fl">100.0</span> <span class="op">/</span> source.featureCount() <span class="cf">if</span> source.featureCount() <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb166-154"><a href="08_harjoitus_8.html#cb166-154" aria-hidden="true" tabindex="-1"></a>        features <span class="op">=</span> source.getFeatures()</span>
+<span id="cb166-155"><a href="08_harjoitus_8.html#cb166-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-156"><a href="08_harjoitus_8.html#cb166-156" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> current, feature <span class="kw">in</span> <span class="bu">enumerate</span>(features):</span>
+<span id="cb166-157"><a href="08_harjoitus_8.html#cb166-157" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Stop the algorithm if cancel button has been clicked</span></span>
+<span id="cb166-158"><a href="08_harjoitus_8.html#cb166-158" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> feedback.isCanceled():</span>
+<span id="cb166-159"><a href="08_harjoitus_8.html#cb166-159" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb166-160"><a href="08_harjoitus_8.html#cb166-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-161"><a href="08_harjoitus_8.html#cb166-161" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Add a feature in the sink</span></span>
+<span id="cb166-162"><a href="08_harjoitus_8.html#cb166-162" aria-hidden="true" tabindex="-1"></a>            sink.addFeature(feature, QgsFeatureSink.FastInsert)</span>
+<span id="cb166-163"><a href="08_harjoitus_8.html#cb166-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-164"><a href="08_harjoitus_8.html#cb166-164" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Update the progress bar</span></span>
+<span id="cb166-165"><a href="08_harjoitus_8.html#cb166-165" aria-hidden="true" tabindex="-1"></a>            feedback.setProgress(<span class="bu">int</span>(current <span class="op">*</span> total))</span>
+<span id="cb166-166"><a href="08_harjoitus_8.html#cb166-166" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-167"><a href="08_harjoitus_8.html#cb166-167" aria-hidden="true" tabindex="-1"></a>        <span class="co"># To run another Processing algorithm as part of this algorithm, you can use</span></span>
+<span id="cb166-168"><a href="08_harjoitus_8.html#cb166-168" aria-hidden="true" tabindex="-1"></a>        <span class="co"># processing.run(...). Make sure you pass the current context and feedback</span></span>
+<span id="cb166-169"><a href="08_harjoitus_8.html#cb166-169" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to processing.run to ensure that all temporary layer outputs are available</span></span>
+<span id="cb166-170"><a href="08_harjoitus_8.html#cb166-170" aria-hidden="true" tabindex="-1"></a>        <span class="co"># to the executed algorithm, and that the executed algorithm can send feedback</span></span>
+<span id="cb166-171"><a href="08_harjoitus_8.html#cb166-171" aria-hidden="true" tabindex="-1"></a>        <span class="co"># reports to the user (and correctly handle cancellation and progress reports!)</span></span>
+<span id="cb166-172"><a href="08_harjoitus_8.html#cb166-172" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">False</span>:</span>
+<span id="cb166-173"><a href="08_harjoitus_8.html#cb166-173" aria-hidden="true" tabindex="-1"></a>            _buffered_layer <span class="op">=</span> processing.run(</span>
+<span id="cb166-174"><a href="08_harjoitus_8.html#cb166-174" aria-hidden="true" tabindex="-1"></a>                <span class="st">&quot;native:buffer&quot;</span>,</span>
+<span id="cb166-175"><a href="08_harjoitus_8.html#cb166-175" aria-hidden="true" tabindex="-1"></a>                {</span>
+<span id="cb166-176"><a href="08_harjoitus_8.html#cb166-176" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;INPUT&quot;</span>: dest_id,</span>
+<span id="cb166-177"><a href="08_harjoitus_8.html#cb166-177" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;DISTANCE&quot;</span>: <span class="fl">1.5</span>,</span>
+<span id="cb166-178"><a href="08_harjoitus_8.html#cb166-178" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;SEGMENTS&quot;</span>: <span class="dv">5</span>,</span>
+<span id="cb166-179"><a href="08_harjoitus_8.html#cb166-179" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;END_CAP_STYLE&quot;</span>: <span class="dv">0</span>,</span>
+<span id="cb166-180"><a href="08_harjoitus_8.html#cb166-180" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;JOIN_STYLE&quot;</span>: <span class="dv">0</span>,</span>
+<span id="cb166-181"><a href="08_harjoitus_8.html#cb166-181" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;MITER_LIMIT&quot;</span>: <span class="dv">2</span>,</span>
+<span id="cb166-182"><a href="08_harjoitus_8.html#cb166-182" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;DISSOLVE&quot;</span>: <span class="va">False</span>,</span>
+<span id="cb166-183"><a href="08_harjoitus_8.html#cb166-183" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&quot;OUTPUT&quot;</span>: <span class="st">&quot;memory:&quot;</span>,</span>
+<span id="cb166-184"><a href="08_harjoitus_8.html#cb166-184" aria-hidden="true" tabindex="-1"></a>                },</span>
+<span id="cb166-185"><a href="08_harjoitus_8.html#cb166-185" aria-hidden="true" tabindex="-1"></a>                context<span class="op">=</span>context,</span>
+<span id="cb166-186"><a href="08_harjoitus_8.html#cb166-186" aria-hidden="true" tabindex="-1"></a>                feedback<span class="op">=</span>feedback,</span>
+<span id="cb166-187"><a href="08_harjoitus_8.html#cb166-187" aria-hidden="true" tabindex="-1"></a>            )[<span class="st">&quot;OUTPUT&quot;</span>]</span>
+<span id="cb166-188"><a href="08_harjoitus_8.html#cb166-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-189"><a href="08_harjoitus_8.html#cb166-189" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Return the results of the algorithm. In this case our only result is</span></span>
+<span id="cb166-190"><a href="08_harjoitus_8.html#cb166-190" aria-hidden="true" tabindex="-1"></a>        <span class="co"># the feature sink which contains the processed features, but some</span></span>
+<span id="cb166-191"><a href="08_harjoitus_8.html#cb166-191" aria-hidden="true" tabindex="-1"></a>        <span class="co"># algorithms may return multiple feature sinks, calculated numeric</span></span>
+<span id="cb166-192"><a href="08_harjoitus_8.html#cb166-192" aria-hidden="true" tabindex="-1"></a>        <span class="co"># statistics, etc. These should all be included in the returned</span></span>
+<span id="cb166-193"><a href="08_harjoitus_8.html#cb166-193" aria-hidden="true" tabindex="-1"></a>        <span class="co"># dictionary, with keys matching the feature corresponding parameter</span></span>
+<span id="cb166-194"><a href="08_harjoitus_8.html#cb166-194" aria-hidden="true" tabindex="-1"></a>        <span class="co"># or output names.</span></span>
+<span id="cb166-195"><a href="08_harjoitus_8.html#cb166-195" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="va">self</span>.OUTPUT: dest_id}</span></code></pre></div>
+</div>
+</div>
+<p>Tästä löytyy pitkälti sama rakenne kuin aikaisemmassa esimerkissä.</p>
+<p><em>provider.py:</em></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+tiedosto
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="08_harjoitus_8.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsProcessingProvider</span>
+<span id="cb167-2"><a href="08_harjoitus_8.html#cb167-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-3"><a href="08_harjoitus_8.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.testplugin_processing.processing_algorithm <span class="im">import</span> ProcessingAlgorithm</span>
+<span id="cb167-4"><a href="08_harjoitus_8.html#cb167-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-5"><a href="08_harjoitus_8.html#cb167-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-6"><a href="08_harjoitus_8.html#cb167-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Provider(QgsProcessingProvider):</span>
+<span id="cb167-7"><a href="08_harjoitus_8.html#cb167-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb167-8"><a href="08_harjoitus_8.html#cb167-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb167-9"><a href="08_harjoitus_8.html#cb167-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-10"><a href="08_harjoitus_8.html#cb167-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._id <span class="op">=</span> <span class="st">&quot;myprovider&quot;</span></span>
+<span id="cb167-11"><a href="08_harjoitus_8.html#cb167-11" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._name <span class="op">=</span> <span class="st">&quot;My provider&quot;</span></span>
+<span id="cb167-12"><a href="08_harjoitus_8.html#cb167-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-13"><a href="08_harjoitus_8.html#cb167-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="bu">id</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb167-14"><a href="08_harjoitus_8.html#cb167-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;The ID of your plugin, used to identify the provider.</span></span>
+<span id="cb167-15"><a href="08_harjoitus_8.html#cb167-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-16"><a href="08_harjoitus_8.html#cb167-16" aria-hidden="true" tabindex="-1"></a><span class="co">        This string should be a unique, short, character only string,</span></span>
+<span id="cb167-17"><a href="08_harjoitus_8.html#cb167-17" aria-hidden="true" tabindex="-1"></a><span class="co">        eg &quot;qgis&quot; or &quot;gdal&quot;. This string should not be localised.</span></span>
+<span id="cb167-18"><a href="08_harjoitus_8.html#cb167-18" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-19"><a href="08_harjoitus_8.html#cb167-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._id</span>
+<span id="cb167-20"><a href="08_harjoitus_8.html#cb167-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-21"><a href="08_harjoitus_8.html#cb167-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> name(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb167-22"><a href="08_harjoitus_8.html#cb167-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-23"><a href="08_harjoitus_8.html#cb167-23" aria-hidden="true" tabindex="-1"></a><span class="co">        The display name of your plugin in Processing.</span></span>
+<span id="cb167-24"><a href="08_harjoitus_8.html#cb167-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-25"><a href="08_harjoitus_8.html#cb167-25" aria-hidden="true" tabindex="-1"></a><span class="co">        This string should be as short as possible and localised.</span></span>
+<span id="cb167-26"><a href="08_harjoitus_8.html#cb167-26" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-27"><a href="08_harjoitus_8.html#cb167-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._name</span>
+<span id="cb167-28"><a href="08_harjoitus_8.html#cb167-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-29"><a href="08_harjoitus_8.html#cb167-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> load(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">bool</span>:</span>
+<span id="cb167-30"><a href="08_harjoitus_8.html#cb167-30" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.refreshAlgorithms()</span>
+<span id="cb167-31"><a href="08_harjoitus_8.html#cb167-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb167-32"><a href="08_harjoitus_8.html#cb167-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-33"><a href="08_harjoitus_8.html#cb167-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> icon(<span class="va">self</span>):</span>
+<span id="cb167-34"><a href="08_harjoitus_8.html#cb167-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-35"><a href="08_harjoitus_8.html#cb167-35" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a QIcon which is used for your provider inside the Processing toolbox.</span></span>
+<span id="cb167-36"><a href="08_harjoitus_8.html#cb167-36" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-37"><a href="08_harjoitus_8.html#cb167-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> QgsProcessingProvider.icon(<span class="va">self</span>)</span>
+<span id="cb167-38"><a href="08_harjoitus_8.html#cb167-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb167-39"><a href="08_harjoitus_8.html#cb167-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> loadAlgorithms(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb167-40"><a href="08_harjoitus_8.html#cb167-40" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb167-41"><a href="08_harjoitus_8.html#cb167-41" aria-hidden="true" tabindex="-1"></a><span class="co">        Adds individual processing algorithms to the provider.</span></span>
+<span id="cb167-42"><a href="08_harjoitus_8.html#cb167-42" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb167-43"><a href="08_harjoitus_8.html#cb167-43" aria-hidden="true" tabindex="-1"></a>        alg <span class="op">=</span> ProcessingAlgorithm()</span>
+<span id="cb167-44"><a href="08_harjoitus_8.html#cb167-44" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addAlgorithm(alg)</span></code></pre></div>
+</div>
+</div>
+<p>Tässä määritellään Providerin ominaisuudet, mm. nimi, ikoni ja tunniste.
+Ehkä tärkein funktio on kuitenkin <code>loadAlgorithms()</code>.
+Siinä lisätään varsinainen algoritmi provideriin. Algoritmi pitää
+ensin importoida, mikä on tehty tiedoston alussa. Jos provideriin
+kuuluu useampi algoritmi, ne kaikki tulee importoida ja lisätä
+<code>loadAlgorithms()</code>-funktioon.</p>
+<p>Itse <strong>provider</strong> lisätään QGISiin <code>test-plugin/testplugin/plugin.py</code>-tiedostossa.</p>
+<p><em>plugin.py (relevantit osiot):</em></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+tiedosto
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb168-1"><a href="08_harjoitus_8.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="co"># importoidaan Provider-luokka</span></span>
+<span id="cb168-2"><a href="08_harjoitus_8.html#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> testplugin.testplugin_processing.provider <span class="im">import</span> Provider</span>
+<span id="cb168-3"><a href="08_harjoitus_8.html#cb168-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-4"><a href="08_harjoitus_8.html#cb168-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ... #</span></span>
+<span id="cb168-5"><a href="08_harjoitus_8.html#cb168-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-6"><a href="08_harjoitus_8.html#cb168-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Alustetaan prosessointi</span></span>
+<span id="cb168-7"><a href="08_harjoitus_8.html#cb168-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initProcessing(<span class="va">self</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb168-8"><a href="08_harjoitus_8.html#cb168-8" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.provider <span class="op">=</span> Provider()</span>
+<span id="cb168-9"><a href="08_harjoitus_8.html#cb168-9" aria-hidden="true" tabindex="-1"></a>        QgsApplication.processingRegistry().addProvider(<span class="va">self</span>.provider)</span>
+<span id="cb168-10"><a href="08_harjoitus_8.html#cb168-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-11"><a href="08_harjoitus_8.html#cb168-11" aria-hidden="true" tabindex="-1"></a><span class="co"># initProcessing() kutsutaan täällä</span></span>
+<span id="cb168-12"><a href="08_harjoitus_8.html#cb168-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initGui(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb168-13"><a href="08_harjoitus_8.html#cb168-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># ... #</span></span>
+<span id="cb168-14"><a href="08_harjoitus_8.html#cb168-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.initProcessing()</span>
+<span id="cb168-15"><a href="08_harjoitus_8.html#cb168-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-16"><a href="08_harjoitus_8.html#cb168-16" aria-hidden="true" tabindex="-1"></a><span class="co"># ... #</span></span>
+<span id="cb168-17"><a href="08_harjoitus_8.html#cb168-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb168-18"><a href="08_harjoitus_8.html#cb168-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Jos lisäosa inaktivoidaan, poistetaan</span></span>
+<span id="cb168-19"><a href="08_harjoitus_8.html#cb168-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Provider rekisteristä</span></span>
+<span id="cb168-20"><a href="08_harjoitus_8.html#cb168-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> unload(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb168-21"><a href="08_harjoitus_8.html#cb168-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Removes the plugin menu item and icon from QGIS GUI.&quot;&quot;&quot;</span></span>
+<span id="cb168-22"><a href="08_harjoitus_8.html#cb168-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> action <span class="kw">in</span> <span class="va">self</span>.actions:</span>
+<span id="cb168-23"><a href="08_harjoitus_8.html#cb168-23" aria-hidden="true" tabindex="-1"></a>            iface.removePluginMenu(Plugin.name, action)</span>
+<span id="cb168-24"><a href="08_harjoitus_8.html#cb168-24" aria-hidden="true" tabindex="-1"></a>            iface.removeToolBarIcon(action)</span>
+<span id="cb168-25"><a href="08_harjoitus_8.html#cb168-25" aria-hidden="true" tabindex="-1"></a>        teardown_logger(Plugin.name)</span>
+<span id="cb168-26"><a href="08_harjoitus_8.html#cb168-26" aria-hidden="true" tabindex="-1"></a>        QgsApplication.processingRegistry().removeProvider(<span class="va">self</span>.provider)</span></code></pre></div>
+</div>
+</div>
+<p>Halutessaan lisäosaan voi myös lisätä useamman Provider-luokan.</p>
+</div>
+<div id="harjoitus-8.1-algoritmin-kirjoitus" class="section level2">
+<h2>Harjoitus 8.1: Algoritmin kirjoitus</h2>
+<p>Muokkaa <code>test-plugin/testplugin/testplugin_processing/processing_algorithm.py</code>-tiedostoon
+algoritmi, joka toimii seuraavasti:</p>
+<p><em>Parametrit:</em></p>
+<ul>
+<li>Lähtötaso (QgsProcessingParameterFeatureSource): vain pistevektoritasot hyväksytään.</li>
+<li>Pisteparametri (QgsProcessingParameterPoint)</li>
+<li>Tulostaso (QgsProcessingParameterFeatureSink)</li>
+</ul>
+<p><em>Prosessointi:</em></p>
+<ul>
+<li>Algoritmi laskee jokaisen lähtötason pistekohteelle etäisyyden käyttäjän
+valitsemasta pisteestä.</li>
+<li>Jos valitun pisteen koordinaattijärjestelmä poikkeaa lähtötason
+koordinaattijärjestelmästä, se muunnetaan oikeaan koordinaattijärjestelmään</li>
+<li>Tulostasolle lisätään kenttä “distance”, johon lasketaan kohteen etäisyys
+valitusta pisteestä
+<ul>
+<li>Muut lähtötason kentät ja kohteiden arvot säilytetään ennallaan!</li>
+</ul></li>
+<li>Päivitä edistymispalkkia ja lähetä tarvittaessa viestejä, esim. jos
+koordinaattijärjestelmää muunnetaan</li>
+</ul>
+<p><img src="img/harjoitus_8/image2.gif" /></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="08_harjoitus_8.html#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> __future__ <span class="im">import</span> annotations</span>
+<span id="cb169-2"><a href="08_harjoitus_8.html#cb169-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-3"><a href="08_harjoitus_8.html#cb169-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> typing <span class="im">import</span> Any</span>
+<span id="cb169-4"><a href="08_harjoitus_8.html#cb169-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-5"><a href="08_harjoitus_8.html#cb169-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (</span>
+<span id="cb169-6"><a href="08_harjoitus_8.html#cb169-6" aria-hidden="true" tabindex="-1"></a>    QgsCoordinateTransform,</span>
+<span id="cb169-7"><a href="08_harjoitus_8.html#cb169-7" aria-hidden="true" tabindex="-1"></a>    QgsFeature,</span>
+<span id="cb169-8"><a href="08_harjoitus_8.html#cb169-8" aria-hidden="true" tabindex="-1"></a>    QgsFeatureSink,</span>
+<span id="cb169-9"><a href="08_harjoitus_8.html#cb169-9" aria-hidden="true" tabindex="-1"></a>    QgsField,</span>
+<span id="cb169-10"><a href="08_harjoitus_8.html#cb169-10" aria-hidden="true" tabindex="-1"></a>    QgsGeometry,</span>
+<span id="cb169-11"><a href="08_harjoitus_8.html#cb169-11" aria-hidden="true" tabindex="-1"></a>    QgsProcessing,</span>
+<span id="cb169-12"><a href="08_harjoitus_8.html#cb169-12" aria-hidden="true" tabindex="-1"></a>    QgsProcessingAlgorithm,</span>
+<span id="cb169-13"><a href="08_harjoitus_8.html#cb169-13" aria-hidden="true" tabindex="-1"></a>    QgsProcessingContext,</span>
+<span id="cb169-14"><a href="08_harjoitus_8.html#cb169-14" aria-hidden="true" tabindex="-1"></a>    QgsProcessingFeedback,</span>
+<span id="cb169-15"><a href="08_harjoitus_8.html#cb169-15" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterFeatureSink,</span>
+<span id="cb169-16"><a href="08_harjoitus_8.html#cb169-16" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterFeatureSource,</span>
+<span id="cb169-17"><a href="08_harjoitus_8.html#cb169-17" aria-hidden="true" tabindex="-1"></a>    QgsProcessingParameterPoint,</span>
+<span id="cb169-18"><a href="08_harjoitus_8.html#cb169-18" aria-hidden="true" tabindex="-1"></a>    QgsProject,</span>
+<span id="cb169-19"><a href="08_harjoitus_8.html#cb169-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb169-20"><a href="08_harjoitus_8.html#cb169-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.PyQt.QtCore <span class="im">import</span> QCoreApplication, QVariant</span>
+<span id="cb169-21"><a href="08_harjoitus_8.html#cb169-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-22"><a href="08_harjoitus_8.html#cb169-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-23"><a href="08_harjoitus_8.html#cb169-23" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ProcessingAlgorithm(QgsProcessingAlgorithm):</span>
+<span id="cb169-24"><a href="08_harjoitus_8.html#cb169-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb169-25"><a href="08_harjoitus_8.html#cb169-25" aria-hidden="true" tabindex="-1"></a><span class="co">    Sample Plugin Algorithm.</span></span>
+<span id="cb169-26"><a href="08_harjoitus_8.html#cb169-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-27"><a href="08_harjoitus_8.html#cb169-27" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculates the shortest distance to a given point</span></span>
+<span id="cb169-28"><a href="08_harjoitus_8.html#cb169-28" aria-hidden="true" tabindex="-1"></a><span class="co">    for each feature in a point layer.</span></span>
+<span id="cb169-29"><a href="08_harjoitus_8.html#cb169-29" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb169-30"><a href="08_harjoitus_8.html#cb169-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-31"><a href="08_harjoitus_8.html#cb169-31" aria-hidden="true" tabindex="-1"></a>    INPUT_LAYER <span class="op">=</span> <span class="st">&quot;INPUT_LAYER&quot;</span></span>
+<span id="cb169-32"><a href="08_harjoitus_8.html#cb169-32" aria-hidden="true" tabindex="-1"></a>    POINT_INPUT <span class="op">=</span> <span class="st">&quot;POINT_INPUT&quot;</span></span>
+<span id="cb169-33"><a href="08_harjoitus_8.html#cb169-33" aria-hidden="true" tabindex="-1"></a>    OUTPUT <span class="op">=</span> <span class="st">&quot;OUTPUT&quot;</span></span>
+<span id="cb169-34"><a href="08_harjoitus_8.html#cb169-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-35"><a href="08_harjoitus_8.html#cb169-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="va">None</span>:</span>
+<span id="cb169-36"><a href="08_harjoitus_8.html#cb169-36" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb169-37"><a href="08_harjoitus_8.html#cb169-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-38"><a href="08_harjoitus_8.html#cb169-38" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._name <span class="op">=</span> <span class="st">&quot;samplepluginalgorithm&quot;</span></span>
+<span id="cb169-39"><a href="08_harjoitus_8.html#cb169-39" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._display_name <span class="op">=</span> <span class="st">&quot;Sample Plugin Algorithm&quot;</span></span>
+<span id="cb169-40"><a href="08_harjoitus_8.html#cb169-40" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._group_id <span class="op">=</span> <span class="st">&quot;group&quot;</span></span>
+<span id="cb169-41"><a href="08_harjoitus_8.html#cb169-41" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._group <span class="op">=</span> <span class="st">&quot;Group 1&quot;</span></span>
+<span id="cb169-42"><a href="08_harjoitus_8.html#cb169-42" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._short_help_string <span class="op">=</span> <span class="st">&quot;This is a sample algorithm.&quot;</span></span>
+<span id="cb169-43"><a href="08_harjoitus_8.html#cb169-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-44"><a href="08_harjoitus_8.html#cb169-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> tr(<span class="va">self</span>, string) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb169-45"><a href="08_harjoitus_8.html#cb169-45" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb169-46"><a href="08_harjoitus_8.html#cb169-46" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a translatable string with the self.tr() function.</span></span>
+<span id="cb169-47"><a href="08_harjoitus_8.html#cb169-47" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb169-48"><a href="08_harjoitus_8.html#cb169-48" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> QCoreApplication.translate(<span class="st">&quot;Processing&quot;</span>, string)</span>
+<span id="cb169-49"><a href="08_harjoitus_8.html#cb169-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-50"><a href="08_harjoitus_8.html#cb169-50" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> createInstance(<span class="va">self</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb169-51"><a href="08_harjoitus_8.html#cb169-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ProcessingAlgorithm()</span>
+<span id="cb169-52"><a href="08_harjoitus_8.html#cb169-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-53"><a href="08_harjoitus_8.html#cb169-53" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> name(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb169-54"><a href="08_harjoitus_8.html#cb169-54" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb169-55"><a href="08_harjoitus_8.html#cb169-55" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the algorithm name, used for identifying the algorithm. This</span></span>
+<span id="cb169-56"><a href="08_harjoitus_8.html#cb169-56" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb169-57"><a href="08_harjoitus_8.html#cb169-57" aria-hidden="true" tabindex="-1"></a><span class="co">        The name should be unique within each provider. Names should contain</span></span>
+<span id="cb169-58"><a href="08_harjoitus_8.html#cb169-58" aria-hidden="true" tabindex="-1"></a><span class="co">        lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb169-59"><a href="08_harjoitus_8.html#cb169-59" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb169-60"><a href="08_harjoitus_8.html#cb169-60" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb169-61"><a href="08_harjoitus_8.html#cb169-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._name</span>
+<span id="cb169-62"><a href="08_harjoitus_8.html#cb169-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-63"><a href="08_harjoitus_8.html#cb169-63" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> displayName(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb169-64"><a href="08_harjoitus_8.html#cb169-64" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb169-65"><a href="08_harjoitus_8.html#cb169-65" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the translated algorithm name, which should be used for any</span></span>
+<span id="cb169-66"><a href="08_harjoitus_8.html#cb169-66" aria-hidden="true" tabindex="-1"></a><span class="co">        user-visible display of the algorithm name.</span></span>
+<span id="cb169-67"><a href="08_harjoitus_8.html#cb169-67" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb169-68"><a href="08_harjoitus_8.html#cb169-68" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._display_name)</span>
+<span id="cb169-69"><a href="08_harjoitus_8.html#cb169-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-70"><a href="08_harjoitus_8.html#cb169-70" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> groupId(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb169-71"><a href="08_harjoitus_8.html#cb169-71" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb169-72"><a href="08_harjoitus_8.html#cb169-72" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the unique ID of the group this algorithm belongs to. This</span></span>
+<span id="cb169-73"><a href="08_harjoitus_8.html#cb169-73" aria-hidden="true" tabindex="-1"></a><span class="co">        string should be fixed for the algorithm, and must not be localised.</span></span>
+<span id="cb169-74"><a href="08_harjoitus_8.html#cb169-74" aria-hidden="true" tabindex="-1"></a><span class="co">        The group id should be unique within each provider. Group id should</span></span>
+<span id="cb169-75"><a href="08_harjoitus_8.html#cb169-75" aria-hidden="true" tabindex="-1"></a><span class="co">        contain lowercase alphanumeric characters only and no spaces or other</span></span>
+<span id="cb169-76"><a href="08_harjoitus_8.html#cb169-76" aria-hidden="true" tabindex="-1"></a><span class="co">        formatting characters.</span></span>
+<span id="cb169-77"><a href="08_harjoitus_8.html#cb169-77" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb169-78"><a href="08_harjoitus_8.html#cb169-78" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>._group_id</span>
+<span id="cb169-79"><a href="08_harjoitus_8.html#cb169-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-80"><a href="08_harjoitus_8.html#cb169-80" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> group(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:</span>
+<span id="cb169-81"><a href="08_harjoitus_8.html#cb169-81" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb169-82"><a href="08_harjoitus_8.html#cb169-82" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the name of the group this algorithm belongs to. This string</span></span>
+<span id="cb169-83"><a href="08_harjoitus_8.html#cb169-83" aria-hidden="true" tabindex="-1"></a><span class="co">        should be localised.</span></span>
+<span id="cb169-84"><a href="08_harjoitus_8.html#cb169-84" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb169-85"><a href="08_harjoitus_8.html#cb169-85" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._group)</span>
+<span id="cb169-86"><a href="08_harjoitus_8.html#cb169-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-87"><a href="08_harjoitus_8.html#cb169-87" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> shortHelpString(<span class="va">self</span>) <span class="op">-&gt;</span> <span class="bu">str</span>:  <span class="co"># noqa N802</span></span>
+<span id="cb169-88"><a href="08_harjoitus_8.html#cb169-88" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb169-89"><a href="08_harjoitus_8.html#cb169-89" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a localised short helper string for the algorithm. This string</span></span>
+<span id="cb169-90"><a href="08_harjoitus_8.html#cb169-90" aria-hidden="true" tabindex="-1"></a><span class="co">        should provide a basic description about what the algorithm does and the</span></span>
+<span id="cb169-91"><a href="08_harjoitus_8.html#cb169-91" aria-hidden="true" tabindex="-1"></a><span class="co">        parameters and outputs associated with it..</span></span>
+<span id="cb169-92"><a href="08_harjoitus_8.html#cb169-92" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb169-93"><a href="08_harjoitus_8.html#cb169-93" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="va">self</span>._short_help_string)</span>
+<span id="cb169-94"><a href="08_harjoitus_8.html#cb169-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-95"><a href="08_harjoitus_8.html#cb169-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initAlgorithm(<span class="va">self</span>, config<span class="op">=</span><span class="va">None</span>):  <span class="co"># noqa N802</span></span>
+<span id="cb169-96"><a href="08_harjoitus_8.html#cb169-96" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb169-97"><a href="08_harjoitus_8.html#cb169-97" aria-hidden="true" tabindex="-1"></a><span class="co">        Here we define the inputs and output of the algorithm, along</span></span>
+<span id="cb169-98"><a href="08_harjoitus_8.html#cb169-98" aria-hidden="true" tabindex="-1"></a><span class="co">        with some other properties.</span></span>
+<span id="cb169-99"><a href="08_harjoitus_8.html#cb169-99" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb169-100"><a href="08_harjoitus_8.html#cb169-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-101"><a href="08_harjoitus_8.html#cb169-101" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb169-102"><a href="08_harjoitus_8.html#cb169-102" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSource(</span>
+<span id="cb169-103"><a href="08_harjoitus_8.html#cb169-103" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.INPUT_LAYER,</span>
+<span id="cb169-104"><a href="08_harjoitus_8.html#cb169-104" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&quot;Input layer&quot;</span>),</span>
+<span id="cb169-105"><a href="08_harjoitus_8.html#cb169-105" aria-hidden="true" tabindex="-1"></a>                [QgsProcessing.TypeVectorPoint],</span>
+<span id="cb169-106"><a href="08_harjoitus_8.html#cb169-106" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb169-107"><a href="08_harjoitus_8.html#cb169-107" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb169-108"><a href="08_harjoitus_8.html#cb169-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-109"><a href="08_harjoitus_8.html#cb169-109" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb169-110"><a href="08_harjoitus_8.html#cb169-110" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterPoint(</span>
+<span id="cb169-111"><a href="08_harjoitus_8.html#cb169-111" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.POINT_INPUT,</span>
+<span id="cb169-112"><a href="08_harjoitus_8.html#cb169-112" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&quot;Point&quot;</span>),</span>
+<span id="cb169-113"><a href="08_harjoitus_8.html#cb169-113" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb169-114"><a href="08_harjoitus_8.html#cb169-114" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb169-115"><a href="08_harjoitus_8.html#cb169-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-116"><a href="08_harjoitus_8.html#cb169-116" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb169-117"><a href="08_harjoitus_8.html#cb169-117" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSink(</span>
+<span id="cb169-118"><a href="08_harjoitus_8.html#cb169-118" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.OUTPUT,</span>
+<span id="cb169-119"><a href="08_harjoitus_8.html#cb169-119" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&quot;Output layer&quot;</span>),</span>
+<span id="cb169-120"><a href="08_harjoitus_8.html#cb169-120" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb169-121"><a href="08_harjoitus_8.html#cb169-121" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb169-122"><a href="08_harjoitus_8.html#cb169-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-123"><a href="08_harjoitus_8.html#cb169-123" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> processAlgorithm(  <span class="co"># noqa N802</span></span>
+<span id="cb169-124"><a href="08_harjoitus_8.html#cb169-124" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>,</span>
+<span id="cb169-125"><a href="08_harjoitus_8.html#cb169-125" aria-hidden="true" tabindex="-1"></a>        parameters: <span class="bu">dict</span>[<span class="bu">str</span>, Any],</span>
+<span id="cb169-126"><a href="08_harjoitus_8.html#cb169-126" aria-hidden="true" tabindex="-1"></a>        context: QgsProcessingContext,</span>
+<span id="cb169-127"><a href="08_harjoitus_8.html#cb169-127" aria-hidden="true" tabindex="-1"></a>        feedback: QgsProcessingFeedback,</span>
+<span id="cb169-128"><a href="08_harjoitus_8.html#cb169-128" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">-&gt;</span> <span class="bu">dict</span>:</span>
+<span id="cb169-129"><a href="08_harjoitus_8.html#cb169-129" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb169-130"><a href="08_harjoitus_8.html#cb169-130" aria-hidden="true" tabindex="-1"></a><span class="co">        Here is where the processing itself takes place.</span></span>
+<span id="cb169-131"><a href="08_harjoitus_8.html#cb169-131" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb169-132"><a href="08_harjoitus_8.html#cb169-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-133"><a href="08_harjoitus_8.html#cb169-133" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> feedback <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb169-134"><a href="08_harjoitus_8.html#cb169-134" aria-hidden="true" tabindex="-1"></a>            feedback <span class="op">=</span> QgsProcessingFeedback()</span>
+<span id="cb169-135"><a href="08_harjoitus_8.html#cb169-135" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-136"><a href="08_harjoitus_8.html#cb169-136" aria-hidden="true" tabindex="-1"></a>        source <span class="op">=</span> <span class="va">self</span>.parameterAsSource(parameters, <span class="va">self</span>.INPUT_LAYER, context)</span>
+<span id="cb169-137"><a href="08_harjoitus_8.html#cb169-137" aria-hidden="true" tabindex="-1"></a>        point <span class="op">=</span> <span class="va">self</span>.parameterAsPoint(parameters, <span class="va">self</span>.POINT_INPUT, context)</span>
+<span id="cb169-138"><a href="08_harjoitus_8.html#cb169-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-139"><a href="08_harjoitus_8.html#cb169-139" aria-hidden="true" tabindex="-1"></a>        point_crs <span class="op">=</span> <span class="va">self</span>.parameterAsPointCrs(parameters, <span class="va">self</span>.POINT_INPUT, context)</span>
+<span id="cb169-140"><a href="08_harjoitus_8.html#cb169-140" aria-hidden="true" tabindex="-1"></a>        source_crs <span class="op">=</span> source.sourceCrs()</span>
+<span id="cb169-141"><a href="08_harjoitus_8.html#cb169-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-142"><a href="08_harjoitus_8.html#cb169-142" aria-hidden="true" tabindex="-1"></a>        point_geom <span class="op">=</span> QgsGeometry.fromPointXY(point)</span>
+<span id="cb169-143"><a href="08_harjoitus_8.html#cb169-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-144"><a href="08_harjoitus_8.html#cb169-144" aria-hidden="true" tabindex="-1"></a>        feedback.pushInfo(<span class="ss">f&quot;Calculating distance to point at </span><span class="sc">{</span>point<span class="sc">.</span>x()<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>point<span class="sc">.</span>y()<span class="sc">}</span><span class="ss">.&quot;</span>)</span>
+<span id="cb169-145"><a href="08_harjoitus_8.html#cb169-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-146"><a href="08_harjoitus_8.html#cb169-146" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> point_crs <span class="op">!=</span> source_crs:</span>
+<span id="cb169-147"><a href="08_harjoitus_8.html#cb169-147" aria-hidden="true" tabindex="-1"></a>            feedback.pushWarning(</span>
+<span id="cb169-148"><a href="08_harjoitus_8.html#cb169-148" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f&quot;Coordinate systems do not match!</span><span class="ch">\</span></span>
+<span id="cb169-149"><a href="08_harjoitus_8.html#cb169-149" aria-hidden="true" tabindex="-1"></a><span class="ss">                Transforming point from </span><span class="sc">{</span>point_crs<span class="sc">.</span>authid()<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>source_crs<span class="sc">.</span>authid()<span class="sc">}</span><span class="ss">.&quot;</span></span>
+<span id="cb169-150"><a href="08_harjoitus_8.html#cb169-150" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb169-151"><a href="08_harjoitus_8.html#cb169-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-152"><a href="08_harjoitus_8.html#cb169-152" aria-hidden="true" tabindex="-1"></a>            transform <span class="op">=</span> QgsCoordinateTransform(point_crs, source_crs, QgsProject.instance())</span>
+<span id="cb169-153"><a href="08_harjoitus_8.html#cb169-153" aria-hidden="true" tabindex="-1"></a>            point_geom.transform(transform)</span>
+<span id="cb169-154"><a href="08_harjoitus_8.html#cb169-154" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-155"><a href="08_harjoitus_8.html#cb169-155" aria-hidden="true" tabindex="-1"></a>        output_layer_fields <span class="op">=</span> source.fields()</span>
+<span id="cb169-156"><a href="08_harjoitus_8.html#cb169-156" aria-hidden="true" tabindex="-1"></a>        distance_field <span class="op">=</span> QgsField(<span class="st">&quot;distance&quot;</span>, QVariant.Double)</span>
+<span id="cb169-157"><a href="08_harjoitus_8.html#cb169-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-158"><a href="08_harjoitus_8.html#cb169-158" aria-hidden="true" tabindex="-1"></a>        output_layer_fields.append(distance_field)</span>
+<span id="cb169-159"><a href="08_harjoitus_8.html#cb169-159" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-160"><a href="08_harjoitus_8.html#cb169-160" aria-hidden="true" tabindex="-1"></a>        (sink, dest_id) <span class="op">=</span> <span class="va">self</span>.parameterAsSink(</span>
+<span id="cb169-161"><a href="08_harjoitus_8.html#cb169-161" aria-hidden="true" tabindex="-1"></a>            parameters,</span>
+<span id="cb169-162"><a href="08_harjoitus_8.html#cb169-162" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.OUTPUT,</span>
+<span id="cb169-163"><a href="08_harjoitus_8.html#cb169-163" aria-hidden="true" tabindex="-1"></a>            context,</span>
+<span id="cb169-164"><a href="08_harjoitus_8.html#cb169-164" aria-hidden="true" tabindex="-1"></a>            output_layer_fields,</span>
+<span id="cb169-165"><a href="08_harjoitus_8.html#cb169-165" aria-hidden="true" tabindex="-1"></a>            source.wkbType(),</span>
+<span id="cb169-166"><a href="08_harjoitus_8.html#cb169-166" aria-hidden="true" tabindex="-1"></a>            source_crs,</span>
+<span id="cb169-167"><a href="08_harjoitus_8.html#cb169-167" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb169-168"><a href="08_harjoitus_8.html#cb169-168" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-169"><a href="08_harjoitus_8.html#cb169-169" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="fl">100.0</span> <span class="op">/</span> source.featureCount() <span class="cf">if</span> source.featureCount() <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb169-170"><a href="08_harjoitus_8.html#cb169-170" aria-hidden="true" tabindex="-1"></a>        features <span class="op">=</span> source.getFeatures()</span>
+<span id="cb169-171"><a href="08_harjoitus_8.html#cb169-171" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-172"><a href="08_harjoitus_8.html#cb169-172" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> current, feature <span class="kw">in</span> <span class="bu">enumerate</span>(features):</span>
+<span id="cb169-173"><a href="08_harjoitus_8.html#cb169-173" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> feedback.isCanceled():</span>
+<span id="cb169-174"><a href="08_harjoitus_8.html#cb169-174" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb169-175"><a href="08_harjoitus_8.html#cb169-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-176"><a href="08_harjoitus_8.html#cb169-176" aria-hidden="true" tabindex="-1"></a>            new_feature <span class="op">=</span> feature</span>
+<span id="cb169-177"><a href="08_harjoitus_8.html#cb169-177" aria-hidden="true" tabindex="-1"></a>            feature.setFields(output_layer_fields, <span class="va">False</span>)</span>
+<span id="cb169-178"><a href="08_harjoitus_8.html#cb169-178" aria-hidden="true" tabindex="-1"></a>            new_feature.resizeAttributes(new_feature.fields().size())</span>
+<span id="cb169-179"><a href="08_harjoitus_8.html#cb169-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-180"><a href="08_harjoitus_8.html#cb169-180" aria-hidden="true" tabindex="-1"></a>            feature_geom <span class="op">=</span> feature.geometry()</span>
+<span id="cb169-181"><a href="08_harjoitus_8.html#cb169-181" aria-hidden="true" tabindex="-1"></a>            distance <span class="op">=</span> feature_geom.distance(point_geom)</span>
+<span id="cb169-182"><a href="08_harjoitus_8.html#cb169-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-183"><a href="08_harjoitus_8.html#cb169-183" aria-hidden="true" tabindex="-1"></a>            new_feature.setGeometry(feature_geom)</span>
+<span id="cb169-184"><a href="08_harjoitus_8.html#cb169-184" aria-hidden="true" tabindex="-1"></a>            new_feature.setAttribute(<span class="st">&quot;distance&quot;</span>, <span class="bu">round</span>(distance, <span class="dv">2</span>))</span>
+<span id="cb169-185"><a href="08_harjoitus_8.html#cb169-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-186"><a href="08_harjoitus_8.html#cb169-186" aria-hidden="true" tabindex="-1"></a>            sink.addFeature(new_feature, QgsFeatureSink.FastInsert)</span>
+<span id="cb169-187"><a href="08_harjoitus_8.html#cb169-187" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-188"><a href="08_harjoitus_8.html#cb169-188" aria-hidden="true" tabindex="-1"></a>            feedback.setProgress(<span class="bu">int</span>(current <span class="op">*</span> total))</span>
+<span id="cb169-189"><a href="08_harjoitus_8.html#cb169-189" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb169-190"><a href="08_harjoitus_8.html#cb169-190" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="va">self</span>.OUTPUT: dest_id}</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="harjoitus-8.2-testit-algoritmille" class="section level2">
+<h2>Harjoitus 8.2: Testit algoritmille</h2>
+<p>Luo tiedosto <code>test-plugin/tests/test_processing_algorithm</code>.
+Kirjoita testi, joka testaa ainakin sen että tulostason pisteelle
+laskettiin oikea etäisyys. Voit käyttää tätä pohjaa:</p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+pohja
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb170"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb170-1"><a href="08_harjoitus_8.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis <span class="im">import</span> processing</span>
+<span id="cb170-2"><a href="08_harjoitus_8.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsWkbTypes</span>
+<span id="cb170-3"><a href="08_harjoitus_8.html#cb170-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-4"><a href="08_harjoitus_8.html#cb170-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sampleplugin.sampleplugin_processing.provider <span class="im">import</span> Provider</span>
+<span id="cb170-5"><a href="08_harjoitus_8.html#cb170-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-6"><a href="08_harjoitus_8.html#cb170-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-7"><a href="08_harjoitus_8.html#cb170-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_sample_algorithm(qgis_app, qgis_processing, point_layer):  <span class="co"># noqa: ARG001</span></span>
+<span id="cb170-8"><a href="08_harjoitus_8.html#cb170-8" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> Provider()</span>
+<span id="cb170-9"><a href="08_harjoitus_8.html#cb170-9" aria-hidden="true" tabindex="-1"></a>    qgis_app.processingRegistry().addProvider(provider)</span>
+<span id="cb170-10"><a href="08_harjoitus_8.html#cb170-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-11"><a href="08_harjoitus_8.html#cb170-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Kutsu algoritmia</span></span>
+<span id="cb170-12"><a href="08_harjoitus_8.html#cb170-12" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> processing.run(</span>
+<span id="cb170-13"><a href="08_harjoitus_8.html#cb170-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;myprovider:myprocessingalgorithm&quot;</span>,</span>
+<span id="cb170-14"><a href="08_harjoitus_8.html#cb170-14" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb170-15"><a href="08_harjoitus_8.html#cb170-15" aria-hidden="true" tabindex="-1"></a>            <span class="op">&lt;</span>parametrit<span class="op">&gt;</span></span>
+<span id="cb170-16"><a href="08_harjoitus_8.html#cb170-16" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb170-17"><a href="08_harjoitus_8.html#cb170-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb170-18"><a href="08_harjoitus_8.html#cb170-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-19"><a href="08_harjoitus_8.html#cb170-19" aria-hidden="true" tabindex="-1"></a>    output_layer <span class="op">=</span> result[<span class="st">&quot;OUTPUT&quot;</span>]</span>
+<span id="cb170-20"><a href="08_harjoitus_8.html#cb170-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-21"><a href="08_harjoitus_8.html#cb170-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Hae tulostasolta kohde ja</span></span>
+<span id="cb170-22"><a href="08_harjoitus_8.html#cb170-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># tarkista tulokset</span></span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="08_harjoitus_8.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis <span class="im">import</span> processing</span>
+<span id="cb171-2"><a href="08_harjoitus_8.html#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> QgsWkbTypes</span>
+<span id="cb171-3"><a href="08_harjoitus_8.html#cb171-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-4"><a href="08_harjoitus_8.html#cb171-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sampleplugin.sampleplugin_processing.provider <span class="im">import</span> Provider</span>
+<span id="cb171-5"><a href="08_harjoitus_8.html#cb171-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-6"><a href="08_harjoitus_8.html#cb171-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-7"><a href="08_harjoitus_8.html#cb171-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_sample_algorithm(qgis_app, qgis_processing, point_layer):  <span class="co"># noqa: ARG001</span></span>
+<span id="cb171-8"><a href="08_harjoitus_8.html#cb171-8" aria-hidden="true" tabindex="-1"></a>    provider <span class="op">=</span> Provider()</span>
+<span id="cb171-9"><a href="08_harjoitus_8.html#cb171-9" aria-hidden="true" tabindex="-1"></a>    qgis_app.processingRegistry().addProvider(provider)</span>
+<span id="cb171-10"><a href="08_harjoitus_8.html#cb171-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-11"><a href="08_harjoitus_8.html#cb171-11" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> processing.run(</span>
+<span id="cb171-12"><a href="08_harjoitus_8.html#cb171-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;myprovider:myprocessingalgorithm&quot;</span>,</span>
+<span id="cb171-13"><a href="08_harjoitus_8.html#cb171-13" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb171-14"><a href="08_harjoitus_8.html#cb171-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;INPUT_LAYER&quot;</span>: point_layer,</span>
+<span id="cb171-15"><a href="08_harjoitus_8.html#cb171-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;POINT_INPUT&quot;</span>: <span class="st">&quot;1, 0 [EPSG:4326]&quot;</span>,</span>
+<span id="cb171-16"><a href="08_harjoitus_8.html#cb171-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;OUTPUT&quot;</span>: <span class="st">&quot;TEMPORARY_OUTPUT&quot;</span>,</span>
+<span id="cb171-17"><a href="08_harjoitus_8.html#cb171-17" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb171-18"><a href="08_harjoitus_8.html#cb171-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb171-19"><a href="08_harjoitus_8.html#cb171-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-20"><a href="08_harjoitus_8.html#cb171-20" aria-hidden="true" tabindex="-1"></a>    output_layer <span class="op">=</span> result[<span class="st">&quot;OUTPUT&quot;</span>]</span>
+<span id="cb171-21"><a href="08_harjoitus_8.html#cb171-21" aria-hidden="true" tabindex="-1"></a>    point_feature <span class="op">=</span> output_layer.getFeature(<span class="dv">1</span>)</span>
+<span id="cb171-22"><a href="08_harjoitus_8.html#cb171-22" aria-hidden="true" tabindex="-1"></a>    point_feature_distance <span class="op">=</span> point_feature.attribute(<span class="st">&quot;distance&quot;</span>)</span>
+<span id="cb171-23"><a href="08_harjoitus_8.html#cb171-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-24"><a href="08_harjoitus_8.html#cb171-24" aria-hidden="true" tabindex="-1"></a>    expected_distance <span class="op">=</span> <span class="fl">1.0</span></span>
+<span id="cb171-25"><a href="08_harjoitus_8.html#cb171-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb171-26"><a href="08_harjoitus_8.html#cb171-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> output_layer.featureCount() <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb171-27"><a href="08_harjoitus_8.html#cb171-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> output_layer.crs().authid() <span class="op">==</span> <span class="st">&quot;EPSG:4326&quot;</span></span>
+<span id="cb171-28"><a href="08_harjoitus_8.html#cb171-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> output_layer.wkbType() <span class="op">==</span> QgsWkbTypes.Point</span>
+<span id="cb171-29"><a href="08_harjoitus_8.html#cb171-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> point_feature_distance <span class="op">==</span> expected_distance</span></code></pre></div>
+</div>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="07_harjoitus_7.html"><button class="btn btn-default">Previous</button></a>
+<a href="09_lisatehtavia_9.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS-lisäosien kehitys</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

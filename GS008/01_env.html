@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="1. Training environment | Advanced GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Mikael Vaaltola" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="1. Training environment | Advanced GeoServer">
+
+<title>1. Training environment | Advanced GeoServer</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Advanced GeoServer</h1></div>
+<div class="abstract-sidebar"><p>A course covering advanced GeoServer topics.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#advanced-geoserver">Advanced GeoServer</a>
+<ul>
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_env.html#training-environment">1. Training environment</a>
+<ul>
+<li><a href="01_env.html#tools">Useful tools to install</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_security.html#security-and-user-management">2. Security and user management</a>
+<ul>
+<li class="has-sub"><a href="02_security.html#exercise---layer-security">Exercise - layer security</a>
+<ul>
+<li><a href="02_security.html#permissions">Check default permissions</a></li>
+<li><a href="02_security.html#prevent-unauthenticated-access">Prevent unauthenticated access</a></li>
+<li><a href="02_security.html#verify-rules">Verify rules</a></li>
+</ul></li>
+<li><a href="02_security.html#extra-service-level-settings">Extra — service-level settings</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_raster.html#rasters">3. Optimising rasters</a>
+<ul>
+<li class="has-sub"><a href="03_raster.html#gdal">GDAL</a>
+<ul>
+<li><a href="03_raster.html#setup">Setup</a></li>
+<li><a href="03_raster.html#gdalinfo">gdalinfo</a></li>
+</ul></li>
+<li><a href="03_raster.html#exercise-optimising-raster-data-for-geoserver">Exercise — Optimising raster data for GeoServer</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_vector.html#vectors">4. Optimising vector data</a>
+<ul>
+<li class="has-sub"><a href="04_vector.html#exercise---postgis-and-geoserver">Exercise - PostGIS and GeoServer</a>
+<ul>
+<li><a href="04_vector.html#loading-data-into-postgis">Loading data into PostGIS</a></li>
+<li><a href="04_vector.html#indexing">Indexing</a></li>
+<li><a href="04_vector.html#publish-to-geoserver">Publish to GeoServer</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="05_styles.html#styles">5. Map styles</a>
+<ul>
+<li><a href="05_styles.html#choosing-a-style-format">Choosing a style format</a></li>
+<li><a href="05_styles.html#exercise-creating-styles">Exercise — creating styles</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_clustering.html#cluster">6. Clustering</a>
+<ul>
+<li><a href="06_clustering.html#containerisation">Containerisation</a></li>
+<li><a href="06_clustering.html#passive-cluster">Passive clustering</a></li>
+<li><a href="06_clustering.html#active-cluster">Active clustering</a></li>
+<li><a href="06_clustering.html#data-and-configuration-concerns">Data and configuration concerns</a></li>
+<li><a href="06_clustering.html#exercise---clustering">Exercise - clustering</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_rest.html#rest">7. GeoServer REST API</a>
+<ul>
+<li><a href="07_rest.html#using-apis">Using APIs</a></li>
+<li><a href="07_rest.html#exercise-rest-api">Exercise — REST API</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_extensions.html#extensions">8. Extensions</a>
+<ul>
+<li><a href="08_extensions.html#gs-tools">Useful tools</a></li>
+<li><a href="08_extensions.html#jmeter">Exercise - JMeter</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="training-environment" class="section level1">
+<h1>1. Training environment</h1>
+<p>First, let’s ensure access to the GeoServer training environment.
+If you are following these materials while participating on the Advanced GeoServer course, you are provided your own virtual machine hosted on Amazon Web Services (AWS).
+The base URL of this instance is provided to you by your course instructor, this is referred to later on as base-url.
+To access GeoServer, navigate to <code>http://&lt;base-url&gt;/geoserver</code> with your web browser of choice.
+You can log in to your GeoServer instance as an administrator with the following credentials:</p>
+<pre><code>username: admin
+password: gispotraining</code></pre>
+<hr />
+<p>Alternatively, you can also install GeoServer on your local machine.
+An easy way to do this is to use Docker, we recommend using the latest version of the <a href="https://hub.docker.com/r/kartoza/geoserver">kartoza/geoserver</a> image.
+Start a new container with the command:</p>
+<pre><code>docker run --name geoserver\
+-e SAMPLE_DATA=true\
+-e GEOSERVER_ADMIN_PASSWORD=gispotraining\
+--rm kartoza/geoserver:latest</code></pre>
+<p>After startup, GS is accessible at <a href="http://localhost:8080/geoserver">http://localhost:8080/</a> and you can log in with the credentials above.</p>
+<p>If you don’t have Docker available, another option is to install and set up Apache Tomcat 9 and OpenJDK 11.
+Download the Web Archive (.war) of the latest GS version on <a href="https://geoserver.org">geoserver.org</a> and place it in the Tomcat webapps directory.
+Restart Tomcat, after which GeoServer should be accessible.</p>
+<div id="tools" class="section level2">
+<h2>Useful tools to install</h2>
+<p>Parts of this course will cover optimising raster and vector spatial data.
+For these parts, it is useful to have some tools locally available.
+It’s also highly useful to have a desktop GIS installed to act as a client application to test the various services provided by GeoServer.</p>
+<p>QGIS is a free open-source desktop GIS that can be easily installed on Linux, Windows, and Mac.
+You can use QGIS as a WMS/WFS client to see how the different services provided by GS work.
+Download and install the latest version of QGIS at <a href="https://qgis.org">qgis.org</a>.</p>
+<p>Alternatively, you can also use other GIS software with WMS/WFS support.
+If you don’t have access to GIS software, you can still rely on the Layer Preview functionality of GeoServer to view data.</p>
+<p>GDAL and OGR are libraries that provide useful tools for processing raster and vector spatial data, respectively.
+The easiest way to install GDAL/OGR on Windows is to simply install QGIS.
+A standard QGIS installation should also install the OSGeo4W Shell.
+Opening the OSGeo4W shell from the Start menu brings up a new terminal window where GDAL and OGR commands are available to be used.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="index.html"><button class="btn btn-default">Previous</button></a>
+<a href="02_security.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Advanced GeoServer</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

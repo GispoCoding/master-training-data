@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 5: Visualisointi | QGIS kertaus" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-11-05" />
+
+
+<meta name="description" content="Harjoitus 5: Visualisointi | QGIS kertaus">
+
+<title>Harjoitus 5: Visualisointi | QGIS kertaus</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS kertaus</h1></div>
+<div class="abstract-sidebar"><p>QGISin kertauskurssi</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-kertaus">QGIS kertaus</a>
+<ul>
+<li><a href="index.html#kurssimateriaalien-lataaminen">Kurssimateriaalien lataaminen</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-profiilit">Harjoitus 1: Profiilit</a>
+<ul>
+<li><a href="01_harjoitus_1.html#uuden-profiilin-luominen">Uuden profiilin luominen</a></li>
+<li><a href="01_harjoitus_1.html#profiilin-poistaminen">Profiilin poistaminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-paikkatietoaineistot-ja-niiden-avaaminen">Harjoitus 2: Paikkatietoaineistot ja niiden avaaminen</a>
+<ul>
+<li><a href="02_harjoitus_2.html#shapefilen-ja-geopackagen-erot">Shapefilen ja GeoPackagen erot</a></li>
+<li><a href="02_harjoitus_2.html#paikkatietoaineistojen-avaaminen">Paikkatietoaineistojen avaaminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-paikkatietopalvelut">Harjoitus 3: Paikkatietopalvelut</a>
+<ul>
+<li><a href="03_harjoitus_3.html#wms-palvelu">WMS-palvelu</a></li>
+<li><a href="03_harjoitus_3.html#wfs-palvelu">WFS-palvelu</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-digitointi-ja-editointi">Harjoitus 4: Digitointi ja editointi</a>
+<ul>
+<li><a href="04_harjoitus_4.html#uusien-aineistojen-luominen">Uusien aineistojen luominen</a></li>
+<li><a href="04_harjoitus_4.html#tarttumisen-työkalut">Tarttumisen työkalut</a></li>
+</ul></li>
+<li><a href="05_harjoitus_5.html#harjoitus-5-visualisointi">Harjoitus 5: Visualisointi</a></li>
+<li><a href="06_harjoitus_6.html#harjoitus-6-karttatuloste">Harjoitus 6: Karttatuloste</a></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-5-visualisointi" class="section level1">
+<h1>Harjoitus 5: Visualisointi</h1>
+<p>Paikkatietoaineistojen visualisointi on keskeinen osa karttajulkaisuiden tekoa, sillä tasojen piirtotyyli vaikuttaa olennaisesti siihen miltä kartta näyttää. Palautetaan mieleen, miten vektoriaineistoja visualisoidaan QGISissä. Tässä harjoituksessa kerrataan visualisoinnin perusteet.</p>
+<ol style="list-style-type: decimal">
+<li>Avaa harjoitusmateriaalin QGIS_kertaus projekti Retkeilydata-GeoPackagen kautta.</li>
+</ol>
+<p><img src="img/harjoitus_5/image1.png" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Paina hiiren oikealla painikkeella Retkeilydata_laavu_kota_kammi -tason päällä ja valitse auenneesta listasta <strong>Ominaisuudet</strong>, jolloin <strong>Tason ominaisuudet</strong> -ikkuna aukeaa.</li>
+</ol>
+<p><img src="img/harjoitus_5/image2.png" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Valitse auenneen ikkunan vasemmasta laidasta Kuvaustekniikka, jolloin pääset muokkaamaan tason kuvaustekniikkaa.</li>
+</ol>
+<p><img src="img/harjoitus_5/image3.png" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Vaihda kohteen väri ja koko mieleiseksi. Painamalla <strong>Käytä</strong>, näet muutokset kartalla.</p></li>
+<li><p>Kokeile erilaisia tyylejä.</p></li>
+<li><p>Kun olet tyytyväinen muutoksiin paina <strong>OK</strong>.</p></li>
+<li><p>Pääset muuttamaan kuvaustekniikkaa myös Tasot-paneelin pensseli-kuvakkeen kautta. Paina pensselin kuvaa ja koita muuttaa kuvaustekniikkaa tätä kautta. Mitä eroja huomaat kuvaustekniikan muuttamisessa tätä kautta?</p></li>
+</ol>
+<p><img src="img/harjoitus_5/image4.png" /></p>
+<ol start="8" style="list-style-type: decimal">
+<li><p>Muuta vielä viiva- ja aluekohteiden kuvaustekniikka mieleiseksi.</p></li>
+<li><p>Tallenna projekti nimellä Harj5 valitsemalla <strong>Projekti → Tallenna nimellä</strong>.</p></li>
+</ol>
+<p><img src="img/harjoitus_5/image5.png" /></p>
+
+</div>
+<p style="text-align: center;">
+<a href="04_harjoitus_4.html"><button class="btn btn-default">Previous</button></a>
+<a href="06_harjoitus_6.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS kertaus</h5>
+<span class="footer-version">v2025-11-05</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

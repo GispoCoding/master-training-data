@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Exercise 8: Plugins in QGIS | Introduction to QGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Exercise 8: Plugins in QGIS | Introduction to QGIS">
+
+<title>Exercise 8: Plugins in QGIS | Introduction to QGIS</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to QGIS</h1></div>
+<div class="abstract-sidebar"><p>Basic course on QGIS</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#introduction-to-qgis">Introduction to QGIS</a>
+<ul>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-user-interface-of-qgis">Exercise 1: User interface of QGIS</a>
+<ul>
+<li><a href="01_exercise_1.html#downloading-course-materials">Downloading course materials</a></li>
+<li><a href="01_exercise_1.html#qgis-user-interface">QGIS user interface</a></li>
+<li><a href="01_exercise_1.html#try-the-tools-yourself">Try the tools yourself</a></li>
+<li><a href="01_exercise_1.html#attribute-table">Attribute table</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-geographic-data-and-online-data-services">Exercise 2: Geographic data and online data services</a>
+<ul>
+<li><a href="02_exercise_2.html#exercise-content">Exercise content</a></li>
+<li><a href="02_exercise_2.html#the-goal-of-the-exercise">The goal of the exercise</a></li>
+<li><a href="02_exercise_2.html#preparations">Preparations</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wms">Connecting to a WMS</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wfs">Connecting to a WFS</a></li>
+<li><a href="02_exercise_2.html#bonus-building-sql-query-for-wfs">Bonus: Building SQL query for WFS</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-visualizing-and-classifying-geographic-data-sets">Exercise 3: Visualizing and classifying geographic data sets</a>
+<ul>
+<li><a href="03_exercise_3.html#exercise-content-1">Exercise content</a></li>
+<li><a href="03_exercise_3.html#the-goal-of-the-exercise-1">The goal of the exercise</a></li>
+<li><a href="03_exercise_3.html#preparations-1">Preparations</a></li>
+<li><a href="03_exercise_3.html#visualizing-vector-data">Visualizing vector data</a></li>
+<li><a href="03_exercise_3.html#visualizing-line-data-sets">Visualizing line data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-point-data-sets">Visualizing point data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-polygon-data-sets">Visualizing polygon data sets</a></li>
+<li><a href="03_exercise_3.html#changing-symbols">Changing symbols</a></li>
+<li><a href="03_exercise_3.html#scale-dependent-symbols">Scale dependent symbols</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-labeling-and-classifying-geographic-data">Exercise 4: Labeling and classifying geographic data</a>
+<ul>
+<li><a href="04_exercise_4.html#exercise-content-2">Exercise content</a></li>
+<li><a href="04_exercise_4.html#the-goal-of-the-exercise-2">The goal of the exercise</a></li>
+<li><a href="04_exercise_4.html#preparations-2">Preparations</a></li>
+<li><a href="04_exercise_4.html#label-settings">Label settings</a></li>
+<li><a href="04_exercise_4.html#styling-label-texts">Styling label texts</a></li>
+<li><a href="04_exercise_4.html#labeling-line-layers">Labeling line layers</a></li>
+<li><a href="04_exercise_4.html#classifying-vector-data">Classifying vector data</a></li>
+<li><a href="04_exercise_4.html#bonus-classifying-raster-data">Bonus: Classifying raster data</a></li>
+<li><a href="04_exercise_4.html#bonus-label-rendering">Bonus: Label rendering</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-print-layout">Exercise 5: Print layout</a>
+<ul>
+<li><a href="05_exercise_5.html#exercise-content-3">Exercise content</a></li>
+<li><a href="05_exercise_5.html#the-goal-of-the-exercise-3">The goal of the exercise</a></li>
+<li><a href="05_exercise_5.html#preparations-3">Preparations</a></li>
+<li><a href="05_exercise_5.html#print-layout">Print layout</a></li>
+<li><a href="05_exercise_5.html#bonus-map-atlas">Bonus: Map atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-editing-geographic-data-sets">Exercise 6: Editing geographic data sets</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-content-4">Exercise content</a></li>
+<li><a href="06_exercise_6.html#the-goal-of-the-exercise-4">The goal of the exercise</a></li>
+<li><a href="06_exercise_6.html#preparations-4">Preparations</a></li>
+<li><a href="06_exercise_6.html#creating-a-vector-data-set">Creating a vector data set</a></li>
+<li><a href="06_exercise_6.html#editing-and-digitizing-vector-data">Editing and digitizing vector data</a></li>
+<li><a href="06_exercise_6.html#adding-geometries">Adding geometries</a></li>
+<li><a href="06_exercise_6.html#bonus-adding-attribute-information">Bonus: Adding attribute information</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-spatial-analyses">Exercise 7: Spatial analyses</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-content-5">Exercise content</a></li>
+<li><a href="07_exercise_7.html#the-goal-of-the-exercise-5">The goal of the exercise</a></li>
+<li><a href="07_exercise_7.html#preparations-5">Preparations</a></li>
+<li><a href="07_exercise_7.html#vector-analyses">Vector analyses</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-plugins-in-qgis">Exercise 8: Plugins in QGIS</a>
+<ul>
+<li><a href="08_exercise_8.html#exercise-content-6">Exercise content</a></li>
+<li><a href="08_exercise_8.html#the-goal-of-the-exercise-6">The goal of the exercise</a></li>
+<li><a href="08_exercise_8.html#preparations-6">Preparations</a></li>
+<li><a href="08_exercise_8.html#plugin-management">Plugin management</a></li>
+<li><a href="08_exercise_8.html#quickmapservices">QuickMapServices</a></li>
+<li><a href="08_exercise_8.html#quickosm">QuickOSM</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2threejs">Bonus: Qgis2threejs</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2web">Bonus: Qgis2web</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-8-plugins-in-qgis" class="section level1">
+<h1>Exercise 8: Plugins in QGIS</h1>
+<div id="exercise-content-6" class="section level2">
+<h2>Exercise content</h2>
+<p>This exercise familiarizes you with the diverse selection of QGIS plugins and focuses more closely on a few of the essential ones.</p>
+</div>
+<div id="the-goal-of-the-exercise-6" class="section level2">
+<h2>The goal of the exercise</h2>
+<p>After the exercise you understand the basics of QGIS plugins and know how to use them.</p>
+</div>
+<div id="preparations-6" class="section level2">
+<h2>Preparations</h2>
+<p>Open a new QGIS project (<strong>Project &gt; New</strong>) and save it as <strong>"QGIS-exercise 10"</strong>. Add the following data to the project:</p>
+<ul>
+<li><strong>..course_directory/kontur/population_crete</strong></li>
+</ul>
+</div>
+<div id="plugin-management" class="section level2">
+<h2>Plugin management</h2>
+<p>You can add plugins to QGIS from the top menu bar by selecting <strong>Plugins &gt; Manage and Install Plugins…</strong>. Choose the <strong>Installed</strong> tabto see all of your installed plugins. Notice that most of them are not activated. Activating plugins adds different toolbars and menus to QGIS, which is why it is best to leave unused plugins deactivated.</p>
+</div>
+<div id="quickmapservices" class="section level2">
+<h2>QuickMapServices</h2>
+<p><strong>QuickMapServices</strong> is a plugin for adding different online basemaps (Such as OpenStreetMap) to your projects. Select <strong>Plugins &gt; Manage and Install Plugins… &gt; All</strong> and search for QuickMapServices:</p>
+<p><img src="img/exercise_8/image1.png" /></p>
+<p>Click <strong>Install Plugin</strong> and then <strong>Close</strong>. A new menu under <strong>Web</strong> (in the top bar) has appeared. Select <strong>Web &gt; QuickMapServices &gt; OSM &gt; OSM Standard</strong>. OpenStreetMap is now visible in your project. Arrange your layers so that the population data is clearly visible. Try other background maps too.</p>
+<p><img src="img/exercise_8/image2.png" /></p>
+</div>
+<div id="quickosm" class="section level2">
+<h2>QuickOSM</h2>
+<p>Find and add the QuickOSM plugin from the list. With this plugin you can search and add objects from OpenStreetMap as a vector layer. Open <strong>Vector → QuickOSM → QuickOSM</strong>. In th e QuickOSM window you can find objects with <strong>Key</strong> and <strong>Value</strong> or use <strong>Preset</strong>. For example lets find all the picnic areas in Helsinki, Finland. Start writing <strong>picnic</strong> in the Preset search and click on the Picnic-sites. The key and value of the search are automatically filled. Then add the city we are interested in, this time Helsinki, and click <strong>Run query</strong></p>
+<p><img src="img/exercise_8/image7.png" />
+Two new temporary layers should appear to your Layers panel: point and area layers. You can visualize and use them in analyses if needed. If you want to save the layers for later use, <strong>click the layer → Export → Save features as</strong>.</p>
+<p><img src="img/exercise_8/image8.png" /></p>
+<p>Try to add some other features from OpenStreetmap! For example add golfcourses or biking lanes from a city of your choice. If there isn’t a suitable preset available try to use key or value to find the feature.</p>
+</div>
+<div id="bonus-qgis2threejs" class="section level2">
+<h2>Bonus: Qgis2threejs</h2>
+<p>Now add the <strong>Qgis2threejs</strong> plugin. This plugin brings simple, browser compatible 3d visualization capabilities to QGIS (built on the threejs library). This plugin will also be accessed through the <strong>Web</strong> menu. Open the <strong>Qgis2threejs Exporter</strong> and from the <strong>DEM Layer</strong> menu select <strong>Flat Plane</strong>. Then, in the <strong>Polygon</strong> section, choosethe population data set and double-click it to open its settings. Set the <strong>Z-coordinate Mode</strong> to <strong>Absolute</strong> and <strong>Height</strong> tothe <strong>population</strong> field.</p>
+<p><img src="img/exercise_8/image3.png" /></p>
+<p>You can preview the 3d model in the exporter window and, if you’d like, export it as an HTML file by selecting <strong>File &gt; Export to web</strong>.</p>
+<p><img src="img/exercise_8/image4.png" /></p>
+</div>
+<div id="bonus-qgis2web" class="section level2">
+<h2>Bonus: Qgis2web</h2>
+<p>The <strong>Qgis2web</strong> plugin is an easy to use plugin for creating web maps using the <strong>Leaflet</strong> and <strong>OpenLayers</strong> libraries. Qgis2web is a useful tool for learning these libraries and producing content for publishing on the web. Open Qgis2web from <strong>Web &gt; Qgis2web &gt; Create web map</strong>. Under the <strong>Popup fields</strong> section, choose the <strong>Inline label</strong> option for the fields of the population layer and press <strong>Update preview</strong>. Once the map has updated, click on the population grid. If no popup is visible, try switching to <strong>Leaflet</strong> (from the bottom of the window) and updating the preview.</p>
+<p><img src="img/exercise_8/image5.png" /></p>
+<p>Now switch to the <strong>Appearance</strong> tab and configure the settings as shown below:</p>
+<p><img src="img/exercise_8/image6.png" /></p>
+<p>Export your map by selecting <strong>Export</strong>.This functionality saves the map as an HTML file that automatically opens up in a browser window. Zoom around your web map and try out the features: click on the grid, measure distances and search for  addresses (try searching for Crete’s capital, Heraklion, for example)</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="07_exercise_7.html"><button class="btn btn-default">Previous</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to QGIS</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

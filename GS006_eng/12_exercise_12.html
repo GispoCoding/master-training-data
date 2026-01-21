@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Exercise 2.5: Access control | Introduction to GeoServer" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Exercise 2.5: Access control | Introduction to GeoServer">
+
+<title>Exercise 2.5: Access control | Introduction to GeoServer</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to GeoServer</h1></div>
+<div class="abstract-sidebar"><p>A course covering basic GeoServer topics</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#introduction-to-geoserver">Introduction to GeoServer</a>
+<ul>
+<li><a href="index.html#welcome-to-this-geoserver-course">Welcome to this GeoServer Course!</a></li>
+<li><a href="index.html#background-of-geoserver">Background of GeoServer</a></li>
+<li><a href="index.html#how-to-read">How to read</a></li>
+<li><a href="index.html#additional-information">Additional information</a></li>
+<li><a href="index.html#mistakes">Mistakes</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1.1-installation-and-commissioning">Exercise 1.1: Installation and commissioning</a>
+<ul>
+<li><a href="01_exercise_1.html#preparation"><strong>Preparation</strong></a></li>
+<li class="has-sub"><a href="01_exercise_1.html#main-menu"><strong>Main menu</strong></a>
+<ul>
+<li><a href="01_exercise_1.html#about-geoserver"><strong>About GeoServer</strong></a></li>
+<li><a href="01_exercise_1.html#layer-preview"><strong>Layer Preview</strong></a></li>
+<li><a href="01_exercise_1.html#service-capabilities"><strong>Service Capabilities</strong></a></li>
+<li><a href="01_exercise_1.html#demos"><strong>Demos</strong></a></li>
+<li><a href="01_exercise_1.html#demo-requests"><strong>Demo requests</strong></a></li>
+</ul></li>
+<li><a href="01_exercise_1.html#srs-list-ja-reprojection-console"><strong>SRS List ja Reprojection console</strong></a></li>
+<li><a href="01_exercise_1.html#wcs-request-builder"><strong>WCS request builder</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-1.2-geoserver-web-interface">Exercise 1.2: GeoServer web interface</a>
+<ul>
+<li><a href="02_exercise_2.html#preparation-1"><strong>Preparation</strong></a></li>
+<li><a href="02_exercise_2.html#administrator-interface"><strong>Administrator interface</strong></a></li>
+<li><a href="02_exercise_2.html#master-and-administrator-users"><strong>Master and Administrator users</strong></a></li>
+<li class="has-sub"><a href="02_exercise_2.html#about-status-settings"><strong>About &amp; Status settings</strong></a>
+<ul>
+<li><a href="02_exercise_2.html#contact-information"><strong>Contact Information</strong></a></li>
+<li><a href="02_exercise_2.html#server-status"><strong>Server Status</strong></a></li>
+<li><a href="02_exercise_2.html#geoserver-logs"><strong>GeoServer Logs</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#data-menu"><strong>Data menu</strong></a>
+<ul>
+<li><a href="02_exercise_2.html#layer-preview-1"><strong>Layer Preview</strong></a></li>
+<li><a href="02_exercise_2.html#workspaces"><strong>Workspaces</strong></a></li>
+<li><a href="02_exercise_2.html#stores"><strong>Stores</strong></a></li>
+<li><a href="02_exercise_2.html#layers"><strong>Layers</strong></a></li>
+</ul></li>
+<li><a href="02_exercise_2.html#layer-groups"><strong>Layer Groups</strong></a></li>
+<li><a href="02_exercise_2.html#styles"><strong>Styles</strong></a></li>
+<li><a href="02_exercise_2.html#settings"><strong>Settings</strong></a></li>
+<li><a href="02_exercise_2.html#tile-caching-1"><strong>Tile Caching</strong></a></li>
+<li><a href="02_exercise_2.html#security-1"><strong>Security</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-1.3-vector-data">Exercise 1.3: Vector data</a>
+<ul>
+<li><a href="03_exercise_3.html#preparation-2"><strong>Preparation</strong></a></li>
+<li><a href="03_exercise_3.html#creating-vector-data-store"><strong>Creating vector data store</strong></a></li>
+<li><a href="03_exercise_3.html#publishing-vector-layer"><strong>Publishing vector layer</strong></a></li>
+<li class="has-sub"><a href="03_exercise_3.html#data-settings"><strong>Data settings</strong></a>
+<ul>
+<li><a href="03_exercise_3.html#coordinate-reference-systems"><strong>Coordinate Reference Systems</strong></a></li>
+<li><a href="03_exercise_3.html#bounding-boxes"><strong>Bounding Boxes</strong></a></li>
+<li><a href="03_exercise_3.html#feature-type-details"><strong>Feature Type Details</strong></a></li>
+</ul></li>
+<li><a href="03_exercise_3.html#add-helsinki-road-network"><strong>Add Helsinki road network</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-1.4-basics-of-styling-sld">Exercise 1.4: Basics of styling (SLD)</a>
+<ul>
+<li><a href="04_exercise_4.html#preparation-3"><strong>Preparation</strong></a></li>
+<li><a href="04_exercise_4.html#geoserver-styling-technique"><strong>GeoServer styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#sld-styling"><strong>SLD-styling</strong></a></li>
+<li><a href="04_exercise_4.html#creating-a-new-style"><strong>Creating a new style</strong></a></li>
+<li><a href="04_exercise_4.html#deployment-of-sld-styling-technique"><strong>Deployment of SLD styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#sld-cookbook"><strong>SLD Cookbook</strong></a></li>
+<li><a href="04_exercise_4.html#editing-sld-styling-technique"><strong>Editing SLD styling technique</strong></a></li>
+<li><a href="04_exercise_4.html#create-a-road-style"><strong>Create a road style</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-1.5-wms-and-wcs-services">Exercise 1.5: WMS and WCS services</a>
+<ul>
+<li><a href="05_exercise_5.html#preparation-4"><strong>Preparation</strong></a></li>
+<li><a href="05_exercise_5.html#ogc-standards"><strong>OGC-standards</strong></a></li>
+<li><a href="05_exercise_5.html#general-map-service-settings"><strong>General map service settings</strong></a></li>
+<li><a href="05_exercise_5.html#wms"><strong>WMS</strong></a></li>
+<li><a href="05_exercise_5.html#workspace-specific-server-settings"><strong>Workspace-specific server settings</strong></a></li>
+<li><a href="05_exercise_5.html#dpi-resolution-of-the-wms-map-service-image"><strong>DPI resolution of the WMS map service image</strong></a></li>
+<li><a href="05_exercise_5.html#wcs"><strong>WCS</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-1.6-raster-data">Exercise 1.6: Raster data</a>
+<ul>
+<li><a href="06_exercise_6.html#preparation-5"><strong>Preparation</strong></a></li>
+<li><a href="06_exercise_6.html#adding-raster-data"><strong>Adding raster data</strong></a></li>
+<li><a href="06_exercise_6.html#adding-an-aerial-image"><strong>Adding an aerial image</strong></a></li>
+<li><a href="06_exercise_6.html#image-mosaic"><strong>Image Mosaic</strong></a></li>
+<li class="has-sub"><a href="06_exercise_6.html#layer-groups-1"><strong>Layer Groups</strong></a>
+<ul>
+<li><a href="06_exercise_6.html#form-of-publication-of-group-layers"><strong>Form of publication of group layers</strong></a></li>
+<li><a href="06_exercise_6.html#use-of-external-wms-services-cascading-wms"><strong>Use of external WMS services (cascading WMS)</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-1.7-spatial-databases">Exercise 1.7: Spatial databases</a>
+<ul>
+<li><a href="07_exercise_7.html#preparation-6"><strong>Preparation</strong></a></li>
+<li><a href="07_exercise_7.html#connecting-to-the-geodatabase"><strong>Connecting to the geodatabase</strong></a></li>
+<li><a href="07_exercise_7.html#adding-a-postgis-layer"><strong>Adding a PostGIS layer</strong></a></li>
+<li><a href="07_exercise_7.html#adding-a-polygon-and-line-layer-from-postgis-database"><strong>Adding a polygon and line layer from PostGIS database</strong></a></li>
+<li><a href="07_exercise_7.html#setting-default-styles-for-layers"><strong>Setting default styles for layers</strong></a></li>
+<li><a href="07_exercise_7.html#sql-views"><strong>SQL views</strong></a></li>
+<li><a href="07_exercise_7.html#geographical-data-functions-via-sql-views"><strong>Geographical data functions via SQL views</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-2.1-wfs-services">Exercise 2.1: WFS services</a>
+<ul>
+<li><a href="08_exercise_8.html#preparation-7"><strong>Preparation</strong></a></li>
+<li><a href="08_exercise_8.html#ogc-standards-1"><strong>OGC-standards</strong></a></li>
+<li><a href="08_exercise_8.html#wfs-settings"><strong>WFS settings</strong></a></li>
+<li><a href="08_exercise_8.html#number-of-data-requested"><strong>Number of data requested</strong></a></li>
+<li><a href="08_exercise_8.html#specifying-several-coordinate-systems"><strong>Specifying several coordinate systems</strong></a></li>
+<li><a href="08_exercise_8.html#service-levels"><strong>Service Levels</strong></a></li>
+<li><a href="08_exercise_8.html#gml-settings"><strong>GML settings</strong></a></li>
+<li><a href="08_exercise_8.html#workspace-specific-settings"><strong>Workspace specific settings</strong></a></li>
+<li><a href="08_exercise_8.html#editing-via-wfs-t-service"><strong>Editing via WFS-T service</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="09_exercise_9.html#exercise-2.2-map-tile-services">Exercise 2.2: Map tile services</a>
+<ul>
+<li><a href="09_exercise_9.html#preparation-8"><strong>Preparation</strong></a></li>
+<li><a href="09_exercise_9.html#tile-caching-2"><strong>Tile Caching</strong></a></li>
+<li><a href="09_exercise_9.html#geowebcache-user-interface"><strong>GeoWebCache user interface</strong></a></li>
+<li><a href="09_exercise_9.html#layer-specific-settings"><strong>Layer-specific settings</strong></a></li>
+<li><a href="09_exercise_9.html#pre-creation-of-map-tiles"><strong>Pre-creation of map tiles</strong></a></li>
+<li><a href="09_exercise_9.html#using-the-hard-disk-of-the-map-tiles"><strong>Using the hard disk of the map tiles</strong></a></li>
+<li><a href="09_exercise_9.html#map-tile-grids"><strong>Map tile grids</strong></a></li>
+<li><a href="09_exercise_9.html#map-tile-grid-according-to-jhs180"><strong>Map tile grid according to JHS180</strong></a></li>
+<li><a href="09_exercise_9.html#creating-a-new-gridset"><strong>Creating a new gridset</strong></a></li>
+<li><a href="09_exercise_9.html#finland-openstreetmap-road-network"><strong>Finland OpenStreetMap road network</strong></a></li>
+<li><a href="09_exercise_9.html#using-your-own-map-tile-grid"><strong>Using your own map tile grid</strong></a></li>
+<li><a href="09_exercise_9.html#create-a-local-map-tile-grid"><strong>Create a local map tile grid</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="10_exercise_10.html#exercise-2.3-architecture-and-deployment">Exercise 2.3: Architecture and deployment</a>
+<ul>
+<li><a href="10_exercise_10.html#preparation-9"><strong>Preparation</strong></a></li>
+<li><a href="10_exercise_10.html#general-information-about-the-geoserver-server"><strong>General information about the GeoServer server</strong></a></li>
+<li><a href="10_exercise_10.html#image-processing-settings"><strong>Image processing settings</strong></a></li>
+<li><a href="10_exercise_10.html#raster-access"><strong>Raster Access</strong></a></li>
+<li><a href="10_exercise_10.html#geoserver-log"><strong>GeoServer log</strong></a></li>
+<li><a href="10_exercise_10.html#rest-api-functionality"><strong>REST API functionality</strong></a></li>
+<li><a href="10_exercise_10.html#using-the-monitor-plugin-tarkista-nämä-vielä"><strong>Using the Monitor plugin (tarkista nämä vielä)</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="11_exercise_11.html#exercise-2.4-css-styles">Exercise 2.4: CSS styles</a>
+<ul>
+<li><a href="11_exercise_11.html#preparation-10"><strong>Preparation</strong></a></li>
+<li><a href="11_exercise_11.html#css-styles"><strong>CSS styles</strong></a></li>
+<li><a href="11_exercise_11.html#creating-a-style"><strong>Creating a style</strong></a></li>
+<li><a href="11_exercise_11.html#classification-of-data"><strong>Classification of data</strong></a></li>
+<li><a href="11_exercise_11.html#tuning-the-style"><strong>Tuning the style</strong></a></li>
+<li><a href="11_exercise_11.html#category-naming"><strong>Category naming</strong></a></li>
+<li><a href="11_exercise_11.html#multi-scale-visibility"><strong>Multi-scale visibility</strong></a></li>
+<li><a href="11_exercise_11.html#adding-subtitles"><strong>Adding subtitles</strong></a></li>
+<li><a href="11_exercise_11.html#application-of-styling-technology"><strong>Application of styling technology</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="12_exercise_12.html#exercise-2.5-access-control">Exercise 2.5: Access control</a>
+<ul>
+<li><a href="12_exercise_12.html#geoserver-general-security-settings"><strong>GeoServer general security settings</strong></a></li>
+<li><a href="12_exercise_12.html#identification"><strong>Identification</strong></a></li>
+<li><a href="12_exercise_12.html#create-a-new-role-and-user"><strong>Create a new role and user</strong></a></li>
+<li><a href="12_exercise_12.html#limiting-access-rights-to-the-data"><strong>Limiting access rights to the data</strong></a></li>
+<li><a href="12_exercise_12.html#user-specific-access-rights-for-the-data"><strong>User-specific access rights for the data</strong></a></li>
+<li><a href="12_exercise_12.html#map-service-specific-rights"><strong>Map service-specific rights</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="13_exercise_13.html#ecercise-2.6-filtering">Ecercise 2.6: Filtering</a>
+<ul>
+<li><a href="13_exercise_13.html#filtering-with-attributes">Filtering with attributes</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-2.5-access-control" class="section level1">
+<h1>Exercise 2.5: Access control</h1>
+<p><strong>Content of the exercise</strong></p>
+<p>The exercise will introduce the student to different security settings and create users and roles. Set permissions for services, datas and users.</p>
+<p><strong>Aim of the exercise</strong></p>
+<p>After the exercise, the student will be able to set up basic server settings, create users and roles. The student will also be able to set permissions for services and data.</p>
+<p><strong>Estimated duration</strong></p>
+<p>40 minutes.</p>
+<div id="geoserver-general-security-settings" class="section level2">
+<h2><strong>GeoServer general security settings</strong></h2>
+<p>Open <strong>Security → Settings</strong> This view allows you to configure commonly used security settings.</p>
+<p><img src="img/harjoitus_12/image1.2.png" /></p>
+<p>In this view, you can also specify which <strong>Active role service</strong> is enabled. GeoServer allows only one role service type to be selected for a server. The role service contains all user, group and role rules for the server. Keep <strong>default</strong> role service enabled.</p>
+<p>Under <strong>Encryption</strong> you will find settings related to encryption. The <strong>Encrypt web admin URL parameter</strong> option encrypts the URL parameters of the user interface in the browser.</p>
+<p>For example, the URL of the browser in the <strong>Security</strong> menu (where we are now)…</p>
+<p>… without encryption is:</p>
+<div class="note-box">
+<p><a href="http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.SecuritySettingsPage" class="uri">http://[your-training-instance]/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.SecuritySettingsPage</a></p>
+</div>
+<p>… with encryption it is:</p>
+<div class="note-box">
+<p><a href="http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE" class="uri">http://[your-training-instance]/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE</a></p>
+</div>
+<div class="hint-box">
+<p>Psst! The installation of Java policy files depends on the Java Software installed on your server. If Open JDK is installed, then the policy files are installed by default and Strong cryptography is enabled. If, on the other hand, Oracle Java is installed (which has been GeoServer’s recommendation in the past) then you need to download Oracle’s JCE policy jars and extract them to the JRE_HOME/lib/security folder, after which Strong cryptography is enabled.</p>
+</div>
+<p><strong>Password encryption</strong> specifies which encryption style is used for password storage: <strong>Plain text</strong>, <strong>Weak PBE</strong> and <strong>Strong PBE</strong>.</p>
+<p>Hold <strong>Weak PBE</strong> and press <strong>Save</strong>.</p>
+</div>
+<div id="identification" class="section level2">
+<h2><strong>Identification</strong></h2>
+<p>The <strong>Authentication</strong> settings define how GeoServer collects and verifies user IDs.</p>
+<p>By default, GeoServer settings allow access to the server (i.e. WMS, WFS and WCS services) without any user ID. You can check this as follows.</p>
+<p>Preview the layer <strong>aerialimages_ofthecitycentre</strong> in the same way as you previewed the other layers before. The level will open in your browser without any problems because you are logged in with <strong>admin</strong>. Do not close the preview page yet.</p>
+<p>Now go back to the GeoServer maintenance page and press <strong>Logout</strong>.</p>
+<p>Return to the preview page and reload the page by pressing F5. The page will still load normally.</p>
+<p>Let’s now change the settings so that the user must be logged in to access the services, and users who are not logged in will no longer be able to access the services. Open <strong>Security → Authentication</strong> again, search for <strong>Filter Chains</strong> and click on the <strong>default</strong> link.</p>
+<p>Now, under <strong>Chain filters</strong>, select <strong>anonymous</strong> from the <strong>Selected</strong> box and move it to the <strong>Available</strong> box using the arrows between the boxes. Anonymous authentication style allows services to be accessed by unauthenticated users.</p>
+<p><img src="img/harjoitus_12/image2.png" /></p>
+<p>Now only the <strong>basic</strong> authentication style is in the Selected box, i.e. in use. This means that in the future, you will always need an ID and password to access the server.</p>
+<p><img src="img/harjoitus_12/image3.png" /></p>
+<p>Now press <strong>Close</strong> to return to the <strong>Authentication</strong> menu. Then press <strong>Save</strong> and the changes will take effect.</p>
+<p>If you now log out of GeoServer and refresh the preview page you opened earlier, authentication with your login and password is mandatory.</p>
+<div class="hint-box">
+<p>Psst! The easiest way to test the server’s access control settings is to use a different web browser (Internet Explorer / FireFox / Chrome) or the browser’s privacy encryption feature (Incognito mode) alongside your normal browser. One browser is used to log in with administrator identifiers (as up to now) and the other to test different login modes. You can ask the trainer for guidance if necessary. Please note that you may need to log out and log in again to reload the settings.</p>
+</div>
+</div>
+<div id="create-a-new-role-and-user" class="section level2">
+<h2><strong>Create a new role and user</strong></h2>
+<p>The user, group and role settings play a key role in GeoServer’s access control.</p>
+<p>Let’s create a new user who only has rights to handle <strong>helsinki</strong> workspace data.</p>
+<p>From the main menu, open <strong>Security → Users</strong>, <strong>Groups, and Roles</strong>.</p>
+<p>The <strong>Services</strong> tab provides access control settings for users and roles. They store information about which users belong to which groups, or which roles are defined in the access manager in general.</p>
+<p>The list contains <strong>default</strong> settings created by GeoServer. Let’s take advantage of them now.</p>
+<p>First, let’s create the role to which the new user will belong.</p>
+<div class="hint-box">
+<p>Psst! To facilitate access control management, access rights are defined on a role-by-role basis.</p>
+</div>
+<p>Open the <strong>Roles</strong> tab and press <strong>Add new role</strong>, name the new role <strong>hki_role</strong>.</p>
+<p><img src="img/harjoitus_12/image4.2.png" /></p>
+<p>Then press <strong>Save</strong>.</p>
+<p>A new user is now created. Open the <strong>Users/Groups</strong> tab.</p>
+<p>Note that the <strong>admin</strong> ID you used during the training is defined here.</p>
+<p><img src="img/harjoitus_12/image5.png" /></p>
+<p>Create a new user by pressing <strong>Add new user</strong>.</p>
+<p>Enter <strong>hki_user</strong> as user name and <strong>hki-user</strong> as password.</p>
+<div class="hint-box">
+<p>Psst! Please note that special characters and letters ä &amp; ö are allowed in GeoServer, but for reasons of expediency and differences between browsers, their use will be avoided in this training.</p>
+</div>
+<p>A new user is given rights by specifying which roles the user has. The roles are defined in <strong>Roles taken from active role service: default</strong>. Among other things, <strong>hki_role</strong> can be selected, add it to the <strong>Selected Roles</strong> box using the transfer arrows found between the boxes.</p>
+<p>Then press <strong>Save</strong>, then a new user <strong>hki_user</strong> has been created and has rights according to <strong>hki_role</strong>. Since no rights have been defined for <strong>hki_role</strong> yet, no rights have been defined for the new user either.</p>
+<p><img src="img/harjoitus_12/image6.2.png" /></p>
+<p>Try new user rights by logging in with a new username. You can either log in again or use a different browser, as mentioned earlier.</p>
+</div>
+<div id="limiting-access-rights-to-the-data" class="section level2">
+<h2><strong>Limiting access rights to the data</strong></h2>
+<p>Open <strong>Security → Data.</strong> This view shows the rules assigned to users (roles) of the GeoServer server. In the default installation, only two rules are defined, i.e. read (r) and write rights (w):</p>
+<p><img src="img/harjoitus_12/image7.png" /></p>
+<p>The rules under the <strong>Rule path</strong> column are in the form <strong>*.*.r</strong>, which gives read access to all levels in all workspaces.</p>
+<p>Please also note that under the <strong>Roles</strong> column it is defined which roles have been granted rights. Defined here with <strong>*</strong> to mean “all roles”.</p>
+<p>The following image shows the definition of GeoServer’s data rules:</p>
+<p><img src="img/harjoitus_12/image8.png" /></p>
+<p>The rule consists of three parts, separated by a period. The first part defines the workspace where the rule is valid. The second part defines the layer on which the rule is valid. The third and last part defines which action is allowed. There are three functions: reading (r = read), writing (w = write) and maintaining (a = admin).</p>
+<div class="hint-box">
+<p>Psst! The * character can also be used in all parts, which can be used to refer to all workspaces, layers or rights.</p>
+</div>
+<p>Press <strong>*.*.r</strong> from the list.</p>
+<p>This rule specifies that all workspaces and all layers have read access.</p>
+<p><img src="img/harjoitus_12/image9.png" /></p>
+<p>Under the <strong>Roles</strong> section, it is defined that this rule applies to all roles (<strong>Grant access to any role</strong>). Note that <strong>Grant access to any role</strong> is checked, so all roles can read all levels from all workspaces.</p>
+<p>Now let’s limit the rule to admin roles only.</p>
+<p><img src="img/harjoitus_12/image10.2.png" /></p>
+<p>Uncheck <strong>Grant access to any role</strong> and add the roles <strong>Admin</strong> and <strong>GROUP_ADMIN</strong> to the box <strong>Selected Roles</strong>.</p>
+<p>Finally press <strong>Save</strong>.</p>
+<p>Finally, make the same changes to the <strong>*.*.w</strong> rule.</p>
+<p><img src="img/harjoitus_12/image11.png" /></p>
+<p>After these changes, only <strong>Admin</strong> has read and preview access.</p>
+<p>Now try to preview some data with the <strong>hki_user</strong> ID, no data is available.</p>
+<p><img src="img/harjoitus_12/image12.2.png" /></p>
+</div>
+<div id="user-specific-access-rights-for-the-data" class="section level2">
+<h2><strong>User-specific access rights for the data</strong></h2>
+<p>Next, read and write rights to the <strong>helsinki</strong> workspace are defined for the <strong>hki_user</strong> ID. In practice, rights must be defined for the role to which the user belongs, i.e. for the <strong>hki_role</strong> role.</p>
+<p>Until now, <strong>hki_role</strong> has not been given any rights, thus <strong>hki_user</strong> no longer has rights to any material (unless some rule has been defined for all roles using the <strong>*</strong> character).</p>
+<p>Let’s now add <strong>Read</strong> and <strong>Write</strong> access rights to <strong>hki_user</strong>, but only to the <strong>Helsinki</strong> workspace. This is done by defining more rules for the data.</p>
+<div class="hint-box">
+<p>Psst! Make sure you are logged in as an administrator (username: admin and password: gispo).</p>
+</div>
+<p>Open <strong>Security → Data</strong> again and now add two new rules using the <strong>Add new rule</strong> option.</p>
+<p>In <strong>Workspace</strong>, put <strong>helsinki</strong> and leave <strong>Layer</strong> as “<strong>*</strong>” which refers to all layers.</p>
+<p>In the <strong>Access mode</strong> menu, set the value to <strong>Read</strong>, which gives reading rights to the data specified above.</p>
+<p>Finally, move <strong>hki_role</strong> from the box <strong>Available Roles</strong>, to the box <strong>Selected Roles</strong>.</p>
+<p><img src="img/harjoitus_12/image13.2.png" /></p>
+<p>Finally press <strong>Save</strong>. </p>
+<p>Now <strong>hki_user</strong> has read rights to all layers of the Helsinki workspace.</p>
+<p>Add <strong>Write</strong> in the same way. Write rights allow the user to edit data whenever it is allowed in GeoServer, for example through the WFS-T service.</p>
+<p>Try again to preview data with the <strong>hki_user</strong> ID. Preview is now possible with all layers of the <strong>helsinki</strong> workspace, but other layers are not visible.</p>
+<p>Please note that the user does not have rights to add new data or layers to GeoServer. You can give <strong>hki_user</strong> ID <strong>Admin</strong> rights by specifying administrator rights.</p>
+<p>At the end of the day, three new rules have been created that apply to <strong>hki_role</strong>.</p>
+<p><img src="img/harjoitus_12/image14.2.png" /></p>
+<p>Log in to the server again using the <strong>hki_user</strong> ID and check that the layers of the <strong>Helsinki</strong> workspace are available and that the data can be maintained. Note that the other workspaces are not visible at all.<br />
+</p>
+<p><img src="img/harjoitus_12/image15.2.png" /></p>
+</div>
+<div id="map-service-specific-rights" class="section level2">
+<h2><strong>Map service-specific rights</strong></h2>
+<p>Geoserver documentation says that “The default service security configuration in GeoServer contains no rules and allows any anonymous user to access any operation of any service. The following are some examples of desired security restrictions and the corresponding rules.” So, this means that there are no rules to be defined. The security page should look like this:</p>
+<p><img src="img/harjoitus_12/image19.png" /></p>
+<p>The following image shows the definition of GeoServer’s service access rules:</p>
+<p><img src="img/harjoitus_12/image16.png" /></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="11_exercise_11.html"><button class="btn btn-default">Previous</button></a>
+<a href="13_exercise_13.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to GeoServer</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

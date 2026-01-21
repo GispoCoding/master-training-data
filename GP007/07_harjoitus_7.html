@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 7: Edistyneet digitointiominaisuudet | QGIS perusteet kunnille" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 7: Edistyneet digitointiominaisuudet | QGIS perusteet kunnille">
+
+<title>Harjoitus 7: Edistyneet digitointiominaisuudet | QGIS perusteet kunnille</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS perusteet kunnille</h1></div>
+<div class="abstract-sidebar"><p>Peruskurssi kunnille QGIS-ohjelmiston perusteisiin</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-perusteet-kunnille">QGIS perusteet kunnille</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille">Tervetuloa kurssille!</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgisin-käyttöliittymä">Harjoitus 1: QGISin käyttöliittymä</a>
+<ul>
+<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus">Kurssimateriaalien lataus</a></li>
+<li><a href="01_harjoitus_1.html#qgisin-käyttöliittymä">QGISin käyttöliittymä</a></li>
+<li><a href="01_harjoitus_1.html#qgis-käyttöliittymän-osat">QGIS-käyttöliittymän osat</a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#kokeile-itse">Kokeile itse</a>
+<ul>
+<li><a href="01_harjoitus_1.html#attribuuttitaulu">Attribuuttitaulu</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-paikkatietoaineistot-ja--palvelut">Harjoitus 2: Paikkatietoaineistot ja -palvelut</a>
+<ul>
+<li><a href="02_harjoitus_2.html#harjoituksen-sisältö">Harjoituksen sisältö</a></li>
+<li><a href="02_harjoitus_2.html#harjoituksen-tavoite">Harjoituksen tavoite</a></li>
+<li><a href="02_harjoitus_2.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#wms-palvelun-lisääminen">WMS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#wfs-palvelun-lisääminen">WFS-palvelun lisääminen</a></li>
+<li><a href="02_harjoitus_2.html#aineistojen-lisääminen-mml-rajapinnoilta">Aineistojen lisääminen MML rajapinnoilta</a></li>
+<li><a href="02_harjoitus_2.html#wfs-rajapintapalvelun-kysely-ja-suodatus-sql-lausekkeella">WFS-rajapintapalvelun kysely ja suodatus SQL-lausekkeella</a></li>
+<li><a href="02_harjoitus_2.html#lisätehtävä-api-avaimen-lisääminen-qgisiin">Lisätehtävä: API-avaimen lisääminen QGISiin</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-paikkatietoaineiston-visualisointi">Harjoitus 3: Paikkatietoaineiston visualisointi</a>
+<ul>
+<li><a href="03_harjoitus_3.html#harjoituksen-sisältö-1">Harjoituksen sisältö</a></li>
+<li><a href="03_harjoitus_3.html#harjoituksen-tavoite-1">Harjoituksen tavoite</a></li>
+<li><a href="03_harjoitus_3.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#vektoriaineistojen-visualisointi">Vektoriaineistojen visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#viiva--ja-monikulmioaineiston-visualisointi">Viiva- ja monikulmioaineiston visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä-monikulmioaineiston-edistynyt-visualisointi">Lisätehtävä: Monikulmioaineiston edistynyt visualisointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-paikkatietoaineiston-nimiöinti-ja-luokittelu">Harjoitus 4: Paikkatietoaineiston nimiöinti ja luokittelu</a>
+<ul>
+<li><a href="04_harjoitus_4.html#harjoituksen-sisältö-2">Harjoituksen sisältö</a></li>
+<li><a href="04_harjoitus_4.html#harjoituksen-tavoite-2">Harjoituksen tavoite</a></li>
+<li><a href="04_harjoitus_4.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#nimiöt">Nimiöt</a></li>
+<li><a href="04_harjoitus_4.html#nimiöiden-tyyli--ja-yleisasetukset">Nimiöiden tyyli- ja yleisasetukset</a></li>
+<li><a href="04_harjoitus_4.html#nimiön-tekstityyli">Nimiön tekstityyli</a></li>
+<li><a href="04_harjoitus_4.html#nimiöinnit-viivatasoilla">Nimiöinnit viivatasoilla</a></li>
+<li><a href="04_harjoitus_4.html#vektoriaineiston-luokittelut">Vektoriaineiston luokittelut</a></li>
+<li><a href="04_harjoitus_4.html#lisätehtävä-nimiöiden-piirtäminen">Lisätehtävä: nimiöiden piirtäminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-karttatuloste">Harjoitus 5: Karttatuloste</a>
+<ul>
+<li><a href="05_harjoitus_5.html#harjoituksen-sisältö-3">Harjoituksen sisältö</a></li>
+<li><a href="05_harjoitus_5.html#harjoituksen-tavoite-3">Harjoituksen tavoite</a></li>
+<li><a href="05_harjoitus_5.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="05_harjoitus_5.html#lisätehtävä-kartta-atlas">Lisätehtävä: kartta-atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-digitoinnin-perusteet">Harjoitus 6: Digitoinnin perusteet</a>
+<ul>
+<li><a href="06_harjoitus_6.html#valmistautuminen-4">Valmistautuminen</a></li>
+<li><a href="06_harjoitus_6.html#muokkauksen-yleisasetukset">Muokkauksen yleisasetukset</a></li>
+<li><a href="06_harjoitus_6.html#editoinnin-valmistelu">Editoinnin valmistelu</a></li>
+<li><a href="06_harjoitus_6.html#geopackagen-luonti">GeoPackagen luonti</a></li>
+<li><a href="06_harjoitus_6.html#aloita-geometrioiden-editointi">Aloita geometrioiden editointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-edistyneet-digitointiominaisuudet">Harjoitus 7: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="07_harjoitus_7.html#valmistautuminen-5">Valmistautuminen</a></li>
+<li><a href="07_harjoitus_7.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode">Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
+<li><a href="07_harjoitus_7.html#rakentamistila">Rakentamistila</a></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#rakennuksen-piirto-apuviivojen-avulla">Rakennuksen piirto apuviivojen avulla</a>
+<ul>
+<li><a href="07_harjoitus_7.html#sitten-vain-harjoittelemaan.">Sitten vain harjoittelemaan….</a></li>
+</ul></li>
+<li><a href="07_harjoitus_7.html#suorakulmaisen-polygonin-piirtäminen">Suorakulmaisen polygonin piirtäminen</a></li>
+<li><a href="07_harjoitus_7.html#rakennustilan-hyödyntäminen-rakennuksen-piirtämisessä">Rakennustilan hyödyntäminen rakennuksen piirtämisessä</a></li>
+<li><a href="07_harjoitus_7.html#lisätehtävä-lisää-rakennukset-tasolle-funktio-jonka-avulla-pinta-alatieto-päivittyy-automaattisesti">Lisätehtävä: Lisää Rakennukset-tasolle funktio, jonka avulla pinta-alatieto päivittyy automaattisesti</a></li>
+<li><a href="07_harjoitus_7.html#lopuksi">Lopuksi</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-7-edistyneet-digitointiominaisuudet" class="section level1">
+<h1>Harjoitus 7: Edistyneet digitointiominaisuudet</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tehdään edistyneitä digitoinnin operaatioita QGISillä.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin QGISin editoinnin ominaisuuksia.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>45 minuuttia.</p>
+<div id="valmistautuminen-5" class="section level2">
+<h2>Valmistautuminen</h2>
+<p>Voit jatkaa samalla projektilla, jonka teit edellisessä harjoituksessa.</p>
+</div>
+<div id="kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode" class="section level2">
+<h2>Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</h2>
+<p>Tässä harjoitukksessa teemme rakennuksia rakennuspaikoille. Luo <strong>Aluesuunnitelma-GeoPackageen</strong> uusi taso rakennuksia varten seuraavasti:</p>
+<p>Aloita valitsemalla työkalupalkista jälleen <strong>Uusi GeoPackage-taso</strong>. Tällä kertaa kuitenkin valitsemme <strong>Tietokanta</strong>-kenttään kohteeksi aiemmin luodun Aluesuunnitelma-Geopackagen, jolloin uusi taso tulee lisätyiksi siihen. Kun olet valinnut Aluesuunnitelma.gpkg:n tietokannaksi, anna tason nimeksi “Rakennukset” ja täytä tason tiedot kuten alla olevassa kuvassa:</p>
+<p><img src="img/harjoitus_7/image9.png" /></p>
+<p>Tallennettaessa QGIS kysyy, korvataanko aiemmin luotu GeoPackage vai lisätäänkö uusi taso siihen. Valitse <strong>Lisää uusi taso</strong>.</p>
+<p><img src="img/harjoitus_7/image10.png" /></p>
+<p>Seuraavaksi laita <strong>Tarttuminen</strong> <img src="img/harjoitus_7/image11.png" />, <strong>Seuraaminen</strong> <img src="img/harjoitus_7/image12.png" /> <strong>ja Self-snapping <img src="img/harjoitus_7/image13.png" /></strong>päälle <strong>Tarttumisen työkalut -paneelista</strong>. Aseta muut tarttumisasetukset seuraavan kuvan mukaisiksi:</p>
+<p><img src="img/harjoitus_7/image14.png" /></p>
+<p>Valinnat järjestyksessä vasemmalta oikealle:</p>
+<ul>
+<li><p>Tarttuminen</p></li>
+<li><p>Kaikki tasot (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)</p></li>
+<li><p>Taitepiste (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)</p></li>
+<li><p>10</p></li>
+<li><p>px (pikseliä)</p></li>
+<li><p>Ei käytössä</p></li>
+<li><p>Ei käytössä</p></li>
+<li><p>Ei käytössä</p></li>
+<li><p>Ota seuraaminen käyttöön</p></li>
+<li><p>Self snapping (tarttuminen työn alla olevaan digitoitavaan kohteeseen)</p></li>
+</ul>
+</div>
+<div id="rakentamistila" class="section level2">
+<h2>Rakentamistila</h2>
+<p>Jos piirtämisen apuna tarvitaan etäisyyttä tietystä pisteestä tai tiettyä kulmaa johonkin olemassa olevaan linjaan, rakentamistilan avulla saa näkyville apuviivoja piirtämisen tueksi. Rakentamistilan ollessa aktiivisena ei voi piirtää, mutta sen avulla voidaan hakea näkyviin tarvittavia apuviivoja esim. etäisyyden tai kulman suhteen. Rakentamistilan voi aktivoida ennen tai kesken piirtämisen.</p>
+<p>Rakentamistila aktivoidaan <strong>Digitoinnin lisätyökalut-paneelista</strong> löytyvästä <img src="img/harjoitus_7/image17.png" /><img src="" />-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla <strong>C</strong>. Digitoinnin lisätyökalut-paneelin saa tarvittaessa auki klikkaamalla QGIS-projektissa ylhäältä <strong>Näytä</strong>, valitsemalla sieltä <strong>Paneelit</strong> ja ruksittamalla valikosta <strong>Digitoinnin lisätyökalut-paneeli</strong>.</p>
+<p><strong>Huom!</strong> Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä <img src="img/harjoitus_7/image19.png" /> tai <strong>C</strong>-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.</p>
+</div>
+<div id="rakennuksen-piirto-apuviivojen-avulla" class="section level2">
+<h2>Rakennuksen piirto apuviivojen avulla</h2>
+<p>Lisätyökalujen avulla voi saada näkyville apuviivat ja tarttumisasetukset tiettyihin kulmiin, esimerkiksi 45 tai 90 asteen välein. Toiminnon saa päälle Digitoinnin lisätyökalut-paneelista (ikkunan vasemmassa laidassa) <img src="img/harjoitus_7/snap_common_angles.png" />-nappulasta. Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen alettua kulma lasketaan viimeisen piirretyn viivan mukaan ja näkyviin tulee tukiviivoja haluttujen kulmien kohdalle.</p>
+<div id="sitten-vain-harjoittelemaan." class="section level3">
+<h3>Sitten vain harjoittelemaan….</h3>
+<p>Aseta <strong>Rakennukset-tason</strong> editointi päälle kynäkuvakkeesta. Kun valitset <strong>Lisää monikulmiokohde -työkalun</strong>, <strong>Ota digitoinnin lisätyökalut käyttöön -painike</strong> aktivoituu <img src="img/harjoitus_7/image15.png" />. Klikkaa kuvaketta niin saat <strong>Digitoinnin lisätyökalut -hallintapaneeliin</strong> QGISiin.</p>
+<p><img src="img/harjoitus_7/image16.png" /></p>
+<p>Laita vielä <strong>Snap to common angles/tartu yleismpiin kulmiin –&gt; 90.0, 180.0, 270.0, 360.0</strong> päälle<img src="img/harjoitus_7/snap_common_angles.png" /></p>
+<p>Aloita nyt <strong>Rakennukset-tason</strong> editointi.</p>
+<ol style="list-style-type: decimal">
+<li><p>Harjoittele ensin rakennuksien piirtämistä apuviivojen avulla alla olevan kuvan mukaisesti</p>
+<p><img src="img/harjoitus_7/tarttumisen_apuviivat.gif" /></p></li>
+<li><p>Seuraavaksi harjoitellaan alueen reunaviivan suuntaisesti rakennuksen piirtämistä. Toimi seuraavasti:</p></li>
+</ol>
+<ul>
+<li><p>Varmista, että <strong>Ota digitoinnin lisätyökalut käyttöön-painike</strong> <img src="img/harjoitus_7/image15.png" /><img src="" /> on päällä.</p></li>
+<li><p>Piirrä piste kartalle haluamaasi kohtaan. Laajennetun digitoinnin valikossa aktivoituvat kohtisuoruustyökalu <img src="img/harjoitus_7/image18.png" /> ja yhdensuuntaisuustyökalu <img src="img/harjoitus_7/yhdensuuntaisuus_tyokalu.png" />. Huom! Jos <strong>tarttuminen</strong> ei ole päällä, nämä työkalut eivät aktivoidu.</p></li>
+<li><p>Valitse haluamasi työkalu (kohtisuoruus tai yhdensuuntaisuus):</p>
+<ul>
+<li><ol style="list-style-type: lower-alpha">
+<li>painamalla sen nappia hiirellä, tai</li>
+</ol></li>
+<li><ol start="2" style="list-style-type: lower-alpha">
+<li>paina <strong>P</strong> yhdestä kolmeen kertaa aktivoidaksesi työkaluja järjestyksessä: kohtisuoruus -&gt; yhdensuuntaisuus -&gt; vapaapiirto.</li>
+</ol></li>
+</ul></li>
+<li><p>Kun jompi kumpi työkalu on valittuna, klikkaa viivaa, jonka suhteen haluat yhdensuuntaisuutta tai kohtisuoruutta. Huom! tämä klikkaus ei piirrä pistettä, vaan valitsee työkalulle peilauskohteen. Näkyviin tulee valitusta työkalusta riippuen joko yhdensuuntainen tai kohtisuora apuviiva.</p></li>
+<li><p>Klikkaa toinen piste kartalle apuviivan avulla haluamaasi kohtaan. Jos haluat, voit määrittää etäisyyden painamalla <strong>D</strong> (fokus etäisyyden syöttökenttään), syöttämällä etäisyyden metreinä ja painamalla <strong>enter</strong>.</p></li>
+<li><p>Jatka piirtämistä haluamallasi tavalla. Kohtisuoruutta ja yhdensuuntaisuutta voi käyttää piirtämisen aikana toistamalla askelia</p></li>
+</ul>
+</div>
+</div>
+<div id="suorakulmaisen-polygonin-piirtäminen" class="section level2">
+<h2>Suorakulmaisen polygonin piirtäminen</h2>
+<ol style="list-style-type: decimal">
+<li><p>Laita tarttumisen työkalu (työtilan yläosassa) päälle <strong>self-snapping</strong> <img src="img/harjoitus_7/image13.png" />.</p></li>
+<li><p>Laita asteen mukaiset tukiviivat ja tarttuminen päälle digitoinnin lisätyökalujen paneelista <img src="img/harjoitus_7/snap_common_angles.png" />. Riittävä tarkkuus on tässä <em>“90, 180, 270, 360 astetta”</em>.</p></li>
+<li><p>Aloita piirtäminen piirtämällä ensimmäiset kaksi pistettä haluttuihin kohtiin.</p></li>
+<li><p>Kolmannen pisteen piirtämistä helpottamaan näkyville tulee apuviiva kohtisuoraan jo piirrettyyn viivaan. Piirrä tämän avulla kolmas piste haluttuun kohtaan.</p></li>
+<li><p>Hae seuraava kohtisuora apuviiva näkyviin liikuttamalla hiirtä kohti neljättä pistettä, mutta ÄLÄ paina hiiren nappulaa. Kun apuviiva on näkyvissä ja laajennetun digitoinnin paneelissa näkyy kulman arvona 90 astetta paina <strong>CTRL+ A</strong> lukitaksesi kulman arvo. ÄLÄ klikkaa neljättä pistettä kartalle.</p></li>
+<li><p>Vie hiiri suorakulmion aloituspisteeseen ja kun osoitin tarttuu pisteeseen, <strong>klikkaa sitä hiirellä</strong>. </p></li>
+<li><p>Saadaksesi piirtämisen päätökseen, <strong>klikkaa vielä hiiren oikealla</strong> <strong>näppäimellä.</strong> Suorakulmio on valmis.</p></li>
+</ol>
+<p><img src="img/harjoitus_7/Suorakulmaisen_polygonin_piirtaminen.gif" /></p>
+</div>
+<div id="rakennustilan-hyödyntäminen-rakennuksen-piirtämisessä" class="section level2">
+<h2>Rakennustilan hyödyntäminen rakennuksen piirtämisessä</h2>
+<p>Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi, jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 35 metriä, sen voi tehdä laajennetun digitoinnin työkaluja hyödyntäen mm. seuraavasti:</p>
+<ol style="list-style-type: decimal">
+<li><p>Valitse <strong>Rakennukset</strong>-taso aktiiviseksi.</p></li>
+<li><p>Laita <strong>editointi</strong> päälle <img src="img/harjoitus_7/toggle_editing.png" /> <strong>Rakennukset</strong>-tasolle,  <strong>monikulmiokohteen piirtäminen päälle</strong> <img src="img/harjoitus_7/monikulmio_kohde.png" /> sekä paina <strong>Ota digitoinnin lisätyökalut käyttöön-painike</strong> aktiiviseksi <img src="img/harjoitus_7/image15.png" />.</p></li>
+<li><p>Laita <strong>digitoinnin lisätyökalujen</strong> paneelista (vasen reuna) <strong>rakentamistila</strong> päälle <img src="img/harjoitus_7/image19.png" /> (tai painamalla <strong>C</strong>).</p></li>
+<li><p>Aseta halutun kiinteistönrajan nollakulma valitsemalla rajalta kaksi pistettä.</p></li>
+<li><p>Valitse haluttu tukikulma 90 astetta painamalla <strong>A</strong> (kerran tai kahdesti, niin että fokus siirtyy laajennetun digitointipaneelin kohtaan a(ngle)) ja syöttämällä luku 90. Paina <strong>enter</strong>. Käyttöön tulee apuviiva kohtisuorasti kiinteistönrajaan. Huom! Jos kulma-asteiden apuviivat ovat käytössä (<img src="img/harjoitus_7/snap_common_angles.png" />-valikosta), saat automaattisesti apuviivoja piirtämisen avuksi eikä kulman arvoa tarvitse syöttää erikseen.</p></li>
+<li><p>Valitse haluttu etäisyys 15 metriä painamalla <strong>D</strong> (fokus siirtyy kohtaan d(istance)). Syötetään <strong>luku 15</strong>. Painetaan <strong>enter</strong>. Käyttöön tulee säde 15 metrin etäisyydelle kiinteistönrajaan piirretyn jälkimmäisen apupisteen mukaan. HUOM! Mitään ei ole vielä piirretty.</p></li>
+<li><p>Aloita piirtäminen poistamalla <strong>rakentamistila</strong> käytöstä. <img src="img/harjoitus_7/image19.png" /> (tai painamalla <strong>C</strong>).</p></li>
+<li><p>Klikkaa karttatasolle piste <em>15 m</em> kohdalle, eli kohtaan josta haluat aloittaa rakennuksen ensimmäisen seinän piirtämisen.</p></li>
+<li><p>Suorakulma pysyy valittuna, mutta etäisyys halutaan muuttaa 35 metriin (rakennuksen 1. seinän mitta). Paina <strong>D</strong>, syötä arvoksi 35 ja paina <strong>enter</strong>. Apusäde muuttuu 35 metriin. Piirrä rakennuksen seuraava nurkka.</p></li>
+<li><p>Vaihda etäisyydeksi 45 painamalla jälleen <strong>D</strong>, syöttämällä arvo ja painamalla <strong>enter</strong>. Ympyrä kasvaa ja piirtäminen voidaan tehdä sen ja kohtisuoran apuviivan avulla. Etäisyys ja kulma pysyvät samana: piirrä kolmas nurkkapiste.</p></li>
+<li><p>Toista kohdat 9 ja 10.</p></li>
+<li><p>Paina lopuksi hiiren oikeaa näppäintä, jolloin alue sulkeutuu. Rakennus on valmis.</p></li>
+</ol>
+<div class="figure">
+<img src="img/harjoitus_7/Rakennus_tontin_rajan_suuntaisesti.gif" alt="" />
+<p class="caption"><em>Rakennuksen piirtäminen käyttämällä aluksi rakennustilaa apuna etäisyyden määrittämiseen alueen rajasta. Tämän jälkeen rakennuksen mitat annetaan painamalla D ja antamalla seinän mitta, jolloin piirtämisen avuksi tulee ympyrä annetun etäisyyden säteellä.</em></p>
+</div>
+<p>Tämän jälkeen digitoi aineistoon rakennuksia vähintään kolme kappaletta hyödyntäen laajennetun digitoinnin ominaisuuksia. Koita myös kääntää rakennuksia 45 astetta hyödyntäen <strong>Kierrä kohteita -työkalua</strong> <img src="img/harjoitus_7/image21.png" />. <strong>CTRL+hiiren klikkaus</strong> asettaa käännökselle kulmapisteen, jonka mukaan kääntö suoritetaan.</p>
+<p>Voit myös testata pienentää tai suurentaa tekemiäsi polygoneja. Tätä varten voit kopioida jo tekemäsi rakennuspolygonin. Valitse haluamasi polygoni <strong>valintatyökalulla</strong> <img src="" /><img src="img/harjoitus_7/valintatyokalu.png" /> ja kopioi se näppäinkomennolla <strong>CTRL+C</strong> tai painamalla hiirellä valikosta <strong>Kopioi kohteet</strong> <img src="img/harjoitus_7/kopioi_kohteet.png" />. Liitä haluamallesi tasolle <strong>CTRL+V</strong> tai <strong>Liitä kohteet</strong> <img src="img/harjoitus_7/liita_kohteet.png" />. Valitse Advanced Digitizing -valikosta <strong>“Tee yhdensuuntaissiirtymä”</strong> -työkalu (Offset curve) <img src="img/harjoitus_7/offset_curve.png" />. Klikkaa kerran johonkin polygonin pisteeseen. Ruudun oikeaan yläkulmaan ilmestyy <strong>Siirtymä</strong>-asetusvalikko (Offset), johon voi syöttää halutun etäisyyden alkuperäisen polygonin viivasta (esim. -5 tekee tuo polygonin reunoja 5 metriä sisäänpäin aluperäisestä). Valikossa voi valita myös kulmien muodot <img src="img/harjoitus_7/kulmien_muodot_asetus.png" />-nappia painamalla.</p>
+<div class="figure">
+<img src="img/harjoitus_7/Polygonin_kulma-asetukset.png" alt="" />
+<p class="caption">Pienennetyn tai suurennetun polygonin kulmien muotoa voi muokata valikosta.</p>
+</div>
+<p>Ota lopuksi tason editointi pois päältä ja tallenna tasoon tehdyt muutokset.</p>
+<p>Ja sitten ei kun harjoittelemaan käyttöä! Esitellyt työkalut voivat tuntua hankalilta ensialkuun, mutta jo pienelläkin harjoituksella ja toistoilla käytännöt tulevat tutuksi ja työskentely jouhevoituu.</p>
+<p>Olemme julkaisseet blogin myös liittyen <a href="https://gispo.fi/blogi/cad-aineistot-ja-qgis/">CAD-aineistojen käsittelyyn QGISissä</a>.</p>
+</div>
+<div id="lisätehtävä-lisää-rakennukset-tasolle-funktio-jonka-avulla-pinta-alatieto-päivittyy-automaattisesti" class="section level2">
+<h2>Lisätehtävä: Lisää Rakennukset-tasolle funktio, jonka avulla pinta-alatieto päivittyy automaattisesti</h2>
+<ol style="list-style-type: decimal">
+<li><p>Avaa <strong>Rakennukset-tason ominaisuudet</strong>. Mene kohtaan <strong>Attribuuttilomake</strong>.</p></li>
+<li><p>Valitse kentistä <strong>Pohjan_ala</strong> ja selaa kohtaan <strong>Oletusarvot</strong>.</p></li>
+<li><p>Avaa oikean reunan funktio-painikkeesta auki <strong>lausekkeen muokkaus -ikkuna</strong>.</p></li>
+<li><p>Valitse Geometrian alta <code>$area</code>. Funktion voi kirjoittaa myös itse suoraan oletusarvot -kenttään.</p></li>
+<li><p>Jos haluat vielä pyöristää arvoa niin, että kaikki desimaalit eivät näy, käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella lauseke on <code>round($area,2)</code></p></li>
+<li><p><strong>Lopuksi muista laittaa täppä kohtaan “Käytä oletusarvoa päivityksessä”</strong>, niin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉</p>
+<p><img src="img/harjoitus_7/Attribuuttilomake.png" /><img src="img/harjoitus_7/Lauseke.png" width="519" /></p></li>
+</ol>
+</div>
+<div id="lopuksi" class="section level2">
+<h2>Lopuksi</h2>
+<p>Avaa <strong>Kuvaustekniikka-paneeli</strong> tai mene tason ominaisuuksien kautta <strong>Kuvaustekniikka-välilehdelle</strong> ja muokkaa editoitujen kohteiden värit vastaamaan taustakartan värejä <strong>Värin valitsin -työkalua</strong> hyödyntäen.</p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> (englanninkielisessä QGISissä <strong>CTRL + S</strong>) tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+<div class="hint-box">
+<p><strong>Psst!</strong> Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.</p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="06_harjoitus_6.html"><button class="btn btn-default">Previous</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS perusteet kunnille</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

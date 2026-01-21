@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 2: Luokittelu, heatmap ja diagrammit | Visualisoinnin mestariksi QGISillä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 2: Luokittelu, heatmap ja diagrammit | Visualisoinnin mestariksi QGISillä">
+
+<title>Harjoitus 2: Luokittelu, heatmap ja diagrammit | Visualisoinnin mestariksi QGISillä</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Visualisoinnin mestariksi QGISillä</h1></div>
+<div class="abstract-sidebar"><p>Jatkokurssi QGISin visualisointitekniikoista.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#visualisoinnin-mestariksi-qgisillä">Visualisoinnin mestariksi QGISillä</a>
+<ul>
+<li><a href="index.html#tervetuloa-kurssille">Tervetuloa kurssille!</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-geometry-generator-tyylitiedostot-ja-sääntöpohjainen-visualisointi">Harjoitus 1: Geometry generator, tyylitiedostot ja sääntöpohjainen visualisointi</a>
+<ul>
+<li><a href="01_harjoitus_1.html#valmistautuminen"><strong>Valmistautuminen</strong></a></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#polygonin-käyttö-maskina"><strong>Polygonin käyttö maskina</strong></a>
+<ul>
+<li><a href="01_harjoitus_1.html#geometry-generator"><strong>Geometry generator</strong></a></li>
+</ul></li>
+<li><a href="01_harjoitus_1.html#tyylin-tallentaminen-tiedostoon"><strong>Tyylin tallentaminen tiedostoon</strong></a></li>
+<li><a href="01_harjoitus_1.html#sääntöpohjainen-visualisointi"><strong>Sääntöpohjainen visualisointi</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-luokittelu-heatmap-ja-diagrammit">Harjoitus 2: Luokittelu, heatmap ja diagrammit</a>
+<ul>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1"><strong>Valmistautuminen</strong></a></li>
+<li><a href="02_harjoitus_2.html#pistemäisen-aineiston-luokittelu"><strong>Pistemäisen aineiston luokittelu</strong></a></li>
+<li><a href="02_harjoitus_2.html#heatmap"><strong>Heatmap</strong></a></li>
+<li><a href="02_harjoitus_2.html#diagrammit"><strong>Diagrammit</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-3d-visualisointi">Harjoitus 3: 3D-visualisointi</a>
+<ul>
+<li><a href="03_harjoitus_3.html#valmistautuminen-2"><strong>Valmistautuminen</strong></a></li>
+<li><a href="03_harjoitus_3.html#d-pylväsdiagrammi-tilastoaineistosta"><strong>3D-pylväsdiagrammi tilastoaineistosta</strong></a></li>
+<li><a href="03_harjoitus_3.html#maastomalli-korkeusaineistosta"><strong>Maastomalli korkeusaineistosta</strong></a></li>
+<li><a href="03_harjoitus_3.html#d-karttanäkymä"><strong>3D-karttanäkymä</strong></a></li>
+<li><a href="03_harjoitus_3.html#lisätehtävä"><strong>Lisätehtävä</strong></a></li>
+<li><a href="03_harjoitus_3.html#rakennusten-ja-muiden-objektien-3d-visualisointi"><strong>Rakennusten ja muiden objektien 3D-visualisointi</strong></a></li>
+<li><a href="03_harjoitus_3.html#karttatuloste"><strong>Karttatuloste</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-animaatiot">Harjoitus 4: Animaatiot</a>
+<ul>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3"><strong>Valmistautuminen</strong></a></li>
+<li><a href="04_harjoitus_4.html#temporal-controller"><strong>Temporal controller</strong></a></li>
+<li><a href="04_harjoitus_4.html#datan-esikäsittely"><strong>Datan esikäsittely</strong></a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-2-luokittelu-heatmap-ja-diagrammit" class="section level1">
+<h1>Harjoitus 2: Luokittelu, heatmap ja diagrammit</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa laaditaan teemakartta ordinaalisiin arvoihin perustuen symbolin koon avulla. Kokeillaan myös heatmapin laatimista ja piirakkadiagrammin tekoa.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Kouluttautuja oppii tekemään teemakartan valinnat siten, että ne kuvaavat käsiteltävää ilmiötä ja tuovat esiin aineiston ominaispiirteet.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>60 minuuttia.</p>
+<div id="valmistautuminen-1" class="section level2">
+<h2><strong>Valmistautuminen</strong></h2>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä "<strong>QGIS-harjoitus 2</strong>". Lisää projektiin seuraavat aineistot:</p>
+<ul>
+<li><strong>..kurssihakemisto/kuntien ikärakenne 2019.gpkg (tasot: "kuntien ikärakenne 2019" ja "keskipisteet")</strong></li>
+</ul>
+</div>
+<div id="pistemäisen-aineiston-luokittelu" class="section level2">
+<h2><strong>Pistemäisen aineiston luokittelu</strong></h2>
+<p>Hyödynnetään pistemäisen aineiston luokittelua attribuuttitiedon perusteella. Avaa <strong>Keskipisteet-tason Kuvaustekniikka</strong> ja aseta kuvaustekniikaksi <strong>Porrastettu</strong>. Valitse sarake, jonka mukaan luokitellaan (esimerkkiaineistossa <strong>Asukasluku 2019</strong>). Vaihda metodiksi <strong>Koko</strong>. Luokittelumenetelmien valinta ja histogrammin tarkastelu toimii täysin samoin kuin aluemaisilla aineistoilla.</p>
+<p><img src="img/harjoitus_2/image1.png" /></p>
+<p>Huomaa, että voit asettaa symboliksi muunkin kuin pyöreän pisteen. Lisäksi voit määrittää, minkä kokoinen on aineiston suurin ja pienin symboli. Tällä, samoin kuin luokittelumenetelmällä, on merkittävä vaikutus siihen miten luokkien välinen vaihtelu koetaan. Käytännöllistä on asettaa pienin piste vähintään 3-4 pikselin kokoiseksi, jotta se erottuu taustasta. Suurimman pisteen taas täytyy pysyä riittävän pienenä, jotta se ei peitä taustaa tai muita kohteita sillä zoomaustasolla, jolla karttaa on tarkoitus tarkastella.</p>
+<p><img src="img/harjoitus_2/image2.png" /></p>
+</div>
+<div id="heatmap" class="section level2">
+<h2><strong>Heatmap</strong></h2>
+<p>Heatmap eli lämpökartta kuvaa pistemäisten kohteiden tihentymiä ja jakaumaa spatiaalisesti. Heatmapia voi myös painottaa jonkin attribuuttitiedon mukaan.</p>
+<p>Heatmap-visualisointitoiminto löytyy <strong>Kuvaustekniikka-ikkunasta</strong> yhtenä vaihtoehtona muiden joukossa. Vaihda <strong>Keskipisteet-tasosi</strong> kuvaustekniikka <strong>Heatmapiksi</strong>. Valitse väriliukuma sekä vaikutussäde. Huomaa, että syntyvä heatmap-pinta peittää alleen kaiken, jos et säädä toisen ääripään väriä läpinäkyväksi. Testaa, miten vaikutussäteen muuttaminen vaikuttaa heatmapiisi. Jos säde on annettu <strong>millimetreinä</strong> näytöllä, heatmap tarkentuu kun zoomaat karttaa. Jos vaihdat säteen yksiköiksi <strong>karttayksiköt</strong>, heatmap pysyy saman näköisenä.</p>
+<p><img src="img/harjoitus_2/image3.png" /></p>
+<p>Painota vielä heatmapia aineiston <strong>Asukasluku 2019</strong> -kentän tiedoilla, jolloin saadaan todellinen väestöntiheyskartta.</p>
+</div>
+<div id="diagrammit" class="section level2">
+<h2><strong>Diagrammit</strong></h2>
+<p>QGISillä on helppo tehdä myös esimerkiksi piirakkadiagrammeja aineiston arvojen jakaumasta. Jotta kartta ei ruuhkautuisi liikaa, suodata ensin <strong>Keskipisteet-tasosta</strong> näkyviin vain 20 suurinta kaupunkia (yli 51.000 asukasta). </p>
+<p>Aseta <strong>Kuvaustekniikka-välilehdellä</strong> symbolit kokonaan pois näkyvistä ja siirry <strong>Kaaviot-välilehdelle</strong>. valitse pudotusvalikosta <strong>Ympyräkaavio -vaihtoehto</strong>. <strong>Attribuutit-rivillä</strong> valitaan, mitkä attribuuttitietokentät yhdessä muodostavat halutun arvojoukon. Valitse siis eri ikäryhmät ja siirrä ne oikeanpuoleiseen ikkunaan <img src="img/harjoitus_2/image4.png" />-painikkeella. Huom! Älä valitse <strong>Asukasluku 2019 -kenttää</strong>, koska silloin se muodostaisi puolet piirakkakaaviosta ja eri ikäryhmät toisen puolen.</p>
+<p><img src="img/harjoitus_2/image5.png" /></p>
+<p>Voit vaihtaa eri sektoreiden värejä klikkaamalla värisymbolia sekä sektoreiden järjestystä raahaamalla attribuuttirivejä. <strong>Karttanäyttö-rivillä</strong> voit vaihtaa esim. piirakkakaavion reunaviivojen väriä sekä piirakan muodostumisen suuntaa ja aloituskohtaa.</p>
+<p><strong>Koko-rivillä</strong> voidaan asettaa kaavion koko indikoimaan esimerkiksi kokonaisasukaslukua. Valitse koon määräävä attribuutti, klikkaa Hae ja aseta kaavion minimi- ja maksimikoko samaan tapaan kuin pistesymbolien kanssa. Kokeile miten mittakaavan vaihtaminen <strong>Alueesta</strong> <strong>Läpimittaan</strong> vaikuttaa lopulliseen teemakarttaasi.</p>
+<p><img src="img/harjoitus_2/image6.png" /></p>
+<p><strong>Tulosteenmuodostaja ja kaavion selite</strong></p>
+<p>Ympyräkaavion selite (kaavioiden suhteellinen koko) tulee vielä muodostaa erikseen, jotta se tulee näkyviin tulosteelle. Valitse <strong>Selite</strong> -välilehti ja aseta merkinnät mieleiseksesi esim. oheisen kuvan mukaisesti. Voit asettaa muutaman kokoluokan manuaalisesti tai käyttää valmiita luokkia.</p>
+<p><img src="img/harjoitus_2/image7.png" /></p>
+<p>Avaa sitten <strong>Tulosteenmuodostaja</strong> ja uusi taitto. Aseta paperi pystysuuntaiseksi (löydät sivun asetukset klikkaamalla tyhjää paperia hiiren oikealla painikkeella). Voit myös asettaa sivun taustavärin täysin läpikuultavaksi; tällöin valmis tulosteesi ei sisällä valkoista suorakaiteen muotoista taustaa vaan ainoastaan siihen tuodut elementit.</p>
+<p>Tuo taittoon karttaelementti sekä selite. Voit muokata selitteen merkintöjä, kun poistat ruksin ruudusta <strong>Päivitä automaattisesti</strong>. Lisää halutessasi kartalle otsikko.</p>
+<p><img src="img/harjoitus_2/image8.png" /></p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+<div class="hint-box">
+<p><strong>Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen <a href="mailto:koulutustuki@gispo.fi" class="email">koulutustuki@gispo.fi</a>!</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_harjoitus_1.html"><button class="btn btn-default">Previous</button></a>
+<a href="03_harjoitus_3.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Visualisoinnin mestariksi QGISillä</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

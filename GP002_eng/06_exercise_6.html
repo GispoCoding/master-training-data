@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Exercise 6: Editing geographic data sets | Introduction to QGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Exercise 6: Editing geographic data sets | Introduction to QGIS">
+
+<title>Exercise 6: Editing geographic data sets | Introduction to QGIS</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to QGIS</h1></div>
+<div class="abstract-sidebar"><p>Basic course on QGIS</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#introduction-to-qgis">Introduction to QGIS</a>
+<ul>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-user-interface-of-qgis">Exercise 1: User interface of QGIS</a>
+<ul>
+<li><a href="01_exercise_1.html#downloading-course-materials">Downloading course materials</a></li>
+<li><a href="01_exercise_1.html#qgis-user-interface">QGIS user interface</a></li>
+<li><a href="01_exercise_1.html#try-the-tools-yourself">Try the tools yourself</a></li>
+<li><a href="01_exercise_1.html#attribute-table">Attribute table</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-geographic-data-and-online-data-services">Exercise 2: Geographic data and online data services</a>
+<ul>
+<li><a href="02_exercise_2.html#exercise-content">Exercise content</a></li>
+<li><a href="02_exercise_2.html#the-goal-of-the-exercise">The goal of the exercise</a></li>
+<li><a href="02_exercise_2.html#preparations">Preparations</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wms">Connecting to a WMS</a></li>
+<li><a href="02_exercise_2.html#connecting-to-a-wfs">Connecting to a WFS</a></li>
+<li><a href="02_exercise_2.html#bonus-building-sql-query-for-wfs">Bonus: Building SQL query for WFS</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-visualizing-and-classifying-geographic-data-sets">Exercise 3: Visualizing and classifying geographic data sets</a>
+<ul>
+<li><a href="03_exercise_3.html#exercise-content-1">Exercise content</a></li>
+<li><a href="03_exercise_3.html#the-goal-of-the-exercise-1">The goal of the exercise</a></li>
+<li><a href="03_exercise_3.html#preparations-1">Preparations</a></li>
+<li><a href="03_exercise_3.html#visualizing-vector-data">Visualizing vector data</a></li>
+<li><a href="03_exercise_3.html#visualizing-line-data-sets">Visualizing line data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-point-data-sets">Visualizing point data sets</a></li>
+<li><a href="03_exercise_3.html#visualizing-polygon-data-sets">Visualizing polygon data sets</a></li>
+<li><a href="03_exercise_3.html#changing-symbols">Changing symbols</a></li>
+<li><a href="03_exercise_3.html#scale-dependent-symbols">Scale dependent symbols</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-labeling-and-classifying-geographic-data">Exercise 4: Labeling and classifying geographic data</a>
+<ul>
+<li><a href="04_exercise_4.html#exercise-content-2">Exercise content</a></li>
+<li><a href="04_exercise_4.html#the-goal-of-the-exercise-2">The goal of the exercise</a></li>
+<li><a href="04_exercise_4.html#preparations-2">Preparations</a></li>
+<li><a href="04_exercise_4.html#label-settings">Label settings</a></li>
+<li><a href="04_exercise_4.html#styling-label-texts">Styling label texts</a></li>
+<li><a href="04_exercise_4.html#labeling-line-layers">Labeling line layers</a></li>
+<li><a href="04_exercise_4.html#classifying-vector-data">Classifying vector data</a></li>
+<li><a href="04_exercise_4.html#bonus-classifying-raster-data">Bonus: Classifying raster data</a></li>
+<li><a href="04_exercise_4.html#bonus-label-rendering">Bonus: Label rendering</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-print-layout">Exercise 5: Print layout</a>
+<ul>
+<li><a href="05_exercise_5.html#exercise-content-3">Exercise content</a></li>
+<li><a href="05_exercise_5.html#the-goal-of-the-exercise-3">The goal of the exercise</a></li>
+<li><a href="05_exercise_5.html#preparations-3">Preparations</a></li>
+<li><a href="05_exercise_5.html#print-layout">Print layout</a></li>
+<li><a href="05_exercise_5.html#bonus-map-atlas">Bonus: Map atlas</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-editing-geographic-data-sets">Exercise 6: Editing geographic data sets</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-content-4">Exercise content</a></li>
+<li><a href="06_exercise_6.html#the-goal-of-the-exercise-4">The goal of the exercise</a></li>
+<li><a href="06_exercise_6.html#preparations-4">Preparations</a></li>
+<li><a href="06_exercise_6.html#creating-a-vector-data-set">Creating a vector data set</a></li>
+<li><a href="06_exercise_6.html#editing-and-digitizing-vector-data">Editing and digitizing vector data</a></li>
+<li><a href="06_exercise_6.html#adding-geometries">Adding geometries</a></li>
+<li><a href="06_exercise_6.html#bonus-adding-attribute-information">Bonus: Adding attribute information</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-spatial-analyses">Exercise 7: Spatial analyses</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-content-5">Exercise content</a></li>
+<li><a href="07_exercise_7.html#the-goal-of-the-exercise-5">The goal of the exercise</a></li>
+<li><a href="07_exercise_7.html#preparations-5">Preparations</a></li>
+<li><a href="07_exercise_7.html#vector-analyses">Vector analyses</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-plugins-in-qgis">Exercise 8: Plugins in QGIS</a>
+<ul>
+<li><a href="08_exercise_8.html#exercise-content-6">Exercise content</a></li>
+<li><a href="08_exercise_8.html#the-goal-of-the-exercise-6">The goal of the exercise</a></li>
+<li><a href="08_exercise_8.html#preparations-6">Preparations</a></li>
+<li><a href="08_exercise_8.html#plugin-management">Plugin management</a></li>
+<li><a href="08_exercise_8.html#quickmapservices">QuickMapServices</a></li>
+<li><a href="08_exercise_8.html#quickosm">QuickOSM</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2threejs">Bonus: Qgis2threejs</a></li>
+<li><a href="08_exercise_8.html#bonus-qgis2web">Bonus: Qgis2web</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-6-editing-geographic-data-sets" class="section level1">
+<h1>Exercise 6: Editing geographic data sets</h1>
+<div id="exercise-content-4" class="section level2">
+<h2>Exercise content</h2>
+<p>In this exercise you will be creating a geographic data set and digitizing features based on aerial photos.</p>
+</div>
+<div id="the-goal-of-the-exercise-4" class="section level2">
+<h2>The goal of the exercise</h2>
+<p>After the exercise you can create a geographic data set and know how to edit it.</p>
+</div>
+<div id="preparations-4" class="section level2">
+<h2>Preparations</h2>
+<p>Open a new QGIS project (<strong>Project &gt; New</strong>) and save it as <strong>"QGIS-exercise 8"</strong>. Add the following data to the project:</p>
+<ul>
+<li><strong>..course_directory/swisstopo/orthophoto.tif</strong></li>
+</ul>
+<div class="hint-box">
+<p>Psst! Remember to always check that your data and project are in the correct coordinate reference system (CRS)! In this case that would be the swiss standard CRS: CH1903+ / lv95 (EPSG:2056)</p>
+</div>
+</div>
+<div id="creating-a-vector-data-set" class="section level2">
+<h2>Creating a vector data set</h2>
+<p>Let's create a new GeoPackage data set by selecting <strong>Layer &gt; Create Layer &gt; New GeoPackage Layer</strong>. A dialog box for setting up your new data set opens. It is possible that there is already a GeoPackage data set in the <strong>Database</strong> field. Although it would be possible to add another layer to this pre-existing data set, we will be creating a completely new GeoPackage. Press the <strong>"..."-button</strong> next to the <strong>Database</strong> field and save your new GeoPackage to your course directory as "<strong>Polygons</strong>". Then give a name, for example "<strong>Polygons</strong>", for the new layer and make sure <strong>Geometry type</strong> is set to <strong>Polygon</strong>. Set the CRS to <strong>CH1903+ / LV95 (EPSG:2056)</strong>.</p>
+<p><img src="img/exercise_6/image1.png" /></p>
+<p>Let's now, in the same window, add a few fields to the attribute table of our new <strong>Polygons</strong> data set. When a new field is created you must at least specify a <strong>Name</strong> and <strong>Type</strong> for it. You can also set a maximum length for the field (= how many characters the field can store). Let's first add a <strong>Text</strong> field called <strong>"Name"</strong>. Add the field to your data set by selecting <strong>Add to Fields List</strong>. Your new field should now appear in the field list of the <strong>Polygons</strong> data set.</p>
+<p><img src="img/exercise_6/image2.png" /> <img src="img/exercise_6/image3.png" /></p>
+<p>Press <strong>OK</strong>. A new and so far empty <strong>Polygons</strong> dat set is added to the GeoPackageand a new vector layer named <strong>Polygons</strong> appears in the <strong>Layers Panel</strong> of your <strong>QGIS</strong> workspace. Open the attribute table of your new data set and make sure it is empty. There should only be two fields in the attribute table: <strong>fid</strong> ja <strong>Name</strong>. QGIS generates the fid field automatically and it functions as an unique numerical identifier for the features of the layer. The <strong>Name</strong> field is the one we just configured when adding a field to our data set.</p>
+<p><img src="img/exercise_6/image4.png" /></p>
+</div>
+<div id="editing-and-digitizing-vector-data" class="section level2">
+<h2>Editing and digitizing vector data</h2>
+<p>Now select an area you wish to edit. We will be digitizing buildings, forests and fields. Zoom close enough so that you can see these area types clearly.</p>
+<p><img src="img/exercise_6/image10.png" /></p>
+<p>Next select <strong>View &gt; Toolbars &gt; Snapping Toolbar</strong> from the top menu bar. The snapping toolbar should now be visible:</p>
+<p><img src="img/exercise_6/image11.png" /></p>
+<p>Click the <strong>magnet</strong> icon to enable snapping. After this click the icon to the right of the magnet icon and choose <strong>Open Snapping Options</strong>. Configure the options as shown in the picture below. Let's limit the snapping only to the active layer, snap both to edges and vertices in a 5 meter radius and also enable topological editing. Let's also enable the <strong>Avoid Overlap on Active Layer</strong> option. After you have set the options, you can close the <strong>Snapping Settings</strong> window.</p>
+<p><img src="img/exercise_6/image12.png" /></p>
+<p>Let's start editing the layer by clicking the <strong>Toggle editing</strong> tool <img src="img/exercise_6/image13.png" />. Notice that this activates the other tools in the <strong>Digitizing Toolbar</strong> too.</p>
+<p><img src="img/exercise_6/image14.png" /></p>
+<p>Select the <strong>Add Polygon Feature</strong> tool<img src="img/exercise_6/image15.png" /> and start digitizing. Left-clicking sets the corner points for the polygon and right-clicking (once all the corners have been digitized) creates a polygon from the corner points. Now try digitizing a field area, for example:</p>
+<p><img src="img/exercise_6/image16.png" /></p>
+<p>Once you create the polygon a window for filling in the attribute information opens. Fill in the <strong>Name</strong> field (for example Field) and press <strong>OK</strong>.</p>
+<p><img src="img/exercise_6/image17.png" /></p>
+<p>We have now digitized our first map feature!</p>
+</div>
+<div id="adding-geometries" class="section level2">
+<h2>Adding geometries</h2>
+<p>Let's digitize another feature. Notice that when you move your cursor within 5 meters of a digitized polygon (either the edges or vertices) QGIS snaps your cursor to it. Digitize a new area next to the previous polygon. Notice that the common edge between the polygons can be hard to follow. This could lead to unintended overlapping polygons, and is the reason why earlier we enabled the <strong>Avoid Overlap on Active Layer</strong> option in the <strong>Snapping Settings</strong>.</p>
+<p><img src="img/exercise_6/image18.png" /></p>
+<p>This setting makes digitizing much easier because you don't have to avoid digitizing polygons on top of each other. Try digitizing a few new polygons. Every time you want the polygons to have a common edge, just digitize inside the other polygon and QGIS will automatically delete the overlap. In the example a polygon overlaps with another polygon. Once the new polygon has been created, QGIS automatically deletes the overlap.</p>
+<p><img src="img/exercise_6/image19.png" />
+<img src="img/exercise_6/image20.png" />.</p>
+<p>Digitize a few polygons more and then save your edits with the <strong>Current Edits</strong> tool <img src="img/exercise_6/image21.png" />.</p>
+<p>Once you have digitized 5-8 new polygons, exit the editing mode by clicking the <strong>pencil</strong> icon. Save your edits and configure the symbology settings for the digitized layer. The <strong>Categorized</strong> option could work, for example.</p>
+</div>
+<div id="bonus-adding-attribute-information" class="section level2">
+<h2>Bonus: Adding attribute information</h2>
+<p>Next we'll add the areas of the digitized polygons as attribute information to the layer. Open the attribute table of the <strong>Polygons</strong> layer. Toggle editing on. First try editing the contents of the <strong>Name</strong> fields by double-clicking them. Notice that editing is only possible when the editing mode is toggled on. Now open the <strong>Field Calculator</strong><img src="img/exercise_6/image23.png" />. This functionality allows us to either create new or update pre-existing fields of the attribute table. To calculate the areas of the polygons, configure the field calculator as follows:</p>
+<p><img src="img/exercise_6/image24.png" /></p>
+<p>The expression uses the automatic area function <strong>$area</strong> that returns the area of a polygon as square meters. If you have digitized large areas, you can divide the result with a million to get square kilometers instead. Press <strong>OK</strong> to calculate the area of each polygon into its own field:</p>
+<p><img src="img/exercise_6/image25.png" /></p>
+<p>We can fine-tune the same expression further by using the <strong>round</strong> function to round our values with the desired precision. The function takes the value as the first parameter (area in this case) and the number of decimal places as the second parameter. The below example rounds the values to two decimal places.</p>
+<p><img src="img/exercise_6/image26.png" /></p>
+<p>Once you are done, save the project file into the course directory either by selecting <strong>Project &gt; Save</strong> from the menu bar or by pressing <strong>CTRL + S</strong>.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="05_exercise_5.html"><button class="btn btn-default">Previous</button></a>
+<a href="07_exercise_7.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to QGIS</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

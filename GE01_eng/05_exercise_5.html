@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Exercise 5: Creating a plugin | QGIS plugin development" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy" />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Exercise 5: Creating a plugin | QGIS plugin development">
+
+<title>Exercise 5: Creating a plugin | QGIS plugin development</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>QGIS plugin development</h1></div>
+<div class="abstract-sidebar"><p>Developing plugins for QGIS using Python</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#qgis-plugin-development">QGIS plugin development</a>
+<ul>
+<li><a href="index.html#welcome-to-the-course">Welcome to the course!</a></li>
+<li><a href="index.html#reading-guide">Reading Guide</a></li>
+<li><a href="index.html#additional-information">Additional information</a></li>
+<li><a href="index.html#mistakes">Mistakes</a></li>
+<li><a href="index.html#license-and-permissions">License and permissions</a></li>
+<li><a href="index.html#download-a-pdf-version-of-the-material">Download a PDF version of the material</a></li>
+</ul></li>
+<li class="has-sub"><a href="00_exercise_0.html#exercise-0-python-basics">Exercise 0: Python basics</a>
+<ul>
+<li><a href="00_exercise_0.html#preparations">Preparations</a></li>
+<li class="has-sub"><a href="00_exercise_0.html#the-basics">The basics</a>
+<ul>
+<li><a href="00_exercise_0.html#commands">Commands</a></li>
+<li><a href="00_exercise_0.html#comments">Comments</a></li>
+<li><a href="00_exercise_0.html#calculations">Calculations</a></li>
+<li><a href="00_exercise_0.html#variables">Variables</a></li>
+<li><a href="00_exercise_0.html#types">Types</a></li>
+<li><a href="00_exercise_0.html#conditionals">Conditionals</a></li>
+<li><a href="00_exercise_0.html#functions">Functions</a></li>
+<li><a href="00_exercise_0.html#data-structures">Data structures</a></li>
+<li><a href="00_exercise_0.html#loops-and-iteration">Loops and iteration</a></li>
+<li><a href="00_exercise_0.html#modules">Modules</a></li>
+<li><a href="00_exercise_0.html#objects">Objects</a></li>
+<li><a href="00_exercise_0.html#classes">Classes</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-python-console">Exercise 1: Python console</a>
+<ul>
+<li><a href="01_exercise_1.html#structure-of-the-exercises">Structure of the exercises</a></li>
+<li><a href="01_exercise_1.html#examples">Examples</a></li>
+<li><a href="01_exercise_1.html#exercises">Exercises</a></li>
+<li><a href="01_exercise_1.html#exercise-1.1">Exercise 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-introduction-to-pyqgis">Exercise 2: Introduction to PyQGIS</a>
+<ul>
+<li><a href="02_exercise_2.html#layers">Layers</a></li>
+<li><a href="02_exercise_2.html#exercise-2.1">Exercise 2.1</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2">Exercise 2.2</a></li>
+<li><a href="02_exercise_2.html#exercise-2.3">Exercise 2.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-layers-features-and-geometries">Exercise 3: Layers, features and geometries</a>
+<ul>
+<li><a href="03_exercise_3.html#layer">Layer</a></li>
+<li><a href="03_exercise_3.html#creating-a-temporary-layer">Creating a temporary layer</a></li>
+<li><a href="03_exercise_3.html#geometries">Geometries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.1">Exercise 3.1</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2-distances">Exercise 3.2: Distances</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-guis-with-qt">Exercise 4: GUIs with Qt</a>
+<ul>
+<li class="has-sub"><a href="04_exercise_4.html#about-qt-guis">About Qt GUIs</a>
+<ul>
+<li><a href="04_exercise_4.html#qwidget">QWidget</a></li>
+<li><a href="04_exercise_4.html#signals-and-slots">Signals and slots</a></li>
+</ul></li>
+<li><a href="04_exercise_4.html#exercise-4.1-counter-widget">Exercise 4.1: Counter-widget</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-qgis-custom-widgets">Exercise 4.2: QGIS custom widgets</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-creating-a-plugin">Exercise 5: Creating a plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#configuring-git">Configuring Git</a></li>
+<li><a href="05_exercise_5.html#creating-the-plugin">Creating the plugin</a></li>
+<li><a href="05_exercise_5.html#adding-the-plugin-to-qgis">Adding the plugin to QGIS</a></li>
+<li class="has-sub"><a href="05_exercise_5.html#structure-of-the-plugin">Structure of the plugin</a>
+<ul>
+<li><a href="05_exercise_5.html#file-plugin.py">File: plugin.py</a></li>
+<li><a href="05_exercise_5.html#file-__init__.py">File: __init__.py</a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-buffer-tool">Exercise 6: Buffer tool</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1-creating-the-gui">Exercise 6.1: Creating the GUI</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2-connecting-the-gui-to-the-plugin">Exercise 6.2: Connecting the GUI to the plugin</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3-the-functionality-of-the-tool">Exercise 6.3: The functionality of the tool</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4-segments">Exercise 6.4: Segments</a></li>
+<li><a href="06_exercise_6.html#unit-tests">Unit tests</a></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6.5-tests">Exercise 6.5: Tests</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.5.1-gui-test">Exercise 6.5.1: GUI test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.2-buffertool-test">Exercise 6.5.2: BufferTool test</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5.3-more-tests">Exercise 6.5.3: More tests</a></li>
+</ul></li>
+<li><a href="06_exercise_6.html#sample-plugin">Sample plugin</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-point-tool">Exercise 7: Point tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-panel">Exercise 7.1: Creating a panel</a></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7.2-point-tool">Exercise 7.2: Point Tool</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.2.1-extra-challenge---labeling">Exercise 7.2.1: Extra challenge - labeling</a></li>
+</ul></li>
+<li><a href="07_exercise_7.html#exercise-7.3-tests">Exercise 7.3: Tests</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-processing-algorithms">Exercise 8: Processing algorithms</a>
+<ul>
+<li class="has-sub"><a href="08_exercise_8.html#background">Background</a>
+<ul>
+<li><a href="08_exercise_8.html#calling-a-processing-algorithm">Calling a processing algorithm</a></li>
+</ul></li>
+<li><a href="08_exercise_8.html#algorithms-in-a-plugin">Algorithms in a plugin</a></li>
+<li><a href="08_exercise_8.html#exercise-8.1-writing-an-algorithm">Exercise 8.1: Writing an algorithm</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-tests-for-the-algorithm">Exercise 8.2: Tests for the algorithm</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#extra-python-exercises">Extra Python exercises</a>
+<ul>
+<li class="has-sub"><a href="09_extra_9.html#topic-1-comprehensions">Topic 1: Comprehensions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-1.1">Extra exercise 1.1</a></li>
+<li><a href="09_extra_9.html#nested-comprehensions">Nested comprehensions</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-2-lambda-functions">Topic 2: Lambda functions</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercise-2.1">Extra exercise 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_extra_9.html#topic-3-decorators">Topic 3: Decorators</a>
+<ul>
+<li><a href="09_extra_9.html#extra-exercises-3.1">Extra exercises 3.1</a></li>
+<li><a href="09_extra_9.html#decorators-and-parameters">Decorators and parameters</a></li>
+<li><a href="09_extra_9.html#extra-exercise-3.2">Extra exercise 3.2</a></li>
+</ul></li>
+<li><a href="09_extra_9.html#topic-4-typing">Topic 4: Typing</a></li>
+<li><a href="09_extra_9.html#extra-exercises-4.1">Extra exercises 4.1</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-5-creating-a-plugin" class="section level1">
+<h1>Exercise 5: Creating a plugin</h1>
+<p><strong>Contents:</strong> Creating a plugin by using Cookiecutter</p>
+<p><strong>Goal:</strong> To know how to use Cookiecutter to create a base for your own plugin.</p>
+<p>The base is created using commandline tools. Let’s use the OSGeo4W Shell
+as a commandline. This should be included in the QGIS installation.
+You can open it from the search bar by writing OSGeo4W.</p>
+<p><img src="img/exercise_5/image1.png" /></p>
+<div id="configuring-git" class="section level2">
+<h2>Configuring Git</h2>
+<p>Before creating the plugin we need to configure
+Git to work correctly.</p>
+<ol style="list-style-type: decimal">
+<li>Add the path to the Git executable to the PATH environment variable:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb117"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb117-1"><a href="05_exercise_5.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span> Path=%Path%<span class="kw">;</span><span class="st">&quot;C:\Program Files\Git\cmd&quot;</span></span></code></pre></div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Configure your username and email</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb118"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb118-1"><a href="05_exercise_5.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name your_user_name</span></code></pre></div>
+</div>
+<div class="commandline-box">
+<div class="sourceCode" id="cb119"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb119-1"><a href="05_exercise_5.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email your_email</span></code></pre></div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Make Git also update any submodule when doing a <code>git pull</code>. This affects qgis_plugin_tools which you need.</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb120"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb120-1"><a href="05_exercise_5.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> submodule.recurse true</span></code></pre></div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Force git to use Unix-compatible end of line symbols</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb121"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb121-1"><a href="05_exercise_5.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> core.autocrlf input</span></code></pre></div>
+</div>
+</div>
+<div id="creating-the-plugin" class="section level2">
+<h2>Creating the plugin</h2>
+<p>First create a folder for the plugin in a suitable location and
+navigate to this folder in OSGeo4W Shell:</p>
+<p><img src="img/exercise_5/image2.gif" /></p>
+<ol style="list-style-type: decimal">
+<li>Create a virtual environment for the plugin</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb122"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb122-1"><a href="05_exercise_5.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="ex">%PYTHONHOME%/python.exe</span> <span class="at">-m</span> venv cookiecutter-venv</span></code></pre></div>
+</div>
+<div class="hint-box">
+<p>In the OSGeo4W shell the %PYTHONHOME% environment variable refers to the Python interpreter
+included in the QGIS installation.</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Activate the virtual environment</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb123"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb123-1"><a href="05_exercise_5.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span><span class="dt">\c</span>ookiecutter-venv<span class="dt">\S</span>cripts<span class="dt">\a</span>ctivate</span></code></pre></div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Install the <code>cookiecutter</code> and <code>pip-tools</code> Python packages to the new environment</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb124"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb124-1"><a href="05_exercise_5.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-U</span> pip</span>
+<span id="cb124-2"><a href="05_exercise_5.html#cb124-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install cookiecutter pip-tools</span></code></pre></div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Create a new template:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb125"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb125-1"><a href="05_exercise_5.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cookiecutter</span> https://github.com/GispoCoding/cookiecutter-qgis-plugin.git</span></code></pre></div>
+</div>
+<ul>
+<li>You can use the default settings <strong>except for</strong>:
+<ul>
+<li><code>Select a name for your plugin</code>: Test Plugin</li>
+<li><code>Include processing algorithm in your plugin?</code>: y</li>
+</ul></li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li>Deactivate the cookiecutter virtual environment and navigate the plugin folder:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb126"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb126-1"><a href="05_exercise_5.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deactivate</span></span>
+<span id="cb126-2"><a href="05_exercise_5.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> test-plugin</span></code></pre></div>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li>The folder already contains a Python script which creates a new
+virtual environment suitable for plugin development. Run the script.</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb127"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb127-1"><a href="05_exercise_5.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> create_qgis_venv.py</span></code></pre></div>
+</div>
+<div class="hint-box">
+<p>If your computer has many QGIS installations the script might ask which one of
+them to use. Preferably choose the latest LTR version.</p>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>Activate the new virtual environment</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb128"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb128-1"><a href="05_exercise_5.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv\Scripts\activate</span></span></code></pre></div>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Install pip:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb129"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb129-1"><a href="05_exercise_5.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> pip install <span class="at">-U</span> pip</span></code></pre></div>
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li>Install pip-tools:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb130"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb130-1"><a href="05_exercise_5.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pip-tools</span></code></pre></div>
+</div>
+<ol start="10" style="list-style-type: decimal">
+<li>Use the pip-compile tool to compile a list
+of the needed Python packages to a text file:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb131"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb131-1"><a href="05_exercise_5.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip-compile</span> requirements-dev.in</span></code></pre></div>
+</div>
+<ol start="11" style="list-style-type: decimal">
+<li>The list was created to the <code>requirements-dev.txt</code> file.
+Install the packages:</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb132"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb132-1"><a href="05_exercise_5.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements-dev.txt</span></code></pre></div>
+</div>
+<ol start="12" style="list-style-type: decimal">
+<li><p>After running the command it’s good to confirm that the installation was
+successful. You can use the <code>pip freeze</code> command and you should see
+for example <code>pytest</code> and <code>pytest-qgis</code> in the listed packages.</p></li>
+<li><p>After this you can open Visual Studio Code. Open the <code>test-plugin.code-workspace</code>
+file which should open in VS Code by default.</p></li>
+<li><p>Make VS Code use the correct <code>.venv</code> which was just created. Select
+from the <strong>Help</strong> menu <strong>Show All Commands</strong> and type to search
+<code>Python: Select Interpreter</code>.</p></li>
+</ol>
+<p><img src="img/exercise_5/image3.png" /></p>
+<ol start="15" style="list-style-type: decimal">
+<li>When you close and reopen VS Code the development environment should be
+fully set up. You can confirm this by opening the <code>plugin.py</code> file inside
+the <code>testplugin</code> folder. The import commands on the top of the file
+should not have any error messages.</li>
+</ol>
+<p><img src="img/exercise_5/image4.png" /></p>
+<ol start="16" style="list-style-type: decimal">
+<li>The project includes one test by default which you can check by opening
+the panel from the left and running the tests.</li>
+</ol>
+<p><img src="img/exercise_5/image5.png" /></p>
+</div>
+<div id="adding-the-plugin-to-qgis" class="section level2">
+<h2>Adding the plugin to QGIS</h2>
+<p>As a next step add the plugin to QGIS.</p>
+<ol style="list-style-type: decimal">
+<li>Open QGIS and create a new profile called <code>training</code></li>
+<li>Edit the <code>testplugin/build.py</code> file and change <code>profile = "training"</code></li>
+<li>Navigate into the <code>testplugin</code> folder and deploy the plugin by using the <code>build.py</code> script.</li>
+</ol>
+<div class="commandline-box">
+<div class="sourceCode" id="cb133"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb133-1"><a href="05_exercise_5.html#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> testplugin</span>
+<span id="cb133-2"><a href="05_exercise_5.html#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> build.py deploy</span></code></pre></div>
+</div>
+<ol style="list-style-type: decimal">
+<li>Reopen QGIS and check that you’re using the <strong>training</strong> profile.</li>
+<li>Open the Plugin menu and from the left click <em>Installed</em> <strong>Test Plugin</strong>
+<ul>
+<li>From the <em>All</em> tab search for <strong>Plugin Reloader</strong> and install it. You need it later on to reload the plugin as you’re developing it.</li>
+</ul></li>
+<li>Test that the plugin works correctly. Open the QGIS Python Console and then
+run the plugin from the top menu <strong>Plugins</strong> -&gt; <strong>TestPlugin</strong> -&gt; <strong>Test Plugin</strong>.
+Some text should be printed out to the console.</li>
+</ol>
+</div>
+<div id="structure-of-the-plugin" class="section level2">
+<h2>Structure of the plugin</h2>
+<p>Here’s a simplified overview of the plugin folder structure.</p>
+<pre><code>📦test-plugin
+ ┣ 📂.git
+ ┣ 📂testplugin
+ ┃ ┣ 📂qgis_plugin_tools
+ ┃ ┣ 📂resources
+ ┃ ┣ 📜metadata.txt
+ ┃ ┣ 📜plugin.py
+ ┃ ┗ 📜__init__.py
+ ┣ 📂tests
+ ┃ ┣ 📜test_plugin.py
+ ┣ 📜.gitignore
+ ┣ 📜LICENSE
+ ┣ 📜README.md
+ ┣ 📜requirements-dev.txt
+ ┗ 📜pyproject.toml</code></pre>
+<div id="file-plugin.py" class="section level3">
+<h3>File: plugin.py</h3>
+<p>Inspect the <code>testplugin/plugin.py</code> file. It should contain a class definition
+of <code>Plugin</code> and it should have at least the following methods:</p>
+<blockquote>
+<ul>
+<li><code>__init__</code>: constructor of the class which is called from the <code>testplugin/__init__.py</code> file</li>
+<li><code>initGui</code>: adds the plugin to the QGIS GUI</li>
+<li><code>unload</code>: removes the plugin from the QGIS GUI</li>
+<li><code>run</code>: code that runs when the plugin is activated</li>
+</ul>
+</blockquote>
+<p>The <code>run</code> method can be renamed, but the other method names need to be the same,
+since QGIS calls them internally.</p>
+</div>
+<div id="file-__init__.py" class="section level3">
+<h3>File: __init__.py</h3>
+<p>This file includes an important method called <code>classFactor</code>. QGIS
+initializes the plugin by calling this method. It returns <code>Plugin</code>
+class which was mentioned above to QGIS:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb135"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb135-1"><a href="05_exercise_5.html#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> classFactory(iface: QgisInterface):</span>
+<span id="cb135-2"><a href="05_exercise_5.html#cb135-2" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> testplugin.plugin <span class="im">import</span> Plugin</span>
+<span id="cb135-3"><a href="05_exercise_5.html#cb135-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb135-4"><a href="05_exercise_5.html#cb135-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> Plugin()</span></code></pre></div>
+</div>
+
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="04_exercise_4.html"><button class="btn btn-default">Previous</button></a>
+<a href="06_exercise_6.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">QGIS plugin development</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Finland Ltd.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

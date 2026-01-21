@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 3: Vektorianalyysi | Tilastot ja analyysit QGISillä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 3: Vektorianalyysi | Tilastot ja analyysit QGISillä">
+
+<title>Harjoitus 3: Vektorianalyysi | Tilastot ja analyysit QGISillä</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Tilastot ja analyysit QGISillä</h1></div>
+<div class="abstract-sidebar"><p>Jatkokurssi QGISin käytöstä</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#tilastot-ja-analyysit-qgisillä">Tilastot ja analyysit QGISillä</a>
+<ul>
+<li><a href="index.html#tervetuloa-qgis-jatkokurssille">Tervetuloa QGIS-jatkokurssille!</a></li>
+<li><a href="index.html#kurssimateriaalien-lataaminen">Kurssimateriaalien lataaminen</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-qgis-käyttöliittymän-konfigurointi">Harjoitus 1: QGIS-käyttöliittymän konfigurointi</a>
+<ul>
+<li><a href="01_harjoitus_1.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="01_harjoitus_1.html#käyttöliittymän-räätälöinti">Käyttöliittymän räätälöinti</a></li>
+<li><a href="01_harjoitus_1.html#muokkauksen-yleisasetukset">Muokkauksen yleisasetukset</a></li>
+<li><a href="01_harjoitus_1.html#käyttäjäprofiilit">Käyttäjäprofiilit</a></li>
+<li><a href="01_harjoitus_1.html#pikanäppäimet">Pikanäppäimet</a></li>
+<li><a href="01_harjoitus_1.html#taustakarttoja-lisäosien-avulla">Taustakarttoja lisäosien avulla</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-taulukosta-kartalle">Harjoitus 2: Taulukosta kartalle</a>
+<ul>
+<li><a href="02_harjoitus_2.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="02_harjoitus_2.html#pisteet-tekstitiedostosta-kartalle">Pisteet tekstitiedostosta kartalle</a></li>
+<li><a href="02_harjoitus_2.html#ilman-geometriaa-olevan-taulukon-tuominen">Ilman geometriaa olevan taulukon tuominen</a></li>
+<li><a href="02_harjoitus_2.html#taulukon-kenttien-tyypin-muokkaaminen">Taulukon kenttien tyypin muokkaaminen</a></li>
+<li><a href="02_harjoitus_2.html#taulukkotiedon-liittäminen-geometriaan">Taulukkotiedon liittäminen geometriaan</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-vektorianalyysi">Harjoitus 3: Vektorianalyysi</a>
+<ul>
+<li><a href="03_harjoitus_3.html#valmistautuminen-2">Valmistautuminen</a></li>
+<li><a href="03_harjoitus_3.html#vektorianalyysi">Vektorianalyysi</a></li>
+<li><a href="03_harjoitus_3.html#tilastot">Tilastot</a></li>
+<li><a href="03_harjoitus_3.html#alueellisten-summien-laskeminen-ja-aggregointi">Alueellisten summien laskeminen ja aggregointi</a></li>
+<li><a href="03_harjoitus_3.html#vaaralliset-tieristeykset">Vaaralliset tieristeykset</a></li>
+<li><a href="03_harjoitus_3.html#etsi-omia-analyysityökaluja">Etsi omia analyysityökaluja</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-graafinen-mallintaja">Harjoitus 4: Graafinen mallintaja</a>
+<ul>
+<li><a href="04_harjoitus_4.html#valmistautuminen-3">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#graafisen-mallintajan-toiminnot">Graafisen mallintajan toiminnot</a></li>
+<li><a href="04_harjoitus_4.html#prosessin-laatiminen-ja-testaus">Prosessin laatiminen ja testaus</a></li>
+<li><a href="04_harjoitus_4.html#tallennetun-prosessin-käyttöönotto">Tallennetun prosessin käyttöönotto</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-luokittelu-heatmap-ja-diagrammit">Harjoitus 5: Luokittelu, heatmap ja diagrammit</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-4">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#pistemäisen-aineiston-luokittelu">Pistemäisen aineiston luokittelu</a></li>
+<li><a href="05_harjoitus_5.html#heatmap">Heatmap</a></li>
+<li><a href="05_harjoitus_5.html#diagrammit">Diagrammit</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-3-vektorianalyysi" class="section level1">
+<h1>Harjoitus 3: Vektorianalyysi</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tutustutaan muutamiin hyödyllisiin tilasto- ja vektorianalyysityökaluihin, opitaan yhdistämään aineistoja ja laskemaan uusia ominaisuustietokenttiä.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Kouluttautuja osaa etsiä ja hyödyntää tarkoitukseensa sopivia analyysityökaluja.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>30 minuuttia.</p>
+<div id="valmistautuminen-2" class="section level2">
+<h2>Valmistautuminen</h2>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä “<strong>QGIS-harjoitus 3</strong>”.</p>
+</div>
+<div id="vektorianalyysi" class="section level2">
+<h2>Vektorianalyysi</h2>
+<p>Tässä harjoituksessa tehdään joitakin vektorianalyyseja ja perehdytään monipuolisten analyysityökalujen maailmaan. Yleisimmin käytetyt analyysityökalut löytyvät päävalikon kohdasta <strong>Vektori</strong>, mutta kattavimman kokoelman QGISin, GRASSin, SAGAn ja GDALin analyysityökaluja saat näkyviin valitsemalla päävalikosta <strong>Prosessointi &gt; Työkalut</strong>. Tämä avaa Prosessointityökalut-paneelin QGISiin (yleensä oikealle puolelle käyttöliittymää), jonka kautta voit hakea erilaisia analyysejä.</p>
+<div class="hint-box">
+<p>Psst! QGIS kehittyy jatkuvasti ja suomennos ei aina pysy kaikkien uusien työkalujen perässä. Työkalun nimi tai sen selitys saattaa joskus löytyä vain englanninkielisenä.</p>
+</div>
+<p><img src="img/harjoitus_3/image1.png" /></p>
+<p>Useimmat QGISin vektori- ja rasterianalyysityökalut toimivat samalla periaatteella: käyttäjä valitsee projektin tasoista haluamansa lähtötiedot ja muokkaa erilaisia parametreja tarvittaessa. Lopulta analyysin tuloksena syntyy uusi tulostaso. Käyttäjä voi valita tallennetaanko tulos <strong>tilapäiseksi tasoksi</strong> vai <strong>pysyväksi tasoksi</strong>. Tilapäiset tulostasot ovat olemassa auki olevassa QGIS-projektissa vain siihen saakka, kun ohjelma suljetaan. Tilapäisen tulostason voi halutessaan tallentaa myöhemminkin pysyväksi tasoksi. Suurilla aineistoilla jotkin analyysiprosessit voivat kestää pitkään. Tällöin on hyvä valita vaihtoehto <strong>Aja eräajona</strong>, jolloin ohjelman käyttöä voi jatkaa, ja analyysin laskentaan käytetään vain osa tietokoneen kapasiteetista.</p>
+<p>Joskus käytettävissä aineistot eivät ole laadultaan täydellisiä. Esimerkiksi virheelliset geometriat eivät aina näy aineistosta päällepäin, mutta voivat estää geometriaan perustuvien analyysien suorittamisen. Tätä voi estää valitsemalla <strong>Prosessointityökalut-paneelista</strong> seuraava vaihtoehto: Asetukset <img src="img/harjoitus_3/image2.png" /> -&gt; Prosessointi -&gt; Yleinen -&gt; Epäkelpo kohteiden suodatus <strong>-&gt; Ohita kohteet joilla on virheellinen geometria</strong>.</p>
+<p><img src="img/harjoitus_3/image3.png" /></p>
+</div>
+<div id="tilastot" class="section level2">
+<h2>Tilastot</h2>
+<p>Tuo projektiisi kurssihakemiston <strong>Harjoitus 3</strong> -kansiosta
+vektorimuotoinen taso <strong>Vaestotietoruudukko_2022.gpkg</strong>.
+Tutkitaan seuraavaksi tasoa QGISin tilastot-paneelissa,
+jossa voit tarkastella aineistosi arvojen tilastollista jakaumaa.</p>
+<p>Saat <strong>Tilastot-paneelin</strong> näkyviin QGISin käyttöliittymään klikkaamalla Näytä tilastollinen yhteenveto -painiketta <img src="img/harjoitus_3/image4.png" /> tai valitsemalla päävalikosta <strong>Näytä &gt; Paneelit &gt; Tilastot</strong>. Avautuvassa ikkunassa valitse pudotusvalikosta <strong>vaestotietoruudukko_2022-taso</strong> ja sen jälkeen yksi tason attribuuttikenttä. Tarkastele esitettäviä tilastollisia tunnuslukuja. Voit myös valita aineistosta vain osan, jonka tilastoja haluat tarkastella. Valitse osa aineiston ruuduista joko kartalta tai attribuuttitaulusta, ja klikkaa <strong>Tilastot-paneelin</strong> ruutu <strong>Käytetään vain valittuja kohteita</strong> aktiiviseksi.</p>
+<p><img src="img/harjoitus_3/image5.png" /></p>
+</div>
+<div id="alueellisten-summien-laskeminen-ja-aggregointi" class="section level2">
+<h2>Alueellisten summien laskeminen ja aggregointi</h2>
+<p>Erilaisia paikkatietoaineistoja pitää välillä yhdistää ominaisuuksiensa tai sijainnin perusteella. Tässä harjoituksessa tutustuaan, miten ominaisuustietoja voidaan yhdistää eri tavoin. Harjoituksessa käytetään Helsingin kaupungin avointa aineistoa rajapinnalta ja lasketaan, kuinka paljon huoneistoja on eri Helsingin osa-alueilla.</p>
+<p>Tee yhteys Helsingin kaupungin WFS-osoitteeseen:</p>
+<p><a href="https://kartta.hel.fi/ws/geoserver/avoindata/wfs?request=getCapabilities" class="uri">https://kartta.hel.fi/ws/geoserver/avoindata/wfs?request=getCapabilities</a></p>
+<p>Lisää projektiisi rajapinnalta:</p>
+<ul>
+<li><strong>Piirijako_osaalue</strong></li>
+<li><strong>Rakennukset_piste_rekisteritiedot</strong></li>
+</ul>
+<p>Pisteaineisto on melko iso, joten sen lataamisessa voi kestää hetki. Aineistossa on jokainen rakennus pisteenä ja ominaisuustiedoissa huoneistojen lukumäärä kussakin rakennuksessa sarakkeessa <strong>i_huoneistojen_lkm</strong>. Liitetään tieto huoneistojen lukumäärästä Helsingin piirijakoon sijainnin perusteella. Avaa <strong>Vektori -&gt; Tiedonhallinta -&gt; Yhdistä attribuutit sijainnin perusteella</strong>. Valitse yhdistettäväksi tasoksi Piirijako_osaalue ja vertailukohteeksi Rakennukset_piste_rekisteritiedot.
+<strong>Sisällytettävät kentät</strong> kohdassa valitse listasta <strong>i_huoneistojen_lkm</strong>. Jos kenttä jää tyhjäksi niin kaikki Rakennus-tason sarakkeet lisätään. Tarkista vielä, että Join type on <strong>Luo erillinen kohde jokaisesta täsmäävästä kohteesta (yksi-moneen) </strong>, jotta jokainen piste huomiodaan uudessa tasossa.</p>
+<p><img src="img/harjoitus_3/image31.png" /></p>
+<p>Paina <strong>Suorita</strong>. Tasoluetteloon pitäisi tulla uusi taso nimeltään “Yhdistetty taso”. Voit tarkistaa onko yhdistys tehty oikein tarkistamalla kohteiden lukumäärän. Klikkaa tasoa hiiren oikealla ja valitse “Näytä kohteiden lukumäärä” -täppä aktiiviseksi. Tee sama Rakennukset_piste -tasolle. Jos lukumäärä on sama, yhdistys on onnistunut! Attribuuttitaulukossa on sarake kaikista huoneistojen lukumääristä piirijaon attribuuttien lisäksi.</p>
+<p>Seuraavaksi tasot yhdistetään osa-alueittain aggregoimalla taso piirijaon mukaisesti. Aggregoimalla voidaan yhdistää sarakkeita jonkin ominaisuustiedon perusteella ja päättää, miten muut sarakkeet yhdistyvät toisiinsa. Etsi Prosessointityökaluista <strong>Aggregaatti</strong>. Valitse syötetasoksi aiemmin tehty Yhdistetty taso, ryhmittelylauseeksi tunnus.
+Kokoomat-lehdellä on kaikki aineiston sarakkeet ja voit valita miten sarakkeet yhdistyvät toisiinsa. Valitse teksti-sarakkeisiin esimerkiksi first_value, jolloin vain ensimmäinen alueen arvo tulee sarakkeeseen. Voit myös poistaa ylimääräisiä sarakkeita vasemmalta puolelta <img src="img/harjoitus_3/image33.png" /> -napista.
+Tarkista, että i_huoneistojen_lkm sarakkeessa aggregaattifunktio on <strong>sum</strong>, jotta saamme huoneistojen yhteismäärän alueittain.</p>
+<p><img src="img/harjoitus_3/image32.png" /></p>
+<p>Paina vielä <strong>Suorita</strong>. Ajossa kestää hetki ja uusi Aggregated-taso ilmestyy projektiisi. Avaa tason attribuuttitaulukko. Jokaisella osa-alueella on summattuna alueella olevien huoneistojen määrä. Voit visualisoida aineiston esimerkiksi valitsemalla kuvaustekniikaksi porrastettu ja etsimällä aineistoon sopivat luokkavälit.</p>
+</div>
+<div id="vaaralliset-tieristeykset" class="section level2">
+<h2>Vaaralliset tieristeykset</h2>
+<p>Tässä harjoituksessa tehdään tyypillinen monivaihenen paikkatietoanalyysi, jossa selvitetään Uudenmaan alueella vaaralliset tieristeykset.</p>
+<p>Vuosittaisia tieliikenneonnettomuuksia käsittelevä aineisto on saatavilla Tilastokeskuksen WFS-palvelusta. Luo WFS-yhteys osoitteeseen:</p>
+<p><a href="http://geo.stat.fi/geoserver/tieliikenne/wfs" class="uri">http://geo.stat.fi/geoserver/tieliikenne/wfs</a></p>
+<p>Lisää projektiisi minkä tahansa vuoden tieliikenneonnettomuudet.
+Lisää vielä kurssihakemistosta projektiisi aineistot:</p>
+<ul>
+<li><strong>TieViiva.gpkg</strong></li>
+<li><strong>Uusimaa.gpkg</strong></li>
+</ul>
+<p>Leikkaa ensin TieViiva aineisto vastaamaan tutkimusaluetta, eli Uudenmaan aluetta. Avaa leikkaustyökalu <strong>Vektori -&gt; Geoprosessointi -&gt; Leikkaa (clip)</strong> . Syötetasoksi tulee TieViiva ja peitetasoksi Uusimaa. Tarkista, että aineistojen koordinaattijärjestelmät vastaavat toisiaan. Jos koordinaattijärjestelmät eivät ole samat, analyysin tiedot eivät välttämättä ole luotettavia.</p>
+<p><img src="img/harjoitus_3/image26.png" /></p>
+<p>Tee vielä sama tieonnettomuus-aineistolle. Voit nimetä leikatut tasot uudelleen tunnistamisen helpottamiseksi painamalla tasoa hiiren oikealla ja painamalla <strong>Nimeä taso</strong>. Voit nimetä leikatun TieViiva-aineiston esimerkiksi <strong>tiet_uusimaa</strong>.</p>
+<p>Seuraavaksi lasketaan TieViiva-aineistolle risteysalueet. TieViiva-aineisto koostuu pienistä tiepätkistä, jotka katkeavat jokaisen risteyksen kohdalla, joten saamme risteysalueet laskettua suoraan aineistolle.</p>
+<p>Avaa seuraavaksi <strong>Vektori -&gt; Analyysit -&gt; Viivan risteämispisteet</strong>. Valitse syötetasoksi sekä leikkaavaksi tasoksi leikattu tieviiva-aineisto. Muut kohdat voit työkalussa jättää tyhjäksi.</p>
+<p><img src="img/harjoitus_3/image27.png" /></p>
+<p>Tulokseksi tästä tulee pistetaso, jossa on jokainen tieristeys omana kohteenaan.</p>
+<p><img src="img/harjoitus_3/image28.png" /></p>
+<p>Seuraavaksi voit laskea tienristeyksille vyöhykkeet, joiden avulla voidaan tutkia risteysalueiden lähellä olevia tieliikenneonnettomuuksia. Avaa <strong>Vektori -&gt; Geoprosessointi -&gt; Vyöhyke</strong>. Syötetasoksi määritetään juuri lasketut tienristeykset, eli Leikkaukset-taso. Tässä vaiheessa voit määrittää, kuinka suuren vyöhykkeen ja tarkastelualueen haluat määrittää risteyksien ympärille. Määritä <strong>Etäisyys</strong>-kohtaan esimerkiksi 200 metriä, jolloin algoritmi laskee 200 metrin pituisella säteellä ympyrän risteyksen ympärille.</p>
+<p><img src="img/harjoitus_3/image29.png" /></p>
+<p>Kun vyöhykkeet risteysalueille on luotu, pitää vielä selvittää, mitkä liikenneonnettomuudet osuvat tämän 200 metrin vyöhykkeen sisälle. Valitaan kaikki näihin alueisiin osuvat tieliikenneonnettomuudet. Avaa <strong>Vektori -&gt; Tutkimuksen työkalut -&gt; Valitse sijainnin perusteella</strong>.</p>
+<p><img src="img/harjoitus_3/image30.png" />
+Ensimmäiseen kohtaan määritä Uudenmaan tieliikenneonnettomuudet. Tältä tasolta valinta tehdään. Vertailutasoksi voit valita luomasi vyöhykkeet <strong>Vyöhyke luotu</strong>. Tarkista, että valitset kohteet, jotka <strong>leikkaavat</strong> vyöhykkeitä ja että teet <strong>uuden valinnan</strong> tästä joukosta.</p>
+<p>Suorittamisen jälkeen onnettomuudet_uusimaa-tasolta on valittuna kaikki kohteet, jotka osuvat määrittämillesi risteysalueille. Tallenna valinta uutena tasona klikkaamalla tasoa hiiren oikealla -&gt; Vie -&gt; Tallenna valitut kohteet nimellä. Tallenna taso uutena GeoPackagena haluamaasi paikkaan. Tallentamisen jälkeen taso tulee uutena tasona QGISiisi. Tarkastele, missä tienristeyksissä on eniten onnettomuuksia. Voit myös visualisoida onnettomuudet esimerkiksi vakavuuden perusteella valitsemalla kuvaustekniikasta luokittelun.</p>
+</div>
+<div id="etsi-omia-analyysityökaluja" class="section level2">
+<h2>Etsi omia analyysityökaluja</h2>
+<p>Tutustu <strong>Prosessointityökalut-paneelin</strong> toimintoihin. Se mm. muistaa viimeksi käyttämäsi työkalut. Työkalun nimen edessä oleva symboli kertoo, minkä ohjelman valikoimaan työkalu kuuluu. Tee joitakin hakuja etsiäksesi itseäsi kiinnostavia työkaluja. Huomaa, että jotkin analyysiprosessit ovat saatavilla usean eri ohjelman versiona.</p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+<div class="hint-box">
+<p>Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen koulutustuki@gispo.fi!</p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="02_harjoitus_2.html"><button class="btn btn-default">Previous</button></a>
+<a href="04_harjoitus_4.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Tilastot ja analyysit QGISillä</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

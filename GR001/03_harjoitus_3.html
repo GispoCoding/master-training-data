@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Harjoitus 3: Paikkatietoaineiston visualisointi ja nimiöinti | Johdanto QGISin käyttöön Porvoon kaupungille" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Suomi Oy." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Harjoitus 3: Paikkatietoaineiston visualisointi ja nimiöinti | Johdanto QGISin käyttöön Porvoon kaupungille">
+
+<title>Harjoitus 3: Paikkatietoaineiston visualisointi ja nimiöinti | Johdanto QGISin käyttöön Porvoon kaupungille</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Johdanto QGISin käyttöön Porvoon kaupungille</h1></div>
+<div class="abstract-sidebar"><p>Räätälöity kurssi Porvoon kaupungille QGISin käytöstä</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#johdanto-qgisin-käyttöön-porvoon-kaupungille">Johdanto QGISin käyttöön Porvoon kaupungille</a>
+<ul>
+<li><a href="index.html#kurssimateriaalien-lataaminen">Kurssimateriaalien lataaminen</a></li>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_harjoitus_1.html#harjoitus-1-koulutusympäristön-valmistaminen">Harjoitus 1: Koulutusympäristön valmistaminen</a>
+<ul>
+<li><a href="01_harjoitus_1.html#qgisin-lataus-ja-asennus">QGISin lataus ja asennus</a></li>
+<li><a href="01_harjoitus_1.html#kurssimateriaalien-lataus">Kurssimateriaalien lataus</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_harjoitus_2.html#harjoitus-2-paikkatietoaineistot-ja-qgisin-käyttöliittymä">Harjoitus 2: Paikkatietoaineistot ja QGISin käyttöliittymä</a>
+<ul>
+<li><a href="02_harjoitus_2.html#paikkatietoaineiston-tiedostot">Paikkatietoaineiston tiedostot</a></li>
+<li><a href="02_harjoitus_2.html#qgisin-käyttöliittymä">QGISin käyttöliittymä</a></li>
+<li><a href="02_harjoitus_2.html#kokeile-itse">Kokeile itse</a></li>
+<li><a href="02_harjoitus_2.html#paikkatietoaineiston-kohteiden-valinta">Paikkatietoaineiston kohteiden valinta</a></li>
+<li><a href="02_harjoitus_2.html#paikkatietoaineiston-kohteiden-suodatus">Paikkatietoaineiston kohteiden suodatus</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_harjoitus_3.html#harjoitus-3-paikkatietoaineiston-visualisointi-ja-nimiöinti">Harjoitus 3: Paikkatietoaineiston visualisointi ja nimiöinti</a>
+<ul>
+<li><a href="03_harjoitus_3.html#tasojen-visualisoinnin-valikko">Tasojen visualisoinnin valikko</a></li>
+<li><a href="03_harjoitus_3.html#rasteriaineiston-visualisointi">Rasteriaineiston visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#vektoriaineistojen-visualisointi">Vektoriaineistojen visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#viiva-aineiston-visualisointi">Viiva-aineiston visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#pisteaineiston-visualisointi">Pisteaineiston visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#polygoniaineiston-visualisointi">Polygoniaineiston visualisointi</a></li>
+<li><a href="03_harjoitus_3.html#symbolien-muokkaaminen">Symbolien muokkaaminen</a></li>
+<li><a href="03_harjoitus_3.html#mittakaavan-käyttö-symboleissa">Mittakaavan käyttö symboleissa</a></li>
+<li><a href="03_harjoitus_3.html#symbolitasojen-muokkaaminen">Symbolitasojen muokkaaminen</a></li>
+<li><a href="03_harjoitus_3.html#nimiöinti">Nimiöinti</a></li>
+<li><a href="03_harjoitus_3.html#nimiöiden-tyyli--ja-yleisasetukset">Nimiöiden tyyli- ja yleisasetukset</a></li>
+<li><a href="03_harjoitus_3.html#nimiön-tekstityyli">Nimiön tekstityyli</a></li>
+<li><a href="03_harjoitus_3.html#nimiöinnit-viivatasoilla">Nimiöinnit viivatasoilla</a></li>
+<li><a href="03_harjoitus_3.html#nimiöiden-piirtäminen">Nimiöiden piirtäminen</a></li>
+<li><a href="03_harjoitus_3.html#edistyneet-ominaisuudet">Edistyneet ominaisuudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_harjoitus_4.html#harjoitus-4-digitoinnin-perusteet">Harjoitus 4: Digitoinnin perusteet</a>
+<ul>
+<li><a href="04_harjoitus_4.html#valmistautuminen">Valmistautuminen</a></li>
+<li><a href="04_harjoitus_4.html#muokkauksen-yleisasetukset">Muokkauksen yleisasetukset</a></li>
+<li><a href="04_harjoitus_4.html#editoinnin-valmistelu">Editoinnin valmistelu</a></li>
+<li><a href="04_harjoitus_4.html#geopackagen-luonti">GeoPackagen luonti</a></li>
+<li><a href="04_harjoitus_4.html#aloita-geometrioiden-editointi">Aloita geometrioiden editointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_harjoitus_5.html#harjoitus-5-digitoinnin-perusteet">Harjoitus 5: Digitoinnin perusteet</a>
+<ul>
+<li><a href="05_harjoitus_5.html#valmistautuminen-1">Valmistautuminen</a></li>
+<li><a href="05_harjoitus_5.html#muokkauksen-yleisasetukset-1">Muokkauksen yleisasetukset</a></li>
+<li><a href="05_harjoitus_5.html#editoinnin-valmistelu-1">Editoinnin valmistelu</a></li>
+<li><a href="05_harjoitus_5.html#geopackagen-luonti-1">GeoPackagen luonti</a></li>
+<li><a href="05_harjoitus_5.html#aloita-geometrioiden-editointi-1">Aloita geometrioiden editointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_harjoitus_6.html#harjoitus-6-paikkatietopalvelut">Harjoitus 6: Paikkatietopalvelut</a>
+<ul>
+<li><a href="06_harjoitus_6.html#wms-palvelun-lisääminen">WMS-palvelun lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#wfs-palvelun-lisääminen">WFS-palvelun lisääminen</a></li>
+<li><a href="06_harjoitus_6.html#paikkatietopalvelujen-tallentaminen">Paikkatietopalvelujen tallentaminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_harjoitus_7.html#harjoitus-7-paikkatietoaineiston-digitointieditointi">Harjoitus 7: Paikkatietoaineiston digitointi/editointi</a>
+<ul>
+<li><a href="07_harjoitus_7.html#vektoriaineiston-luominen">Vektoriaineiston luominen</a></li>
+<li><a href="07_harjoitus_7.html#tietorakenteen-valmistelu-ja-editointiasetukset">Tietorakenteen valmistelu ja editointiasetukset</a></li>
+<li><a href="07_harjoitus_7.html#vektoriaineiston-editointi">Vektoriaineiston editointi</a></li>
+<li><a href="07_harjoitus_7.html#muokkauksen-yleisasetukset-2">Muokkauksen yleisasetukset</a></li>
+<li><a href="07_harjoitus_7.html#geometrioiden-lisääminen">Geometrioiden lisääminen</a></li>
+<li><a href="07_harjoitus_7.html#ominaisuustietojen-lisääminen">Ominaisuustietojen lisääminen</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_harjoitus_8.html#harjoitus-8-karttatuloste-ja-kartta-atlas">Harjoitus 8: Karttatuloste ja kartta-atlas</a>
+<ul>
+<li><a href="08_harjoitus_8.html#karttatuloste">Karttatuloste</a></li>
+<li><a href="08_harjoitus_8.html#kartta-atlas">Kartta-atlas</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-3-paikkatietoaineiston-visualisointi-ja-nimiöinti" class="section level1">
+<h1>Harjoitus 3: Paikkatietoaineiston visualisointi ja nimiöinti</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa tutustutaan eri rasteri- ja vektoriaineistoihin ja niiden perusvisualisointitekniikoihin sekä vektoriaineistojen nimiöintitoimintoihin.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija tuntee eri paikkatietoaineistojen visualisoinnin perustyökalut ja osaa lisätä vektoriaineistoon haluamansa nimiöt.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>60 minuuttia.</p>
+<p><strong>Valmistautuminen</strong></p>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä <strong>“QGIS-harjoitus 5”</strong>. Lisää projektiin seuraavat aineistot:</p>
+<ul>
+<li><p><strong>..kurssihakemisto/5. Harjoitus/L4133B.asc</strong></p></li>
+<li><p><strong>..kurssihakemisto/5. Harjoitus/TieViiva.shp</strong></p></li>
+<li><p><strong>..kurssihakemisto/5. Harjoitus/ne_10m_populated_places_suomi.shp</strong></p></li>
+<li><p><strong>..kurssihakemisto/5. Harjoitus/Naturakohde_ma.shp</strong></p></li>
+</ul>
+<div id="tasojen-visualisoinnin-valikko" class="section level2">
+<h2>Tasojen visualisoinnin valikko</h2>
+<p>Tasojen visualisointia ja nimiöintiä määritetään QGISin kuvaustekniikkavalikossa. Tämän valikon käyttöön on kaksi vaihtoehtoa:</p>
+<ol style="list-style-type: decimal">
+<li>Avaamalla <strong>Tason ominaisuudet</strong>- valikko:</li>
+</ol>
+<p><img src="img/harjoitus_3/image1.gif" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Avaamalla <strong>Tyylipaneeli</strong>:</p>
+<p>2.1 Klikkaa Tasot- paneelista <strong>“Avaa tason tyylit- paneeli”</strong></p>
+<p><img src="img/harjoitus_3/image2.png" /></p>
+<p>2.2 Tämän pitäisi avata tyylipaneeli, yleensä QGIS- ikkunan oikeaan reunaan:</p>
+<p><img src="img/harjoitus_3/image3.png" /></p></li>
+</ol>
+<p>Molemmilla tavoilla saat saman valikon auki. Tyylipaneelissa on oletusvaihtoehtona “Automaattinen päivitys”, joka tarkoittaa että kuvaustekniikkaan tehdyt muutokset näkyvät välittömästi kartalle. Kun valikon avaa <strong>Tason ominaisuudet</strong>- valikon kautta, tulee tyyli erikseen päivittää <strong>Käytä</strong> painikkeesta, sekä hyväksyäksesi muutokset tulee lopuksi klikata <strong>OK</strong>- painiketta.</p>
+<p>Kokeile avata valikko molemmilla keinoilla. Seuraavissa harjoituksissa voit käyttää menetelmää, joka tuntuu paremmalta.</p>
+</div>
+<div id="rasteriaineiston-visualisointi" class="section level2">
+<h2>Rasteriaineiston visualisointi</h2>
+<p>Aseta nyt <strong>L4133B-rasteriaineisto</strong> näkyväksi ja piilota muut aineistot. L4133B.asc on Maanmittauslaitoksen avoin korkeusmalliaineisto, joka sisältää osan Helsingistä. Jos aineisto avautuu tuntemattomassa koordinaattijärjestelmässä (= virheellisessä projektiossa), aseta tasolle koordinaattijärjestelmäksi <strong>ETRS89/TM35FIN (EPSG:3067)</strong>. Muista tarkistaa myös projektin koordinaattijärjestelmä. Oletuksena korkeusmalli näyttää tällaiselta:</p>
+<p><img src="img/harjoitus_3/image4.png" /></p>
+<p>Huomaa, että QGIS on tunnistanut, että aineisto sisältää jatkuvia arvoja ja on visualisoinut ne yksittäisenä harmaana kanavana. Oletusvärityksellä onnistut erottamaan Pasilan ratapihan oikeassa yläkulmassa.</p>
+<p><img src="img/harjoitus_3/image5.png" /></p>
+<p>Avaa tason <strong>Kuvaustekniikka-asetukset</strong>. Muista, että rasteriaineistojen kuvaustekniikkatyökalut ovat erilaiset kuin vektoriaineistoilla. Voit vaihtaa harmaasävyesityksen <strong>pseudoväreiksi</strong>. Voit kokeilla myös <strong>rinnevarjostetta</strong>.</p>
+<p><img src="img/harjoitus_3/image6.png" /></p>
+</div>
+<div id="vektoriaineistojen-visualisointi" class="section level2">
+<h2>Vektoriaineistojen visualisointi</h2>
+<p>Siirrytään nyt visualisoimaan vektoriaineistoja. Tarkastele kaikkia QGIS-projektiin avaamiasi vektoriaineistoja. Voit huomata, että jokaisen tason vasemmalla puolella on muoto, joka kuvastaa kyseisen tason vektorityyppiä. <strong>TieViiva</strong> on viiva-aineisto, <strong>ne_10m_populated_places_suomi</strong> on pisteaineisto ja <strong>NaturaKohde_ma</strong> on polygoniaineisto.</p>
+<p><img src="img/harjoitus_3/image7.png" /></p>
+</div>
+<div id="viiva-aineiston-visualisointi" class="section level2">
+<h2>Viiva-aineiston visualisointi</h2>
+<p>Aseta <strong>TieViiva</strong>-aineisto näkyviin ja piilota muut aineistot. Avaa TieViiva-aineiston kuvaustekniikkavalikko. Voit huomata, että vektoritason tyyliominaisuudet ovat erilaiset kuin rasteritason.</p>
+<p><img src="img/harjoitus_3/image8.png" /></p>
+<p>Vaihda TieViiva-aineiston <strong>Väri ja Leveys</strong> haluamaksesi. Avaa vielä jokin symbolikirjasto, esimerkiksi <strong>Suosikit</strong>, ja muuta viivan tyyliksi jokin sinua miellyttävä tyyli. Paina lopuksi <strong>OK</strong>, jolloin ikkuna sulkeutuu ja TieViiva-taso näkyy nyt määrittämälläsi kuvaustekniikalla.</p>
+<p><img src="img/harjoitus_3/image9.png" /></p>
+<p>Eri vektoriaineistotyypeillä (piste, viiva, polygoni) on erilaiset kuvaustekniikan työkalut, vaikkakin ne muistuttavat paljon toisiaan. Esimerkiksi pistetasolle ei voida tehdä samoja tyylittelyjä kuin viiva- tai polygonitasolle.</p>
+</div>
+<div id="pisteaineiston-visualisointi" class="section level2">
+<h2>Pisteaineiston visualisointi</h2>
+<p>Visualisoidaan seuraavaksi piste-aineistoa. Aseta <strong>ne_10m_populated_places_suomi</strong>-aineisto näkyviin yhdessä TieViiva-aineiston kanssa ja piilota muut aineistot. Tämä aineisto sisältää Natural Earth -kaupunkiaineiston Suomesta. Avaa tason <strong>Kuvaustekniikka</strong>- valikko. Huomaa erot viiva- ja pisteaineiston ominaisuuksissa. Vaihda aineiston <strong>Väri ja Koko</strong>. Vaihda myös symbolia ja kokeile, miten kierto vaikuttaa symbolin näkymiseen.</p>
+<p><img src="img/harjoitus_3/image10.png" /></p>
+<p>Pisteaineistosi voi näyttää yhdessä viiva-aineiston kanssa esimerkiksi tältä:</p>
+<p><img src="img/harjoitus_3/image11.png" /></p>
+</div>
+<div id="polygoniaineiston-visualisointi" class="section level2">
+<h2>Polygoniaineiston visualisointi</h2>
+<p>Visualisoidaan vielä polygoniaineisto. Aseta <strong>NaturaKohde_ma</strong>-aineisto näkyviin yhdessä <strong>TieViiva</strong>-aineiston ja <strong>ne_10m_populated_places_suomi</strong>-aineiston kanssa ja piilota muut aineistot. Avaa NaturaKohde_ma-aineiston <strong>Kuvaustekniikka</strong>-valikko ja huomaa erot verrattuna viiva- ja pisteaineistojen kuvaustekniikkaan. Vaihda tason <strong>Väri</strong> ja valitse tasolle eri symboli. Voit myös kokeilla erilaisia <strong>Peittävyys</strong>-arvoja.</p>
+<p><img src="img/harjoitus_3/image12.png" /></p>
+<p>Saattaa olla, että aineistotasot peittävät toisensa vaikka siten, että polygoniaineisto peittää muut sen alle jäävät aineistot. Voit muuttaa tasojen järjestystä ja siten tasojen näkymistä raahaamalla/vetämällä tasot uuteen järjestykseen <strong>Tasot</strong>-paneelissa. Usein polygoniaineistot on hyvä jättää alimmiksi tasoiksi. Jos kartalla halutaan visualisoida jotakin rasterikuvaa, kannattaa se/ne yleensä pitää myös alimpina tasoina. Uudelleen järjestettynä karttasi tulisi näyttää tältä:</p>
+<p><img src="img/harjoitus_3/image13.png" /></p>
+</div>
+<div id="symbolien-muokkaaminen" class="section level2">
+<h2>Symbolien muokkaaminen</h2>
+<p>Seuraavaksi muutamme polygonien symboleja. Avaa uudelleen <strong>Naturakohde_ma</strong>-tason <strong>Kuvaustekniikka</strong>-valikosta ensin <strong>Yksinkertainen täyttö (Simple fill)</strong> -rivi oheisen kuvan mukaisesti:</p>
+<p><img src="img/harjoitus_3/image14.png" /></p>
+<p>Valitse sen jälkeen <strong>Viivan tyyli</strong> -asetukseksi <strong>Katkonainen pisteviiva</strong>. Voit määritellä viivan leveyden haluamaksesi. Lopuksi voit vielä muuttaa <strong>Peittävyys</strong>-asetukseksi 70 % (<strong>Tason piirto</strong> -asetuksista).</p>
+</div>
+<div id="mittakaavan-käyttö-symboleissa" class="section level2">
+<h2>Mittakaavan käyttö symboleissa</h2>
+<p>Seuraavaksi määrittelemme mittakaavarajat <strong>Tieviiva</strong>-tasolle. Valitse tason <strong>Ominaisuudet &gt; Karttanäyttö</strong> ja rastita <strong>Scale Dependent Visibility</strong> (mittakaavaperusteinen näkyvyys). Muuta sitten <strong>Pienimmäksi mittakaavaksi 1:3 000 000</strong>. Tämä tarkoittaa sitä, että kun kartan mittakaava on pienempi kuin 1:3 000 000, niin karttatasoa ei piirretä.</p>
+<p><img src="img/harjoitus_3/image15.png" /></p>
+<p>Kokeile nyt karttaikkunassa tason näkymistä eri mittakaavoilla. Mittakaavaa saat muutettua lähentämällä tai loitontamalla karttaa (esim. hiiren rullalla). Voit myös syöttää mittakaavan lukuna QGISin alaosassa sijaitsevassa <strong>Tilapalkissa</strong>.</p>
+</div>
+<div id="symbolitasojen-muokkaaminen" class="section level2">
+<h2>Symbolitasojen muokkaaminen</h2>
+<p>Seuraavaksi muokkaamme visualisointityyliämme hieman pidemmälle. Symbologiat voivat QGISissä koostua yhdestä tai useammasta symbolitasosta (kuvassa <strong>Täyttö</strong>-kohdan alla). Esimerkiksi monikulmioiden symbolitasojen hyödyntäminen voi tuottaa hyvinkin hienovaraisen visualisoinnin. Symbolitasojen avulla voidaan määrittää monikulmion täyttämisen värit ja tyylit (esim. pistetäyttö).</p>
+<p>Lisää uusi symbolitaso <strong>NaturaKohde_ma</strong>-tasolle. Avaa tason <strong>Kuvaustekniikka</strong>-asetukset (<strong>Tason ominaisuudet -ikkunasta</strong>) ja lisää uusi symbolitaso painamalla plussa-kuvaketta.</p>
+<p><img src="img/harjoitus_3/image16.png" /></p>
+<p>Muuta lisätyn symbolitason tyypiksi <strong>Täyttö viivakuosilla</strong> ja määrittele viivakuvioinnin kulma ja etäisyys haluamallasi tavalla. Voit myös määritellä viivakuvioinnissa käytetyn viivan leveyden ja värin valitsemalla <strong>Viiva</strong>-symbolitason tyylitasoluettelosta. Tarkista lopputulos.</p>
+<p><img src="img/harjoitus_3/image17.png" /></p>
+</div>
+<div id="nimiöinti" class="section level2">
+<h2>Nimiöinti</h2>
+<p>Avaa <strong>NaturaKohde_ma-tason</strong> kuvaustekniikka- valikko ja valitse <strong>Nimiöt-välilehti</strong>. Valitse <strong>Yksittäinen nimiö</strong> ja <strong>Nimiöiden perustana -alasvetovalikosta</strong> nimiöinnissä käytettävän sarakkeen nimi. Nimiöt nähdään nyt karttaikkunasta, johon ne ovat päivittyneet.</p>
+<p><img src="img/harjoitus_3/image18.png" /></p>
+</div>
+<div id="nimiöiden-tyyli--ja-yleisasetukset" class="section level2">
+<h2>Nimiöiden tyyli- ja yleisasetukset</h2>
+<p>Nimiöiden tekstien näkymistä kartalla voi määrittää monella eri tavalla. Alla kuvaukset QGISin nimiöiden muokkaamisen alateemoista:</p>
+<table>
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Teksti</strong></td>
+<td>Määritellään tekstin tyyli, väri ja muita yleisiä ominaisuuksia.</td>
+</tr>
+<tr class="even">
+<td><strong>Muotoilu</strong></td>
+<td>Voit muodostaa useampirivisiä tekstejä, keskittää tekstiä ja määritellä lukujen muotoa.</td>
+</tr>
+<tr class="odd">
+<td><strong>Vyöhyke</strong></td>
+<td>Luodaan tekstiä korostavat puskurit (tekstin reunukset).</td>
+</tr>
+<tr class="even">
+<td><strong>Maski</strong></td>
+<td>Asetetaan maski tekstin ympärille valituilla tasoilla (katso myös Maski-välilehti)</td>
+</tr>
+<tr class="odd">
+<td><strong>Tausta</strong></td>
+<td>Tekstin taustalle voi piirtää suorakulmion tai muun muodon.</td>
+</tr>
+<tr class="even">
+<td><strong>Varjo</strong></td>
+<td>Teksteille voidaan muodostaa varjo.</td>
+</tr>
+<tr class="odd">
+<td><strong>Osoitinviiva</strong></td>
+<td>Piirretään viivaa kohteesta tekstille.</td>
+</tr>
+<tr class="even">
+<td><strong>Sijoittaminen</strong></td>
+<td>Määrittelee tekstien sijoittumista kohteiden suhteen.</td>
+</tr>
+<tr class="odd">
+<td><strong>Karttanäyttö</strong></td>
+<td>Määrittelee tekstien mittakaavarajoja ja muita tekstien näkyvyyteen liittyviä asioita.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="nimiön-tekstityyli" class="section level2">
+<h2>Nimiön tekstityyli</h2>
+<p><img src="img/harjoitus_3/image19.png" /></p>
+<p>Nimiöiden tekstien tyyleille voit asettaa esimerkiksi haluamasi fontin, tyylin ja koon. Kokeile erilaisia tekstityylejä. Kokeile nimiöiden varjostamista, minkä avulla voimme korostaa nimiöitä taustalla olevista muista karttaelementeistä. Valitse <strong>Varjo</strong>-alateema ja rastita sitten <strong>Piirrä heittovarjo</strong>. Paina <strong>Käytä</strong>, jotta näkisit tulokset kartalla. Kokeile vaihtaa asetuksia kuten siirtymä, sumennussäde, peittävyys sekä väri, ja katso miten ne vaikuttavat nimiöinnin varjoon. Huomaat muutokset kartalta tai <strong>Esimerkki tekstistä</strong> -kentästä.</p>
+<p>Toinen työkalu tekstin korostamiseen on tekstiä ympyröivä vyöhyke. Valitse <strong>Vyöhyke</strong>-alateema ja lisää tekstille haluamasi puskuri rastimalla <strong>Piirrä tekstivyöhyke</strong>. Näin saat nimiöt erottumaan kartasta vielä paremmin. Kokeile erilaisia vyöhykkeen kokoja, värejä ja läpinäkyvyyttä.</p>
+<p>Avaa vielä <strong>Sijoittaminen</strong>-alateema ja valitse <strong>Using perimeter (käyttäen kehää)</strong>. Valitse <strong>Sallitut asemoinnit</strong> -kohdassa <strong>Viivan alla</strong>. Huomaa, että <strong>Sallitut asemoinnit</strong> -kohdassa tulee aina olla vähintään yksi kohta valittuna. Jos useampi kohta on valittu, QGIS valitsee automaattisesti parhaan vaihtoehdon jokaiselle kohteelle. Paina <strong>OK</strong>, ja huomaa, että nyt nimiöt seuraavat monikulmioiden rajoja.</p>
+<p><img src="img/harjoitus_3/image20.png" /></p>
+<p>Tulos voi näyttää oudolta, etenkin jos karttaikkunan mittakaavaa on asetettu ison alueen kattavaksi. Lähennä karttaa, jotta nimiöt näkyisivät johdonmukaisemmin ja pohdi, missä tapauksessa tämänkaltainen nimiöinti olisi sopivinta. Etsi vielä <strong>Sijoittaminen &gt; Prioriteett</strong>i ja määritä se <strong>Korkeaksi</strong>. Tällä tavalla annat preferenssin muokkaamasi tason nimiöille suhteessa muiden tasojen nimiöihin ja voit näin järjestää tärkeimpien ja ei niin tärkeiden tasojen nimiöintiä. Paina vielä <strong>OK</strong>.</p>
+<div class="hint-box">
+<p>Psst! Yksi hyödyllinen tapa rajata nimiöitä on <strong>Karttanäyttö &gt; Kohteen valinnat</strong> ja asettaa kohtaan <strong>Häivytä nimiöinti kohteilta, jotka ovat pienempiä kuin</strong>-kohtaan jokin arvo. Näin QGIS näyttää vain isoimpien kohteiden nimiöinnit.</p>
+</div>
+</div>
+<div id="nimiöinnit-viivatasoilla" class="section level2">
+<h2>Nimiöinnit viivatasoilla</h2>
+<p>Samalla tavalla kuin juuri määritimme nimiöinnin monikulmiotasolle, voidaan niitä määrittää muillekin vektoriaineistoille. Avaa <strong>TieViiva-tason</strong> kuvaustekniikka- valikko ja aktivoi nimiöiden käyttö päälle edellisessä harjoituksessa oppimallasi tavalla. Valitse <strong>Nimiöiden perustan</strong> -kohdan alavalikosta käytettäväksi nimiöintisarakkeeksi <strong>Tienumero</strong>. Paina <strong>Käytä</strong>, ja katso muutokset. Avaa vielä nimiöiden <strong>Sijoittaminen</strong>-alateema ja rastita <strong>Seuraa viivaa</strong> -toiminto päälle. Paina <strong>Käytä</strong>, ja tarkista, että nimiöinti toimii odotetulla tavalla. Katso esimerkkiasetukset kuvasta:</p>
+<p><img src="img/harjoitus_3/image21.png" /></p>
+<p>Nyt nimiöt seuraavat viivoja paremmin. Huomaa myös, että kaikki nimiöt eivät nyt tule piirretyksi. Vaihda <strong>Maksimikulma kaarevien merkkien välillä</strong> -kohdan arvoja, niin pystyt muokkaamaan tekstin kaarevuuden reunaehtoja. Voit sulkea <strong>Tason ominaisuudet</strong>-ikkunan totuttuun tapaan painamalla <strong>OK</strong>.</p>
+</div>
+<div id="nimiöiden-piirtäminen" class="section level2">
+<h2>Nimiöiden piirtäminen</h2>
+<p>Zoomaa karttanäkymä näyttämään koko aineisto klikkaamalla <strong>Zoomaa täydeksi</strong> -painiketta <img src="img/harjoitus_3/image22.png" /> . Odota hetki, että nimiöt piirtyvät. Nimiöitä on nyt liikaa karttaikkunassa, mikä vaikeuttaa kartan hahmottamista. Olisi hyödyllistä määrittää nimiöt eri mittakaavoille erikseen. Avaa taas <strong>NaturaKohde_ma-tason</strong> ominaisuudet ja valitse <strong>Nimiöt</strong> sivupalkista ja <strong>Karttanäyttö-alateema</strong>. Rastita <strong>Näytä kaikki tämän tason nimiöt (myös päällekkäiset nimiöt)</strong> ja paina <strong>Käytä</strong>. Nimiöiden piirtämiseen menee hetki, koska kaikki kartalla näkyvät monikulmiot nimetään. Kun kartta on piirtynyt huomaat, ettei kannata nimiöidä kaikkia monikulmioita kyseisellä mittakaavalla. Rastita tämä asetus pois päältä ja paina <strong>Käytä</strong>. Huomaa, että oletuksena QGIS jättää piirtämättä toisiinsa törmäävät nimiöt.</p>
+<p>Rastita päälle <strong>Mittakaavaperusteinen näkyvyys</strong> ja laita <strong>Minimimittakaava-kentän</strong> arvoksi <strong>500 000</strong>. Paina <strong>OK</strong>. Natura-kohteiden nimiöt eivät enää näy 1:500 000 mittakaavan ulkopuolella. Lähennä karttaan, kunnes nimiöt näkyvät uudelleen. Muuta samalla tavalla <strong>TieViiva-tason</strong> piirtäminen siten, että sen nimiöt näkyvät vasta kun mittakaava on pienempi kuin <strong>1:200 000</strong>.</p>
+<p><img src="img/harjoitus_3/image23.png" /></p>
+</div>
+<div id="edistyneet-ominaisuudet" class="section level2">
+<h2>Edistyneet ominaisuudet</h2>
+<p>Voit myös testata tekstien edistyneitä ominaisuuksia <strong>NaturaKohde_ma</strong> -tasolla. Voit ohjata nimiöiden tekstejä lausekepohjaisesti QGISin <strong>Lausekkeen muokkaus</strong> -työkalulla. Saat lausekkeen muodostajan auki <strong>Nimiöiden perustana -alasvetolaatikon</strong> vieressä olevasta painikkeesta:</p>
+<p><img src="img/harjoitus_3/image24.png" /></p>
+<p>Tehdään nyt nimiö, joka yhdistää tietoa useammasta kentästä. Klikkaa kuvassa näkyvästä <strong>Lausekkeen muodostaja</strong> -painikkeesta. <strong>Lausekkeen muokkaus -työkalu</strong> aukeaa.</p>
+<p><img src="img/harjoitus_3/image25.png" /></p>
+<p>Lausekkeen muokkaus on tehokas työkalu, jota voidaan käyttää nimiöiden muokkaamisen lisäksi myös muihin tarkoituksiin. Lauseke-kentässä on tällä hetkellä nimi, sillä valitsimme <strong>Nimi</strong>-kentän aikaisemmin <strong>Nimiöiden perustana</strong> -alasvetovalikosta. Aineistossa on myös kenttä <strong>NaturaTunn</strong>, joka sisältää alueen tunnuksen. Tehdään lauseke, joka yhdistää alueen nimen ja tunnuksen.</p>
+<p>Kirjoita Lauseke-kenttään seuraava lauseke:</p>
+<div class="code-box">
+<p>NaturaTunn || '\n' || Nimi</p>
+</div>
+<p>Lausekkeessa esiintyy kentän nimien <strong>NaturaTunn</strong> ja <strong>Nimi</strong> lisäksi myös rivinvaihtosymboli <strong>’</strong>’ ja kaksi <strong>||</strong> -merkkiä, jotka yhdistävät merkkijonot yhdeksi tekstiksi.</p>
+<p><img src="img/harjoitus_3/image26.png" /></p>
+<div class="hint-box">
+<p>Psst! Voit lisätä rivinvaihtosymbolin lausekkeeseen painamalla <strong>Lauseke</strong>-ikkunan päällä olevaa painiketta. Samalla tavalla voit lisätä aineistossa olevia kenttiä lausekkeeseen laajentamalla kentät ja arvot -valikon ja kaksoisklikkaamalla kentän nimeä.</p>
+</div>
+<p>Kirjoita edellä mainittu lauseke ja paina <strong>OK</strong>. Klikkaa <strong>Tason ominaisuudet</strong> -valikossa <strong>Käytä</strong> ja katso kartalta, miltä alueiden nimiöinti näyttää.</p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> (tai <strong>CTRL + S</strong>) tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+<div class="hint-box">
+<p><strong>Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen <a href="mailto:koulutustuki@gispo.fi" class="email">koulutustuki@gispo.fi</a>!</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="02_harjoitus_2.html"><button class="btn btn-default">Previous</button></a>
+<a href="04_harjoitus_4.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Johdanto QGISin käyttöön Porvoon kaupungille</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Kappale 15: Lisätehtävät | Lausekkeet QGISissä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd." />
+
+<meta name="date" content="2025-10-31" />
+
+
+<meta name="description" content="Kappale 15: Lisätehtävät | Lausekkeet QGISissä">
+
+<title>Kappale 15: Lisätehtävät | Lausekkeet QGISissä</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Lausekkeet QGISissä</h1></div>
+<div class="abstract-sidebar"><p>QGIS-jatkokurssi lausekkeiden hyödyntämisestä</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#tervetuloa-lausekkeet-qgisissä--kurssille">Tervetuloa Lausekkeet QGISissä -kurssille!</a>
+<ul>
+<li><a href="index.html#lukuohje">Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja">Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet">Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet">Lisenssi ja oikeudet</a></li>
+<li><a href="index.html#materiaali-pdf-muodossa">Materiaali PDF-muodossa</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_kappale_1.html#kappale-1-perusteet">Kappale 1: Perusteet</a>
+<ul>
+<li><a href="01_kappale_1.html#ennen-tehtäviä">Ennen tehtäviä</a></li>
+<li><a href="01_kappale_1.html#tehtävä-1.1">Tehtävä 1.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_kappale_2.html#kappale-2-lausekkeiden-kirjoittaminen">Kappale 2: Lausekkeiden kirjoittaminen</a>
+<ul>
+<li><a href="02_kappale_2.html#tehtävä-2.1">Tehtävä 2.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_kappale_3.html#kappale-3-kohteiden-valinta-ja-suodatus">Kappale 3: Kohteiden valinta ja suodatus</a>
+<ul>
+<li><a href="03_kappale_3.html#tehtävä-3.1">Tehtävä 3.1</a></li>
+<li><a href="03_kappale_3.html#tehtävä-3.2">Tehtävä 3.2</a></li>
+<li><a href="03_kappale_3.html#tehtävä-3.3">Tehtävä 3.3</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_kappale_4.html#kappale-4-kohteiden-muokkaus---field-calculator-osa-1">Kappale 4: Kohteiden muokkaus - Field Calculator (Osa 1)</a>
+<ul>
+<li><a href="04_kappale_4.html#tehtävä-4.1">Tehtävä 4.1</a></li>
+<li><a href="04_kappale_4.html#tehtävä-4.2">Tehtävä 4.2</a></li>
+<li><a href="04_kappale_4.html#tehtävä-4.3">Tehtävä 4.3</a></li>
+<li><a href="04_kappale_4.html#lisätehtävät">Lisätehtävät</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_kappale_5.html#kappale-5-kohteiden-muokkaus---field-calculator-osa-2">Kappale 5: Kohteiden muokkaus - Field Calculator (Osa 2)</a>
+<ul>
+<li><a href="05_kappale_5.html#tehtävä-5.1">Tehtävä 5.1</a></li>
+<li><a href="05_kappale_5.html#tehtävä-5.2">Tehtävä 5.2</a></li>
+<li><a href="05_kappale_5.html#tehtävä-5.3">Tehtävä 5.3</a></li>
+<li><a href="05_kappale_5.html#tehtävä-5.4">Tehtävä 5.4</a></li>
+<li><a href="05_kappale_5.html#lisätehtävät-1">Lisätehtävät</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_kappale_6.html#kappale-6-kohteiden-muokkaus---quick-field-calculation-ja-virtuaalikentät">Kappale 6: Kohteiden muokkaus - Quick Field Calculation ja virtuaalikentät</a>
+<ul>
+<li><a href="06_kappale_6.html#tehtävä-6.1">Tehtävä 6.1</a></li>
+<li><a href="06_kappale_6.html#tehtävä-6.2">Tehtävä 6.2</a></li>
+<li><a href="06_kappale_6.html#lisätehtävä">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_kappale_7.html#kappale-7-symbologian-kustomointi">Kappale 7: Symbologian kustomointi</a>
+<ul>
+<li><a href="07_kappale_7.html#tehtävä-7.1">Tehtävä 7.1</a></li>
+<li><a href="07_kappale_7.html#lisätehtävä-1">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_kappale_8.html#kappale-8-symbologian-kustomointi---lämpökartta-ja-geometry-generator">Kappale 8: Symbologian kustomointi - lämpökartta ja Geometry Generator</a>
+<ul>
+<li><a href="08_kappale_8.html#tehtävä-8.1">Tehtävä 8.1</a></li>
+<li><a href="08_kappale_8.html#tehtävä-8.2">Tehtävä 8.2</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_kappale_9.html#kappale-9-nimiöiden-kustomointi">Kappale 9: Nimiöiden kustomointi</a>
+<ul>
+<li><a href="09_kappale_9.html#tehtävä-9.1">Tehtävä 9.1</a></li>
+<li><a href="09_kappale_9.html#lisätehtävä-2">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_kappale_10.html#kappale-10-karttatulosteen-kustomointi">Kappale 10: Karttatulosteen kustomointi</a>
+<ul>
+<li><a href="10_kappale_10.html#tehtävä-10.1">Tehtävä 10.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="11_kappale_11.html#kappale-11-kartta-atlaksen-kustomointi">Kappale 11: Kartta-atlaksen kustomointi</a>
+<ul>
+<li><a href="11_kappale_11.html#tehtävä-11.1">Tehtävä 11.1</a></li>
+</ul></li>
+<li class="has-sub"><a href="12_kappale_12.html#kappale-12-python--konsoli">Kappale 12: Python- konsoli</a>
+<ul>
+<li><a href="12_kappale_12.html#tehtävä-12.1">Tehtävä 12.1</a></li>
+<li><a href="12_kappale_12.html#tehtävä-12.2">Tehtävä 12.2</a></li>
+<li><a href="12_kappale_12.html#lisätehtävä-3">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="13_kappale_13.html#kappale-13-oman-funktion-luominen">Kappale 13: Oman funktion luominen</a>
+<ul>
+<li><a href="13_kappale_13.html#tehtävä-13.1">Tehtävä 13.1</a></li>
+<li><a href="13_kappale_13.html#lisätehtävä-4">Lisätehtävä</a></li>
+</ul></li>
+<li class="has-sub"><a href="14_kappale_14.html#kappale-14-kotitehtävät">Kappale 14: Kotitehtävät</a>
+<ul>
+<li><a href="14_kappale_14.html#kotitehtävä-1">Kotitehtävä 1</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-2">Kotitehtävä 2</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-3-haastava">Kotitehtävä 3 (haastava)</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-4">Kotitehtävä 4</a></li>
+<li><a href="14_kappale_14.html#kotitehtävä-5">Kotitehtävä 5</a></li>
+</ul></li>
+<li class="has-sub"><a href="15_kappale_15.html#kappale-15-lisätehtävät">Kappale 15: Lisätehtävät</a>
+<ul>
+<li><a href="15_kappale_15.html#lisätehtävä-1-1">Lisätehtävä 1</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-2-1">Lisätehtävä 2</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-3-1">Lisätehtävä 3</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-4-1">Lisätehtävä 4</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-5">Lisätehtävä 5</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-6">Lisätehtävä 6</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-7">Lisätehtävä 7</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-8">Lisätehtävä 8</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-9">Lisätehtävä 9</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-10">Lisätehtävä 10</a></li>
+<li><a href="15_kappale_15.html#lisätehtävä-11">Lisätehtävä 11</a></li>
+<li><a href="15_kappale_15.html#geoprosessointiesimerkki">Geoprosessointiesimerkki</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="kappale-15-lisätehtävät" class="section level1">
+<h1>Kappale 15: Lisätehtävät</h1>
+<div id="lisätehtävä-1-1" class="section level2">
+<h2>Lisätehtävä 1</h2>
+<p>Tarkastele Helsingin alueen väestöruutuaineistoa. Luo aineistoon uusi sarake ja anna sen nimeksi asukkaita_sca (datatyyppi: Decimal number). Uuden attribuuttikentän arvojen tulee kuvata sitä, miten suuri kunkin ruudun asukasmäärä on suhteessa pienimmän ja suurimman asukasmäärän omaavaan ruutuun. Skaalaa arvot välille [0,100].</p>
+<p><strong>Aineisto</strong>: <code>HSY_vaesto2022_muok.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p>Lausekkeeseen tulee syöttää monta sisäkkäistä funktiota:</p>
+<ul>
+<li>Etsi lausekkeen muodostajasta funktio, jolla voit tehdä lineaarisen skaalauksen.</li>
+<li>Asukkaita-sarakkeen tietotyyppi on kokonaisluku. Se tulee muuttaa lausekkeessa desimaaliluvuksi. Millä funktiolla se onnistuu?</li>
+<li>Millä funktiolla saat selville sarakkeen suurimman ja pienimmän luvun?</li>
+<li>Käytä lopuksi <code>round()</code>-funktiota. Miten saat tuloksen kahden desimaalin tarkkuudella?</li>
+</ul>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb43"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb43-1"><a href="15_kappale_15.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(</span>
+<span id="cb43-2"><a href="15_kappale_15.html#cb43-2" aria-hidden="true" tabindex="-1"></a>    scale_linear(</span>
+<span id="cb43-3"><a href="15_kappale_15.html#cb43-3" aria-hidden="true" tabindex="-1"></a>        to_real(</span>
+<span id="cb43-4"><a href="15_kappale_15.html#cb43-4" aria-hidden="true" tabindex="-1"></a>            <span class="ot">&quot;asukkaita&quot;</span></span>
+<span id="cb43-5"><a href="15_kappale_15.html#cb43-5" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb43-6"><a href="15_kappale_15.html#cb43-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">minimum</span>(</span>
+<span id="cb43-7"><a href="15_kappale_15.html#cb43-7" aria-hidden="true" tabindex="-1"></a>            <span class="ot">&quot;asukkaita&quot;</span></span>
+<span id="cb43-8"><a href="15_kappale_15.html#cb43-8" aria-hidden="true" tabindex="-1"></a>            ),</span>
+<span id="cb43-9"><a href="15_kappale_15.html#cb43-9" aria-hidden="true" tabindex="-1"></a>        maximum(</span>
+<span id="cb43-10"><a href="15_kappale_15.html#cb43-10" aria-hidden="true" tabindex="-1"></a>            <span class="ot">&quot;asukkaita&quot;</span></span>
+<span id="cb43-11"><a href="15_kappale_15.html#cb43-11" aria-hidden="true" tabindex="-1"></a>            ), <span class="dv">0</span>, <span class="dv">100</span></span>
+<span id="cb43-12"><a href="15_kappale_15.html#cb43-12" aria-hidden="true" tabindex="-1"></a>        ), <span class="dv">2</span></span>
+<span id="cb43-13"><a href="15_kappale_15.html#cb43-13" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-2-1" class="section level2">
+<h2>Lisätehtävä 2</h2>
+<p>Tarkastele hallintoalueaineistoa. Mikäli kunnalla on olemassa nimi vain yhdellä virallisella kielellä (Kunta_ni2- attribuuttikentän arvo on N_A), korvaa se sanalla <code>Puuttuu</code>.</p>
+<p><strong>Aineisto</strong>: <code>hallintoalueet.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p>Käytä <code>if()</code>-ehtolausekefunktiota.</p>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb44"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb44-1"><a href="15_kappale_15.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(</span>
+<span id="cb44-2"><a href="15_kappale_15.html#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="ot">&quot;Kunta_ni2&quot;</span> <span class="op">=</span> <span class="st">&#39;N_A&#39;</span>, <span class="st">&#39;Puuttuu&#39;</span>, <span class="ot">&quot;Kunta_ni2&quot;</span></span>
+<span id="cb44-3"><a href="15_kappale_15.html#cb44-3" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-3-1" class="section level2">
+<h2>Lisätehtävä 3</h2>
+<p>Tarkastele Natura-alueaineistoa. Selvitä (<strong>Field Calculatorin General</strong> -ryhmän funktioiden avulla) montako kohdetta ko. karttataso sisältää.</p>
+<p><strong>Aineisto</strong>: <code>natura_alueet.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p>Käytä <code>layer_property()</code>- ehtolausekefunktiota.</p>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb45"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb45-1"><a href="15_kappale_15.html#cb45-1" aria-hidden="true" tabindex="-1"></a>layer_property(</span>
+<span id="cb45-2"><a href="15_kappale_15.html#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;natura_alueet&#39;</span>, <span class="st">&#39;feature_count&#39;</span></span>
+<span id="cb45-3"><a href="15_kappale_15.html#cb45-3" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-4-1" class="section level2">
+<h2>Lisätehtävä 4</h2>
+<p>Tarkastele maanjäristysaineistoa. Luo uusi attribuuttikenttä (tyyppi: Text (string)) ja anna sen nimeksi Location Country. Muodosta lauseke, jonka avulla uuden kentän arvo pystytään johtamaan Location Name -attribuuttikentän arvosta.</p>
+<p><strong>Aineisto</strong>: <code>maanjaristykset.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p>Location Name -kentässä maan nimi sijaitsee ennen kaksoispistettä <code>:</code>.</p>
+<ul>
+<li><code>substr()</code>-funktiolla saat “irroitettua” merkkijonosta osion. Argumenteiksi tulee syöttää merkkijonon lisäksi aloitus- ja lopetuskohdat irroitettavalle tekstille.</li>
+<li>Etsi <code>strpos()</code>-funktiolla oikea lopetuskohta.</li>
+</ul>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb46"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb46-1"><a href="15_kappale_15.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">substr</span>(</span>
+<span id="cb46-2"><a href="15_kappale_15.html#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="ot">&quot;Location Name&quot;</span>, <span class="dv">0</span>, strpos(</span>
+<span id="cb46-3"><a href="15_kappale_15.html#cb46-3" aria-hidden="true" tabindex="-1"></a>        <span class="ot">&quot;Location Name&quot;</span>, <span class="st">&#39;:&#39;</span></span>
+<span id="cb46-4"><a href="15_kappale_15.html#cb46-4" aria-hidden="true" tabindex="-1"></a>        ) <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb46-5"><a href="15_kappale_15.html#cb46-5" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-5" class="section level2">
+<h2>Lisätehtävä 5</h2>
+<p>Selvitä sisältääkö kuhunkin Natura-alueeseen liittyvä päätös vesilakia. Luo uusi attribuuttikenttä, johon voit tallentaa selvittämäsi tiedon.</p>
+<p><strong>Aineisto</strong>: <code>natura_alueet.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p>Luo lauseke paloittain:</p>
+<ul>
+<li>Käytä <code>string_to_array()</code>-funktiota</li>
+<li>Käytä <code>array_contains()</code>-funktiota</li>
+<li>Käytä <code>eval()</code>-funktiota</li>
+</ul>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb47"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb47-1"><a href="15_kappale_15.html#cb47-1" aria-hidden="true" tabindex="-1"></a>eval(</span>
+<span id="cb47-2"><a href="15_kappale_15.html#cb47-2" aria-hidden="true" tabindex="-1"></a>    array_contains(</span>
+<span id="cb47-3"><a href="15_kappale_15.html#cb47-3" aria-hidden="true" tabindex="-1"></a>        string_to_array(</span>
+<span id="cb47-4"><a href="15_kappale_15.html#cb47-4" aria-hidden="true" tabindex="-1"></a>            <span class="ot">&quot;VnPaatosTo&quot;</span></span>
+<span id="cb47-5"><a href="15_kappale_15.html#cb47-5" aria-hidden="true" tabindex="-1"></a>            ), <span class="st">&#39;vesilaki&#39;</span></span>
+<span id="cb47-6"><a href="15_kappale_15.html#cb47-6" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb47-7"><a href="15_kappale_15.html#cb47-7" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-6" class="section level2">
+<h2>Lisätehtävä 6</h2>
+<p>Ennen tätä tehtävää tehtävä 5.2 tulee olla tehtynä. Laske kunkin hallintoalueen asukasmäärän prosentuaalinen osuus koko tarkastelemasi maakunnan väestöstä ja tallenna se uuteen attribuuttikenttään.</p>
+<p><strong>Aineistot</strong>:</p>
+<ul>
+<li><code>hallintoalueet.gpkg</code></li>
+</ul>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p><code>sum()</code>-funktiolla voit laskea <code>asukkaita</code>-sarakkeen yhteenlasketun määrän.</p>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb48"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb48-1"><a href="15_kappale_15.html#cb48-1" aria-hidden="true" tabindex="-1"></a>( <span class="ot">&quot;asukkaita&quot;</span> <span class="op">/</span> <span class="fu">sum</span>(</span>
+<span id="cb48-2"><a href="15_kappale_15.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="ot">&quot;asukkaita&quot;</span></span>
+<span id="cb48-3"><a href="15_kappale_15.html#cb48-3" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb48-4"><a href="15_kappale_15.html#cb48-4" aria-hidden="true" tabindex="-1"></a>) <span class="op">*</span> <span class="fl">100.0</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-7" class="section level2">
+<h2>Lisätehtävä 7</h2>
+<p>Selvitä mitkä hallintoaluepolygonit sijaitsevat korkeintaan 20 km:n etäisyydellä Vaasan lyseon lukiosta. Käytä <strong>Field Calculatoria</strong>, älä geoprosessointityökaluja!</p>
+<p><strong>Aineistot</strong>:</p>
+<ul>
+<li><code>hallintoalueet.gpkg</code></li>
+<li><code>oppilaitokset.gpkg</code></li>
+</ul>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<ul>
+<li>Hae Vaasan lyseon lukio -kohde <code>get_feature()</code>-funktiolla.</li>
+<li>Hae kohteen geometria <code>geometry()</code>-funktiolla.</li>
+<li>Luo hallintoaluekohteelle 20 km:n buffer.</li>
+<li>Millä funktiolla voit tarkistaa leikkaavatko (intersect) buffer ja lyseon lukion geometria?</li>
+</ul>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb49"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb49-1"><a href="15_kappale_15.html#cb49-1" aria-hidden="true" tabindex="-1"></a>intersects(</span>
+<span id="cb49-2"><a href="15_kappale_15.html#cb49-2" aria-hidden="true" tabindex="-1"></a>    buffer(</span>
+<span id="cb49-3"><a href="15_kappale_15.html#cb49-3" aria-hidden="true" tabindex="-1"></a>        $geometry, <span class="dv">20000</span></span>
+<span id="cb49-4"><a href="15_kappale_15.html#cb49-4" aria-hidden="true" tabindex="-1"></a>        ), geometry(</span>
+<span id="cb49-5"><a href="15_kappale_15.html#cb49-5" aria-hidden="true" tabindex="-1"></a>        get_feature(</span>
+<span id="cb49-6"><a href="15_kappale_15.html#cb49-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;oppilaitokset&#39;</span>, <span class="st">&#39;onimi&#39;</span>, <span class="st">&#39;Vaasan lyseon lukio&#39;</span></span>
+<span id="cb49-7"><a href="15_kappale_15.html#cb49-7" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb49-8"><a href="15_kappale_15.html#cb49-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb49-9"><a href="15_kappale_15.html#cb49-9" aria-hidden="true" tabindex="-1"></a>    )</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-8" class="section level2">
+<h2>Lisätehtävä 8</h2>
+<p>Luo uusi sarake (nimi: tunnus, tyyppi: string) ja hyödynnä Quick Field Calculation -palkkia tuottaaksesi sarakkeen arvoksi FIN: &lt;kunkin kunnan kuntanumero&gt;.</p>
+<p><strong>Aineisto</strong>: <code>hallintoalueet.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<ul>
+<li>Valitse päivitettäväksi kentäksi tunnus.</li>
+<li>Kirjoita lauseke-kenttään.</li>
+<li>Napsauta lopuksi Update all -painiketta</li>
+</ul>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb50"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb50-1"><a href="15_kappale_15.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="st">&#39;FIN: &#39;</span> <span class="op">||</span> <span class="ot">&quot;Kunta&quot;</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-9" class="section level2">
+<h2>Lisätehtävä 9</h2>
+<p>Tarkastele väestöruutuaineistoa (älä koko tasoa, <strong>Select features by area</strong>). Kategorisoi aineisto sen mukaan, asuuko ruudussa paljon vai vähän sekä miehiä että naisia. Luo oma kategoria myös vaihtoehdolle, että tietoa ei ole saatavilla miehistä tai naisista.</p>
+<p><strong>Aineisto</strong>: <code>vaestoruudut.gpkg (sen alijoukko)</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<p>Käytä <code>CASE WHEN .. THEN</code>- rakennetta.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb51"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb51-1"><a href="15_kappale_15.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span></span>
+<span id="cb51-2"><a href="15_kappale_15.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> <span class="op">..</span>. (ei tietoa)</span>
+<span id="cb51-3"><a href="15_kappale_15.html#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">THEN</span> <span class="st">&#39;Tieto puuttuu&#39;</span></span>
+<span id="cb51-4"><a href="15_kappale_15.html#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> <span class="op">..</span>. (miehiä ja naisia <span class="dv">0</span><span class="op">-</span><span class="dv">100</span>)</span>
+<span id="cb51-5"><a href="15_kappale_15.html#cb51-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">THEN</span> <span class="st">&#39;Vähän molempia&#39;</span></span>
+<span id="cb51-6"><a href="15_kappale_15.html#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> (miehiä yli <span class="dv">100</span>, naisia <span class="dv">0</span><span class="op">-</span><span class="dv">100</span>)</span>
+<span id="cb51-7"><a href="15_kappale_15.html#cb51-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">THEN</span> <span class="st">&#39;Paljon miehiä, vähän naisia&#39;</span></span>
+<span id="cb51-8"><a href="15_kappale_15.html#cb51-8" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> (naisia yli <span class="dv">100</span>, miehiä <span class="dv">0</span><span class="op">-</span><span class="dv">100</span>)</span>
+<span id="cb51-9"><a href="15_kappale_15.html#cb51-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">THEN</span> <span class="st">&#39;Paljon naisia, vähän miehiä&#39;</span></span>
+<span id="cb51-10"><a href="15_kappale_15.html#cb51-10" aria-hidden="true" tabindex="-1"></a><span class="cf">ELSE</span></span>
+<span id="cb51-11"><a href="15_kappale_15.html#cb51-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Paljon molempia&#39;</span></span>
+<span id="cb51-12"><a href="15_kappale_15.html#cb51-12" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span></span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb52"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb52-1"><a href="15_kappale_15.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="cf">CASE</span></span>
+<span id="cb52-2"><a href="15_kappale_15.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> (<span class="ot">&quot;MIEHET&quot;</span><span class="op">=-</span><span class="dv">1</span> <span class="kw">or</span> <span class="ot">&quot;NAISET&quot;</span><span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb52-3"><a href="15_kappale_15.html#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">THEN</span> <span class="st">&#39;Tieto puuttuu&#39;</span></span>
+<span id="cb52-4"><a href="15_kappale_15.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> (<span class="ot">&quot;MIEHET&quot;</span><span class="op">&gt;</span><span class="dv">0</span> <span class="kw">and</span> <span class="ot">&quot;MIEHET&quot;</span><span class="op">&lt;</span><span class="dv">100</span> <span class="kw">and</span> <span class="ot">&quot;NAISET&quot;</span><span class="op">&gt;</span><span class="dv">0</span> <span class="kw">and</span> <span class="ot">&quot;NAISET&quot;</span><span class="op">&lt;</span><span class="dv">100</span>)</span>
+<span id="cb52-5"><a href="15_kappale_15.html#cb52-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">THEN</span> <span class="st">&#39;Vähän molempia&#39;</span></span>
+<span id="cb52-6"><a href="15_kappale_15.html#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> (<span class="ot">&quot;MIEHET&quot;</span><span class="op">&gt;</span><span class="dv">100</span> <span class="kw">and</span> <span class="ot">&quot;NAISET&quot;</span><span class="op">&gt;</span><span class="dv">0</span> <span class="kw">and</span> <span class="ot">&quot;NAISET&quot;</span><span class="op">&lt;</span><span class="dv">100</span>)</span>
+<span id="cb52-7"><a href="15_kappale_15.html#cb52-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">THEN</span> <span class="st">&#39;Paljon miehiä, vähän naisia&#39;</span></span>
+<span id="cb52-8"><a href="15_kappale_15.html#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="cf">WHEN</span> (<span class="ot">&quot;NAISET&quot;</span><span class="op">&gt;</span><span class="dv">100</span> <span class="kw">and</span> <span class="ot">&quot;MIEHET&quot;</span><span class="op">&gt;</span><span class="dv">0</span> <span class="kw">and</span> <span class="ot">&quot;MIEHET&quot;</span><span class="op">&lt;</span><span class="dv">100</span>)</span>
+<span id="cb52-9"><a href="15_kappale_15.html#cb52-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">THEN</span> <span class="st">&#39;Paljon naisia, vähän miehiä&#39;</span></span>
+<span id="cb52-10"><a href="15_kappale_15.html#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="cf">ELSE</span></span>
+<span id="cb52-11"><a href="15_kappale_15.html#cb52-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;Paljon molempia&#39;</span></span>
+<span id="cb52-12"><a href="15_kappale_15.html#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="cf">END</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-10" class="section level2">
+<h2>Lisätehtävä 10</h2>
+<p>Tarkastele rakennusaineistoa. Hyödynnä Geometry Generatoria ja luo nimiöinti, jonka avulla saadaan näkyviin jokaisen polygonin ulkorajan segmentin pituus. Ilmoita tämä luku yhden desimaalin tarkkuudella, jotta tieto mahtuu näkymään.</p>
+<p><strong>Aineisto</strong>: <code>pikku_rakennukset.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb53"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb53-1"><a href="15_kappale_15.html#cb53-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-2"><a href="15_kappale_15.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- Geometry Generator -tasolle</span></span>
+<span id="cb53-3"><a href="15_kappale_15.html#cb53-3" aria-hidden="true" tabindex="-1"></a>segments_to_lines(</span>
+<span id="cb53-4"><a href="15_kappale_15.html#cb53-4" aria-hidden="true" tabindex="-1"></a>    force_rhr(</span>
+<span id="cb53-5"><a href="15_kappale_15.html#cb53-5" aria-hidden="true" tabindex="-1"></a>        $geometry</span>
+<span id="cb53-6"><a href="15_kappale_15.html#cb53-6" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb53-7"><a href="15_kappale_15.html#cb53-7" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb53-8"><a href="15_kappale_15.html#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-9"><a href="15_kappale_15.html#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="co">-- Font marker -tasolle</span></span>
+<span id="cb53-10"><a href="15_kappale_15.html#cb53-10" aria-hidden="true" tabindex="-1"></a>format_number(</span>
+<span id="cb53-11"><a href="15_kappale_15.html#cb53-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">length</span>(</span>
+<span id="cb53-12"><a href="15_kappale_15.html#cb53-12" aria-hidden="true" tabindex="-1"></a>        geometry_n(</span>
+<span id="cb53-13"><a href="15_kappale_15.html#cb53-13" aria-hidden="true" tabindex="-1"></a>            $geometry, @geometry_part_num</span>
+<span id="cb53-14"><a href="15_kappale_15.html#cb53-14" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb53-15"><a href="15_kappale_15.html#cb53-15" aria-hidden="true" tabindex="-1"></a>        ), <span class="dv">1</span></span>
+<span id="cb53-16"><a href="15_kappale_15.html#cb53-16" aria-hidden="true" tabindex="-1"></a>    ) <span class="op">||</span> <span class="st">&#39;m&#39;</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="lisätehtävä-11" class="section level2">
+<h2>Lisätehtävä 11</h2>
+<p>Luo funktio, jonka avulla voidaan selvittää kolmen attribuuttikentän painotettu keskiarvo.</p>
+<ul>
+<li>Yksi luonnollinen käyttötapaus on laskea kolmen ikäryhmittäisen asukasluvun painotettu keskiarvo (esim. markkinoinnin kannalta työikäisillä ihmisillä on lapsia tai vanhuksia enemmän painoarvoa).</li>
+<li>Rajaa huomioitavat väestöruudut Select features by area -työkalulla!</li>
+<li>Funktion syötteet: kolme attribuuttikenttää, kolme painokerrointa</li>
+</ul>
+<p><strong>Aineisto</strong>: <code>HSY_vaesto2022_muok.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+vinkki
+</button>
+<div class="hidden-box">
+<ol style="list-style-type: decimal">
+<li>Luo painotettuka-niminen funktio Field Calculatorin Function Editor -välilehdellä.</li>
+</ol>
+<ul>
+<li>Muista painaa lopulta Save and Load functions -painiketta!</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Mene hsy_vaesto2020_muok-tason Field Calculatoriin ja määritä uusi Decimal-kenttä.</li>
+<li>Kirjoita ao. lauseke Expression-ikkunaan ja paina OK.</li>
+</ol>
+<div class="code-box">
+<div class="sourceCode" id="cb54"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb54-1"><a href="15_kappale_15.html#cb54-1" aria-hidden="true" tabindex="-1"></a>painotettuka(<span class="ot">&quot;ika10_19&quot;</span>, <span class="ot">&quot;ika30_39&quot;</span>, <span class="ot">&quot;ika70_79&quot;</span>, <span class="fl">0.2</span>, <span class="fl">0.7</span>, <span class="fl">0.1</span>)</span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+ratkaisu
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb55"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb55-1"><a href="15_kappale_15.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> qgis.core import <span class="op">*</span></span>
+<span id="cb55-2"><a href="15_kappale_15.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="kw">from</span> qgis.gui import <span class="op">*</span></span>
+<span id="cb55-3"><a href="15_kappale_15.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="15_kappale_15.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="ot">@qgsfunction(args=&#39;auto&#39;, group=&#39;Custom&#39;, referenced_columns=[])</span></span>
+<span id="cb55-5"><a href="15_kappale_15.html#cb55-5" aria-hidden="true" tabindex="-1"></a>def painotettuka(field1, field2, field3, value1, value2, value3, feature, <span class="kw">parent</span>):</span>
+<span id="cb55-6"><a href="15_kappale_15.html#cb55-6" aria-hidden="true" tabindex="-1"></a>    <span class="ot">&quot;&quot;&quot;</span></span>
+<span id="cb55-7"><a href="15_kappale_15.html#cb55-7" aria-hidden="true" tabindex="-1"></a>    Finds <span class="kw">out</span> <span class="kw">the</span> weighted average <span class="kw">of</span> three <span class="kw">columns</span>.</span>
+<span id="cb55-8"><a href="15_kappale_15.html#cb55-8" aria-hidden="true" tabindex="-1"></a>    <span class="ot">&quot;&quot;&quot;</span></span>
+<span id="cb55-9"><a href="15_kappale_15.html#cb55-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-10"><a href="15_kappale_15.html#cb55-10" aria-hidden="true" tabindex="-1"></a>    # HSYn datassa arvo <span class="dv">99</span> <span class="op">=</span> Tieto puuttuu, joten jos jokin kenttä sisältää tämän arvon,</span>
+<span id="cb55-11"><a href="15_kappale_15.html#cb55-11" aria-hidden="true" tabindex="-1"></a>    # painotetun keskiarvon laskeminen ei ole mielekästä</span>
+<span id="cb55-12"><a href="15_kappale_15.html#cb55-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="dv">99</span> <span class="kw">in</span> (field1, field2, field3):</span>
+<span id="cb55-13"><a href="15_kappale_15.html#cb55-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="kw">NULL</span></span>
+<span id="cb55-14"><a href="15_kappale_15.html#cb55-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb55-15"><a href="15_kappale_15.html#cb55-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> value1 <span class="op">*</span> field1 <span class="op">+</span> value2 <span class="op">*</span> field2 <span class="op">+</span> value3 <span class="op">*</span> field3</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="geoprosessointiesimerkki" class="section level2">
+<h2>Geoprosessointiesimerkki</h2>
+<p>Alta löytyy esimerkki yksinkertaisesta geoprosessointiskriptistä. Skripti muuttaa <code>rautatieviiva_suomi.gpkg</code>-tason <code>Sahkoistys</code>-sarakkeen arvot selkokieliseksi ja tallentaa tiedot uuteen CSV-taulukkotiedostoon. Voit kokeilla lisätä skriptin QGISiin ja ajaa sen.</p>
+<p><strong>Aineisto:</strong> <code>rautatieviiva_suomi.gpkg</code></p>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+geoprosessointiskripti
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="15_kappale_15.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PyQt5.QtCore <span class="im">import</span> QCoreApplication</span>
+<span id="cb56-2"><a href="15_kappale_15.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> qgis.core <span class="im">import</span> (QgsProcessing,</span>
+<span id="cb56-3"><a href="15_kappale_15.html#cb56-3" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingAlgorithm,</span>
+<span id="cb56-4"><a href="15_kappale_15.html#cb56-4" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingParameterFeatureSource,</span>
+<span id="cb56-5"><a href="15_kappale_15.html#cb56-5" aria-hidden="true" tabindex="-1"></a>                       QgsProcessingParameterFileDestination,</span>
+<span id="cb56-6"><a href="15_kappale_15.html#cb56-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb56-7"><a href="15_kappale_15.html#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-8"><a href="15_kappale_15.html#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SaveAttributesAlgorithm(QgsProcessingAlgorithm):</span>
+<span id="cb56-9"><a href="15_kappale_15.html#cb56-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Saves the selected attribute fields values of a vector layer to a CSV file.&quot;&quot;&quot;</span></span>
+<span id="cb56-10"><a href="15_kappale_15.html#cb56-10" aria-hidden="true" tabindex="-1"></a>    OUTPUT <span class="op">=</span> <span class="st">&#39;OUTPUT&#39;</span></span>
+<span id="cb56-11"><a href="15_kappale_15.html#cb56-11" aria-hidden="true" tabindex="-1"></a>    INPUT <span class="op">=</span> <span class="st">&#39;INPUT&#39;</span></span>
+<span id="cb56-12"><a href="15_kappale_15.html#cb56-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-13"><a href="15_kappale_15.html#cb56-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> tr(<span class="va">self</span>, string):</span>
+<span id="cb56-14"><a href="15_kappale_15.html#cb56-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb56-15"><a href="15_kappale_15.html#cb56-15" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a translatable string with the self.tr() function.</span></span>
+<span id="cb56-16"><a href="15_kappale_15.html#cb56-16" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb56-17"><a href="15_kappale_15.html#cb56-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> QCoreApplication.translate(<span class="st">&#39;Processing&#39;</span>, string)</span>
+<span id="cb56-18"><a href="15_kappale_15.html#cb56-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-19"><a href="15_kappale_15.html#cb56-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> createInstance(<span class="va">self</span>):</span>
+<span id="cb56-20"><a href="15_kappale_15.html#cb56-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Must return a new copy of your algorithm.</span></span>
+<span id="cb56-21"><a href="15_kappale_15.html#cb56-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> SaveAttributesAlgorithm()</span>
+<span id="cb56-22"><a href="15_kappale_15.html#cb56-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-23"><a href="15_kappale_15.html#cb56-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> name(<span class="va">self</span>):</span>
+<span id="cb56-24"><a href="15_kappale_15.html#cb56-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb56-25"><a href="15_kappale_15.html#cb56-25" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the unique algorithm name.</span></span>
+<span id="cb56-26"><a href="15_kappale_15.html#cb56-26" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb56-27"><a href="15_kappale_15.html#cb56-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&#39;savefeaturesascsv&#39;</span></span>
+<span id="cb56-28"><a href="15_kappale_15.html#cb56-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-29"><a href="15_kappale_15.html#cb56-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> displayName(<span class="va">self</span>):</span>
+<span id="cb56-30"><a href="15_kappale_15.html#cb56-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb56-31"><a href="15_kappale_15.html#cb56-31" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the translated algorithm name.</span></span>
+<span id="cb56-32"><a href="15_kappale_15.html#cb56-32" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb56-33"><a href="15_kappale_15.html#cb56-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="st">&#39;Save features as CSV&#39;</span>)</span>
+<span id="cb56-34"><a href="15_kappale_15.html#cb56-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-35"><a href="15_kappale_15.html#cb56-35" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> group(<span class="va">self</span>):</span>
+<span id="cb56-36"><a href="15_kappale_15.html#cb56-36" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb56-37"><a href="15_kappale_15.html#cb56-37" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the name of the group this algorithm belongs to.</span></span>
+<span id="cb56-38"><a href="15_kappale_15.html#cb56-38" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb56-39"><a href="15_kappale_15.html#cb56-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="st">&#39;Example scripts&#39;</span>)</span>
+<span id="cb56-40"><a href="15_kappale_15.html#cb56-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-41"><a href="15_kappale_15.html#cb56-41" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> groupId(<span class="va">self</span>):</span>
+<span id="cb56-42"><a href="15_kappale_15.html#cb56-42" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb56-43"><a href="15_kappale_15.html#cb56-43" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns the unique ID of the group this algorithm belongs</span></span>
+<span id="cb56-44"><a href="15_kappale_15.html#cb56-44" aria-hidden="true" tabindex="-1"></a><span class="co">        to.</span></span>
+<span id="cb56-45"><a href="15_kappale_15.html#cb56-45" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb56-46"><a href="15_kappale_15.html#cb56-46" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&#39;examplescripts&#39;</span></span>
+<span id="cb56-47"><a href="15_kappale_15.html#cb56-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-48"><a href="15_kappale_15.html#cb56-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> shortHelpString(<span class="va">self</span>):</span>
+<span id="cb56-49"><a href="15_kappale_15.html#cb56-49" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb56-50"><a href="15_kappale_15.html#cb56-50" aria-hidden="true" tabindex="-1"></a><span class="co">        Returns a localised short help string for the algorithm.</span></span>
+<span id="cb56-51"><a href="15_kappale_15.html#cb56-51" aria-hidden="true" tabindex="-1"></a><span class="co">        &quot;&quot;&quot;</span></span>
+<span id="cb56-52"><a href="15_kappale_15.html#cb56-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.tr(<span class="st">&#39;Saves selected features to a CSV file&#39;</span>)</span>
+<span id="cb56-53"><a href="15_kappale_15.html#cb56-53" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb56-54"><a href="15_kappale_15.html#cb56-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> initAlgorithm(<span class="va">self</span>, config<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb56-55"><a href="15_kappale_15.html#cb56-55" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb56-56"><a href="15_kappale_15.html#cb56-56" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFeatureSource(</span>
+<span id="cb56-57"><a href="15_kappale_15.html#cb56-57" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.INPUT,</span>
+<span id="cb56-58"><a href="15_kappale_15.html#cb56-58" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&#39;Input layer&#39;</span>),</span>
+<span id="cb56-59"><a href="15_kappale_15.html#cb56-59" aria-hidden="true" tabindex="-1"></a>                [QgsProcessing.TypeVectorAnyGeometry]</span>
+<span id="cb56-60"><a href="15_kappale_15.html#cb56-60" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb56-61"><a href="15_kappale_15.html#cb56-61" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb56-62"><a href="15_kappale_15.html#cb56-62" aria-hidden="true" tabindex="-1"></a>        <span class="co"># We add a file output of type CSV.</span></span>
+<span id="cb56-63"><a href="15_kappale_15.html#cb56-63" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.addParameter(</span>
+<span id="cb56-64"><a href="15_kappale_15.html#cb56-64" aria-hidden="true" tabindex="-1"></a>            QgsProcessingParameterFileDestination(</span>
+<span id="cb56-65"><a href="15_kappale_15.html#cb56-65" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.OUTPUT,</span>
+<span id="cb56-66"><a href="15_kappale_15.html#cb56-66" aria-hidden="true" tabindex="-1"></a>                <span class="va">self</span>.tr(<span class="st">&#39;Output File&#39;</span>),</span>
+<span id="cb56-67"><a href="15_kappale_15.html#cb56-67" aria-hidden="true" tabindex="-1"></a>                <span class="st">&#39;CSV files (*.csv)&#39;</span>,</span>
+<span id="cb56-68"><a href="15_kappale_15.html#cb56-68" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb56-69"><a href="15_kappale_15.html#cb56-69" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb56-70"><a href="15_kappale_15.html#cb56-70" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb56-71"><a href="15_kappale_15.html#cb56-71" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> processAlgorithm(<span class="va">self</span>, parameters, context, feedback):</span>
+<span id="cb56-72"><a href="15_kappale_15.html#cb56-72" aria-hidden="true" tabindex="-1"></a>        source <span class="op">=</span> <span class="va">self</span>.parameterAsSource(parameters, <span class="va">self</span>.INPUT, context)</span>
+<span id="cb56-73"><a href="15_kappale_15.html#cb56-73" aria-hidden="true" tabindex="-1"></a>        csv <span class="op">=</span> <span class="va">self</span>.parameterAsFileOutput(parameters, <span class="va">self</span>.OUTPUT, context)</span>
+<span id="cb56-74"><a href="15_kappale_15.html#cb56-74" aria-hidden="true" tabindex="-1"></a>        fieldnames <span class="op">=</span> [field.name() <span class="cf">for</span> field <span class="kw">in</span> source.fields()]</span>
+<span id="cb56-75"><a href="15_kappale_15.html#cb56-75" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Compute the number of steps to display within the progress bar and get features from source</span></span>
+<span id="cb56-76"><a href="15_kappale_15.html#cb56-76" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> <span class="fl">100.0</span> <span class="op">/</span> source.featureCount() <span class="cf">if</span> source.featureCount() <span class="cf">else</span> <span class="dv">0</span></span>
+<span id="cb56-77"><a href="15_kappale_15.html#cb56-77" aria-hidden="true" tabindex="-1"></a>        features <span class="op">=</span> source.getFeatures()</span>
+<span id="cb56-78"><a href="15_kappale_15.html#cb56-78" aria-hidden="true" tabindex="-1"></a>        <span class="cf">with</span> <span class="bu">open</span>(csv, <span class="st">&#39;w&#39;</span>) <span class="im">as</span> output_file:</span>
+<span id="cb56-79"><a href="15_kappale_15.html#cb56-79" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Write header</span></span>
+<span id="cb56-80"><a href="15_kappale_15.html#cb56-80" aria-hidden="true" tabindex="-1"></a>            line <span class="op">=</span> <span class="st">&#39;,&#39;</span>.join(name <span class="cf">for</span> name <span class="kw">in</span> fieldnames <span class="cf">if</span> name<span class="op">==</span><span class="st">&quot;Sahkoistys&quot;</span>) <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb56-81"><a href="15_kappale_15.html#cb56-81" aria-hidden="true" tabindex="-1"></a>            output_file.write(line)</span>
+<span id="cb56-82"><a href="15_kappale_15.html#cb56-82" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> current, f <span class="kw">in</span> <span class="bu">enumerate</span>(features):</span>
+<span id="cb56-83"><a href="15_kappale_15.html#cb56-83" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Stop the algorithm if cancel button has been clicked</span></span>
+<span id="cb56-84"><a href="15_kappale_15.html#cb56-84" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> feedback.isCanceled():</span>
+<span id="cb56-85"><a href="15_kappale_15.html#cb56-85" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">break</span></span>
+<span id="cb56-86"><a href="15_kappale_15.html#cb56-86" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Add a feature in the sink</span></span>
+<span id="cb56-87"><a href="15_kappale_15.html#cb56-87" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> f[<span class="st">&quot;Sahkoistys&quot;</span>]<span class="op">==</span><span class="dv">1</span>:</span>
+<span id="cb56-88"><a href="15_kappale_15.html#cb56-88" aria-hidden="true" tabindex="-1"></a>                    line <span class="op">=</span> <span class="st">&#39;,&#39;</span>.join(<span class="bu">str</span>(<span class="st">&#39;Ei sahkoa&#39;</span>) <span class="cf">for</span> name <span class="kw">in</span> fieldnames <span class="cf">if</span> name<span class="op">==</span><span class="st">&quot;Sahkoistys&quot;</span>) <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb56-89"><a href="15_kappale_15.html#cb56-89" aria-hidden="true" tabindex="-1"></a>                <span class="cf">else</span>:</span>
+<span id="cb56-90"><a href="15_kappale_15.html#cb56-90" aria-hidden="true" tabindex="-1"></a>                    line <span class="op">=</span> <span class="st">&#39;,&#39;</span>.join(<span class="bu">str</span>(<span class="st">&#39;Sahkoistetty&#39;</span>) <span class="cf">for</span> name <span class="kw">in</span> fieldnames <span class="cf">if</span> name<span class="op">==</span><span class="st">&quot;Sahkoistys&quot;</span>) <span class="op">+</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span></span>
+<span id="cb56-91"><a href="15_kappale_15.html#cb56-91" aria-hidden="true" tabindex="-1"></a>                output_file.write(line)</span>
+<span id="cb56-92"><a href="15_kappale_15.html#cb56-92" aria-hidden="true" tabindex="-1"></a>                <span class="co"># Update the progress bar</span></span>
+<span id="cb56-93"><a href="15_kappale_15.html#cb56-93" aria-hidden="true" tabindex="-1"></a>                feedback.setProgress(<span class="bu">int</span>(current <span class="op">*</span> total))</span>
+<span id="cb56-94"><a href="15_kappale_15.html#cb56-94" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {<span class="va">self</span>.OUTPUT: csv}</span></code></pre></div>
+</div>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="14_kappale_14.html"><button class="btn btn-default">Previous</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Lausekkeet QGISissä</h5>
+<span class="footer-version">v2025-10-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
