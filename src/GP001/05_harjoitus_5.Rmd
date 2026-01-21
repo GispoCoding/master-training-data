@@ -16,30 +16,30 @@ Harjoituksen jälkeen opiskelija tuntee eri paikkatietoaineistojen visualisoinni
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä **"QGIS-harjoitus 5"**. Lisää projektiin seuraavat aineistot:
 
--   **..kurssihakemisto/5. Harjoitus/L4133B.asc**
+-   **..kurssihakemisto/Harjoitus 5/L4133B.asc**
 
--   **..kurssihakemisto/5. Harjoitus/TieViiva.gpkg**
+-   **..kurssihakemisto/Harjoitus 5/TieViiva.gpkg**
 
--   **..kurssihakemisto/5. Harjoitus/ne_10m_populated_places_suomi.gpkg**
+-   **..kurssihakemisto/Harjoitus 5/ne_10m_populated_places_suomi.gpkg**
 
--   **..kurssihakemisto/5. Harjoitus/natura2000sac_alueet.gpkg**
+-   **..kurssihakemisto/Harjoitus 5/natura2000sac_alueet.gpkg**
 
 ## Tasojen visualisoinnin valikko
 
 Tasojen visualisointia ja nimiöintiä määritetään QGISin kuvaustekniikkavalikossa. Tämän valikon käyttöön on kaksi vaihtoehtoa:
 
-1. Avaamalla **Tason ominaisuudet**- valikko:
+1.  Avaamalla **Tason ominaisuudet**- valikko:
 
 ![](img/harjoitus_5/image1.gif)
 
-2. Avaamalla **Tyylipaneeli**:
+2.  Avaamalla **Tyylipaneeli**:
 
     2.1 Klikkaa Tasot- paneelista **"Avaa tason tyylit- paneeli"**
-    
+
     ![](img/harjoitus_5/image2.png)
-  
+
     2.2 Tämän pitäisi avata tyylipaneeli, yleensä QGIS- ikkunan oikeaan reunaan:
-    
+
     ![](img/harjoitus_5/image3.png)
 
 Molemmilla tavoilla saat saman valikon auki. Tyylipaneelissa on oletusvaihtoehtona "Automaattinen päivitys", joka tarkoittaa että kuvaustekniikkaan tehdyt muutokset näkyvät välittömästi kartalle. Kun valikon avaa **Tason ominaisuudet**- valikon kautta, tulee tyyli erikseen päivittää **Käytä** painikkeesta, sekä hyväksyäksesi muutokset tulee lopuksi klikata **OK**- painiketta.
@@ -54,9 +54,7 @@ Aseta nyt **L4133B-rasteriaineisto** näkyväksi ja piilota muut aineistot. L413
 
 Huomaa, että QGIS on tunnistanut, että aineisto sisältää jatkuvia arvoja ja on visualisoinut ne yksittäisenä harmaana kanavana. Oletusvärityksellä onnistut erottamaan Pasilan ratapihan oikeassa yläkulmassa.
 
-![](img/harjoitus_5/image5.png)
-
-Avaa tason **Kuvaustekniikka-asetukset**. Muista, että rasteriaineistojen kuvaustekniikkatyökalut ovat erilaiset kuin vektoriaineistoilla. Voit vaihtaa harmaasävyesityksen **pseudoväreiksi**. Voit kokeilla myös **rinnevarjostetta**.
+![](images/clipboard-2815177279.png)Avaa tason **Kuvaustekniikka-asetukset**. Muista, että rasteriaineistojen kuvaustekniikkatyökalut ovat erilaiset kuin vektoriaineistoilla. Voit vaihtaa harmaasävyesityksen **pseudoväreiksi**. Voit kokeilla myös **rinnevarjostetta**.
 
 ![](img/harjoitus_5/image6.png)
 
@@ -136,17 +134,17 @@ Avaa **natura2000sac_alueet-tason** kuvaustekniikka- valikko ja valitse **Nimiö
 
 Nimiöiden tekstien näkymistä kartalla voi määrittää monella eri tavalla. Alla kuvaukset QGISin nimiöiden muokkaamisen alateemoista:
 
-|                   |                                                                                         |
-|------------------|------------------------------------------------------|
-| **Teksti**        | Määritellään tekstin tyyli, väri ja muita yleisiä ominaisuuksia.                        |
-| **Muotoilu**      | Voit muodostaa useampirivisiä tekstejä, keskittää tekstiä ja määritellä lukujen muotoa. |
-| **Vyöhyke**       | Luodaan tekstiä korostavat puskurit (tekstin reunukset).
-| **Maski**       | Asetetaan maski tekstin ympärille valituilla tasoilla (katso myös Maski-välilehti)|
-| **Tausta**        | Tekstin taustalle voi piirtää suorakulmion tai muun muodon.                             |
-| **Varjo**         | Teksteille voidaan muodostaa varjo.                                                     |
-| **Osoitinviiva**         | Piirretään viivaa kohteesta tekstille.                                                     |
-| **Sijoittaminen** | Määrittelee tekstien sijoittumista kohteiden suhteen.                                   |
-| **Karttanäyttö**   | Määrittelee tekstien mittakaavarajoja ja muita tekstien näkyvyyteen liittyviä asioita.  |
+|  |  |
+|-------------------|-----------------------------------------------------|
+| **Teksti** | Määritellään tekstin tyyli, väri ja muita yleisiä ominaisuuksia. |
+| **Muotoilu** | Voit muodostaa useampirivisiä tekstejä, keskittää tekstiä ja määritellä lukujen muotoa. |
+| **Vyöhyke** | Luodaan tekstiä korostavat puskurit (tekstin reunukset). |
+| **Maski** | Asetetaan maski tekstin ympärille valituilla tasoilla (katso myös Maski-välilehti) |
+| **Tausta** | Tekstin taustalle voi piirtää suorakulmion tai muun muodon. |
+| **Varjo** | Teksteille voidaan muodostaa varjo. |
+| **Osoitinviiva** | Piirretään viivaa kohteesta tekstille. |
+| **Sijoittaminen** | Määrittelee tekstien sijoittumista kohteiden suhteen. |
+| **Karttanäyttö** | Määrittelee tekstien mittakaavarajoja ja muita tekstien näkyvyyteen liittyviä asioita. |
 
 ## Nimiön tekstityyli
 
@@ -158,7 +156,7 @@ Toinen työkalu tekstin korostamiseen on tekstiä ympyröivä vyöhyke. Valitse 
 
 Avaa vielä **Sijoittaminen**-alateema ja valitse **Using perimeter (käyttäen kehää)**. Valitse **Sallitut asemoinnit** -kohdassa **Viivan alla**. Huomaa, että **Sallitut asemoinnit** -kohdassa tulee aina olla vähintään yksi kohta valittuna. Jos useampi kohta on valittu, QGIS valitsee automaattisesti parhaan vaihtoehdon jokaiselle kohteelle. Paina **OK**, ja huomaa, että nyt nimiöt seuraavat monikulmioiden rajoja.
 
-![](img/harjoitus_5/image20.png)
+![](images/clipboard-2975752488.png)
 
 Tulos voi näyttää oudolta, etenkin jos karttaikkunan mittakaavaa on asetettu ison alueen kattavaksi. Lähennä karttaa, jotta nimiöt näkyisivät johdonmukaisemmin ja pohdi, missä tapauksessa tämänkaltainen nimiöinti olisi sopivinta. Etsi vielä **Sijoittaminen \> Prioriteett**i ja määritä se **Korkeaksi**. Tällä tavalla annat preferenssin muokkaamasi tason nimiöille suhteessa muiden tasojen nimiöihin ja voit näin järjestää tärkeimpien ja ei niin tärkeiden tasojen nimiöintiä. Paina vielä **OK**.
 
@@ -197,7 +195,7 @@ Lausekkeen muokkaus on tehokas työkalu, jota voidaan käyttää nimiöiden muok
 Kirjoita Lauseke-kenttään seuraava lauseke:
 
 ::: code-box
-NaturaTunn \|\| \'\\n\' \|\| Nimi
+NaturaTunn \|\| '\\n' \|\| Nimi
 :::
 
 Lausekkeessa esiintyy kentän nimien **NaturaTunn** ja **Nimi** lisäksi myös rivinvaihtosymboli **'**\n' ja kaksi **\|\|** -merkkiä, jotka yhdistävät merkkijonot yhdeksi tekstiksi.
@@ -205,7 +203,7 @@ Lausekkeessa esiintyy kentän nimien **NaturaTunn** ja **Nimi** lisäksi myös r
 ![](img/harjoitus_5/image26.png)
 
 ::: hint-box
-**Psst! Voit lisätä rivinvaihtosymbolin lausekkeeseen painamalla **Lauseke**-ikkunan päällä olevaa painiketta. Samalla tavalla voit lisätä aineistossa olevia kenttiä lausekkeeseen laajentamalla kentät ja arvot -valikon ja kaksoisklikkaamalla kentän nimeä.**
+**Psst! Voit lisätä rivinvaihtosymbolin lausekkeeseen painamalla** Lauseke**-ikkunan päällä olevaa painiketta. Samalla tavalla voit lisätä aineistossa olevia kenttiä lausekkeeseen laajentamalla kentät ja arvot -valikon ja kaksoisklikkaamalla kentän nimeä.**
 :::
 
 Kirjoita edellä mainittu lauseke ja paina **OK**. Klikkaa **Tason ominaisuudet** -valikossa **Käytä** ja katso kartalta, miltä alueiden nimiöinti näyttää.
