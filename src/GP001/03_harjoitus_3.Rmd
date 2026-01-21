@@ -32,13 +32,9 @@ Lisää **URL-kenttään** Helsingin kaupungin WMS-palvelun osoite: <http://kart
 
 Kun yhteyden tiedot on määritelty, paina **OK**. Paina vielä **Tietolähteiden hallinta** -ikkunassa **Yhdistä**. Nyt QGIS muodostaa yhteyden määriteltyyn paikkatietopalveluun ja ikkunaan ilmestyy listaus palvelun paikkatietoaineistoista. Huomaa, että listauksessa on alatasoja. Jatkossa QGIS muistaa tallennetut yhteydet.
 
-![](img/harjoitus_3/image3.png)
+![](images/clipboard-1356610124.png)Valitse saatavilla olevista aineistoista **Ajantasa_asemakaava_maanpaallinen_varillinen**. Voit vaihtaa QGIS-projektiin lisättävän tason nimen haluamaksesi kohdassa Tason nimi. Paina lopuksi **Lisää**, niin QGIS lisää tason projektiisi.
 
-Valitse saatavilla olevista aineistoista **Ajantasa_asemakaava_maanpaallinen_varillinen**. Voit vaihtaa QGIS-projektiin lisättävän tason nimen haluamaksesi kohdassa Tason nimi. Paina lopuksi **Lisää**, niin QGIS lisää tason projektiisi.
-
-![](img/harjoitus_3/image4.png)
-
-Huomaa, että voit joutua odottamaan hetken, kun karttatasoa ladataan palvelimelta. Voit nyt sulkea **Tietolähteiden hallinta** -ikkunan ja palata karttaikkunaan. Karttaikkunassasi pitäisi nyt näkyä Helsingin kaupungin värillinen asemakaava-aineisto rasteritasona.
+![](images/clipboard-32255326.png)Huomaa, että voit joutua odottamaan hetken, kun karttatasoa ladataan palvelimelta. Voit nyt sulkea **Tietolähteiden hallinta** -ikkunan ja palata karttaikkunaan. Karttaikkunassasi pitäisi nyt näkyä Helsingin kaupungin värillinen asemakaava-aineisto rasteritasona.
 
 ![](img/harjoitus_3/image5.png)
 
