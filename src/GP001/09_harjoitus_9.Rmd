@@ -1,3 +1,9 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
 # Harjoitus 9: Paikkatietoanalyysit
 
 **Harjoituksen sisältö**
@@ -12,14 +18,100 @@ Kouluttautuja oppii käyttämään eri aineistoille tarkoitettuja paikkatietoana
 
 30 minuuttia.
 
+**Skenaario**
+
+Kunta suunnittelee uutta kaavaa.
+Tehtävänäsi on selvittää, mitkä olemassa olevat rakennukset sijaitsevat 100 metrin etäisyydellä rantaviivasta Noljakan postinumeroalueella.
+
 **Valmistautuminen**
 
-Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...) "QGIS_harjoitus_9"**.
+Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...) "QGIS_harjoitus_9a"**.
+Varmista, että projektin koordinaattijärjestelmä on ETRS89/ETRS-TM35FIN (EPSG:3067).
+Lisää projektiin:
+
+-   …/Harjoitus 9/analyysiharjoitusdata.gpkg ja sen kaikki tasot (rakennukset, jarvi, noljakka)
+
+Muuta tasojen järjestys Tasot-paneelissa niin, että rakennukset ovat päällimmäisenä.
+Voit myös asettaa aluemaiset tasot paremmin näkyväksi asettamalla monikulmioiden täytevärin pois.
+Katso tarvittaessa apua visualisointiharjoituksesta.
+
+## **Järven leikkaaminen (Clip)**
+
+Leikataan harjoituksen aluksi vesistötaso postinumeroalueella, jotta saamme rajattua tutkimusalueen Noljakan postinumeroalueelle.
+
+1.  Valitse **Vektori** -\> **Geoprosessointityökalut (Geoprocessing Tools)**-\> **Leikkaa**...
+    **(Clip...)**.
+
+2.  Avautuneessa ikkunassa valitse 
+
+    1.  Syötetasoksi (Input layer) valitse alkuperäinen järvitaso.
+
+    2.  Peitetasoksi (Overlay layer) valitse Noljakka.
+
+    3.  Tallenna tulos nimellä jarvi_leikattu.gpkg.
+
+    4.  Paina Suorita.
+
+    5.  Voit poistaa analyysin jälkeen tasoluettelosta alkuperäisen jarvi-tason tai ainakin poistaa sen piirrosta.
+
+        ![](images/clipboard-4244928579.png)
+
+## **Puskurivyöhykkeen luominen (Buffer)**
+
+Luodaan seuraavaksi 100 metrin suojavyöhyke vesistön ympärille.
+
+1.  Valitse ylävalikosta: **Vektori (Vector)** -\> **Geoprosessointityökalut (Geoprocessing Tools)** -\> **Puskuri... (Buffer...)**.
+
+2.  Avautuneessa ikkunassa valitse 
+
+    1.  **Syötetasoksi (Input layer)** valitse edellisessä vaiheessa muodostamasi vesistötaso jarvi_leikattu.
+
+    2.  Aseta **Etäisyydeksi (Distance)** 100 metriä.
+
+    3.  Valitse **Yhdistä tulokset (Dissolve result)** -ruutu.
+        Tämä yhdistää päällekkäiset puskurit yhdeksi yhtenäiseksi alueeksi.
+
+    4.  Tallenna tiedosto nimellä **Rantavyohyke.gpkg** ja paina **Suorita**.
+
+        ![](images/clipboard-1716794094.png)
+
+## **Valinta sijainnin perusteella**
+
+Tutkitaan seuraavaksi, kuinka monta taloa sijaitsee rantavyöhykkeellä.
+Tämä työkalu ei luo uutta tiedostoa, vaan "maalaa" keltaiseksi ne rakennukset, jotka ovat alueen sisällä.
+
+1.  Mene ylävalikkoon: **Vektori** -\> **Tutkimustyökalut (Research tools)** -\> **Valitse sijainnin perusteella... (Select by Location)**.
+
+Avautuneessa ikkunassa
+
+1.  **Valitse kohteet tasosta (Select features from):** Valitse rakennustasosi.
+
+2.  **Kohteet, jotka:** Valitse vaihtoehto **leikkaavat**.
+
+3.  **kun verrataan kohteisiin tasolla:** Valitse rantavyöhyke.
+
+4.  Paina **Suorita**.
+
+![](images/clipboard-2046175059.png)Kuinka monta rakennusta sijaitsee rantavyöhykkeellä?
+
+-   **Miten näet määrän?** Kun ajo on valmis, QGIS ilmoittaa ikkunan alareunassa ja ominaisuustietotaulussa valittujen kohteiden määrän (esim. 15 selections).
+    Näet ne myös keltaisina kartalla.
+
+Pohdi, miten muuten voisit selvittää rakennusten määrän?
+
+**Miten näet määrän?** Kun ajo on valmis, QGIS ilmoittaa ikkunan alareunassa ja ominaisuustietotaulussa valittujen kohteiden määrän (esim. 15 selections).
+Näet ne myös keltaisina kartalla.
+
+## **Lisätehtävä: Ristiinleikkaus ja sulauta** 
+
+**Valmistautuminen**
+
+Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä...) "QGIS_harjoitus_9b"**.
 Lisää projektiin seuraavat tasot:
 
--   **.../9. Harjoitus/HallintoAlue.gpkg**
+-   **.../Harjoitus 9/HallintoAlue.gpkg**
 
--   **.../9. Harjoitus/natura2000sac_alueet.gpkg**
+-   **.../Harjoitus 9/natura2000sac_alueet.gpkg**
 
 Voit asettaa kunnat2024-monikulmion täytevärin pois ja saada siten natura2000sac_alueet-aineiston paremmin näkyviin:
 
@@ -58,16 +150,19 @@ VIRHEELLISET EPSG-koodit: EPSG:3126 - EPSG:3138
 Tässä harjoituksessa selvitetään Natura-alueiden pinta-ala kunnittain.
 Lyhyesti harjoituksen kulku on:
 
-- Tehdään spatiaalinen analyysi HallintoAlue- ja Natura-aineiston kanssa, jossa leikataan Natura-alueet kunnittain, jotta Natura-alueisiin saadaan kunta-aineiston sisältämät tiedot
+-   Tehdään spatiaalinen analyysi HallintoAlue- ja Natura-aineiston kanssa, jossa leikataan Natura-alueet kunnittain, jotta Natura-alueisiin saadaan kunta-aineiston sisältämät tiedot
 
-- Yhdistetään Natura-alueet kunnittain ja lasketaan niiden pinta-ala
+-   Yhdistetään Natura-alueet kunnittain ja lasketaan niiden pinta-ala
 
 Seuraavaksi lähdemme käsittelemään aineistoja **Vektori**-ylämenusta, josta löytyvät ensisijaiset työkalut vektorianalyysien toteuttamiseen:
 
 ![](img/harjoitus_9/image4.png)
 
 Käynnistä **Ristiinleikkaus (intersection...)**-työkalu **Geoprosessointi**-valikosta.
-Määrittele syötetasoksi natura2000sac_alueet ja leikkaavaksi tasoksi HallintoAlue-aineisto. Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista. Paina syötetason vierestä Asetukset ![](img/harjoitus_9/image5.png) ja valitse **Virheellisten kohteiden suodatus** asetukseksi "Ohita kohteet, joilla on virheellinen geometria". Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
+Määrittele syötetasoksi natura2000sac_alueet ja leikkaavaksi tasoksi HallintoAlue-aineisto.
+Aineistossa voi olla geometriavirheitä, joten suodatetaan ne pois analyysista.
+Paina syötetason vierestä Asetukset ![](img/harjoitus_9/image5.png) ja valitse **Virheellisten kohteiden suodatus** asetukseksi "Ohita kohteet, joilla on virheellinen geometria".
+Näin analyysi ei lopu, vaikka aineistossa on virheellisiä kohteita.
 Teemme tälle aineistolle vielä toisen analyysin, joten voit luoda tilapäisen tason:
 
 ![](img/harjoitus_9/image6.png)
@@ -88,8 +183,7 @@ Koska saman kunnan alueella voi olla usempia eri Natura-alueita, seuraavaksi sii
 Valitse työkalu **Vektori → Geoprosessointi → Sulauta**.
 
 Valitse syötetasoksi aiemmin tehty Ristiinleikkaus-taso ja valitse sulautuksen perusteena oleva sarake painamalla Dissolve fields kohdasta ![](img/harjoitus_9/image8.png).
-Valitse ja laita täppä **Kunta** sarakkeeseen ja paina oikealta **OK**.
-Sarakkeen pitäisi tulla harmaana Dissolve fields valinnaksi.
+Valitse ja laita täppä **Kunta** sarakkeeseen ja paina oikealta **OK**. Sarakkeen pitäisi tulla harmaana Dissolve fields valinnaksi.
 
 ![](img/harjoitus_9/image9.png)
 
@@ -102,7 +196,7 @@ Voit myös visualisoida aineiston esimerkiksi maakunnittain avaamalla **kuvauste
 Lopuksi voimme laskea, kuinka monta neliömetriä kullakin kunnalla on suojeltu Natura-alueena.
 Avaa sulautetun tason ominaisuustietotaulukko ja laita taso editoitavaksi.
 Avaa **Kentän arvojen laskin**-työkalua.
-Luo uusi kenttä, jossa on kunnan Natura-alueiden pinta-ala neliökilometreinä **$area** funktion avulla.Voit antaa kentän tyypiksi desimaalinumero (reaali).
+Luo uusi kenttä, jossa on kunnan Natura-alueiden pinta-ala neliökilometreinä **\$area** funktion avulla.Voit antaa kentän tyypiksi desimaalinumero (reaali).
 Voit laskea pinta-alan neliökilometreinä jakolaskun avulla jakamalla funktion 1 000 000.
 
 Missä kunnassa tai maakunnassa on eniten suojeltuja alueita?
