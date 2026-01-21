@@ -35,7 +35,7 @@ Muuta tasojen järjestys Tasot-paneelissa niin, että rakennukset ovat päällim
 Voit myös asettaa aluemaiset tasot paremmin näkyväksi asettamalla monikulmioiden täytevärin pois.
 Katso tarvittaessa apua visualisointiharjoituksesta.
 
-## **Järven leikkaaminen (Clip)**
+## Järven leikkaaminen (Clip)
 
 Leikataan harjoituksen aluksi vesistötaso postinumeroalueella, jotta saamme rajattua tutkimusalueen Noljakan postinumeroalueelle.
 
@@ -56,7 +56,7 @@ Leikataan harjoituksen aluksi vesistötaso postinumeroalueella, jotta saamme raj
 
         ![](images/clipboard-4244928579.png)
 
-## **Puskurivyöhykkeen luominen (Buffer)**
+## Puskurivyöhykkeen luominen (Buffer)
 
 Luodaan seuraavaksi 100 metrin suojavyöhyke vesistön ympärille.
 
@@ -75,7 +75,7 @@ Luodaan seuraavaksi 100 metrin suojavyöhyke vesistön ympärille.
 
         ![](images/clipboard-1716794094.png)
 
-## **Valinta sijainnin perusteella**
+## Valinta sijainnin perusteella
 
 Tutkitaan seuraavaksi, kuinka monta taloa sijaitsee rantavyöhykkeellä.
 Tämä työkalu ei luo uutta tiedostoa, vaan "maalaa" keltaiseksi ne rakennukset, jotka ovat alueen sisällä.
@@ -102,7 +102,7 @@ Pohdi, miten muuten voisit selvittää rakennusten määrän?
 **Miten näet määrän?** Kun ajo on valmis, QGIS ilmoittaa ikkunan alareunassa ja ominaisuustietotaulussa valittujen kohteiden määrän (esim. 15 selections).
 Näet ne myös keltaisina kartalla.
 
-## **Lisätehtävä: Ristiinleikkaus ja sulauta** 
+## Lisätehtävä: Ristiinleikkaus ja sulauta 
 
 **Valmistautuminen**
 
