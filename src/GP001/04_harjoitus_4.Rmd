@@ -70,11 +70,9 @@ Toisinaan on tärkeää, että paikkatietoaineistot ovat samassa koordinaattijä
 
 ### Tapa 1: Projisoi taso -prosessityökalu
 
-Uudelleenprojisoinnin voi tehdä suoraan QGIS-prosessointityökalun avulla valitsemalla ylävalikosta **Vektori \> Tiedonhallinta \> Projisoi taso...** Aseta syötetasoksi **ne_10m_populated_places_suomi** ja valitse halutuksi koordinaattijärjestelmäksi **ETRS89/TM35FIN (EPSG: 3067)**. Klikkaa **Projisoitu-** kentän kohdalla ... \> **Tallenna tiedostoon** ja valitse sijainti, minne haluat tallentaa uudelleenprojisoidun aineiston. Anna tasolle nimeksi **ne_10m_populated_places_suomi_3067** ja tarkista, että aineisto tallentuu **GeoPackage-formaattiin**. Klikkaa lopuksi **Suorita**.
+Uudelleenprojisoinnin voi tehdä suoraan QGIS-prosessointityökalun avulla valitsemalla ylävalikosta **Vektori \> Tiedonhallinta (Data management tools)\> Projisoi taso ...** Aseta syötetasoksi **ne_10m_populated_places_suomi** ja valitse halutuksi koordinaattijärjestelmäksi **ETRS89/TM35FIN (EPSG: 3067)**. Klikkaa **Projisoitu-** kentän kohdalla ... \> **Tallenna tiedostoon** ja valitse sijainti, minne haluat tallentaa uudelleenprojisoidun aineiston. Anna tasolle nimeksi **ne_10m_populated_places_suomi_3067** ja tarkista, että aineisto tallentuu **GeoPackage-formaattiin**. Klikkaa lopuksi **Suorita**.
 
-![](img/harjoitus_4/image11.png)
-
-QGISin **Tasot-paneeliin** ilmestyy uudelleenprojisoitu paikkatietoaineisto. Voit tarkistaa koordinaattijärjestelmän tason ominaisuuksista.
+![](images/clipboard-2476188776.png)QGISin **Tasot-paneeliin** ilmestyy uudelleenprojisoitu paikkatietoaineisto. Voit tarkistaa koordinaattijärjestelmän tason ominaisuuksista.
 
 ### Tapa 2: Tallennus Tasot-paneelissa
 
@@ -84,9 +82,7 @@ Klikkaa tasoa **Tasot**-paneelissa hiiren oikealla painikkeella ja valitse **Vie
 
 Vaihdetaan ensin tiedostomuoto **Shape-tiedostostaGeoPackageen**. Valitse tämän jälkeen **Tiedoston nimi** -kohdassa uudelleenprojisoidun aineiston sijainti ja anna sille nimeksi n**e_10m_populated_places_suomi_3067**. Aseta koordinaattijärjestelmäksi **ETRS89/TM35FIN (EPSG: 3067)** ja rastita **Lisää tallennettu tiedosto kartalle**. Paina sitten **OK**.
 
-![](img/harjoitus_4/image13.png)
-
-QGISin **Tasot**-paneeliin ilmestyy uudelleenprojisoitu paikkatietoaineisto. Voit tarkistaa koordinaattijärjestelmän tason ominaisuuksista.
+![](images/clipboard-1771973092.png)QGISin **Tasot**-paneeliin ilmestyy uudelleenprojisoitu paikkatietoaineisto. Voit tarkistaa koordinaattijärjestelmän tason ominaisuuksista.
 
 Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** tai päävalikosta **Projekti \> Tallenna**.
 
