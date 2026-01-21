@@ -1,3 +1,9 @@
+---
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
 # Harjoitus 10: QGISin lisäosat
 
 **Harjoituksen sisältö**
@@ -66,11 +72,12 @@ Jos esiasetuksista ei löydä haluamaasi tasoa, yritä etsiä se avaimen ja arvo
 
 ## Lisätehtävä: Qgis2threejs
 
-Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä…) “QGIS_harjoitus_10”**. Lisää projektiin seuraavat tasot:
+Luo uusi QGIS-projekti ja tallenna se nimellä (**Projekti → Tallenna nimellä…) “QGIS_harjoitus_10”**.
+Lisää projektiin seuraavat tasot:
 
-- **…/10 Harjoitus/Vaestotietoruudukko_2022.gpkg**
+-   **…/Harjoitus 10/Vaestotietoruudukko_2022.gpkg**
 
-- **…/10 Harjoitus/L4133B.asc**
+-   **…/Harjoitus 10/L4133B.asc**
 
 Lisää vielä **Qgis2threejs**-lisäosa.
 Tämä lisäosa mahdollistaa nopean kolmiulotteisen visualisoinnin luomisen web-selaimelle käyttäen threejs-kirjastoa.
@@ -79,9 +86,7 @@ Avaa **Qgis2threejs Exporter** ja valitse **DEM Layer -valikosta** korkeusmallia
 Valitse sen jälkeen **Polygon**-kohdan alta väestötietoruudukkoaineisto ja tuplaklikkaa sitä avataksesi asetukset.
 Aseta Z-coordinate kohdan **Mode-asetukseksi Relative to "L4133B" layer** ja **Height-kentän** arvoksi asukkaita-kentän arvo.
 
-![](img/harjoitus_10/image5.png)
-
-Voit tarkastella visualisointia esikatseluikkunassa tai exportoida sen html-tiedostoksi jolloin sen voi avata selaimella.
+![](images/clipboard-3470209468.png)Voit tarkastella visualisointia esikatseluikkunassa tai exportoida sen html-tiedostoksi jolloin sen voi avata selaimella.
 
 ## Lisätehtävä: Qgis2web
 
