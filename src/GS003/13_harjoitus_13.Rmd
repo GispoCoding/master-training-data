@@ -1,0 +1,69 @@
+# HARJOITUS 2.6: SUODATTIMET
+
+**Harjoituksen sisältö**
+
+Harjoituksessa tutustutaan CQL- (Common Query Language) ja ECQL-suodattimeen (Extended CQL).
+
+**Harjoituksen tavoite**
+
+Harjoituksen jälkeen opiskelija osaa muodostaa ominaisuus- ja geometriatietoihin perustuvia suodattimia.
+
+**Arvioitu kesto**
+
+25 minuuttia.
+
+## **Valmistautuminen**
+
+GeoServeriin on asennettu palvelinkone ja siihen voi muodostaa yhteyden. 
+
+## **Ominaisuustietosuodattimet**
+
+Mene **Browse Layers**-valikkoon ja avaa **topp:states**-aineiston esikatselu painamalla **OpenLayers**-linkkiä:
+
+![](img/harjoitus_13/image1.png)
+
+Saat karttaikkunan vasemmalla puolella olevat valikot näkyviin, kun klikkaat kartan vasemmassa ylänurkassa olevaa nappulaa.
+
+Voit suodattaa kartalla näkyviä kohteita **CQL (Common Query Language)**-kyselylausekkeilla. CQL tukee vertailuoperaattoreita kuten = (yhtä suuri kuin), \< (pienempi kuin), \<= (pienempi tai yhtä suuri kuin) ja \<\> (eri kuin). 
+
+Yksinkertaisimmillaan nämä kyselylauseet voivat siis olla esim. muotoa fieldname = 1 (näytä vain kohteet, joilla kenttä = 1) tai value \> 0 ( näytä vain kohteet, joilla arvo suurempi kuin 0).
+
+Kirjoita hakulausekkeet ylös omiin muistiinpanoihin.
+
+::: hint-box
+Missä osavaltioissa väkiluku on yli 15 miljoonaa asukasta?
+Psst! Klikkaa ensin osavaltiota ja tarkista väkiluvun sisältävän ominaisuustietokentän nimi.
+:::
+
+::: hint-box
+Minkä osavaltioiden väkiluku on yli miljoona, mutta vähemmän kuin kolme miljoonaa? Montako osavaltiota piirtyy kartalle?
+Psst! Voit käyttää operaattoria “BETWEEN - - AND - -”.
+:::
+
+::: hint-box
+Minkä osavaltioiden nimet alkavat C-kirjaimella?
+Psst! Käytä operaattoria “LIKE” ja villikortti-symbolia “%”. Laita osavaltion nimi lainausmerkkien sisään (‘ ‘).
+:::
+
+::: hint-box
+Missä osavaltioissa on enemmän miespuolisia asukkaita?
+:::
+
+::: hint-box
+Mitkä osavaltiot leikkaavat 100. asteen läntistä pituuspiiriä?
+Psst! Lauseke on muotoa “BBOX(geometriasarake, xmin, ymin, xmax, ymax)”. Osavaltioiden geometria on kentässä “the_geom”.
+:::
+
+GeoServerin [dokumentaatiosta](https://docs.geoserver.org/main/en/user/tutorials/cql/cql_tutorial/#simple-comparisons) löytyy tarkempia kuvauksia.
+
+::: hint-box
+Suodata **topp:states**-tason WMS-palvelua siten, että ainoastaan ne osavaltiot, joiden työttömyysprosentti on alle 5 % näkyvät palvelussa.
+:::
+
+::: hint-box
+Muodosta topp:states-tasolle kuvaustekniikka, jossa piirretään osavaltioiden keskipisteeseen punainen symboli.
+:::
+
+::: hint-box
+Yhdistä edelliseen kuvaustekniikkaan osavaltioiden rajat harmaalla värillä.
+:::
