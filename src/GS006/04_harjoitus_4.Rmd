@@ -1,4 +1,4 @@
-# Harjoitus 1.4: Kuvaustekniikan perusteet (SLD)
+# HARJOITUS 1.4: KUVAUSTEKNIIKAN PERUSTEET (SLD)
 
 **Harjoituksen sisältö**
 
@@ -13,12 +13,6 @@ Harjoituksen jälkeen opiskelija osaa hyödyntää peruskuvaustekniikoita GeoSer
 40 minuuttia.
 
 ## **Valmistautuminen**
-
-Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
-
-::: note-box
-<http://localhost:8080/geoserver>
-:::
 
 Aiemmissa harjoituksissa on luotu GeoServerin palvelimelle taso **rakennukset**, johon luodaan nyt kuvaustekniikka.
 
@@ -36,7 +30,7 @@ Huomaa, että **WMS Settings** -kohdasta löytyy **Default Style** -valikko, joh
 
 ## **SLD-kuvaustekniikka**
 
-Geoserverin tyylit on määritelty **Styled Layer Descriptorilla** (SLD), joka on XML-kieli.
+GeoServerin tyylit on määritelty **Styled Layer Descriptorilla** (SLD), joka on XML-kieli.
 
 Poistu tason näkymästä ja avaa **Data → Styles** näkymä päävalikon alta. Tässä näkymässä määritellään tyylit (kuvaustekniikat), joita WMS-karttatasoissa käytetään.
 
@@ -58,7 +52,6 @@ Laaditaan nyt oma kuvaustekniikka Helsingin rakennukset -aineistolle.
 
 Anna uudelle tyylille nimeksi **oletus_polygoni**. Valitse workspace:ksi **helsinki**.
 
-![](img/harjoitus_4/image4.png)
 
 Helpottaakseen omien tyylien kirjoittamisen aloittamista, SLD-koodikentän täyttämiseen voidaan valita malliksi GeoServerin oletustyylit tai kopioida olemassa oleva tyyli.
 
@@ -66,11 +59,11 @@ Valitse **Generate a default style** -alasvetovalikosta **Polygon** ja paina sen
 
 ![](img/harjoitus_4/image5.png)
 
-Voit nyt testata SLD-koodia **Validate-**toiminnolla. Testauksen onnistuminen näkyy ilmoituksena sivun yläpuolella.
+Voit nyt testata SLD-koodia **Validate-**toiminnolla. Testauksen onnistuminen näkyy vihrellä palkilla.
 
 ![](img/harjoitus_4/image6.png)
 
-Tallenna muutokset painamalla ensin **Submit**.
+Tallenna muutokset väliaikaisesti painamalla ensin **Apply**. Paina tämän jälkeen **Save**, niin muutokset tallentuvat pysyvästi.
 
 ## **SLD-kuvaustekniikan käyttöönotto**
 
@@ -82,7 +75,7 @@ Avaa **rakennukset**-tason editointinäkymä päävalikosta **Data → Layers**.
 
 Paina sitten **Save**.
 
-**Data → Layer Preview** näkymästä voit nyt esikatsella **rakennukset**-tasoa, uusi tyyli on nyt käytössä.
+**Data → Layer Preview** näkymästä voit nyt esikatsella **rakennukset**-tasoa, uusi tyyli on nyt käytössä. Huomioi, että esikatselu voi olla välillä hidasta riippuen datan määrästä.
 
 ![](img/harjoitus_4/image7.png)
 
@@ -92,10 +85,10 @@ Kannattaa tutustua SLD-tyylien kirjoittamiseen SLD Cookbook -sivuilta. SLD Cookb
 
 Käytetään seuraavaksi pohjana uuteen tyyliimme esimerkkiä **SLD Cookbookista**. 
 
-Avaa uudessa selainikkunassa GeoServerin SLD Cookbook alla olevasta linkistä (tai voit etsiä selaimella Googlesta "geoserver sld cookbook"). Etsi **Polygon with styled label** -kohta ja paina sitä:
+Avaa uudessa selainikkunassa GeoServerin SLD Cookbook alla olevasta linkistä. Tässä harjoituksessa käytetään **[Polygon with styled label](https://docs.geoserver.org/main/en/user/styling/sld/cookbook/polygons/#sld_cookbook_polygons_polygonwithstyledlabel)** -esimerkkiä.
 
 ::: note-box
-<http://docs.geoserver.org/stable/en/user/styling/sld/cookbook/>
+<https://docs.geoserver.org/main/en/user/styling/sld/cookbook/?h=cookbook>
 :::
 
 Löydät lyhyen esityksen kuvaustekniikasta ja SLD-koodin. Tutustu lyhyesti koodiin ja yritä löytää tärkeimmät elementit (tagit) kuten monikulmion viivan ja täytön värit sekä tekstien fonttimääritelmät. Voit kirjoittaa muistiinpanoja tärkeimmistä elementeistä ja määritelmistä harjoituksen viimeiselle sivulle.
@@ -108,7 +101,7 @@ Tavanomaisen SLD-kielen lisäksi tämä mallikoodi sisältää kaksi GeoServerin
 
 Etsi SLD-tyylien esimerkkisivuilta **View and download the full "Polygon with styled label" SLD** -linkki, avaa se uudessa ikkunassa ja tallenna kyseinen sivu .sld-tiedostona, käyttämällä selaimen tallennus (save as / tallenna nimellä) toimintoa. Anna tiedostolle nimi, jonka muistat vielä myöhemmin (esimerkiksi polygon_polygonwithstyledlabel.sld).
 
-Palaa nyt GeoServerin käyttöliittymään ja paina koodilaatikon alta **Browse**. Etsi äskettäin ladattu SLD-tyyli levyltä ja paina lopuksi **Upload**.
+Palaa nyt GeoServerin käyttöliittymään ja paina koodilaatikon yläpuolelta **Browse**. Etsi äskettäin ladattu SLD-tyyli levyltä ja paina lopuksi **Upload**.
 
 ![](img/harjoitus_4/image8.png)
 
@@ -134,7 +127,7 @@ Muokkaa vielä monikulmion SLD-tyyli seuraavasti:
 Psst! Huomaa, että GeoServerissä desimaalierottimena toimii ainoastaan piste ".". Tämä pätee kaikissa GeoServerin asetuksissa.
 :::
 
-Tallenna sitten muutokset painamalla ensin **Submit**.
+Tallenna sitten muutokset painamalla ensin **Apply**.
 
 Lopuksi vaihda **rakennukset**-tasolle tyyliksi **rakennukset**-tyyli (**Data → Layers → rakennukset → Publishing**).
 
@@ -148,7 +141,7 @@ Palaa **Styles**-näkymälle ja valitse taas **rakennukset**-tyyli. Poista SLD-k
 
 ::: code-box
 \<Fill\>\
-   \<CssParameter name="fill"\>#000000\</CssParameter\>\
+   \<CssParameter name=\"fill\"\>#000000\</CssParameter\>\
 \</Fill\>\
 :::
 
@@ -158,7 +151,7 @@ ja korvaa sen tilalle:
 \<Halo\>\
    \<Radius\>3\</Radius\>\
     \<Fill\>\
-        \<CssParameter name="fill"\>#FFFFFF\</CssParameter\>\
+        \<CssParameter name=\"fill\"\>#FFFFFF\</CssParameter\>\
     \</Fill\>\
 \</Halo\>
 :::
@@ -169,7 +162,7 @@ SLD-koodi ikkunassa näyttää tältä:
 
 Paina sitten **Validate**.
 
-Jos koodin käytössä tulee virheilmoituksia tai se ei toimi, pyydä kouluttajalta apua. Muuten paina **Submit**, niin tyyli tallentuu.
+Jos koodin käytössä tulee virheilmoituksia tai se ei toimi, pyydä kouluttajalta apua. Muuten paina **Apply**, niin tyyli tallentuu.
 
 Päivitetty tyyli on heti käytössä palvelimella ja sitä voi esikatsella **rakennukset**-tason avulla. Selainikkunan voit päivittää painamalla **F5**-näppäintätai **CTRL+R**-näppäimiä.
 
@@ -197,17 +190,17 @@ Etsi **\<Rule\>** kappaleen sisällä oleva **\<Title\>** ja lisää sen alle:
 
 ![](img/harjoitus_4/image13.png)
 
-Paina sitten **Submit**.
+Paina sitten **Apply**.
 
 Aseta vielä tiesto-tason oletustyyliksi **tiesto-tyyli**. (**Data → Layers → helsinki:tiesto → Publishing**).
 
 ![](img/harjoitus_4/image14.png)
 
-Paina **Save** ja esikatsele tasoa. Huomaa, että kun loitonnat karttaa siten että mittakaava on pienempi kuin 1:32 000, tiet eivät enää tule näkyviin.
+Paina **Save** ja esikatsele tasoa. Huomaa, että kun lähennät karttaa siten että mittakaava on suurempi kuin 1:32 000, tiet eivät enää tule näkyviin.
 
-Lisätään nyt tiet myös mittakaavaan 1:32 000 ja suuremmille. Tämä onnistuu luomalla **\<Rule\>**-osio, jossa maksimimittakaava (**\<MaxScaleDenominator\>**) on määritelty arvolla **32000**.
+Lisätään nyt tiet myös mittakaavaan 1:32 000 ja suuremmille. Tämä onnistuu luomalla **\<Rule\>**-osio, jossa pienin mittakaava (**\<MaxScaleDenominator\>**) on määritelty **32000** arvoksi.
 
-Voit hyödyntää edellistä sääntöosiota: kopioi koko **\<Rule\>** kappale. Lisää se **\</Rule\>** jälkeen.
+Voit hyödyntää edellisen sääntö osiota: kopioi koko **\<Rule\>** kappale. Lisää se **\</Rule\>** jälkeen.
 
 ![](img/harjoitus_4/image15.png)
 
@@ -227,7 +220,7 @@ Vaihda viivan väri harmaaksi **#666666**, otsikoksi **Paksu viiva** ja paksuude
 
 ![](img/harjoitus_4/image16.png)
 
-Paina **Submit** ja esikatsele.Huomaa, että nyt kun lähennät karttaikkunaa (suurennat mittakaavaa), niin teiden väri ja paksuus muuttuu.
+Paina **Apply** ja esikatsele. Huomaa, että nyt kun lähennät karttaikkunaa (suurennat mittakaavaa), niin teiden väri ja paksuus muuttuu.
 
 Lisätään vielä täyteväri viivoille lisäämällä uusi sääntö. Kopioi edellinen **\<Rule\>** -koodi kappale (jolla on \<MaxScaleDenominator\>32000\</MaxScaleDenominator\>) ja liitä se kopioidun kappaleen jatkoksi.
 
@@ -235,7 +228,7 @@ Muuta taas otsikko, väri ja paksuus kuvan mukaisesti:
 
 ![](img/harjoitus_4/image17.png)
 
-Tämä viiva tulee piirretyksi edellisen paksumman viivan päälle, mistä aiheutuu viivareunan efekti.
+Tämä viiva tulee piirretyksi edellisen paksumman viivan päälle, josta aiheutuu viivareunan efekti.
 
 Esikatsele lopputulosta:
 

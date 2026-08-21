@@ -1,4 +1,4 @@
-# Harjoitus 2.6: Suodattimet
+# HARJOITUS 2.6: SUODATTIMET
 
 **Harjoituksen sisältö**
 
@@ -6,7 +6,7 @@ Harjoituksessa tutustutaan CQL- (Common Query Language) ja ECQL-suodattimeen (Ex
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen oppilas osaa muodostaa ominaisuus- ja geometriatietoihin perustuvia suodattimia.
+Harjoituksen jälkeen opiskelija osaa muodostaa ominaisuus- ja geometriatietoihin perustuvia suodattimia.
 
 **Arvioitu kesto**
 
@@ -50,13 +50,13 @@ Missä osavaltioissa on enemmän miespuolisia asukkaita?
 :::
 
 ::: hint-box
-Mitkä osavaltiot leikkaavat 100º läntistä pituuspiiriä?
+Mitkä osavaltiot leikkaavat 100. asteen läntistä pituuspiiriä?
 Psst! Lauseke on muotoa “BBOX(geometriasarake, xmin, ymin, xmax, ymax)”. Osavaltioiden geometria on kentässä “the_geom”.
 :::
 
 GeoServerin dokumentaatiosta löytyy tarkempia kuvauksia (**Tutorials → CQL and ECQL**).
 
-Suodata **topp:states**-tason WMS-palvelua siten, että ainoastaan ne osavaltiot, joiden työttömyysprosentti on alle 5 % näkyvät palvelussa.
+Suodata **topp:states**-tason WMS-palvelua siten, että ainoastaan ne osavaltiot, joiden työttömyysprosentti on alle 5% näkyvät palvelussa.
 
 Muodosta topp:states-tasolle kuvaustekniikka, jossa piirretään osavaltioiden keskipisteeseen punainen symboli.
 

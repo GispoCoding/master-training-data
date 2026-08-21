@@ -1,8 +1,8 @@
-# Exercise 2.5: Access control
+# EXERCISE 2.5: ACCESS CONTROL
 
 **Content of the exercise**
 
-The exercise will introduce the student to different security settings and create users and roles. Set permissions for services, datas and users.
+The exercise will introduce you to different security settings and create users and roles. Set permissions for services, datas and users.
 
 **Aim of the exercise**
 
@@ -36,9 +36,6 @@ For example, the URL of the browser in the **Security** menu (where we are now).
 [http://[your-training-instance]/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3\*ANGkUW-hE](http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE){.uri}
 :::
 
-::: hint-box
-Psst! The installation of Java policy files depends on the Java Software installed on your server. If Open JDK is installed, then the policy files are installed by default and Strong cryptography is enabled. If, on the other hand, Oracle Java is installed (which has been GeoServer's recommendation in the past) then you need to download Oracle's JCE policy jars and extract them to the JRE_HOME/lib/security folder, after which Strong cryptography is enabled.
-:::
 
 **Password encryption** specifies which encryption style is used for password storage: **Plain text**, **Weak PBE** and **Strong PBE**.
 
@@ -206,9 +203,10 @@ Log in to the server again using the **hki_user** ID and check that the layers o
 
 ![](img/harjoitus_12/image15.2.png) 
 
-## **Map service-specific rights**
+\## **Map service-specific rights**
 
-Geoserver documentation says that “The default service security configuration in GeoServer contains no rules and allows any anonymous user to access any operation of any service. The following are some examples of desired security restrictions and the corresponding rules.” So, this means that there are no rules to be defined. The security page should look like this:
+
+Geoserver's documentation says that “The default service security configuration in GeoServer contains no rules and allows any anonymous user to access any operation of any service. The following are some examples of desired security restrictions and the corresponding rules.” So, this means that there are no rules to be defined. The security page should look like this:
 
 ![](img/harjoitus_12/image19.png)
 

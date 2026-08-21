@@ -1,8 +1,8 @@
-# Ecercise 2.6: Filtering
+# EXERCISE 2.6: FILTERING
 
 **Content of the exercise**
 
-The exercise will introduce the student to CQL (Common Query Language) and ECQL (Extended CQL). 
+The exercise will introduce you to CQL (Common Query Language) and ECQL (Extended CQL). 
 
 **Aim of the exercise**
 

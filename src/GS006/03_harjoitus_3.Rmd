@@ -1,4 +1,4 @@
-# Harjoitus 1.3: Vektoriaineistot
+# Harjoitus 1.3: VEKTORIAINEISTOT
 
 **Harjoituksen sisältö**
 
@@ -23,24 +23,13 @@ Harjoituksessa käytettävät aineistot on ladattu käytössä oleville palvelim
 GeoServerin aineistohakemistossa on paikkatiedon lisäksi muita aineistoja, kuten karttatyylejä ja tasoryhmien määrittelyjä. Tarkemmin, kurssin paikkatietoaineistot ovat koulutuskoneen kansiossa: 
 
 ::: note-box
-/var/lib/tomcat8/webapps/geoserver/data/koulutus/
+/opt/geoserver/data_dir/koulutus/
 :::
 
-::: hint-box
-Psst! Aineistojen lisäämisen yhteydessä ilmenevät virheilmoitukset liittyvät usein tiedostojen ja hakemistojen käyttöoikeuksiin.
-:::
 
-Varmista, että koulutuskansio ja kaikki sen sisältämät alikansiot ja tiedostot ovat tomcat8-käyttäjän omistamia suorittamalla komentorivillä seuraava komento:
+## **Vektoriaineiston Storen luominen**
 
-::: commandline-box
-sudo chown -R tomcat8:tomcat8 /var/lib/tomcat8/webapps/geoserver/data/koulutus
-:::
-
-Koulutuskoneen **salasana on gispo**.
-
-## **Vektoriaineisto-storen luominen**
-
-Koulutuksen aineistosta löytyy muun muassa OpenStreetMapsin rakennukset Helsingistä shapefile-formaatissa **buildings.shp**, joka lisätään nyt GeoServeriin.
+Koulutuksen aineistosta löytyy muun muassa OpenStreetMapin rakennukset Helsingistä shapefile-formaatissa **buildings.shp**, joka lisätään nyt GeoServeriin.
 
 Aineiston formaatin ollen **shapefile** täytyy sille luoda **store**, joka on shapefile-formaatin kanssa yhteensopiva.
 
@@ -52,13 +41,13 @@ Valitse Shapefile aineiston formaatiksi **New data source** -näkymässä, **Vec
 
 ![](img/harjoitus_3/image3.png)
 
-Seuraavassa näkymässä pääset määrittelemään juuri luomasi store:n muut asetukset, kuten nimen ja tiedoston sijainnit. Nimeä ne seuraavalla tavalla:
+Seuraavassa näkymässä pääset määrittelemään juuri luomasi storen muut asetukset, kuten nimen ja tiedoston sijainnit. Nimeä ne seuraavalla tavalla:
 
 -   **Valitse** workspaceksi helsinki
 
 -   **Nimeä** aineisto hki_rakennukset
 
--   **Lisää** halutessasi aineistolle kuvaus, esimerkiksi "Helsingin OpenStreetMaps rakennukset"
+-   **Lisää** halutessasi aineistolle kuvaus, esimerkiksi "Helsingin OpenStreetMap-rakennukset"
 
 Seuraavaksi määritellään mihin aineistoon (shape-tiedostoon) viitataan tämän store:n kautta. Muokkaa **Connection Parameters**:
 
@@ -66,7 +55,7 @@ Seuraavaksi määritellään mihin aineistoon (shape-tiedostoon) viitataan täm�
 
 Pidä **Enabled** ruksattuna ja varmista näin tekemäsi store:n (ja siitä luotujen tasojen) käytettävyys GeoServer-palvelimelta. Tätä valintaa voidaan käyttää halutessa piilottaa joitakin aineistoja käyttäjiltä ilman niiden poistamista palvelimelta (ylläpitäjät voivat vielä käyttää niitä).
 
-Tarkista vielä, että **DBF charset** arvo on **UTF-8**.
+Tarkista vielä, että **DBF charset** arvo on **ISO-8859-1**.
 
 Loput asetukset voidaan pitää oletusarvoina.
 
@@ -82,10 +71,10 @@ Paina **Publish** tason julkaisemiseksi.
 
 ## **Vektoritason julkaiseminen**
 
-Luodaan ja julkaistaan nyt uusi taso. Jos et vielä tehnyt niin, paina **Publish**, jotta pääset muuttamaan julkaistavan tason ominaisuuksia.
+Luodaan ja julkaistaan nyt uusi taso. Jos et vielä tehnyt niin, paina **Publish** niin pääset muuttamaan julkaistavan tason ominaisuuksia.
 
 ::: hint-box
-Psst! Jos ehdit poistumaan edellisestä näkymästä, samaan uuden tason luonti -näkymään pääsee päävalikosta Layers \> Add a new layer ja valitsemalla haluttu store (tässä tapauksessa helsinki:hki_rakennukset).
+Psst! Jos ehdit poistumaan edellisestä näkymästä, samaan uuden tason luonti -näkymään pääsee päävalikosta Layers \> Add a new layer ja valitsemalla haluttu store (meidän tapauksessa helsinki:hki_rakennukset).
 :::
 
 Tason julkistamisen ominaisuudet ovat jaettu neljään välilehteen:
@@ -98,35 +87,35 @@ Tason julkistamisen ominaisuudet ovat jaettu neljään välilehteen:
 
 -   **Tile Caching**
 
-## **Data-asetukset**
+## **Data asetukset**
 
 Keskitytään nyt **Data**-välilehdessä oleviin valintoihin. Määrittele yleistiedot seuraavasti:
 
--   **Pidä** Enabled ja Advertised rastitettuna.
+-   **Pidä** Enabled ja Advertised rastitettuna
 
--   **Nimeä** aineisto: "rakennukset".
+-   **Nimeä** aineisto rakennukset
 
--   **Otsikoi** "Helsingin OpenStreetMap -rakennukset"
+-   **Otsikoi** Helsingin OpenStreetMap rakennukset
 
-**Lisää** halutessasi selitystä tasosta ja tasoon liittyviä avainsanoja (keywords). Avainsanojen avulla sekä Geoserverin ylläpitäjien ja käyttäjien on helpompi löytää heille tarpeellisia paikkatietoaineistoja.
+**Lisää** halutessasi selitystä tasosta ja tasoon liittyviä avainsanoja (keywords). Avainsanojen avulla sekä GeoServerin ylläpitäjien ja käyttäjien on helpompi löytää heille tarpeellisia paikkatietoaineistoja.
 
 ### **Coordinate Reference Systems**
 
-Selaa alaspäin kunnes löydät **Coordinate Reference Systems** -kohdan. Tässä määritetään tasolle koordinaattijärjestelmä.
+Selaa alaspäin kunnes löydät **Coordinate Reference Systems** -kohdan. Tässä määritellään tasolle koordinaattijärjestelmä.
 
 Kun uutta aineistoa tuodaan GeoServeriin, se yrittää tunnistaa alkuperäisen koordinaattijärjestelmän EPSG-koodin. Jos tunnistus ei onnistu, niin **Native SRS** -kentän arvoksi tulee **UNKNOWN** ja sen oikealta puolelta löytyy linkki, josta saa tiedot aineiston alkuperäisen koordinaattijärjestelmän selvittämistä varten.
 
-Tässä tapauksessa projektiotiedot tulevat shapefilen aineiston .prj-tiedostosta. Paina **GCS_WGS_1984...** -linkkiä, niin saat auki projektiotiedot.
+Tässä tapauksessa, projektiotiedot tulevat shapefilen aineiston .prj-tiedostosta. Paina **GCS_WGS_1984...** -linkkiä, niin saat auki projektiotiedot.
 
 ![](img/harjoitus_3/image6.png)
 
 ::: hint-box
-Psst! Huomaa, että Native SRS -tiedot on tarkoitettu vaan esikatselua varten. Tiedot tulevat suoraan alkuperäisen aineiston asetuksista, esimerkiksi shapefilen tai PostGIS-tason koordinaattijärjestelmätiedoista. Siksi niitä ei voida muokata GeoServerin selaimessa käyttöliittymän kautta.
+Psst! Huomaa, että Native SRS tiedot ovat tarkoitettu vaan esikatselua varten. Tiedot tulevat suoraan alkuperäisen aineiston asetuksista, esimerkiksi shapefilen tai PostGIS-tason koordinaattijärjestelmätiedoista. Siksi niitä ei voida muokata GeoServerin selaimessa käyttöliittymän kautta.
 :::
 
-Kirjoita **EPSG:4326**-koodi **Declared SRS** -kohdassa. Voit myös etsiä EPSG-koodeja **Find** -toiminnolla.
+Lisää tarvittaessa **EPSG:4326**-koodi **Declared SRS** -kohtaan. Voit myös etsiä EPSG-koodeja **Find** -toiminnolla.
 
-Pidä **SRS handling** -oletusarvo (**Force declared**) ennallaan.
+Pidä **SRS handling** oletusarvo (**Force declared**) ennallaan.
 
 ![](img/harjoitus_3/image7.png)
 
@@ -135,7 +124,7 @@ Pidä **SRS handling** -oletusarvo (**Force declared**) ennallaan.
 Täytä alla **Bounding Boxes** -kohdassa tiedot aineiston laajuudesta.
 
 ::: hint-box
-Psst! Laajuus olisi mahdollista määritellä automaattisesti, mutta GeoServer vaatii, että tämä asetus tehdään valvotusti. Syy on se, että suurien aineistojen kanssa palvelin voisi jäädä pitkäksi ajaksi laskemaan tasojen laajuutta. Pyyntö voisi jopa epäonnistua, jos palvelimen timeout-asetus ylittyisi ja näin aineiston lisääminen olisi hankalaa.
+Psst! Laajuus olisi mahdollista määritellä automaattisesti, mutta GeoServer vaatii, että tämä asetus tehdään valvotusti. Syy on se, että suurien aineistojen kanssa palvelin voisi jäädä pitkäksi ajaksi laskemaan tasojen laajuutta. Pyyntö voisi jopa epäonnistua, jos palvelimen timeout-asetus ylittyisi ja näin aineiston lisääminen olisi hankala.
 :::
 
 Harjoituksen aineisto on sen verran pieni, että voimme käyttää automaattista määrittelyä. Paina ensin **Native Bounding Box → Compute from data** ja sitten **Lat/Lon Bounding Box → Compute from native bounds**.
@@ -168,6 +157,6 @@ Zoomaa karttaan ja paina jonkun rakennuksen päällä niin saat sen ominaisuusti
 
 ## **Helsingin tiestön lisääminen**
 
-Lisää nyt OpenStreetMap Helsingin tiestö GeoServeriin samalla tavalla kuin edellisessä harjoituksessa. Aineisto löytyy samasta kansiosta kuin **rakennukset-**aineisto, nimellä **roads.shp**.
+Lisää nyt OpenStreetMap Helsingin tiestö GeoServeriin samalla tavalla kuin edellisessä harjoituksessa. Aineisto löytyy samasta kansiosta kuin **rakennukset-**aineisto, nimellä **gis.osm_roads_free_1.shp**.
 
-Muista, että ennen kun tason voi lisätä GeoServeriin, sille täytyy luoda sopiva store. Nimeä uusi store nimellä **hki_tiesto** ja siitä luotu taso nimellä **tiesto**, niin tasojen nimet pysyvät samankaltaisina. Muista korjata myös koordinaattijärjestelmä (**EPSG:4326**) ja **DBF charset** (**UTF-8**).
+Muista, että ennen kun tason voi lisätä GeoServeriin, sille täytyy luoda sopiva store. Nimeä uusi store **hki_tiesto** ja siitä luotu taso **tiesto** niin tasojen nimet pysyvät samankaltaisina. Muista tarkistaa myös koordinaattijärjestelmä (**EPSG:4326**) ja **DBF charset** (**ISO-8859-1**).

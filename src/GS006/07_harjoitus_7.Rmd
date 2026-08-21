@@ -1,4 +1,4 @@
-# Harjoitus 1.7: Paikkatietokannat
+# HARJOITUS 1.7: PAIKKATIETOKANNAT
 
 **Harjoituksen sisältö**
 
@@ -13,12 +13,6 @@ Harjoituksen jälkeen opiskelija osaa yhdistää paikkatietokannan tietoja GeoSe
 30 minuuttia.
 
 ## **Valmistautuminen**
-
-Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
-
-::: note-box
-<http://localhost:8080/geoserver>
-:::
 
 Palvelinkoneeseen on asennettu PostgreSQL-tietokanta ja sen PostGIS-laajennos. Tietokantaan on ladattu valmiiksi erilaisia vektoriaineistoja.
 
@@ -41,20 +35,19 @@ Valitse **Workspaceksi** tuttu **helsinki**-workspace ja nimeä se **hki_lipas**
 
 Täytä sitten PostGIS-tietokannan **Connection Parameters** -yhteysasetukset seuraavasti:
 
+
 +--------------------+---------------+
-| ##### **Dbtype**   | postgis       |
+| ##### **host**     | postgres      |
 +--------------------+---------------+
-| ##### **Host**     | localhost     |
+| ##### **port**     | 5432          |
 +--------------------+---------------+
-| ##### **Port**     | 5432          |
+| ##### **database** | gs_training   |
 +--------------------+---------------+
-| ##### **Database** | gs_training   |
+| ##### **schema**   | lipas         |
 +--------------------+---------------+
-| ##### **Schema**   | lipas         |
+| ##### **user**     | postgres      |
 +--------------------+---------------+
-| ##### **User**     | postgres      |
-+--------------------+---------------+
-| ##### **Passwd**   | gispo         |
+| ##### **passwd**   | gispo         |
 +--------------------+---------------+
 
 Jätä loput asetukset oletuksiin ja paina lopulta **Save**.
@@ -78,16 +71,18 @@ Tason editoinnin näkymässä, tason nimi ja otsikko on automaattisesti täytett
 
 Tarkista, että **Enabled** ja **Advertised** ovat rastittuina.
 
-Kuten olet varmasti jo huomannut, uuden tason asetukset ovat samanlaiset, oli kyseessä sitten shapefile-formaatti tai PostGIS-tietokanta.
+Kuten olet varmasti nyt huomannut, uuden tason asetukset ovat samanlaiset, oli kyseessä sitten shapefile-formaatti tai PostGIS-tietokanta.
 
 Katso vielä **Coordinate Reference Systems** -osiosta, että GeoServer on tunnistanut koordinaattijärjestelmäksi **EPSG:3067**. PostGIS ja GeoServer käyttävät EPSG-koodeja määrittääkseen koordinaattijärjestelmän, joten useimmiten koordinaattijärjestelmä tulee oikein määritellyksi automaattisesti.
 
 ![](img/harjoitus_7/image4.png)
 
 Ennen kuin tallennetaan tason julkaisuasetukset, määritä tason **Bounding Boxes** samalla tavalla kuin aikaisemmin lisäämiesi aineistojen kanssa.
+
 ![](img/harjoitus_7/image5.png)
 
-Paina lopulta **Save**. Voit esikatsella uutta tasoa **Layer Preview**:n kautta.\
+Paina lopulta **Save**. Voit esikatsella uutta tasoa **Layer Preview**:n kautta.
+
 ![](img/harjoitus_7/image6.png)
 
 ## **Monikulmio- ja viiva-tason lisääminen PostGIS-tietokannasta**
@@ -109,7 +104,7 @@ Mitkä vaiheet ovat pakollisia tason julkaisemiseksi? Mitkä ovat tasojen koordi
 Vaihda lopuksi oletustyylit kyseisille tasoille käyttäen GeoServerin valmiita kuvaustekniikoita (default styles). Voit vaihtaa tason tyylin päävalikosta **Data → Layers** ja avaamalla haluamasi tason. Tyylit määritellään **Publish** välilehdestä. Käytä seuraavia tyylejä:
 
 +--------------------------+-----------------+
-| **Taso**                 | **Tyyli**       |
+| ##### **Taso**           | ##### **Tyyli** |
 +==========================+=================+
 | **lipas_kaikki_pisteet** | burg            |
 +--------------------------+-----------------+
@@ -140,6 +135,7 @@ SQL-kyselyjen tekemiseksi on hyvä ensin selvittää tietokannan taulujen kentti
 Aineiston tarkastelemisen jälkeen voidaan päätellä, että paikkakuntatieto löytyy **kunta_nimi**-kentästä.
 
 Avaa **Data → Layers → Add new layer** ja valitse **helsinki:hki_lipas**. Painamalla **Configure new SQL view...** pääset määrittelemään SQL-kielellä, mitkä tiedot haluat julkaista kyseisestä aineistosta.
+
 ![](img/harjoitus_7/image9.png)
 
 Määrittele näkymän nimeksi **lipas_kaikki_reitit_helsinki**. Kirjoita **SQL statement** -kenttään seuraavaa SQL-lauseke:
@@ -147,12 +143,12 @@ Määrittele näkymän nimeksi **lipas_kaikki_reitit_helsinki**. Kirjoita **SQL 
 ::: code-box
 SELECT \*
 
-FROM lipas.reitit
+FROM lipas.lipas_kaikki_reitit
 
-WHERE kunta_nimi = 'Helsinki'
+WHERE kunta_nimi = \'Helsinki\'
 :::
 
-Rastita **Guess geometry type and srid** -toiminto ja paina sitten **Refresh**. Huomaa, että olla olevassa kuvassa on virhe SQL-kyselyssä. Ole tarkkana! kunta_nimi_fi-tekstin sijaan siinä pitäisi lukea vain kunta_nimi.
+Rastita **Guess geometry type and srid** -toiminto ja paina sitten **Refresh**.
 ![](img/harjoitus_7/image10.png)
 
 Tarkista sitten, että **geom**-nimisen kentän kohdalla **SRID** on määritelty oikean EPSG-tunnuksen mukaisesti (meidän tapauksessamme tunnus on **3067**).
@@ -168,7 +164,7 @@ Määrittele seuraavaksi tason ulottuvuudet (Bounding Box) ja paina **Save**. Vo
 
 Voit käyttää SQL-lausekkeissa myös paikkatietofunktioita. Käytetään esimerkkinä vyöhyke-funktiota (ST_Buffer).
 
-Avaa taso  **lipas_kaikki_reitit_helsinki** uudelleen (**Data → Layers**).
+Avaa tason **lipas_kaikki_reitit_helsinki** uudelleen (**Data → Layers**).
 
 Selaa **Data** välilehdessä sivun loppuun. Sieltä löytyy **Edit sql view** -toiminto.
 
@@ -177,9 +173,9 @@ Päivitä **SQL statement** seuraavaksi:
 ::: code-box
 SELECT ST_Union (ST_Buffer ( geom, 10 ))
 
-FROM lipas.reitit
+FROM lipas.lipas_kaikki_reitit
 
-WHERE kunta_nimi = 'Helsinki'
+WHERE kunta_nimi = \'Helsinki\'
 :::
 
 Päivitä taas attribuuttien formaatti ja paina sitten **Save**.

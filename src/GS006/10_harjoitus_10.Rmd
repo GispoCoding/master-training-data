@@ -1,4 +1,4 @@
-# Harjoitus 2.3: Arkkitehtuuri ja käyttöönotto
+# HARJOITUS 2.3: ARKKITEHTUURI JA KÄYTTÖÖNOTTO
 
 **Harjoituksen sisältö**
 
@@ -30,7 +30,10 @@ Voit tarkistaa ja vapauttaa GeoServerin käyttämää muistia **Memory Usage** k
 
 Tarkista vielä, mitkä Java-asetukset ovat voimassa palvelimessa kuvien käsittelyä varten. Lähtökohtaisesti ei ole kovin tehokasta käsitellä kuvia kokonaisina tietokoneen muistissa. Yleisesti käytetty tapa on jakaa kuvat pienempiin osiin (tiilet/tiles) ja tehdä mahdolliset kuvaoperaattorit pienempiin kuviin. JAI-asetukset (määritelty **Image Processing** -asetuksissa) hallinnoivat näiden menetelmien toimintaa.
 
-JAI (Java Advanced Imaging) asetuksia voit muokata **Settings → Image Processing** -näkymän kautta. ![](img/harjoitus_10/image2.png)
+JAI (Java Advanced Imaging) asetuksia voit muokata **Settings → Image Processing** -näkymän kautta. 
+
+![](img/harjoitus_10/image2.png)
+
 
 Asetusten muutokset näkyvät **Server Status** -sivulla.
 
@@ -74,7 +77,7 @@ Avaa kolmanteen selainikkunaan GeoServerin lokien esikatselu (**GeoServer Logs**
 
 ![](img/harjoitus_10/image4.png)
 
-Tutustu asetuksiin kouluttajan ohjauksella sekä lukemalla lisää tietoa asetuksista Geoserverin manuaalista (**Web Administration Interface → Server → Global Settings**). Avaa manuaali erilliseen selainikkunaan.
+Tutustu asetuksiin kouluttajan ohjauksella sekä lukemalla lisää tietoa asetuksista GeoServerin manuaalista (**Web Administration Interface → Server → Global Settings**). Avaa manuaali erilliseen selainikkunaan.
 
 Suorita nyt muutamia toimintoja (zoom in, zoom out, pan) karttaikkunassa. 
 
@@ -84,7 +87,7 @@ GeoServerin asennuksessa on valmiina ladattuja erilaisia loki-profiileja, jotka 
 
 ![](img/harjoitus_10/image5.png)
 
-Voit nyt vaihtaa erilaisia lokitusprofiileja ja havainnoida toimintojen aiheuttamia vaikutuksia lokitiedostoihin. Kokeile asettaa profiiliksi VERBOSE_LOGGING.properties ja liikuttele karttaa. Päivitä tämän jälkeen loki (refresh) ja katso mitä rivejä lokiin on ilmestynyt.
+Voit nyt vaihtaa erilaisia lokitus profiileja ja havainnoida toimintojen aiheuttamat vaikutukset lokitiedostoihin. Kokeile asettaa profiiliksi VERBOSE_LOGGING.properties ja liikuttele karttaa. Päivitä tämän jälkeen loki (refresh) ja katso mitä rivejä lokiin on ilmestynyt.
 
 ## **REST API:n toimintaa**
 
@@ -92,8 +95,8 @@ GeoServerin palvelimen asetuksia on mahdollista hallita myös REST-rajapinnan ka
 
 Voit tarkistaa REST-rajapinnan kautta saatavilla olevat aineistot kirjoittamalla seuraavan osoitteen web-selaimeen (käytä oman palvelimesi ip-osoitetta):
 
-::: code-box
-http://%3Eoma-ip-osoite:8080/geoserver/rest/workspaces/
+::: note-box
+<http://oma-ip-osoite/geoserver/rest/workspaces/>
 :::
 
 Etsi tiedot edellisissä harjoituksissa luoduista karttatasoista.
@@ -110,8 +113,14 @@ Psst! Tutustu REST API:n kuvaukseen GeoServerin ohjeessa.
 
 ## **Monitor-lisäosan käyttö**
 
-GeoServerin **Monitor**-lisäosa on valmiiksi asennettu koulutus palvelimiin ja se näkyy päävalikosta alapuolelta.
+GeoServerin **Monitor**-lisäosa on valmiiksi asennettu koulutuspalvelimiin, ja se näkyy päävalikosta alapuolelta. Tällä lisäosalla voidaan tarkastella GeoServerin liikennettä. Voit vapaasti tarkastella mitä Monitor-lisäosalla voi tehdä. Pohdi myös miten se voisi olla hyödyllinen teidän organisaatiossa.
 
 Avaa **Monitor → Activity**.
 
-Kokeile esikatsella eri tasoja ja katso sen jälkeen **Monitor → Activity → Daily**-osiosta järjestelmän aktiviteettigrafiikkaa, jonka pitäisi näyttää seuraavanlaiselta: ![](img/harjoitus_10/image7.png) ![](img/harjoitus_10/image8.png)
+Kokeile esikatsella eri tasoja ja katso sen jälkeen **Monitor → Activity → Daily**-osiosta järjestelmän aktiviteettigrafiikkaa, jonka pitäisi näyttää seuraavanlaiselta: 
+
+![](img/harjoitus_10/image7.png) 
+
+Avaa palvelukohtainen raportti **Monitor → Reports → OWS Request Summary**.
+
+![](img/harjoitus_10/image8.png)

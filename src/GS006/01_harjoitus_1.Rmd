@@ -1,4 +1,4 @@
-# Harjoitus 1.1: Asennus ja käyttöönotto
+# HARJOITUS 1.1: ASENNUS JA KÄYTTÖÖNOTTO
 
 **Harjoituksen sisältö**
 
@@ -14,31 +14,35 @@ Harjoituksen jälkeen opiskelija osaa kirjautua ylläpitäjänä GeoServeriin ja
 
 ## **Valmistautuminen**
 
-Käynnistä koneessa web-selain ja kirjaudu osoitteeseen:
+Käynnistä koneessa web-selain.
+
+Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti kurssin vetäjältä.
+
+Mikäli harjoittelet paikallisella GeoServer-asennuksella niin osoite on todennäköisesti
 
 ::: note-box
-<http://localhost:8080/geoserver>
+http://localhost:8080/geoserver
 :::
 
-Jos käytössä on etäpalvelin, kysy oma ip-osoitteesi ja portti opettajalta. Muokkaa sitten verkko-osoitteen **localhost:8080**-osaa ohjeiden mukaan.
-
-Edessäsi on GeoServerin käyttöliittymä. Ennen kun kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
+Edessäsi on GeoServerin käyttöliittymä. Ennen kuin kirjaudut sisään, näet muutamia yleisiä tietoja palvelimesta.
 
 ![](img/harjoitus_1/image1.png)
+**Ylhäällä oikealla (1)** on kirjautumistiedot.
 
-**Keskellä (1)** on yleistä tietoa palvelimesta ja sen omistajasta/ylläpitäjästä (näitä päivitetään pian). Keskellä näkyy asennetun GeoServerin versionumero, joka on kuvassa 2.9.0. Tämä on GeoServer-palvelimen aloitussivu ja siihen pääset aina painamalla **GeoServer-logoa** vasemmalta ylhäältä
+**Ylhäällä keskellä (2)** on tietoja palvelimen workspaceista ja tasoista.
 
-Lähtökohtaisesti keskellä näkyy vasemmalla puolella sijaitsevan sivupalkin (jäljempänä "päävalikko" (2)) valintojen tarkempia tietoja.
+**Ylhäällä vasemmalla (3)** on GeoServer-logo ja kun sitä painaa niin pääsee tähän etusivulle.
 
-**Päävalikon (2)** avulla hallitaan ja tarkastellaan palvelimen toimintoja.
+**Vasemmalla (4)** on päävalikko jonka kautta hallitaan ja tarkastellaan palvelimen toimintoja.
 
-**Yläpalkissa (3)** on kirjautumistiedot ja GeoServer-logo, jonka kautta pääset aina aloitussivulle.
+**Keskellä (5)** on palvelimen tukemat karttapalvelut ja niiden versiot.
 
-Oikealla puolella sijaitseva **sivupalkki (4)** näyttää aloitusnäkymässä palvelimen tukemat karttapalvelut ja niiden versiot.
+**Alhaalla keskellä (6)** näkyy asennetun GeoServerin versionumero, joka on kuvassa 2.22.4.
+
 
 ## **Päävalikko**
 
-Päävalikossa on näkyvissä aloitussivulla vain muutamia toimintoja. Nämä ovat nähtävissä kaikille, jotka tietävät palvelimen osoiteen (URL).
+Päävalikossa on näkyvissä aloitussivulla vain muutamia toimintoja. Nämä ovat nähtävissä kaikille, jotka tietävät palvelimen osoitteen (URL).
 
 -   **About & Status** -osio tarjoaa vain **About GeoServer** -valinnan, joka kertoo tarkemmin GeoServerin asennuksen tietoja ja antaa linkkejä GeoServerin dokumentaatioon. GeoTools- ja GeoWebCache-ohjelmistojen versiotiedot voit tarkistaa myös tältä sivulta.
 
@@ -48,23 +52,19 @@ Päävalikossa on näkyvissä aloitussivulla vain muutamia toimintoja. Nämä ov
 
 Tutustu niihin lyhyesti nyt, ja kysy kouluttajalta mitä eri elementit tarkoittavat.
 
-### **About GeoServer**
-
-Avaa **About GeoServer** ja tutki, mikä GeoServer-versio sinulla on käytössä ja mitkä muiden asennettujen ohjelmistojen versiot ovat. Tämäntyyppiset tiedot ovat tärkeitä palvelimen ongelmia selvitettäessä, tapahtuipa ongelmatilanteiden ratkaiseminen omatoimisesti taikka tukipalvelun avulla.
-
 ### **Layer Preview**
 
 Kokeile **Layer Preview -toimintoa** ja esikatsele GeoServerin oletusaineistoja. Tätä näkymää tulemme käyttämään usein kurssin aikana. Käytä nyt muutama minuutti oppiaksesi sen perustoiminnallisuudet.
 
-### **Service Capabilities (palvelutoiminnallisuudet)**
+### **Palvelutoiminnallisuudet**
 
-Palaa palvelimen pääsivulle painamalla **GeoServer-logoa**. Oikealla puolella löydät **Service Capabilities -palkin**.
+Palaa palvelimen pääsivulle painamalla **GeoServer-logoa**.
 
 Ennen kun kirjaudutaan palvelimelle voit nähdä, mitä rajapintapalveluita käytössä olevalla GeoServerin asennuksella on mahdollista julkaista.
 
-Harjoituksen GeoServerille on asennettu oletuksena WCS, WFS, WMS, TMS, WMS-C ja WMTS. Muita rajapintapalveluita, kuten esimerkiksi WPS-palvelu, voidaan julkaista GeoServeriin laajennosten avulla. Painamalla rajapintapalvelujen versionumeroita, voit tutustua niiden toiminnallisuuksiin (capabilities).
+Harjoituksen GeoServerille on asennettu oletuksena WCS, WFS, WMS, TMS, WMS-C ja WMTS. Muita rajapintapalveluita, kuten esimerkiksi WPS-palvelu, voidaan julkaista GeoServeriin laajennusten avulla. Painamalla rajapintapalvelujen versionumeroita, voit tutustua niiden toiminnallisuuksiin (capabilities).
 
-Tämä sivupalkki on nähtävissä vain aloitussivulla. Muista, että aloitussivuun pääset aina painamalla GeoServer-logoa.
+Tämä osio on nähtävissä vain aloitussivulla. Muista, että aloitussivuun pääset aina painamalla GeoServer-logoa.
 
 ### **Demos**
 
@@ -74,25 +74,33 @@ Tämän valikon alta löytyy muutamia GeoServerin testityökaluja:\
 
 ### **Demo requests**
 
-Kokeile erilaisten kyselyjen (toiminnallisuuksien) tuloksia ja näe, mitä kukin kyselykomento tuottaa. Kokeile **WMS_getMap_OpenLayers.url**-kyselyn toimivuutta valitsemalla kyseinen kysely valikosta ja paina **Submit**-toimintoa.
+Kokeile erilaisten kyselyjen (toiminnallisuuksien) tuloksia ja näe, mitä kukin kyselykomento tuottaa. Kokeile **WMS_getMap_OpenLayers.url**-kyselyn toimivuutta valitsemalla kyseinen kysely valikosta ja paina **Show Result** -toimintoa.
 
-GeoServerin eri toiminnot ja operaatiot muodostuvat URL:n liittyvistä parametreistä. Parametrit ohjaavat Geoserverin rajapintapalveluita: mitä karttatasoa kysytään, miltä alueelta tietoja haetaan tai kuva muodostetaan, vastauksen koordinaattijärjestelmä jne.
+GeoServerin eri toiminnot ja operaatiot muodostuvat URL:n liittyvistä parametreistä. Parametrit ohjaavat GeoServerin rajapintapalveluita: mitä karttatasoa kysytään, miltä alueelta tietoja haetaan tai kuva muodostetaan, vastauksen koordinaattijärjestelmä jne.
 
 Muokkaa kyselyn parametrejä BBOX, WIDTH ja HEIGHT. Mitä vaikutuksia muutoksilla on vastaukseen?
 
 ## **SRS List ja Reprojection console**
 
-SRS List -toiminto listaa Geoserverin tukemat koordinaattijärjestelmät. Geoserver sisältää suurimman osan käytettävistä koordinaattijärjestelmistä eli CRS:t (Coordinate Reference System). SRS (Spatial Reference System) on synonyymi CRS:lle.
+SRS List -toiminto listaa GeoServerin tukemat koordinaattijärjestelmät. GeoServer sisältää suurimman osan käytettävistä koordinaattijärjestelmistä eli CRS:t (Coordinate Reference System). SRS (Spatial Reference System) on synonyymi CRS:lle.
 
 Koordinaattijärjestelmien välisiä muunnoksia ja konversioita voit kokeilla Reprojection Console-toiminnon avulla.
 
 Koordinaatit esitetään WKT-formaatissa (Well Known Text).
 
-Seuraavassa kuvassa on piste geometria määritelty WKT-formaatissa EPSG:3067 koordinaattijärjestelmässä **POINT (522800 7615630)**:
+Seuraavassa kuvassa on pistegeometria määritelty WKT-formaatissa EPSG:3067 koordinaattijärjestelmässä **POINT (522800 7615630)**:
 
 ![](img/harjoitus_1/image3.png)
 
-Voit myös kokeilla ETRS89 / TM35FIN -viivageometriaa. Löydät esimerkkitiedoston koulutuskansiosta nimellä **esimerkki_wkt_geometry_3067.txt**. Avaa se tekstieditorissa ja käytä sitä **Reprojection console** -työkalussa. Kokeile muuntaa se esimerkiksi WGS 84 -järjestelmään.
+Voit myös kokeilla ETRS89 / TM35FIN -viivageometriaa. Löydät esimerkin seuraavassa laatikossa.
+
+::: file-content-box
+MULTILINESTRING ((648023.291968740755692 7710356.988362550, 647623.264163991552778 7709773.493117010220885,
+647025.100957126589492 7709395.217135690152645, 646919.555495914653875 7709322.892699570395052, 646428.536749321036041 
+7708986.160282356664538, 646070.417665179818869 7708777.868454321287572))
+:::
+
+Kopioi laatikon sisältö ja käytä sitä **Reprojection console** -työkalussa. Kokeile muuntaa se esimerkiksi WGS 84 -järjestelmään.
 
 ![](img/harjoitus_1/image4.png)
 
