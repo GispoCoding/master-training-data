@@ -1,0 +1,236 @@
+# Exercise 4: Spatial SQL queries
+
+**Contents** -- In this exercise we explore the basic principles of storing spatial data and try some spatial SQL queries.
+
+**Goal** -- The goal of the exercise is to understand how PostGIS spatial functions can be used as a part of spatial analyses.
+
+### Preparation
+
+Open [pgAdmin](/pgadmin) in the browser and log in. Open the **Query Tool** (Right click *trainingdatabase* **-\>** **Query Tool**).
+
+### Metadata tables
+
+All tables containing spatial data are registered in metadata tables:
+
+|                                               |                                      |
+|:------------------------------:|:--------------------------------------:|
+| [**geography_columns**]{style="color:purple"} | Columns with a 'Geography' data type |
+| [**geometry_columns**]{style="color:purple"}  | Columns with a 'Geometry' data type  |
+|  [**raster_columns**]{style="color:purple"}   |     Columns containg raster data     |
+| [**raster_overviews**]{style="color:purple"}  | Columns containing raster overviews  |
+
+## Exercise 4.1: Metadata of geometries
+
+Inspect the geometry_columns table. What information do the different columns contain?
+
+::: code-box
+``` sql
+SELECT *
+FROM
+geometry_columns;
+```
+:::
+
+::: hint-box
+Is geometry_columns actually a table?
+:::
+
+## Exercise 4.2: Representing geometries
+
+Let's inspect the format in which spatial data is stored in PostGIS. Execute the following SQL query:
+
+::: code-box
+``` sql
+SELECT
+name_en, continent, wkb_geometry
+FROM
+ne.countries_world
+WHERE
+name_en = 'Ireland';
+```
+:::
+
+The result tells us that the contents of the column 'wkb_geometry' is in a machine-readable binary format.
+
+::: hint-box
+Hint: it is possible to inspect geometries in a graphical interface in pgAdmin by clicking the map icon ![](img/pgadmin_geom.png) above the geometry column. If the data is in the WGS84 Coordinate Reference System (EPSG: 4326) pgAdmin also adds OpenStreetMap as a basemap.
+:::
+
+You can display the coordinates in a more readable format with the following query:
+
+::: code-box
+``` sql
+SELECT
+name_en, continent, ST_AsText(wkb_geometry)
+FROM
+ne.countries_world
+WHERE
+name_en = 'Ireland';
+```
+:::
+
+## Exercise 4.3: Functions
+
+Try out the following functions with Ireland's geometry:
+
+-   ST_Boundary
+
+::: code-box
+``` sql
+SELECT
+...
+FROM
+...
+WHERE
+...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+name_en, continent, ST_Boundary() -- fill in the geometry column
+FROM
+schema.table
+WHERE
+...; -- select based on the country name
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+```sql
+SELECT
+name_en, continent, ST_Boundary(wkb_geometry)
+FROM
+ne.countries_world
+WHERE
+name_en = 'Ireland';
+```
+:::
+:::
+
+-   ST_Centroid
+
+::: code-box
+``` sql
+SELECT
+...
+FROM
+...
+WHERE
+...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+name_en, continent, ST_Centroid() -- fill in the geometry column
+FROM
+schema.table
+WHERE
+...; -- select based on the country name
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+name_en, continent, ST_Centroid(wkb_geometry)
+FROM
+ne.countries_world
+WHERE
+name_en = 'Ireland';
+```
+:::
+:::
+
+-   ST_Envelope
+
+::: code-box
+``` sql
+SELECT
+...
+FROM
+...
+WHERE
+...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+name_en, continent, ST_Envelope() -- fill in the geometry column
+FROM
+schema.table
+WHERE
+...; -- select based on the country name
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+name_en, continent, ST_Envelope(wkb_geometry)
+FROM
+ne.countries_world
+WHERE
+name_en = 'Ireland';
+```
+:::
+:::
+
+Note how the geometry type differs based on the function.
+
+## Exercise 4.4: Spatial indexes
+
+Inspect the indexes of the ne.countries.
+
+-   Which indexes have been created for the table?
+
+Indexes can be inspected both with pgAdmin or QGIS's **DB Manager** and also with an SQL query.
+
+Let's create a spatial index for the railroads_eu table:
+
+::: code-box
+``` sql
+CREATE INDEX railroads_eu_wkb_geometry
+ON ne.railroads_eu
+USING GIST(wkb_geometry);
+```
+:::
+
+You can find indexes in pgAdmin by selecting Schemas \> Tables \> Indexes.
+
+In psql you can inspect indexes with the following commands:
+
+::: commandline-box
+```         
+\dt+ ne.railroads_eu
+\di+ ne.railroads_eu
+```
+:::
+
+What is the size of the railroads_eu table and of its index?

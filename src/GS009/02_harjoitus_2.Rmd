@@ -1,0 +1,226 @@
+# Harjoitus 2: Aineistojen lataaminen
+
+**Harjoituksen sisältö** - Harjoituksessa ladataan paikkatietoaineistoja PostGIS- tietokantaan.
+
+**Harjoituksen tavoite** - Harjoituksen jälkeen opiskelijalla on perustiedot paikkatietoaineistojen lataamiseen paikkatietokantaan.
+
+### Valmistautuminen
+
+QGIS tulee olla asennettuna, jotta paikkatietoaineistoja voidaan ladata. Avaa myös [pgAdmin](/pgadmin) selaimeen ja kirjaudu sisään.  Avaa **Query Tool** (Valitse _trainingdatabase_ **->** Ylhäältä **Tools** **->** **Query Tool**).
+
+## Harjoitus 2.1: Tekstitiedoston lataaminen
+
+Monia pistemäisiä paikkatietoaineistoja on tallennettu CSV-tiedostoihin, jossa ne eivät varsinaisesti ole paikkatietomuodossa. Ensimmäisessä harjoituksessa ladataan globaali lentokenttiä kuvaava aineisto PostgreSQL-tietokantaan. Luodaan ensin harjoitustietokantaan taulu seuraavasti:
+
+::: code-box
+``` sql
+DROP TABLE IF EXISTS airports;
+
+CREATE TABLE airports
+(
+    id            integer,
+    name          text,
+    city          text,
+    country       text,
+    IATA_code     char(3),
+    ICAO_code     char(4),
+    latitude      numeric,
+    longitude     numeric,
+    altitude      numeric,
+    timezone      text,
+    dst           text,
+    tz_zone       text,
+    type          text,
+    source        text
+);
+```
+:::
+
+Kyseinen aineisto on ladattu valmiiksi [OpenFlights.org-sivustolta](http://openflights.org/data.html) päänäkymän data-kansioon.
+
+Tarkastele miltä kyseinen aineisto näyttää kansiossa. Voit avata tiedoston selaimeen [tästä linkistä](/data/airports.dat).
+
+Voit lukea CSV-tiedoston tiedot edellisessä vaiheessa luotuun tauluun seuravaalla komennolla:
+
+
+::: code-box
+``` sql
+COPY airports
+FROM '/home/student/data/airports.dat'
+WITH CSV;
+```
+:::
+
+
+**COPY**-komento viittaa tiedostoon kovalevyllä ja lataa sen. **COPY** voi viitata CSV:n lisäksi myös esimerkiksi [binääriformaatteihin tai tekstitiedostoihin.](https://www.postgresql.org/docs/current/sql-copy.html)
+
+Tarkista lopuksi, että tietokantataulussa on dataa.
+
+::: code-box
+``` sql
+SELECT *
+FROM airports
+LIMIT 10;
+```
+:::
+
+Aineistoa tarkastelemalla nähdään, että taulussa on koordinaatteja, mutta ne on tallennettu vain numeroarvoina; ei paikkatietotyyppinä.
+
+Jotta PostGIS:n toiminnallisuuksia voisi hyödyntää aineiston kanssa, tulee kyseiseen tauluun lisätä geometriasarake. PostGIS:ssä on valmis [funktio](https://postgis.net/docs/AddGeometryColumn.html) tähän tarkoitukseen. Tarkastele dokumentaatiosta miten kyseistä funktiota käytetään.
+
+::: code-box
+``` sql
+SELECT AddGeometryColumn ('airports','geom',4326,'POINT',2);
+```
+:::
+
+Tarkastele taulua uudelleen.
+
+::: code-box
+``` sql
+SELECT *
+FROM airports
+LIMIT 10;
+```
+:::
+
+Tauluun on ilmestynyt uusi sarake. Sarake ei kuitenkaan sisällä vielä mitään tietoa. Päivitetään taulun sisältö **UPDATE**-komennon avulla.
+
+Seuraavassa komennossa on ketjutettu useampi funktio sisäkkäin.
+
+-   [ST_MakePoint](https://postgis.net/docs/ST_MakePoint.html) luo tekstikenttien perusteella pistemuotoisen geometrian
+-   [ST_SetSRID](https://postgis.net/docs/ST_SetSRID.html) asettaa kyseiselle tietokentälle EPSG-koodin avulla koordinaattijärjestelmän
+
+::: code-box
+``` sql
+UPDATE airports
+SET geom = ST_SetSRID(ST_MakePoint(longitude, latitude),4326);
+```
+:::
+
+Tarkastele lopuksi aineistoa esimerkiksi pgAdminin karttatoiminnallisuuden avulla.
+
+![](img/pgadmin_geom.png)
+
+## Harjoitus 2.2: Paikkatietoaineiston lataaminen
+
+Maanmittauslaitoksen aineisto on ladattu valmiiksi harjoitussivun [data-kansioon](/data).
+
+### Vaihtoehto 1: QGISin tietokannan hallinnan avulla
+
+QGIS-työpöytäohjelmisto tarjoaa erittäin kätevän graafisen käyttöliittymän paikkatietoaineistojen lataamiseksi PostGIS-tietokantaan. Useat QGISin eri työkalut mahdollistavat joustavan latauksen ja mahdolliset muokkaukset aineistoon jo ennen latausta.
+
+Ensimmäisessä vaiheessa otetaan yhteys lokaalista QGIS-asennuksesta koulutuksessa käytettävään PostGIS-tietokantaan. Avaa tässä vaiheessa QGIS, jos et ole sitä jo tehnyt. Lisää uusi tietokantayhteys avaamalla QGISin tietolähteiden hallinta klikkaamalla Tasot \> Tietolähteiden hallinta. Valitse Tietolähteiden hallinta -ikkunasta PostgreSQL-välilehti ja klikkaa Uusi-painiketta.
+
+Syötä Yhteyden tiedot -ikkunaan seuraavat tiedot tietokantayhteyden määrittämiseksi:
+
+![](img/yhteyspg.png)
+
+Huomaa, että Name-kenttä kuvaa vain QGISiin tallennettavan yhteyden nimeä eikä itse tietokannan nimeä. Yhteyden valinnaisista toiminnallisuuksista kannattaa oletuksena valita kaikki, paitsi "Älä ratkaise rajoittamattomien sarakkeidein tyyppiä (GEOMETRIA)". Jos se on päällä niin emme näe näkymää jota luodaan harjoituksessa 8. Esimerkiksi arvioidun metadatan käyttäminen nopeuttaa hakuja huomattavasti.
+
+Paina **Testaa yhteyttä** -painiketta varmistaaksesi tietokantayhteyden toiminnan ja paina **OK**. QGISin sisällä voi myös ajaa SQL-komentoja esimerkiksi **DB Manager**in avulla.
+
+Luo tässä vaiheessa trainingdatabase-tietokantaan uusi skeema, jonne Maanmittauslaitoksen aineistot tullaan lataamaan, ja anna skeemalle nimeksi "nlsfi". Skeemojen avulla on helpompi pitää aineistot järjestyksessä. Uuden skeeman voi luoda pgAdminin graafisen käyttöliittymän kautta, QGISin kautta tai seuraavalla SQL-komennolla:
+
+::: code-box
+``` sql
+CREATE SCHEMA IF NOT EXISTS nlsfi;
+```
+:::
+
+Jos et saa luomaasi skeemaa näkyviin QGISin puolella, aja seuraavat sql- komennot ja käynnistä QGIS-projekti uudelleen.
+
+::: code-box
+``` sql
+DROP TABLE IF EXISTS nlsfi.example;
+
+CREATE TABLE nlsfi.example
+(
+    id            integer,
+    name          text
+);
+```
+:::
+
+::: code-box
+``` sql
+INSERT INTO nlsfi.example
+VALUES (1, 'testi');
+```
+:::
+
+Lataa [data-kansio](/data/Maastokartta_1m.zip) omalle koneellesi. Aineistoja voi lisätä navigoimalla Tasot \> Lisää taso \> Lisää vektoritaso, klikkaamalla Lisää vektoritaso -kuvaketta tasojen hallinnan työkalupalkista tai ihan vain raahaamalla tasoja suoraan Selain-ikkunasta Tasot-ikkunaan.
+
+Lataa projektiisi ja tietokantaasi (ainakin) seuraavat aineistot:
+
+-   TieViiva.shp
+-   HallintoAlue.shp
+-   KarttanimiPiste1000.shp
+-   SahkoLinja.shp
+-   LentokenttaPiste.shp
+-   RautatieViiva.shp
+
+::: hint-box
+Tarkista, että Koodaus-kohdassa on valittu UTF-8. Mikäli aineisto koodataan jollakin toisella järjestelmällä, ääkköset puuttuvat metatiedoista.
+:::
+
+QGIS-projektiin avautuu vektoriaineistoja, johon on määritelty tietty koordinaattijärjestelmä. Tarkista, että koordinaattijärjestelmäksi on määritelty ETRS89 / TM35FIN(E,N) (EPSG:3067) tai EPSG:3047. Tason koordinaattijärjestelmän voit tarkistaa ja muuttaa klikkaamalla hiiren oikeaa painiketta tasolla ja valitsemalla **Ominaisuudet \> Lähde \> Aseta koordinaattijärjestelmä**. Kannattaa myös asettaa EPSG:3067 QGIS-projektin koordinaattijärjestelmäksi. Asettaminen tapahatuu QGIS ikkunan oikeassa alakulmassa.
+
+![](img/qgistasot.png)
+
+Avaa QGISin prosessointityökaluista työkalu nimeltä Export to PostgreSQL. Avaa työkalun alapalkista **Aja eräajona** (Run as Batch Process), joka mahdollistaa useamman taulun ajamiseen tietokantaan kerralla. Muuta parametreja niin, että aineistot tulee ladattua oikeaan skeemaan ja tietokantaan. **Täytä** (Fill Down) -toimintoa käyttämällä sinun ei tarvitse klikkailla jokaisen tason kohdalta arvoja kuntoon. Lisää geometriasarakkeen nimeksi "wkb_geometry" ja, varmistaaksesi taulujen nimien kirjaantumisen pienillä kirjaimilla, avaa taulun nimen määrittävässä kohdassa lausekkeenmuodostaja ja kopioi siihen komento:
+
+::: code-box
+``` sql
+lower(layer_property( @INPUT, 'name'))
+```
+:::
+
+Tarkista mitä muita parametrejä prosessi pitää sisällään. Voit kuitenkin jättää ne oletusarvoisiksi. Lopulta latausprosessisi pitäisi näyttää kutakuinkin tältä. Klikkaa **Run**!
+
+![](img/batchrun.png) Tarkista latauksen jälkeen, että aineistot ovat latautuneet. Tarkista virheilmoitukset ja korjaa latausta tarvittaessa.
+
+::: code-box
+``` sql
+SELECT *
+FROM nlsfi.tieviiva
+LIMIT 10;
+```
+:::
+
+### Vaihtoehto 2: Komentorivin avulla
+
+Luo tässä vaiheessa harjoitustietokantaan uusi skeema, jonne Maanmittauslaitoksen aineistot tullaan lataamaan, ja anna skeemalle nimeksi "nlsfi". Skeemojen avulla on helpompi pitää aineistot järjestyksessä. Uuden skeeman voi luoda pgAdminin graafisen käyttöliittymän kautta tai seuraavalla SQL-komennolla:
+
+::: code-box
+``` sql
+CREATE SCHEMA IF NOT EXISTS nlsfi;
+```
+:::
+
+Komentoriviltä tapahtuvaan lataamiseen käytetään **shp2pgsql**-ohjelmaa tai **ogr2ogr**-työkalua. Käynnistämällä ohjelman ilman parametrejä saat opasteen eri parametreistä. Tämän jälkeen voit ladata aineistoa äsken luotuun skeemaan **ogr2ogr**-työkalulla. Jos koneellasi on asennettu OSGeo4W-paketti (tulee QGIS:n asennuksen mukana), avaa käynnistysvalikosta **OSGeo4W Shell** ja anna seuraava komento:
+
+::: commandline-box
+``` sh
+ogr2ogr -f "PostgreSQL" PG:"host=<hostname>  dbname=<dbname> user=<kayttaja> password=<salasana>" <dir>\tiedostonimi.shp -lco SCHEMA=nlsfi
+```
+:::
+
+Muista tarkistaa, että aineiston hakemistopolku ja muut parametrit ovat kunnossa!
+
+**ogr2ogr**-komennon käyttämät parametrit ovat:
+
+::: commandline-box
+```         
+-f   output file format name
+-lco layer creation option
+```
+:::
+
+Muita parametreja voit tutkia suorittamalla **ogr2ogr**-komennon ilman parametrejä. PostGIS-asennuksen yhteydessä usein asennettavalla **shp2pgsql**-työkalulla on myös mahdollista luoda shp-tiedostoista SQL-muotoisia lataustiedostoja. Komentorivityökalut mahdollistavat useamman tiedoston lataamisen tietokantaan kätevästi yhdellä kertaa. Esimerkiksi Windows-ympäristössä on mahdollista ladata kansiollisen gml-tiedostoja kerralla tietokantaan seuraavalla komennolla:
+
+::: commandline-box
+``` sh
+for %i in (*.gml) do ogr2ogr -update -append -f PostgreSQL PG:"host=<hostname> port=5432 dbname=<tietokantanimi> user=<kayttaja> password=<salasana> schemas=gml" %i
+```
+:::

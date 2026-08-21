@@ -1,0 +1,418 @@
+# Harjoitus 6: Spatiaaliset relaatiot
+
+**Harjoituksen sisältö** - Harjoitellaan PostGISin spatiaalisiin relaatioihin liittyvien funktioiden käyttöä.
+
+**Harjoituksen tavoite** - Harjoituksen jälkeen opiskelija tuntee PostGISin spatiaalisen relaatioihin liittyvät funktiot ja osaa niiden avulla tehdä yksinkertaisia analyysejä.
+
+### Valmistautuminen
+
+Avaa [pgAdmin](/pgadmin) selaimeen ja kirjaudu sisään.  Avaa **Query Tool** (Valitse _trainingdatabase_ **->** Ylhäältä **Tools** **->** **Query Tool**).
+
+### Käytettäviä funktioita
+
+Tässä harjoituksessa hyödynnetään ainakin näitä funktioita:
+
+| PostGIS-funktio | Toiminta |
+|:--: | :---: |
+| ST_Contains(geometry A, geometry B) | Palauttaa "TOSI", jos A sisältää B:n |
+| ST_Crosses(geometry A, geometry B) | Palauttaa "TOSI", jos A leikkaa B:tä |
+| ST_Disjoint(geometry A , geometry B) | Palauttaa "TOSI", jos geometriat eivät leikkaa toisiaan |
+| ST_Distance(geometry A, geometry B) | Palauttaa geometrioiden välisen minimietäisyyden |
+| ST_DWithin(geometry A, geometry B, radius) | Palauttaa "TOSI", jos A on lähempänä B:tä kuin annettua etäisyyttä |
+| ST_Equals(geometry A, geometry B) | Palauttaa "TOSI", jos A on sama kuin B |
+| ST_Intersects(geometry A, geometry B) | Palauttaa "TOSI", jos A leikkaa B:tä |
+| ST_Overlaps(geometry A, geometry B) | Palauttaa "TOSI", jos A ja B ovat päällekkäin, mutteivät kuitenkaan toistensa sisäpuolella |
+| ST_Touches(geometry A, geometry B) | Palauttaa "TOSI", jos A:n reuna koskettaa B:tä |
+| ST_Within(geometry A, geometry B) | Palauttaa "TOSI", jos A on B:n sisäpuolella |
+
+## Harjoitus 6.1
+
+Etsitään ne kunnat, joissa on lentokenttä:
+
+:::code-box
+```sql
+SELECT
+a.kunta_ni1
+FROM 
+nlsfi.hallintoalue a, nlsfi.lentokenttapiste b
+WHERE
+ST_Contains(a.wkb_geometry, b.wkb_geometry);
+```
+:::
+
+Huomaa kuinka kirjaimia a ja b käytetään kyselyssä aliaksina, eli sarakkeiden korvaavina niminä. Aliasten käyttö helpottaa varsinkin pitkien kyselyiden tulkitsemista ja kirjoittamista. Voit lukea lisää aliaksista esimerkiksi täältä: [postgresql-alias](https://www.postgresqltutorial.com/postgresql-alias/).
+
+Montako lentokenttää Suomessa on?
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Millä funktiolla voit laskea tietueiden määrän?
+SELECT
+funktio(id)
+FROM
+nlsfi.taulu;
+-- Täydennä oikea taulu
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+count(id)
+FROM
+nlsfi.lentokenttapiste;
+```
+:::
+:::
+
+Jos lisäät SELECT-komentoon parametrin DISTINCT, saat selville kuinka monta lentokentällistä kuntaa Suomessa on.
+
+:::code-box
+```sql
+SELECT
+
+FROM
+(SELECT DISTINCT
+
+FROM
+
+WHERE
+ST_Contains(..., ...));
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- käytä sisäkkäistä kyselyä
+-- sisäkkäiselle kyselyllä annetaan alias
+SELECT
+funktio(kunta_distinct)
+FROM
+(SELECT DISTINCT
+a.kunta_ni1 as kunta_distinct
+FROM
+nlsfi.hallintoalue a, nlsfi.lentokenttapiste b
+WHERE
+sisältää(... , ... )) as ...;
+-- Millä PostGIS- funktiolla voit tarkastaa onko geometria b geometrian a sisällä?
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+count(kunta_distinct)
+FROM
+(SELECT DISTINCT
+a.kunta_ni1 as kunta_distinct
+FROM
+nlsfi.hallintoalue a, nlsfi.lentokenttapiste b
+WHERE
+ST_Contains(a.wkb_geometry, b.wkb_geometry)) as DistinctKunta;
+```
+:::
+:::
+
+## Harjoitus 6.2
+
+Missä Suomen kunnissa on kaksi lentokenttää?
+
+:::code-box
+```sql
+SELECT ...
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Vaihtoehto 1
+-- Käytä CTE:tä
+WITH apm AS (
+SELECT DISTINCT
+a.kunta_ni1, COUNT(...) OVER(PARTITION BY ...) AS CountAirports
+FROM
+nlsfi.hallintoalue a, nlsfi.lentokenttapiste b
+WHERE
+sisältää(a.wkb_geometry, b.wkb_geometry)
+ORDER BY
+CountAirports DESC
+)
+
+-- tarkastele tuloksia:
+
+SELECT
+kunta_ni1 as "Municipality", countairports AS "Count of Airports"
+FROM
+apm
+WHERE
+CountAirports = 2;
+```
+:::
+
+:::code-box
+```sql
+-- Vaihtoehto 2
+SELECT 
+a.kunta_ni1 as "Kunta", count(...) as "Lkm"
+FROM
+nlsfi.hallintoalue a, nlsfi.lentokenttapiste b
+WHERE
+sisältää(a.wkb_geometry, b.wkb_geometry)
+GROUP BY
+a.kunta_ni1
+HAVING count(...) = ...;
+
+-- täydennä tyhjät kohdat. Valitse oikea PostGIS- funktio
+```
+:::
+:::
+
+Perusteellinen ratkaisuvaihtoehto:
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+WITH apm AS (
+SELECT DISTINCT
+a.kunta_ni1, COUNT(a.kunta_ni1) OVER(PARTITION BY a.kunta_ni1) AS CountAirports
+FROM
+nlsfi.hallintoalue a, nlsfi.lentokenttapiste b
+WHERE
+ST_Contains(a.wkb_geometry, b.wkb_geometry)
+ORDER BY
+CountAirports DESC
+)
+
+SELECT
+kunta_ni1 as "Municipality", countairports AS "Count of Airports"
+FROM
+apm
+WHERE
+CountAirports = 2;
+```
+:::
+:::
+
+Pelkistetympi ratkaisuvaihtoehto:
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT 
+a.kunta_ni1 as "Kunta", count(*) as "Lkm"
+FROM
+nlsfi.hallintoalue a, nlsfi.lentokenttapiste b
+WHERE
+ST_Contains(a.wkb_geometry, b.wkb_geometry)
+GROUP BY
+a.kunta_ni1
+HAVING count(*) = 2;
+```
+:::
+:::
+
+Suorita ao. SQL-lause. Mitä sillä saadaan selville?
+
+:::code-box
+```sql
+SELECT
+ST_ASText(a.wkb_geometry), a.id
+FROM
+nlsfi.lentokenttapiste a, nlsfi.lentokenttapiste b
+WHERE
+ST_Equals(a.wkb_geometry,b.wkb_geometry) AND a.id <> b.id;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+SQL- kysely palauttaa ne tietueet, joiden geometria on identtinen, mutta id eri.
+:::
+
+## Harjoitus 6.3
+Etsitään ne kunnat, joissa ei ole rautatietä:
+
+:::code-box
+```sql
+SELECT 
+b.kunta_ni1
+FROM
+(SELECT
+ ST_union(wkb_geometry) as wkb_geometry
+ FROM
+ nlsfi.rautatieviiva) as a, nlsfi.hallintoalue b
+WHERE
+ST_Disjoint(a.wkb_geometry, b.wkb_geometry);
+```
+:::
+## Harjoitus 6.4
+Etsitään kolme lähintä lentokenttää.
+
+K Nearest Neighbours -menetelmällä (KNN) voidaan hakea kolme lähimpänä jonkin kunnan keskustaa sijaitsevaa lentokenttää.
+
+:::code-box
+```sql
+WITH forssa AS
+(SELECT
+ wkb_geometry
+ FROM
+ nlsfi.hallintoalue
+ WHERE
+ kunta_ni1 = 'Forssa')  
+
+SELECT
+*, round(ST_Distance(forssa.wkb_geometry, a.wkb_geometry)/1000) as "km"
+FROM 
+nlsfi.lentokenttapiste a, forssa
+ORDER BY
+forssa.wkb_geometry <-> a.wkb_geometry
+LIMIT 3;
+```
+:::
+
+Sama ongelma voidaan ratkaista myös ilman KNN-algoritmia:
+
+:::code-box
+```sql
+SELECT
+*, round(ST_Distance(wkb_geometry,(
+    SELECT ST_Centroid(wkb_geometry)
+    FROM
+    nlsfi.hallintoalue
+    WHERE
+    kunta_ni1 ='Forssa'))/1000) as etaisyys
+FROM
+nlsfi.lentokenttapiste 
+ORDER by
+etaisyys
+LIMIT 3;
+```
+:::
+
+Miksi saadut tulokset poikkeavat toisistaan?
+
+## Harjoitus 6.5
+Mitkä ovat Kuopion naapurikunnat?
+
+:::code-box
+```sql
+SELECT
+b.kunta_ni1
+FROM
+(SELECT
+ kunta_ni1, wkb_geometry
+ FROM
+ nlsfi.hallintoalue
+ WHERE
+ kunta_ni1 = 'Kuopio') a, nlsfi.hallintoalue b
+WHERE
+ST_Touches(a.wkb_geometry, b.wkb_geometry);
+```
+:::
+
+## Harjoitus 6.6
+Etsitään ne tieviivat, jotka leikkaavat kuntarajoja:
+
+:::code-box
+```sql
+SELECT
+a.tienumero, a.wkb_geometry
+FROM
+nlsfi.tieviiva a, nlsfi.hallintoalue b
+WHERE
+ST_Crosses(a.wkb_geometry, b.wkb_geometry);
+```
+:::
+
+Tulosten visualisoimiseksi, voit muodostaa **uuden skeeman** (tmp). Voit luoda uuden taulun, johon viet tuloksen. Visualisointiin voit käyttää esimerkiksi QGIS-ohjelmistoa. Voit muodostaa tuloksesta myös näkymän (view), mutta muista kuitenkin lisätä mukaan **yksilöivä tunnus** (id) sekä myös **DISTINCT**, jotta yksilöivät tunnukset pysyvät yksilöivinä.
+
+:::code-box
+```sql
+CREATE SCHEMA IF NOT EXISTS tmp;
+```
+:::
+
+:::code-box
+```sql
+DROP TABLE IF EXISTS tmp.crossroads;
+
+CREATE TABLE tmp.crossroads AS
+(
+    SELECT
+    a.tienumero, a.wkb_geometry
+    FROM
+    nlsfi.tieviiva a, nlsfi.hallintoalue b
+    WHERE
+    ST_Crosses(a.wkb_geometry, b.wkb_geometry)
+);
+```
+:::
+
+:::code-box
+```sql
+DROP VIEW IF EXISTS tmp.view_crossroads;
+
+CREATE VIEW tmp.view_crossroads AS
+(
+    SELECT DISTINCT
+    a.tienumero, a.wkb_geometry, a.id
+    FROM
+    nlsfi.tieviiva a, nlsfi.hallintoalue b
+    WHERE
+    ST_Crosses(a.wkb_geometry, b.wkb_geometry)
+);
+```
+:::
+
+Kumman luominen oli nopeampaa: taulun vai näkymän?
+
+:::hint-box
+Entä käyttö QGISissä? Miksi?
+:::
+
+## Harjoitus 6.7
+Lasketaan minimietäisyydet lentoasemilta lähimmälle rautatielle:
+
+:::code-box
+```sql
+SELECT
+a.id, MIN(ST_Distance(a.wkb_geometry, b.wkb_geometry)) as "dist"
+FROM
+nlsfi.lentokenttapiste a, nlsfi.rautatieviiva b
+GROUP BY
+a.id 
+ORDER BY
+dist;
+```
+:::

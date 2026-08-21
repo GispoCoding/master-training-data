@@ -1,0 +1,373 @@
+# Harjoitus 3: SQL:n perusteet
+
+**Harjoituksen sisältö** - Harjoituksessa tehdään muutamia SQL-hakuja.
+
+**Harjoituksen tavoite** - Harjoituksen tarkoituksena on tutustua SQL-kieleen.
+
+### Valmistautuminen
+
+Avaa [pgAdmin](/pgadmin) selaimeen ja kirjaudu sisään.  Avaa **Query Tool** (Valitse _trainingdatabase_ **->** Ylhäältä **Tools** **->** **Query Tool**).
+
+### Yksinkertaisia SQL-hakuja
+
+## Harjoitus 3.1
+
+Seuraavaksi tutkitaan hiukan edellisessä harjoituksessa ladattuja paikkatietoaineistoja:
+
+:::code-box
+```sql
+SELECT
+kunta_ni1
+FROM
+nlsfi.hallintoalue;
+```
+:::
+
+Hakuja voidaan rajoittaa **WHERE**–lausekkeella:
+
+:::code-box
+```sql
+SELECT
+kunta_ni1, wkb_geometry
+FROM
+nlsfi.hallintoalue
+WHERE
+maaku_ni1 = 'Lappi';
+```
+:::
+
+SQL-lauseisiin voidaan myös liittää erilaisia funktioita. Funktioiden avulla voidaan esimerkiksi laskea keskiarvoja tai keskihajontoja. Seuraavassa tarkastellaan kuntien nimien pituuksia:
+
+:::code-box
+```sql
+SELECT
+avg(char_length(kunta_ni1)), stddev(char_length(kunta_ni1))
+FROM
+nlsfi.hallintoalue
+WHERE
+maaku_ni1 = 'Uusimaa';
+```
+:::
+
+Seuraavalla SQL-lauseella saamme selville, missä maakunnissa on keskimäärin pisimmät kuntien nimet:
+
+:::code-box
+```sql
+SELECT
+maaku_ni1, avg(char_length(kunta_ni1))
+FROM
+nlsfi.hallintoalue
+GROUP BY
+maaku_ni1
+ORDER BY
+avg(char_length(kunta_ni1)) desc;
+```
+:::
+
+## Harjoitus 3.2
+
+Missä maakunnassa on keskimäärin pisimmät kuntien nimet?
+
+::: code-box
+```sql
+SELECT
+...
+FROM
+...
+GROUP BY
+...
+ORDER BY
+... desc
+LIMIT ...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Täydennä tähän kyselyyn oikeat sarakkeet, skeema ja taulu. Tarkista millä funktiolla
+-- saat laskettua keskiarvon. Käytä char_length() funktiota, jolla saat palautettua
+-- merkkijonon pituuden.
+SELECT
+maakunta, keskiarvo_funktio(char_length(kunta))
+FROM
+skeema.taulu
+GROUP BY
+maakunta
+ORDER BY
+keskiarvo_funktio(char_length(kunta)) desc
+LIMIT 1;
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+:::code-box
+```sql
+SELECT
+maaku_ni1, avg(char_length(kunta_ni1))
+FROM
+nlsfi.hallintoalue
+GROUP BY
+maaku_ni1
+ORDER BY
+avg(char_length(kunta_ni1)) desc
+LIMIT 1;
+```
+:::
+:::
+
+## Harjoitus 3.3
+
+Missä maakunnassa on keskimäärin lyhimmät kuntien nimet?
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+GROUP BY
+...
+ORDER BY
+... asc
+LIMIT ...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Täydennä tähän kyselyyn oikeat sarakkeet, skeema ja taulu. Tarkista millä funktiolla
+-- saat laskettua keskiarvon. Käytä char_length() funktiota, jolla saat palautettua
+-- merkkijonon pituuden.
+SELECT
+maakunta, keskiarvo_funktio(char_length(kunta))
+FROM
+skeema.taulu
+GROUP BY
+maakunta
+ORDER BY
+keskiarvo_funktio(char_length(kunta)) asc
+LIMIT 1;
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+maaku_ni1, avg(char_length(kunta_ni1))
+FROM
+nlsfi.hallintoalue
+GROUP BY
+maaku_ni1
+ORDER BY
+avg(char_length(kunta_ni1)) asc
+LIMIT 1;
+```
+:::
+:::
+
+## Harjoitus 3.4
+
+Mikä on Suomen pisin kunnan nimi?
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+ORDER BY
+...
+LIMIT
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Täydennä tähän kyselyyn oikeat sarakkeet, skeema ja taulu. Valitse funktio,
+-- jolla saat tietoon merkkijonon pituuden.
+SELECT
+kunta
+FROM
+skeema.taulu
+ORDER BY
+merkkijonon_pituus(kunta) desc
+LIMIT 1;
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+kunta_ni1 as "Kunta"
+FROM
+nlsfi.hallintoalue
+ORDER BY
+char_length(kunta_ni1) desc
+LIMIT 1;
+```
+:::
+:::
+
+## Harjoitus 3.5
+
+Montako 5 kirjaimista suomenkielistä kunnan nimeä Suomessa on? Huomioi myös kunnat missä suomi on kakkoskieli(kieli_ni2). 
+
+:::code-box
+```sql
+WITH ... AS
+(
+    SELECT ...
+UNION
+    SELECT ...
+)
+
+SELECT
+...
+FROM
+...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- käytä CTE (Common Table Expression)- lauseketta
+WITH ltr5 AS
+(
+    -- Valitse kunnat, jossa kunnan ykköskieli (kieli_ni1) on 'Suomi' ja kunnan suomenkielinen nimi on
+    -- viisi merkkiä pitkä.
+    SELECT
+    ...
+    FROM
+    ...
+    WHERE
+    ... AND ...
+UNION -- yhdistä kyselyiden tulokset UNION- operaattorilla
+    -- valitse kunnat, jossa kunnan kakkoskieli (kieli_ni2) on 'Suomi' ja kunnan suomenkielinen nimi on
+    -- viisi merkkiä pitkä. 
+    -- Huomioi oikea kunnan nimen sarake (kunta_ni1 vai kunta_ni2)
+    SELECT
+    ...
+    FROM
+    ...
+    WHERE
+    ... AND ...
+)
+
+SELECT
+count() AS ... -- käytä count() funktiota (valitse yllä määritellystä CTE:stä sopiva sarake).
+               -- Voit myös määrittää sille aliaksen 'AS'- lausekkeen jälkeen.
+FROM
+...; -- viittaa aikaisemmin määriteltyyn CTE:hen
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+WITH ltr5 AS
+(
+    SELECT
+    kunta_ni1 as "Kunta", char_length(kunta_ni1) as "Pituus",
+    kieli_ni1, 'Ykköskieli' as "Kielisyys"
+    FROM
+    nlsfi.hallintoalue
+    WHERE
+    char_length(kunta_ni1) = 5 AND kieli_ni1 = 'Suomi'
+UNION
+    SELECT
+    kunta_ni2 as "Kunta", char_length(kunta_ni2) as "Pituus",
+    kieli_ni2, 'Kakkoskieli' as "Kielisyys"
+    FROM
+    nlsfi.hallintoalue
+    WHERE
+    char_length(kunta_ni2) = 5 AND kieli_ni2 = 'Suomi'
+)
+
+SELECT
+count("Kunta") AS "5-kirjaimisia suomenkielisiä kunta"
+FROM
+ltr5;
+```
+:::
+:::
+
+## Harjoitus 3.6
+
+Missä kunnissa suomen- ja ruotsinkielinen nimi on eri, mutta samanpituinen? Järjestä tulokset kunnan nimen pituuden mukaan laskevasti.
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+WHERE
+...
+ORDER BY
+... DESC;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Täydennä oikeat sarakkeet
+SELECT
+kunnan_nimi_fi, kunnan_nimi_sv, char_length(kunnan_nimi_fi) AS "Pituus"
+FROM
+nlsfi.hallintoalue
+WHERE
+kunnan_nimi_fi ... kunnan_nimi_sv AND char_length(kunnan_nimi_fi) ... char_length(kunnan_nimi_sv)
+-- korvaa tyhjäksi jätetyt kohdat '...' oikeilla operaattoreilla
+-- kts. tarvittaessa linkki alhaalta dokumentaatioon
+ORDER BY
+char_length(kunnan_nimi_fi) DESC;
+```
+:::
+[Operaattorit PostgreSQL:n dokumentaatiossa.](https://www.postgresql.org/docs/9.0/functions-comparison.html)
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+kunta_ni1, kunta_ni2, char_length(kunta_ni1) AS "Pituus"
+FROM
+nlsfi.hallintoalue
+WHERE
+kunta_ni1 <> kunta_ni2 AND char_length(kunta_ni1) = char_length(kunta_ni2)
+ORDER BY
+char_length(kunta_ni1) DESC;
+```
+:::
+:::
