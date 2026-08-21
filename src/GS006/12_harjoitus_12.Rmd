@@ -1,4 +1,4 @@
-# Harjoitus 2.5: Pääsynhallinta
+# HARJOITUS 2.5: PÄÄSYNHALLINTA
 
 **Harjoituksen sisältö**
 
@@ -22,25 +22,13 @@ Tässä näkymässä voidaan myös määrittää, mikä **Active role service** 
 
 **Encryption**-kohdan alta löytyy salaukseen liittyviä asetuksia. **Encrypt web admin URL parameter** -valinta salaa käyttäjäliittymän URL-parametreja selaimella.
 
-Esimerkiksi, **Security**-valikon selaimen URL (missä nyt ollaan)... 
+Esimerkiksi, **Security**-valikon selaimen URL (missä nyt ollaan) olisi paikallisella GeoServer-asennuksella:
 
-... ilman salausta on:
+`http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.SecuritySettingsPage`
 
-::: note-box
-<http://localhost:8080/geoserver/web/?wicket:bookmarkablePage=:org.geoserver.security.web.SecuritySettingsPage>
-:::
+... ja salauksen kanssa se on:
 
-... salauksen kanssa se on:
-
-::: note-box
-<http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE>
-:::
-
-Huomaa, että palvelimessa ei ole asennettu Java policy -tiedostoja, joten vahvaa salausta ei voida ottaa käyttöön.
-
-::: hint-box
-Psst! Java policy -tiedostojen asennus riippuu siitä, mikä Java ohjelmisto on palvelimessa asennettu. Jos asennettu on Open JDK, niin policy-tiedostot on oletuksena asennettu ja Strong cryptography käytössä. Jos taas asennetaan Oracle Java (joka on aikaisemmin ollut GeoServerin suositus) niin täytyy ladata Oraclen JCE policy jars ja purkaa ne JRE_HOME/lib/security -kansioon, jonka jälkeen Strong cryptography on käytössä.
-:::
+`http://localhost:8080/geoserver/web/?x=xAiOmyK-CQmBXDhILZrWpny28bhFcImLrBRYk0INwrBDmbzQlmeLRdiaRoNSaBSx3o6elVC9JMPcy5gkRljLXMKGrvMx3Yui3*ANGkUW-hE` 
 
 **Password encryption** määrittää, mikä salauksen tyyli on käytössä salasanojen varastossa: **Plain text**, **Weak PBE** ja **Strong PBE**.
 
@@ -52,7 +40,7 @@ Pidä **Weak PBE** ja paina **Save**.
 
 Oletuksena GeoServerin asetukset sallivat palvelimen käytön (eli WMS-, WFS- ja WCS-palvelujen käytön) ilman mitään käyttäjätunnusta. Voit tarkistaa tämän seuraavasti.
 
-Esikatsele tasoa **ilmakuvat_keskusta** samalla tavalla kuin aiemmin muita tasoja. Taso aukeaa selaimella ongelmitta, koska olet kirjautunut **admin**-tunnuksella.  Älä sulje esikatselusivua vielä.
+Esikatsele tasoa **ilmakuvat** samalla tavalla kuin aiemmin muita tasoja. Taso aukeaa selaimella ongelmitta, koska olet kirjautunut **admin**-tunnuksella.  Älä sulje esikatselusivua vielä.
 
 Mene nyt takaisin GeoServerin ylläpitosivulle ja paina **Logout**.
 
@@ -68,12 +56,12 @@ Nyt ainoastaan **basic**-tunnistautumisen tyyli on Selected-laatikossa eli käyt
 
 ![](img/harjoitus_12/image3.png)
 
-Paina nyt **Close** ja pääset takaisin **Authentication**-valikkoon. Paina sitten **Save**, niin muutokset tulevat voimaan.
+Paina nyt **Close** ja pääset takaisin **Authentication** valikkoon. Paina sitten **Save**, niin muutokset tulevat voimaan.
 
 Jos kirjaudut nyt ulos GeoServeristä ja päivität aiemmin avattua esikatselusivua uudelleen, tunnuksella ja salasanalla tunnistautuminen on pakollista.
 
 ::: hint-box
-Psst! Palvelimen pääsynhallinnan asetuksia voi helpoiten testata käyttämällä eri web-selainta (Internet Explorer / FireFox / Chrome) tai selaimen yksityisyyden salaavaa toimintoa (Incognito-mode) normaalin selaimen rinnalla. Toisella selaimella ollaan kirjautuneena ylläpitäjän tunnuksilla (kuten tähän asti) ja toisella kokeillaan erilaisia kirjautumistiloja. Voit kysyä opastusta kouluttajalta tarvittaessa. Huomaa, että sinun täytyy mahdollisesti kirjautua ulos ja uudelleen sisään asetusten uudelleen lataamista varten.
+Psst! Palvelimen pääsynhallinnan asetuksia voi helpoiten testata käyttämällä eri web-selainta (Internet Explorer / FireFox / Chrome) tai selaimen yksityisyyden salaavaa toimintoa (Incognito-mode) normaalin selaimen rinnalla. Toisella selaimella ollaan kirjautuneet ylläpitäjän tunnuksilla (kuten tähän asti) ja toisella kokeillaan erilaisia kirjautumistiloja. Voit kysyä opastusta kouluttajalta tarvittaessa. Huomaa, että mahdollisesti sinun täytyy kirjautua ulos ja uudelleen sisään asetusten uudelleen lataamista varten.
 :::
 
 ## **Uuden roolin ja käyttäjän luominen**
@@ -114,13 +102,13 @@ Laita käyttäjän nimeksi **hki_kayttaja** ja salasanaksi **hki-kayttaja**.
 Psst! Huomaa, että erikoismerkit ja ääkköset ovat sallittuja GeoServerissä, mutta tarkoituksenmukaisuuden ja eri selainten välisten erojen vuoksi tässä koulutuksessa vältetään niiden käyttöä.
 :::
 
-Uudelle käyttäjälle annetaan oikeuksia määrittämällä, mitä rooleja käyttäjällä on. Roolit on määritelty **Roles taken from active role service: default** -kohdassa. Valittavissa on muun muassa **hki_rooli**, lisää se **Selected Roles** -laatikkoon käyttäen laatikkojen välistä löytyviä siirtonuolia.
+Uudelle käyttäjälle annetaan oikeuksia määrittämällä mitä rooleja käyttäjällä on. Roolit on määritelty **Roles taken from active role service: default** -kohdassa. Siinä on valittavissa muun muassa **hki_rooli**, lisää se **Selected Roles** -laatikkoon käyttäen laatikkojen välistä löytyviä siirtonuolia.
 
-Paina sitten **Save**, niin uusi käyttäjä **hki_kayttaja** on luotu. Käyttäjällä on oikeudet **hki_rooli**:n mukaisesti. Koska **hki_rooli**:lle ei vielä ole määritelty oikeuksia, niin uudella käyttäjälläkään ei vastaavasti ole toistaiseksi mitään oikeuksia.
+Paina sitten **Save**. Uusi käyttäjä **hki_kayttaja** on luotu, ja sillä on oikeudet **hki_rooli**nmukaisesti. Koska **hki_rooli**lle ei vielä ole määritelty oikeuksia, niin uudella käyttäjälläkään ei ole vielä määritelty mitään oikeuksia.
 
 ![](img/harjoitus_12/image6.png)
 
-Kokeile uuden käyttäjän oikeuksia kirjautumalla sisään uudella käyttäjätunnuksella. Voit joko kirjautua uudestaan tai käyttämällä toista selainta, kuten aikaisemmin ohjeistettiin.
+Kokeile uuden käyttäjän oikeudet kirjautumalla sisään uudella käyttäjätunnuksella. Voit joko kirjautua uudestaan tai käyttämällä toista selainta, kuten aikaisemmin on mainittu.
 
 ## **Aineiston käyttöoikeuksien rajoittaminen**
 
@@ -128,9 +116,9 @@ Avaa **Security → Data.** Tässä näkymässä näkyvät GeoServer-palvelimen 
 
 ![](img/harjoitus_12/image7.png)
 
-**Rule path** -sarakkeen alla olevat säännöt ovat muodoltaan **\*.\*.r**, joka antaa lukemisoikeudet kaikille tasoille kaikissa workspace:ssa.
+**Rule path** -sarakkeen alla olevat säännöt ovat muodoltaan **\*.\*.r**, joka antaa lukemisoikeudet kaikille tasoille kaikissa workspaceissa.
 
-Huomaa vielä, että **Roles**-sarakkeen alla on määritelty, mille rooleille oikeudet on myönnetty. **\***-merkki tarkoittaa "kaikki roolit".
+Huomaa vielä, että **Roles**-sarakkeen alla on määritelty, mille rooleille oikeudet on myönnetty. Tässä on määritelty **\***-merkillä, joka tarkoittaa "kaikki roolit".
 
 Seuraava kuva esittää GeoServerin aineistosääntöjen määrittelyä:
 
@@ -144,11 +132,11 @@ Psst! Kaikissa osissa voidaan käyttää myös \*-merkkiä, jolla voidaan viitat
 
 Paina listalta **\*.\*.r**.
 
-Tässä säännössä määritellään, että kaikkiin workspace:ihin ja kaikkiin tasoihin on lukemisoikeus.
+Tässä säännössä määritellään, että kaikkiin workspaceihin ja kaikkiin tasoihin on lukemisoikeus.
 
 ![](img/harjoitus_12/image9.png)
 
-**Roles**-osion alla on määritelty se, että tämä sääntö kuuluu kaikille rooleille (**Grant access to any role**). Huomaa, että **Grant access to any role** on rastittu, joten kaikki roolit voivat lukea kaikki tasoja kaikista workspace:sta.
+**Roles**-osion alla on määritelty se, että tämä sääntö kuuluu kaikille rooleille (**Grant access to any role**). Huomaa, että **Grant access to any role** on rastittu, joten kaikki roolit voivat lukea kaikki tasoja kaikista workspaceista.
 
 Rajoitetaan nyt sääntöä vain ylläpitäjien rooleille.
 
@@ -162,19 +150,19 @@ Tee lopuksi samat muutokset **\*.\*.w** -säännölle.
 
 ![](img/harjoitus_12/image11.png)
 
-Näiden muutosten jälkeen vain **Admin**-tunnuksella on lukemis- ja esikatseluoikeudet.
+Näiden muutosten jälkeen, vain **Admin**-tunnuksella on lukemis- ja esikatseluoikeudet.
 
-Kokeile nyt esikatsella joitakin aineistoja **hki_kayttaja**-tunnuksella. Yhtään aineistoa ei ole tarjolla.
+Kokeile nyt esikatsella jotain aineistoja **hki_kayttaja**-tunnuksella, yhtään aineistoa ei ole tarjolla.
 
 ![](img/harjoitus_12/image12.png)
 
 ## **Aineiston käyttäjäkohtaiset käyttöoikeudet**
 
-Seuraavaksi määritellään **hki_kayttaja**-tunnukselle luku- ja kirjoitusoikeudet **helsinki**-workspace:en. Käytännössä pitää määritellä oikeudet roolille, johon käyttäjä kuuluu, eli **hki_rooli**-roolille.
+Seuraavaksi määritellään **hki_kayttaja**-tunnukselle luku- ja kirjoitusoikeudet **helsinki**-workspaceen. Käytännössä pitää määritellä oikeudet roolille johon käyttäjä kuuluu, eli **hki_rooli**-roolille.
 
-Tähän asti **hki_rooli**:lle ei ole annettu vielä mitään oikeuksia, täten **hki_kayttaja**:llä ei ole oikeuksia mihinkään aineistoon (ellei joku sääntö on määritelty kaikille rooleille käyttäen **\***-merkkiä).
+Tähän asti **hki_rooli**lle ei ole annettu vielä mitään oikeuksia, täten **hki_kayttaja**llä ei ole enää oikeuksia mihinkään aineistoon (ellei joku sääntö on määritelty kaikille rooleille käyttäen **\***-merkkiä).
 
-Lisätään nyt **hki_kayttaja**:lle **Read**- ja **Write**-käyttöoikeudet, mutta vain **helsinki-**workspace:en. Tämä tapahtuu määrittämällä lisää aineiston sääntöjä.
+Lisätään nyt **hki_kayttaja**lle **Read**- ja **Write**-käyttöoikeudet, mutta vain **helsinki-**workspaceen. Tämä tapahtuu määrittämällä lisää aineiston sääntöjä.
 
 ::: hint-box
 Psst! Varmista, että olet kirjautunut ylläpitäjänä (tunnus: admin ja salasana: gispo).
@@ -186,21 +174,21 @@ Laita **Workspace**-kohtaan **helsinki** ja jätä **Layer**-arvoksi "**\***", j
 
 Aseta **Access mode** -valikkoon arvoksi **Read**, joka antaa lukemisoikeudet edellä määrätyille aineistoihin.
 
-Siirrä lopulta **hki_rooli** laatikosta **Available Roles** laatikkoon **Selected Roles**.
+Siirrä lopulta **hki_rooli** laatikosta **Available Roles**, laatikkoon **Selected Roles**.
 
 ![](img/harjoitus_12/image13.png)
 
 Paina lopuksi **Save**. 
 
-Nyt **hki_kayttaja**:llä on read-oikeudet kaikkiin helsinki workspace:n tasoihin.
+Nyt **hki_kayttaja**llä on read-oikeudet kaikkiin helsinki workspacen tasoihin.
 
-Lisää samalla tavalla vielä **Write**. Kirjoitusoikeudet sallivat käyttäjälle aineistojen muokkausoikeudet aina, kun se on sallittu GeoServerissa, esimerkiksi WFS-T-palvelun kautta.
+Lisää samalla tavalla vielä **Write**. Kirjoitusoikeudet sallivat käyttäjälle aineistojen muokkausoikeudet aina kun se on sallittu GeoServerissa, esimerkiksi WFS-T-palvelun kautta.
 
 Kokeile uudelleen esikatsella aineistoja **hki_kayttaja**-tunnuksella. Esikatselu on mahdollista nyt kaikkien **helsinki**-workspacen tasojen kanssa, mutta muut tasot eivät näy.
 
 Huomaa, että käyttäjällä ei ole kuitenkaan oikeuksia lisätä GeoServeriin uusia aineistoja tai tasoja. Voit antaa **hki_kayttaja**-tunnukselle **Admin**-oikeudet määrittämällä vielä ylläpitäjän oikeudet.
 
-Loppujen lopuksi on luotu kolme uutta sääntöä, jotka ovat voimassa **hki_rooli**:lla.
+Loppujen lopuksi on luotu kolme uutta sääntöä, jotka ovat **hki_rooli**lla voimassa.
 
 ![](img/harjoitus_12/image14.png)
 
@@ -210,23 +198,23 @@ Kirjaudu uudelleen palvelimelle käyttäen **hki_kayttaja**-tunnusta ja tarkista
 
 ## **Karttapalvelukohtaiset oikeudet**
 
-Kirjaudu **admin**-tunnuksella uudelleen Geoserver-palvelimelle.
+Kirjaudu **admin**-tunnuksella uudelleen GeoServer palvelimelle.
 
-Samalla tavalla kuin äsken määriteltiin käyttäjäkohtaisesti oikeudet yhdelle workspace:lle, voidaan asettaa oikeudet palvelukohtaisesti eri käyttäjille.
+Samalla tavalla kuin äsken määriteltiin käyttäjäkohtaisesti oikeudet yhdelle workspacelle, voidaan asettaa oikeudet palvelukohtaisesti eri käyttäjille.
 
-Avaa **Security → Services**. Määriteltynä on oletuksena vain yksi sääntö **\*.\***. Samalla tavalla kuin aiemmin, tämä tarkoittaa se, että kaikki palvelujen toiminnot (säännön toinen **\***-merkki) ovat käytettävissä kaikissa palveluissa (säännön ensimmäinen **\***-merkki).
+Avaa **Security → Services**.
 
 Seuraava kuva esittää GeoServerin palvelusääntöjen määrittelyä:
 
 ![](img/harjoitus_12/image16.png)
 
-Avaa sääntö **\*.\*** ja rajoita sen käyttöä vain ylläpitäjille.
+Luo uusi sääntö **\*.\*** ja rajoita sen käyttöä vain ylläpitäjille.
 
 ![](img/harjoitus_12/image17.png)
 
-Paina **Save**. Nyt GeoServerin palvelut ovat käytettävissä ainoastaan ylläpitorooleille.
+Paina **Save**. Nyt GeoServerin palvelut ovat käytettävissä ainoastaan ylläpito-rooleille.
 
-Luo sen jälkeen sääntö, joka on käytössä vain **hki_rooli**:lle ja jolla on oikeudet käyttää kaikkia **WMS-karttapalvelujen** toimintoja.
+Luo sen jälkeen sääntö, joka on käytössä vain **hki_rooli**lle ja sillä on oikeudet käyttää kaikkia **WMS-karttapalvelujen** toimintoja.
 
 ::: hint-box
 Psst! Huomaa, että säännöt eivät välttämättä tule voimaan kuin vasta käyttäjän seuraavalla istunnolla.
@@ -236,6 +224,6 @@ Lopussa **Service access rules list** -näkymä näyttää tältä:
 
 ![](img/harjoitus_12/image18.png)
 
-Kirjaudu taas **hki_kayttaja**:nä ja kokeile esikatsella jotain aineistoa sekä WMS- että WFS-karttapalveluna. WFS-esikatselu ei enää onnistu, koska kyseisellä käyttäjällä ei ole oikeuksia WFS-toimintoihin. WMS-toimintoihin oikeudet ovat ja ne näkyvät.
+Kirjaudu taas **hki_kayttaja**nä ja kokeile esikatsella jotain aineistoa sekä WMS- että WFS-karttapalveluna. WFS-esikatselu ei enää onnistu, koska kyseisellä käyttäjällä ei ole oikeuksia WFS-toimintoihin, vain WMS-toimintoihin. 
 
-Poista lopuksi edellisessä kuvassa näkyvä sääntö (wms.\*), jotta wms-palvelu olisi taas käytettävissä kaikilla käyttäjillä.
+Poista lopuksi edellisessä kuvassa näkyvät säännöt (\*.\* ja wms.\*), jotta WMS-palvelu olisi taas käytettävissä kaikilla käyttäjillä.

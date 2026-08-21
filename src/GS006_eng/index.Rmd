@@ -1,21 +1,20 @@
 ---
 title: "Introduction to GeoServer"
-author: "Gispo Finland Ltd."
+author: "Gispo Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "A course covering basic GeoServer topics"
+abstract: "A course covering basic GeoServer topics."
 output:
     bookdown::html_book:
         toc: true
         theme: null
         template: custom.html
         css: custom.css
-        split_by: rmd
-        number_sections: false
+        split_by: chapter+number #rmd
 documentclass: book
 ---
 
-# Introduction to GeoServer
+# INTRODUCTION TO GEOSERVER
 
 ## Welcome to this GeoServer Course!
 
@@ -36,9 +35,7 @@ Commands to execute in a **web browser** are displayed as follows:
 Commands to execute in a **command prompt/terminal** are displayed as follows:
 
 ::: commandline-box
-``` shell
 sudo lsb_release -a
-```
 :::
 
 **File content** is displayed as follows:
@@ -50,9 +47,7 @@ sudo lsb_release -a
 **HTML and CSS code, SQL- queries and Python-scripts** are displayed as follows:
 
 ::: code-box
-``` sql
 SELECT version();
-```
 :::
 
 **Questions, notes and hints** are displayed as follows:
@@ -90,13 +85,5 @@ If you notice mistakes in these course materials, we ask you to report either di
 
 ## License and permissions
 
-These materials are developed for the "Introduction to GeoServer" course by Gispo Finland Ltd.
+These materials are developed for the "Introduction to GeoServer" course by Gispo Ltd.
 The materials are licensed under [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) license.
-
-## Download a PDF version of the material
-
-You can download a PDF version of the material from this link:
-
-::: note-box
-[PDF version of the material](https://github.com/gispocoding/master-training-data/releases/download/GS006_eng/GS006_eng.pdf)
-:::

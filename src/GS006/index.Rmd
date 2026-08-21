@@ -1,6 +1,6 @@
 ---
 title: "Johdanto GeoServerin käyttöön"
-author: "Gispo Suomi Oy."
+author: "Gispo Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Johdantokurssi GeoServerin käyttöön"
@@ -10,18 +10,19 @@ output:
         theme: null
         template: custom.html
         css: custom.css
-        split_by: rmd
-        number_sections: false
+        split_by: chapter+number #rmd
 documentclass: book
 ---
 
-# Johdanto GeoServerin käyttöön
+<!-- Harjoitukset -->
+
+# JOHDANTO GEOSERVERIN KÄYTTÖÖN
 
 ## Tervetuloa GeoServer-kurssille!
 Tämän kurssin tarkoituksena on opastaa sinut GeoServerin käyttöön. Paikkatietojen tai muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumisel­le. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku asia jää epäselväksi.
 
 ## GeoServerin taustaa
-GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitellä ja hallinnoida geospatiaalista dataa. GeoServer on ollut toiminnassa vuodesta 2001 alkaen “The Open Planning Project” -hankkeen kautta. Vuonna 2014 GeoServer siirtyi OSGeo-projektin alle. GeoServeriä päivitetään puolen vuoden välein ja ohjelmiston käyttäjäkunta on varsin vilkas ja aktiivinen.
+GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitellä ja hallinnoida geospatiaalista dataa. GeoServer on ollut toiminnassa vuodesta 2001 alkaen “The Open Planning Project”-hankkeen kautta. Vuonna 2014 GeoServer siirtyi OSGeo-projektin alle. GeoServeriä päivitetään puolen vuoden välein ja ohjelmiston käyttäjäkunta on varsin vilkas ja aktiivinen.
 
 
 ## Lukuohje
@@ -35,9 +36,7 @@ GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitell
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
-``` shell
 sudo lsb_release -a
-```
 :::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:
@@ -49,9 +48,7 @@ sudo lsb_release -a
 **HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
 
 ::: code-box
-``` sql
 SELECT version();
-```
 :::
 
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
@@ -69,33 +66,29 @@ Psst! Tietoa GeoServeristä löydät internetistä.
 Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ::: note-box
-<http://www.qgis.org/>
+<https://geoserver.org/>
 :::
 
 ::: note-box
-<http://docs.qgis.org/>
+<https://www.qgis.org/>
 :::
 
 ::: note-box
-<http://gis.stackexchange.com/>
+<https://www.qgis.org/resources/hub/>
 :::
 
 ::: note-box
-<http://www.osgeo.fi>
+<https://gis.stackexchange.com/>
+:::
+
+::: note-box
+<https://www.osgeo.fi/>
 :::
 
 ## Virheet
 
-Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla osoitteeseen [info\@gispo.fi](mailto:info@gispo.fi){.email}.
+Jos havaitset materiaalissa virheitä, pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
 
 ## Lisenssi ja oikeudet
 
-Nämä materiaalit on "Johdanto GeoServerin käyttöön" -kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
-
-## Materiaali PDF-muodossa
-
-Voit ladata harjoitukset PDF-muodossa tästä linkistä:
-
-::: note-box
-[Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/GS006/GS006.pdf)
-:::
+Nämä materiaalit on "Johdanto GeoServerin käyttöön" -kurssille kehittänyt Gispo Oy (nyk. Gispo Suomi Oy). Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)

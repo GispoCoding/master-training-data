@@ -1,4 +1,4 @@
-# Exercise 1.1: Installation and commissioning
+# EXERCISE 1.1: INSTALLATION AND COMMISSIONING
 
 **Content of the exercise**
 
@@ -34,7 +34,7 @@ The **Main menu (2)** is used to manage and view the server's functions.
 
 The **Top bar (3)** contains login information and the GeoServer logo, which always takes you to the home page.
 
-The **sidebar (4)** on the right side shows the map services and their versions supported by the server in the home screen.
+The **sidebar (4)** on the right side shows the map services and their versions supported by the server in the home screen. This section is in the middle of the page in the newer version of the GeoServer.
 
 ## **Main menu**
 
@@ -58,13 +58,13 @@ Try **Layer Preview function** and preview the default GeoServer datasets. This 
 
 ### **Service Capabilities**
 
-Press **GeoServer-logo** to return to the main server page. On the right hand side you will find the **Service Capabilities bar**.
+Press **GeoServer-logo** to return to the main server page. 
 
 Before logging in to the server, you can see which interface services can be published by the GeoServer installation you are using.
 
 By default, WCS, WFS, WMS, TMS, WMS-C and WMTS are installed on the GeoServer of the exercise. Other interface services, such as the WPS service, can be published to GeoServer via extensions. By pressing the version numbers on the interface services, you can access their capabilities.
 
-This sidebar is only visible on the home page. Remember that you can always access the home page by pressing the GeoServer logo.
+This section is only visible on the home page. Remember that you can always access the home page by pressing the GeoServer logo.
 
 ### **Demos**
 

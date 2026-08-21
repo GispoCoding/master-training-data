@@ -1,4 +1,4 @@
-# Exercise 1.3: Vector data
+# Exercise 1.3: VECTOR DATA
 
 **Content of the lecture**
 
@@ -14,7 +14,7 @@ After the exercise, the student will be able to add vector data and make the nec
 
 ## **Preparation**
 
-All training materials are in the GeoServer data directory **/data/koulutus/**. You can check its location on your server in the **Server Status** view. The location is in the **Data directory** field. New data can be added there if necessary. 
+All training materials are in the GeoServer data directory **/data/koulutus/**. You can check its location on your server in the **Server Status** view. The location is in the **Data directory** field; new data can be added there if necessary. 
 
 The materials used in the exercise are uploaded to the servers in use.
 
@@ -46,7 +46,7 @@ Since the format of the data is **shapefile**, a **store** compatible with the s
 
 From the main menu, select **Stores** and then press **Add new Store**.
 
-Select Shapefile as the data format in the **New data source** view, under **Vector Data Sources**.
+Select Shapefile as the data format in the **New data source** view, under**Vector Data Sources**.
 
 ![](img/harjoitus_3/image2.png)
 
@@ -66,7 +66,7 @@ The next step is to define which data (shape file) is referenced by this store. 
 
 Keep **Enabled** checked to ensure that the store (and the layers created from it) are available from the GeoServer server. This option can be used if you want to hide some data from users without removing it from the server (administrators can still access it).
 
-Check again that the **DBF charset** value is **UTF-8**.
+Check again that the **DBF charset** value is **ISO-8859-1**.
 
 The rest of the settings can be kept as defaults.
 
@@ -126,7 +126,7 @@ In this case, the project data comes from the .prj file of the shapefile. Click 
 Psst! Please note that the Native SRS data is for preview purposes only. The data comes directly from the settings of the original data, e.g. shapefile or PostGIS coordinate system data. Therefore, they cannot be edited in the GeoServer browser through the interface.
 :::
 
-Enter **EPSG:4326** code in the **Declared SRS** field. You can also search for EPSG codes using the **Find** function.
+If necessary, add the *EPSG:4326* code to the *Declared SRS* field. You can also search EPSG codes using the *Find* function.
 
 Keep the default value of **SRS handling** (**Force declared**) unchanged.
 
@@ -170,6 +170,6 @@ Zoom in on the map and press on a building to see its properties.
 
 ## **Add Helsinki road network**
 
-Now add the OpenStreetMap Helsinki road network to GeoServer in the same way as in the previous exercise. The data can be found in the same folder as the **buildings** data, under the name **roads.shp**.
+Now add the OpenStreetMap Helsinki road network to GeoServer in the same way as in the previous exercise. The data can be found in the same folder as the **buildings** data, under the name **gis.osm_roads_free_1**.
 
-Remember that before you can add a layer to GeoServer, you need to create a store for it. Name the new store **hki_roads** and the layer created from it **roads** so the layer names remain similar. Remember to also correct the coordinate system (**EPSG:4326**) and **DBF charset** (**UTF-8**).
+Remember that before you can add a layer to GeoServer, you need to create a store for it. Name the new store **hki_roads** and the layer created from it **roads** so the layer names remain similar. Remember to also check the coordinate system (**EPSG:4326**) and **DBF charset** (**ISO-8859-1**).

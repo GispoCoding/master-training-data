@@ -1,4 +1,4 @@
-# Harjoitus 1.2: GeoServerin web-käyttöliittymä
+# HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ
 
 **Harjoituksen sisältö**
 
@@ -22,9 +22,6 @@ Tähän asti käyttöliittymällä on ollut näkyvissä vain kaikille avoimet to
 
 Kirjaudu nyt palvelimeen käyttäen tunnuksena **admin** ja salasanana **gispo**.
 
-::: hint-box
-Psst! GeoServerin oletusasennuksessa salasana on 'geoserver', mutta koulutusta varten tämä on turvallisuussyistä vaihdettu.
-:::
 
 Ylläpitäjän näkymä muistuttaa äsken nähtyä käyttöliittymää. Sen rakenne on sama, mutta toiminnallisuuksia ja nähtävillä olevia tietoja on huomattavasti enemmän.
 
@@ -46,7 +43,7 @@ Päävalikosta löytyviä GeoServerin toimintoja on ryhmitelty niiden käyttöta
 | ##### **Tools**          | Palvelimen lisätyökaluja                                                   |
 +--------------------------+----------------------------------------------------------------------------+
 
-Näiden lisäksi Geoserverin laajennokset voivat lisätä valikkoja käyttöliittymään.
+Näiden lisäksi GeoServerin laajennokset voivat lisätä valikkoja käyttöliittymään.
 
 **Päävalikossa** on nyt uusia valikoita ja toiminnallisuuksia. 
 
@@ -54,11 +51,11 @@ Näiden lisäksi Geoserverin laajennokset voivat lisätä valikkoja käyttöliit
 
 ![](img/harjoitus_2/image1.png)
 
-::: hint-box
-Psst! Huomaa, että nyt käyttöliittymän keskiosassa lukee myös "No Strong cryptography available...". Riippuen asennuksesta vahva salaus (strong cryptography) -toiminnallisuuden mahdollistaminen saattaa tarvita erillisen asennuksen (Java policy jar tiedostot).
-:::
+### **About GeoServer**
 
-## **Master- ja Admin-käyttäjät**
+Avaa **About GeoServer** ja tutki, mikä GeoServer-versio sinulla on käytössä ja mitkä muiden asennettujen ohjelmistojen versiot ovat. Tämäntyyppiset tiedot ovat tärkeitä palvelimen ongelmia selvitettäessä, tapahtuipa ongelmatilanteiden ratkaiseminen omatoimisesti taikka tukipalvelun avulla.
+
+## **Master- ja Administrator-käyttäjät**
 
 GeoServerin oletusasennuksessa on kaksi käyttäjäprofiilia, **master** ja **admin**. Salasanat on vaihdettu oletuksesta seuraavalla tavalla:
 
@@ -67,7 +64,7 @@ GeoServerin oletusasennuksessa on kaksi käyttäjäprofiilia, **master** ja **ad
 **Admin** →   gispo
 
 ::: hint-box
-Psst! Ero master- ja admin-käyttäjien välillä on se, että admin-käyttäjä on tarkoitettu käytettäväksi web-käyttöliittymän hallinnassa. Itse palvelimen asetusten muokkaamiseen käytetään master-käyttäjää, jolla on oikeudet päästä hallitsemaan GeoServerin root-asetuksia sekä suoraan palvelimella että web-käyttöliittymän kautta. Vältä näiden tunnusten käyttöä tuotannollisten palvelimien ylläpidossa.
+Psst! Ero master ja admin-käyttäjien välillä on se, että admin-käyttäjä on tarkoitettu käytettäväksi web-käyttöliittymän hallinnassa. Itse palvelimen asetusten muokkaamiseen käytetään master-käyttäjää, jolla on oikeudet päästä hallitsemaan GeoServerin root-asetuksia sekä suoraan palvelimella että web-käyttöliittymän kautta. Vältä näiden tunnusten käyttöä tuotannollisten palvelimien ylläpidossa.
 :::
 
 Näiden käyttäjien salasanat voi vaihtaa tarvittaessa pääsynhallinnan työkaluilla (**Security**-valikko).
@@ -80,7 +77,7 @@ Näiden käyttäjien salasanat voi vaihtaa tarvittaessa pääsynhallinnan työka
 
 Aloitetaan päivittämällä yhteystiedot. Valitse päävalikosta **About & Status → Contact Information**.
 
-Täytä omilla tiedoilla ainakin kentät **Contact**, **Organization** ja **Email**.
+Täytä omilla tiedoilla ainakin kentät **Organization**, **Contact**, **Position** ja **Email**.
 
 ![](img/harjoitus_2/image3.png)
 
@@ -90,7 +87,7 @@ Palataksesi **Welcome**-näkymään voit aina painaa **GeoServer-logoa** sivun v
 
 Server Status -sivulla on tietoa erilaisista GeoServerin asetuksista ja tilasta. Huomaa esimerkiksi **Data directory** -kansion sijainti.
 
-Kirjoita omiin muistiinpanoihisi (harjoituksen viimeinen sivu) palvelimesi **Data directory**:n sijainti.\
+Kirjoita omiin muistiinpanoihisi palvelimesi **Data directory**:n sijainti.\
 
 ![](img/harjoitus_2/image4.png)
 
@@ -106,15 +103,15 @@ Tämä valikko sisältää GeoServerin tärkeimmät toiminnot. Aineistot lisät�
 
 ![](img/harjoitus_2/image6.png)
 
-**Styles** kohdassa määritellään tasoille (**Layers**) kuvaustekniikka, visualisointi. 
+**Styles**-kohdassa määritellään tasoille (**Layers**) kuvaustekniikka, visualisointi. 
 
-**Styles** (kuvaustekniikka) käytetään aina kun tasoja julkaistaan WMS-palveluna. Kuvaustekniikka ei ole riippuvainen tasoista: samaa kuvaustekniikkaa voidaan käyttää useilla tasoilla ja niillä voi olla useita valinnaisia kuvaustekniikoita.
+**Styles**-määrittelyjä (kuvaustekniikka) käytetään aina kun tasoja julkaistaan WMS-palveluna. Kuvaustekniikka ei ole riippuvainen tasoista: samaa kuvaustekniikkaa voidaan käyttää useilla tasoilla, ja niillä voi olla useita valinnaisia kuvaustekniikoita.
 
 ### **Layer Preview**
 
 Tämän valikon avulla on mahdollista esikatsella GeoServerillä julkaistuja karttatasoja.
 
-Geoserverin oletusasennuksessa on julkaistu muutama demotaso, joita voi heti käyttää ja esikatsella.
+GeoServerin oletusasennuksessa on julkaistu muutama demotaso, joita voi heti käyttää ja esikatsella.
 
 ![](img/harjoitus_2/image7.png)
 
@@ -128,13 +125,13 @@ Tasojen lähtöaineisto voi olla rasteri tai vektori, formaatti on kuvattu näil
 
 Tason esikatselu aukenee OpenLayers-karttaikkunana uuteen selainikkunaan. Huomaa, että aineiston **OpenLayers**-esikatselussa on käytössä kuvaustekniikka, joka on määritelty GeoServerilla oletukseksi. Kuvaustekniikka-teemaan tutustutaan myöhemmin lisää.
 
-Käyttämällä alasvetovalikkoa (**Select one**), voit myös ladata kyseisen tason eri tiedostomuodoissa (GeoTIFF, csv, shapefile\...).
+Käyttämällä alasvetovalikkoa (**Select one**), voit myös ladata kyseisen tason eri tiedostomuodoissa (GeoTIFF, CSV, Shapefile\...).
 
 ### **Workspaces**
 
 **Workspace** on GeoServerin tapa säilyttää ja järjestää viittaukset aineistoihin (**Stores**). Aineistot itse on tallennettu hakemistoon (tai tietokantaan), johon GeoServerillä on käyttöoikeudet.
 
-Tyypillisesti samassa workspace:ssa pidetään samanlaisia ja/tai samasta lähteestä saatuja aineistoja. Esimerkiksi organisaation aineistot voidaan järjestää teemojen mukaan workspacen avulla (ymparisto, kaavoitus, vaesto, terveys, jne.)
+Tyypillisesti samassa workspacessa pidetään samanlaisia ja/tai samasta lähteestä saatuja aineistoja. Esimerkiksi organisaation aineistot voidaan järjestää teemojen mukaan workspacen avulla (ymparisto, kaavoitus, vaesto, terveys, jne.).
 
 Avaa **Workspaces**-valikko, muutama workspace on valmiiksi luotu GeoServerille:
 
@@ -152,7 +149,7 @@ Rastita vielä **Default Workspace**, niin jatkossa juuri luomasi workspace on o
 Psst! URI (Uniform Resource Identifier) on teksti, joka määrittelee tietyn resurssin nimen. Se voi olla nettiosoite tai vaikka suhteellinen hakemisto kovalevystä. Ainoa vaatimus on se, että URI:n arvo on yksilöivä. Voit viitata esimerkiksi osoitteeseen tai kansioon, jossa on säilytetty workspaceen liittyvää dokumentaatiota.
 :::
 
-Paina **Submit** ja olet nyt lisännyt uuden workspacen Geoserverille.
+Paina **Submit** ja olet nyt lisännyt uuden workspacen GeoServerille.
 
 Avaa äsken tekemäsi workspace painamalla **helsinki**-workspace **Workspace Name** -kohdan alta ja huomaa, että lisää valintoja on nyt saatavilla. Palataan niihin myöhemmin säädettäessä workspace-kohtaisia asetuksia.
 
@@ -164,7 +161,7 @@ Workspaceja voidaan poistaa valitsemalla yksi tai useampi workspace ja painamall
 
 ### **Stores**
 
-Geoserverillä viitataan aineistolähteisiin **Storesien** avulla. Aineistolähteinä voivat olla yksittäiset tiedostot, tiedostoryhmät, hakemistot, tietokannat tai rajapintapalvelut.
+GeoServerillä viitataan aineistolähteisiin **Storesien** avulla. Aineistolähteinä voivat olla yksittäiset tiedostot, tiedostoryhmät, hakemistot, tietokannat tai rajapintapalvelut.
 
 Oletusasennuksessa on valmiina **Store**-viittauksia esimerkkiaineistoihin:
 
@@ -186,7 +183,7 @@ Mihin aineistoon sfdem-store viittaa?
 Mihin aineistoon taz_shapes-store viittaa?
 :::
 
-Huomaa, että [**file:data/**](file:data/){.uri} viittaa Geoserverin Data Directory -hakemistoon. Hakemiston sijainti levyjärjestelmässä löytyy **About & Status → Server Status** -valikon kautta.
+Huomaa, että [**file:data/**](file:data/){.uri} viittaa GeoServerin Data Directory -hakemistoon. Hakemiston sijainti levyjärjestelmässä löytyy **About & Status → Server Status** -valikon kautta.
 
 Store **taz_shapes** viittaa hakemistoon, jossa on useampia vektoriaineistoja, tässä tapauksessa .shp-tiedostoja.
 
@@ -204,15 +201,15 @@ Tasot (**Layers**) määrittelevät yhden aineistolähteen (**Store**) julkaisem
 
 Yksi taso vastaa yhtä aineistoa. Aineisto voidaan julkaista useisiin eri tasoihin, esimerkiksi eri kuvaustekniikoilla tms.
 
-**Layers**-näkymässä on mahdollista muokata, lisätä tai poistaa tasoja. **Layers**-näkymän taulukossa on nähtävissä muutama taso ja niiden nimet (**Name**). Taulukossa lukee myös tason otsikko (**Title**) ja missä **Store**:ssa aineistot sijaitsevat.
+**Layers**-näkymässä on mahdollista muokata, lisätä tai poistaa tasoja. **Layers**-näkymän taulukossa on nähtävissä muutama taso ja niiden nimet (**Name**). Taulukossa lukee myös tason otsikko (**Title**) ja missä **Store**ssa aineistot sijaitsevat.
 
 Sarake **Enabled** näyttää tiedon siitä, onko taso käytettävissä palvelimelta vai ei. Huomaa, että käytettävyyden voi määritellä koko storelle (eli aineistolähteelle) tai erikseen tasoille (aineiston näkymille). Myös tason alkuperäinen koordinaattijärjestelmä on ilmoitettu taulukossa, **Native SRS**.
 
 ![](img/harjoitus_2/image20.png)
 
-Avaa **Manhattan (NY) landmarks** -tason asetusten näkymä painamalla tason otsikkoa **Title**- tai nimeä **Name** sarakkeesta. 
+Avaa **Manhattan (NY) landmarks** -tason asetusten näkymä painamalla tason otsikkoa (**Title**) tai nimeä (**Name**) sarakkeesta. 
 
-Tasoon liittyvät asetukset ovat laajat ja siksi ne on jaettu välilehtiin **Data**, **Publishing**, **Dimensions** ja **Tile Caching**. 
+Tasoon liittyvät asetukset ovat laajat ja siksi ne on jaettu välilehtiin **Data**, **Publishing**, **Dimensions**, **Tile Caching** ja **Security**. 
 
 Tutustu nyt eri välilehtien asetuksiin saadaksesi kuvan siitä, miten tasot määritellään GeoServerillä. Keskustele niistä kouluttajan kanssa.
 
@@ -231,14 +228,13 @@ Avaa **Styles**-valikko, saat näkyviin listan GeoServerilla olevista kuvaustekn
 ![](img/harjoitus_2/image22.png)
 
 Avaa **giant_polygon**-tyyli ja tutustu GeoServerin käyttämään kuvaustekniikkaformaattiin. Tasojen kuvaustekniikka määritellään käyttäen Styled Layer Descriptor (SLD) -kieltä.
-
 ![](img/harjoitus_2/image23.png)
 
 Kuvaustekniikka on hyvin laaja aihe; siihen tutustutaan erikseen myöhemmin. Kuvaustekniikan toteuttamista voi helpottaa käyttämällä CSS-laajennosta, tätäkin käsitellään myöhemmin koulutuksessa.
 
 ## **Services**
 
-GeoServerin rajapintapalvelujen (WFS, WMS ja WCS) yleisasetukset määritellään **Services**-valikon kautta. Näihin tutustutaan tarkemmin myöhemmin.
+GeoServerin rajapintapalvelujen (WFS, WMS ja WCS) yleisasetukset määritellään **Services**-valikon kautta; näihin tutustutaan tarkemmin myöhemmin.
 
 ![](img/harjoitus_2/image24.png)
 
@@ -249,7 +245,9 @@ Tämä valikko sisältää erilaisia asetuksia kuten:
 +--------------------------------------+-----------------------------------------------------------------------------+
 | **Global**                           | Rajapintapalvelujen asetuksia ja lokitietojen asetuksia                     |
 +--------------------------------------+-----------------------------------------------------------------------------+
-| **Image Processing & Raster Access** | Asetukset kuvien ja raakakuva-aineiston (coverage) käsittelyyn palvelimessa |
+| **Image Processing**                 | Kuvien (WMS-ja WCS-palvelujen) käsittelyyn liittyviä asetuksia              |
++--------------------------------------+-----------------------------------------------------------------------------+
+| **Raster Access**                    | Rasteriaineiston käsittelyyn liittyviä muisti- ja CPU-asetuksia |
 +--------------------------------------+-----------------------------------------------------------------------------+
 
 ## **Tile Caching**

@@ -1,4 +1,4 @@
-# Harjoitus 2.1: WFS-palvelut
+# HARJOITUS 2.1: WFS-PALVELUT
 
 **Harjoituksen sisältö**
 
@@ -148,7 +148,7 @@ Esimerkiksi **Lipas-alueet**-taso GML2-esikatselusta (EPSG-koodi muodossa OGC HT
 
 ## **Workspace-kohtaiset asetukset**
 
-Samalla tavalla kun WMS-palvelujen kanssa, myös WFS-asetuksia on mahdollista määrittää workspace-kohtaisesti. Esimerkiksi WFS-T toiminnallisuus voidaan sallia vain yhden workspacen kautta ja pääsynhallinnan avulla sallia vain tunnistetut käyttäjät muokkaamaan aineistoja.
+Samalla tavalla kun WMS-palvelujen kanssa, myös WFS-asetuksia on mahdollista määrittää workspace-kohtaisesti. Esimerkiksi WFS-T-toiminnallisuus voidaan sallia vain yhden workspacen kautta ja pääsynhallinnan avulla sallia vain tunnistetut käyttäjät muokkaamaan aineistoja.
 
 Avaa **Data → Workspaces** ja valitse sitten **helsinki**-workspace. Rastita sitten **Services → WFS** ja paina sen jälkeen **WFS**-linkkiä.
 
@@ -162,11 +162,11 @@ Paina sen jälkeen **Submit** (sivun lopussa).
 
 Paina lopuksi vielä **Save** sivun alaosasta.
 
-Workspace-kohtaisilla asetuksilla voidaan esim. rajoittaa, missä koordinaattijärjestelmissä workspacen aineistot ovat saatavilla, tai poistaa WFS-T -palvelu tietyn workspacen aineistoista.
+Workspace-kohtaisilla asetuksilla voidaan esim. rajoittaa, missä koordinaattijärjestelmissä workspacen aineistot ovat saatavilla, tai poistaa WFS-T-palvelu tietyn workspacen aineistoista.
 
 ## **Editointi WFS-T-palvelun kautta**
 
-Yksi tärkeä ominaisuus WFS-palveluissa on mahdollisuus editoida vektoriaineistoja suoraan palvelimessa. WFS-T-palvelulle voidaan myös asettaa lukitusmahdollisuus (**Complete** service -taso), joka on tarpeellinen tehdessä editointeja jaetulla aineistolla.
+Yksi tärkeä ominaisuus WFS-palveluissa on mahdollisuus editoida vektoriaineistoja suoraan palvelimessa. WFS-T-palvelulle voidaan myös asettaa lukitus-mahdollisuus (**Complete** service-taso), joka on tarpeellinen tehdessä editointeja jaetulla aineistolla.
 
 Editointia voidaan tehdä eri client-ohjelmistojen avulla, esimerkiksi QGISin tai web-sovellusten kautta.
 
@@ -177,13 +177,15 @@ Tarvitaan ensin WFS-palvelun osoite. Saat tämän esimerkiksi GeoServerin etusiv
 Osoite on muotoa:
 
 ::: note-box
-<http://%3Cip.osoite%3E:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities>
+<http://ip.osoite:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities>
 :::
+
+Huomaa, että yllä olevassa laatikossa **ip.osoite** kohdassa kuuluu olla oma ip-osoitteesi.
 
 GeoServerin oletusasetuksilla workspace-kohtaisen osoitteen saa lisäämällä osoitteeseen workspacen URI:n. Esimerkiksi helsinki-workspacen osoite olisi:
 
 ::: note-box
-<http://%3Cip.osoite%3E:8080/geoserver/ows?service=wfs&version=1.1.0&request=GetCapabilities>
+<http://ip.osoite:8080/geoserver/helsinki/ows?service=wfs&version=1.1.0&request=GetCapabilities>
 :::
 
 Avaa QGIS työpöydän pikakuvakkeesta. Lisää uusi WFS-palvelu ja liitä URL-kenttään äsken kopioimasi osoite. Syötä myös käyttäjänimi (admin) sekä salasana (gispo).
@@ -192,7 +194,7 @@ Avaa QGIS työpöydän pikakuvakkeesta. Lisää uusi WFS-palvelu ja liitä URL-k
 
 Tarvittaessa, seuraa kouluttajan ohjeita **QGISin** käytössä. Yhdistä QGIS omaan WFS-karttapalveluusi, lisää karttaprojektiin **lipas_kaikki_reitit**-taso, jonka lisäsit aiemmin toisessa harjoituksessa. Editoi joitakin paikkatietokohteita ja tallenna muutokset.
 
-Katso jälkeenpäin GeoServerin esikatselusta editoimasi kohteet ja totea, että muutokset ovat todella tallentuneet palvelimelle.
+Katso jälkeenpäin GeoServerin esikatselusta editoimasi kohteet ja totea, että muutokset ovat todella tallentuneet palvelimeen.
 
 ## **Muiden WFS-palvelujen hyödyntäminen (cascading WFS)**
 
@@ -202,17 +204,17 @@ Lisää uusi store (**Data → Stores → Add new Store**), valitse **Web Featur
 
 ![](img/harjoitus_8/image9.png)
 
-Lisätään Lipas-WFS palvelu. Nimeä uusi vektori-store **lipas_WFS** ja laita **WFS GetCapabilities URL** -arvoksi:
+Lisätään Lipas-WFS palvelu. Nimeä uusi vektori-store **lipas_WFS** ja laittaa **WFS GetCapabilities URL** arvoksi:
 
 ::: note-box
-<http://lipas.cc.jyu.fi/geoserver/lipas/ows?service=WFS&REQUEST=Getcapabilities>
+<https://lipas.fi/geoserver/lipas/ows>
 :::
 
 ![](img/harjoitus_8/image10.png)
 
 Loput asetukset voit jättää oletusarvoihin. Paina sitten **Save**.
 
-Uusi store sisältää karttatasoja, jotka on jaettu alkuperäisessä WFS-palvelimessa:
+Uusi store sisältää karttatasoja, jotka on jaettu alkuperäisessä  WFS-palvelimessa:
 
 ![](img/harjoitus_8/image11.png)
 
@@ -225,5 +227,5 @@ Voit nyt esikatsella uutta tasoa (oletusnimeksi tulee **retkikartta_reitit**).
 ![](img/harjoitus_8/image12.png)
 
 ::: hint-box
-Psst! Jos aineisto on suuri ja maksimilatausaika on määritelty alhaiseksi, GeoServer voi tuottaa error-koodin, kun aineistoa ei saada ladattua määrättyyn aikaan mennessä. Muuta maksimilatausaikaa, mikäli aineisto on suuri.
+Psst! Mikäli aineisto on suuri ja maksimilatausaika on määritelty alhaiseksi, GeoServer voi tuottaa error-koodin kun aineistoa ei saada ladattua määrättyyn aikaan mennessä. Muuta tätä aikaa, mikäli aineisto on suuri.
 :::

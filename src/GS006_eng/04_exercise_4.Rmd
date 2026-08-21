@@ -1,4 +1,4 @@
-# Exercise 1.4: Basics of styling (SLD)
+# EXERCISE 1.4: BASICS OF STYLING (SLD)
 
 **Content of the exercise**
 
@@ -16,19 +16,17 @@ After the exercise, the student will be able to use basic styling techniques on 
 
 Start a web browser on your computer and log in at:
 
-::: note-box
-<http://localhost:8080/geoserver>
-:::
+In the previous exercises, a layer **Buildings** has been created on the GeoServer server, where the styling technique will now be created.
 
-In the previous exercises, a layer **Buildings** has been created on the GeoServer server. In this exercise a styling technique will be created for this layer.
-
-## **GeoServer styling technique**
+## **GeoServerin styling technique**
 
 WMS services visualize map images in GeoServer using predefined styling techniques. Until now, we have used the default stylings whenever we added new data, for example when we previewed a layer.
 
 From the main menu, open the **Layers** view and the **Buildings** layer. Then open the **Publishing** tab. ![](img/harjoitus_4/image1.2.png)
 
 Note that under **WMS Settings**, you will find the **Default Style** menu with **polygon** style selected.
+
+\
 
 ![](img/harjoitus_4/image2.png)
 
@@ -68,7 +66,7 @@ You can now test the SLD code with the **Validate** function. Successful testing
 
 ![](img/harjoitus_4/image6.2.png)
 
-Save the changes by pressing **Submit** first.
+Save the changes by pressing **Apply** first.
 
 ## **Deployment of SLD styling technique**
 
@@ -86,11 +84,11 @@ From the **Data → Layer Preview** view, you can now preview the **buildings** 
 
 ## **SLD Cookbook**
 
-You can find out more about writing SLD styles on the SLD Cookbook website. The SLD Cookbook is part of GeoServer online documentation and contains various examples of styling techniques.
+You can find out more about writing SLD styles on the SLD Cookbook website. The SLD Cookbook is part of GeoServer's online documentation and contains various examples of styling techniques.
 
 Let's use an example from the **SLD Cookbook** as a basis for our new style.
 
-In a new browser window, open GeoServer SLD Cookbook from the link below (or you can Google "geoserver sld cookbook" in your browser). Look for **Polygon with styled label** and click on it:
+In a new browser window, open GeoServer's SLD Cookbook from the link below (or you can Google "geoserver sld cookbook" in your browser). Look for **Polygon with styled label** and click on it:
 
 ::: note-box
 <http://docs.geoserver.org/stable/en/user/styling/sld/cookbook/>
@@ -106,7 +104,7 @@ In addition to the standard SLD language, this model code includes two GeoServer
 
 On the sample SLD styles page, find the **View and download the full "Polygon with styled label" SLD** link, open it in a new window and save the page as an .sld file, using the browser's save as function. Give the file a name that you will remember later (for example polygon_polygonwithstyledlabel.sld).
 
-Now return to the GeoServer interface and click **Browse** under the code box. Find the newly uploaded SLD style on the disk and press **Upload**
+Now return to the GeoServer interface and click **Browse** above the code box. Find the newly uploaded SLD style on the disk and press **Upload**
 
 ![](img/harjoitus_4/image8.png)
 
@@ -132,7 +130,7 @@ Modify the SLD style of the polygon as follows:
 Psst! Note that in GeoServer only dot "." is used as a decimal separator. This is valid for all GeoServer settings.
 :::
 
-Then press **Submit** first to save the changes.
+Then press **Apply** first to save the changes.
 
 Finally, change the **Buildings** layer to **Buildings** style (**Data → Layers → Buildings → Publishing**).
 
@@ -167,13 +165,13 @@ The SLD code in the window looks like this:
 
 Then press **Validate**.
 
-If you get error messages or the code does not work, ask the trainer for help. Otherwise, press **Submit** to save the style.
+If you get error messages or the code does not work, ask the trainer for help. Otherwise, press **Apply** to save the style.
 
 The updated style is immediately available on the server and can be previewed using the **buildings** layer. You can update the browser window by pressing the **F5** key or **CTRL+R** keys.
 
 ![](img/harjoitus_4/image11.2.png)
 
-Visit <http://colorbrewer2.org/> to learn about different visualisation styles and choose the right colours for your visualisation.
+At <http://colorbrewer2.org/> you can learn about different visualisation styles and choose the right colours for your visualisation.
 
 ## **Create a road style**
 
@@ -195,15 +193,15 @@ Find **\<Rule\>** inside the paragraph **\<Title\>** and add this below it:
 
 ![](img/harjoitus_4/image13.png)
 
-Then press **Submit**.
+Then press **Apply**.
 
 Set the default style of the roads layer to **roads style** (**Data → Layers → helsinki:roads → Publishing**).
 
 ![](img/harjoitus_4/image14.2.png)
 
-Press **Save** and preview the layer. Note that when you zoom the map to a scale smaller than 1:32 000, the roads will no longer be visible.
+Press **Save** and preview the layer. Note that when you zoom the map to a scale bigger than 1:32 000, the roads will no longer be visible.
 
-Let's add roads also at a scale of 1:32 000 and larger. This is done by creating a **\<Rule\>** partition with the maximum scale (**\<MaxScaleDenominator\>**) set to **32000**.
+Let's add roads also at a scale of 1:32 000 and larger. This is done by creating a **\<Rule\>** partition with the minimum scale (**\<MaxScaleDenominator\>**) set to **32000**.
 
 To make use of the previous rule partition: copy the whole **\<Rule\>** section. Paste it after **\</Rule\>**.
 
@@ -225,7 +223,7 @@ Change the line colour to grey **#666666**, the title to **Thick line** and the 
 
 ![](img/harjoitus_4/image16.2.png)
 
-Press **Submit** and preview. Note that now when you zoom in on the map window (increase the scale), the colour and thickness of the roads will change.
+Press **Apply** and preview. Note that now when you zoom in on the map window (increase the scale), the colour and thickness of the roads will change.
 
 Add a new rule to add a filling colour to the lines. Copy the previous piece of **\<Rule\>** code (with \<MaxScaleDenominator\>32000\</MaxScaleDenominator\>) and paste it as a continuation of the copied piece.
 

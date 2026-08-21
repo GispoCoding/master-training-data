@@ -1,4 +1,4 @@
-# Exercise 2.4: CSS styles
+# EXERCISE 2.4: CSS-STYLING
 
 **Content of the exercise**
 
@@ -16,7 +16,7 @@ After the exercise, the student will be able to use basic styling techniques on 
 
 Various data are uploaded to the GeoServer server. The CSS plugin is installed on GeoServer.
 
-## **CSS styles**
+## **CSS-styles**
 
 Once the CSS plugin is installed, you can write styles in CSS, which is a more user-friendly way to customize your styles than SLD.
 
@@ -41,7 +41,7 @@ The **Style Editor** box now contains text like the following:
 }\
 :::
 
-Press **Submit**. From the **Styles** menu, open the style you just created and select the **Layer Preview** tab. Select a road layer as the layer to preview.
+Press **Save**. From the **Styles** menu, open the style you just created and select the **Layer Preview** tab. Select a road layer as the layer to preview.
 
 Zoom in on the map so that the roads start to show up properly.
 
@@ -122,7 +122,7 @@ z-index: 0, 3;
 
 Note that in this way you define overlapping styles for the main paths, which form more complex visualisations.
 
-Press **Submit** and visualize the result: ![](img/harjoitus_11/image5.2.png)
+Press **Save** and visualize the result: ![](img/harjoitus_11/image5.2.png)
 
 The **Z-index** command defines the order in which the different styles are drawn. An index value of 0 refers to a black line with a thickness of five pixels. An index value of three refers to a yellow line with a thickness of three pixels. Note how the lower values of the Z-index are drawn first and the higher values are drawn later.
 
@@ -206,20 +206,33 @@ Now other roads will only be shown if the **zoom** level is more accurate than *
 Your code at this point should look something like this:
 
 ::: code-box
- /\* \@title Paatiet \*/\
- [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
-     { stroke: black, yellow;\
-     stroke-width: 5px, 3px;\
-     z-index: 0, 3;}\
+ /\* \@title Paatiet \*/
+
+ [type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
+
+     { stroke: black, yellow;
+
+     stroke-width: 5px, 3px;
+
+     z-index: 0, 3;}
+
 \
- /\* \@title Sivutiet \*/\
- [\@scale \< 50000]\
- [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
-     { stroke: black;\
-     stroke-width: 0.1;}\
+
+ /\* \@title Sivutiet \*/
+
+ [\@scale \< 50000]
+
+ [type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
+
+     { stroke: black;
+
+     stroke-width: 0.1;}
+
 \
- /\* \@title Roads \*/\
-   \*  { font-family: Helvetica;}
+
+ /\* \@title Roads \*/ 
+
+ \* { font-family: Helvetica;}
 :::
 
 ## **Adding subtitles**
@@ -259,39 +272,71 @@ You can also define names for smaller roads in the same way as we just did for m
 Here is a sample code with all the previously mentioned styles in use:
 
 ::: code-box
-/\* \@title Paatiet \*/\
-[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']\
-    { stroke: black, yellow;\
-      stroke-width: 5px, 3px;\
-      z-index: 0, 3;\
-      label: [name];\
-      font-weight: bold;\
-      font-fill: black;\
-      font-size: 12;\
-      -gt-label-follow-line: true;\
-      -gt-label-max-angle-delta: 90;\
-      -gt-label-max-displacement: 400;\
-      -gt-label-repeat: 150;\
-      halo-color: white;\
-      halo-radius: 1;}\
+/\* \@title Paatiet \*/
+
+[type = 'motorway' or type = 'primary' or type = 'secondary' or type = 'trunk']
+
+{ stroke: black, yellow;
+
+stroke-width: 5px, 3px;
+
+z-index: 0, 3;
+
+label: [name];
+
+font-weight: bold;
+
+font-fill: black;
+
+font-size: 12;
+
+-gt-label-follow-line: true;
+
+-gt-label-max-angle-delta: 90;
+
+-gt-label-max-displacement: 400;
+
+-gt-label-repeat: 150;
+
+halo-color: white;
+
+halo-radius: 1;}
+
 \
-/\* \@title Sivutiet \*/\
-[\@scale \< 50000]\
-[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']\
-    { stroke: black;\
-    stroke-width: 0.1;\
-    label: [name];\
-    font-fill: black;\
-    font-size: 9;\
-    -gt-label-follow-line: true;\
-    -gt-label-max-angle-delta: 90;\
-    -gt-label-max-displacement: 400;\
-    -gt-label-repeat: 150;\
-    halo-color: white;\
-    halo-radius: 1;}\
+
+/\* \@title Sivutiet \*/
+
+[\@scale \< 50000]
+
+[type \<\> 'motorway' and type \<\> 'primary' and type \<\> 'secondary' and type \<\> 'trunk']
+
+{ stroke: black;
+
+stroke-width: 0.1;
+
+label: [name];
+
+font-fill: black;
+
+font-size: 9;
+
+-gt-label-follow-line: true;
+
+-gt-label-max-angle-delta: 90;
+
+-gt-label-max-displacement: 400;
+
+-gt-label-repeat: 150;
+
+halo-color: white;
+
+halo-radius: 1;}
+
 \
-/\* \@title Tiesto \*/\
-  \* { font-family: Helvetica;}
+
+/\* \@title Tiesto \*/ 
+
+\* { font-family: Helvetica;}
 :::
 
 A preview of this style looks like this on the map: ![](img/harjoitus_11/image10.2.png)

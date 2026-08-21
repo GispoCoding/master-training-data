@@ -1,4 +1,4 @@
-# Harjoitus 1.5: WMS- ja WCS-palvelut
+# HARJOITUS 1.5: WMS- JA WCS-PALVELUT
 
 **Harjoituksen sisältö**
 
@@ -30,7 +30,7 @@ Eri rajapintapalvelujen yleiset asetukset löytyvät päävalikosta **Services**
 
 Käytännössä kaikki aiemmin lisätyt aineistot ovat jo valmiiksi julkaistu rajapintapalveluina, koska kaikki edellä käydyt kolme palvelua (WMS, WCS ja WFS) on aktivoitu koulutuksen GeoServerin oletusasennuksessa.
 
-Olemme esimerkiksi käyttäneet WMS-karttapalvelua aina, kun olemme esikatselleet jotain tasoa selaimella.
+Olemme esimerkiksi käyttäneet WMS-karttapalvelua aina kun olemme esikatselleet jotain tasoa selaimella.
 
 Avaa **Services → WMS-näkymä**.
 
@@ -44,7 +44,8 @@ Kaikkien karttapalveluiden toiminnallisuutta ja palvelinasetuksia voi myös mä�
 Psst! Nämä metadatan asetukset ovat samankaltaiset myös WFS- ja WCS-palvelujen kohdalla.
 :::
 
-Määrittele näitä tietoja WMS-palvelulle.
+Määrittele näitä tietoja WMS-palvelulle. Voit kirjoittaa muistiinpanot harjoituksen viimeiselle sivulle.
+
 ![](img/harjoitus_5/image1.png)
 
 ## **WMS**
@@ -71,7 +72,7 @@ Käytä sitten **Browse\...** valitsemaan GeoServerin logo (**/koulutus/GeoServe
 
 Laita vielä läpinäkyvyyttä **30**:ksi ja sijainniksi **Bottom right**.
 
-Paina nyt **Submit** tallentaaksesi muutokset WMS-palveluun. Kaikkien WMS-palvelukartan kautta saatujen karttojen pitäisi nyt sisältää vesileima.
+Paina nyt **Apply** tallentaaksesi muutokset WMS-palveluun. Kaikkien WMS-palvelukartan kautta saatujen karttojen pitäisi nyt sisältää vesileima.
 
 Avaa **Data → Layer Preview**, ja esikatsele joitakin tasoja. Tarkista, että vesileima tulee näkyviin kaikissa WMS-pyynnöissä.
 
@@ -109,7 +110,7 @@ Tiedot voit tarkistaa Getcapabilities-pyynnöllä seuraavasti:
 
 -   Tiger-workspace: [http://xx.xx.xx.xx/geoserver/tiger/wms?REQUEST=GetCapabilities](http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=Getcapabilities)
 
--   Geoserver oletus: [http://xx.xx.xx.xx/geoserver/wms?REQUEST=GetCapabilities](http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=Getcapabilities)
+-   GeoServer oletus: [http://xx.xx.xx.xx/geoserver/wms?REQUEST=GetCapabilities](http://xx.xx.xx.xx/geoserver/helsinki/wms?REQUEST=Getcapabilities)
 
 \
 ![](img/harjoitus_5/image5.png)
@@ -136,27 +137,26 @@ Jos suurennat kuvaa selaimessa (tai tallennat sen kovalevylle ja katselet sitä 
 
 Valitse ja kopioi koko selaimessa oleva osoitteen teksti. Avaa tekstinkäsittelyohjelma ja liimaa teksti siihen. Se on http-pyyntö GeoServerin palvelimellesi ja se muistuttaa seuraavaa tekstiä:
 
-::: code-box
-http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&version=1.1.0&request=GetMap &layers=tiger:poly_landmarks&styles=&bbox=-74.047185,40.679648,-73.90782,40.882078 **&width=528&height=768**&srs=EPSG:4326**&format=image%2Fjpeg**
+::: note-box
+[http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&version=1.1.0&request=GetMap &layers=tiger:poly_landmarks&styles=&bbox=-74.047185,40.679648,-73.90782,40.882078 **&width=528&height=768**&srs=EPSG:4326**&format=image%2Fjpeg**](http://xx.xx.xx.xx:8080/geoserver/tiger/wms?service=WMS&version=1.1.0&request=GetMap%20&layers=tiger:poly_landmarks&styles=&bbox=-74.047185,40.679648,-73.90782,40.882078%20&width=528&height=768&srs=EPSG:4326&format=image%2Fjpeg)
 :::
 
 Tekstiin on korostettu tärkeimmät parametrit koskien WMS-kuvaa. Niistä voi tulkita seuraavaa:
 
--   **&width** ja **&height**: kuvan koko on 528\*768 pikseliä ja 
+-   **&width** ja **&height**:kuvan koko on 528\*768 pikseliä ja 
 
 -   **&format**: formaatti on JPEG
 
--   Kuvan resoluutiosta ei ole mainittu pyynnössä mitään, joten käytössä on oletusresoluutio.
+-   Kuvan resoluutiosta ei ole mitään mainittu pyynnössä, joten käytössä on oletusresoluutio.
 
-Määrittääksesi kuvaresoluutiota voit lisätä seuraavan parametrin http-pyynnön loppuun: **&format_options=dpi:300**. Lisää se siis WMS-pyyntösi loppuun ja kopioi ja liimaa se kokonaisuudessaan uuteen selainikkunaan vertailua varten. Painamalla **enter** saat aikaiseksi uuden kuvan:
+Määrittääksesi kuvaresoluutiota voit lisätä seuraavan parametrin http-pyynnön loppuun: **&format_options=dpi:300**. Lisää se siis WMS-pyyntösi loppuun, ja kopioi ja liimaa se nyt kokonaisuudessaan uuteen selainikkunaan vertailua varten. Painamalla **enter** saat aikaiseksi uuden kuvan:
 ![](img/harjoitus_5/image9.png)
 
 Huomataan, että tyylit eivät täsmää aikaisempaan. Se johtuu siitä, että pyynnössä pitää myös muokata kuvan kokoa, joka on laskettu oletusresoluutiolle sopivaksi. Nyt WMS-karttapalvelun tuottama JPEG-kuva on tuotettu kuitenkin jo korkeammalla resoluutiolla kuin aikaisemmin.
 
 Resoluutiot voidaan tarkistaa halutessaan tallentamalla molemmat kuvat kovalevylle ja vertaamalla niitä zoomaamalla käyttämäsi käyttöjärjestelmän kuvien esikatseluohjelman avulla.
 
-Kuten sanottu, tyylit eivät nyt näytä oikeilta, koska oletuspyynnössä on kuvan koko laskettu 90 DPI -resoluution mukaiseksi. Nyt on siis muokattava **&width-** ja **&height**-parametrien arvot yhteensopivaksi uuteenresoluutioon eli arvolle **300 DPI**. Tämä tapahtuu käyttämällä seuraavaa yhtälöä:
-
+Kuten sanottu, tyylit eivät nyt näytä oikeilta, koska oletuspyynnössä on kuvan koko laskettu 90 DPI resoluution mukaiseksi. Nyt on siis muokattava **&width-** ja **&height**-parametrien arvot yhteensopivaksi uuteenresoluutioon eli arvolle **300 DPI**. Tämä tapahtuu käyttämällä seuraavaa yhtälöä:
 ![](img/harjoitus_5/image10.png)
 
 ![](img/harjoitus_5/image11.png)
@@ -165,7 +165,7 @@ Kuten sanottu, tyylit eivät nyt näytä oikeilta, koska oletuspyynnössä on ku
 
 -   uusi_pituus = kuvan_oletuspituus \* (uusi_resoluutio/90)
 
-Eli tässä tapauksessa:
+Eli meidän tapauksessamme:
 
 -   uusi_leveys = 528 \* (300/90) → **&width=1760**
 
