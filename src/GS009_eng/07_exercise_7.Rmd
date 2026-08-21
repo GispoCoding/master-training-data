@@ -1,0 +1,339 @@
+# Exercise 7: Spatial Reference Systems
+
+**Contents** -- In this exercise we explore how Spatial Reference Systems and map projections are processed in PostGIS.
+
+**Goal** -- The goal of the exercise is to understand the basics of using SRSs and map projections in PostGIS.
+
+### Preparation
+
+Open [pgAdmin](/pgadmin) in the browser and log in. Open the **Query Tool** (Right click *trainingdatabase* **-\>** **Query Tool**).
+
+### Functions
+
+In this exercise you can use for example the following functions
+for coordinate conversions and transformations:
+
+| PostGIS function | Returns |
+|:--: | :---: |
+| ST_GeomFromText(text WKT, integer srid) | A ST_Geometry object from the OGC Well-Known text (WKT) representation with the given EPSG |
+| ST_AsText(geometry g) | A human-readable WKT representation of an ST_Geometry object |
+| ST_Transform(geometry g1, integer srid) | A geometry with its coordinates transformed to the spatial reference system given as a parameter as an EPSG code |
+| ST_Transform(geometry geom, text to_proj) | A geometry with its coordinates transformed to a different spatial reference system given as a parameter in PROJ.4 format |
+| ST_Transform(geometry geom, text from_proj, text to_proj) | A geometry with its coordinates transformed from a spatial reference system given as a parameter in PROJ.4 format to another spatial reference system given as a parameter in PROJ.4 format |
+| ST_Transform(geometry geom, text from_proj, integer to_srid) | A geometry with its coordinates transformed from a spatial reference system given as a parameter in PROJ.4 format to another spatial reference system given as an EPSG code |
+
+## Exercise 7.1: Creating a geometry
+
+The goal is to execute a conversion for the coordinates of the Royal Observatory Greenwich from geographic coordinates (EPSG:4258) to the ETRS89-extended / LAEA Europe (EPSG:3035) coordinates. First create a PostGIS point for the observatory from these coordinates: 0.0005 (longitude) 51.4768 (latitude).
+
+:::code-box
+```sql
+SELECT
+ST_AsText(ST_GeomFromText('POINT(0.0005 51.4769)', 4258));
+```
+:::
+
+## Exercise 7.2: Coordinate conversion
+
+Perform a coordinate conversion for the Greenwich Observatory coordinates to the ETRS89-extended /LAEA Europe (EPSG:3035) CRS using the **ST_Transform** function.
+
+:::code-box
+```sql
+SELECT
+...
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- fill in the correct functions based on the hints
+-- fill in the source and target CRS codes into the places marked with '...'
+SELECT
+ST_AsText(ST_...(ST_GeomFromText('POINT(0.0005 51.4769)', ...), ...));
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+ST_AsText(ST_Transform(ST_GeomFromText('POINT(0.0005 51.4769)', 4258), 3035));
+```
+:::
+:::
+
+The result should be as follows (as WKB):
+
+:::code-box
+```
+0101000020DB0B0000BCB381E2A76848416523239D78AF4B41
+```
+:::
+
+or as text:
+
+:::code-box
+```
+POINT(3199311.7695831936 3628785.2276348346)
+```
+:::
+
+## Exercise 7.3: Another conversion
+
+Next let's perform a conversion for the same coordinates to the WGS 84 / Pseudo-Mercator (EPSG:3857) CRS.
+
+:::code-box
+```sql
+SELECT
+...
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- fill in the correct function
+-- fill in the target and source CRS codes
+SELECT
+ST_AsText(ST_...(ST_GeomFromText('POINT(0.0005 51.4769)', ...), ...));
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+ST_AsText(ST_Transform(ST_GeomFromText('POINT(0.0005 51.4769)', 4258), 3857));
+```
+:::
+:::
+
+The result should be:
+
+:::code-box
+```
+POINT(55.65974539663679 6706089.334791817)
+```
+:::
+
+## Exercise 7.4: SRS definitions
+
+You can find the definitions for different SRSs from the **spatial_ref_sys** table:
+
+:::code-box
+```sql
+SELECT
+srid, proj4text
+FROM
+spatial_ref_sys
+WHERE
+srid = 4326;
+```
+:::
+
+## Exercise 7.5: Comparing spatial reference system definitions
+
+What is the difference between the EPSG:4326 and EPSG:4258 SRSs?
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+WHERE
+...
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Select based on the EPSG code
+SELECT
+..., proj4text
+FROM
+spatial_ref_sys
+WHERE
+... in (4326, 4258);
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+srid, proj4text
+FROM
+spatial_ref_sys
+WHERE
+srid in (4326, 4258);
+```
+:::
+:::
+
+## Exercise 7.6: Creating a new spatial data table
+
+Let's create a new table with a geometry column with the WGS84 SRS. Let's create four columns in total (gid, name, ICAO, geom):
+
+:::code-box
+```sql
+DROP TABLE IF EXISTS air_geom;
+
+CREATE TABLE air_geom
+(
+    gid    serial PRIMARY KEY,
+    name    varchar(254),
+    ICAO    varchar(254),
+    geom    geometry(Point,4326)
+);
+```
+:::
+
+Let's insert data from the previously created 'airports' table to the new 'air_geom' table. 
+Form the SELECT query first to make sure the insertion will be successful.
+
+:::code-box
+```sql
+INSERT INTO
+air_geom(geom, name, ICAO)
+SELECT
+ST_GeomFromText('POINT(' || airports.longitude|| ' ' || airports.latitude||')',4326),
+airports.name, airports.icao_code
+FROM
+airports;
+```
+:::
+
+Using two vertical bar (pipe) symbols ```||``` you can concatenate text.
+
+## Exercise 7.7: Adding another geometry column
+
+Let's add another geometry column to the table, this time with the EPSG:3857 SRS:
+
+:::code-box
+```sql
+ALTER TABLE
+air_geom
+ADD COLUMN
+geom3857 geometry(Point,3857);
+```
+:::
+
+## Exercise 7.8: Saving converted geometries
+
+Let's convert and update new points to the new column:
+
+:::code-box
+```sql
+UPDATE
+air_geom
+SET
+geom3857 = ST_Transform(geom, 3857);
+```
+:::
+
+If running the command resulted in an error, how can you fix the issue?
+
+Explore the airport data set and find the row which causes the error. You can check what area the EPSG:3857 SRS covers, for example [here](https://epsg.io/3857).
+
+:::code-box
+```sql
+SELECT ...
+FROM
+...
+WHERE
+...
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+SELECT *
+FROM
+air_geom
+WHERE
+y-coordinate(geom) < ...;
+
+-- Using which PostGIS can you return the Y coordinate?
+-- fill in an appropriate Y value in the blank
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT *
+FROM
+air_geom
+WHERE
+ST_Y(geom) < -85.06;
+```
+:::
+:::
+
+When you have identified the problem, fix it by filtering out the problematic row:
+
+:::code-box
+```sql
+SELECT gid,name,icao,ST_asText(geom)
+FROM air_geom
+WHERE ST_Y(geom) = -90;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+UPDATE air_geom
+SET geom3857 = ST_Transform(geom,3857)
+WHERE ...;
+-- filter out the problematic row
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT gid,name,icao,ST_asText(geom)
+FROM air_geom
+WHERE ST_Y(geom) = -90;
+```
+:::
+:::code-box
+```sql
+UPDATE air_geom
+SET geom3857 = ST_Transform(geom,3857)
+WHERE icao != 'NZSP';
+```
+:::
+:::
+
+After you've fixed the problem, check the results using QGIS.

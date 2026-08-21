@@ -1,0 +1,511 @@
+# Exercise 5: Spatial feature geometries
+
+**Contents** -- In this exercise we explore how PostGIS handles geometries.
+
+**Goal** -- The goal of the exercise is to understand the basics of processing geometries with PostGIS.
+
+### Preparation
+
+Open [pgAdmin](/pgadmin) in the browser and log in. Open the **Query Tool** (Right click *trainingdatabase* **-\>** **Query Tool**).
+
+## Exercise 5.1
+
+First let's create a table to which we can create different geometries:
+
+::: code-box
+``` sql
+DROP TABLE IF EXISTS geom_test;
+
+CREATE TABLE IF NOT EXISTS geom_test
+(
+    gid   serial PRIMARY KEY,
+    name  varchar(50),
+    geom  geometry(geometry, 3067)
+);
+```
+:::
+
+Add a single point to the table with the following command:
+
+::: code-box
+``` sql
+INSERT INTO
+geom_test(name, geom)
+VALUES
+('Single point', 'SRID=3067; POINT(0 0)');
+```
+:::
+
+You can inspect the table with the following query or with QGIS:
+
+::: code-box
+``` sql
+SELECT
+name, ST_AsText(geom), ST_GeometryType(geom)
+FROM
+geom_test;
+```
+:::
+
+## Exercise 5.2
+
+Add a linestring and a polygon to the table.
+
+You may either use the WKT format (LINESTRING(0 1, 2 3) and POLYGON((4 5, 6 7, 8 9, 10 11, 4 5)) or PostGIS functions (ST_MakeLine, ST_MakePolygon, ST_MakeEnvelope).
+
+Check the documentation for the functions: [8.4 Geometry Constructors](http://postgis.net/docs/reference.html#Geometry_Constructors).
+
+WKT format:
+
+::: code-box
+``` sql
+INSERT INTO
+
+VALUES
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+hint
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+-- linestring
+INSERT INTO
+geom_test(name, geom)
+VALUES
+(..., '...; ...'); -- fill in the blanks '...'
+
+-- polygon
+INSERT INTO
+geom_test(name, geom)
+VALUES
+(..., '...; ...'); -- fill in the blanks '...'
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+answer
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+INSERT INTO
+geom_test(name, geom)
+VALUES
+('Single linestring', 'SRID=3067; LINESTRING(0 1, 2 3)');
+
+INSERT INTO
+geom_test(name,geom)
+VALUES
+('Single polygon', 'SRID=3067; POLYGON((4 5, 6 7, 8 9, 10 11, 4 5))');
+```
+:::
+:::
+
+PostGIS function:
+
+::: code-box
+``` sql
+INSERT INTO
+
+VALUES
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+hint
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+-- check the documentation and fill in the values.
+INSERT INTO
+geom_test(name,geom)
+VALUES
+('Simple polygon using ST_MakeEnvelope', ST_MakeEnvelope());
+
+INSERT INTO
+geom_test(name,geom)
+VALUES
+('Single point using ST_MakePoint', ST_SetSRID(ST_MakePoint(),3067));
+
+INSERT INTO
+geom_test(name,geom)
+VALUES
+('Single linestring using ST_MakeLine',
+ ST_SetSRID(ST_MakeLine(ST_MakePoint(),ST_MakePoint()),3067));
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+answer
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+INSERT INTO
+geom_test(name,geom)
+VALUES
+('Simple polygon using ST_MakeEnvelope', ST_MakeEnvelope(20,20,40,40,3067));
+
+INSERT INTO
+geom_test(name,geom)
+VALUES
+('Single point using ST_MakePoint', ST_SetSRID(ST_MakePoint(100,200),3067));
+
+INSERT INTO
+geom_test(name,geom)
+VALUES
+('Single linestring using ST_MakeLine',
+ ST_SetSRID(ST_MakeLine(ST_MakePoint(1,1),ST_MakePoint(50,50)),3067));
+```
+:::
+:::
+
+### Area
+
+The attributes of geometries can be calculated and used with different SQL functions. With the following command you can find the 10 smallest countries in the EU:
+
+::: code-box
+``` sql
+SELECT 
+name_en as "Name", ST_Area(wkb_geometry) as "Area"
+FROM 
+ne.countries_eu
+ORDER BY
+ST_Area(wkb_geometry) asc
+LIMIT 10;
+```
+:::
+
+The area is in the same units as in the coordinate reference system, in this case square meters. If you want the area f.e. as hectares, you can divide the area by 10 000.
+
+## Exercise 5.3
+
+What is the area of the fifth smallest country in the 'Western Europe' sub-region? Convert the result to square kilometers.
+
+::: code-box
+``` sql
+SELECT
+...
+FROM
+...
+WHERE
+...
+ORDER BY
+...
+LIMIT ...
+OFFSET ...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+hint
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+-- fill in the columns
+-- the round() function rounds the value. The parameter '2' means that the
+-- value is returned with two decimal places
+SELECT
+name_en, subregion
+round((ST_Area(geometria)/ ... ::numeric, 2) as "area (Sq. km)"
+-- the area will be returned as square meters. Fill in the correct value to
+-- convert the result to square kilometers
+FROM
+ne.countries_eu
+WHERE
+subregion = 'Western Europe'
+ORDER BY
+ST_Area(wkb_geometry) ... -- order into ascending order
+LIMIT 1
+OFFSET ...;
+-- the OFFSET keyword shifts the set of returning rows to start from the
+-- row X. Fill in the value which gets you the fifth smallest country.
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+answer
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+name_en as "Country", subregion As "Sub-region",
+round((ST_Area(wkb_geometry)/(1000*1000))::numeric,2) as "area (Sq. km)"
+FROM
+ne.countries_eu
+WHERE
+subregion = 'Western Europe'
+ORDER BY
+ST_Area(wkb_geometry) asc
+LIMIT 1
+OFFSET 4;
+```
+:::
+:::
+
+### Topology
+
+You can inspect the topology of geometries in many ways. For example you can find the EU countires which have a 'hole' (interior ring) in them with the following query:
+
+::: code-box
+``` sql
+SELECT
+name_en as "Country"
+FROM
+ne.countries_eu
+WHERE 
+ST_NumInteriorRings(ST_GeometryN(wkb_geometry,1)) > 0;
+```
+:::
+
+### Length
+
+You can calculate the length of linestrings with the **ST_Length** function. For example you can calculate the total length of the railroads_eu data set:
+
+::: code-box
+``` sql
+SELECT
+sum(ST_Length(wkb_geometry))/1000 as "Railroad length"
+FROM
+ne.railroads_eu;
+```
+:::
+
+## Exercise 5.4
+
+Which 5 EU countries have the most railroads by length?
+
+::: code-box
+``` sql
+SELECT
+...
+FROM
+...
+GROUP BY
+...
+ORDER BY
+...
+LIMIT ...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+hint
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+-- Using what function can you calculate the length?
+-- Use the SUM function to calculate the total length of a country's railroads
+SELECT
+country, SUM(length_function(wkb_geometry)/1000) as "Railroad length"
+FROM
+ne.railroads_eu
+GROUP BY
+...       -- fill in the blank
+ORDER BY
+SUM(ST_Length(wkb_geometry)/1000) desc
+LIMIT 5;
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+answer
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+country, SUM(ST_Length(wkb_geometry)/1000) as "Railroad length"
+FROM
+ne.railroads_eu
+GROUP BY
+country
+ORDER BY
+SUM(ST_Length(wkb_geometry)/1000) desc
+LIMIT 5;
+```
+:::
+:::
+
+### Formats
+
+Previously we converted geometries to a text format. PostGIS also supports other formats:
+
+::: code-box
+``` sql
+SELECT
+ST_asGeoJSON(wkb_geometry)
+FROM
+ne.countries_world
+WHERE
+name_en = 'Sweden';
+```
+:::
+
+Try out different formats:
+
+-   GML
+-   SVG
+-   KML
+-   X3D
+-   EWKB, EWKT
+
+### Data type conversion (casting)
+
+There are two ways to cast (convert) data types:
+
+::: code-box
+``` mysql
+cast(varchar_col AS int)     -- SQL compatible
+varchar_col::int        -- traditional way in PostgreSQL
+```
+:::
+
+::: code-box
+``` sql
+SELECT CAST('POINT(0 0)' as geometry);
+SELECT 'POINT(0 0)'::geometry;
+```
+:::
+
+## Exercise 5.5
+
+Create a new spatial data layer from the airport data used in exercise 1. Save the location of the airports in a PostGIS geometry data type.
+
+Use the following SQL command as an example. It's a good idea to use the LIMIT keyword to inspect only a small portion of the data set:
+
+::: code-box
+``` sql
+SELECT name, longitude, latitude, 'POINT(' || longitude || ' '|| latitude || ')' as WKT_new
+FROM airports
+ORDER BY name
+LIMIT 10;
+```
+:::
+
+::: code-box
+``` sql
+DROP TABLE IF EXISTS airports_geom
+
+CREATE TABLE airports_geom AS
+(
+    SELECT
+    ...
+    FROM
+    ...
+);
+
+SELECT
+...
+FROM
+...
+ORDER BY
+...
+LIMIT ...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+hint
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+-- What function can you use to define a coordinate reference system?
+DROP TABLE IF EXISTS airports_geom;
+
+CREATE TABLE airports_geom AS
+(
+    SELECT
+    *, aseta_koordinaattijärjestelmä(CAST('...' as geometry),4326) as geometry
+    FROM
+    airports
+);
+-- fill in the CAST() function.
+
+-- inspect the new table:
+
+SELECT
+name, longitude, latitude, geom
+FROM
+airports_geom
+ORDER BY
+name
+LIMIT 10;
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+
+answer
+
+</button>
+
+::: hidden-box
+::: code-box
+``` sql
+
+DROP TABLE IF EXISTS airports_geom;
+
+CREATE TABLE airports_geom AS
+(
+    SELECT
+    *, ST_SetSRID(CAST('POINT(' || longitude || ' '|| latitude || ')' as geometry),4326) as geometry
+    FROM
+    airports
+);
+
+
+-- inspect the new table:
+
+SELECT
+name, longitude, latitude, geom
+FROM
+airports_geom
+ORDER BY
+name
+LIMIT 10;
+```
+:::
+:::
+
+Should you use 'geometry' or 'geography'?

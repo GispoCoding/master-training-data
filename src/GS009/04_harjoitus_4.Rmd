@@ -1,0 +1,244 @@
+# Harjoitus 4: Spatiaaliset SQL-haut
+
+**Harjoituksen sisältö** - Harjoituksessa tutustutaan paikkatietojen tallentamisen perusperiaatteisiin ja suoritetaan muutamia spatiaalisia SQL-hakuja.
+
+**Harjoituksen tavoite** - Harjoituksen jälkeen opiskelijalla on käsitys, kuinka PostGIS-tietokannan spatiaalisia hakuoperaattoreita voidaan käyttää osana paikkatietoanalyysejä.
+
+### Valmistautuminen
+
+Avaa [pgAdmin](/pgadmin) selaimeen ja kirjaudu sisään. Avaa **Query Tool** (Valitse *trainingdatabase* **-\>** Ylhäältä **Tools** **-\>** **Query Tool**).
+
+### Paikkatietojen metatiedot
+
+Kaikki PostGIS-tietokannassa olevat paikkatietotaulut on rekisteröity metatieto-tauluihin:
+
+|                                               |                                                             |
+|:------------------------------:|:--------------------------------------:|
+| [**geography_columns**]{style="color:purple"} |           Geography-tietotyypin paikkatietotaulut           |
+| [**geometry_columns**]{style="color:purple"}  |           Geometry-tietotyypin paikkatietotaulut            |
+|  [**raster_columns**]{style="color:purple"}   |         Rasteritietoa sisältävät paikkatietotaulut          |
+| [**raster_overviews**]{style="color:purple"}  | Yleistettyjä rasteriaineistoja sisältävät paikkatietotaulut |
+
+## Harjoitus 4.1: Geometrioiden metatiedot
+
+Tutki geometry_columns-taulua. Mitä tietoja eri tietokentät sisältävät?
+
+::: code-box
+``` sql
+SELECT *
+FROM
+geometry_columns;
+```
+:::
+
+::: hint-box
+Onko geometry_columns taulu?
+:::
+
+## Harjoitus 4.2: Geometrian esittäminen
+
+Tarkastellaan ensin paikkatietojen tallennusmuotoa PostGIS-paikkatietokannassa. Suorita seuraava SQL-lause:
+
+::: code-box
+``` sql
+SELECT
+kunta_ni1, maaku_ni1, wkb_geometry
+FROM
+nlsfi.hallintoalue
+WHERE
+kunta_ni1 = 'Hanko';
+```
+:::
+
+Tuloksesta nähdään, että sarakkeen wkb_geometry sisältö on koneluettavassa binäärimuodossa. 
+
+::: hint-box
+Vinkki: On mahdollista tarkastella geometrioita suoraan graafisessa käyttöliittymässä klikkaamalla pientä karttaikonia ![](img/pgadmin_geom.png) geometriasarakkeen päällä. Mikäli aineistot ovat WGS84-koordinaattijärjestelmässä (EPSG: 4326), pgAdmin myös lisää niihin suoraan taustakartan OpenStreetMapista.
+:::
+
+Aineistojen koordinaatistot löytyvät SRID-sarakkeesta. Yhdessä SRID-sarakkeessa voi olla vain yhden koordinaatiston metatiedot. Koordinaatit voi muuntaa paremmin ihmisluettavaan tekstimuotoon seuraavalla hakulausekkeella:
+
+::: code-box
+``` sql
+SELECT
+kunta_ni1, maaku_ni1, ST_AsText(wkb_geometry)
+FROM
+nlsfi.hallintoalue
+WHERE
+kunta_ni1 = 'Hanko';
+```
+:::
+
+## Harjoitus 4.3: Funktiot
+
+Kokeile myös seuraavia funktioita Hangon kunnan geometriatietoihin liittyen:
+
+-   ST_Boundary
+
+::: code-box
+``` sql
+SELECT
+...
+FROM
+...
+WHERE
+...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+SELECT
+kunta_ni1, maaku_ni1, ST_Boundary() -- valitse funktioon geometria- sarake
+FROM
+skeema.taulu
+WHERE
+...; -- valitse Hangon kunta nimen perusteella.
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+kunta_ni1, maaku_ni1, ST_Boundary(wkb_geometry)
+FROM
+nlsfi.hallintoalue
+WHERE
+kunta_ni1 = 'Hanko';
+```
+:::
+:::
+
+-   ST_Centroid
+
+::: code-box
+``` sql
+SELECT
+...
+FROM
+...
+WHERE
+...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+kunta_ni1, maaku_ni1, ST_Centroid() -- valitse funktioon geometria- sarake
+FROM
+skeema.taulu
+WHERE
+...; -- valitse Hangon kunta nimen perusteella.
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+kunta_ni1, maaku_ni1, ST_Centroid(wkb_geometry)
+FROM
+nlsfi.hallintoalue
+WHERE
+kunta_ni1 = 'Hanko';
+```
+:::
+:::
+
+-   ST_Envelope
+
+::: code-box
+``` sql
+SELECT
+...
+FROM
+...
+WHERE
+...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+kunta_ni1, maaku_ni1, ST_Envelope() -- valitse funktioon geometria- sarake
+FROM
+skeema.taulu
+WHERE
+...; -- valitse Hangon kunta nimen perusteella.
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+kunta_ni1, maaku_ni1, ST_Envelope(wkb_geometry)
+FROM
+nlsfi.hallintoalue
+WHERE
+kunta_ni1 = 'Hanko';
+```
+:::
+:::
+
+Huomaa, miten vastauksena tuleva geometrian tyyppi vaihtelee eri funktioiden kohdalla.
+
+## Harjoitus 4.4: Spatiaaliset indeksit
+
+Tarkastele nlsfi.hallintoalue-taulun indeksejä. 
+
+- Mitä indeksiä taululle on muodostunut? 
+
+Indeksejä voi tarkastella sekä **pgAdmin**in tai QGIS **DB Manager**in avulla että luomalla tarkoitukseen sopivan SQL-kyselyn.
+
+Spatiaaliset indeksit on luotu silloin kun latasit aineistot QGISillä tietokantaan. Jos silloin valitsit, että indeksiä ei luoda niin indeksejä ei ole. Jos haluat luoda niitä jälkikäteen niin se onnistuu seuraavalla tavalla (esimerkki ainoastaan tieviiva-tasolle):
+
+::: code-box
+``` sql
+CREATE INDEX tieviiva_wkb_geometry
+ON nlsfi.tieviiva
+USING GIST(wkb_geometry);
+```
+:::
+
+pgAdminissa löydät indeksit valitsemalla Schemas \> [valitse skeema] \> Tables \> [valitse taulu] \> Indexes.
+
+Jos käytät psql-komentoriviohjelmaa, voit tarkastella kaikki nlsfi-skeeman indeksejä seuraavalla psql-komennolla (huomaa että *-symboli löytää kaiken, mutta jos haluat tarkastella vain tiettyä indeksiä niin voit kirjoittaa sen *-symbolin tilalle):
+
+::: commandline-box
+```         
+\di+ nlsfi.*
+```
+:::
+
+Yllä olevalla komennolla voit nähdä kaikki nlsfi-skeeman indeksit lisätietoineen. Psql:n \d-komento tulee sanasta describe ja lisäämällä i-kirjain niin se kertoo ainoastaan indekseistä. Plussa taas antaa enemmän tietoja kuin pelkkä \di.  Voit kokeilla seuraavia komentoja ja vertailla ne aiempaan:
+
+::: commandline-box
+```         
+\d nlsfi.*
+\di nlsfi.*
+
+```
+:::
+
+Mikä on tieviivoja sisältävän taulun koko ja miten suuri on siihen tehty indeksi?

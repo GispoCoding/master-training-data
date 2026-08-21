@@ -1,0 +1,309 @@
+# Harjoitus 8: Geoprosessointi
+
+**Harjoituksen sisältö** - Harjoituksessa tutustutaan PostGISin geoprosessointifunktioihin.
+
+**Harjoituksen tavoite** - Harjoituksen jälkeen opiskelija tuntee geoprosessointifunktioiden perusteet.
+
+### Valmistautuminen
+
+Avaa [pgAdmin](/pgadmin) selaimeen ja kirjaudu sisään.  Avaa **Query Tool** (Valitse _trainingdatabase_ **->** Ylhäältä **Tools** **->** **Query Tool**).
+
+## Harjoitus 8.1: Keskipisteet
+
+Kirjoitetaan yhdessä **SQL-terminaaliin** seuraava komento:
+
+:::code-box
+```sql
+SELECT
+ST_Centroid(wkb_geometry) as "Centroids of first 10"
+FROM
+nlsfi.hallintoalue
+LIMIT 10;
+```
+:::
+
+Komento tuottaa kymmenen ensimmäisen alueen keskipisteet.
+
+## Harjoitus 8.2: Keskipisteiden määritys
+
+Ovatko kaikki keskipisteet alueiden sisäpuolella? Kuinka monta pistettä jää ulkopuolelle?
+
+:::code-box
+```sql
+SELECT ...
+```
+:::
+
+Huomaa, että saat selville vastauksen myös tulostamalla kaikkien sellaisten kuntien nimet, joiden keskipiste jää alueen ulkopuolelle ja laskemalla tulostaulukon rivien lukumäärän.
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- vaihtoehto 1 ST_Contains- funktiolla
+-- CTE:llä
+WITH notin AS(
+    SELECT
+    ...
+    FROM
+    ...
+    WHERE
+    NOT ...
+
+SELECT
+count(...)
+FROM
+notin;
+```
+:::
+
+:::code-box
+```sql
+-- vaihtoehto 2 - ST_Within- funktiolla
+SELECT
+...
+FROM
+...
+WHERE
+NOT ...;
+```
+:::
+:::
+
+Ratkaisuvaihtoehto 1 (käytetään **ST_Contains**-funktiota):
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+WITH notin AS(
+    SELECT
+    kunta_ni1 as "withST_Contains"
+    FROM
+    nlsfi.hallintoalue
+    WHERE
+    NOT ST_Contains(wkb_geometry, ST_Centroid(wkb_geometry)))
+
+SELECT
+count(notin."withST_Contains")
+FROM
+notin;
+```
+:::
+:::
+
+Ratkaisuvaihtoehto 2 (käytetään **ST_Within**-funktiota):
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+kunta_ni1 as "with ST_Within"
+FROM
+nlsfi.hallintoalue
+WHERE
+NOT ST_Within(ST_Centroid(wkb_geometry), wkb_geometry);
+```
+:::
+:::
+
+## Harjoitus 8.3: Etäisyydet
+
+Miten paljon harjoituksessa 8.2 löydettyjen kuntien painokeskipisteet eroavat **ST_PointOnSurface**–funktion pisteistä?
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+WHERE
+NOT ...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Millä PostGIS- funktiolla voit laskea etäisyyden pisteiden välillä?
+SELECT
+kunta_ni1 as "Kunta",
+round(etäisyys(ST_PointOnSurface(wkb_geometry), ST_centroid(wkb_geometry)))
+as "Distance PntOnSurface and Centroid"
+FROM
+nlsfi.hallintoalue
+WHERE
+NOT ...;
+-- rajaa pois pisteet, jotka ei ole polygonin sisällä.
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+kunta_ni1 as "Kunta",
+round(ST_Distance(ST_PointOnSurface(wkb_geometry), ST_centroid(wkb_geometry)))
+as "Distance PntOnSurface and Centroid"
+FROM
+nlsfi.hallintoalue
+WHERE
+NOT ST_Within(ST_Centroid(wkb_geometry), wkb_geometry);
+```
+:::
+:::
+
+## Harjoitus 8.4: Vyöhykkeet
+
+Muodostetaan tiestölle vyöhyke:
+
+:::code-box
+```sql
+SELECT
+id, ST_Buffer(wkb_geometry, 100) as geom
+FROM
+nlsfi.tieviiva
+WHERE
+tienumero = 66;
+```
+:::
+
+Muodosta vyöhykkeestä näkymä ja visualisoi se QGISissä. Voit myös muodostaa useamman vyöhykkeen eri etäisyyksille.
+
+:::code-box
+```sql
+DROP VIEW IF EXISTS nlsfi.view_road_buffer;
+
+CREATE VIEW nlsfi.view_road_buffer AS (
+    WITH buffers AS (
+        ...
+        UNION
+        ...
+    )
+    SELECT
+    row_number() OVER() AS vid, geom, buffer
+    FROM
+    buffers
+);
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">vinkki</button>
+
+::: hidden-box
+:::code-box
+```sql
+DROP VIEW IF EXISTS nlsfi.view_road_buffer;
+
+CREATE VIEW nlsfi.view_road_buffer AS (
+    WITH buffers AS (
+        SELECT
+        ..., 100 as buffer -- täydennä ST_Buffer funktio
+        FROM
+        nlsfi.tieviiva
+        WHERE
+        ... -- valitse tienumeron 66 mukaan
+        UNION
+        SELECT
+        ..., 250 as buffer -- täydennä ST_Buffer funktio
+        FROM
+        nlsfi.tieviiva
+        WHERE -- valitse tienumeron 66 mukaan
+        ...
+    )
+    SELECT
+    row_number() OVER() AS vid, geom, buffer
+    FROM
+    buffers
+);
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">ratkaisu</button>
+
+:::hidden-box
+:::code-box
+```sql
+DROP VIEW IF EXISTS nlsfi.view_road_buffer;
+
+CREATE VIEW nlsfi.view_road_buffer AS (
+    WITH buffers AS (
+        SELECT
+        ST_Buffer(wkb_geometry, 100) as geom, 100 as buffer
+        FROM
+        nlsfi.tieviiva
+        WHERE
+        tienumero = 66
+        UNION
+        SELECT
+        ST_Buffer(wkb_geometry, 250) as geom, 250 as buffer
+        FROM
+        nlsfi.tieviiva
+        WHERE
+        tienumero = 66
+    )
+    SELECT
+    row_number() OVER() AS vid, geom, buffer
+    FROM
+    buffers
+);
+```
+:::
+:::
+
+> Editoi alkuperäistä tieviivaa QGIS:ssä.
+
+## Harjoitus 8.5: Geometrioiden yhdistäminen
+
+Muodosta (yhdistä) hallintoalueista maakuntien raja -aineisto:
+
+:::code-box
+```sql
+
+DROP TABLE IF EXISTS tmp.maakunnat;
+
+CREATE TABLE tmp.maakunnat as (
+    SELECT
+    ST_Union(wkb_geometry), maaku_ni1 as "Maakunnan nimi"
+    FROM
+    nlsfi.hallintoalue
+    GROUP BY
+    maaku_ni1
+);
+```
+:::
+
+Vastaavasti, aineiston voi muodostaa myös hyödyntämällä näkymiä:
+
+:::code-box
+```sql
+DROP VIEW IF EXISTS tmp.view_maakunta;
+
+CREATE VIEW tmp.view_maakunta AS (
+    SELECT
+    ST_Union(wkb_geometry), maaku_ni1
+    FROM
+    nlsfi.hallintoalue
+    GROUP BY
+    maaku_ni1
+);
+```
+:::
+
+### PostGISin tehokkuus
+
+Yksi suurimmista hyödyistä PostGISin käytössä on sen tehokkuus suuria tietoaineistoja käsiteltäessä.
+
+#### Lisätehtävä
+
+Suurin osa geoprosessoinnin työkaluista löytyy myös QGISistä, mutta PostGISin tehokkuus tulee esille erityisesti, jos kokeilet tehdä saman operaation QGISin työkaluilla ja PostGISillä. Huomaatko eron?

@@ -1,0 +1,310 @@
+# Exercise 8: Geoprocessing
+
+**Contents** -- In this exercise we explore the geoprocessing functions in PostGIS.
+
+**Goal** -- The goal of the exercise is to understand the basics of using geoprocessing functions.
+
+### Preparation
+
+Open [pgAdmin](/pgadmin) in the browser and log in. Open the **Query Tool** (Right click *trainingdatabase* **-\>** **Query Tool**).
+
+## Exercise 8.1: Centroids
+
+Run the following command:
+
+:::code-box
+```sql
+SELECT
+ST_Centroid(wkb_geometry) as "Centroids of first 10"
+FROM
+ne.countries_eu
+LIMIT 10;
+```
+:::
+
+As a result we get the centroids of the first ten countries.
+
+## Exercise 8.2: Centroids within polygons
+
+Are all of the centroids inside the polygons? How many points are outside?
+
+:::code-box
+```sql
+SELECT ...
+```
+:::
+
+Note that you can also get the same result by selecting the countries whose centroid is outside the polygon and counting the resulting rows.
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- option 1 ST_Contains function
+-- CTE:llä
+WITH notin AS(
+    SELECT
+    ...
+    FROM
+    ...
+    WHERE
+    NOT ...
+
+SELECT
+count(...)
+FROM
+notin;
+```
+:::
+
+:::code-box
+```sql
+-- option 2 - ST_Within function
+SELECT
+...
+FROM
+...
+WHERE
+NOT ...;
+```
+:::
+:::
+
+Solution 1 (using the **ST_Contains** function):
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+WITH notin AS(
+    SELECT
+    name_en as "withST_Contains"
+    FROM
+    ne.countries_eu
+    WHERE
+    NOT ST_Contains(wkb_geometry, ST_Centroid(wkb_geometry)))
+
+SELECT
+count(notin."withST_Contains")
+FROM
+notin;
+```
+:::
+:::
+
+Solution 2 (Using the **ST_Within** function):
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+name_en as "with ST_Within"
+FROM
+ne.countries_eu
+WHERE
+NOT ST_Within(ST_Centroid(wkb_geometry), wkb_geometry);
+```
+:::
+:::
+
+## Exercise 8.3: Distances
+
+How much do the centroids found in exercise 8.1 differ from the results from the **ST_PointOnSurface** function, i.e. what are the distances between them?
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+WHERE
+NOT ...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- What function can you use to calculate distance between points?
+SELECT
+name_en as "Country",
+round(ST_...(ST_PointOnSurface(wkb_geometry), ST_centroid(wkb_geometry)))
+as "Distance PntOnSurface and Centroid"
+FROM
+ne.countries_eu
+WHERE
+NOT ...;
+-- filter out points which are not inside of polygons.
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+name_en as "Country",
+round(ST_Distance(ST_PointOnSurface(wkb_geometry), ST_centroid(wkb_geometry)))
+as "Distance PntOnSurface and Centroid"
+FROM
+ne.countries_eu
+WHERE
+NOT ST_Within(ST_Centroid(wkb_geometry), wkb_geometry);
+```
+:::
+:::
+
+## Exercise 8.4: Buffers
+
+Let's create a buffer for Sweden's railroads:
+
+:::code-box
+```sql
+SELECT
+id, ST_Buffer(wkb_geometry, 100) as wkb_geometry
+FROM
+ne.railroads_eu
+WHERE
+country = 'Sweden';
+```
+:::
+
+Create a view of the buffers and visualize them in QGIS. You can create several buffers with different distances. Make sure to select the railroads of a certain country (f.e. Sweden).
+
+:::code-box
+```sql
+DROP VIEW IF EXISTS ne.view_railroadbuffer;
+
+CREATE VIEW ne.view_railroadbuffer AS (
+    WITH buffers AS (
+        ...
+        WHERE
+        country = 'Sweden'
+        UNION
+        ...
+        WHERE
+        country = 'Sweden'
+    )
+    SELECT
+    row_number() OVER() AS vid, geom, buffer
+    FROM
+    buffers
+);
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+DROP VIEW IF EXISTS ne.view_railroadbuffer;
+
+CREATE VIEW ne.view_railroadbuffer AS (
+    WITH buffers AS (
+        SELECT
+        ..., 100 as buffer -- use the ST_Buffer function
+        FROM
+        ne.railroads_eu
+        WHERE
+        country = 'Sweden'
+        UNION
+        SELECT
+        ..., 250 as buffer -- use the ST_Buffer function
+        FROM
+        ne.railroads_eu
+        WHERE
+        country = 'Sweden'
+    )
+    SELECT
+    row_number() OVER() AS vid, geom, buffer
+    FROM
+    buffers
+);
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+DROP VIEW IF EXISTS ne.view_railroadbuffer;
+
+CREATE VIEW ne.view_railroadbuffer AS (
+    WITH buffers AS (
+        SELECT
+        ST_Buffer(wkb_geometry, 100) as geom, 100 as buffer
+        FROM
+        ne.railroads_eu
+        WHERE
+        country = 'Sweden'
+        UNION
+        SELECT
+        ST_Buffer(wkb_geometry, 250) as geom, 250 as buffer
+        FROM
+        ne.railroads_eu
+        WHERE
+        country = 'Sweden'
+    )
+    SELECT
+    row_number() OVER() AS vid, geom, buffer
+    FROM
+    buffers
+);
+```
+:::
+:::
+
+## Exercise 8.5: Union
+
+Combine the rivers of each country to it's own table:
+
+:::code-box
+```sql
+DROP TABLE IF EXISTS tmp.rivers_by_country;
+
+CREATE TABLE tmp.rivers_by_country as (
+    SELECT
+    ST_Union(wkb_geometry), name_en_2 as "Country"
+    FROM
+    ne.rivers_eu
+    GROUP BY
+    name_en_2
+);
+```
+:::
+
+You can also use views:
+
+:::code-box
+```sql
+DROP VIEW IF EXISTS tmp.view_riversbycountry;
+
+CREATE VIEW tmp.view_riversbycountry AS (
+    SELECT
+    ST_Union(wkb_geometry), name_en_2
+    FROM
+    ne.rivers_eu
+    GROUP BY
+    name_en_2
+);
+```
+:::
+
+### PostGIS is efficient
+
+One of the major advantages of useing PostGIS is its efficiency in processing large data sets.
+
+#### Additional exercise
+
+Most of the geoprocessing tools can also be found in QGIS. The efficiency of PostGIS can be seen if you try to perform the same operation using the same tool in QGIS and PostGIS. Do you notice the difference?

@@ -1,0 +1,419 @@
+# Exercise 6: Spatial relations
+
+**Contents** -- In this exercise we try out PostGIS functions for handling spatial relations.
+
+**Goal** -- The goal of the exercise is to understand PostGIS spatial relation functions and perform simple analyses with them.
+
+### Preparation
+
+Open [pgAdmin](/pgadmin) in the browser and log in. Open the **Query Tool** (Right click *trainingdatabase* **-\>** **Query Tool**).
+
+### Functions
+
+Most of the following functions are used in the following exercises:
+
+|              PostGIS function              |                           Returns                            |
+|:------------------------------:|:--------------------------------------:|
+|    ST_Contains(geometry A, geometry B)     |                     TRUE if A contains B                     |
+|     ST_Crosses(geometry A, geometry B)     |                     TRUE if A crosses B                      |
+|    ST_Disjoint(geometry A , geometry B)    |          TRUE if geometries do not cross each other          |
+|    ST_Distance(geometry A, geometry B)     |             Minimum distance between geometries              |
+| ST_DWithin(geometry A, geometry B, radius) |       TRUE if A is closer to B than the given distance       |
+|     ST_Equals(geometry A, geometry B)      |                   TRUE if A is equal to B                    |
+|   ST_Intersects(geometry A, geometry B)    |                    TRUE if A intersects B                    |
+|    ST_Overlaps(geometry A, geometry B)     | TRUE if A and B overlap but are not contained in one another |
+|     ST_Touches(geometry A, geometry B)     |              TRUE if the border of A touches B               |
+|     ST_Within(geometry A, geometry B)      |                    TRUE if A is inside B                     |
+
+## Exercise 6.1
+
+How many airports are within a 50 km radius of the Dublin Airport:
+
+::: code-box
+``` sql
+WITH dublin_airport AS (
+	SELECT 
+		wkb_geometry
+	FROM 
+		ne.airports_eu
+	WHERE 
+		name = 'Dublin Airport'
+)
+
+	SELECT 
+		name
+	FROM
+		dublin_airport a,
+		ne.airports_eu b
+	WHERE
+		ST_DWithin(a.wkb_geometry, b.wkb_geometry, 50*1000);
+```
+:::
+
+Note how the letters a and b are used as aliases in the query. Aliases replace the names of different columns. Using them makes it easier to write and interpret queries, especially longer ones. You can read more about aliases here: [postgresql-alias](https://www.postgresqltutorial.com/postgresql-alias/).
+
+Which rivers are entirely contained inside one country?
+
+::: code-box
+``` sql
+SELECT
+...
+FROM
+...
+WHERE
+...
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+b.name_en
+FROM
+ne.countries_eu a, ne.rivers_eu b
+WHERE
+ST_...(a.wkb_geometry, b.wkb_geometry);
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+b.name_en
+FROM
+ne.countries_eu a, ne.rivers_eu b
+WHERE
+ST_Contains(a.wkb_geometry, b.wkb_geometry);
+```
+:::
+:::
+
+::: hint-box
+Note! Of course, more countries than seen in the result contain entire rivers. The result seen here is because the Natural Earth river data set does not include all rivers, only major ones.
+:::
+
+If you add the DISTINCT parameter to the SELECT command, you can find out how many countries entirely contain rivers.
+
+::: code-box
+``` sql
+SELECT
+
+FROM
+(SELECT DISTINCT
+
+FROM
+
+WHERE
+ST_Contains(..., ...));
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+``` sql
+-- use a subquery and give it an alias
+SELECT
+count(country_distinct)
+FROM
+(SELECT DISTINCT
+a.name_en as country_distinct
+FROM
+ne.countries_eu a, ne.rivers_eu b
+WHERE
+ST_...(... , ... )) AS country_distinct;
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT
+count(country_distinct)
+FROM
+(SELECT DISTINCT
+a.name_en as country_distinct
+FROM
+ne.countries_eu a, ne.rivers_eu b
+WHERE
+ST_Contains(a.wkb_geometry, b.wkb_geometry)) as DistincKunta;
+```
+:::
+:::
+
+## Exercise 6.2
+
+Which countries in the EU have more than 100 airports?
+
+::: code-box
+``` sql
+SELECT ...
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+::: code-box
+``` sql
+-- Option 1 - Use a CTE
+WITH apm AS (
+SELECT DISTINCT
+a.name_en, COUNT(...) OVER(PARTITION BY ...) AS CountAirports
+FROM
+ne.countries_eu a, ne.airports_eu b
+WHERE
+contains(a.wkb_geometry, b.wkb_geometry)
+ORDER BY
+CountAirports DESC
+)
+
+SELECT
+name_en as "Country", countairports AS "Count of Airports"
+FROM
+apm
+WHERE
+CountAirports > 100;
+```
+:::
+
+::: code-box
+``` sql
+-- Option 2
+
+SELECT 
+a.name_en as "Country", count(...) as "Count"
+FROM
+ne.countries_eu a, ne.airports_Eu b
+WHERE
+contains(a.wkb_geometry, b.wkb_geometry)
+GROUP BY
+a.name_en
+HAVING count(...) > ...;
+
+-- fill in the blanks. Choose the correct function
+```
+:::
+:::
+
+Thorough solution:
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+``` sql
+WITH apm AS (
+SELECT DISTINCT
+a.name_en, COUNT(a.name_en) OVER(PARTITION BY a.name_en) AS CountAirports
+FROM
+ne.countries_eu a, ne.airports_eu b
+WHERE
+ST_Contains(a.wkb_geometry, b.wkb_geometry)
+ORDER BY
+CountAirports DESC
+)
+
+SELECT
+name_en as "Country", countairports AS "Count of Airports"
+FROM
+apm
+WHERE
+CountAirports > 100;
+```
+:::
+:::
+
+Simpler solution:
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+::: code-box
+``` sql
+SELECT 
+a.name_en as "Country", count(*) as "Count"
+FROM
+ne.countries_eu a, ne.airports_Eu b
+WHERE
+ST_Contains(a.wkb_geometry, b.wkb_geometry)
+GROUP BY
+a.name_en
+HAVING count(*) > 100;
+```
+:::
+:::
+
+## Exercise 6.3
+
+Let's find the EU countries that have no railroads:
+
+::: code-box
+``` sql
+SELECT 
+b.name_en
+FROM
+(SELECT
+ ST_union(wkb_geometry) as wkb_geometry
+ FROM
+ ne.railroads_eu) as a, ne.countries_eu b
+WHERE
+ST_Disjoint(a.wkb_geometry, b.wkb_geometry);
+```
+:::
+
+## Exercise 6.4
+
+Let's find the three nearest airports.
+
+Using the K Nearest Neighbours method (KNN) you can find the three closest airports to a city point.
+
+::: code-box
+``` sql
+WITH madrid AS
+(SELECT
+ wkb_geometry
+ FROM
+ ne.capitals_eu
+ WHERE
+ name_en = 'Madrid')  
+
+SELECT
+round(ST_Distance(madrid.wkb_geometry, a.wkb_geometry)/1000) as "km",*
+FROM 
+ne.airports_eu a, madrid
+ORDER BY
+madrid.wkb_geometry <-> a.wkb_geometry
+LIMIT 3;
+```
+:::
+
+The same result can be achieved without the KNN algorithm:
+
+::: code-box
+``` sql
+SELECT
+*, round(ST_Distance(wkb_geometry,(
+    SELECT ST_Centroid(wkb_geometry)
+    FROM
+    ne.capitals_eu
+    WHERE
+    name_en ='Madrid'))/1000) as distance
+FROM
+ne.airports_eu 
+ORDER by
+distance
+LIMIT 3;
+```
+:::
+
+## Exercise 6.5
+
+What are the neighbouring countires of the Czech Republic?
+
+::: code-box
+``` sql
+SELECT
+b.name_en
+FROM
+(SELECT
+ name_en, wkb_geometry
+ FROM
+ ne.countries_eu
+ WHERE
+ name_en = 'Czech Republic') a, ne.countries_eu b
+WHERE
+ST_Touches(a.wkb_geometry, b.wkb_geometry);
+```
+:::
+
+## Exercise 6.6
+
+Find the rivers which cross over countries' borders:
+
+::: code-box
+``` sql
+SELECT
+a.name_en, a.wkb_geometry
+FROM
+ne.rivers_eu a, ne.countries_eu b
+WHERE
+ST_Crosses(a.wkb_geometry, b.wkb_geometry)
+```
+:::
+
+For visualizing results you can create a **new schema** (tmp). You can create a new table based on query results. QGIS can be used to visualize the results. You can also create a view from the results, but remember to add a **DISTINCT** identifier to the rows.
+
+::: code-box
+``` sql
+CREATE SCHEMA IF NOT EXISTS tmp;
+```
+:::
+
+::: code-box
+``` sql
+DROP TABLE IF EXISTS tmp.crossrivers;
+
+CREATE TABLE tmp.crossrivers AS
+(
+    SELECT
+    a.name_en, a.wkb_geometry
+    FROM
+    ne.rivers_eu a, ne.countries_eu b
+    WHERE
+    ST_Crosses(a.wkb_geometry, b.wkb_geometry)
+);
+```
+:::
+
+::: code-box
+``` sql
+DROP VIEW IF EXISTS tmp.view_crossrivers;
+
+CREATE VIEW tmp.view_crossrivers AS
+(
+    SELECT DISTINCT
+    a.name_en, a.wkb_geometry, a.fid
+    FROM
+    ne.rivers_eu a, ne.countries_eu b
+    WHERE
+    ST_Crosses(a.wkb_geometry, b.wkb_geometry)
+);
+```
+:::
+
+Which was faster, creating the table or the view?
+
+::: hint-box
+How about viewing them in QGIS? Why?
+:::
+
+## Exercise 6.7
+
+Let's calculate the minimum distance from Ireland's airports to the nearest railroad:
+
+::: code-box
+``` sql
+SELECT
+a.name, MIN(ST_Distance(a.wkb_geometry, b.wkb_geometry)) as "dist"
+FROM
+ne.airports_eu a, ne.railroads_eu b
+WHERE
+a.country = 'Ireland'
+GROUP BY
+a.name 
+ORDER BY
+dist;
+```
+:::

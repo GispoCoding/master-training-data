@@ -1,0 +1,34 @@
+---
+title: "PostgreSQL ja PostGISin perusteet"
+author: "Gispo Oy"   
+date: "`r Sys.Date()`"
+site: "bookdown::bookdown_site"
+abstract: "Kurssi PostGISin yleisimpiin käyttötapauksiin."
+output:
+    bookdown::html_book:
+        toc: true
+        toc_depth: 2
+        number_sections: true
+        pandoc_args: ["--number-sections"]
+        theme: null
+        template: custom.html
+        css: custom.css
+        split_by: rmd
+      
+documentclass: book
+---
+
+# 1. Johdanto
+
+Tervetuloa kurssin harjoitusten pariin!
+
+Näiden harjoitusten avulla voit tutustua itsenäisesti PostgreSQL-tietokantajärjestelmän PostGIS-lisäosaan. Valitse vasemmalta haluamasi aihe.
+
+## 1.1 Harjoitusmateriaalin lisenssi
+
+- Harjoitusmateriaalit on julkaistu avoimella lisenssillä. Käytettävä lisenssi on [Creative Commons Nimeä-EiMuutoksia 4.0](https://creativecommons.org/licenses/by-nd/4.0/deed.fi).
+
+Harjoituksissa käytettävät aineistot:
+
+- 1_milj_Shape_etrs_shape.zip - ladattu 5.7.2023 Maanmittauslaitoksen Karttapaikasta (Maastokartta 1:1 000 000). Jaettu lisenssillä [Creative Commons Nimeä 4.0](https://creativecommons.org/licenses/by/4.0/deed.fi)
+- airports.dat - ladattu [Openflights](https://openflights.org/data.html)- sivustolta. Lentokenttäaineisto on julkista (public domain).

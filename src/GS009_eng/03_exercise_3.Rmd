@@ -1,0 +1,353 @@
+# Exercise 3: Basics of SQL
+
+**Contents** -- In this exercise we write basic SQL queries.
+
+**Goal** -- The goal of the exercise is to familiarize oneself with SQL.
+
+### Preparation
+
+Open [pgAdmin](/pgadmin) in the browser and log in. Open the **Query Tool** (Right click _trainingdatabase_ **->** **Query Tool**).
+
+
+## Exercise 3.1: Simple SQL queries
+
+Let's inspect the spatial data sets imported in the last exercise:
+
+:::code-box
+```sql
+SELECT
+name_en
+FROM
+ne.countries_world;
+```
+:::
+
+Queries can be filtered with the **WHERE** keyword:
+
+:::code-box
+```sql
+SELECT
+name_en, wkb_geometry
+FROM
+ne.countries_world
+WHERE
+continent = 'Asia';
+```
+:::
+
+Functions can be used in SQL commands. This way you can for example calculate averages or standard deviations. Next let's inspect the length of different countries' names:
+
+:::code-box
+```sql
+SELECT
+avg(char_length(name_en)), stddev(char_length(name_en))
+FROM
+ne.countries_world
+WHERE
+continent = 'Europe';
+```
+:::
+
+With the following SQL statement we see which continents have the longest country names by average:  
+
+:::code-box
+```sql
+SELECT
+continent, avg(char_length(name_en))
+FROM
+ne.countries_world
+GROUP BY
+continent
+ORDER BY
+avg(char_length(name_en)) DESC;
+```
+:::
+
+## Exercise 3.2
+
+Which continent has the longest country names by average?
+
+::: code-box
+```sql
+SELECT
+...
+FROM
+...
+GROUP BY
+...
+ORDER BY
+... desc
+LIMIT ...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Fill in the correct columns, schema and table. Check which functions calculates
+-- the average. Use the char_length() function, which returns the length of a
+-- string
+
+SELECT
+continent, average_function(char_length(country))
+FROM
+schema.table
+GROUP BY
+continent
+ORDER BY
+average_function(char_length(country)) desc
+LIMIT 1;
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+::: hidden-box
+:::code-box
+```sql
+SELECT
+continent, avg(char_length(name_en))
+FROM
+ne.countries_world
+GROUP BY
+continent
+ORDER BY
+avg(char_length(name_en)) desc
+LIMIT 1;
+```
+:::
+:::
+
+## Exercise 3.3
+
+Which continent has the shortest country names by average?
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+GROUP BY
+...
+ORDER BY
+... asc
+LIMIT ...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Fill in the correct columns, schema and table. Check which functions calculates
+-- the average. Use the char_length() function, which returns the length of a
+-- string
+
+SELECT
+continent, average_function(char_length(country))
+FROM
+schema.table
+GROUP BY
+continent
+ORDER BY
+average_function(char_length(country)) asc
+LIMIT 1;
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+continent, avg(char_length(name_en))
+FROM
+ne.countries_world
+GROUP BY
+continent
+ORDER BY
+avg(char_length(name_en)) asc
+LIMIT 1;
+```
+:::
+:::
+
+## Exercise 3.4
+
+Which country has the longest name in the world?
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+ORDER BY
+...
+LIMIT
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Fill in the correct column, schema and table. Choose the function
+-- which tells you the length of a string.
+SELECT
+country, continent, character_length(country)
+FROM
+schema.table
+ORDER BY
+character_length(country) desc
+LIMIT 1;
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+name_en as "Country", continent as "Continent", char_length(name_en) as "Length"
+FROM
+ne.countries_world
+ORDER BY
+char_length(name_en) desc
+LIMIT 1;
+```
+:::
+:::
+
+## Exercise 3.5
+
+How many English country names are 5 letters long?
+
+:::code-box
+```sql
+WITH ... AS
+(
+    SELECT ...
+)
+
+SELECT
+...
+FROM
+...;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- use a CTE (Common Table Expression)
+WITH ltr5 AS
+(
+
+    SELECT
+    ...
+    FROM
+    ...
+    WHERE
+    ... AND ...
+)
+
+SELECT
+count() AS ... -- use the count() function (choose a suitable column from the CTE)
+               -- You may also define an alias after the AS expression.
+FROM
+...; -- refer to the CTE
+```
+:::
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+WITH ltr5 AS
+(
+    SELECT
+    name_en as "Country", continent as "Continent", char_length(name_en) as "Length"
+    FROM
+    ne.countries_world
+    WHERE
+    char_length(name_en) = 5
+)
+
+SELECT
+count("Country") AS "5 letter long country names"
+FROM
+ltr5;
+```
+:::
+:::
+
+## Exercise 3.6
+
+Which countries' English and Spanish names are different, but of equal length?
+Order the results in a descending order based on the length of the english name.
+
+:::code-box
+```sql
+SELECT
+...
+FROM
+...
+WHERE
+...
+ORDER BY
+... DESC;
+```
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">hint</button>
+
+::: hidden-box
+:::code-box
+```sql
+-- Fill in the columns
+SELECT
+country_name_en, country_name_es, char_length(country_name_en) AS "Length"
+FROM
+ne.countries_world
+WHERE
+country_name_en ... country_name_es AND char_length(country_name_en) ... char_length(country_name_es)
+-- fill in the blanks '...' with the correct operators
+-- if needed, check the documentation (link below)
+ORDER BY
+char_length(country_name_en) DESC;
+```
+:::
+[Operators in the PostgreSQL documentation.](https://www.postgresql.org/docs/9.0/functions-comparison.html)
+:::
+
+<button onclick="toggleAnswer(this)" class="btn answer_btn">answer</button>
+
+:::hidden-box
+:::code-box
+```sql
+SELECT
+name_en, name_es, char_length(name_en) AS "Length"
+FROM
+ne.countries_world
+WHERE
+name_en <> name_es AND char_length(name_en) = char_length(name_es)
+ORDER BY
+char_length(name_en) DESC;
+```
+:::
+:::
