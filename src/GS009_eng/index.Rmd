@@ -1,6 +1,6 @@
 ---
 title: "Introduction to PostGIS"
-author: "Gispo Ltd"   
+author: "Gispo Finland Ltd"   
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Introduction to typical PostGIS use cases."
