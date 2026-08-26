@@ -1,6 +1,6 @@
 ---
 title: "PostgreSQL ja PostGISin perusteet"
-author: "Gispo Oy"   
+author: "Gispo Suomi Oy"   
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Kurssi PostGISin yleisimpiin käyttötapauksiin."
