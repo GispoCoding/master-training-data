@@ -1,6 +1,6 @@
 ---
 title: "Johdanto GeoServerin käyttöön"
-author: "Gispo Oy"
+author: "Gispo Suomi Oy"
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
 abstract: "Johdantokurssi GeoServerin käyttöön"
@@ -10,18 +10,16 @@ output:
         theme: null
         template: custom.html
         css: custom.css
-        split_by: chapter+number #rmd
+        split_by: chapter+number
 documentclass: book
 ---
 
-<!-- Harjoitukset -->
+# Johdanto GeoServerin käyttöön
 
-# JOHDANTO GEOSERVERIN KÄYTTÖÖN
+**Tervetuloa GeoServer-kurssille!**
+Tämän kurssin tarkoituksena on opastaa sinut GeoServerin käyttöön. Paikkatietojen tai muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumiselle. Toki niistä on paljon hyötyä. Kysy rohkeasti kouluttajalta lisätietoja, jos käytetty terminologia tai joku asia jää epäselväksi.
 
-## Tervetuloa GeoServer-kurssille!
-Tämän kurssin tarkoituksena on opastaa sinut GeoServerin käyttöön. Paikkatietojen tai muiden paikkatieto-ohjelmistojen käyttökokemus ei ole välttämätöntä koulutukseen osallistumisel­le. Toki niistä on paljon hyötyä. Kysy rohkeasti opettajalta lisätietoja, jos käytetty terminologia tai joku asia jää epäselväksi.
-
-## GeoServerin taustaa
+**GeoServerin taustaa**
 GeoServer on avoimen lähdekoodin palvelinohjelmisto, jossa voi jakaa, käsitellä ja hallinnoida geospatiaalista dataa. GeoServer on ollut toiminnassa vuodesta 2001 alkaen “The Open Planning Project”-hankkeen kautta. Vuonna 2014 GeoServer siirtyi OSGeo-projektin alle. GeoServeriä päivitetään puolen vuoden välein ja ohjelmiston käyttäjäkunta on varsin vilkas ja aktiivinen.
 
 
@@ -69,13 +67,6 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 <https://geoserver.org/>
 :::
 
-::: note-box
-<https://www.qgis.org/>
-:::
-
-::: note-box
-<https://www.qgis.org/resources/hub/>
-:::
 
 ::: note-box
 <https://gis.stackexchange.com/>
