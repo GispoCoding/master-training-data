@@ -1,19 +1,20 @@
 ---
 title: "Suunnittelu ja editointi QGISillä"
-author: "Gispo Suomi Oy."
+author: "Gispo Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "Syventävä kurssi datan tuottamisesta QGISissä"
+abstract: "Syventäväkurssi datan tuottamisesta QGISissä."
 output:
     bookdown::html_book:
         toc: true
         theme: null
         template: custom.html
         css: custom.css
-        split_by: rmd
-        number_sections: false
+        split_by: chapter+number #rmd
 documentclass: book
 ---
+
+<!-- Harjoitukset -->
 
 # Suunnittelu ja editointi QGISillä
 
@@ -28,13 +29,7 @@ Tavoitteena on saada kaikki irti QGISin ominaisuuksista erityisesti datan tuotta
 Voit ladata harjoituksissa käytettävän kurssihakemiston tästä linkistä:
 
 ::: note-box
-[Kurssihakemisto.zip](https://drive.google.com/file/d/18CBVmGG17ZnPD20f8bsEs3Mn32wQxQQm/view?usp=sharing)
-:::
-
-Ja kurssin harjoitukset PDF-muodossa tästä linkistä:
-
-::: note-box
-[Harjoitukset PDF-muodossa](https://github.com/gispocoding/master-training-data/releases/download/GS002/GS002.pdf)
+[Kurssihakemisto.zip](https://drive.google.com/file/d/15LMwj7HQfo7Br8qZ1Uf7cOo7lF424r_4/view?usp=drive_link)
 :::
 
 ## Lukuohje
@@ -48,9 +43,7 @@ Ja kurssin harjoitukset PDF-muodossa tästä linkistä:
 **Komentorivillä** suoritettavat komennot on merkitty seuraavasti:
 
 ::: commandline-box
-``` shell
 sudo lsb_release -a
-```
 :::
 
 **Tiedostojen sisältö** on esitetty seuraavasti:
@@ -62,9 +55,7 @@ sudo lsb_release -a
 **HTML- ja CSS-koodit, SQL-komennot sekä Python-scriptit** on esitetty seuraavasti:
 
 ::: code-box
-``` sql
 SELECT version();
-```
 :::
 
 **Kysymykset, lisätiedot ja vihjeet** on esitetty seuraavasti:
@@ -99,8 +90,8 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ## Virheet
 
-Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla osoitteeseen [info\@gispo.fi](mailto:info@gispo.fi){.email}.
+Jos havaitset materiaalissa virheitä, niin pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
 
 ## Lisenssi ja oikeudet
 
-Nämä materiaalit on "Suunnittelu ja editointi QGISillä" -kurssille kehittänyt Gispo Suomi Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
+Nämä materiaalit on "Suunnittelu ja editointi QGISillä"-kurssille kehittänyt Gispo Oy. Materiaalit on lisensoitu seuraavalla lisenssillä: [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/)
