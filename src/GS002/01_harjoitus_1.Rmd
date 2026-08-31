@@ -1,142 +1,133 @@
-# Harjoitus 1: Digitoinnin perusteet
+# Harjoitus 1: Georeferointi
 
 **Harjoituksen sisältö**
 
-Harjoituksessa luodaan vektoriaineisto hyödyntäen digitoinnin perustyökaluja.
+Harjoituksessa harjoitellaan georeferointia vastinpisteiden avulla.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen osallistuja osaa lisätä ja luoda tasoja QGISiin.
+Koulutettava oppii tuomaan kuvatiedoston QGIS-ohjelmaan ja georeferoimaan sen koordinaatistoon.
 
 **Arvioitu kesto**
 
-30 minuuttia.
+45 minuuttia.
 
 ## Valmistautuminen
 
 Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 1**".
 
-## Muokkauksen yleisasetukset
+QGISin lisäosat tarjoavat käyttöösi suuren valikoiman erilaisia taustakarttoja. Eri rajapinnoista saatavat taustakartat toimivat samaan tapaan kuin projektiin avatut rasteritasot: niiden läpinäkyvyyttä voi säätää, mutta ne eivät sisällä ominaisuustietoja.
 
-Muokkauksen toimintoa ja muita yleisiä muokkaustyöasetuksia voit muuttaa päävalikon ikkunassa **Asetukset \> Valinnat \> Digitointi**. Jos et esimerkiksi halua, että ominaisuustietojen muokkausikkuna tulee esiin jokaisen polygonin piirtämisen jälkeen niin rastita **Älä näytä ominaisuustietojen pop-up lomaketta kohteen luonnin jälkeen**. Jätä se kuitenkin päälle tällä kertaa. Kokeile myös vaihtaa kohteiden muokkausväri keltaiseksi (**Kuminauha**) ja **Taitepisteen** symbolin tyyli ja koko. Paina **OK**, niin asetukset tulevat voimaan.
+Helpoin tapa lisätä OpenStreetMap-kartta on etsiä se Selain-paneelista **XYZ Tiles** -rivin alta ja tuplaklikata sitä:
 
-![](img/harjoitus_1/image1.png)
+![](img/harjoitus_3/image22.png)
 
-## Editoinnin valmistelu
+Lisää taustakarttoja saat lataamalla Python-skriptin osoitteesta: <https://raw.githubusercontent.com/klakar/QGIS_resources/master/collections/Geosupportsystem/python/qgis_basemaps.py>
 
-Aloitetaan tekemällä editointia helpottavia valmisteluja. Ensimmäisenä aktivoi omaan projektiisi **Työkalut-valikosta** (**Näytä -> Työkalut**) seuraavat työkalut:
+Toimi siis seuraavasti:
 
--   Digitoinnin työkalupalkki
+1\. Kopioi ylläolevan osoitteen koko sisältö
 
--   Digitoinnin lisätyökalujen palkki
+2.  Avaa QGISin Python-konsoli (Lisäosat → Python-konsoli)
 
--   Tarttumisen työkalut\
+3\. Liitä kopiomasi sisältö avautuneeseen Python-konsoliin \>\>\>-merkkien jälkeiseen laatikkoon
 
-![](img/harjoitus_1/image2.png)
+![](img/harjoitus_3/image23.png)
 
-Usein ensimmäinen operaatio aineistojen luomisessa on taustakartan lisääminen. Taustakartta helpottaa liikkumista ja aineistojen tarkistusta. Uudemmissa QGISin versioissa on OpenStreetMapin taustakarttatasot saatavilla valmiina. Lisää taustakartta projektiin vasemmalta tuplaklikkaamalla  **Selain-paneelista XYZ Tiles \> OpenStreetMap**.
+4\. Paina Enter tai klikkaa \"Suorita komento\" -nappulaa ![](img/harjoitus_3/image24.png){width="35" height="31"}
 
-![](img/harjoitus_1/image3.png)
+Nyt käytössäsi pitäisi olla lisää taustakarttoja selainikkunan XYZ Tiles -kohdassa.
 
-Zoomaa kartta Suomen kohdalle ja koska haluamme tehdä tarkkaa editointia oikeassa koordinaattijärjestelmässä, muutetaan projektin koordinaattijärjestelmä Suomen kansalliseen **EUREF-FIN 3067**. Klikkaa projektin oikeasta alakulmasta, jossa lukee tällä hetkellä EPSG:3857, jonka QGIS on asettanut taustakartan perusteella.
+### Lisää taustakarttoja - QuickMapServices -lisäosa
 
-Paina tämän jälkeen **OK,** jonka jälkeen avautuva ikkuna kysyy sinulta koordinaattimuunnoksesta. Valitse uudestaan **OK** ja nyt projektisi on oikeassa koordinaattijärjestelmässä.
+Laajemman valikoiman erilaisia taustakarttoja saat käyttöösi lisäosalla nimeltä **QuickMapServices**. Asenna se yläpalkin Lisäosat-valikosta ja avaa sen jälkeen Verkko-valikosta **Search QMS**. Avautuvasta paneelista voit etsiä erilaisia taustakarttoja ja satelliittikuvia, suodattaa niitä sijaintisi perusteella, ja saada tarvittaessa lisätietoja (esim. käyttöoikeuksista) kartasta. Vihreä pallo kertoo, että kartta on saatavilla. Etsi vaikka satelliittikuva tulevan harjoituksen avuksi.
 
-## GeoPackagen luonti
+Voit valita taustakartaksi jonkun selkeän kartan, josta saat helposti näkyville tien, rakennukset ja ympäröivän alueen, kuten satelliittikuvan tai OpenStreetMapin. Georeferoitava kohde on Tampereen keskustassa. Voit joko etsiä kohteen kartalta tai hyödyntää QGISin hakutoimintoa OSM-kartan kanssa. QGISin alapalkissa vasemmalla on upotettu Etsi-toiminto, johon on sisäänrakennettu esimerkiksi OpenStreetMapin aineistoon perustuva Nominatim Geocoder, jonka avulla voimme etsiä osoitteita.
 
-Luo uusi GeoPackage-taso valitsemalla päävalikosta **Tasot \> Luo taso \> Uusi Geopackage-taso**.
+![](img/harjoitus_3/image25.png)
 
-![](img/harjoitus_1/image4.png)
+Lisää kenttään ensin merkki **\>** ja kirjoita tämän jälkeen osoite **Pyynikki** ja tuplaklikkaa esiintulevasta listasta viimeistä osoitetta. Kartan pitäisi zoomata suoraan valittuun paikkaan. Georeferoidaan kartta Tampereen Pyynikistä, voit zoomata karttaa ulospäin, jotta näet Tampereen keskustan ja Pyynikin alueen.
 
-GeoPackage on tietokanta, jossa tieto on tallennettu tauluihin. Anna tietokannan nimeksi **"Aluesuunnitelma"** ja luotavan tason nimeksi **"Alueet"**. Valitse taulun geometriaksi polygoni ja koordinaattijärjestelmäksi **3067**. Lisää GeoPackageen nyt muutama muu uusi sarake seuraavasti:
 
--   Nimi: Alueen_nimi / Tyyppi: teksti
+## Georeferoijan toiminta
 
--   Nimi: Rakennusala / Tyyppi: kokonaisluku
+Avaa georeferoija **Tasot -> Georeferoija**.
 
--   Nimi: Pinta-ala / Tyyppi: desimaalinumero
+![Kuva 1. Georeferoija löytyy- tasot valikosta](img/harjoitus_3/image26_uusi_versio.png)
 
-![](img/harjoitus_1/image5.png)
 
-Muista aina klikata **Lisää kenttälistaan -painiketta**, jotta jokainen kenttä ilmestyy listaukseen.
+Kun avaat Georeferoijan, aukeaa uusi ikkuna, jossa itse georeferointi toteutetaan. Georeferoijan ikkunaan voidaan avata rasterikuva **Avaa rasteri**... -painikkeesta ![](img/harjoitus_3/image27.png). Painikkeesta avautuu ikkuna, jonka avulla georeferoitavan kuvan voi valita koneen tiedostojärjestelmästä. Tuettuina on useita kymmeniä eri rasteriformaatteja aina perinteisistä JPEG- ja PNG-formaateista tehokkaisiin JPEG2000- ja ECW-formaatteihin.Voit georeferoida myös PDF:ää, mutta niiden laatu saattaa kärsiä georeferoinnissa.
 
-::: hint-box
-Kokonaisluku (integer), 32-bittinen vai 64-bittinen? Mistä tietää, kumman valitsee?\
-\
-Ensin käyttötarkoitus: mitä lukuja kenttään tallennetaan?\
-\
-16-bit unsigned integer voi sisältää luvun väliltä -32 768 - 32 767\
-Signed: 0 - 65 535.\
-32-bit unsigned integer voi sisältää luvun välillä −2 147 483 648 - 2 147 483 647\
-Signed: 0 - 4 294 967 295.\
-64-bit unsigned integer voi sisältää luvunvälillä −9 223 372 036 854 775 808 - 9 223 372 036 854 775 807\
-Signed: 0 - 18 446 744 073 709,55.\
-\
-QGIS:issä (versioissa 3.10+) integerit ovat oletuksena signed-tyyppisiä, ellei toisin mainita.\
-Toisakseen tulee harkittavaksi, mihin tuota tietoa tallennetaan: Geopackage, PostgreSQL vai joku muu? Mitä enemmän käytetään bittejä, sitä suuremmaksi kasvaa tiedostojen koot (myös PostgreSQL:ssä on tiedostoja tietokannan takana). Mitä suuremmat tiedostot, sitä hitaammin asiat sujuvat.\
-\
-Kolmanneksi pitäisi ottaa huomioon, että siirretäänkö kyseistä aineistoa johonkin toiseen järjestelmään / tiedostoformaattiin. Tuleeko tilanteita, joissa 64bit tallennettu tieto pitääkin viedä tiedostoon, joka ei salli noin suuria numeroita (kuten Shapefile).\
-:::
+Kurssihakemistossa on kaksi eri kuvaa, ilmakuva Tampereelta vuodelta 1946 sekä peruskarttarasteri vuodelta 1953. Voit valita kumman vaan georeferoitavaksi. Kun haluttu kuva on valittu tiedostojärjestelmästä ja valinta vahvistettu Open-painikkeesta, avautuu käyttäjälle valittu rasteri näkyviin pienen latauksen jälkeen.
 
-## Aloita geometrioiden editointi
+Vanhemmissa versioissa tässä kohtaa avautuu käyttäjälle Coordinate Reference System Selector -ikkuna. Tähän ikkunaan syötetään tieto siitä koordinaattijärjestelmästä, johon georeferoitava rasterikuva halutaan saattaa. Tässä esimerkissä käytettäväksi koordinaattijärjestelmäksi valitaan **ETRS89-TM35FIN (EPSG:3067)**, mutta yhtä hyvin koordinaattijärjestelmäksi voidaan valita mikä tahansa QGIS:n tukema koordinaattijärjestelmä.
 
-Etsitään editoitava alue kartalla hyödyntäen QGISin hakutoimintoa OSM-kartan kanssa. QGISin alapalkissa vasemmalla on upotettu Etsi-toiminto, johon on sisäänrakennettu esimerkiksi OpenStreetMapin aineistoon perustuva Nominatim Geocoder, jonka avulla voimme etsiä osoitteita.
+Tämän vaiheen jälkeen määritellään georeferoinnissa käytettävät asetukset. Tämä tapahtuu avaamalla **Asetukset**-valikosta **Muunnoksen asetukset** -ikkuna (kuva 4). Saman ikkunan saa avattua myös työkaluriviltä keltaisesta ratassymbolista.
 
-Etsiminen tapahtuu kirjoittamalla `>` jonka perään osoite. Tässä harjoituksessa editoimme Vallilanlaakson aluetta Kumpulassa, joten kirjoitamme hakukenttään `> Vallilanlaakso`
+![Kuva 4. Georeferoinnin asetukset määritellään Asetukset-valikosta löytyvän Muunnoksen asetukset-painikkeen takaa](img/harjoitus_3/image28.png)
 
-![](img/harjoitus_1/image8.gif)
+**Muunnoksen asetukset** -ikkunassa määritellään muunnoksessa käytettävät asetukset (kuva 5). Toteutettavan muunnoksen osalta Muunnos parametrit -kohta) valittavissa on muunnoksen tyyppi, interpoloinnissa käytettävä menetelmä ja koordinaattijärjestelmä. Muunnoksessa syntyvän tiedoston osalta ikkunassa voidaan määritellä syntyvän tiedoston nimi, tallennussijainti sekä pakkausmenetelmä.
 
-::: hint-box
-Jos QGIS versiosi on vanhempi voi olla että tarvitset Nominatim Locator Filter- lisäosan. Asenna se Lisäosat välilehden kautta. Kun olet asentanut lisäosan, hae kohdetta muutoin samaan tapaan mutta aloita haettava osoite `osm` -sanalla eli kirjoita Etsi- laatikkoon `osm Vallilaanlaakso`
+Tarkista, että muunnoksen tyyppi on **Lineaarinen**, menetelmä **Nearest Neighbour** ja aseta koordinaattijärjestelmäksi **EPSG:3067**.
 
-Huomaa että Vallilanlaakso -sanan jälkeen on lisättävä vielä välilyönti, jotta haku tapahtuu.
-:::
+Ikkunassa on täpättävät kohdat (Output Settings -kohta) myös vastinpisteiden (GCP-pisteet) tallentamiseksi, ns. ESRI World -tiedoston luomiseksi varsinaisen georeferoinnin toteuttamisen sijaan ja nolla-arvojen määrittämiseksi läpinäkyviksi. Lisäksi valittavissa on kohta oman vapaavalintaisen spatiaalisen resoluution asettamiseksi muunnoksen yhteydessä luotavalle kuvalle.
 
-Seuraavaksi aloitamme aineiston muokkaamisen klikkaamalla **Editointi päälle/pois -painiketta** ![](img/harjoitus_1/image11.png). Huomaa, että **Digitoinnin työkalupalkin** työkalut aktivoituvat.
+Muunnoksesta on mahdollista saada ulos myös kartta ja raportti (Reports-kohta); näiden tallennuspaikat määritellään tarvittaessa. Varmista myös, että ikkunan alareunasta löytyvä \"Avaa tulosrasteri QGISissä kun valmis\" täppä on aktiivisena. Näin saat suoraan valmiin georeferoidun rasterin auki QGISin karttaikkunaan georeferoinnin jälkeen.
 
-![](img/harjoitus_1/image12.png)
+![Kuva 5. Muunnoksen asetukset -ikkuna halutuilla asetuksilla (Transformation Settings)](img/harjoitus_3/image29.png)
 
-Valitse työkaluksi **Lisää monikulmiokohde** ja aloita alueiden digitointi. Hiiren vasemmalla näppäimellä voit klikata kartalla kohteen kulmapisteet. Kun monikulmio on valmis, niin napauta hiiren oikeaa näppäintä, uusi monikulmio on luotu. Digitoi alla olevaa kuvan punaista aluetta vastaava monikulmio.
+## Panosta vastinpisteisiin
 
-![](img/harjoitus_1/image13.png)
+Kun muunnoksen asetukset on onnistuneesti määritelty, paina asetusikkunasta \"OK\". Nyt voidaan siirtyä määrittelemään vastinpisteitä. Valitse työkaluriviltä löytyvä Add Point -työkalu (kuva 6). Tämän painikkeen vierestä oikealta löytyvät tarvittaessa painikkeet jo määriteltyjen vastinpisteiden poistamiseen ja muokkaamiseen. Lisää piste -painikkeen painaminen aktivoi työkalun, jolla osoitetaan georeferoitavalta kuvalta piste.
 
-Kun editointi on valmis, QGISiin avautuu **Alueet - Kohteen attribuutit -ikkuna**. Laita **Alueen_nimi-kohtaan "Aluerajaus"**. Muihin kenttiin ei vielä tarvitse täyttää mitään.
+![Kuva 6: Georeferointi aloitetaan lisäämällä rasterukuvalle oikaisupisteitä](img/harjoitus_3/image30.png)
 
-![](img/harjoitus_1/image14.png)
+Kun Lisää piste -työkalulla on osoitettu piste georeferoitavalta kuvalta, avautuu Kirjoita karttakoordinaatit (Enter Map Coordinates) -ikkuna (kuva 7). Ikkunaan voi halutessaan syöttää koordinaattitiedot käsin, mutta huomattavasti kätevämpi tapa on poimia ne QGIS-paikkatietosovelluksen pääikkunasta painamalla \"Karttaikkunasta\"-painiketta.
 
-Luodaan seuraavaksi uusi GeoPackage-taso, mutta kokonaan uuden tietokannan luomisen sijaan teemme aikaisemmin luotuun **Aluesuunnitelma-GeoPackageen** vain uuden tason. Anna taulun nimeksi **"Kulkureitit"** ja lisää siihen seuraavat kentät:
+Usean näyttöruudun käsittävä setup helpottaa merkittävästi vastinpisteiden napsuttelua. Mikäli tällaista järjestelyä ei ole käytettävissä (esim. operoitaessa pienellä kannettavan ruudulla), voidaan elämää helpottaa täppäämällä \"Piilota goereferoinnin ikkuna automaattisesti\" -kohta. Tällöin Georeferencer sukeltaa automaattisesti piiloon Karttaikkunasta -painiketta painettaessa.
 
--   Nimi: Reitin_nimi / Tyyppi: teksti
+![Kuva 7: Oikaisupisteen tiedot annetaan Kirjoita karttakoordinaatit -ikkunassa](img/harjoitus_3/image31.png)
 
--   Nimi: Pituus / Tyyppi: desimaalinumero
+Kun pisteelle on koordinaatit (joko QGIS-pääikkunasta osoittaen tai käsin syöttämällä), nähdään kentissä X / Itä ja Y / Pohjoinen numeroarvot (kuva 8). Tässä esimerkissä käytetään ETRS89-TM35FIN-koordinaattijärjestelmää (EPSG:3067), jonka koordinaatit ovat kuvassa. Vaihtoehtoisesti voit valita alasvetovalikosta toisen käytettävän koordinaattijärjestelmän (valittava siis samaksi kuin pääkanvaasi näkymässä)
 
-![](img/harjoitus_1/image15.png)
+Onnistunut ja laadukas georeferointi vaatii useiden vastinpisteiden määrittelyn. Kuten aiemmin todettiin, vastinpisteiksi kannattaa valita esimerkiksi rakennusten kulmia, kiinteistörajoja ja muita helposti ja yksiselitteisesti tukiaineistosta tulkittavia kohteita. Vastinpisteet kannattaa lisäksi pyrkiä osoittamaan huolellisesti ja tarkasti sekä eri puolille georeferoitavaa kuvaa.
 
-Kun klikkaat **OK**, QGIS kysyy, haluatko korvata olemassa olevan GeoPackage-tiedoston (ja sen taulut) tällä tiedostolla vai lisätä tiedostoon/tietokantaan uuden tason. Valitse **Lisää uusi taso**, jolloin projektiin lisätään jälleen uusi taso.
+Tarkkuus korostuu etenkin silloin, kun vastinpisteitä osoitetaan ainoastaan muutamia. Mitä enemmän vastinpisteitä voidaan osoittaa, sen pienempi on yksittäisestä pisteestä aiheutuva vaikutus muunnokseen.
 
-![](img/harjoitus_1/image16.png)
+Kun vastinpisteen tiedot ovat Kirjoita karttakoordinaatit -ikkunassa ja oikea koordinaattijärjestelmä valittu, voidaan vastinpiste tallentaa painamalla OK-painiketta. Tällöin vastinpiste tallentuu ns. vastinpistetauluun (GCP-taulu) ja ikkuna sulkeutuu. Uuden pisteet saa lisättyä Lisää piste -painikkeesta.
 
-Laita nyt vuorostaan tämän juuri luodun tason editointi päälle klikkaamalla **Tason muokkaus päälle/pois -kuvaketta** (kynäikoni). Koska haluamme että kulkureittien editointi alkaa aivan alueen reunasta, on kytkettävä **Tarttuminen (snapping)** päälle. Voit tehdä tämän klikkaamalla **Ota tarttuminen käyttöön -painiketta** ![](img/harjoitus_1/image17.png). Valitse ensimmäisestä alasvetovalikosta **Kaikki tasot** ja toisesta valikosta kuvan mukaisesti **Piste** ja **segmentti**. Aseta **tarttumisherkkyydeksi** 12 pikseliä (oletusherkkyys).
+![Kuva 8: Oikaisupisteen tiedot syötetty](img/harjoitus_3/image32.png)
 
-![](img/harjoitus_1/image18.png)
+![Kuva 9: Jos huomaat että haluat poistaa jonkun vastinpisteen, voit sen tehdä Poista piste -työkalulla. Aktivoi työkalu ja klikkaa sillä georeferoint-ikkunassa näkyvää pientä punaista pistettä (vastinpiste)](img/harjoitus_3/image33.png)
 
-Luodaan seuraavaksi kulkureitti, joka kulkee alueen läpi kuvan mukaisesti. Anna tälle kulkureitille nimeksi **"Raitiotie"**. Jätä pituus-kenttä vielä tyhjäksi.
+![Kuva 10: Poistaminen voidaan tehdä myös muunnospistetaulussa klikkaamalla haluttua riviä hiiren oikealla ja valitsemalla \"Poista\"](img/harjoitus_3/image34.png)
 
-![](img/harjoitus_1/image19.png)
+## Vastinpisteiden tarkastelu ja varsinainen georeferointi
 
-Päivitetään attribuuttitaulun kenttiin puuttuvat tiedot **Kentän arvojen laskin -työkalun** avulla. Avaa laskin klikkaamalla **Attribuuttien työkalupalkista** **Avaa kentän arvojen laskin -painiketta** ![](img/harjoitus_1/image20.png) ![](img/harjoitus_1/image21.png)
+Kun tarvittava määrä vastinpisteitä on syötetty, voidaan niitä tarkastella vastinpistetaulun (GCP-taulu) avulla. Mikäli vastinpistetaulu ei näy automaattisesti alareunassa paneelina, sen voi avata Näytä-valikosta löytyvän Paneelit-valikon alta.
 
-Klikkaa avautuvasta ikkunasta **Päivitä olemassa oleva kenttä** ja valitse alasvetovalikosta **Pituus-kenttä**. Kirjoita **Lauseke-kenttään** lauseke, joka laskee viivamaisen kohteen pituuden sekä pyöristää sen yhden desimaalin tarkkuudelle:
+Vastinpistetaulussa on nähtävillä kaikki osoitetut vastinpisteet (kuva 10). Tässä esimerkissä on määritelty kymmenen vastinpistettä. Jokaisella vastinpisteelle esitetään taulussa sijainti georeferoitavalla kuvalla (Lähtö X ja Lähtö Y) ja sijainti tukiaineistossa (Kohde. X ja Kohde. Y). Muista valita vastinpisteitä ympäri georeferoitavaa kuvaa georeferoinnin laadun varmistamiseksi. 
 
-::: code-box
-round(\$length, 1)
-:::
+![Kuva 11: Esimerkki vastinpisteiden sijainnista ilmakuvassa. Vastinpisteet näkyy punaisella](img/harjoitus_3/image38.png)
 
-![](img/harjoitus_1/image22.png)
+Koordinaattien lisäksi okaiselle pisteelle lasketaan virhe X- ja Y-suunnassa. X- ja Y-suuntaisten virhelukujen lisäksi jokaiselle pisteelle on laskettu residuaali, joka kuvaa ko. pisteen kokonaisvirhettä. Ideaalitilanteessa residuaaliarvo olisi mahdollisimman lähellä nollaa.
 
-Laita lopuksi molempien tasojen tason muokkaus pois päältä klikkaamalla kynäkuvaketta. Tallenna kaikki muutokset tasoihin. Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + S** tai päävalikosta **Projekti \> Tallenna**.
+Huomaa, että virhearvot esitetään pikseleinä. Mikäli jokin vastinpiste eroaa virhearvojen (Residuals/Residuaalit) osalta muista, kannattaa se poistaa ja määritellä uudelleen. Mitä suurempi residuaaliarvo pikselillä on, sitä suurempia virheitä se voi aiheuttaa georeferoinnissa. Tässä esimerkissä voisi siirtää tai määritellä uudelleen pisteet, joiden residuaali on esimerkiksi yli 3. Residuaalit lasketaan uudelleen aina kun teet uusia vastinpisteitä, joten panosta pisteiden sijoittamisen laatuun.
+
+![Kuva 12: GCP-taulussa nähdään kaikki syötetyt vastinpisteet](img/harjoitus_3/image36.png)
+
+Kun tarvittava määrä vastinpisteitä on määritelty ja ne on todettu hyviksi vastinpistetaulua tarkastelemalla, voidaan käynnistää varsinainen georeferointi. Tämä tapahtuu Georeferencer-ikkunan **Start Georeferencing** -painikkeesta (kuva 13).
+
+![Kuva 13: Georeferointi käynnistetään Start Georeferencing -painikkeesta](img/harjoitus_3/image37.png)
+
+Mikäli muunnoksen asetukset (Transformation Settings) -ikkunassa on laitettu täppä kohtaan \"Load in QGIS when done\", avautuu georeferoitu kuva automaattisesti QGISiin georeferoinnin jälkeen. Mikäli täppää ei ole laitettu, voi kuvan lisätä myös manuaalisesti Open Data Source Manager -toiminnon kautta.
+
+Miten alue on muuttunut? Voit verrata taustakarttaa tai uudempaa ilmakuvaa tai satelliittikuvaa vuoden 1946 ilmakuvaan esimerkiksi säätämällä tason läpinäkyvyyttä. Voit myös hyödyntää lisäosaa **MapSwipe**, jonka avulla voit tarkastella karttaa vierekkäin. MapSwipen voi ladata lisäosavalikon kautta.
+
+Jos on aikaa ja haluat harjoitella, voit georeferoida myös toisen kartan alueelta ja verrata niitä keskenään.
+
+Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi -sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
 :::
-

@@ -1,12 +1,12 @@
-# Harjoitus 3: Georeferointi
+# Harjoitus 3: Edistyneet digitointiominaisuudet
 
 **Harjoituksen sisältö**
 
-Harjoituksessa aktivoidaan Georefereroija-lisäosa ja harjoitellaan georeferointia vastinpisteiden avulla.
+Harjoituksessa tehdään edistyneitä digitoinnin operaatioita QGISillä.
 
 **Harjoituksen tavoite**
 
-Osallistuja oppii tuomaan kuvatiedoston QGIS-ohjelmaan ja georeferoimaan sen koordinaatistoon.
+Harjoituksen jälkeen opiskelija osaa hyödyntää monipuolisemmin editoinnin ominaisuuksia.
 
 **Arvioitu kesto**
 
@@ -14,139 +14,183 @@ Osallistuja oppii tuomaan kuvatiedoston QGIS-ohjelmaan ja georeferoimaan sen koo
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 3**".
+Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 2**". Lisää projektiin seuraavat aineistot:
 
-QGISin lisäosat tarjoavat käyttöösi suuren valikoiman erilaisia taustakarttoja. Eri rajapinnoista saatavat taustakartat toimivat samaan tapaan kuin projektiin avatut rasteritasot: niiden läpinäkyvyyttä voi säätää, mutta ne eivät sisällä ominaisuustietoja.
+-   **Aluesuunnitelma.gpkg (Alueet- ja Kulkureitit-tasot)**
 
-Helpoin tapa lisätä OpenStreetMap-kartta on etsiä se Selain-paneelista **XYZ Tiles** -rivin alta ja tuplaklikata sitä:
+-   **OpenStreetMap**
 
-![](img/harjoitus_3/image22.png)
+## Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)
 
-Lisää taustakarttoja saat lataamalla Python-skriptin osoitteesta: <https://raw.githubusercontent.com/klakar/QGIS_resources/master/collections/Geosupportsystem/python/qgis_basemaps.py>
+Tässä harjoitukksessa teemme rakennuksia rakennuspaikoille. Luo **Aluesuunnitelma-GeoPackageen** uusi taso rakennuksia varten seuraavasti:
 
-Toimi siis seuraavasti:
+Aloita valitsemalla työkalupalkista jälleen **Uusi GeoPackage-taso**. Tällä kertaa kuitenkin valitsemme **Tietokanta**-kenttään kohteeksi aiemmin luodun Aluesuunnitelma-Geopackagen, jolloin uusi taso tuleelisätyiksi siihen. Kun olet valinnut Aluesuunnitelma.gpkg:n tietokannaksi, anna tason nimeksi "Rakennukset" ja täytä tason tiedot kuten alla olevassa kuvassa:
 
-1\. Kopioi ylläolevan osoitteen koko sisältö
+![](img/harjoitus_2/image9.png)
 
-2\. Avaa QGISin Python-konsoli (**Lisäosat → Python-konsoli**)
+Tallennettaessa QGIS kysyy, korvataanko aiemmin luotu GeoPackage vai lisätäänkö uusi taso siihen. Valitse Lisää uusi taso.
 
-3\. Avaa tekstieditori painamalla "Näytä editori" -nappulaa ![](img/harjoitus_3/image40.png).
+![](img/harjoitus_2/image10.png)
 
-4\. Liitä kopiomasi sisältö tekstieditoriin
+Seuraavaksi laita **Tarttuminen** ![](img/harjoitus_2/image11.png), **Seuraaminen** ![](img/harjoitus_2/image12.png) **ja Self-snapping ![](img/harjoitus_2/image13.png)**päälle **Tarttumisen työkalut -paneelista**. Aseta muut tarttumisasetukset seuraavan kuvan mukaisiksi:
 
-![](img/harjoitus_3/image23.png)
+![](img/harjoitus_2/image14.png)
 
-5\. Paina "Suorita skripti" -nappulaa ![](img/harjoitus_3/image24.png).
+Valinnat järjestyksessä vasemmalta oikealle:
 
-6\. Käynnistä QGIS uudelleen.
+-   Tarttuminen
 
-Nyt käytössäsi pitäisi olla lisää taustakarttoja selainikkunan XYZ Tiles -kohdassa.
+-   Kaikki tasot (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
 
-## Lisää taustakarttoja: QuickMapServices-lisäosa
+-   Taitepiste (klikkaa kuvaketta ja voit valita asetuksen pudotusvalikosta)
 
-Laajemman valikoiman erilaisia taustakarttoja saat käyttöösi lisäosalla nimeltä **QuickMapServices**. Asenna se yläpalkin Lisäosat-valikosta ja avaa sen jälkeen Verkko-valikosta **Search QMS**. Avautuvasta paneelista voit etsiä erilaisia taustakarttoja ja satelliittikuvia, suodattaa niitä sijaintisi perusteella, ja saada tarvittaessa lisätietoja (esim. käyttöoikeuksista) kartasta. Vihreä pallo kertoo, että kartta on saatavilla.
+-   10
 
-Voit valita taustakartaksi jonkun selkeän kartan, josta saat helposti näkyville tien, rakennukset ja ympäröivän alueen, kuten satelliittikuvan tai OpenStreetMapin. Georeferoitava kohde on Tampereen keskustassa. Voit joko etsiä kohteen kartalta tai hyödyntää QGISin hakutoimintoa OSM-kartan kanssa. 
+-   px (pikseliä)
 
-![](img/harjoitus_3/image25.png)
+-   Ei käytössä
 
-Lisää kenttään ensin merkki **\>** ja kirjoita tämän jälkeen osoite **Ratinansilta** ja tuplaklikkaa esiintulevasta listasta osoitetta. Kartan pitäisi zoomata suoraan valittuun tiekohteeseen.
+-   Ei käytössä
 
-## Aineistojen valmistelu: Georeferoija lisäosan aktivointi
+-   Ei käytössä
 
-Georefereroija-lisäosa voi vaatia aktivoinnin. Uusimmissa QGIS-versioissa (alkaen versiosta 3.28.) lisäosa pitäisi olla aktivoituna valmiiksi, mutta jos käytät vanhempaa versiota (3.22), niin QGIS vaatii sisäänrakennetun Georeferencer-lisäosan aktivoinnin georeferointia varten. Lisäosa aktivoidaan **Lisäosat-valikon** takaa löytyvän **Hallitse ja asenna lisäosia/Manage and Install Plugins** -toiminnon avulla. Tässä ohjeistuksessa oletetaan, että lisäosa on aktivoitu onnistuneesti.
+-   Ota seuraaminen käyttöön
 
-![Kuva 1. Uudemmissa QGIS-versioissa Georeferoija löytyy tasot-valikosta](img/harjoitus_3/image26_uusi_versio.png)
+-   Self snapping (tarttuminen työn alla olevaan digitoitavaan kohteeseen)
 
-![Kuva 2. Vanhemmissa versioissa se löytyy Rasterit-valikosta.](img/harjoitus_3/image26_vanha_versio.png)
+## Rakentamistila
 
-## Georeferoija-lisäosan toiminta
+Jos piirtämisen apuna tarvitaan etäisyyttä tietystä pisteestä tai tiettyä kulmaa johonkin olemassa olevaan linjaan, rakentamistilan avulla saa näkyville apuviivoja piirtämisen tueksi. Rakentamistilan ollessa aktiivisena ei voi piirtää, mutta sen avulla voidaan hakea näkyviin tarvittavia apuviivoja esim. etäisyyden tai kulman suhteen. Rakentamistilaa voi käyttää ennen tai kesken piirtämisen.
 
-Huomaa, että jos sinulla on PDF-tiedosto, jonka haluat georeferoida, se tulee muuttaa ensin kuvaformaattiin (esim. .JPEG tai .PNG). Tämä onnistuu useimmilla PDF-lukuohjelmilla tai netissä saatavilla olevilla muuntimilla (Googleen "PDF to PNG converter").
+Rakentamistila aktivoidaan laajennetun digitoinnin paneelista löytyvästä ![](img/harjoitus_2/image17.png)![]()-nappulasta. Sen saa päälle/pois päältä myös pikakomennolla **C**.
 
-Kun avaat Georeferencer-lisäosan, se avaa erillisen ikkunan, jossa georeferointi toteutetaan. Georeferencer-ikkunaan voidaan avata georeferoitava rasterikuva **Avaa rasteri**... -painikkeesta (kuva 3). Painikkeesta avautuu ikkuna, jonka avulla georeferoitavan kuvan voi valita koneen tiedostojärjestelmästä. Tuettuina on useita kymmeniä eri rasteriformaatteja aina perinteisistä JPEG- ja PNG-formaateista tehokkaisiin JPEG2000- ja ECW-formaatteihin.
+Huom! Rakentamistilassa ollessa ei piirretä mitään. Kun olet saanut rakentamistilassa toivotut apuviivat näkyville ja haluat aloittaa varsinaisen piirtämisen, rakentamistila tulee sulkea joko painamalla hiirellä ![](img/harjoitus_2/image19.png) tai **C**-näppäimellä. Apuviivat jäävät näkyviin ja voit piirtää niiden avulla pisteen haluamaasi paikkaan.
 
-![Kuva 3. Georeferoitava rasteri avataan Georeferencer-ikkunaan Avaa rasteri -painikkeesta](img/harjoitus_3/image27.png)
+## Rakennuksen piirto apuviivojen avulla
 
-Valitse rasteriksi kurssihakemistosta löytyvä **Tampereen_kaupunki_ilmakuva_Keskusta-1999.png**. Kun haluttu kuva on valittu tiedostojärjestelmästä ja valinta vahvistettu Open-painikkeesta, avautuu käyttäjälle valittu rasteri näkyviin pienen latauksen jälkeen.
+Lisätyökalujen avulla voi saada näkyville apuviivat ja tarttumisasetukset tiettyihin kulmiin, esimerkiksi 45 tai 90 asteen välein. Toiminnon saa päälle laajennetun digitoinnin paneelista (ikkunan vasemmassa laidassa) ![](img/harjoitus_2/snap_common_angles.png)-nappulasta. Oletuksena nollakulma on vaakatasossa piirtoalueen suhteen, mutta piirtämisen alettua kulma lasketaan viimeisen piirretyn viivan mukaan ja näkyviin tulee tukiviivoja haluttujen kulmien kohdalle.
 
-Vanhemmissa versioissa tässä kohtaa avautuu käyttäjälle Coordinate Reference System Selector -ikkuna. Tähän ikkunaan syötetään tieto siitä koordinaattijärjestelmästä, johon georeferoitava rasterikuva halutaan saattaa. Tässä esimerkissä käytettäväksi koordinaattijärjestelmäksi valitaan **ETRS89-TM35FIN (EPSG:3067)**, mutta yhtä hyvin koordinaattijärjestelmäksi voidaan valita mikä tahansa QGIS:n tukema koordinaattijärjestelmä.
+### Sitten vain harjoittelemaan....
 
-Tämän vaiheen jälkeen määritellään georeferoinnissa käytettävät asetukset. Tämä tapahtuu avaamalla **Asetukset**-valikosta **Muunnoksen asetukset** -ikkuna (kuva 4). Saman ikkunan saa avattua myös työkaluriviltä keltaisesta ratassymbolista.
+Aseta **Rakennukset-tason** editointi päälle kynäkuvakkeesta. Kun valitset **Lisää polygonikohde -työkalun**, **Laajennettu digitointi -kuvake** aktivoituu ![](img/harjoitus_2/image15.png). Klikkaa kuvaketta niin saat **Laajennettu digitointi -hallintapaneeliin** QGISiin.
 
-![Kuva 4. Georeferoinnin asetukset määritellään Asetukset-valikosta löytyvän Muunnoksen asetukset -painikkeen takaa](img/harjoitus_3/image28.png)
+![](img/harjoitus_2/image16.png)
 
-**Muunnoksen asetukset** -ikkunassa määritellään muunnoksessa käytettävät asetukset (kuva 5). Toteutettavan muunnoksen osalta (Kohta **Muunnosparametrit**) valittavissa on muunnoksen tyyppi, interpoloinnissa käytettävä menetelmä ja koordinaattijärjestelmä. Muunnoksessa syntyvän tiedoston osalta ikkunassa voidaan määritellä syntyvän tiedoston nimi, tallennussijainti sekä pakkausmenetelmä.
+Laita vielä **Snap to common angles/tartu yleismpiin kulmiin --\> 90.0, 180.0, 270.0, 360.0** päälle![](img/harjoitus_2/snap_common_angles.png)
 
-Tarkista, että muunnoksen tyyppi on **Lineaarinen**, menetelmä **Läheisin naapuri (nearest neighbour)** ja aseta koordinaattijärjestelmäksi **EPSG:3067**.
+Aloita nyt **Rakennukset-tason** editointi.
 
-Kohdassa "Tulostiedoston asetukset" voidaan myös valita pakkaustyyppi, luoda ns. ESRI World -tiedosto varsinaisen georeferoinnin toteuttamisen sijaan ja määrittää nolla-arvot läpinäkyviksi. Lisäksi valittavissa on kohta oman vapaavalintaisen spatiaalisen resoluution asettamiseksi muunnoksen yhteydessä luotavalle kuvalle.
+1.  Harjoittele ensin rakennuksien piirtämistä apuviivojen avulla alla olevan kuvan mukaisesti
 
-Muunnoksesta on mahdollista saada ulos myös kartta ja raportti ("Raportit"-kohta). Näiden tallennuspaikat määritellään tarvittaessa. Varmista myös, että ikkunan alareunasta löytyvä "Lataa projektiin kun valmis" -täppä on aktiivisena. Näin saat suoraan valmiin georeferoidun rasterin auki QGISin karttaikkunaan georeferoinnin jälkeen.
+    ![](img/harjoitus_2/tarttumisen_apuviivat.gif)
 
-![Kuva 5. Muunnoksen asetukset -ikkuna halutuilla asetuksilla (Transformation Settings)](img/harjoitus_3/image29.png)
+2.  Seuraavaksi harjoitellaan alueen reunaviivan suuntaisesti rakennuksen piirtämistä. Toimi seuraavasti:
 
-## Panosta vastinpisteisiin
+-   Varmista, että laajennettu digitointi ![](img/harjoitus_2/image15.png){width="26" height="25"} on päällä.
 
-Kun muunnoksen asetukset on onnistuneesti määritelty, paina asetusikkunasta "OK". Nyt voidaan siirtyä määrittelemään vastinpisteitä. Homma lähtee liikkeelle valitsemalla työkaluriviltä löytyvä "Lisää muunnospiste" -työkalu (kuva 6). Ko. painikkeen vierestä oikealta löytyvät tarvittaessa painikkeet jo määriteltyjen vastinpisteiden poistamiseen ja muokkaamiseen. "Lisää muunnospiste" -painikkeen painaminen aktivoi työkalun, jolla osoitetaan georeferoitavalta kuvalta piste.
+-   Piirrä piste kartalle haluamaasi kohtaan. Laajennetun digitoinnin valikossa aktivoituvat kohtisuoruustyökalu ![](img/harjoitus_2/image18.png) ja rinnakkainentyökalu ![](img/harjoitus_2/yhdensuuntaisuus_tyokalu.png).
 
-![Kuva 6: Georeferointi aloitetaan lisäämällä rasterikuvalle oikaisupisteitä](img/harjoitus_3/image30.png)
+-   Valitse haluamasi työkalu (kohtisuoruus tai rinnakkainen):
 
-Kun "Lisää muunnospiste" -työkalulla on osoitettu piste georeferoitavalta kuvalta, avautuu "Kirjoita karttakoordinaatit" (Enter Map Coordinates) -ikkuna (kuva 7). Ikkunaan voi halutessaan syöttää koordinaattitiedot käsin, mutta huomattavasti kätevämpi tapa on poimia ne QGIS-paikkatietosovelluksen pääikkunasta painamalla "Karttaikkunasta"-painiketta.
+    -   
 
-Usean näyttöruudun käsittävä setup helpottaa merkittävästi vastinpisteiden napsuttelua. Mikäli tällaista järjestelyä ei ole käytettävissä (esim. operoitaessa pienellä kannettavan ruudulla), voidaan elämää helpottaa täppäämällä "Piilota goereferoinnin ikkuna automaattisesti" -kohta. Tällöin Georeferencer sukeltaa automaattisesti piiloon Karttaikkunasta -painiketta painettaessa.
+        a)  painamalla sen nappia hiirellä, tai
 
-![Kuva 7: Oikaisupisteen tiedot annetaan Kirjoita karttakoordinaatit -ikkunassa](img/harjoitus_3/image31.png)
+    -   
 
-Kun pisteelle on koordinaatit (joko QGIS-pääikkunasta osoittaen tai käsin syöttämällä), nähdään kentissä X / Itä ja Y / Pohjoinen numeroarvoja (kuva 8). Tässä esimerkissä käytetään ETRS89-TM35FIN-koordinaattijärjestelmää (EPSG:3067), jonka koordinaatit ovat kuvassa. Vaihtoehtoisesti voit valita alasvetovalikosta toisen käytettävän koordinaattijärjestelmän (valittava siis samaksi kuin pääkanvaasi näkymässä)
+        b)  paina **P** yhdestä kolmeen kertaa aktivoidaksesi työkaluja järjestyksessä: kohtisuoruus -\> yhdensuuntaisuus -\> vapaapiirto.
 
-Onnistunut ja laadukas georeferointi vaatii useiden vastinpisteiden määrittelyn. Kuten aiemmin todettiin, vastinpisteiksi kannattaa valita esimerkiksi rakennusten kulmia, kiinteistörajoja ja muita helposti ja yksiselitteisesti tukiaineistosta tulkittavia kohteita. Vastinpisteet kannattaa lisäksi pyrkiä osoittamaan huolellisesti ja tarkasti sekä eri puolille georeferoitavaa kuvaa.
+-   Kun jompi kumpi työkalu on valittuna, klikkaa viivaa, jonka suhteen haluat yhdensuuntaisuutta tai kohtisuoruutta. Huom! tämä klikkaus ei piirrä pistettä, vaan valitsee työkalulle peilauskohteen. Näkyviin tulee valitusta työkalusta riippuen joko yhdensuuntainen tai kohtisuora apuviiva.
 
-Tarkkuus korostuu etenkin silloin, kun vastinpisteitä osoitetaan ainoastaan muutamia. Mitä enemmän vastinpisteitä voidaan osoittaa, sen pienempi on yksittäisestä pisteestä aiheutuva vaikutus muunnokseen.
+-   Klikkaa toinen piste kartalle apuviivan avulla haluamaasi kohtaan. Jos haluat, voit määrittää etäisyyden painamalla **D** (fokus etäisyyden syöttökenttään), syöttämällä etäisyyden metreinä ja painamalla **enter**.
 
-Kun vastinpisteen tiedot ovat Kirjoita karttakoordinaatit -ikkunassa ja oikea koordinaattijärjestelmä valittu, voidaan vastinpiste tallentaa painamalla OK-painiketta. Tällöin vastinpiste tallentuu muunnospistetauluun (GCP-taulu) ja ikkuna sulkeutuu. Uuden pisteet saa lisättyä Lisää piste -painikkeesta.
+-   Jatka piirtämistä haluamallasi tavalla. Kohtisuoruutta ja yhdensuuntaisuutta voi käyttää piirtämisen aikana toistamalla askelia
 
-![Kuva 8: Oikaisupisteen tiedot syötetty](img/harjoitus_3/image32.png)
+## Suorakulmaisen polygonin piirtäminen
 
-![Kuva 9: Jos haluat poistaa jonkun vastinpisteen, voit sen tehdä "Poista muunnospiste" -työkalulla. Aktivoi työkalu ja klikkaa sillä georeferointi-ikkunassa näkyvää pientä punaista pistettä (vastinpiste).](img/harjoitus_3/image33.png)
+1.  Laita tarttumisen työkalu (työtilan yläosassa) päälle **self-snapping** ![](img/harjoitus_2/image13.png).
 
-![Kuva 10: Poistaminen voidaan tehdä myös muunnospistetaulussa klikkaamalla haluttua riviä hiiren oikealla ja valitsemalla "Poista".](img/harjoitus_3/image34.png)
+2.  Laita asteen mukaiset tukiviivat ja tarttuminen päälle laajennetun digitoinnin paneelista ![](img/harjoitus_2/snap_common_angles.png). Riittävä tarkkuus on tässä *"90, 180, 270, 360 astetta"*.
 
-## Vastinpisteiden tarkastelu ja varsinainen georeferointi
+3.  Aloita piirtäminen piirtämällä ensimmäiset kaksi pistettä haluttuihin kohtiin.
 
-Kun tarvittava määrä vastinpisteitä on syötetty, voidaan niitä tarkastella muunnospistetaulun (GCP-taulu) avulla. Mikäli muunnospistetaulu ei näy automaattisesti Georeferointi-ikkunassa ns. paneelina, voidaan se avata Näytä-valikosta löytyvän Paneelit-valikon alta (kuva 11).
+4.  Kolmannen pisteen piirtämistä helpottamaan näkyville tulee apuviiva kohtisuoraan jo piirrettyyn viivaan. Piirrä tämän avulla kolmas piste haluttuun kohtaan.
 
-![Kuva 11: Syötettyjä oikaisupisteitä ja niiden vastinpisteitä voi tarkastella CGP-taulusta](img/harjoitus_3/image35.png)
+5.  Hae seuraava kohtisuora apuviiva näkyviin liikuttamalla hiirtä kohti neljättä pistettä, mutta ÄLÄ paina hiiren nappulaa. Kun apuviiva on näkyvissä ja laajennetun digitoinnin paneelissa näkyy kulman arvona 90 astetta paina **CTRL+ A** lukitaksesi kulman arvo. ÄLÄ klikkaa neljättä pistettä kartalle.
 
-Muunnospistetaulussa on nähtävillä kaikki osoitetut vastinpisteet (kuva 10). Tässä esimerkissä on määritelty kymmenen vastinpistettä. Jokaisella vastinpisteelle esitetään taulussa sijainti georeferoitavalla kuvalla (Lähtö X ja Lähtö Y) ja sijainti tukiaineistossa (Kohde X ja Kohde Y).
+6.  Vie hiiri suorakulmion aloituspisteeseen ja kun osoitin tarttuu pisteeseen, **klikkaa sitä hiirellä**. 
 
-Näiden tietojen lisäksi jokaiselle pisteelle lasketaan virhe X- ja Y-suunnassa. X- ja Y-suuntaisten virhelukujen lisäksi jokaiselle pisteelle on laskettu residuaali, joka kuvaa ko. pisteen kokonaisvirhettä. Ideaalitilanteessa residuaaliarvo olisi mahdollisimman lähellä nollaa.
+7.  Saadaksesi piirtämisen päätökseen, **klikkaa vielä hiiren oikealla** **näppäimellä.** Suorakulmio on valmis.
 
-Huomaa, että virhearvot esitetään pikseleinä. Mikäli jokin vastinpiste eroaa virhearvojen (Residuals/Residuaalit) osalta muista, kannattaa se poistaa ja määritellä uudelleen. Tässä esimerkissä olevat pisteet näyttäisivät olevan hyvin linjassa toistensa kanssa eikä selkeitä poikkeamia esiinny. Voidaan siis edetä hyvillä mielin viimeiseen vaiheeseen, jossa itse georeferointi toteutetaan.
+![](img/harjoitus_2/Suorakulmaisen_polygonin_piirtaminen.gif)
 
-![Kuva 12: GCP-taulussa nähdään kaikki syötetyt vastinpisteet.](img/harjoitus_3/image36.png)
+## Tehtävä: "Rakennus 35×40 m tontin rajan suuntaisesti, etäisyys rajaan 15 m"
 
-Kun tarvittava määrä vastinpisteitä on määritelty ja ne on todettu hyviksi muunnospistetaulua tarkastelemalla, voidaan käynnistää varsinainen georeferointi. Tämä tapahtuu Georeferencer-ikkunan **Käynnistä georeferoija** -painikkeesta (kuva 13).
+Piirretään uusi kohde tietylle etäisyydelle ja tietyssä kulmassa halutusta pisteestä tai linjasta. Esimerkiksi jos halutaan piirtää 15 metrin etäisyydelle tontin reunasta suorakulmainen rakennus, jonka kukin sivu on 30 metriä, sen voi tehdä laajennetun digitoinnin työkaluja hyödyntäen mm. seuraavasti:
 
-![Kuva 13: Georeferointi käynnistetään Start Georeferencing -painikkeesta.](img/harjoitus_3/image37.png)
+1.  Valitse **Rakennukset** taso aktiiviseksi.
 
-Mikäli Muunnoksen asetukset (Transformation Settings) -ikkunassa on laitettu täppä kohtaan "Lataa projektiin kun valmis", avautuu georeferoitu kuva automaattisesti QGISiin georeferoinnin jälkeen. Mikäli täppää ei ole laitettu, voi kuvan lisätä myös manuaalisesti Open Data Source Manager -toiminnon kautta.
+2.  Laita **editointi** päälle ![](img/harjoitus_2/toggle_editing.png){width="26" height="24"} **Rakennukset**- tasolle,  **monikulmiokohteen piirtäminen päälle** ![](img/harjoitus_2/monikulmio_kohde.png) sekä l**aajennetun digitoinnin työkalut** aktiivisiksi ![](img/harjoitus_2/image15.png){width="26" height="24"}.
 
-## Lisätehtävä: Lataa QGIS-lisäosa MapSwipe Tool
+3.  **Laita laajennetun digitoinnin** paneelista (vasen reuna) **rakentamistila** päälle ![](img/harjoitus_2/image19.png) (tai painamalla **C**).
 
-Kätevä työkalu kahden tason vertaamiseen on QGISin lisäosa MapSwipe Tool. Tällä lisäosalla voit verrata kahden tason näkymää olipa tason formaatti mikä tahansa.
+4.  Aseta halutun kiinteistönraja nollakulmaksi valitsemalla rajalta kaksi pistettä.
 
-Asentamisen jälkeen ylätyökalu-palkkiin pitäisi ilmestyä seuraava ikoni ![](img/harjoitus_3/image39.png).
+5.  Valitse haluttu tukikulma 90 astetta painamalla **A** (kerran tai kahdesti, niin että fokus siirtyy laajennetun digitointipaneelin kohtaan a(ngle)) ja syötetään luku 90. Painetaan **enter**. Käyttöön tulee apuviiva kohtisuorasti kiinteistönrajaan. Huom! Jos kulma-asteiden apuviivat ovat käytössä (![](img/harjoitus_2/snap_common_angles.png)-valikosta), saat automaattisesti apuviivoja piirtämisen avuksi eikä kulman arvoa tarvitse syöttää erikseen.
 
-Klikkaa ikonia ja sen jälkeen voit joko vaakatasossa tai pystytasossa "swaippailla". Suunta määräytyy sen mukaan mikä on hiiren suunta.
+6.  Valitse haluttu etäisyys 15 metriä painamalla **D** (fokus siirtyy kohtaan d(istance)). Syötetään **luku 15**. Painetaan **enter**. Käyttöön tulee säde 15 m etäisyydelle kiinteistönrajaan piirretyn jälkimmäisen apupisteen mukaan. HUOM! Mitään ei ole vielä piirretty.
 
-![](img/harjoitus_3/image38.gif)
+7.  Aloita piirtäminen poistamalla **rakentamistila** käytöstä ![](img/harjoitus_2/image19.png) (tai painamalla **C**).
 
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + S** tai päävalikosta **Projekti \> Tallenna**.
+8.  **Piirrä** ensimmäinen piste kohtisuoraa apuviivaa ja -sädettä hyödyntäen.
+
+9. Suora kulma pysyy valittuna, mutta etäisyys halutaan muuttaa 35 metriin (rakennuksen 1. seinän mitta). Paina **D**, syötä arvoksi 35 ja paina **enter**. Apusäde muuttuu 35 metriin. Piirrä rakennuksen seuraava nurkka.
+
+10. Vaihda etäisyydeksi 45 painamalla jälleen, syöttämällä arvo ja painamalla **enter**. Ympyrä kasvaa ja piirtäminen voidaan tehdä sen ja kohtisuoran apuviivan avulla. Etäisyys ja kulma pysyvät samana: piirrä kolmas nurkkapiste.
+
+11. Toista kohta 9.
+
+12. Paina lopuksi hiiren oikeaa näppäintä, jolloin alue sulkeutuu. Näin rakennus on valmis.
+
+![*Rakennuksen piirtäminen käyttämällä aluksi rakennustilaa apuna etäisyyden määrittämiseen alueen rajasta. Tämän jälkeen rakennuksen mitat annetaan painamalla D ja antamalla seinän mitta, jolloin piirtämisen avuksi tulee ympyrä annetun etäisyyden säteellä.*](img/harjoitus_2/Rakennus_tontin_rajan_suuntaisesti.gif)
+
+Tämän jälkeen digitoi aineistoon rakennuksia vähintään kolme kappaletta hyödyntäen laajennetun digitoinnin ominaisuuksia. Koita myös kääntää rakennuksia 45 astetta hyödyntäen **Kierrä kohteita -työkalua** ![](img/harjoitus_2/image21.png). **CTRL+hiiren klikkaus** asettaa käännökselle kulmapisteen, jonka mukaan kääntö suoritetaan.
+
+Ota lopuksi tason editointi pois päältä ja tallenna tasoon tehdyt muutokset.
+
+
+
+Ja sitten ei kun harjoittelemaan käyttöä! Esitellyt työkalut voivat tuntua hankalilta ensialkuun, mutta jo pienelläkin harjoituksella ja toistoilla käytännöt tulevat tutuksi ja työskentely jouhevoituu.
+
+Olemme julkaisseet blogin myös liittyen [CAD-aineistojen käsittelyyn QGISissä](https://gispo.fi/blogi/cad-aineistot-ja-qgis/).
+
+
+## Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti
+
+1.  Avaa Rakennukset-tason ominaisuudet. Mene kohtaan Attribuuttilomake
+
+2.  Valitse kentistä Pinta-ala ja selaa kohtaan Oletusarvot.
+
+3.  Avaa oikean reunan funktio-painikkeesta auki lausekkeen muokkaus -ikkuna.
+
+4.  Valitse Geometrian alta `$area`. Funktion voi myös itse kirjoittaa suoraan oletusarvot -kenttään.
+
+5.  Jos haluat vielä pyöristää arvoa niin, ettei kaikki desimaalit näy niin käytä round-funktiota. Jos esimerkiksi haluat pyöristää pinta-alan kahden desimaalin tarkkuudella lauseke on `round($area,2)`
+
+6.  **Lopuksi muista laittaa täppä tuohon "Käytä oletusarvoa päivityksessä" kohtaan**, niin QGIS laskee uudelle polygonille automaattisesti pinta-alan! 🎉
+
+    ![](img/harjoitus_2/Attribuuttilomake.png)![](img/harjoitus_2/Lauseke.png){width="519"}
+
+## Lopuksi
+
+Avaa **Kuvaustekniikka-paneeli** tai mene tason ominaisuuksien kautta **Kuvaustekniikka-välilehdelle** ja muokkaa editoitujen kohteiden värit vastaamaan taustakartan värejä **Värin valitsin -työkalua** hyödyntäen.
+
+Voit vielä hyödyntää alueen reunaa käyttäen **Seuraaminen-ominaisuutta**:
+
+ <https://docs.qgis.org/3.22/en/docs/user_manual/working_with_vector/editing_geometry_attributes.html#automatic-tracing>
+
+Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + T** (englanninkielisessä QGISissä **CTRL + S**) tai päävalikosta **Projekti \> Tallenna**.
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
 :::
-
-
-

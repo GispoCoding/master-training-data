@@ -1,105 +1,62 @@
-# Harjoitus 4: Topologia ja geometria
+# Harjoitus 4: DWG/DXF-tiedoston tuonti
 
 **Harjoituksen sisältö**
 
-Harjoituksessa opetellaan käyttämään QGISia topologian ja geometrian tarkistukseen.
+Tuodaan QGISiin DWG-tiedosto.
 
 **Harjoituksen tavoite**
 
-Harjoituksen jälkeen osallistuja osaa tarkastaa aineistonsa geometrioita ja tehdä niihin manuaalisesti ja automaattisesti tarvittavia korjauksia.
+Kurssilainen ymmärtää, miten CAD-aineistoa tuodaan QGISiin sekä minkälaisessa muodossa se tuodaan sekä miten sitä voi käsitellä.
 
 **Arvioitu kesto**
 
-30 minuuttia.
+20 minuuttia.
 
 ## Valmistautuminen
 
-Avaa uusi QGIS-projekti (**Projekti \> Uusi**) ja tallenna se nimellä "**QGIS-harjoitus 4**". Lisää projektiin seuraavat aineistot:
+Avaa aiemmin tehty projekti Tampereen Pyynikin alueelta. Voit pitää taustalla avaamiasi karttoja ja ensimmäisessä harjoituksessa georeferoidut vanhat kartat. Ne voi laittaa helposti pois näkyvistä painamalla tason nimen vierestä täpän pois päätlä.
 
--   **Rakennukset_alueina_GK25.gpkg**
 
-## Virheellisen aineiston tuonti QGISiin
+## DXF-tason tuonti
 
-**Rakennukset_alueina_GK25-tiedosto** on Helsinki Region Infoshare -sivustolta ladattu avoin aineisto, joka sisältää Vantaan kaupungin rakennukset. Aineiston on kerrottu päivittyvän viikoittain ja sen lähteeksi on merkitty Vantaan kaupungin kiinteistöt ja asuminen, mutta pienellä tarkastelulla huomaamme, että kyseinen aineisto ei ole täysin virheetöntä.
-
-![](img/harjoitus_4/image1.png)
-
-Aineisto näyttää silmämääräisesti olevan kunnossa, mutta entä sen koneluettavuus? Jos aineisto ei ole kaikkien teknisten määritysten mukainen, voi olla että sillä ei pysty esimerkiksi suorittamaan kaikkia spatiaalisia operaatioita tai sen siirrossa formaatista toiseen tulee ongelmia. Tarkastetaan siis onko tässä aineistossa joitain mahdollisia ongelmia. Tähän tarkoitukseen löytyy QGISistä useita erilaisia työkaluja.
-
-## Tarkista kelpoisuus (Check validity)
-
-Aloitetaan aineiston koneluettavuuden (= aineiston laadun) tarkistus "kevyimmällä" tarkistustyökalulla. Valitse QGISin päävalikosta **Vektori \> Geometria-työkalut \> Tarkista kelpoisuus...**, jolloin QGISiin avautuu **Tarkista kelpoisuus -ikkuna**.
-
-![](img/harjoitus_4/image2.png)
-
-Kyseinen algoritmi tekee kelpoisuustarkistuksen tason geometrioille. Geometriat luokitellaan kolmeen ryhmään (**Kelvollinen tulos, Virheellinen tulos** ja **Virhetuloste**) ja kullekin näistä luodaan uusi taso. Oletusarvoisesti algoritmi käyttää tiukkaa OGC-määritystä polygonin validoinnissa, mutta me emme halua ottaa tiukinta mahdollista määritystä huomioon, joten valitse  **Älä huomioi renkaan itsensä leikkausta**. Koska rakennus voi olla geometrialtaan täysin validi vaikka siinä olisi reikä, jätetään kyseiset virheilmoitukset huomiotta. Paina sitten **Suorita**.
-
-![](img/harjoitus_4/image3.png)
-
-QGIS tuottaa oletusasetuksilla kolme väliaikaista tasoa, jotka se lisää projektiin. Saat vielä kohteiden määrän näkyviin klikkaamalla tasoa hiiren oikealla ja valitsemalla **Näytä kohteiden lukumäärä**. Kuten alla olevasta kuvasta näkyy, aineisto sisältää melkoisen määrän virheellisiä geometrioita.
-
-![](img/harjoitus_4/image4.png)
-
-Avaa **Virheellinen tulos -tason** attribuuttitaulu ja tarkastele **\_error-saraketta**. Sarake sisältää selkokielisen kuvauksen virheen luonteesta. Suurin osa virheilmoituksista on **Self-intersection-virheitä**, mikä tarkoittaa että polygoni leikkaa itsensä. Tämä analyysi tuo siis **tiedon virheellisistä kohteista, mutta ei auta niiden korjaamisessa**.
-
-## Topologian tarkastaja (Topology checker)
-
-Seuraava vaihtoehto aineiston laatutarkistukseen on **Topologian tarkastaja -työkalu**. Se on QGISin ns. **ytimeen kuuluva lisäosa**, eli se tulee QGISin mukana, mutta sitä ei ole aina aktivoitu. Mene ylävalikosta **Lisäosat \> Hallitse ja asenna lisäosia...** ja kirjoita hakukenttään **"Topologian tarkastaja"**. Klikkaa työkalu aktiiviseksi, jolloin se ilmestyy ylävalikon **Vektori-valikkoon**.
-
-![](img/harjoitus_4/image5.png)
-
-**Topologian tarkistin -paneeli** aukeaa seuraavasta **Topologian tarkastaja -kuvakkeesta** ![](img/harjoitus_4/image6.png). Aineiston topologisen eheyden voi tarkistaa tästä paneelista.
-
-![](img/harjoitus_4/image7.png)
-
-Valitse ensimmäiseksi **Topologian tarkastaja -paneelista Konfiguroi** ![](img/harjoitus_4/image8.png), jolloin QGISiin aukeaa uusi **Topologiasääntöjen asetukset -ikkuna**. Tässä ikkunassa voidaan määritellä ne säännöt, joiden mukaan QGIS käsittelee aineiston geometrioita. Säännöt voivat koskea vain yhtä tasoa tai ne voivat olla kahden tason välisiä sääntöjä. Sääntöjä voi olla esimerkiksi etteivät kaksi tasoa saa olla päällekkäin. Lisää aineistoon kolme sääntöä kuvan mukaisesti ja paina **OK**.
-
-![](img/harjoitus_4/image9.png)
-
-Klikkaa sitten **Topologian tarkastaja -paneelissa Tarkasta kaikki -kuvaketta** ![](img/harjoitus_4/image10.png), jolloin QGIS ajaa kaikki äsken listatut säännöt. Minkälaisia tuloksia saat? Tarkastele tuloksia paneelin valikosta.
-
-## Geometrian tarkistaja (Geometry checker)
-
-Kolmas ja järein vaihtoehto geometrioiden tarkistukseen on **Geometrian tarkistaja -työkalu**. Tämäkin työkalu pitää käydä aktivoimassa edellisen tapaan lisäosien valikoimasta. Työkalu löytyy ylävalikon **Vektori-valikosta**.
-
-![](img/harjoitus_4/image11.png)
-
-Kuten heti huomaat kyseisen työkalun valikosta, **Geometrian tarkistaja -työkalu** antaa ylivoimaisesti laajimman valikoiman validoinnin toiminnallisuuksista. Tehdään kuitenkin perustason tarkastus aineistolle ja etsitään ainoastaan duplikaatteja. Valitse siis kuvan mukaiset asetukset aineiston validoinnissa ja valitse viimeiseksi vaihtoehdoksi (vieritä ikkunaa alaspäin) **Muokkaa syötetasoja**. Paina sitten **Suorita**.
-
-![](img/harjoitus_4/image12.png)
-
-Työkalu ajaa algoritmia hetken, mutta palauttaa sen jälkeen virheilmoitukset havaitsemistaan virheellisistä kohteista. Voit tarkastella yksittäistä virhettä klikkaamalla riviä; kartta zoomautuu oikeaan sijaintiin ja virheellinen kohde korostuu. Virheitä voi korjata yksitellen, mutta myös useamman virheen voi valita ja korjata isomman osion kerralla. Ennen varsinaista virheiden korjausta voit määrittää virheiden ratkaisumenetelmät valitsemalla **Aseta virheen ratkaisut**. Aseta **Duplikaattisolmu-kohtaan** ratkaisuksi **Poista duplikaattsolmu**.
-
-![](img/harjoitus_4/image13.png)
-
-Korjaa virheet valitsemalla **Korjaa valitut virheet oletusratkaisulla**, jolloin QGIS poistaa duplikaattigeometriat, kuten määrittelimme äsken.
-
-![](img/harjoitus_4/image14.png)
-
-Voit lukea lisää työkalusta QGISin dokumentaatiosta: 
-
-<https://docs.qgis.org/3.22/en/docs/user_manual/plugins/core_plugins/plugins_geometry_checker.html>
+QGISiin voi tuoda suoraan DXF- sekä DWG-tiedostoja. QGIS lukee usein DXF-tiedostoja hieman paremmin kuin DWG-tiedostoja, joten jos tuot aineistoa suoraan jostain CAD-ohjelmistosta, kannattaa aineisto ottaa sieltä ulos suoraan oikeassa muodossa.
 
 ::: hint-box
-Miksi kaikki menetelmät tuottivat niin erilaisia tuloksia ja miksi vaihtoehtoja tarkastukseen on niin monta? Entä mikä olisi omalle aineistollesi paras mahdollinen tapa tarkistukseen?
+QGIS lukee DWG- sekä DXF-aineistoja ja niitä saa suoraan tuotua QGISiin. Aineistosta tulee tietää käytetty koordinaattijärjestelmä, jotta muunnos tapahtuu oikein. Aineiston voi myös muuntaa toisella ohjelmalla suoraan GeoPackageksi tai Shapefileksi, jolloin ne toimivat QGISin kanssa huomattavasti sujuvammin.
+QGIS tukee natiivisti vain vanhempaa MicroStation DGN v7 formaattia eikä uudempia pysty avata QGISissa. Nämä aineistot pitää joko tallentaa eri formaattiin tai muuntaa jälkikäteen vanhemmaksi versioksi, jotta ne saa avattua QGISissa.
+
 :::
 
-## Geometrian ja topologian validointi tasoa muokattaessa
+Aineistotuonnille on oma työkalunsa, avaa **Projekti -> Tuo/Vie -> Tuo tasoja DWG/DXF-tiedostoista...**
+![](img/harjoitus_5/image1.png)
 
-Voit välttää virheellisten geometrioiden muodostumista jo aineistoa digitoidessa ja editoidessa. Avaa muokattavan tason **Ominaisuudet**-ikkuna ja mene **Digitointi**-välilehdelle. Ruksi aktiivisiksi haluamasi korjaukset.
+QGIS avaa uuden ikkunan, jossa pääset määrittämään minkä aineiston haluat tuoda ja mihin se tallennetaan. Aineistosta pitää myös tietää, missä koordinaattijärjestlemässä se on luotu, jotta tuonti ja aineiston muunnos GeoPackageen toimii oikein.
+Etsi kurssihakemistosta harjoitus 4:n kansiosta tiedosto 6820_24484ak.dwg. Aineisto on samalta Tampereen Pyynikin alueelta, jolta georeferoitiin vanhat kartat. Kun määrität lähdetiedoston, samaan kansioon tehdään samanniminen geopackage, johon muunnettu aineisto tuodaan.
+Määritä vielä aineiston koordinaattijärjestelmäksi ETRS-GK24 (EPSG 3878).
 
-![](img/harjoitus_4/image15.png)
+![](img/harjoitus_5/image2.png)
 
-Nimestään huolimatta tämä toiminto ei tee korjauksia automaattisesti, mutta huomauttaa virheellisistä geometrioista.
+Paina Kohdepaketti-kohdasta lopuksi **Lataa tasot**, jolloin DWG-tiedostosta ladataan kaikki tasot näkyviin.
 
-![](img/harjoitus_4/image16.png)
+![](img/harjoitus_5/image3.png)
 
-Editoidessa voit hyödyntää myös **Tarttumisen työkalut** -palkin toimintoa päällekkäisten kohteiden digitoinnin välttämiseen.
+Tasot järjestetään automaattisesti uuteen ryhmään ja nimetään samalla tavalla kuin alkuperäisessä tiedostossa. Kun piirros ja tasot ovat latutuneet, voit painaa ikkunan alareunasta **OK** ja katsoa miltä tuotu aineisto näyttää QGISin karttaikkunassa.
 
-![](img/harjoitus_4/image17.png)
+## DWG-aineisto
 
-Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä **CTRL + S** tai päävalikosta **Projekti \> Tallenna**.
+Tutki miltä tuotu aineisto näyttää QGISissa. Aineisto koostuu useasta eri ryhmästä, joissa on eri tasoja. Ryhmiin on järjestelty viivoja, pisteitä, alueita sekä tekstejä. Pystyt helpoiten tutkimaan rakennetta tasojen nimien avulla ja sillä, että laitat tason pois näkyvistä niin näet missä kyseinen taso sijaitsee ja mitä se sisältää.
+
+
+![](img/harjoitus_5/image4.png)
+## Kohteiden kopioiminen toiselle tasolle
+
+Kopioidaan muutama kohde aiemmin tehdylle Alueet-tasolle. Valitse esimerkiksi ryhmä AK_MuuAsemakaavaViiva_alueenosan_raja. Ryhmässä on kaksi tasoa: lines ja polylines. Voit valita jonkun kohteen, jonka haluat kopioida itse tehdylle tasollesi. Tuodut CAD-piirrokset koostuvat usein useammasta eri pätkästä, ota valintatyökalu käyttöön ja voit valita useamman kohteen joko piirtämällä kohteen ympärille neliön tai valitsemalla useamman kohteen pitäen Ctrl-näppäintä pohjassa. Kopioi kohteet painamalla **Ctrl+C** tai yläpalkista **Muokkaa -> Kopioi kohteet**.
+
+Tarkista että taso, jolle siirrät kohteita on editointitilassa. Valitse kohdetaso tasovalikosta, jotta saat sen aktiiviseksi. Voit liittää kohteet uudelle tasolle joko painamalla **Ctrl+V** tai yläpalkista **Muokkaa-> Liitä kohteet**. Tallenna vielä tason muutokset, jotta kohteet tallentuvat uudelle tasolle. Kopioiminen ja liittäminen siirtää kuitenkin vain geometriat eikä attribuutteja, ellei uudella tasolla ole samoja attribuuttikenttiä kuin alkuperäisessä tasossa. 
+
+![](img/harjoitus_5/image5.png)
+
 
 ::: hint-box
-Psst! Muista tukipalvelu! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelun kautta lähettämällä yksinkertaisesti koulutustuki\@gispo.fi-sähköpostiosoitteeseen kysymyksen tai kommentin jostakin sinua mietityttävästä asiasta. Gispon tiimi auttaa sinua toimiesi äärellä. Kysymykset käsitellään henkilökohtaisesti.
+**Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen [koulutustuki\@gispo.fi](mailto:koulutustuki@gispo.fi){.email}!**
 :::

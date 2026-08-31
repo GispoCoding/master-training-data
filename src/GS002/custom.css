@@ -1,27 +1,6 @@
 /* Import fonts */
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;700&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
-
-
-/* to-do */
-.todo {
-    background-color: red;
-    color:#eeeeee;
-}
-
-
-.in-view {
-  background-color: #ab8b9b;
-
-  padding-left: 3%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-right: 10%;
-
-  border-radius: 0.5em;
-}
 
 /* Generics */
 body { overflow-x: hidden; }
@@ -35,13 +14,13 @@ p, span, li {
 }
 
 a {
-    color: #936287 !important;
+    color: #ab8b9b !important;
     text-decoration: underline !important;
     background-color: transparent;
 }
 
 a:hover {
-    color: #caabbe !important;
+    color: #f1c3bb !important;
     text-decoration: underline;
 }
 
@@ -225,28 +204,6 @@ h5 { font-size: 100% !important; }
     margin-top: 2em;
 }
 
-/* Tables */
-
-table .header {
-    background-color: #7a3884;
-    color: #fbfbfb !important;
-}
-
-table .odd {
-    background-color: #FCFCFC;
-}
-
-table .even {
-    background-color: #F5F5F5;
-}
-
-table th,
-table td {
-    border-right: 1px solid #ffffff;
-    padding: 0.8em;
-    font-family: 'Karla', sans-serif;
-}
-  
 /* Buttons */
 
 .btn {
@@ -257,7 +214,7 @@ table td {
     border: none !important;
     margin: 0.8em 0.8em !important;
     padding: 0.4em 0.8em !important;
-    border-radius: 3 !important;
+    border-radius: 0 !important;
     display:block
 }
 
@@ -266,45 +223,6 @@ table td {
     text-decoration: none;
     background-color: #ab8b9b !important;
 }
-
-.copy-button {
-    visibility: hidden;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 5px;
-    background-color: transparent;
-    border: 1px solid #434662;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-.copy-button{
-    color: #8588a2;
-}
-
-.copy-button:hover{
-    color: #434662;
-}
-  
-.copy-button::before {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: "\f0c5";
-  }
-
-.copy-button.show-checkmark::before {
-    content: "\f00c";
-    color:#0f9400;
-}
-  
-.code-box:hover .copy-button,
-.commandline-box:hover .copy-button {
-    visibility: visible;
-  }
-  
 
 /* Footer */
 
@@ -367,11 +285,10 @@ table td {
 /* Content boxes */
 
 .hint-box {
-    background: #434662;
+    background: #7a3884;
     padding: 10px;
     border: none;
     margin-bottom: 1rem;
-    border-radius: 3px;
 }
 
 .hint-box p {
@@ -380,81 +297,51 @@ table td {
 }
 
 .note-box {
-    background: #ffffff;
+    background: #edc949;
     padding: 10px;
     border: none;
     margin-bottom: 1rem;
-    border-radius: 3px;
 }
 
 .note-box p {
-    color: #434662;
+    color: #444444;
     margin: 0 !important;
 }
 
 .code-box {
-    position: relative;
-    background: #f5d2cc;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    background: #ffe1cd;
+    padding: 10px;
     border: none;
-    display: flex;
-    align-items: center;
     margin-bottom: 1rem;
-    min-height: 2.5rem;
-    border-radius: 3px;
-}
-
-code span {
-    font-family: 'Source Code Pro', monospace;
 }
 
 .code-box p {
-    color: #000000;
-    font-family: 'Source Code Pro', sans-serif !important;
+    color: #444444;
     margin: 0 !important;
 }
 
 .file-content-box {
-    background: #caabbe;
+    background: #eeeeee;
     padding: 10px;
     border: none;
     margin-bottom: 1rem;
-    border-radius: 3px;
 }
 
 .file-content-box p {
-    color: #000000;
+    color: #444444;
     margin: 0 !important;
 }
 
 .commandline-box {
-    position: relative;
-    background: #cccccc;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    background: #ab8b9b;
+    padding: 10px;
     border: none;
-    display: flex;
-    align-items: center;
     margin-bottom: 1rem;
-    min-height: 2.5rem;
-    border-radius: 3px;
 }
 
 .commandline-box p {
-    font-family: 'Source Code Pro', monospace;
-    color: #000000;
+    color: #fbfbfb;
     margin: 0 !important;
-}
-
-.hidden-box {
-    display: none;
-    padding: 1rem;
-    background: #f0f0f079;
 }
 
 /* Media queries */
@@ -505,4 +392,3 @@ code span {
 @media (max-width: 767px) {
     .level1 { padding: 60px 10px; }
 }
-
