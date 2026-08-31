@@ -3,7 +3,7 @@ title: "Suunnittelu ja editointi QGISillä"
 author: "Gispo Oy."
 date: "`r Sys.Date()`"
 site: "bookdown::bookdown_site"
-abstract: "Syventäväkurssi datan tuottamisesta QGISissä."
+abstract: "Syventävä kurssi datan tuottamisesta QGISissä."
 output:
     bookdown::html_book:
         toc: true

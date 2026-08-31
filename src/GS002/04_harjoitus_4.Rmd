@@ -28,6 +28,7 @@ QGIS tukee natiivisti vain vanhempaa MicroStation DGN v7 formaattia eikä uudemp
 :::
 
 Aineistotuonnille on oma työkalunsa, avaa **Projekti -> Tuo/Vie -> Tuo tasoja DWG/DXF-tiedostoista...**
+
 ![](img/harjoitus_5/image1.png)
 
 QGIS avaa uuden ikkunan, jossa pääset määrittämään minkä aineiston haluat tuoda ja mihin se tallennetaan. Aineistosta pitää myös tietää, missä koordinaattijärjestlemässä se on luotu, jotta tuonti ja aineiston muunnos GeoPackageen toimii oikein.
@@ -54,7 +55,6 @@ Kopioidaan muutama kohde aiemmin tehdylle Alueet-tasolle. Valitse esimerkiksi ry
 
 Tarkista että taso, jolle siirrät kohteita on editointitilassa. Valitse kohdetaso tasovalikosta, jotta saat sen aktiiviseksi. Voit liittää kohteet uudelle tasolle joko painamalla **Ctrl+V** tai yläpalkista **Muokkaa-> Liitä kohteet**. Tallenna vielä tason muutokset, jotta kohteet tallentuvat uudelle tasolle. Kopioiminen ja liittäminen siirtää kuitenkin vain geometriat eikä attribuutteja, ellei uudella tasolla ole samoja attribuuttikenttiä kuin alkuperäisessä tasossa. 
 
-![](img/harjoitus_5/image5.png)
 
 
 ::: hint-box
