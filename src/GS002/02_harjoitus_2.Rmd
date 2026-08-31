@@ -60,12 +60,12 @@ Integer, 32bit integer vai Integer 64 bit? Tässä tapauksessa valitsemme kentä
 \
 Ensin käyttötarkoitus: mitä lukuja kenttään tallennetaan?\
 \
-16-bit unsigned integer voi sisältää luvun väliltä -32 768 - 32 767\
-Signed: 0 - 65 535.\
-32-bit unsigned integer voi sisältää luvun välillä −2 147 483 648 - 2 147 483 647\
-Signed: 0 - 4 294 967 295.\
-64-bit unsigned integer voi sisältää luvunvälillä −9 223 372 036 854 775 808 - 9 223 372 036 854 775 807\
-Signed: 0 - 18 446 744 073 709,55.\
+16-bit signed integer voi sisältää kokonaisluvun väliltä -32 768 - 32 767\
+Unsigned: 0 - 65 535.\
+32-bit signed integer voi sisältää kokonaisluvun välillä −2 147 483 648 - 2 147 483 647\
+Unsigned: 0 - 4 294 967 295.\
+64-bit signed integer voi sisältää kokonaisluvun välillä −9 223 372 036 854 775 808 - 9 223 372 036 854 775 807\
+Unsigned: 0 - 18 446 744 073 709,55.\
 \
 QGIS:issä (versioissa 3.10+) integerit ovat oletuksena signed-tyyppisiä, ellei toisin mainita.\
 Toisakseen tulee harkittavaksi, mihin tuota tietoa tallennetaan: Geopackage, PostgreSQL vai joku muu? Mitä enemmän käytetään bittejä, sitä suuremmaksi kasvaa tiedostojen koot (myös PostgreSQL:ssä on tiedostoja tietokannan takana). Mitä suuremmat tiedostot, sitä hitaammin asiat sujuvat.\
