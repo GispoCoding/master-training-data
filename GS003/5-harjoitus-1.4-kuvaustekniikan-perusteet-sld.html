@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="5 HARJOITUS 1.4: KUVAUSTEKNIIKAN PERUSTEET (SLD) | Johdanto GeoServerin käyttöön" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy" />
+
+<meta name="date" content="2026-08-21" />
+
+
+<meta name="description" content="5 HARJOITUS 1.4: KUVAUSTEKNIIKAN PERUSTEET (SLD) | Johdanto GeoServerin käyttöön">
+
+<title>5 HARJOITUS 1.4: KUVAUSTEKNIIKAN PERUSTEET (SLD) | Johdanto GeoServerin käyttöön</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Johdanto GeoServerin käyttöön</h1></div>
+<div class="abstract-sidebar"><p>Johdantokurssi GeoServerin käyttöön</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#johdanto-geoserverin-käyttöön"><span class="toc-section-number">1</span> JOHDANTO GEOSERVERIN KÄYTTÖÖN</a>
+<ul>
+<li><a href="index.html#tervetuloa-geoserver-kurssille"><span class="toc-section-number">1.1</span> Tervetuloa GeoServer-kurssille!</a></li>
+<li><a href="index.html#geoserverin-taustaa"><span class="toc-section-number">1.2</span> GeoServerin taustaa</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.3</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.4</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.5</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.6</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#harjoitus-1.1-asennus-ja-käyttöönotto"><span class="toc-section-number">2</span> HARJOITUS 1.1: ASENNUS JA KÄYTTÖÖNOTTO</a>
+<ul>
+<li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#valmistautuminen"><span class="toc-section-number">2.1</span> <strong>Valmistautuminen</strong></a></li>
+<li class="has-sub"><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#ylävalikko"><span class="toc-section-number">2.2</span> <strong>Ylävalikko</strong></a>
+<ul>
+<li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#palvelutoiminnallisuudet"><span class="toc-section-number">2.2.1</span> <strong>Palvelutoiminnallisuudet</strong></a></li>
+<li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#demos"><span class="toc-section-number">2.2.2</span> <strong>Demos</strong></a></li>
+<li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#demo-requests"><span class="toc-section-number">2.2.3</span> <strong>Demo requests</strong></a></li>
+<li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#srs-list-ja-reprojection-console"><span class="toc-section-number">2.2.4</span> <strong>SRS List ja Reprojection console</strong></a></li>
+</ul></li>
+<li><a href="2-harjoitus-1.1-asennus-ja-käyttöönotto.html#wcs-request-builder"><span class="toc-section-number">2.3</span> <strong>WCS request builder</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#harjoitus-1.2-geoserverin-web-käyttöliittymä"><span class="toc-section-number">3</span> HARJOITUS 1.2: GEOSERVERIN WEB-KÄYTTÖLIITTYMÄ</a>
+<ul>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#ylläpitäjän-käyttöliittymä"><span class="toc-section-number">3.1</span> <strong>Ylläpitäjän käyttöliittymä</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#geoserver-valikko"><span class="toc-section-number">3.2</span> <strong>GeoServer-valikko</strong></a></li>
+<li class="has-sub"><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#data-valikko"><span class="toc-section-number">3.3</span> <strong>Data-valikko</strong></a>
+<ul>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#workspaces"><span class="toc-section-number">3.3.1</span> <strong>Workspaces</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#stores"><span class="toc-section-number">3.3.2</span> <strong>Stores</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#layers"><span class="toc-section-number">3.3.3</span> <strong>Layers</strong></a></li>
+</ul></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#layer-groups"><span class="toc-section-number">3.4</span> <strong>Layer Groups</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#styles"><span class="toc-section-number">3.5</span> <strong>Styles</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#services-1"><span class="toc-section-number">3.6</span> <strong>Services</strong></a></li>
+<li class="has-sub"><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#server-1"><span class="toc-section-number">3.7</span> <strong>Server</strong></a>
+<ul>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#contact-information"><span class="toc-section-number">3.7.1</span> <strong>Contact Information</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#server-status"><span class="toc-section-number">3.7.2</span> <strong>Server Status</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#logs"><span class="toc-section-number">3.7.3</span> <strong>Logs</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#global-settings"><span class="toc-section-number">3.7.4</span> <strong>Global Settings</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#image-processing"><span class="toc-section-number">3.7.5</span> <strong>Image Processing</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#raster-access"><span class="toc-section-number">3.7.6</span> <strong>Raster Access</strong></a></li>
+</ul></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#tile-cache-1"><span class="toc-section-number">3.8</span> <strong>Tile Cache</strong></a></li>
+<li><a href="3-harjoitus-1.2-geoserverin-web-käyttöliittymä.html#security-1"><span class="toc-section-number">3.9</span> <strong>Security</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="4-harjoitus-1.3-vektoriaineistot.html#harjoitus-1.3-vektoriaineistot"><span class="toc-section-number">4</span> Harjoitus 1.3: VEKTORIAINEISTOT</a>
+<ul>
+<li><a href="4-harjoitus-1.3-vektoriaineistot.html#valmistautuminen-1"><span class="toc-section-number">4.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="4-harjoitus-1.3-vektoriaineistot.html#vektoriaineiston-storen-luominen"><span class="toc-section-number">4.2</span> <strong>Vektoriaineiston Storen luominen</strong></a></li>
+<li><a href="4-harjoitus-1.3-vektoriaineistot.html#vektoritason-julkaiseminen"><span class="toc-section-number">4.3</span> <strong>Vektoritason julkaiseminen</strong></a></li>
+<li class="has-sub"><a href="4-harjoitus-1.3-vektoriaineistot.html#data-asetukset"><span class="toc-section-number">4.4</span> <strong>Data asetukset</strong></a>
+<ul>
+<li><a href="4-harjoitus-1.3-vektoriaineistot.html#coordinate-reference-systems"><span class="toc-section-number">4.4.1</span> <strong>Coordinate Reference Systems</strong></a></li>
+<li><a href="4-harjoitus-1.3-vektoriaineistot.html#bounding-boxes"><span class="toc-section-number">4.4.2</span> <strong>Bounding Boxes</strong></a></li>
+<li><a href="4-harjoitus-1.3-vektoriaineistot.html#feature-type-details"><span class="toc-section-number">4.4.3</span> <strong>Feature Type Details</strong></a></li>
+</ul></li>
+<li><a href="4-harjoitus-1.3-vektoriaineistot.html#helsingin-tiestön-lisääminen"><span class="toc-section-number">4.5</span> <strong>Helsingin tiestön lisääminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html#harjoitus-1.4-kuvaustekniikan-perusteet-sld"><span class="toc-section-number">5</span> HARJOITUS 1.4: KUVAUSTEKNIIKAN PERUSTEET (SLD)</a>
+<ul>
+<li><a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html#valmistautuminen-2"><span class="toc-section-number">5.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html#geoserverin-kuvaustekniikka"><span class="toc-section-number">5.2</span> <strong>GeoServerin kuvaustekniikka</strong></a></li>
+<li><a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html#sld-kuvaustekniikka"><span class="toc-section-number">5.3</span> <strong>SLD-kuvaustekniikka</strong></a></li>
+<li><a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html#uuden-tyylin-luominen"><span class="toc-section-number">5.4</span> <strong>Uuden tyylin luominen</strong></a></li>
+<li><a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html#sld-kuvaustekniikan-käyttöönotto"><span class="toc-section-number">5.5</span> <strong>SLD-kuvaustekniikan käyttöönotto</strong></a></li>
+<li><a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html#sld-cookbook"><span class="toc-section-number">5.6</span> <strong>SLD Cookbook</strong></a></li>
+<li><a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html#sld-kuvaustekniikan-muokkaaminen"><span class="toc-section-number">5.7</span> <strong>SLD-kuvaustekniikan muokkaaminen</strong></a></li>
+<li><a href="5-harjoitus-1.4-kuvaustekniikan-perusteet-sld.html#tiestön-tyylin-luominen"><span class="toc-section-number">5.8</span> <strong>Tiestön tyylin luominen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="6-harjoitus-1.5-wms--ja-wcs-palvelut.html#harjoitus-1.5-wms--ja-wcs-palvelut"><span class="toc-section-number">6</span> HARJOITUS 1.5: WMS- JA WCS-PALVELUT</a>
+<ul>
+<li><a href="6-harjoitus-1.5-wms--ja-wcs-palvelut.html#valmistautuminen-3"><span class="toc-section-number">6.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="6-harjoitus-1.5-wms--ja-wcs-palvelut.html#ogc-standardit"><span class="toc-section-number">6.2</span> <strong>OGC-standardit</strong></a></li>
+<li><a href="6-harjoitus-1.5-wms--ja-wcs-palvelut.html#yleiset-karttapalveluasetukset"><span class="toc-section-number">6.3</span> <strong>Yleiset karttapalveluasetukset</strong></a></li>
+<li><a href="6-harjoitus-1.5-wms--ja-wcs-palvelut.html#wms"><span class="toc-section-number">6.4</span> <strong>WMS</strong></a></li>
+<li><a href="6-harjoitus-1.5-wms--ja-wcs-palvelut.html#workspace-kohtaiset-palvelimen-asetukset"><span class="toc-section-number">6.5</span> <strong>Workspace-kohtaiset palvelimen asetukset</strong></a></li>
+<li><a href="6-harjoitus-1.5-wms--ja-wcs-palvelut.html#wms-karttapalvelun-kuvan-dpi-resoluutio"><span class="toc-section-number">6.6</span> <strong>WMS-karttapalvelun kuvan DPI-resoluutio</strong></a></li>
+<li><a href="6-harjoitus-1.5-wms--ja-wcs-palvelut.html#wcs"><span class="toc-section-number">6.7</span> <strong>WCS</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="7-harjoitus-1.6-rasteriaineistot.html#harjoitus-1.6-rasteriaineistot"><span class="toc-section-number">7</span> HARJOITUS 1.6: RASTERIAINEISTOT</a>
+<ul>
+<li><a href="7-harjoitus-1.6-rasteriaineistot.html#valmistautuminen-4"><span class="toc-section-number">7.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="7-harjoitus-1.6-rasteriaineistot.html#korkeusmallikuvan-lisääminen"><span class="toc-section-number">7.2</span> <strong>Korkeusmallikuvan lisääminen</strong></a></li>
+<li><a href="7-harjoitus-1.6-rasteriaineistot.html#image-mosaic"><span class="toc-section-number">7.3</span> <strong>Image Mosaic</strong></a></li>
+<li class="has-sub"><a href="7-harjoitus-1.6-rasteriaineistot.html#layer-groups-1"><span class="toc-section-number">7.4</span> <strong>Layer Groups</strong></a>
+<ul>
+<li><a href="7-harjoitus-1.6-rasteriaineistot.html#ryhmätasojen-julkaisemisen-muoto"><span class="toc-section-number">7.4.1</span> <strong>Ryhmätasojen julkaisemisen muoto</strong></a></li>
+<li><a href="7-harjoitus-1.6-rasteriaineistot.html#muiden-wms-palvelujen-hyödyntäminen-cascading-wms"><span class="toc-section-number">7.4.2</span> <strong>Muiden WMS-palvelujen hyödyntäminen (cascading WMS)</strong></a></li>
+</ul></li>
+</ul></li>
+<li class="has-sub"><a href="8-harjoitus-1.7-paikkatietokannat.html#harjoitus-1.7-paikkatietokannat"><span class="toc-section-number">8</span> HARJOITUS 1.7: PAIKKATIETOKANNAT</a>
+<ul>
+<li><a href="8-harjoitus-1.7-paikkatietokannat.html#valmistautuminen-5"><span class="toc-section-number">8.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="8-harjoitus-1.7-paikkatietokannat.html#yhteyden-muodostaminen-paikkatietokantaan"><span class="toc-section-number">8.2</span> <strong>Yhteyden muodostaminen paikkatietokantaan</strong></a></li>
+<li><a href="8-harjoitus-1.7-paikkatietokannat.html#postgis-tason-lisääminen"><span class="toc-section-number">8.3</span> <strong>PostGIS-tason lisääminen</strong></a></li>
+<li><a href="8-harjoitus-1.7-paikkatietokannat.html#monikulmio--ja-viiva-tason-lisääminen-postgis-tietokannasta"><span class="toc-section-number">8.4</span> <strong>Monikulmio- ja viiva-tason lisääminen PostGIS-tietokannasta</strong></a></li>
+<li><a href="8-harjoitus-1.7-paikkatietokannat.html#tasojen-oletustyylien-asettaminen"><span class="toc-section-number">8.5</span> <strong>Tasojen oletustyylien asettaminen</strong></a></li>
+<li><a href="8-harjoitus-1.7-paikkatietokannat.html#sql-näkymät"><span class="toc-section-number">8.6</span> <strong>SQL-näkymät</strong></a></li>
+<li><a href="8-harjoitus-1.7-paikkatietokannat.html#paikkatietotoiminnot-sql-näkymien-kautta"><span class="toc-section-number">8.7</span> <strong>Paikkatietotoiminnot SQL-näkymien kautta</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="9-harjoitus-2.1-wfs-palvelut.html#harjoitus-2.1-wfs-palvelut"><span class="toc-section-number">9</span> HARJOITUS 2.1: WFS-PALVELUT</a>
+<ul>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#valmistautuminen-6"><span class="toc-section-number">9.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#ogc-standardit-1"><span class="toc-section-number">9.2</span> <strong>OGC-standardit</strong></a></li>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#wfs-asetukset"><span class="toc-section-number">9.3</span> <strong>WFS-asetukset</strong></a></li>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#tietomäärä-pyynnöissä"><span class="toc-section-number">9.4</span> <strong>Tietomäärä pyynnöissä</strong></a></li>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#useiden-koordinaattijärjestelmien-määrittäminen"><span class="toc-section-number">9.5</span> <strong>Useiden koordinaattijärjestelmien määrittäminen</strong></a></li>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#service-levels"><span class="toc-section-number">9.6</span> <strong>Service Levels</strong></a></li>
+<li class="has-sub"><a href="9-harjoitus-2.1-wfs-palvelut.html#gml-asetukset"><span class="toc-section-number">9.7</span> <strong>GML-asetukset</strong></a>
+<ul>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#epsg-koodit-ja-koordinaattien-formaatit-gml-dokumentissa"><span class="toc-section-number">9.7.1</span> EPSG-koodit ja koordinaattien formaatit GML-dokumentissa</a></li>
+</ul></li>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#workspace-kohtaiset-asetukset"><span class="toc-section-number">9.8</span> <strong>Workspace-kohtaiset asetukset</strong></a></li>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#editointi-wfs-t-palvelun-kautta"><span class="toc-section-number">9.9</span> <strong>Editointi WFS-T-palvelun kautta</strong></a></li>
+<li><a href="9-harjoitus-2.1-wfs-palvelut.html#muiden-wfs-palvelujen-hyödyntäminen-cascading-wfs"><span class="toc-section-number">9.10</span> <strong>Muiden WFS-palvelujen hyödyntäminen (cascading WFS)</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="10-harjoitus-2.2-karttatiilipalvelut.html#harjoitus-2.2-karttatiilipalvelut"><span class="toc-section-number">10</span> HARJOITUS 2.2: KARTTATIILIPALVELUT</a>
+<ul>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#valmistautuminen-7"><span class="toc-section-number">10.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#tile-cache-2"><span class="toc-section-number">10.2</span> <strong>Tile Cache</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#geowebcache-käyttöliittymä"><span class="toc-section-number">10.3</span> <strong>GeoWebCache-käyttöliittymä</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#tasokohtaiset-asetukset"><span class="toc-section-number">10.4</span> <strong>Tasokohtaiset asetukset</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#karttatiilien-esiluominen"><span class="toc-section-number">10.5</span> <strong>Karttatiilien esiluominen</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#karttatiilien-kovalevyn-käyttö"><span class="toc-section-number">10.6</span> <strong>Karttatiilien kovalevyn käyttö</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#karttatiiliruudukot"><span class="toc-section-number">10.7</span> <strong>Karttatiiliruudukot</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#lisätehtävä-1"><span class="toc-section-number">10.8</span> <strong>Lisätehtävä 1</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#jhs180-mukainen-karttatiiliruudukko"><span class="toc-section-number">10.9</span> <strong>JHS180 mukainen karttatiiliruudukko</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#uuden-karttatiiliruudukon-luominen"><span class="toc-section-number">10.10</span> <strong>Uuden karttatiiliruudukon luominen</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#suomen-openstreetmap-tiestö"><span class="toc-section-number">10.11</span> <strong>Suomen OpenStreetMap-tiestö</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#oman-karttatiiliruudukon-käyttöönotto"><span class="toc-section-number">10.12</span> <strong>Oman karttatiiliruudukon käyttöönotto</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#lisätehtävä-2"><span class="toc-section-number">10.13</span> <strong>Lisätehtävä 2</strong></a></li>
+<li><a href="10-harjoitus-2.2-karttatiilipalvelut.html#paikallisen-karttatiiliruudukon-muodostaminen"><span class="toc-section-number">10.14</span> <strong>Paikallisen karttatiiliruudukon muodostaminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="11-harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto.html#harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto"><span class="toc-section-number">11</span> HARJOITUS 2.3: ARKKITEHTUURI JA KÄYTTÖÖNOTTO</a>
+<ul>
+<li><a href="11-harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto.html#valmistautuminen-8"><span class="toc-section-number">11.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="11-harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto.html#yleistiedot-geoserverin-palvelimesta"><span class="toc-section-number">11.2</span> <strong>Yleistiedot GeoServerin palvelimesta</strong></a></li>
+<li><a href="11-harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto.html#image-processing--asetukset"><span class="toc-section-number">11.3</span> <strong>Image Processing -asetukset</strong></a></li>
+<li><a href="11-harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto.html#raster-access-1"><span class="toc-section-number">11.4</span> <strong>Raster Access</strong></a></li>
+<li><a href="11-harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto.html#geoserverin-loki"><span class="toc-section-number">11.5</span> <strong>GeoServerin loki</strong></a></li>
+<li><a href="11-harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto.html#rest-apin-toimintaa"><span class="toc-section-number">11.6</span> <strong>REST API:n toimintaa</strong></a></li>
+<li><a href="11-harjoitus-2.3-arkkitehtuuri-ja-käyttöönotto.html#monitor-lisäosan-käyttö"><span class="toc-section-number">11.7</span> <strong>Monitor-lisäosan käyttö</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#harjoitus-2.4-css-kuvaustekniikka"><span class="toc-section-number">12</span> HARJOITUS 2.4: CSS-KUVAUSTEKNIIKKA</a>
+<ul>
+<li><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#valmistautuminen-9"><span class="toc-section-number">12.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#css-tyylit"><span class="toc-section-number">12.2</span> <strong>CSS-tyylit</strong></a></li>
+<li><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#tyylin-luominen"><span class="toc-section-number">12.3</span> <strong>Tyylin luominen</strong></a></li>
+<li><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#aineiston-luokittelu"><span class="toc-section-number">12.4</span> <strong>Aineiston luokittelu</strong></a></li>
+<li><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#tyylin-virittäminen"><span class="toc-section-number">12.5</span> <strong>Tyylin virittäminen</strong></a></li>
+<li><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#luokkien-nimeäminen"><span class="toc-section-number">12.6</span> <strong>Luokkien nimeäminen</strong></a></li>
+<li><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#mittakaavaperusteinen-näkyvyys"><span class="toc-section-number">12.7</span> <strong>Mittakaavaperusteinen näkyvyys</strong></a></li>
+<li><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#tekstityksen-lisääminen"><span class="toc-section-number">12.8</span> <strong>Tekstityksen lisääminen</strong></a></li>
+<li><a href="12-harjoitus-2.4-css-kuvaustekniikka.html#kuvaustekniikan-soveltaminen"><span class="toc-section-number">12.9</span> <strong>Kuvaustekniikan soveltaminen</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="13-harjoitus-2.5-pääsynhallinta.html#harjoitus-2.5-pääsynhallinta"><span class="toc-section-number">13</span> HARJOITUS 2.5: PÄÄSYNHALLINTA</a>
+<ul>
+<li><a href="13-harjoitus-2.5-pääsynhallinta.html#geoserverin-yleiset-turvallisuusasetukset"><span class="toc-section-number">13.1</span> <strong>GeoServerin yleiset turvallisuusasetukset</strong></a></li>
+<li><a href="13-harjoitus-2.5-pääsynhallinta.html#tunnistautuminen"><span class="toc-section-number">13.2</span> <strong>Tunnistautuminen</strong></a></li>
+<li><a href="13-harjoitus-2.5-pääsynhallinta.html#uuden-roolin-ja-käyttäjän-luominen"><span class="toc-section-number">13.3</span> <strong>Uuden roolin ja käyttäjän luominen</strong></a></li>
+<li><a href="13-harjoitus-2.5-pääsynhallinta.html#aineiston-käyttöoikeuksien-rajoittaminen"><span class="toc-section-number">13.4</span> <strong>Aineiston käyttöoikeuksien rajoittaminen</strong></a></li>
+<li><a href="13-harjoitus-2.5-pääsynhallinta.html#aineiston-käyttäjäkohtaiset-käyttöoikeudet"><span class="toc-section-number">13.5</span> <strong>Aineiston käyttäjäkohtaiset käyttöoikeudet</strong></a></li>
+<li><a href="13-harjoitus-2.5-pääsynhallinta.html#karttapalvelukohtaiset-oikeudet"><span class="toc-section-number">13.6</span> <strong>Karttapalvelukohtaiset oikeudet</strong></a></li>
+</ul></li>
+<li class="has-sub"><a href="14-harjoitus-2.6-suodattimet.html#harjoitus-2.6-suodattimet"><span class="toc-section-number">14</span> HARJOITUS 2.6: SUODATTIMET</a>
+<ul>
+<li><a href="14-harjoitus-2.6-suodattimet.html#valmistautuminen-10"><span class="toc-section-number">14.1</span> <strong>Valmistautuminen</strong></a></li>
+<li><a href="14-harjoitus-2.6-suodattimet.html#ominaisuustietosuodattimet"><span class="toc-section-number">14.2</span> <strong>Ominaisuustietosuodattimet</strong></a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-1.4-kuvaustekniikan-perusteet-sld" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> HARJOITUS 1.4: KUVAUSTEKNIIKAN PERUSTEET (SLD)</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa käsitellään eri aineistoille sovellettavia kuvaustekniikoita ja hyödynnetään SLD-tyylejä karttojen visualisointiin.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Harjoituksen jälkeen opiskelija osaa hyödyntää peruskuvaustekniikoita GeoServerillä eri aineistojen visualisointiin, käyttäen SLD-kieltä.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>40 minuuttia.</p>
+<div id="valmistautuminen-2" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> <strong>Valmistautuminen</strong></h2>
+<p>Aiemmissa harjoituksissa on luotu GeoServerin palvelimelle taso <strong>rakennukset</strong>, johon luodaan nyt kuvaustekniikka.</p>
+</div>
+<div id="geoserverin-kuvaustekniikka" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> <strong>GeoServerin kuvaustekniikka</strong></h2>
+<p>WMS-palvelut visualisoivat karttakuvia GeoServerissä ennalta määritetyillä kuvaustekniikoilla. Tähän asti olemme käyttäneet oletuskuvaustekniikoita aina lisättyämme uusia aineistoja, esimerkiksi kun olemme esikatselleet jotain tasoa.</p>
+<p>Avaa Ylävalikosta <strong>Data</strong> ja sen jälkeen <strong>Layers</strong> ja avaa <strong>rakennukset</strong>-taso. Avaa sitten <strong>Publishing</strong>-välilehti. <img src="img/harjoitus_4/image1.png" /></p>
+<p>Huomaa, että <strong>Cartography Settings</strong> -kohdasta löytyy <strong>Default Style</strong> -valikko, johon on valittu <strong>polygon</strong>-kuvaustekniikka.</p>
+<p><br />
+</p>
+<p><img src="img/harjoitus_4/image2.png" /></p>
+</div>
+<div id="sld-kuvaustekniikka" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> <strong>SLD-kuvaustekniikka</strong></h2>
+<p>GeoServerin tyylit on määritelty <strong>Styled Layer Descriptorilla</strong> (SLD), joka on XML-kieli.</p>
+<p>Poistu tason näkymästä ja avaa <strong>Data → Styles</strong> näkymä päävalikon alta. Tässä näkymässä määritellään tyylit (kuvaustekniikat), joita WMS-karttatasoissa käytetään.</p>
+<p>Koko GeoServerissä on parikymmentä tyyliä valmiina, jotka tulevat GeoServerin asennuksen mukana. Jos hyppäsit suoraan äskeisestä näkymästä tähän niin suoraan ainoastaan polygon-tyyliä. Katsotaan aluksi, miltä <strong>rakennukset</strong>-tason käyttämä polygon-tyyli näyttää. Avaa se painamalla <strong>polygon</strong>-kohtaa.</p>
+<p><img src="img/harjoitus_4/image3.png" /></p>
+<p>Huomaa, että <strong>Format</strong> on <strong>SLD</strong>. Tutustu nyt tyylin koodiin, joka muistuttaa verkkosivujen HTML-koodia. Siinä voit tunnistaa muun muassa <strong>&lt;Fill&gt;</strong>-ja <strong>&lt;Stroke&gt;</strong>-tagit, jotka määrittelevät monikulmion täyte- ja rajaviivan värejä.</p>
+<p>Koodin toimivuutta voi kokeilla <strong>Validate</strong>- ja selitteen esikatselua <strong>Preview legend</strong> -toiminnolla.</p>
+<p>Palaa <strong>Styles</strong>-näkymään painamalla <strong>Cancel</strong>.</p>
+</div>
+<div id="uuden-tyylin-luominen" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> <strong>Uuden tyylin luominen</strong></h2>
+<p>Laaditaan nyt oma kuvaustekniikka Helsingin rakennukset -aineistolle.</p>
+<p><strong>Data → Styles</strong> näkymässä, lisää uusi SLD-tyyli painamalla <strong>Add a new style</strong>.</p>
+<p>Anna uudelle tyylille nimeksi <strong>oletus_polygoni</strong>. Valitse workspace:ksi <strong>helsinki</strong>.</p>
+<p>Helpottaakseen omien tyylien kirjoittamisen aloittamista, SLD-koodikentän täyttämiseen voidaan valita malliksi GeoServerin oletustyylit tai kopioida olemassa oleva tyyli.</p>
+<p>Valitse <strong>Generate a default style</strong> -alasvetovalikosta <strong>Polygon</strong> ja paina sen jälkeen <strong>Generate…</strong></p>
+<p><img src="img/harjoitus_4/image5.png" /></p>
+<p>Voit nyt testata SLD-koodia <strong>Validate-</strong>toiminnolla. Testauksen onnistuminen näkyy vaalensinisellä palkilla.</p>
+<p><img src="img/harjoitus_4/image6.png" /></p>
+<p>Muutoksia voi otta väliaikaisesti käyttöön painamalla <strong>Apply</strong>. Tätä voi käyttää jos esim. on esikatselemassa tyyliä toisella välilehdellä. Paina nyt kuitenkin <strong>Save</strong>, niin muutokset tallentuvat pysyvästi.</p>
+</div>
+<div id="sld-kuvaustekniikan-käyttöönotto" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> <strong>SLD-kuvaustekniikan käyttöönotto</strong></h2>
+<p>Kun uusi tyyli on luotu, voimme käyttää sitä aineistojen visualisoinnissa, esimerkiksi Helsingin rakennuksien esittämiseen kartalla. Sitä varten ilmoitamme GeoServerille, millä tyylillä <strong>rakennukset</strong>-taso on piirrettävä.</p>
+<p>Avaa <strong>rakennukset</strong>-tason editointinäkymä päävalikosta <strong>Data → Layers</strong>. </p>
+<p><strong>Publishing</strong> välilehdellä valitse <strong>Default Style</strong> -valikosta uusi <strong>oletus_polygoni</strong>-tyyli.</p>
+<p>Paina sitten <strong>Save</strong>.</p>
+<p>Voit nyt esikatsella <strong>rakennukset</strong>-tasoa, painamalla vasemalla olevaa <strong>rakennukset</strong>-tasoa ja sen jälkeen sivun keskellä olevaa <strong>OpenLayers</strong>-kohtaa. Huomioi, että esikatselu voi olla välillä hidasta riippuen datan määrästä.</p>
+<p><img src="img/harjoitus_4/image7.png" />
+<img src="img/harjoitus_4/image7b.png" />
+<img src="img/harjoitus_4/image7c.png" /></p>
+</div>
+<div id="sld-cookbook" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> <strong>SLD Cookbook</strong></h2>
+<p>Kannattaa tutustua SLD-tyylien kirjoittamiseen SLD Cookbook -sivuilta. SLD Cookbook on osa GeoServerin verkkodokumentaatiota ja sisältää erilaisia kuvaustekniikkaesimerkkejä.</p>
+<p>Käytetään seuraavaksi pohjana uuteen tyyliimme esimerkkiä <strong>SLD Cookbookista</strong>. </p>
+<p>Avaa uudessa selainikkunassa GeoServerin SLD Cookbook alla olevasta linkistä. Tässä harjoituksessa käytetään <strong><a href="https://docs.geoserver.org/main/en/user/styling/sld/cookbook/polygons/#sld_cookbook_polygons_polygonwithstyledlabel">Polygon with styled label</a></strong> -esimerkkiä.</p>
+<div class="note-box">
+<p><a href="https://docs.geoserver.org/main/en/user/styling/sld/cookbook/?h=cookbook" class="uri">https://docs.geoserver.org/main/en/user/styling/sld/cookbook/?h=cookbook</a></p>
+</div>
+<p>Löydät lyhyen esityksen kuvaustekniikasta ja SLD-koodin. Tutustu lyhyesti koodiin ja yritä löytää tärkeimmät elementit (tagit) kuten monikulmion viivan ja täytön värit sekä tekstien fonttimääritelmät. Voit kirjoittaa muistiinpanoja tärkeimmistä elementeistä ja määritelmistä.</p>
+<p>Esimerkissä <strong>&lt;Stroke&gt;</strong>-koodissa on määritelty reunaviivan väri ja paksuus.</p>
+<p><strong>&lt;TextSymbolizer&gt;</strong> sisältää tekstitysominaisuudet eli labelit (kartan kohteiden, esimerkiksi katujen nimet) kuten <strong>&lt;Label&gt;</strong>, joka määrittää tekstejä varten käytettävän kentän/sarakkeen  ominaisuustiedoista.</p>
+<p>Tavanomaisen SLD-kielen lisäksi tämä mallikoodi sisältää kaksi GeoServerin omaa lisäosaa, joita käytetään SLD:ssä tekstien sijoittamiseen. Tunnistat tällaiset kohdat koodista <strong>&lt;VendorOption...&gt;</strong>-tageista.</p>
+<p>Etsi SLD-tyylien esimerkkisivuilta <strong>View and download the full “Polygon with styled label” SLD</strong> -linkki. Klikkaa sitä ja tallenna. Riippuen selaimesta niin sinun pitää ehkä avata se uudessa ikkunassa ja tallenna kyseinen sivu .sld-tiedostona, käyttämällä selaimen tallennus (save as / tallenna nimellä) toimintoa. Anna tiedostolle nimi, jonka muistat vielä myöhemmin (esimerkiksi polygon_polygonwithstyledlabel.sld).</p>
+<p>Palaa nyt GeoServerin käyttöliittymään ja mene <strong>Styles</strong>-näkymään ja paina <strong>Add a new style</strong>. Paina koodilaatikon yläpuolelta <strong>Choose file</strong>. Etsi äskettäin ladattu SLD-tyyli levyltä ja paina lopuksi <strong>Upload</strong>.</p>
+<p><img src="img/harjoitus_4/image8.png" /></p>
+<p>Anna uudelle tyylille nimeksi <strong>rakennukset</strong>. Valitse <strong>helsinki</strong> workspace:ksi.</p>
+<div class="hint-box">
+<p>Psst! Huomaa, että jos olit aiemmin määritellyt tyylin nimen ja workspacen, GeoServer mahdollisesti korvaa niitä kun lataat .sld tiedostoa.</p>
+</div>
+<p>Voit nyt testata SLD-koodia <strong>Validate-</strong>toiminnolla. Voit esikatsella karttamerkkien selitettä painamalla <strong>Preview legend</strong>.</p>
+<p>Muokkaa vielä monikulmion SLD-tyyli seuraavasti:</p>
+<ul>
+<li><p><strong>Täyteväri</strong> (PolygonSymbolizer → FILL) vaaleanpunaiseksi (#FFCC99)</p></li>
+<li><p><strong>Reunaviivan väri</strong> (PolygonSymbolizer → Stroke) mustaksi (#000000)</p></li>
+<li><p><strong>Reunaviivan paksuudeksi</strong> 0.5</p></li>
+<li><p><strong>Aseta</strong> ensimmäisellä rivillä encoding=“UTF-8”</p></li>
+</ul>
+<div class="hint-box">
+<p>Psst! Huomaa, että GeoServerissä desimaalierottimena toimii ainoastaan piste “.”. Tämä pätee kaikissa GeoServerin asetuksissa.</p>
+</div>
+<p>Tallenna sitten muutokset painamalla <strong>Save</strong>.</p>
+<p>Lopuksi vaihda <strong>rakennukset</strong>-tasolle tyyliksi <strong>rakennukset</strong>-tyyli (<strong>Data → Layers → rakennukset → Publishing</strong>).</p>
+<p><img src="img/harjoitus_4/image9.png" /></p>
+</div>
+<div id="sld-kuvaustekniikan-muokkaaminen" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> <strong>SLD-kuvaustekniikan muokkaaminen</strong></h2>
+<p>Lisätään vielä teksteille puskuri (halo), niin tekstiä on helpompi lukea.</p>
+<p>Palaa <strong>Styles</strong>-näkymälle ja valitse taas <strong>rakennukset</strong>-tyyli. Poista SLD-koodista <strong>&lt;TextSymbolizer&gt;</strong>-tagin sisältä:</p>
+<div class="code-box">
+<p>&lt;Fill&gt;<br />
+   &lt;CssParameter name="fill"&gt;#000000&lt;/CssParameter&gt;<br />
+&lt;/Fill&gt;<br />
+</p>
+</div>
+<p>ja korvaa sen tilalle:</p>
+<div class="code-box">
+<p>&lt;Halo&gt;<br />
+   &lt;Radius&gt;3&lt;/Radius&gt;<br />
+    &lt;Fill&gt;<br />
+        &lt;CssParameter name="fill"&gt;#FFFFFF&lt;/CssParameter&gt;<br />
+    &lt;/Fill&gt;<br />
+&lt;/Halo&gt;</p>
+</div>
+<p>SLD-koodi ikkunassa näyttää tältä:</p>
+<p><img src="img/harjoitus_4/image10.png" /></p>
+<p>Paina sitten <strong>Validate</strong>.</p>
+<p>Jos koodin käytössä tulee virheilmoituksia tai se ei toimi, pyydä kouluttajalta apua. Muuten paina <strong>Apply</strong>, niin tyyli tallentuu väliaikaisesti. Voit nyt käydä esikatselemassa, mutta muista vielä lopuksi painaa <strong>Save</strong> jotta muutokset tallentuvat pysyvästi.</p>
+<p>Päivitetty tyyli on heti käytössä palvelimella ja sitä voi esikatsella <strong>rakennukset</strong>-tason avulla. Selainikkunan voit päivittää painamalla <strong>F5</strong>-näppäintä tai <strong>CTRL+R</strong>-näppäimiä.</p>
+<p><img src="img/harjoitus_4/image11.png" /></p>
+<p>Osoitteessa <a href="http://colorbrewer2.org/" class="uri">http://colorbrewer2.org/</a> voi tutustua erilaisiin visualisointityyleihin ja valita  sopivia värejä visualisointiin.</p>
+</div>
+<div id="tiestön-tyylin-luominen" class="section level2" number="5.8">
+<h2><span class="header-section-number">5.8</span> <strong>Tiestön tyylin luominen</strong></h2>
+<p>Luo nyt uusi tyyli, jota tullaan käyttämään tiestön kuvaamiseen.</p>
+<p>Samalla tavalla kuin aiemmin, käytä hyväksi GeoServerissa olemassa oleva tyyli. <strong>Tiger_roads</strong>-tyyli sopii tiestön kuvaamiseen. Etsi tiger_roads-tyyli (se ei ole osa helsinki-workspacea) ja mene välilehdell <strong>Layer Preview</strong>. Täälläkin voi esikatsella tyyliä.</p>
+<p><img src="img/harjoitus_4/image12.png" /></p>
+<p>Kadut on kuvattu leveinä valkoisina kaistoina kun karttaa lähennetään tarpeeksi. Tehdään seuraavaksi samankaltainen tyyli aikaisemmin julkaistua tiesto-aineistoa varten.</p>
+<p>Luo uusi tyyli (<strong>Data → Styles → Add a new style</strong>), nimeä se <strong>tiesto</strong>. Kopioi <strong>simple_roads</strong> tyyli valitsemalla tyyli kohdassa <strong>Copy from existing style</strong> ja painamalla <strong>Copy …</strong>.</p>
+<p>Etsi <strong>&lt;Rule&gt;</strong> kappaleen sisällä oleva <strong>&lt;Title&gt;</strong> ja lisää sen alle:</p>
+<div class="code-box">
+<p>&lt;MinScaleDenominator&gt;32000&lt;/MinScaleDenominator&gt;</p>
+</div>
+<p><img src="img/harjoitus_4/image13.png" /></p>
+<p>Paina sitten <strong>Apply</strong>. Pidä välilehti auki ja avaa GeoServeri toiseen välilehteen ja mneen tiesto-tasona asetuksiin.</p>
+<p>Aseta vielä tiesto-tason oletustyyliksi <strong>tiesto-tyyli</strong>. (<strong>Data → Layers → helsinki:tiesto → Publishing</strong>).</p>
+<p><img src="img/harjoitus_4/image14.png" /></p>
+<p>Paina <strong>Save</strong> ja esikatsele tasoa. Huomaa, että kun lähennät karttaa siten että mittakaava on suurempi kuin 1:32 000, tiet eivät enää tule näkyviin.</p>
+<p>Lisätään nyt tiet myös mittakaavaan 1:32 000 ja suuremmille. Tämä onnistuu luomalla <strong>&lt;Rule&gt;</strong>-osio, jossa pienin mittakaava (<strong>&lt;MaxScaleDenominator&gt;</strong>) on määritelty <strong>32000</strong> arvoksi.</p>
+<p>Voit hyödyntää edellisen sääntö osiota: kopioi koko <strong>&lt;Rule&gt;</strong> kappale. Lisää se <strong>&lt;/Rule&gt;</strong> jälkeen.</p>
+<p><img src="img/harjoitus_4/image15.png" /></p>
+<p>Muuta vielä:</p>
+<div class="code-box">
+<p>&lt;MinScaleDenominator&gt;32000&lt;/MinScaleDenominator&gt;</p>
+</div>
+<p>... tällaiseksi:</p>
+<div class="code-box">
+<p>&lt;MaxScaleDenominator&gt;32000&lt;/MaxScaleDenominator&gt;</p>
+</div>
+<p>Vaihda viivan väri harmaaksi <strong>#666666</strong>, otsikoksi <strong>Paksu viiva</strong> ja paksuudeksi <strong>7</strong>.</p>
+<p><img src="img/harjoitus_4/image16.png" /></p>
+<p>Paina <strong>Apply</strong> ja esikatsele. Huomaa, että nyt kun lähennät karttaikkunaa (suurennat mittakaavaa), niin teiden väri ja paksuus muuttuu.</p>
+<p>Lisätään vielä täyteväri viivoille lisäämällä uusi sääntö. Kopioi edellinen <strong>&lt;Rule&gt;</strong> -koodi kappale (jolla on &lt;MaxScaleDenominator&gt;32000&lt;/MaxScaleDenominator&gt;) ja liitä se kopioidun kappaleen jatkoksi.</p>
+<p>Muuta taas otsikko, väri ja paksuus kuvan mukaisesti:</p>
+<p><img src="img/harjoitus_4/image17.png" /></p>
+<p>Tämä viiva tulee piirretyksi edellisen paksumman viivan päälle, josta aiheutuu viivareunan efekti.</p>
+<p>Esikatsele lopputulosta:</p>
+<p><img src="img/harjoitus_4/image18.png" /></p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="4-harjoitus-1.3-vektoriaineistot.html"><button class="btn btn-default">Previous</button></a>
+<a href="6-harjoitus-1.5-wms--ja-wcs-palvelut.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Johdanto GeoServerin käyttöön</h5>
+<span class="footer-version">v2026-08-21</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2026</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

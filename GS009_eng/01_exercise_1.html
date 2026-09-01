@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="2 Exercise 1: Training environment | Introduction to PostGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd" />
+
+<meta name="date" content="2026-09-01" />
+
+
+<meta name="description" content="2 Exercise 1: Training environment | Introduction to PostGIS">
+
+<title>2 Exercise 1: Training environment | Introduction to PostGIS</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to PostGIS</h1></div>
+<div class="abstract-sidebar"><p>Introduction to typical PostGIS use cases.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#introduction"><span class="toc-section-number">1</span> 1. Introduction</a>
+<ul>
+<li><a href="index.html#training-material-license"><span class="toc-section-number">1.1</span> 1.1 Training material license</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-training-environment"><span class="toc-section-number">2</span> Exercise 1: Training environment</a>
+<ul>
+<li><a href="01_exercise_1.html#exercise-1.1-pgadmin-4"><span class="toc-section-number">2.1</span> Exercise 1.1: pgAdmin 4</a></li>
+<li><a href="01_exercise_1.html#exercise-1.2-psql"><span class="toc-section-number">2.2</span> Exercise 1.2: psql</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-importing-data"><span class="toc-section-number">3</span> Exercise 2: Importing data</a>
+<ul>
+<li><a href="02_exercise_2.html#exercise-2.1-importing-from-a-text-file"><span class="toc-section-number">3.1</span> Exercise 2.1: Importing from a text file</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2-importing-spatial-data"><span class="toc-section-number">3.2</span> Exercise 2.2: Importing spatial data</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-basics-of-sql"><span class="toc-section-number">4</span> Exercise 3: Basics of SQL</a>
+<ul>
+<li><a href="03_exercise_3.html#exercise-3.1-simple-sql-queries"><span class="toc-section-number">4.1</span> Exercise 3.1: Simple SQL queries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2"><span class="toc-section-number">4.2</span> Exercise 3.2</a></li>
+<li><a href="03_exercise_3.html#exercise-3.3"><span class="toc-section-number">4.3</span> Exercise 3.3</a></li>
+<li><a href="03_exercise_3.html#exercise-3.4"><span class="toc-section-number">4.4</span> Exercise 3.4</a></li>
+<li><a href="03_exercise_3.html#exercise-3.5"><span class="toc-section-number">4.5</span> Exercise 3.5</a></li>
+<li><a href="03_exercise_3.html#exercise-3.6"><span class="toc-section-number">4.6</span> Exercise 3.6</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-spatial-sql-queries"><span class="toc-section-number">5</span> Exercise 4: Spatial SQL queries</a>
+<ul>
+<li><a href="04_exercise_4.html#exercise-4.1-metadata-of-geometries"><span class="toc-section-number">5.1</span> Exercise 4.1: Metadata of geometries</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-representing-geometries"><span class="toc-section-number">5.2</span> Exercise 4.2: Representing geometries</a></li>
+<li><a href="04_exercise_4.html#exercise-4.3-functions"><span class="toc-section-number">5.3</span> Exercise 4.3: Functions</a></li>
+<li><a href="04_exercise_4.html#exercise-4.4-spatial-indexes"><span class="toc-section-number">5.4</span> Exercise 4.4: Spatial indexes</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-spatial-feature-geometries"><span class="toc-section-number">6</span> Exercise 5: Spatial feature geometries</a>
+<ul>
+<li><a href="05_exercise_5.html#exercise-5.1"><span class="toc-section-number">6.1</span> Exercise 5.1</a></li>
+<li><a href="05_exercise_5.html#exercise-5.2"><span class="toc-section-number">6.2</span> Exercise 5.2</a></li>
+<li><a href="05_exercise_5.html#exercise-5.3"><span class="toc-section-number">6.3</span> Exercise 5.3</a></li>
+<li><a href="05_exercise_5.html#exercise-5.4"><span class="toc-section-number">6.4</span> Exercise 5.4</a></li>
+<li><a href="05_exercise_5.html#exercise-5.5"><span class="toc-section-number">6.5</span> Exercise 5.5</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-spatial-relations"><span class="toc-section-number">7</span> Exercise 6: Spatial relations</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1"><span class="toc-section-number">7.1</span> Exercise 6.1</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2"><span class="toc-section-number">7.2</span> Exercise 6.2</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3"><span class="toc-section-number">7.3</span> Exercise 6.3</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4"><span class="toc-section-number">7.4</span> Exercise 6.4</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5"><span class="toc-section-number">7.5</span> Exercise 6.5</a></li>
+<li><a href="06_exercise_6.html#exercise-6.6"><span class="toc-section-number">7.6</span> Exercise 6.6</a></li>
+<li><a href="06_exercise_6.html#exercise-6.7"><span class="toc-section-number">7.7</span> Exercise 6.7</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-spatial-reference-systems"><span class="toc-section-number">8</span> Exercise 7: Spatial Reference Systems</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-geometry"><span class="toc-section-number">8.1</span> Exercise 7.1: Creating a geometry</a></li>
+<li><a href="07_exercise_7.html#exercise-7.2-coordinate-conversion"><span class="toc-section-number">8.2</span> Exercise 7.2: Coordinate conversion</a></li>
+<li><a href="07_exercise_7.html#exercise-7.3-another-conversion"><span class="toc-section-number">8.3</span> Exercise 7.3: Another conversion</a></li>
+<li><a href="07_exercise_7.html#exercise-7.4-srs-definitions"><span class="toc-section-number">8.4</span> Exercise 7.4: SRS definitions</a></li>
+<li><a href="07_exercise_7.html#exercise-7.5-comparing-spatial-reference-system-definitions"><span class="toc-section-number">8.5</span> Exercise 7.5: Comparing spatial reference system definitions</a></li>
+<li><a href="07_exercise_7.html#exercise-7.6-creating-a-new-spatial-data-table"><span class="toc-section-number">8.6</span> Exercise 7.6: Creating a new spatial data table</a></li>
+<li><a href="07_exercise_7.html#exercise-7.7-adding-another-geometry-column"><span class="toc-section-number">8.7</span> Exercise 7.7: Adding another geometry column</a></li>
+<li><a href="07_exercise_7.html#exercise-7.8-saving-converted-geometries"><span class="toc-section-number">8.8</span> Exercise 7.8: Saving converted geometries</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-geoprocessing"><span class="toc-section-number">9</span> Exercise 8: Geoprocessing</a>
+<ul>
+<li><a href="08_exercise_8.html#exercise-8.1-centroids"><span class="toc-section-number">9.1</span> Exercise 8.1: Centroids</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-centroids-within-polygons"><span class="toc-section-number">9.2</span> Exercise 8.2: Centroids within polygons</a></li>
+<li><a href="08_exercise_8.html#exercise-8.3-distances"><span class="toc-section-number">9.3</span> Exercise 8.3: Distances</a></li>
+<li><a href="08_exercise_8.html#exercise-8.4-buffers"><span class="toc-section-number">9.4</span> Exercise 8.4: Buffers</a></li>
+<li><a href="08_exercise_8.html#exercise-8.5-union"><span class="toc-section-number">9.5</span> Exercise 8.5: Union</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_exercise_09.html#exercise-9-postgresql-administration"><span class="toc-section-number">10</span> Exercise 9: PostgreSQL administration</a>
+<ul>
+<li><a href="09_exercise_09.html#exercise-9.1-tablespaces"><span class="toc-section-number">10.1</span> Exercise 9.1: Tablespaces</a></li>
+<li><a href="09_exercise_09.html#exercise-9.2-database-roles"><span class="toc-section-number">10.2</span> Exercise 9.2: Database roles</a></li>
+<li><a href="09_exercise_09.html#exercise-9.3-group-roles"><span class="toc-section-number">10.3</span> Exercise 9.3: Group roles</a></li>
+<li><a href="09_exercise_09.html#exercise-9.4-adding-roles-in-the-gui"><span class="toc-section-number">10.4</span> Exercise 9.4: Adding roles in the GUI</a></li>
+<li><a href="09_exercise_09.html#exercise-9.5-creating-a-new-tablespace"><span class="toc-section-number">10.5</span> Exercise 9.5: Creating a new tablespace</a></li>
+<li><a href="09_exercise_09.html#exercise-9.6-changing-the-tablespace-of-a-database-or-a-table"><span class="toc-section-number">10.6</span> Exercise 9.6: Changing the tablespace of a database or a table</a></li>
+<li><a href="09_exercise_09.html#exercise-9.7-altering-the-tablespace-of-an-index"><span class="toc-section-number">10.7</span> Exercise 9.7: Altering the tablespace of an index</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_exercise_10.html#exercise-10-creating-and-restoring-backups"><span class="toc-section-number">11</span> Exercise 10: Creating and restoring backups</a>
+<ul>
+<li><a href="10_exercise_10.html#exercise-10.1-creating-a-backup"><span class="toc-section-number">11.1</span> Exercise 10.1: Creating a backup</a></li>
+<li><a href="10_exercise_10.html#exercise-10.2-restoring-a-database"><span class="toc-section-number">11.2</span> Exercise 10.2: Restoring a database</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-1-training-environment" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Exercise 1: Training environment</h1>
+<p><strong>Contents</strong> – This exercise is an introduction to the pgAdmin 4 interface and psql. The exercise also covers how to create a new PostGIS database.</p>
+<p><strong>Goal</strong> – After the exercise the trainee understands the basics of using pgAdmin 4 and psql.</p>
+<div id="exercise-1.1-pgadmin-4" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Exercise 1.1: pgAdmin 4</h2>
+<p>Start up pgAdmin 4 by following this link: <a href="/pgadmin">/pgadmin</a>. You can log into pgAdmin 4 which is hosted on a remote server with the following credentials:</p>
+<p>TODO: päivitä ohjeet kirjautumiseen</p>
+<div class="figure">
+<img src="img/pgadmin_splash.png" alt="" />
+<p class="caption">pgAdmin- logging in</p>
+</div>
+<div id="registering-a-server-connection" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Registering a server connection</h3>
+<p>Connect the training environment’s database to pgAdmin by right clicking <strong>Servers</strong> and choosing <strong>Register &gt; Server…</strong>. Enter the following information:</p>
+<p>TODO: päivitä ohjeet kirjautumiseen</p>
+<ul>
+<li>In the General tab
+<ul>
+<li>Name: Name of the connection (typically &lt;username&gt;@&lt;database&gt;)</li>
+<li>In the Connection tab
+<ul>
+<li>Host: <strong>dbhost</strong></li>
+<li>Port: <strong>5432</strong></li>
+<li>Maintenance database: <strong>postgres</strong></li>
+</ul></li>
+</ul></li>
+<li>Choose <strong>Save password</strong> if you don’t want to rewrite your password when opening the connection</li>
+</ul>
+<p>You can inspect the connected database in pgAdmin from the different tabs in the top panel:</p>
+<p><img src="img/pgadylapalkki.png" /></p>
+<p>PostGIS databases can also be used in other applications (with the psql commandline tool or with the QGIS <strong>DB Manager</strong>). The database looks like this in the QGIS <strong>database manager</strong>:</p>
+<p><img src="img/qgisDbmanager.png" /></p>
+</div>
+<div id="creating-the-training-database" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Creating the training database</h3>
+<p>Let’s create a database named <strong>trainingdatabase</strong> to be used throughout the exercises. This can be done through the pgAdmin <strong>Graphical User Interface (GUI)</strong>:</p>
+<p><img src="img/pgadmindbluo.png" /></p>
+<div class="hint-box">
+<p><strong>Note!</strong> The database can also be created and deleted with the following SQL commands:</p>
+<p><strong>CREATE DATABASE</strong> trainingdatabase;<br />
+<strong>DROP DATABASE</strong> trainingdatabase;</p>
+</div>
+</div>
+<div id="executing-sql-queries" class="section level3" number="2.1.3">
+<h3><span class="header-section-number">2.1.3</span> Executing SQL queries</h3>
+<p>The majority of the exercises involve using SQL. You can execute the SQL queries and commands using pgAdmin’s <strong>Query Tool</strong>, which can be opened with the following instructions:</p>
+<ul>
+<li>Choose your database cluster from the <strong>Servers</strong> section</li>
+<li>Choose the database which was just created (<strong>trainingdatabase</strong>)</li>
+<li>From the top panel click <strong>Tools &gt; Query Tool</strong></li>
+</ul>
+<p>You can write the SQL command in the window which opens up and then execute it by pressing the “play” button (<strong>Execute/Refresh</strong>) or by pressing <strong>F5</strong>. If you want to execute only a part of the query, you can select the part using your mouse and then press <strong>F5</strong>. The results of the query appear in the bottom panel. You may also save your SQL commands as <strong>.sql</strong> files from which they can be loaded later on.</p>
+<p><img src="img/pgadmin_query_tool.gif" /></p>
+<p>Let’s add the PostGIS extension to <strong>trainingdatabase</strong> using the following command:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="01_exercise_1.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> EXTENSION <span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> postgis;</span></code></pre></div>
+</div>
+<div class="hint-box">
+<p>What is included in the spatial_ref_sys table?</p>
+<p>What views were created in the database? What information do they contain?</p>
+</div>
+<p>A new table can be created by executing the following SQL command in the <strong>Query Tool</strong></p>
+<div class="code-box">
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="01_exercise_1.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Introduction to PostGIS</span></span>
+<span id="cb2-2"><a href="01_exercise_1.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> test_tmp(</span>
+<span id="cb2-3"><a href="01_exercise_1.html#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span> serial,</span>
+<span id="cb2-4"><a href="01_exercise_1.html#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">time</span> <span class="dt">time</span>,</span>
+<span id="cb2-5"><a href="01_exercise_1.html#cb2-5" aria-hidden="true" tabindex="-1"></a>    num <span class="dt">integer</span>);</span></code></pre></div>
+</div>
+<div class="hint-box">
+<p>Note that the lines which start with two dashes “--” are comments and do not affect the execution of the SQL command.</p>
+</div>
+<p>Tables can also be created based on SQL query results.</p>
+<p>Let’s add rows to the table that was just created:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="01_exercise_1.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> test_tmp (<span class="dt">time</span>,num)</span>
+<span id="cb3-2"><a href="01_exercise_1.html#cb3-2" aria-hidden="true" tabindex="-1"></a>(<span class="kw">SELECT</span> now(), generate_series(<span class="dv">1</span>,<span class="dv">5000</span>));</span></code></pre></div>
+</div>
+<p>Rows, like tables, can be added based on SQL query results.</p>
+<p>You can list (some of the) the rows you just created with the following query:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="01_exercise_1.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb4-2"><a href="01_exercise_1.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> test_tmp</span>
+<span id="cb4-3"><a href="01_exercise_1.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code></pre></div>
+</div>
+<p>You can delete the table with the following command:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="01_exercise_1.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> test_tmp;</span></code></pre></div>
+</div>
+</div>
+<div id="pg_dump-ja-pg_restore" class="section level3" number="2.1.4">
+<h3><span class="header-section-number">2.1.4</span> pg_dump ja pg_restore</h3>
+<p>There are separate command-line tools for creating and restoring backups: <a href="https://www.postgresql.org/docs/13/app-pgdump.html">pg_dump</a> and <a href="https://www.postgresql.org/docs/13/app-pgrestore.html">pg_restore</a>. pgAdmin uses these internally.</p>
+</div>
+</div>
+<div id="exercise-1.2-psql" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Exercise 1.2: psql</h2>
+<p>In addition to pgAdmin (and QGIS Database Manager) you can also execute SQL command with the psql command-line tool. Open the <a href="/wetty">command-line</a> to start using psql. First log into the WeTTY terminal emulator:</p>
+<p>TODO: päivitä ohjeet kirjautumiseen</p>
+<p>Connect to your database cluster with the following command:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="01_exercise_1.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-U</span> postgres <span class="at">-h</span> dbhost</span></code></pre></div>
+</div>
+<p><img src="img/psql_start.png" /></p>
+<div id="using-psql" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Using psql</h3>
+<p>Once psql has been opened you can write both psql and SQL commands on the command-line. Commands used during a psql session are called interactive:</p>
+<p>A few examples of interactive psql commands:</p>
+<div class="commandline-box">
+<pre class="psql"><code>\d = show tables, views and sequences
+\dg = show database cluster roles (users)
+\c database_name = connect to database</code></pre>
+</div>
+<p>Using the <code>help</code> or especially <code>\?</code> commands you get information about the different commands psql has. You can exit the list by pressing <code>q</code>.</p>
+<p>psql commands run on the command-line (not in a psql session) are called non-interactive. These are used especially when you want to run psql straight from the operating system’s command-line and the psql commands and SQL scripts are saved in a file. Non-interactive psql is especially well-suited for automating tasks. The commands mentioned previously are good examples of non-interactive psql commands. Try running the following command on the command-line:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="01_exercise_1.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">psql</span> <span class="at">-U</span> postgres <span class="at">-h</span> dbhost <span class="at">-c</span> <span class="st">&quot;select current_database();&quot;</span></span></code></pre></div>
+</div>
+</div>
+<div id="creating-a-database" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Creating a database</h3>
+<p>Createdb is a command-line tool which makes creating a database easy. At its easiest you can create a database with the following command:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="01_exercise_1.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">createdb</span> <span class="at">-U</span> postgres <span class="at">-h</span> dbhost new_database</span></code></pre></div>
+</div>
+<p><img src="img/createdb.png" /></p>
+</div>
+<div id="dropping-a-database" class="section level3" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Dropping a database</h3>
+<p>Like createdb, dropdb is a command-line tool. You can drop (or delete) a database with the following command:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="01_exercise_1.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">dropdb</span> <span class="at">-U</span> postgres <span class="at">-h</span> dbhost database_to_be_deleted</span></code></pre></div>
+</div>
+</div>
+<div id="closing-the-database-connection" class="section level3" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Closing the database connection</h3>
+<p>To close the connection to a database enter the following command in psql:</p>
+<div class="commandline-box">
+<p><code>\q</code></p>
+</div>
+</div>
+<div id="information-about-the-postgresql-installation" class="section level3" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Information about the PostgreSQL installation</h3>
+<p>You can query the PostgreSQL version:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="01_exercise_1.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> version();</span></code></pre></div>
+</div>
+<p>You can check which extensions have been created:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb12"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb12-1"><a href="01_exercise_1.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb12-2"><a href="01_exercise_1.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> pg_extension;</span></code></pre></div>
+</div>
+</div>
+<div id="closing-the-database-connection-1" class="section level3" number="2.2.6">
+<h3><span class="header-section-number">2.2.6</span> Closing the database connection</h3>
+<p>Right click the connection you’ve created and click <strong>Disconnect from server</strong>.</p>
+</div>
+<div id="other-notes" class="section level3" number="2.2.7">
+<h3><span class="header-section-number">2.2.7</span> Other notes</h3>
+<p>If you want to be able to use the PostGIS database from another computer, you have to edit the PostgreSQL configuration file (pg_hba.conf):</p>
+<div class="code-box">
+<pre class="mysql"><code># IPv4 local connections:
+#host  all     all      127.0.0.1/32      md5
+host   all     all        0.0.0.0/0       trust</code></pre>
+</div>
+<div class="hint-box">
+<p><strong>NOTE!</strong> This change allows connections from any computer and is a security risk in developmental database systems.</p>
+</div>
+<p>By default the connection to the database is unprotected. It is recommended to secure the database connection using TLS.</p>
+
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="index.html"><button class="btn btn-default">Previous</button></a>
+<a href="02_exercise_2.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to PostGIS</h5>
+<span class="footer-version">v2026-09-01</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

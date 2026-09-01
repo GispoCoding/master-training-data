@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="8 Exercise 7: Spatial Reference Systems | Introduction to PostGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd" />
+
+<meta name="date" content="2026-09-01" />
+
+
+<meta name="description" content="8 Exercise 7: Spatial Reference Systems | Introduction to PostGIS">
+
+<title>8 Exercise 7: Spatial Reference Systems | Introduction to PostGIS</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to PostGIS</h1></div>
+<div class="abstract-sidebar"><p>Introduction to typical PostGIS use cases.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#introduction"><span class="toc-section-number">1</span> 1. Introduction</a>
+<ul>
+<li><a href="index.html#training-material-license"><span class="toc-section-number">1.1</span> 1.1 Training material license</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-training-environment"><span class="toc-section-number">2</span> Exercise 1: Training environment</a>
+<ul>
+<li><a href="01_exercise_1.html#exercise-1.1-pgadmin-4"><span class="toc-section-number">2.1</span> Exercise 1.1: pgAdmin 4</a></li>
+<li><a href="01_exercise_1.html#exercise-1.2-psql"><span class="toc-section-number">2.2</span> Exercise 1.2: psql</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-importing-data"><span class="toc-section-number">3</span> Exercise 2: Importing data</a>
+<ul>
+<li><a href="02_exercise_2.html#exercise-2.1-importing-from-a-text-file"><span class="toc-section-number">3.1</span> Exercise 2.1: Importing from a text file</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2-importing-spatial-data"><span class="toc-section-number">3.2</span> Exercise 2.2: Importing spatial data</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-basics-of-sql"><span class="toc-section-number">4</span> Exercise 3: Basics of SQL</a>
+<ul>
+<li><a href="03_exercise_3.html#exercise-3.1-simple-sql-queries"><span class="toc-section-number">4.1</span> Exercise 3.1: Simple SQL queries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2"><span class="toc-section-number">4.2</span> Exercise 3.2</a></li>
+<li><a href="03_exercise_3.html#exercise-3.3"><span class="toc-section-number">4.3</span> Exercise 3.3</a></li>
+<li><a href="03_exercise_3.html#exercise-3.4"><span class="toc-section-number">4.4</span> Exercise 3.4</a></li>
+<li><a href="03_exercise_3.html#exercise-3.5"><span class="toc-section-number">4.5</span> Exercise 3.5</a></li>
+<li><a href="03_exercise_3.html#exercise-3.6"><span class="toc-section-number">4.6</span> Exercise 3.6</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-spatial-sql-queries"><span class="toc-section-number">5</span> Exercise 4: Spatial SQL queries</a>
+<ul>
+<li><a href="04_exercise_4.html#exercise-4.1-metadata-of-geometries"><span class="toc-section-number">5.1</span> Exercise 4.1: Metadata of geometries</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-representing-geometries"><span class="toc-section-number">5.2</span> Exercise 4.2: Representing geometries</a></li>
+<li><a href="04_exercise_4.html#exercise-4.3-functions"><span class="toc-section-number">5.3</span> Exercise 4.3: Functions</a></li>
+<li><a href="04_exercise_4.html#exercise-4.4-spatial-indexes"><span class="toc-section-number">5.4</span> Exercise 4.4: Spatial indexes</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-spatial-feature-geometries"><span class="toc-section-number">6</span> Exercise 5: Spatial feature geometries</a>
+<ul>
+<li><a href="05_exercise_5.html#exercise-5.1"><span class="toc-section-number">6.1</span> Exercise 5.1</a></li>
+<li><a href="05_exercise_5.html#exercise-5.2"><span class="toc-section-number">6.2</span> Exercise 5.2</a></li>
+<li><a href="05_exercise_5.html#exercise-5.3"><span class="toc-section-number">6.3</span> Exercise 5.3</a></li>
+<li><a href="05_exercise_5.html#exercise-5.4"><span class="toc-section-number">6.4</span> Exercise 5.4</a></li>
+<li><a href="05_exercise_5.html#exercise-5.5"><span class="toc-section-number">6.5</span> Exercise 5.5</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-spatial-relations"><span class="toc-section-number">7</span> Exercise 6: Spatial relations</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1"><span class="toc-section-number">7.1</span> Exercise 6.1</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2"><span class="toc-section-number">7.2</span> Exercise 6.2</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3"><span class="toc-section-number">7.3</span> Exercise 6.3</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4"><span class="toc-section-number">7.4</span> Exercise 6.4</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5"><span class="toc-section-number">7.5</span> Exercise 6.5</a></li>
+<li><a href="06_exercise_6.html#exercise-6.6"><span class="toc-section-number">7.6</span> Exercise 6.6</a></li>
+<li><a href="06_exercise_6.html#exercise-6.7"><span class="toc-section-number">7.7</span> Exercise 6.7</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-spatial-reference-systems"><span class="toc-section-number">8</span> Exercise 7: Spatial Reference Systems</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-geometry"><span class="toc-section-number">8.1</span> Exercise 7.1: Creating a geometry</a></li>
+<li><a href="07_exercise_7.html#exercise-7.2-coordinate-conversion"><span class="toc-section-number">8.2</span> Exercise 7.2: Coordinate conversion</a></li>
+<li><a href="07_exercise_7.html#exercise-7.3-another-conversion"><span class="toc-section-number">8.3</span> Exercise 7.3: Another conversion</a></li>
+<li><a href="07_exercise_7.html#exercise-7.4-srs-definitions"><span class="toc-section-number">8.4</span> Exercise 7.4: SRS definitions</a></li>
+<li><a href="07_exercise_7.html#exercise-7.5-comparing-spatial-reference-system-definitions"><span class="toc-section-number">8.5</span> Exercise 7.5: Comparing spatial reference system definitions</a></li>
+<li><a href="07_exercise_7.html#exercise-7.6-creating-a-new-spatial-data-table"><span class="toc-section-number">8.6</span> Exercise 7.6: Creating a new spatial data table</a></li>
+<li><a href="07_exercise_7.html#exercise-7.7-adding-another-geometry-column"><span class="toc-section-number">8.7</span> Exercise 7.7: Adding another geometry column</a></li>
+<li><a href="07_exercise_7.html#exercise-7.8-saving-converted-geometries"><span class="toc-section-number">8.8</span> Exercise 7.8: Saving converted geometries</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-geoprocessing"><span class="toc-section-number">9</span> Exercise 8: Geoprocessing</a>
+<ul>
+<li><a href="08_exercise_8.html#exercise-8.1-centroids"><span class="toc-section-number">9.1</span> Exercise 8.1: Centroids</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-centroids-within-polygons"><span class="toc-section-number">9.2</span> Exercise 8.2: Centroids within polygons</a></li>
+<li><a href="08_exercise_8.html#exercise-8.3-distances"><span class="toc-section-number">9.3</span> Exercise 8.3: Distances</a></li>
+<li><a href="08_exercise_8.html#exercise-8.4-buffers"><span class="toc-section-number">9.4</span> Exercise 8.4: Buffers</a></li>
+<li><a href="08_exercise_8.html#exercise-8.5-union"><span class="toc-section-number">9.5</span> Exercise 8.5: Union</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_exercise_09.html#exercise-9-postgresql-administration"><span class="toc-section-number">10</span> Exercise 9: PostgreSQL administration</a>
+<ul>
+<li><a href="09_exercise_09.html#exercise-9.1-tablespaces"><span class="toc-section-number">10.1</span> Exercise 9.1: Tablespaces</a></li>
+<li><a href="09_exercise_09.html#exercise-9.2-database-roles"><span class="toc-section-number">10.2</span> Exercise 9.2: Database roles</a></li>
+<li><a href="09_exercise_09.html#exercise-9.3-group-roles"><span class="toc-section-number">10.3</span> Exercise 9.3: Group roles</a></li>
+<li><a href="09_exercise_09.html#exercise-9.4-adding-roles-in-the-gui"><span class="toc-section-number">10.4</span> Exercise 9.4: Adding roles in the GUI</a></li>
+<li><a href="09_exercise_09.html#exercise-9.5-creating-a-new-tablespace"><span class="toc-section-number">10.5</span> Exercise 9.5: Creating a new tablespace</a></li>
+<li><a href="09_exercise_09.html#exercise-9.6-changing-the-tablespace-of-a-database-or-a-table"><span class="toc-section-number">10.6</span> Exercise 9.6: Changing the tablespace of a database or a table</a></li>
+<li><a href="09_exercise_09.html#exercise-9.7-altering-the-tablespace-of-an-index"><span class="toc-section-number">10.7</span> Exercise 9.7: Altering the tablespace of an index</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_exercise_10.html#exercise-10-creating-and-restoring-backups"><span class="toc-section-number">11</span> Exercise 10: Creating and restoring backups</a>
+<ul>
+<li><a href="10_exercise_10.html#exercise-10.1-creating-a-backup"><span class="toc-section-number">11.1</span> Exercise 10.1: Creating a backup</a></li>
+<li><a href="10_exercise_10.html#exercise-10.2-restoring-a-database"><span class="toc-section-number">11.2</span> Exercise 10.2: Restoring a database</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-7-spatial-reference-systems" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Exercise 7: Spatial Reference Systems</h1>
+<p><strong>Contents</strong> – In this exercise we explore how Spatial Reference Systems and map projections are processed in PostGIS.</p>
+<p><strong>Goal</strong> – The goal of the exercise is to understand the basics of using SRSs and map projections in PostGIS.</p>
+<div id="preparation-5" class="section level3" number="8.0.1">
+<h3><span class="header-section-number">8.0.1</span> Preparation</h3>
+<p>Open <a href="/pgadmin">pgAdmin</a> in the browser and log in. Open the <strong>Query Tool</strong> (Right click <em>trainingdatabase</em> <strong>-&gt;</strong> <strong>Query Tool</strong>).</p>
+</div>
+<div id="functions-1" class="section level3" number="8.0.2">
+<h3><span class="header-section-number">8.0.2</span> Functions</h3>
+<p>In this exercise you can use for example the following functions
+for coordinate conversions and transformations:</p>
+<table>
+<colgroup>
+<col width="44%" />
+<col width="55%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">PostGIS function</th>
+<th align="center">Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">ST_GeomFromText(text WKT, integer srid)</td>
+<td align="center">A ST_Geometry object from the OGC Well-Known text (WKT) representation with the given EPSG</td>
+</tr>
+<tr class="even">
+<td align="center">ST_AsText(geometry g)</td>
+<td align="center">A human-readable WKT representation of an ST_Geometry object</td>
+</tr>
+<tr class="odd">
+<td align="center">ST_Transform(geometry g1, integer srid)</td>
+<td align="center">A geometry with its coordinates transformed to the spatial reference system given as a parameter as an EPSG code</td>
+</tr>
+<tr class="even">
+<td align="center">ST_Transform(geometry geom, text to_proj)</td>
+<td align="center">A geometry with its coordinates transformed to a different spatial reference system given as a parameter in PROJ.4 format</td>
+</tr>
+<tr class="odd">
+<td align="center">ST_Transform(geometry geom, text from_proj, text to_proj)</td>
+<td align="center">A geometry with its coordinates transformed from a spatial reference system given as a parameter in PROJ.4 format to another spatial reference system given as a parameter in PROJ.4 format</td>
+</tr>
+<tr class="even">
+<td align="center">ST_Transform(geometry geom, text from_proj, integer to_srid)</td>
+<td align="center">A geometry with its coordinates transformed from a spatial reference system given as a parameter in PROJ.4 format to another spatial reference system given as an EPSG code</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="exercise-7.1-creating-a-geometry" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Exercise 7.1: Creating a geometry</h2>
+<p>The goal is to execute a conversion for the coordinates of the Royal Observatory Greenwich from geographic coordinates (EPSG:4258) to the ETRS89-extended / LAEA Europe (EPSG:3035) coordinates. First create a PostGIS point for the observatory from these coordinates: 0.0005 (longitude) 51.4768 (latitude).</p>
+<div class="code-box">
+<div class="sourceCode" id="cb107"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb107-1"><a href="07_exercise_7.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb107-2"><a href="07_exercise_7.html#cb107-2" aria-hidden="true" tabindex="-1"></a>ST_AsText(ST_GeomFromText(<span class="st">&#39;POINT(0.0005 51.4769)&#39;</span>, <span class="dv">4258</span>));</span></code></pre></div>
+</div>
+</div>
+<div id="exercise-7.2-coordinate-conversion" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Exercise 7.2: Coordinate conversion</h2>
+<p>Perform a coordinate conversion for the Greenwich Observatory coordinates to the ETRS89-extended /LAEA Europe (EPSG:3035) CRS using the <strong>ST_Transform</strong> function.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb108"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb108-1"><a href="07_exercise_7.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb108-2"><a href="07_exercise_7.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb109"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb109-1"><a href="07_exercise_7.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- fill in the correct functions based on the hints</span></span>
+<span id="cb109-2"><a href="07_exercise_7.html#cb109-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- fill in the source and target CRS codes into the places marked with &#39;...&#39;</span></span>
+<span id="cb109-3"><a href="07_exercise_7.html#cb109-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb109-4"><a href="07_exercise_7.html#cb109-4" aria-hidden="true" tabindex="-1"></a>ST_AsText(ST_<span class="op">..</span>.(ST_GeomFromText(<span class="st">&#39;POINT(0.0005 51.4769)&#39;</span>, <span class="op">..</span>.), <span class="op">..</span>.));</span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb110"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb110-1"><a href="07_exercise_7.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb110-2"><a href="07_exercise_7.html#cb110-2" aria-hidden="true" tabindex="-1"></a>ST_AsText(ST_Transform(ST_GeomFromText(<span class="st">&#39;POINT(0.0005 51.4769)&#39;</span>, <span class="dv">4258</span>), <span class="dv">3035</span>));</span></code></pre></div>
+</div>
+</div>
+<p>The result should be as follows (as WKB):</p>
+<div class="code-box">
+<pre><code>0101000020DB0B0000BCB381E2A76848416523239D78AF4B41</code></pre>
+</div>
+<p>or as text:</p>
+<div class="code-box">
+<pre><code>POINT(3199311.7695831936 3628785.2276348346)</code></pre>
+</div>
+</div>
+<div id="exercise-7.3-another-conversion" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Exercise 7.3: Another conversion</h2>
+<p>Next let’s perform a conversion for the same coordinates to the WGS 84 / Pseudo-Mercator (EPSG:3857) CRS.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb113"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb113-1"><a href="07_exercise_7.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb113-2"><a href="07_exercise_7.html#cb113-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb114"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb114-1"><a href="07_exercise_7.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- fill in the correct function</span></span>
+<span id="cb114-2"><a href="07_exercise_7.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- fill in the target and source CRS codes</span></span>
+<span id="cb114-3"><a href="07_exercise_7.html#cb114-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb114-4"><a href="07_exercise_7.html#cb114-4" aria-hidden="true" tabindex="-1"></a>ST_AsText(ST_<span class="op">..</span>.(ST_GeomFromText(<span class="st">&#39;POINT(0.0005 51.4769)&#39;</span>, <span class="op">..</span>.), <span class="op">..</span>.));</span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb115"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb115-1"><a href="07_exercise_7.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb115-2"><a href="07_exercise_7.html#cb115-2" aria-hidden="true" tabindex="-1"></a>ST_AsText(ST_Transform(ST_GeomFromText(<span class="st">&#39;POINT(0.0005 51.4769)&#39;</span>, <span class="dv">4258</span>), <span class="dv">3857</span>));</span></code></pre></div>
+</div>
+</div>
+<p>The result should be:</p>
+<div class="code-box">
+<pre><code>POINT(55.65974539663679 6706089.334791817)</code></pre>
+</div>
+</div>
+<div id="exercise-7.4-srs-definitions" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Exercise 7.4: SRS definitions</h2>
+<p>You can find the definitions for different SRSs from the <strong>spatial_ref_sys</strong> table:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb117"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb117-1"><a href="07_exercise_7.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb117-2"><a href="07_exercise_7.html#cb117-2" aria-hidden="true" tabindex="-1"></a>srid, proj4text</span>
+<span id="cb117-3"><a href="07_exercise_7.html#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb117-4"><a href="07_exercise_7.html#cb117-4" aria-hidden="true" tabindex="-1"></a>spatial_ref_sys</span>
+<span id="cb117-5"><a href="07_exercise_7.html#cb117-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb117-6"><a href="07_exercise_7.html#cb117-6" aria-hidden="true" tabindex="-1"></a>srid <span class="op">=</span> <span class="dv">4326</span>;</span></code></pre></div>
+</div>
+</div>
+<div id="exercise-7.5-comparing-spatial-reference-system-definitions" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> Exercise 7.5: Comparing spatial reference system definitions</h2>
+<p>What is the difference between the EPSG:4326 and EPSG:4258 SRSs?</p>
+<div class="code-box">
+<div class="sourceCode" id="cb118"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb118-1"><a href="07_exercise_7.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb118-2"><a href="07_exercise_7.html#cb118-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb118-3"><a href="07_exercise_7.html#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb118-4"><a href="07_exercise_7.html#cb118-4" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb118-5"><a href="07_exercise_7.html#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb118-6"><a href="07_exercise_7.html#cb118-6" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb119"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb119-1"><a href="07_exercise_7.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Select based on the EPSG code</span></span>
+<span id="cb119-2"><a href="07_exercise_7.html#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb119-3"><a href="07_exercise_7.html#cb119-3" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>., proj4text</span>
+<span id="cb119-4"><a href="07_exercise_7.html#cb119-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb119-5"><a href="07_exercise_7.html#cb119-5" aria-hidden="true" tabindex="-1"></a>spatial_ref_sys</span>
+<span id="cb119-6"><a href="07_exercise_7.html#cb119-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb119-7"><a href="07_exercise_7.html#cb119-7" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>. <span class="kw">in</span> (<span class="dv">4326</span>, <span class="dv">4258</span>);</span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb120"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb120-1"><a href="07_exercise_7.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb120-2"><a href="07_exercise_7.html#cb120-2" aria-hidden="true" tabindex="-1"></a>srid, proj4text</span>
+<span id="cb120-3"><a href="07_exercise_7.html#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb120-4"><a href="07_exercise_7.html#cb120-4" aria-hidden="true" tabindex="-1"></a>spatial_ref_sys</span>
+<span id="cb120-5"><a href="07_exercise_7.html#cb120-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb120-6"><a href="07_exercise_7.html#cb120-6" aria-hidden="true" tabindex="-1"></a>srid <span class="kw">in</span> (<span class="dv">4326</span>, <span class="dv">4258</span>);</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="exercise-7.6-creating-a-new-spatial-data-table" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Exercise 7.6: Creating a new spatial data table</h2>
+<p>Let’s create a new table with a geometry column with the WGS84 SRS. Let’s create four columns in total (gid, name, ICAO, geom):</p>
+<div class="code-box">
+<div class="sourceCode" id="cb121"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb121-1"><a href="07_exercise_7.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> air_geom;</span>
+<span id="cb121-2"><a href="07_exercise_7.html#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="07_exercise_7.html#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> air_geom</span>
+<span id="cb121-4"><a href="07_exercise_7.html#cb121-4" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb121-5"><a href="07_exercise_7.html#cb121-5" aria-hidden="true" tabindex="-1"></a>    gid    serial <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb121-6"><a href="07_exercise_7.html#cb121-6" aria-hidden="true" tabindex="-1"></a>    name    <span class="dt">varchar</span>(<span class="dv">254</span>),</span>
+<span id="cb121-7"><a href="07_exercise_7.html#cb121-7" aria-hidden="true" tabindex="-1"></a>    ICAO    <span class="dt">varchar</span>(<span class="dv">254</span>),</span>
+<span id="cb121-8"><a href="07_exercise_7.html#cb121-8" aria-hidden="true" tabindex="-1"></a>    geom    geometry(Point,<span class="dv">4326</span>)</span>
+<span id="cb121-9"><a href="07_exercise_7.html#cb121-9" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<p>Let’s insert data from the previously created ‘airports’ table to the new ‘air_geom’ table.
+Form the SELECT query first to make sure the insertion will be successful.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb122"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb122-1"><a href="07_exercise_7.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span></span>
+<span id="cb122-2"><a href="07_exercise_7.html#cb122-2" aria-hidden="true" tabindex="-1"></a>air_geom(geom, name, ICAO)</span>
+<span id="cb122-3"><a href="07_exercise_7.html#cb122-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb122-4"><a href="07_exercise_7.html#cb122-4" aria-hidden="true" tabindex="-1"></a>ST_GeomFromText(<span class="st">&#39;POINT(&#39;</span> <span class="op">||</span> airports.longitude<span class="op">||</span> <span class="st">&#39; &#39;</span> <span class="op">||</span> airports.latitude<span class="op">||</span><span class="st">&#39;)&#39;</span>,<span class="dv">4326</span>),</span>
+<span id="cb122-5"><a href="07_exercise_7.html#cb122-5" aria-hidden="true" tabindex="-1"></a>airports.name, airports.icao_code</span>
+<span id="cb122-6"><a href="07_exercise_7.html#cb122-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb122-7"><a href="07_exercise_7.html#cb122-7" aria-hidden="true" tabindex="-1"></a>airports;</span></code></pre></div>
+</div>
+<p>Using two vertical bar (pipe) symbols <code>||</code> you can concatenate text.</p>
+</div>
+<div id="exercise-7.7-adding-another-geometry-column" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Exercise 7.7: Adding another geometry column</h2>
+<p>Let’s add another geometry column to the table, this time with the EPSG:3857 SRS:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb123"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb123-1"><a href="07_exercise_7.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ALTER</span> <span class="kw">TABLE</span></span>
+<span id="cb123-2"><a href="07_exercise_7.html#cb123-2" aria-hidden="true" tabindex="-1"></a>air_geom</span>
+<span id="cb123-3"><a href="07_exercise_7.html#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="kw">ADD</span> <span class="kw">COLUMN</span></span>
+<span id="cb123-4"><a href="07_exercise_7.html#cb123-4" aria-hidden="true" tabindex="-1"></a>geom3857 geometry(Point,<span class="dv">3857</span>);</span></code></pre></div>
+</div>
+</div>
+<div id="exercise-7.8-saving-converted-geometries" class="section level2" number="8.8">
+<h2><span class="header-section-number">8.8</span> Exercise 7.8: Saving converted geometries</h2>
+<p>Let’s convert and update new points to the new column:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb124"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb124-1"><a href="07_exercise_7.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span></span>
+<span id="cb124-2"><a href="07_exercise_7.html#cb124-2" aria-hidden="true" tabindex="-1"></a>air_geom</span>
+<span id="cb124-3"><a href="07_exercise_7.html#cb124-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span></span>
+<span id="cb124-4"><a href="07_exercise_7.html#cb124-4" aria-hidden="true" tabindex="-1"></a>geom3857 <span class="op">=</span> ST_Transform(geom, <span class="dv">3857</span>);</span></code></pre></div>
+</div>
+<p>If running the command resulted in an error, how can you fix the issue?</p>
+<p>Explore the airport data set and find the row which causes the error. You can check what area the EPSG:3857 SRS covers, for example <a href="https://epsg.io/3857">here</a>.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb125"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb125-1"><a href="07_exercise_7.html#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb125-2"><a href="07_exercise_7.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb125-3"><a href="07_exercise_7.html#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb125-4"><a href="07_exercise_7.html#cb125-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb125-5"><a href="07_exercise_7.html#cb125-5" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb126"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb126-1"><a href="07_exercise_7.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb126-2"><a href="07_exercise_7.html#cb126-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb126-3"><a href="07_exercise_7.html#cb126-3" aria-hidden="true" tabindex="-1"></a>air_geom</span>
+<span id="cb126-4"><a href="07_exercise_7.html#cb126-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb126-5"><a href="07_exercise_7.html#cb126-5" aria-hidden="true" tabindex="-1"></a>y<span class="op">-</span>coordinate(geom) <span class="op">&lt;</span> <span class="op">..</span>.;</span>
+<span id="cb126-6"><a href="07_exercise_7.html#cb126-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb126-7"><a href="07_exercise_7.html#cb126-7" aria-hidden="true" tabindex="-1"></a><span class="co">-- Using which PostGIS can you return the Y coordinate?</span></span>
+<span id="cb126-8"><a href="07_exercise_7.html#cb126-8" aria-hidden="true" tabindex="-1"></a><span class="co">-- fill in an appropriate Y value in the blank</span></span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb127"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb127-1"><a href="07_exercise_7.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb127-2"><a href="07_exercise_7.html#cb127-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb127-3"><a href="07_exercise_7.html#cb127-3" aria-hidden="true" tabindex="-1"></a>air_geom</span>
+<span id="cb127-4"><a href="07_exercise_7.html#cb127-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb127-5"><a href="07_exercise_7.html#cb127-5" aria-hidden="true" tabindex="-1"></a>ST_Y(geom) <span class="op">&lt;</span> <span class="op">-</span><span class="fl">85.06</span>;</span></code></pre></div>
+</div>
+</div>
+<p>When you have identified the problem, fix it by filtering out the problematic row:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb128"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb128-1"><a href="07_exercise_7.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> gid,name,icao,ST_asText(geom)</span>
+<span id="cb128-2"><a href="07_exercise_7.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> air_geom</span>
+<span id="cb128-3"><a href="07_exercise_7.html#cb128-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> ST_Y(geom) <span class="op">=</span> <span class="op">-</span><span class="dv">90</span>;</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb129"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb129-1"><a href="07_exercise_7.html#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> air_geom</span>
+<span id="cb129-2"><a href="07_exercise_7.html#cb129-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span> geom3857 <span class="op">=</span> ST_Transform(geom,<span class="dv">3857</span>)</span>
+<span id="cb129-3"><a href="07_exercise_7.html#cb129-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> <span class="op">..</span>.;</span>
+<span id="cb129-4"><a href="07_exercise_7.html#cb129-4" aria-hidden="true" tabindex="-1"></a><span class="co">-- filter out the problematic row</span></span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb130"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb130-1"><a href="07_exercise_7.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> gid,name,icao,ST_asText(geom)</span>
+<span id="cb130-2"><a href="07_exercise_7.html#cb130-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> air_geom</span>
+<span id="cb130-3"><a href="07_exercise_7.html#cb130-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> ST_Y(geom) <span class="op">=</span> <span class="op">-</span><span class="dv">90</span>;</span></code></pre></div>
+</div>
+<div class="code-box">
+<div class="sourceCode" id="cb131"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb131-1"><a href="07_exercise_7.html#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> air_geom</span>
+<span id="cb131-2"><a href="07_exercise_7.html#cb131-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span> geom3857 <span class="op">=</span> ST_Transform(geom,<span class="dv">3857</span>)</span>
+<span id="cb131-3"><a href="07_exercise_7.html#cb131-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> icao <span class="op">!=</span> <span class="st">&#39;NZSP&#39;</span>;</span></code></pre></div>
+</div>
+</div>
+<p>After you’ve fixed the problem, check the results using QGIS.</p>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="06_exercise_6.html"><button class="btn btn-default">Previous</button></a>
+<a href="08_exercise_8.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to PostGIS</h5>
+<span class="footer-version">v2026-09-01</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

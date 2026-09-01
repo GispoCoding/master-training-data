@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="3 Exercise 2: Importing data | Introduction to PostGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd" />
+
+<meta name="date" content="2026-09-01" />
+
+
+<meta name="description" content="3 Exercise 2: Importing data | Introduction to PostGIS">
+
+<title>3 Exercise 2: Importing data | Introduction to PostGIS</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to PostGIS</h1></div>
+<div class="abstract-sidebar"><p>Introduction to typical PostGIS use cases.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#introduction"><span class="toc-section-number">1</span> 1. Introduction</a>
+<ul>
+<li><a href="index.html#training-material-license"><span class="toc-section-number">1.1</span> 1.1 Training material license</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-training-environment"><span class="toc-section-number">2</span> Exercise 1: Training environment</a>
+<ul>
+<li><a href="01_exercise_1.html#exercise-1.1-pgadmin-4"><span class="toc-section-number">2.1</span> Exercise 1.1: pgAdmin 4</a></li>
+<li><a href="01_exercise_1.html#exercise-1.2-psql"><span class="toc-section-number">2.2</span> Exercise 1.2: psql</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-importing-data"><span class="toc-section-number">3</span> Exercise 2: Importing data</a>
+<ul>
+<li><a href="02_exercise_2.html#exercise-2.1-importing-from-a-text-file"><span class="toc-section-number">3.1</span> Exercise 2.1: Importing from a text file</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2-importing-spatial-data"><span class="toc-section-number">3.2</span> Exercise 2.2: Importing spatial data</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-basics-of-sql"><span class="toc-section-number">4</span> Exercise 3: Basics of SQL</a>
+<ul>
+<li><a href="03_exercise_3.html#exercise-3.1-simple-sql-queries"><span class="toc-section-number">4.1</span> Exercise 3.1: Simple SQL queries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2"><span class="toc-section-number">4.2</span> Exercise 3.2</a></li>
+<li><a href="03_exercise_3.html#exercise-3.3"><span class="toc-section-number">4.3</span> Exercise 3.3</a></li>
+<li><a href="03_exercise_3.html#exercise-3.4"><span class="toc-section-number">4.4</span> Exercise 3.4</a></li>
+<li><a href="03_exercise_3.html#exercise-3.5"><span class="toc-section-number">4.5</span> Exercise 3.5</a></li>
+<li><a href="03_exercise_3.html#exercise-3.6"><span class="toc-section-number">4.6</span> Exercise 3.6</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-spatial-sql-queries"><span class="toc-section-number">5</span> Exercise 4: Spatial SQL queries</a>
+<ul>
+<li><a href="04_exercise_4.html#exercise-4.1-metadata-of-geometries"><span class="toc-section-number">5.1</span> Exercise 4.1: Metadata of geometries</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-representing-geometries"><span class="toc-section-number">5.2</span> Exercise 4.2: Representing geometries</a></li>
+<li><a href="04_exercise_4.html#exercise-4.3-functions"><span class="toc-section-number">5.3</span> Exercise 4.3: Functions</a></li>
+<li><a href="04_exercise_4.html#exercise-4.4-spatial-indexes"><span class="toc-section-number">5.4</span> Exercise 4.4: Spatial indexes</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-spatial-feature-geometries"><span class="toc-section-number">6</span> Exercise 5: Spatial feature geometries</a>
+<ul>
+<li><a href="05_exercise_5.html#exercise-5.1"><span class="toc-section-number">6.1</span> Exercise 5.1</a></li>
+<li><a href="05_exercise_5.html#exercise-5.2"><span class="toc-section-number">6.2</span> Exercise 5.2</a></li>
+<li><a href="05_exercise_5.html#exercise-5.3"><span class="toc-section-number">6.3</span> Exercise 5.3</a></li>
+<li><a href="05_exercise_5.html#exercise-5.4"><span class="toc-section-number">6.4</span> Exercise 5.4</a></li>
+<li><a href="05_exercise_5.html#exercise-5.5"><span class="toc-section-number">6.5</span> Exercise 5.5</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-spatial-relations"><span class="toc-section-number">7</span> Exercise 6: Spatial relations</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1"><span class="toc-section-number">7.1</span> Exercise 6.1</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2"><span class="toc-section-number">7.2</span> Exercise 6.2</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3"><span class="toc-section-number">7.3</span> Exercise 6.3</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4"><span class="toc-section-number">7.4</span> Exercise 6.4</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5"><span class="toc-section-number">7.5</span> Exercise 6.5</a></li>
+<li><a href="06_exercise_6.html#exercise-6.6"><span class="toc-section-number">7.6</span> Exercise 6.6</a></li>
+<li><a href="06_exercise_6.html#exercise-6.7"><span class="toc-section-number">7.7</span> Exercise 6.7</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-spatial-reference-systems"><span class="toc-section-number">8</span> Exercise 7: Spatial Reference Systems</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-geometry"><span class="toc-section-number">8.1</span> Exercise 7.1: Creating a geometry</a></li>
+<li><a href="07_exercise_7.html#exercise-7.2-coordinate-conversion"><span class="toc-section-number">8.2</span> Exercise 7.2: Coordinate conversion</a></li>
+<li><a href="07_exercise_7.html#exercise-7.3-another-conversion"><span class="toc-section-number">8.3</span> Exercise 7.3: Another conversion</a></li>
+<li><a href="07_exercise_7.html#exercise-7.4-srs-definitions"><span class="toc-section-number">8.4</span> Exercise 7.4: SRS definitions</a></li>
+<li><a href="07_exercise_7.html#exercise-7.5-comparing-spatial-reference-system-definitions"><span class="toc-section-number">8.5</span> Exercise 7.5: Comparing spatial reference system definitions</a></li>
+<li><a href="07_exercise_7.html#exercise-7.6-creating-a-new-spatial-data-table"><span class="toc-section-number">8.6</span> Exercise 7.6: Creating a new spatial data table</a></li>
+<li><a href="07_exercise_7.html#exercise-7.7-adding-another-geometry-column"><span class="toc-section-number">8.7</span> Exercise 7.7: Adding another geometry column</a></li>
+<li><a href="07_exercise_7.html#exercise-7.8-saving-converted-geometries"><span class="toc-section-number">8.8</span> Exercise 7.8: Saving converted geometries</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-geoprocessing"><span class="toc-section-number">9</span> Exercise 8: Geoprocessing</a>
+<ul>
+<li><a href="08_exercise_8.html#exercise-8.1-centroids"><span class="toc-section-number">9.1</span> Exercise 8.1: Centroids</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-centroids-within-polygons"><span class="toc-section-number">9.2</span> Exercise 8.2: Centroids within polygons</a></li>
+<li><a href="08_exercise_8.html#exercise-8.3-distances"><span class="toc-section-number">9.3</span> Exercise 8.3: Distances</a></li>
+<li><a href="08_exercise_8.html#exercise-8.4-buffers"><span class="toc-section-number">9.4</span> Exercise 8.4: Buffers</a></li>
+<li><a href="08_exercise_8.html#exercise-8.5-union"><span class="toc-section-number">9.5</span> Exercise 8.5: Union</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_exercise_09.html#exercise-9-postgresql-administration"><span class="toc-section-number">10</span> Exercise 9: PostgreSQL administration</a>
+<ul>
+<li><a href="09_exercise_09.html#exercise-9.1-tablespaces"><span class="toc-section-number">10.1</span> Exercise 9.1: Tablespaces</a></li>
+<li><a href="09_exercise_09.html#exercise-9.2-database-roles"><span class="toc-section-number">10.2</span> Exercise 9.2: Database roles</a></li>
+<li><a href="09_exercise_09.html#exercise-9.3-group-roles"><span class="toc-section-number">10.3</span> Exercise 9.3: Group roles</a></li>
+<li><a href="09_exercise_09.html#exercise-9.4-adding-roles-in-the-gui"><span class="toc-section-number">10.4</span> Exercise 9.4: Adding roles in the GUI</a></li>
+<li><a href="09_exercise_09.html#exercise-9.5-creating-a-new-tablespace"><span class="toc-section-number">10.5</span> Exercise 9.5: Creating a new tablespace</a></li>
+<li><a href="09_exercise_09.html#exercise-9.6-changing-the-tablespace-of-a-database-or-a-table"><span class="toc-section-number">10.6</span> Exercise 9.6: Changing the tablespace of a database or a table</a></li>
+<li><a href="09_exercise_09.html#exercise-9.7-altering-the-tablespace-of-an-index"><span class="toc-section-number">10.7</span> Exercise 9.7: Altering the tablespace of an index</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_exercise_10.html#exercise-10-creating-and-restoring-backups"><span class="toc-section-number">11</span> Exercise 10: Creating and restoring backups</a>
+<ul>
+<li><a href="10_exercise_10.html#exercise-10.1-creating-a-backup"><span class="toc-section-number">11.1</span> Exercise 10.1: Creating a backup</a></li>
+<li><a href="10_exercise_10.html#exercise-10.2-restoring-a-database"><span class="toc-section-number">11.2</span> Exercise 10.2: Restoring a database</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-2-importing-data" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> Exercise 2: Importing data</h1>
+<p><strong>Contents</strong> – In this exercise we import spatial data into the PostGIS database.</p>
+<p><strong>Goal</strong> – After the exercise the trainee understands the basics of importing spatial data into a database.</p>
+<div id="preparation" class="section level3" number="3.0.1">
+<h3><span class="header-section-number">3.0.1</span> Preparation</h3>
+<p>QGIS has to be installed for importing spatia data. Open <a href="/pgadmin">pgAdmin</a> in the browser and log in. Open the <strong>Query Tool</strong> (Right click <em>trainingdatabase</em> <strong>-&gt;</strong> <strong>Query Tool</strong>).</p>
+</div>
+<div id="exercise-2.1-importing-from-a-text-file" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Exercise 2.1: Importing from a text file</h2>
+<p>Many point data sets are saved in CSV files, where they are not necessarily in a spatial data format. In the first exercise we’ll import a global dataset which contains information about airports. First create a table in the <em>trainingdatabase</em> with the following SQL command:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb14"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb14-1"><a href="02_exercise_2.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> airports;</span>
+<span id="cb14-2"><a href="02_exercise_2.html#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="02_exercise_2.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> airports</span>
+<span id="cb14-4"><a href="02_exercise_2.html#cb14-4" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb14-5"><a href="02_exercise_2.html#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span>            <span class="dt">integer</span>,</span>
+<span id="cb14-6"><a href="02_exercise_2.html#cb14-6" aria-hidden="true" tabindex="-1"></a>    name          text,</span>
+<span id="cb14-7"><a href="02_exercise_2.html#cb14-7" aria-hidden="true" tabindex="-1"></a>    city          text,</span>
+<span id="cb14-8"><a href="02_exercise_2.html#cb14-8" aria-hidden="true" tabindex="-1"></a>    country       text,</span>
+<span id="cb14-9"><a href="02_exercise_2.html#cb14-9" aria-hidden="true" tabindex="-1"></a>    IATA_code     <span class="dt">char</span>(<span class="dv">3</span>),</span>
+<span id="cb14-10"><a href="02_exercise_2.html#cb14-10" aria-hidden="true" tabindex="-1"></a>    ICAO_code     <span class="dt">char</span>(<span class="dv">4</span>),</span>
+<span id="cb14-11"><a href="02_exercise_2.html#cb14-11" aria-hidden="true" tabindex="-1"></a>    latitude      <span class="dt">numeric</span>,</span>
+<span id="cb14-12"><a href="02_exercise_2.html#cb14-12" aria-hidden="true" tabindex="-1"></a>    longitude     <span class="dt">numeric</span>,</span>
+<span id="cb14-13"><a href="02_exercise_2.html#cb14-13" aria-hidden="true" tabindex="-1"></a>    altitude      <span class="dt">numeric</span>,</span>
+<span id="cb14-14"><a href="02_exercise_2.html#cb14-14" aria-hidden="true" tabindex="-1"></a>    timezone      text,</span>
+<span id="cb14-15"><a href="02_exercise_2.html#cb14-15" aria-hidden="true" tabindex="-1"></a>    dst           text,</span>
+<span id="cb14-16"><a href="02_exercise_2.html#cb14-16" aria-hidden="true" tabindex="-1"></a>    tz_zone       text,</span>
+<span id="cb14-17"><a href="02_exercise_2.html#cb14-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">type</span>          text,</span>
+<span id="cb14-18"><a href="02_exercise_2.html#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">source</span>        text</span>
+<span id="cb14-19"><a href="02_exercise_2.html#cb14-19" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<p>The data set has been already downloaded from <a href="http://openflights.org/data.html">OpenFlights.org</a> and added to a folder inside of the database server.</p>
+<p>Inspect the data set. You can open the file in your browser with <a href="/data/airports.dat">this link</a>.</p>
+<p>You can import the data from the CSV file to the table you previously created with this command:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb15"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb15-1"><a href="02_exercise_2.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">COPY</span> airports</span>
+<span id="cb15-2"><a href="02_exercise_2.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> <span class="st">&#39;/home/student/data/airports.dat&#39;</span></span>
+<span id="cb15-3"><a href="02_exercise_2.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> CSV;</span></code></pre></div>
+</div>
+<p>The <strong>COPY</strong> command refers to a file on the disk and imports it. In addition to CSV files the <strong>COPY</strong> command can also refer to <a href="https://www.postgresql.org/docs/current/sql-copy.html">binary formats or text files.</a></p>
+<p>Check that the data was correctly imported:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb16"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb16-1"><a href="02_exercise_2.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb16-2"><a href="02_exercise_2.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> airports</span>
+<span id="cb16-3"><a href="02_exercise_2.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code></pre></div>
+</div>
+<p>By inspecting the data set you can see that the table has coordinates, but they’ve been saved as numerical values and not as geometries / in a geographical data type.</p>
+<p>To be able to use PostGIS functionalities with this data set, you have to add a geometry column to the table. PostGIS has a <a href="https://postgis.net/docs/AddGeometryColumn.html">function</a> for this purpose. Read the documentation on how this function is used.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb17"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb17-1"><a href="02_exercise_2.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> AddGeometryColumn (<span class="st">&#39;airports&#39;</span>,<span class="st">&#39;geom&#39;</span>,<span class="dv">4326</span>,<span class="st">&#39;POINT&#39;</span>,<span class="dv">2</span>);</span></code></pre></div>
+</div>
+<p>Inspect the table again.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb18"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb18-1"><a href="02_exercise_2.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb18-2"><a href="02_exercise_2.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> airports</span>
+<span id="cb18-3"><a href="02_exercise_2.html#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code></pre></div>
+</div>
+<p>The table now has a new column which is empty. Let’s update the contents of the table with the <strong>UPDATE</strong> command.</p>
+<p>In the following command two functions are nested:</p>
+<ul>
+<li><a href="https://postgis.net/docs/ST_MakePoint.html">ST_MakePoint</a> creates a point geometry from text fields.</li>
+<li><a href="https://postgis.net/docs/ST_SetSRID.html">ST_SetSRID</a> sets a coordinate reference system for the field based on an EPSG code.</li>
+</ul>
+<div class="code-box">
+<div class="sourceCode" id="cb19"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb19-1"><a href="02_exercise_2.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">UPDATE</span> airports</span>
+<span id="cb19-2"><a href="02_exercise_2.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SET</span> geom <span class="op">=</span> ST_SetSRID(ST_MakePoint(longitude, latitude),<span class="dv">4326</span>);</span></code></pre></div>
+</div>
+<p>Inspect the dataset with the pgAdmin map feature:</p>
+<p><img src="img/pgadmin_geom.png" /></p>
+</div>
+<div id="exercise-2.2-importing-spatial-data" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Exercise 2.2: Importing spatial data</h2>
+<p>The Natural Earth data used in the coming exercises are uploaded to the <a href="/data">data folder</a>. You can download the postgis_data_package.gpkg from there.</p>
+<div id="option-1-importing-with-qgis" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Option 1: Importing with QGIS</h3>
+<p>QGIS offers a handy graphical user interface for importing spatial data into a PostGIS database. Many QGIS tools also enable flexible loading and editing of data in the database.</p>
+<p>First, let’s connect from your local QGIS installation to the PostGIS database used in the training. Open QGIS and create a new database connection by clicking Layer &gt; Data Source Manager. Choose the PostgreSQL tab and click the ‘New’ button:</p>
+<p>Enter the following information in the New Connection window:</p>
+<p><img src="img/qgis_pg_connection.png" /></p>
+<p>Note that the ‘Name’ field means the name of your connection saved to QGIS and not the name of the database. It is generally a good idea to choose all the options listed under the database connection parameters. For example using estimated table metadata speeds queries up considerably.</p>
+<p>Click <strong>Test Connection</strong> to make sure you can connect to the database and then click <strong>OK</strong>. You can also execute SQL queries inside QGIS using <strong>DB Manager</strong>.</p>
+<p>In addition to the database named “postgres”,
+connect to the “trainingdatabase” database with QGIS.
+We will be operating in this database for the rest of the course.
+Creating the connection is nearly identical to
+how we connected to the “postgres” database:
+you must just specify a different name for the connection
+(for example gispo_trainingdatabase).</p>
+<p>Let’s create a new schema in the trainingdatabase where we will import the Natural Earth data. Name the new schema ‘ne’. Schemas help you organize tables and other relations. You can create the new schema in pgAdmin, QGIS or with the following SQL commands:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb20"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb20-1"><a href="02_exercise_2.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">SCHEMA</span> <span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> ne;</span></code></pre></div>
+</div>
+<p>If you cannot see the schema you just created in QGIS, run the following SQL commands and restart the QGIS project.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb21"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb21-1"><a href="02_exercise_2.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">DROP</span> <span class="kw">TABLE</span> <span class="cf">IF</span> <span class="kw">EXISTS</span> ne.example;</span>
+<span id="cb21-2"><a href="02_exercise_2.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="02_exercise_2.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> ne.example</span>
+<span id="cb21-4"><a href="02_exercise_2.html#cb21-4" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb21-5"><a href="02_exercise_2.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span>            <span class="dt">integer</span>,</span>
+<span id="cb21-6"><a href="02_exercise_2.html#cb21-6" aria-hidden="true" tabindex="-1"></a>    name          text</span>
+<span id="cb21-7"><a href="02_exercise_2.html#cb21-7" aria-hidden="true" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<div class="code-box">
+<div class="sourceCode" id="cb22"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb22-1"><a href="02_exercise_2.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> ne.example</span>
+<span id="cb22-2"><a href="02_exercise_2.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">VALUES</span> (<span class="dv">1</span>, <span class="st">&#39;test&#39;</span>);</span></code></pre></div>
+</div>
+<p>If you didn’t already, download the <a href="/data/postgis_data_package.gpkg">Natural Earth data geopackage</a> on your computer. You can add the layers to QGIS by clicking Layers &gt; Add Layer &gt; Add Vector Layer; opening the Vector tab inside the Data Source Manager, or by dragging and dropping the file from your computer’s file manager.</p>
+<p>Import the following layers into QGIS and PostGIS:</p>
+<ul>
+<li>airports_eu</li>
+<li>capitals_eu</li>
+<li>countries_eu</li>
+<li>countries_world</li>
+<li>railroads_eu</li>
+<li>rivers_eu</li>
+</ul>
+<div class="hint-box">
+<p>QGIS might ask about a coordinate transformation. Click <strong>OK</strong> in the window which might open up when trying to add layers.</p>
+</div>
+<p>Make sure that the QGIS project’s Spatial Reference System is set as ETRS89 ETRS89-extended / LAEA Europe (EPSG:3035). You can check the project’s SRS in the bottom right corner and the individual layer’s SRS by right clicking the layer, selecting <strong>Properties &gt; Source &gt; Assigned Coordinate Reference System</strong>. All layers should be set to EPSG:3035, except the <strong>countries_world</strong> layer, which should be EPSG:4326.</p>
+<p><img src="img/qgislayers.png" /></p>
+<p>In QGIS, open a processing tool named ‘Export to PostgreSQL’. Click on the bottom <strong>Run as Batch Process…</strong> which allows exporting several tables into the database at the same time. Change the parameters so that the layers are exported to the correct schema and database. Using the <strong>Fill Down</strong> button you don’t have to individually fill every parameter for each layer. Name the geometry column as “wkb_geometry”. Make sure that the geopackage’s name is not left in the <strong>Table to export to</strong> field and all the table names are set to export as follows:</p>
+<ul>
+<li>airports_eu</li>
+<li>capitals_eu</li>
+<li>countries_eu</li>
+<li>countries_world</li>
+<li>railroads_eu</li>
+<li>rivers_eu</li>
+</ul>
+<p>You can check what other parameters the tool has, but leave them unchanged. The final parameters should look like this:</p>
+<p><img src="img/batchrun.png" /></p>
+<p>Click <strong>Run</strong>!</p>
+<p>Make sure after running the tool that the data sets have been exported correctly. Check possible error messages and change parameters if needed.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb23"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb23-1"><a href="02_exercise_2.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb23-2"><a href="02_exercise_2.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> ne.countries_world</span>
+<span id="cb23-3"><a href="02_exercise_2.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code></pre></div>
+</div>
+</div>
+<div id="option-2-importing-with-the-command-line" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Option 2: Importing with the command line</h3>
+<p>Let’s create a new schema in the trainingdatabase where we will import the Natural Earth data. Name the new schema ‘ne’. Schemas help you organize tables and other relations. You can create the new schema in pgAdmin, QGIS or with the following SQL commands:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb24"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb24-1"><a href="02_exercise_2.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">SCHEMA</span> <span class="cf">IF</span> <span class="kw">NOT</span> <span class="kw">EXISTS</span> ne;</span></code></pre></div>
+</div>
+<p>You can import data to a PostGIS database using the <strong>shp2pgsql</strong> or <strong>ogr2ogr2</strong> tools. By running the program without parameters you receive instructions on how to use them. After this you can import data into the schema you just created using the <strong>ogr2ogr</strong> tool. If you’ve installed the OSGeo4W package (included with QGIS) open the <strong>OSGeo4W Shell</strong> from your start menu and enter the following command:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="02_exercise_2.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ogr2ogr</span> <span class="at">-f</span> <span class="st">&quot;PostgreSQL&quot;</span> PG:<span class="st">&quot;host=&lt;hostname&gt; port=&lt;port&gt; dbname=&lt;database&#39;s name&gt; user=&lt;username&gt; password=&lt;password&gt;&quot;</span> <span class="op">&lt;</span>dir<span class="op">&gt;</span><span class="dt">\p</span>ostgis_data_package.gpkg <span class="at">-lco</span> SCHEMA=ne</span></code></pre></div>
+</div>
+<p>Remember to check the file path and the other parameters!</p>
+<p>The parameters used by <strong>ogr2ogr</strong> are as follows:</p>
+<div class="commandline-box">
+<pre><code>-f   output file format name
+-lco layer creation option
+</code></pre>
+</div>
+<p>You can explore the other parameters by
+running the <strong>ogr2ogr</strong> command without parameters.</p>
+<p>The <strong>shp2pgsql</strong> tool is included with the PostGIS installation.
+With this tool you can create .sql files from .shp files.</p>
+<p>Commandline tools enable you to import several files at once. For example in Windows you can import an entire folder of gml files to a database with the following command:</p>
+<div class="commandline-box">
+<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="02_exercise_2.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="ex">%i</span> in <span class="er">(</span><span class="ex">*.gml</span><span class="kw">)</span> <span class="cf">do</span> <span class="ex">ogr2ogr</span> <span class="at">-update</span> <span class="at">-append</span> <span class="at">-f</span> PostgreSQL PG:<span class="st">&quot;host=&lt;hostname&gt; port=5432 dbname=&lt;database&#39;s name&gt; user=&lt;username&gt; password=&lt;password&gt; schemas=gml&quot;</span> %i</span></code></pre></div>
+</div>
+
+</div>
+</div>
+</div>
+<p style="text-align: center;">
+<a href="01_exercise_1.html"><button class="btn btn-default">Previous</button></a>
+<a href="03_exercise_3.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to PostGIS</h5>
+<span class="footer-version">v2026-09-01</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

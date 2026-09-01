@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="4 Exercise 3: Basics of SQL | Introduction to PostGIS" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Finland Ltd" />
+
+<meta name="date" content="2026-09-01" />
+
+
+<meta name="description" content="4 Exercise 3: Basics of SQL | Introduction to PostGIS">
+
+<title>4 Exercise 3: Basics of SQL | Introduction to PostGIS</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Introduction to PostGIS</h1></div>
+<div class="abstract-sidebar"><p>Introduction to typical PostGIS use cases.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#introduction"><span class="toc-section-number">1</span> 1. Introduction</a>
+<ul>
+<li><a href="index.html#training-material-license"><span class="toc-section-number">1.1</span> 1.1 Training material license</a></li>
+</ul></li>
+<li class="has-sub"><a href="01_exercise_1.html#exercise-1-training-environment"><span class="toc-section-number">2</span> Exercise 1: Training environment</a>
+<ul>
+<li><a href="01_exercise_1.html#exercise-1.1-pgadmin-4"><span class="toc-section-number">2.1</span> Exercise 1.1: pgAdmin 4</a></li>
+<li><a href="01_exercise_1.html#exercise-1.2-psql"><span class="toc-section-number">2.2</span> Exercise 1.2: psql</a></li>
+</ul></li>
+<li class="has-sub"><a href="02_exercise_2.html#exercise-2-importing-data"><span class="toc-section-number">3</span> Exercise 2: Importing data</a>
+<ul>
+<li><a href="02_exercise_2.html#exercise-2.1-importing-from-a-text-file"><span class="toc-section-number">3.1</span> Exercise 2.1: Importing from a text file</a></li>
+<li><a href="02_exercise_2.html#exercise-2.2-importing-spatial-data"><span class="toc-section-number">3.2</span> Exercise 2.2: Importing spatial data</a></li>
+</ul></li>
+<li class="has-sub"><a href="03_exercise_3.html#exercise-3-basics-of-sql"><span class="toc-section-number">4</span> Exercise 3: Basics of SQL</a>
+<ul>
+<li><a href="03_exercise_3.html#exercise-3.1-simple-sql-queries"><span class="toc-section-number">4.1</span> Exercise 3.1: Simple SQL queries</a></li>
+<li><a href="03_exercise_3.html#exercise-3.2"><span class="toc-section-number">4.2</span> Exercise 3.2</a></li>
+<li><a href="03_exercise_3.html#exercise-3.3"><span class="toc-section-number">4.3</span> Exercise 3.3</a></li>
+<li><a href="03_exercise_3.html#exercise-3.4"><span class="toc-section-number">4.4</span> Exercise 3.4</a></li>
+<li><a href="03_exercise_3.html#exercise-3.5"><span class="toc-section-number">4.5</span> Exercise 3.5</a></li>
+<li><a href="03_exercise_3.html#exercise-3.6"><span class="toc-section-number">4.6</span> Exercise 3.6</a></li>
+</ul></li>
+<li class="has-sub"><a href="04_exercise_4.html#exercise-4-spatial-sql-queries"><span class="toc-section-number">5</span> Exercise 4: Spatial SQL queries</a>
+<ul>
+<li><a href="04_exercise_4.html#exercise-4.1-metadata-of-geometries"><span class="toc-section-number">5.1</span> Exercise 4.1: Metadata of geometries</a></li>
+<li><a href="04_exercise_4.html#exercise-4.2-representing-geometries"><span class="toc-section-number">5.2</span> Exercise 4.2: Representing geometries</a></li>
+<li><a href="04_exercise_4.html#exercise-4.3-functions"><span class="toc-section-number">5.3</span> Exercise 4.3: Functions</a></li>
+<li><a href="04_exercise_4.html#exercise-4.4-spatial-indexes"><span class="toc-section-number">5.4</span> Exercise 4.4: Spatial indexes</a></li>
+</ul></li>
+<li class="has-sub"><a href="05_exercise_5.html#exercise-5-spatial-feature-geometries"><span class="toc-section-number">6</span> Exercise 5: Spatial feature geometries</a>
+<ul>
+<li><a href="05_exercise_5.html#exercise-5.1"><span class="toc-section-number">6.1</span> Exercise 5.1</a></li>
+<li><a href="05_exercise_5.html#exercise-5.2"><span class="toc-section-number">6.2</span> Exercise 5.2</a></li>
+<li><a href="05_exercise_5.html#exercise-5.3"><span class="toc-section-number">6.3</span> Exercise 5.3</a></li>
+<li><a href="05_exercise_5.html#exercise-5.4"><span class="toc-section-number">6.4</span> Exercise 5.4</a></li>
+<li><a href="05_exercise_5.html#exercise-5.5"><span class="toc-section-number">6.5</span> Exercise 5.5</a></li>
+</ul></li>
+<li class="has-sub"><a href="06_exercise_6.html#exercise-6-spatial-relations"><span class="toc-section-number">7</span> Exercise 6: Spatial relations</a>
+<ul>
+<li><a href="06_exercise_6.html#exercise-6.1"><span class="toc-section-number">7.1</span> Exercise 6.1</a></li>
+<li><a href="06_exercise_6.html#exercise-6.2"><span class="toc-section-number">7.2</span> Exercise 6.2</a></li>
+<li><a href="06_exercise_6.html#exercise-6.3"><span class="toc-section-number">7.3</span> Exercise 6.3</a></li>
+<li><a href="06_exercise_6.html#exercise-6.4"><span class="toc-section-number">7.4</span> Exercise 6.4</a></li>
+<li><a href="06_exercise_6.html#exercise-6.5"><span class="toc-section-number">7.5</span> Exercise 6.5</a></li>
+<li><a href="06_exercise_6.html#exercise-6.6"><span class="toc-section-number">7.6</span> Exercise 6.6</a></li>
+<li><a href="06_exercise_6.html#exercise-6.7"><span class="toc-section-number">7.7</span> Exercise 6.7</a></li>
+</ul></li>
+<li class="has-sub"><a href="07_exercise_7.html#exercise-7-spatial-reference-systems"><span class="toc-section-number">8</span> Exercise 7: Spatial Reference Systems</a>
+<ul>
+<li><a href="07_exercise_7.html#exercise-7.1-creating-a-geometry"><span class="toc-section-number">8.1</span> Exercise 7.1: Creating a geometry</a></li>
+<li><a href="07_exercise_7.html#exercise-7.2-coordinate-conversion"><span class="toc-section-number">8.2</span> Exercise 7.2: Coordinate conversion</a></li>
+<li><a href="07_exercise_7.html#exercise-7.3-another-conversion"><span class="toc-section-number">8.3</span> Exercise 7.3: Another conversion</a></li>
+<li><a href="07_exercise_7.html#exercise-7.4-srs-definitions"><span class="toc-section-number">8.4</span> Exercise 7.4: SRS definitions</a></li>
+<li><a href="07_exercise_7.html#exercise-7.5-comparing-spatial-reference-system-definitions"><span class="toc-section-number">8.5</span> Exercise 7.5: Comparing spatial reference system definitions</a></li>
+<li><a href="07_exercise_7.html#exercise-7.6-creating-a-new-spatial-data-table"><span class="toc-section-number">8.6</span> Exercise 7.6: Creating a new spatial data table</a></li>
+<li><a href="07_exercise_7.html#exercise-7.7-adding-another-geometry-column"><span class="toc-section-number">8.7</span> Exercise 7.7: Adding another geometry column</a></li>
+<li><a href="07_exercise_7.html#exercise-7.8-saving-converted-geometries"><span class="toc-section-number">8.8</span> Exercise 7.8: Saving converted geometries</a></li>
+</ul></li>
+<li class="has-sub"><a href="08_exercise_8.html#exercise-8-geoprocessing"><span class="toc-section-number">9</span> Exercise 8: Geoprocessing</a>
+<ul>
+<li><a href="08_exercise_8.html#exercise-8.1-centroids"><span class="toc-section-number">9.1</span> Exercise 8.1: Centroids</a></li>
+<li><a href="08_exercise_8.html#exercise-8.2-centroids-within-polygons"><span class="toc-section-number">9.2</span> Exercise 8.2: Centroids within polygons</a></li>
+<li><a href="08_exercise_8.html#exercise-8.3-distances"><span class="toc-section-number">9.3</span> Exercise 8.3: Distances</a></li>
+<li><a href="08_exercise_8.html#exercise-8.4-buffers"><span class="toc-section-number">9.4</span> Exercise 8.4: Buffers</a></li>
+<li><a href="08_exercise_8.html#exercise-8.5-union"><span class="toc-section-number">9.5</span> Exercise 8.5: Union</a></li>
+</ul></li>
+<li class="has-sub"><a href="09_exercise_09.html#exercise-9-postgresql-administration"><span class="toc-section-number">10</span> Exercise 9: PostgreSQL administration</a>
+<ul>
+<li><a href="09_exercise_09.html#exercise-9.1-tablespaces"><span class="toc-section-number">10.1</span> Exercise 9.1: Tablespaces</a></li>
+<li><a href="09_exercise_09.html#exercise-9.2-database-roles"><span class="toc-section-number">10.2</span> Exercise 9.2: Database roles</a></li>
+<li><a href="09_exercise_09.html#exercise-9.3-group-roles"><span class="toc-section-number">10.3</span> Exercise 9.3: Group roles</a></li>
+<li><a href="09_exercise_09.html#exercise-9.4-adding-roles-in-the-gui"><span class="toc-section-number">10.4</span> Exercise 9.4: Adding roles in the GUI</a></li>
+<li><a href="09_exercise_09.html#exercise-9.5-creating-a-new-tablespace"><span class="toc-section-number">10.5</span> Exercise 9.5: Creating a new tablespace</a></li>
+<li><a href="09_exercise_09.html#exercise-9.6-changing-the-tablespace-of-a-database-or-a-table"><span class="toc-section-number">10.6</span> Exercise 9.6: Changing the tablespace of a database or a table</a></li>
+<li><a href="09_exercise_09.html#exercise-9.7-altering-the-tablespace-of-an-index"><span class="toc-section-number">10.7</span> Exercise 9.7: Altering the tablespace of an index</a></li>
+</ul></li>
+<li class="has-sub"><a href="10_exercise_10.html#exercise-10-creating-and-restoring-backups"><span class="toc-section-number">11</span> Exercise 10: Creating and restoring backups</a>
+<ul>
+<li><a href="10_exercise_10.html#exercise-10.1-creating-a-backup"><span class="toc-section-number">11.1</span> Exercise 10.1: Creating a backup</a></li>
+<li><a href="10_exercise_10.html#exercise-10.2-restoring-a-database"><span class="toc-section-number">11.2</span> Exercise 10.2: Restoring a database</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="exercise-3-basics-of-sql" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> Exercise 3: Basics of SQL</h1>
+<p><strong>Contents</strong> – In this exercise we write basic SQL queries.</p>
+<p><strong>Goal</strong> – The goal of the exercise is to familiarize oneself with SQL.</p>
+<div id="preparation-1" class="section level3" number="4.0.1">
+<h3><span class="header-section-number">4.0.1</span> Preparation</h3>
+<p>Open <a href="/pgadmin">pgAdmin</a> in the browser and log in. Open the <strong>Query Tool</strong> (Right click <em>trainingdatabase</em> <strong>-&gt;</strong> <strong>Query Tool</strong>).</p>
+</div>
+<div id="exercise-3.1-simple-sql-queries" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Exercise 3.1: Simple SQL queries</h2>
+<p>Let’s inspect the spatial data sets imported in the last exercise:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb28"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb28-1"><a href="03_exercise_3.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb28-2"><a href="03_exercise_3.html#cb28-2" aria-hidden="true" tabindex="-1"></a>name_en</span>
+<span id="cb28-3"><a href="03_exercise_3.html#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb28-4"><a href="03_exercise_3.html#cb28-4" aria-hidden="true" tabindex="-1"></a>ne.countries_world;</span></code></pre></div>
+</div>
+<p>Queries can be filtered with the <strong>WHERE</strong> keyword:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb29"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb29-1"><a href="03_exercise_3.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb29-2"><a href="03_exercise_3.html#cb29-2" aria-hidden="true" tabindex="-1"></a>name_en, wkb_geometry</span>
+<span id="cb29-3"><a href="03_exercise_3.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb29-4"><a href="03_exercise_3.html#cb29-4" aria-hidden="true" tabindex="-1"></a>ne.countries_world</span>
+<span id="cb29-5"><a href="03_exercise_3.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb29-6"><a href="03_exercise_3.html#cb29-6" aria-hidden="true" tabindex="-1"></a>continent <span class="op">=</span> <span class="st">&#39;Asia&#39;</span>;</span></code></pre></div>
+</div>
+<p>Functions can be used in SQL commands. This way you can for example calculate averages or standard deviations. Next let’s inspect the length of different countries’ names:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb30"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb30-1"><a href="03_exercise_3.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb30-2"><a href="03_exercise_3.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">avg</span>(char_length(name_en)), <span class="fu">stddev</span>(char_length(name_en))</span>
+<span id="cb30-3"><a href="03_exercise_3.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb30-4"><a href="03_exercise_3.html#cb30-4" aria-hidden="true" tabindex="-1"></a>ne.countries_world</span>
+<span id="cb30-5"><a href="03_exercise_3.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb30-6"><a href="03_exercise_3.html#cb30-6" aria-hidden="true" tabindex="-1"></a>continent <span class="op">=</span> <span class="st">&#39;Europe&#39;</span>;</span></code></pre></div>
+</div>
+<p>With the following SQL statement we see which continents have the longest country names by average:</p>
+<div class="code-box">
+<div class="sourceCode" id="cb31"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb31-1"><a href="03_exercise_3.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb31-2"><a href="03_exercise_3.html#cb31-2" aria-hidden="true" tabindex="-1"></a>continent, <span class="fu">avg</span>(char_length(name_en))</span>
+<span id="cb31-3"><a href="03_exercise_3.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb31-4"><a href="03_exercise_3.html#cb31-4" aria-hidden="true" tabindex="-1"></a>ne.countries_world</span>
+<span id="cb31-5"><a href="03_exercise_3.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb31-6"><a href="03_exercise_3.html#cb31-6" aria-hidden="true" tabindex="-1"></a>continent</span>
+<span id="cb31-7"><a href="03_exercise_3.html#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb31-8"><a href="03_exercise_3.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">avg</span>(char_length(name_en)) <span class="kw">DESC</span>;</span></code></pre></div>
+</div>
+</div>
+<div id="exercise-3.2" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> Exercise 3.2</h2>
+<p>Which continent has the longest country names by average?</p>
+<div class="code-box">
+<div class="sourceCode" id="cb32"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb32-1"><a href="03_exercise_3.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb32-2"><a href="03_exercise_3.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb32-3"><a href="03_exercise_3.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb32-4"><a href="03_exercise_3.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb32-5"><a href="03_exercise_3.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb32-6"><a href="03_exercise_3.html#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb32-7"><a href="03_exercise_3.html#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb32-8"><a href="03_exercise_3.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>. <span class="kw">desc</span></span>
+<span id="cb32-9"><a href="03_exercise_3.html#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="op">..</span>.;</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb33"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb33-1"><a href="03_exercise_3.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Fill in the correct columns, schema and table. Check which functions calculates</span></span>
+<span id="cb33-2"><a href="03_exercise_3.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- the average. Use the char_length() function, which returns the length of a</span></span>
+<span id="cb33-3"><a href="03_exercise_3.html#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- string</span></span>
+<span id="cb33-4"><a href="03_exercise_3.html#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="03_exercise_3.html#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb33-6"><a href="03_exercise_3.html#cb33-6" aria-hidden="true" tabindex="-1"></a>continent, average_function(char_length(country))</span>
+<span id="cb33-7"><a href="03_exercise_3.html#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb33-8"><a href="03_exercise_3.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="kw">schema</span>.<span class="kw">table</span></span>
+<span id="cb33-9"><a href="03_exercise_3.html#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb33-10"><a href="03_exercise_3.html#cb33-10" aria-hidden="true" tabindex="-1"></a>continent</span>
+<span id="cb33-11"><a href="03_exercise_3.html#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb33-12"><a href="03_exercise_3.html#cb33-12" aria-hidden="true" tabindex="-1"></a>average_function(char_length(country)) <span class="kw">desc</span></span>
+<span id="cb33-13"><a href="03_exercise_3.html#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb34"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb34-1"><a href="03_exercise_3.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb34-2"><a href="03_exercise_3.html#cb34-2" aria-hidden="true" tabindex="-1"></a>continent, <span class="fu">avg</span>(char_length(name_en))</span>
+<span id="cb34-3"><a href="03_exercise_3.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb34-4"><a href="03_exercise_3.html#cb34-4" aria-hidden="true" tabindex="-1"></a>ne.countries_world</span>
+<span id="cb34-5"><a href="03_exercise_3.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb34-6"><a href="03_exercise_3.html#cb34-6" aria-hidden="true" tabindex="-1"></a>continent</span>
+<span id="cb34-7"><a href="03_exercise_3.html#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb34-8"><a href="03_exercise_3.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">avg</span>(char_length(name_en)) <span class="kw">desc</span></span>
+<span id="cb34-9"><a href="03_exercise_3.html#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="exercise-3.3" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Exercise 3.3</h2>
+<p>Which continent has the shortest country names by average?</p>
+<div class="code-box">
+<div class="sourceCode" id="cb35"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb35-1"><a href="03_exercise_3.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb35-2"><a href="03_exercise_3.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb35-3"><a href="03_exercise_3.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb35-4"><a href="03_exercise_3.html#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb35-5"><a href="03_exercise_3.html#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb35-6"><a href="03_exercise_3.html#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb35-7"><a href="03_exercise_3.html#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb35-8"><a href="03_exercise_3.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>. <span class="kw">asc</span></span>
+<span id="cb35-9"><a href="03_exercise_3.html#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="op">..</span>.;</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb36"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb36-1"><a href="03_exercise_3.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Fill in the correct columns, schema and table. Check which functions calculates</span></span>
+<span id="cb36-2"><a href="03_exercise_3.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- the average. Use the char_length() function, which returns the length of a</span></span>
+<span id="cb36-3"><a href="03_exercise_3.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co">-- string</span></span>
+<span id="cb36-4"><a href="03_exercise_3.html#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="03_exercise_3.html#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb36-6"><a href="03_exercise_3.html#cb36-6" aria-hidden="true" tabindex="-1"></a>continent, average_function(char_length(country))</span>
+<span id="cb36-7"><a href="03_exercise_3.html#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb36-8"><a href="03_exercise_3.html#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="kw">schema</span>.<span class="kw">table</span></span>
+<span id="cb36-9"><a href="03_exercise_3.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb36-10"><a href="03_exercise_3.html#cb36-10" aria-hidden="true" tabindex="-1"></a>continent</span>
+<span id="cb36-11"><a href="03_exercise_3.html#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb36-12"><a href="03_exercise_3.html#cb36-12" aria-hidden="true" tabindex="-1"></a>average_function(char_length(country)) <span class="kw">asc</span></span>
+<span id="cb36-13"><a href="03_exercise_3.html#cb36-13" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb37"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb37-1"><a href="03_exercise_3.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb37-2"><a href="03_exercise_3.html#cb37-2" aria-hidden="true" tabindex="-1"></a>continent, <span class="fu">avg</span>(char_length(name_en))</span>
+<span id="cb37-3"><a href="03_exercise_3.html#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb37-4"><a href="03_exercise_3.html#cb37-4" aria-hidden="true" tabindex="-1"></a>ne.countries_world</span>
+<span id="cb37-5"><a href="03_exercise_3.html#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span></span>
+<span id="cb37-6"><a href="03_exercise_3.html#cb37-6" aria-hidden="true" tabindex="-1"></a>continent</span>
+<span id="cb37-7"><a href="03_exercise_3.html#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb37-8"><a href="03_exercise_3.html#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">avg</span>(char_length(name_en)) <span class="kw">asc</span></span>
+<span id="cb37-9"><a href="03_exercise_3.html#cb37-9" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="exercise-3.4" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Exercise 3.4</h2>
+<p>Which country has the longest name in the world?</p>
+<div class="code-box">
+<div class="sourceCode" id="cb38"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb38-1"><a href="03_exercise_3.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb38-2"><a href="03_exercise_3.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb38-3"><a href="03_exercise_3.html#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb38-4"><a href="03_exercise_3.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb38-5"><a href="03_exercise_3.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb38-6"><a href="03_exercise_3.html#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb38-7"><a href="03_exercise_3.html#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span></span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb39"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb39-1"><a href="03_exercise_3.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Fill in the correct column, schema and table. Choose the function</span></span>
+<span id="cb39-2"><a href="03_exercise_3.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- which tells you the length of a string.</span></span>
+<span id="cb39-3"><a href="03_exercise_3.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb39-4"><a href="03_exercise_3.html#cb39-4" aria-hidden="true" tabindex="-1"></a>country, continent, character_length(country)</span>
+<span id="cb39-5"><a href="03_exercise_3.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb39-6"><a href="03_exercise_3.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="kw">schema</span>.<span class="kw">table</span></span>
+<span id="cb39-7"><a href="03_exercise_3.html#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb39-8"><a href="03_exercise_3.html#cb39-8" aria-hidden="true" tabindex="-1"></a>character_length(country) <span class="kw">desc</span></span>
+<span id="cb39-9"><a href="03_exercise_3.html#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb40"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb40-1"><a href="03_exercise_3.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb40-2"><a href="03_exercise_3.html#cb40-2" aria-hidden="true" tabindex="-1"></a>name_en <span class="kw">as</span> <span class="ot">&quot;Country&quot;</span>, continent <span class="kw">as</span> <span class="ot">&quot;Continent&quot;</span>, char_length(name_en) <span class="kw">as</span> <span class="ot">&quot;Length&quot;</span></span>
+<span id="cb40-3"><a href="03_exercise_3.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb40-4"><a href="03_exercise_3.html#cb40-4" aria-hidden="true" tabindex="-1"></a>ne.countries_world</span>
+<span id="cb40-5"><a href="03_exercise_3.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb40-6"><a href="03_exercise_3.html#cb40-6" aria-hidden="true" tabindex="-1"></a>char_length(name_en) <span class="kw">desc</span></span>
+<span id="cb40-7"><a href="03_exercise_3.html#cb40-7" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span> <span class="dv">1</span>;</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="exercise-3.5" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Exercise 3.5</h2>
+<p>How many English country names are 5 letters long?</p>
+<div class="code-box">
+<div class="sourceCode" id="cb41"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb41-1"><a href="03_exercise_3.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> <span class="op">..</span>. <span class="kw">AS</span></span>
+<span id="cb41-2"><a href="03_exercise_3.html#cb41-2" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb41-3"><a href="03_exercise_3.html#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span> <span class="op">..</span>.</span>
+<span id="cb41-4"><a href="03_exercise_3.html#cb41-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb41-5"><a href="03_exercise_3.html#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="03_exercise_3.html#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb41-7"><a href="03_exercise_3.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb41-8"><a href="03_exercise_3.html#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb41-9"><a href="03_exercise_3.html#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.;</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb42"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb42-1"><a href="03_exercise_3.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- use a CTE (Common Table Expression)</span></span>
+<span id="cb42-2"><a href="03_exercise_3.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> ltr5 <span class="kw">AS</span></span>
+<span id="cb42-3"><a href="03_exercise_3.html#cb42-3" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb42-4"><a href="03_exercise_3.html#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="03_exercise_3.html#cb42-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb42-6"><a href="03_exercise_3.html#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">..</span>.</span>
+<span id="cb42-7"><a href="03_exercise_3.html#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span></span>
+<span id="cb42-8"><a href="03_exercise_3.html#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">..</span>.</span>
+<span id="cb42-9"><a href="03_exercise_3.html#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span></span>
+<span id="cb42-10"><a href="03_exercise_3.html#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">..</span>. <span class="kw">AND</span> <span class="op">..</span>.</span>
+<span id="cb42-11"><a href="03_exercise_3.html#cb42-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb42-12"><a href="03_exercise_3.html#cb42-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-13"><a href="03_exercise_3.html#cb42-13" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb42-14"><a href="03_exercise_3.html#cb42-14" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>() <span class="kw">AS</span> <span class="op">..</span>. <span class="co">-- use the count() function (choose a suitable column from the CTE)</span></span>
+<span id="cb42-15"><a href="03_exercise_3.html#cb42-15" aria-hidden="true" tabindex="-1"></a>               <span class="co">-- You may also define an alias after the AS expression.</span></span>
+<span id="cb42-16"><a href="03_exercise_3.html#cb42-16" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb42-17"><a href="03_exercise_3.html#cb42-17" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.; <span class="co">-- refer to the CTE</span></span></code></pre></div>
+</div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb43"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb43-1"><a href="03_exercise_3.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="kw">WITH</span> ltr5 <span class="kw">AS</span></span>
+<span id="cb43-2"><a href="03_exercise_3.html#cb43-2" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb43-3"><a href="03_exercise_3.html#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">SELECT</span></span>
+<span id="cb43-4"><a href="03_exercise_3.html#cb43-4" aria-hidden="true" tabindex="-1"></a>    name_en <span class="kw">as</span> <span class="ot">&quot;Country&quot;</span>, continent <span class="kw">as</span> <span class="ot">&quot;Continent&quot;</span>, char_length(name_en) <span class="kw">as</span> <span class="ot">&quot;Length&quot;</span></span>
+<span id="cb43-5"><a href="03_exercise_3.html#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">FROM</span></span>
+<span id="cb43-6"><a href="03_exercise_3.html#cb43-6" aria-hidden="true" tabindex="-1"></a>    ne.countries_world</span>
+<span id="cb43-7"><a href="03_exercise_3.html#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">WHERE</span></span>
+<span id="cb43-8"><a href="03_exercise_3.html#cb43-8" aria-hidden="true" tabindex="-1"></a>    char_length(name_en) <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb43-9"><a href="03_exercise_3.html#cb43-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb43-10"><a href="03_exercise_3.html#cb43-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-11"><a href="03_exercise_3.html#cb43-11" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb43-12"><a href="03_exercise_3.html#cb43-12" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(<span class="ot">&quot;Country&quot;</span>) <span class="kw">AS</span> <span class="ot">&quot;5 letter long country names&quot;</span></span>
+<span id="cb43-13"><a href="03_exercise_3.html#cb43-13" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb43-14"><a href="03_exercise_3.html#cb43-14" aria-hidden="true" tabindex="-1"></a>ltr5;</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="exercise-3.6" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Exercise 3.6</h2>
+<p>Which countries’ English and Spanish names are different, but of equal length?
+Order the results in a descending order based on the length of the english name.</p>
+<div class="code-box">
+<div class="sourceCode" id="cb44"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb44-1"><a href="03_exercise_3.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb44-2"><a href="03_exercise_3.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb44-3"><a href="03_exercise_3.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb44-4"><a href="03_exercise_3.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb44-5"><a href="03_exercise_3.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb44-6"><a href="03_exercise_3.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>.</span>
+<span id="cb44-7"><a href="03_exercise_3.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb44-8"><a href="03_exercise_3.html#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="op">..</span>. <span class="kw">DESC</span>;</span></code></pre></div>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+hint
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb45"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb45-1"><a href="03_exercise_3.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Fill in the columns</span></span>
+<span id="cb45-2"><a href="03_exercise_3.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb45-3"><a href="03_exercise_3.html#cb45-3" aria-hidden="true" tabindex="-1"></a>country_name_en, country_name_es, char_length(country_name_en) <span class="kw">AS</span> <span class="ot">&quot;Length&quot;</span></span>
+<span id="cb45-4"><a href="03_exercise_3.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb45-5"><a href="03_exercise_3.html#cb45-5" aria-hidden="true" tabindex="-1"></a>ne.countries_world</span>
+<span id="cb45-6"><a href="03_exercise_3.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb45-7"><a href="03_exercise_3.html#cb45-7" aria-hidden="true" tabindex="-1"></a>country_name_en <span class="op">..</span>. country_name_es <span class="kw">AND</span> char_length(country_name_en) <span class="op">..</span>. char_length(country_name_es)</span>
+<span id="cb45-8"><a href="03_exercise_3.html#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="co">-- fill in the blanks &#39;...&#39; with the correct operators</span></span>
+<span id="cb45-9"><a href="03_exercise_3.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="co">-- if needed, check the documentation (link below)</span></span>
+<span id="cb45-10"><a href="03_exercise_3.html#cb45-10" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb45-11"><a href="03_exercise_3.html#cb45-11" aria-hidden="true" tabindex="-1"></a>char_length(country_name_en) <span class="kw">DESC</span>;</span></code></pre></div>
+</div>
+<p><a href="https://www.postgresql.org/docs/9.0/functions-comparison.html">Operators in the PostgreSQL documentation.</a></p>
+</div>
+<button onclick="toggleAnswer(this)" class="btn answer_btn">
+answer
+</button>
+<div class="hidden-box">
+<div class="code-box">
+<div class="sourceCode" id="cb46"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb46-1"><a href="03_exercise_3.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb46-2"><a href="03_exercise_3.html#cb46-2" aria-hidden="true" tabindex="-1"></a>name_en, name_es, char_length(name_en) <span class="kw">AS</span> <span class="ot">&quot;Length&quot;</span></span>
+<span id="cb46-3"><a href="03_exercise_3.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb46-4"><a href="03_exercise_3.html#cb46-4" aria-hidden="true" tabindex="-1"></a>ne.countries_world</span>
+<span id="cb46-5"><a href="03_exercise_3.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb46-6"><a href="03_exercise_3.html#cb46-6" aria-hidden="true" tabindex="-1"></a>name_en <span class="op">&lt;&gt;</span> name_es <span class="kw">AND</span> char_length(name_en) <span class="op">=</span> char_length(name_es)</span>
+<span id="cb46-7"><a href="03_exercise_3.html#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span></span>
+<span id="cb46-8"><a href="03_exercise_3.html#cb46-8" aria-hidden="true" tabindex="-1"></a>char_length(name_en) <span class="kw">DESC</span>;</span></code></pre></div>
+</div>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="02_exercise_2.html"><button class="btn btn-default">Previous</button></a>
+<a href="04_exercise_4.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Introduction to PostGIS</h5>
+<span class="footer-version">v2026-09-01</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2025</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="5 Harjoitus 4: DWG/DXF-tiedoston tuonti | Suunnittelu ja editointi QGISillä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy." />
+
+<meta name="date" content="2026-08-31" />
+
+
+<meta name="description" content="5 Harjoitus 4: DWG/DXF-tiedoston tuonti | Suunnittelu ja editointi QGISillä">
+
+<title>5 Harjoitus 4: DWG/DXF-tiedoston tuonti | Suunnittelu ja editointi QGISillä</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Suunnittelu ja editointi QGISillä</h1></div>
+<div class="abstract-sidebar"><p>Syventävä kurssi datan tuottamisesta QGISissä.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#suunnittelu-ja-editointi-qgisillä"><span class="toc-section-number">1</span> Suunnittelu ja editointi QGISillä</a>
+<ul>
+<li><a href="index.html#tervetuloa-syventävälle-qgis-kurssille"><span class="toc-section-number">1.1</span> Tervetuloa Syventävälle QGIS-kurssille!</a></li>
+<li><a href="index.html#kurssimateriaalien-lataaminen"><span class="toc-section-number">1.2</span> Kurssimateriaalien lataaminen</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.3</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.4</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.5</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.6</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="2-harjoitus-1-georeferointi.html#harjoitus-1-georeferointi"><span class="toc-section-number">2</span> Harjoitus 1: Georeferointi</a>
+<ul>
+<li class="has-sub"><a href="2-harjoitus-1-georeferointi.html#valmistautuminen"><span class="toc-section-number">2.1</span> Valmistautuminen</a>
+<ul>
+<li><a href="2-harjoitus-1-georeferointi.html#lisää-taustakarttoja---quickmapservices--lisäosa"><span class="toc-section-number">2.1.1</span> Lisää taustakarttoja - QuickMapServices -lisäosa</a></li>
+</ul></li>
+<li><a href="2-harjoitus-1-georeferointi.html#georeferoijan-toiminta"><span class="toc-section-number">2.2</span> Georeferoijan toiminta</a></li>
+<li><a href="2-harjoitus-1-georeferointi.html#panosta-vastinpisteisiin"><span class="toc-section-number">2.3</span> Panosta vastinpisteisiin</a></li>
+<li><a href="2-harjoitus-1-georeferointi.html#vastinpisteiden-tarkastelu-ja-varsinainen-georeferointi"><span class="toc-section-number">2.4</span> Vastinpisteiden tarkastelu ja varsinainen georeferointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-harjoitus-2-digitoinnin-perusteet.html#harjoitus-2-digitoinnin-perusteet"><span class="toc-section-number">3</span> Harjoitus 2: Digitoinnin perusteet</a>
+<ul>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#valmistautuminen-1"><span class="toc-section-number">3.1</span> Valmistautuminen</a></li>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#muokkauksen-yleisasetukset"><span class="toc-section-number">3.2</span> Muokkauksen yleisasetukset</a></li>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#editoinnin-valmistelu"><span class="toc-section-number">3.3</span> Editoinnin valmistelu</a></li>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#geopackagen-luonti"><span class="toc-section-number">3.4</span> GeoPackagen luonti</a></li>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#aloita-geometrioiden-editointi"><span class="toc-section-number">3.5</span> Aloita geometrioiden editointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#harjoitus-3-edistyneet-digitointiominaisuudet"><span class="toc-section-number">4</span> Harjoitus 3: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#valmistautuminen-2"><span class="toc-section-number">4.1</span> Valmistautuminen</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode"><span class="toc-section-number">4.2</span> Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#rakentamistila"><span class="toc-section-number">4.3</span> Rakentamistila</a></li>
+<li class="has-sub"><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#rakennuksen-piirto-apuviivojen-avulla"><span class="toc-section-number">4.4</span> Rakennuksen piirto apuviivojen avulla</a>
+<ul>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#sitten-vain-harjoittelemaan."><span class="toc-section-number">4.4.1</span> Sitten vain harjoittelemaan….</a></li>
+</ul></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#suorakulmaisen-polygonin-piirtäminen"><span class="toc-section-number">4.5</span> Suorakulmaisen polygonin piirtäminen</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#tehtävä-rakennus-3540-m-tontin-rajan-suuntaisesti-etäisyys-rajaan-15-m"><span class="toc-section-number">4.6</span> Tehtävä: “Rakennus 35×40 m tontin rajan suuntaisesti, etäisyys rajaan 15 m”</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#lisätehtävä-lisää-rakennukset-tasolle-funktio-jolla-pinta-ala-tieto-päivittyy-automaattisesti"><span class="toc-section-number">4.7</span> Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#lopuksi"><span class="toc-section-number">4.8</span> Lopuksi</a></li>
+</ul></li>
+<li class="has-sub"><a href="5-harjoitus-4-dwgdxf-tiedoston-tuonti.html#harjoitus-4-dwgdxf-tiedoston-tuonti"><span class="toc-section-number">5</span> Harjoitus 4: DWG/DXF-tiedoston tuonti</a>
+<ul>
+<li><a href="5-harjoitus-4-dwgdxf-tiedoston-tuonti.html#valmistautuminen-3"><span class="toc-section-number">5.1</span> Valmistautuminen</a></li>
+<li><a href="5-harjoitus-4-dwgdxf-tiedoston-tuonti.html#dxf-tason-tuonti"><span class="toc-section-number">5.2</span> DXF-tason tuonti</a></li>
+<li><a href="5-harjoitus-4-dwgdxf-tiedoston-tuonti.html#dwg-aineisto"><span class="toc-section-number">5.3</span> DWG-aineisto</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-harjoitus-5-topologia-ja-geometria.html#harjoitus-5-topologia-ja-geometria"><span class="toc-section-number">6</span> Harjoitus 5: Topologia ja geometria</a>
+<ul>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#valmistautuminen-4"><span class="toc-section-number">6.1</span> Valmistautuminen</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#virheellisen-aineiston-tuonti-qgisiin"><span class="toc-section-number">6.2</span> Virheellisen aineiston tuonti QGISiin</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#tarkista-kelpoisuus-check-validity"><span class="toc-section-number">6.3</span> Tarkista kelpoisuus (Check validity)</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#topologian-tarkastaja-topology-checker"><span class="toc-section-number">6.4</span> Topologian tarkastaja (Topology checker)</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#tarkista-geometriat-geometry-checker"><span class="toc-section-number">6.5</span> Tarkista geometriat (Geometry checker)</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#geometrian-ja-topologian-validointi-tasoa-muokattaessa"><span class="toc-section-number">6.6</span> Geometrian ja topologian validointi tasoa muokattaessa</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-4-dwgdxf-tiedoston-tuonti" class="section level1" number="5">
+<h1><span class="header-section-number">5</span> Harjoitus 4: DWG/DXF-tiedoston tuonti</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Tuodaan QGISiin DWG-tiedosto.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Kurssilainen ymmärtää, miten CAD-aineistoa tuodaan QGISiin sekä minkälaisessa muodossa se tuodaan sekä miten sitä voi käsitellä.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>20 minuuttia.</p>
+<div id="valmistautuminen-3" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Valmistautuminen</h2>
+<p>Avaa aiemmin tehty projekti Tampereen Pyynikin alueelta. Voit pitää taustalla avaamiasi karttoja ja ensimmäisessä harjoituksessa georeferoidut vanhat kartat. Ne voi laittaa helposti pois näkyvistä painamalla tason nimen vierestä täpän pois päätlä.</p>
+</div>
+<div id="dxf-tason-tuonti" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> DXF-tason tuonti</h2>
+<p>QGISiin voi tuoda suoraan DXF- sekä DWG-tiedostoja. QGIS lukee usein DXF-tiedostoja hieman paremmin kuin DWG-tiedostoja, joten jos tuot aineistoa suoraan jostain CAD-ohjelmistosta, kannattaa aineisto ottaa sieltä ulos suoraan oikeassa muodossa.</p>
+<div class="hint-box">
+<p>QGIS lukee DWG- sekä DXF-aineistoja ja niitä saa suoraan tuotua QGISiin. Aineistosta tulee tietää käytetty koordinaattijärjestelmä, jotta muunnos tapahtuu oikein. Aineiston voi myös muuntaa toisella ohjelmalla suoraan GeoPackageksi tai Shapefileksi, jolloin ne toimivat QGISin kanssa huomattavasti sujuvammin.
+QGIS tukee natiivisti vain vanhempaa MicroStation DGN v7 formaattia eikä uudempia pysty avata QGISissa. Nämä aineistot pitää joko tallentaa eri formaattiin tai muuntaa jälkikäteen vanhemmaksi versioksi, jotta ne saa avattua QGISissa.</p>
+</div>
+<p>Aineistotuonnille on oma työkalunsa, avaa <strong>Projekti -&gt; Tuo/Vie -&gt; Tuo tasoja DWG/DXF-tiedostoista…</strong></p>
+<p><img src="img/harjoitus_5/image1.png" /></p>
+<p>QGIS avaa uuden ikkunan, jossa pääset määrittämään minkä aineiston haluat tuoda ja mihin se tallennetaan. Aineistosta pitää myös tietää, missä koordinaattijärjestlemässä se on luotu, jotta tuonti ja aineiston muunnos GeoPackageen toimii oikein.
+Etsi kurssihakemistosta harjoitus 4:n kansiosta tiedosto 6820_24484ak.dwg. Aineisto on samalta Tampereen Pyynikin alueelta, jolta georeferoitiin vanhat kartat. Kun määrität lähdetiedoston, samaan kansioon tehdään samanniminen geopackage, johon muunnettu aineisto tuodaan.
+Määritä vielä aineiston koordinaattijärjestelmäksi ETRS-GK24 (EPSG 3878).</p>
+<p><img src="img/harjoitus_5/image2.png" /></p>
+<p>Paina Kohdepaketti-kohdasta lopuksi <strong>Lataa tasot</strong>, jolloin DWG-tiedostosta ladataan kaikki tasot näkyviin.</p>
+<p><img src="img/harjoitus_5/image3.png" /></p>
+<p>Tasot järjestetään automaattisesti uuteen ryhmään ja nimetään samalla tavalla kuin alkuperäisessä tiedostossa. Kun piirros ja tasot ovat latutuneet, voit painaa ikkunan alareunasta <strong>OK</strong> ja katsoa miltä tuotu aineisto näyttää QGISin karttaikkunassa.</p>
+</div>
+<div id="dwg-aineisto" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> DWG-aineisto</h2>
+<p>Tutki miltä tuotu aineisto näyttää QGISissa. Aineisto koostuu useasta eri ryhmästä, joissa on eri tasoja. Ryhmiin on järjestelty viivoja, pisteitä, alueita sekä tekstejä. Pystyt helpoiten tutkimaan rakennetta tasojen nimien avulla ja sillä, että laitat tason pois näkyvistä niin näet missä kyseinen taso sijaitsee ja mitä se sisältää.</p>
+<p><img src="img/harjoitus_5/image4.png" />
+## Kohteiden kopioiminen toiselle tasolle</p>
+<p>Kopioidaan muutama kohde aiemmin tehdylle Alueet-tasolle. Valitse esimerkiksi ryhmä AK_MuuAsemakaavaViiva_alueenosan_raja. Ryhmässä on kaksi tasoa: lines ja polylines. Voit valita jonkun kohteen, jonka haluat kopioida itse tehdylle tasollesi. Tuodut CAD-piirrokset koostuvat usein useammasta eri pätkästä, ota valintatyökalu käyttöön ja voit valita useamman kohteen joko piirtämällä kohteen ympärille neliön tai valitsemalla useamman kohteen pitäen Ctrl-näppäintä pohjassa. Kopioi kohteet painamalla <strong>Ctrl+C</strong> tai yläpalkista <strong>Muokkaa -&gt; Kopioi kohteet</strong>.</p>
+<p>Tarkista että taso, jolle siirrät kohteita on editointitilassa. Valitse kohdetaso tasovalikosta, jotta saat sen aktiiviseksi. Voit liittää kohteet uudelle tasolle joko painamalla <strong>Ctrl+V</strong> tai yläpalkista <strong>Muokkaa-&gt; Liitä kohteet</strong>. Tallenna vielä tason muutokset, jotta kohteet tallentuvat uudelle tasolle. Kopioiminen ja liittäminen siirtää kuitenkin vain geometriat eikä attribuutteja, ellei uudella tasolla ole samoja attribuuttikenttiä kuin alkuperäisessä tasossa.</p>
+<div class="hint-box">
+<p><strong>Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen <a href="mailto:koulutustuki@gispo.fi" class="email">koulutustuki@gispo.fi</a>!</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html"><button class="btn btn-default">Previous</button></a>
+<a href="6-harjoitus-5-topologia-ja-geometria.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Suunnittelu ja editointi QGISillä</h5>
+<span class="footer-version">v2026-08-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2026</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+<link rel="icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/master-training-data/favicon.ico" type="image/x-icon">
+
+<!-- Based on TemplateMo 553 Xtra Blog: https://templatemo.com/tm-553-xtra-blog -->
+
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="2 Harjoitus 1: Georeferointi | Suunnittelu ja editointi QGISillä" />
+<meta property="og:type" content="book" />
+
+
+
+
+
+<meta name="author" content="Gispo Oy." />
+
+<meta name="date" content="2026-08-31" />
+
+
+<meta name="description" content="2 Harjoitus 1: Georeferointi | Suunnittelu ja editointi QGISillä">
+
+<title>2 Harjoitus 1: Georeferointi | Suunnittelu ja editointi QGISillä</title>
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/hamburgers.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<div class="main-content">
+<!-- special comment to mark beginning of title section for bookdown -->
+<!-- bookdown comments must be in this order: title, toc, body -->
+
+<div class="main-content-wrapper">
+
+<div class="row">
+<div class="col-sm-12">
+<header class="main-toc sidebar" id="sidebar">
+<div class="sidebar-wrapper">
+
+<button class="navbar-toggle hamburger hamburger--collapse" id="navbar-toggle"
+type="button" onclick="navToggle()" aria-label="Toggle navigation">
+<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+</button>
+
+<div class="sidebar-title-wrapper">
+<img alt="Logo" width="100" src="img/gispo_white_sm.png" class="sidebar-logo">
+<div class="sidebar-title"><h1>Suunnittelu ja editointi QGISillä</h1></div>
+<div class="abstract-sidebar"><p>Syventävä kurssi datan tuottamisesta QGISissä.</p></div>
+</div>
+
+<nav class="sidebar-nav">
+<div id="TOC" class="toc">
+<ul>
+<li class="has-sub"><a href="index.html#suunnittelu-ja-editointi-qgisillä"><span class="toc-section-number">1</span> Suunnittelu ja editointi QGISillä</a>
+<ul>
+<li><a href="index.html#tervetuloa-syventävälle-qgis-kurssille"><span class="toc-section-number">1.1</span> Tervetuloa Syventävälle QGIS-kurssille!</a></li>
+<li><a href="index.html#kurssimateriaalien-lataaminen"><span class="toc-section-number">1.2</span> Kurssimateriaalien lataaminen</a></li>
+<li><a href="index.html#lukuohje"><span class="toc-section-number">1.3</span> Lukuohje</a></li>
+<li><a href="index.html#mistä-lisätietoja"><span class="toc-section-number">1.4</span> Mistä lisätietoja?</a></li>
+<li><a href="index.html#virheet"><span class="toc-section-number">1.5</span> Virheet</a></li>
+<li><a href="index.html#lisenssi-ja-oikeudet"><span class="toc-section-number">1.6</span> Lisenssi ja oikeudet</a></li>
+</ul></li>
+<li class="has-sub"><a href="2-harjoitus-1-georeferointi.html#harjoitus-1-georeferointi"><span class="toc-section-number">2</span> Harjoitus 1: Georeferointi</a>
+<ul>
+<li class="has-sub"><a href="2-harjoitus-1-georeferointi.html#valmistautuminen"><span class="toc-section-number">2.1</span> Valmistautuminen</a>
+<ul>
+<li><a href="2-harjoitus-1-georeferointi.html#lisää-taustakarttoja---quickmapservices--lisäosa"><span class="toc-section-number">2.1.1</span> Lisää taustakarttoja - QuickMapServices -lisäosa</a></li>
+</ul></li>
+<li><a href="2-harjoitus-1-georeferointi.html#georeferoijan-toiminta"><span class="toc-section-number">2.2</span> Georeferoijan toiminta</a></li>
+<li><a href="2-harjoitus-1-georeferointi.html#panosta-vastinpisteisiin"><span class="toc-section-number">2.3</span> Panosta vastinpisteisiin</a></li>
+<li><a href="2-harjoitus-1-georeferointi.html#vastinpisteiden-tarkastelu-ja-varsinainen-georeferointi"><span class="toc-section-number">2.4</span> Vastinpisteiden tarkastelu ja varsinainen georeferointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="3-harjoitus-2-digitoinnin-perusteet.html#harjoitus-2-digitoinnin-perusteet"><span class="toc-section-number">3</span> Harjoitus 2: Digitoinnin perusteet</a>
+<ul>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#valmistautuminen-1"><span class="toc-section-number">3.1</span> Valmistautuminen</a></li>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#muokkauksen-yleisasetukset"><span class="toc-section-number">3.2</span> Muokkauksen yleisasetukset</a></li>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#editoinnin-valmistelu"><span class="toc-section-number">3.3</span> Editoinnin valmistelu</a></li>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#geopackagen-luonti"><span class="toc-section-number">3.4</span> GeoPackagen luonti</a></li>
+<li><a href="3-harjoitus-2-digitoinnin-perusteet.html#aloita-geometrioiden-editointi"><span class="toc-section-number">3.5</span> Aloita geometrioiden editointi</a></li>
+</ul></li>
+<li class="has-sub"><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#harjoitus-3-edistyneet-digitointiominaisuudet"><span class="toc-section-number">4</span> Harjoitus 3: Edistyneet digitointiominaisuudet</a>
+<ul>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#valmistautuminen-2"><span class="toc-section-number">4.1</span> Valmistautuminen</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#kohteisiin-tarttuminen-snapping-ja-rakennustila-construction-mode"><span class="toc-section-number">4.2</span> Kohteisiin tarttuminen (snapping) ja rakennustila (construction mode)</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#rakentamistila"><span class="toc-section-number">4.3</span> Rakentamistila</a></li>
+<li class="has-sub"><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#rakennuksen-piirto-apuviivojen-avulla"><span class="toc-section-number">4.4</span> Rakennuksen piirto apuviivojen avulla</a>
+<ul>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#sitten-vain-harjoittelemaan."><span class="toc-section-number">4.4.1</span> Sitten vain harjoittelemaan….</a></li>
+</ul></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#suorakulmaisen-polygonin-piirtäminen"><span class="toc-section-number">4.5</span> Suorakulmaisen polygonin piirtäminen</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#tehtävä-rakennus-3540-m-tontin-rajan-suuntaisesti-etäisyys-rajaan-15-m"><span class="toc-section-number">4.6</span> Tehtävä: “Rakennus 35×40 m tontin rajan suuntaisesti, etäisyys rajaan 15 m”</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#lisätehtävä-lisää-rakennukset-tasolle-funktio-jolla-pinta-ala-tieto-päivittyy-automaattisesti"><span class="toc-section-number">4.7</span> Lisätehtävä: Lisää Rakennukset tasolle funktio, jolla pinta-ala tieto päivittyy automaattisesti</a></li>
+<li><a href="4-harjoitus-3-edistyneet-digitointiominaisuudet.html#lopuksi"><span class="toc-section-number">4.8</span> Lopuksi</a></li>
+</ul></li>
+<li class="has-sub"><a href="5-harjoitus-4-dwgdxf-tiedoston-tuonti.html#harjoitus-4-dwgdxf-tiedoston-tuonti"><span class="toc-section-number">5</span> Harjoitus 4: DWG/DXF-tiedoston tuonti</a>
+<ul>
+<li><a href="5-harjoitus-4-dwgdxf-tiedoston-tuonti.html#valmistautuminen-3"><span class="toc-section-number">5.1</span> Valmistautuminen</a></li>
+<li><a href="5-harjoitus-4-dwgdxf-tiedoston-tuonti.html#dxf-tason-tuonti"><span class="toc-section-number">5.2</span> DXF-tason tuonti</a></li>
+<li><a href="5-harjoitus-4-dwgdxf-tiedoston-tuonti.html#dwg-aineisto"><span class="toc-section-number">5.3</span> DWG-aineisto</a></li>
+</ul></li>
+<li class="has-sub"><a href="6-harjoitus-5-topologia-ja-geometria.html#harjoitus-5-topologia-ja-geometria"><span class="toc-section-number">6</span> Harjoitus 5: Topologia ja geometria</a>
+<ul>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#valmistautuminen-4"><span class="toc-section-number">6.1</span> Valmistautuminen</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#virheellisen-aineiston-tuonti-qgisiin"><span class="toc-section-number">6.2</span> Virheellisen aineiston tuonti QGISiin</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#tarkista-kelpoisuus-check-validity"><span class="toc-section-number">6.3</span> Tarkista kelpoisuus (Check validity)</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#topologian-tarkastaja-topology-checker"><span class="toc-section-number">6.4</span> Topologian tarkastaja (Topology checker)</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#tarkista-geometriat-geometry-checker"><span class="toc-section-number">6.5</span> Tarkista geometriat (Geometry checker)</a></li>
+<li><a href="6-harjoitus-5-topologia-ja-geometria.html#geometrian-ja-topologian-validointi-tasoa-muokattaessa"><span class="toc-section-number">6.6</span> Geometrian ja topologian validointi tasoa muokattaessa</a></li>
+</ul></li>
+</ul>
+</div>
+</nav>
+</div>
+</header>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div id="harjoitus-1-georeferointi" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Harjoitus 1: Georeferointi</h1>
+<p><strong>Harjoituksen sisältö</strong></p>
+<p>Harjoituksessa harjoitellaan georeferointia vastinpisteiden avulla.</p>
+<p><strong>Harjoituksen tavoite</strong></p>
+<p>Koulutettava oppii tuomaan kuvatiedoston QGIS-ohjelmaan ja georeferoimaan sen koordinaatistoon.</p>
+<p><strong>Arvioitu kesto</strong></p>
+<p>45 minuuttia.</p>
+<div id="valmistautuminen" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Valmistautuminen</h2>
+<p>Avaa uusi QGIS-projekti (<strong>Projekti &gt; Uusi</strong>) ja tallenna se nimellä “<strong>QGIS-harjoitus 1</strong>”.</p>
+<p>QGISin lisäosat tarjoavat käyttöösi suuren valikoiman erilaisia taustakarttoja. Eri rajapinnoista saatavat taustakartat toimivat samaan tapaan kuin projektiin avatut rasteritasot: niiden läpinäkyvyyttä voi säätää, mutta ne eivät sisällä ominaisuustietoja.</p>
+<p>Helpoin tapa lisätä OpenStreetMap-kartta on etsiä se Selain-paneelista <strong>XYZ Tiles</strong> -rivin alta ja tuplaklikata sitä:</p>
+<p><img src="img/harjoitus_3/image22.png" /></p>
+<p>Lisää taustakarttoja saat lataamalla Python-skriptin osoitteesta: <a href="https://raw.githubusercontent.com/klakar/QGIS_resources/master/collections/Geosupportsystem/python/qgis_basemaps.py" class="uri">https://raw.githubusercontent.com/klakar/QGIS_resources/master/collections/Geosupportsystem/python/qgis_basemaps.py</a></p>
+<p>Toimi siis seuraavasti:</p>
+<p>1. Kopioi ylläolevan osoitteen koko sisältö</p>
+<p>2.  Avaa QGISin Python-konsoli (Lisäosat → Python-konsoli)</p>
+<p>3. Liitä kopiomasi sisältö avautuneeseen Python-konsoliin &gt;&gt;&gt;-merkkien jälkeiseen laatikkoon</p>
+<p><img src="img/harjoitus_3/image23.png" /></p>
+<p>4. Paina Enter tai klikkaa "Suorita komento" -nappulaa <img src="img/harjoitus_3/image24.png" width="35" height="31" /></p>
+<p>Nyt käytössäsi pitäisi olla lisää taustakarttoja selainikkunan XYZ Tiles -kohdassa.</p>
+<div id="lisää-taustakarttoja---quickmapservices--lisäosa" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Lisää taustakarttoja - QuickMapServices -lisäosa</h3>
+<p>Laajemman valikoiman erilaisia taustakarttoja saat käyttöösi lisäosalla nimeltä <strong>QuickMapServices</strong>. Asenna se yläpalkin Lisäosat-valikosta ja avaa sen jälkeen Verkko-valikosta <strong>Search QMS</strong>. Avautuvasta paneelista voit etsiä erilaisia taustakarttoja ja satelliittikuvia, suodattaa niitä sijaintisi perusteella, ja saada tarvittaessa lisätietoja (esim. käyttöoikeuksista) kartasta. Vihreä pallo kertoo, että kartta on saatavilla. Etsi vaikka satelliittikuva tulevan harjoituksen avuksi.</p>
+<p>Voit valita taustakartaksi jonkun selkeän kartan, josta saat helposti näkyville tien, rakennukset ja ympäröivän alueen, kuten satelliittikuvan tai OpenStreetMapin. Georeferoitava kohde on Tampereen keskustassa. Voit joko etsiä kohteen kartalta tai hyödyntää QGISin hakutoimintoa OSM-kartan kanssa. QGISin alapalkissa vasemmalla on upotettu Etsi-toiminto, johon on sisäänrakennettu esimerkiksi OpenStreetMapin aineistoon perustuva Nominatim Geocoder, jonka avulla voimme etsiä osoitteita.</p>
+<p><img src="img/harjoitus_3/image25.png" /></p>
+<p>Lisää kenttään ensin merkki <strong>&gt;</strong> ja kirjoita tämän jälkeen osoite <strong>Pyynikki</strong> ja tuplaklikkaa esiintulevasta listasta viimeistä osoitetta. Kartan pitäisi zoomata suoraan valittuun paikkaan. Georeferoidaan kartta Tampereen Pyynikistä, voit zoomata karttaa ulospäin, jotta näet Tampereen keskustan ja Pyynikin alueen.</p>
+</div>
+</div>
+<div id="georeferoijan-toiminta" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Georeferoijan toiminta</h2>
+<p>Avaa georeferoija <strong>Tasot -&gt; Georeferoija</strong>.</p>
+<div class="figure">
+<img src="img/harjoitus_3/image26_uusi_versio.png" alt="" />
+<p class="caption">Kuva 1. Georeferoija löytyy- tasot valikosta</p>
+</div>
+<p>Kun avaat Georeferoijan, aukeaa uusi ikkuna, jossa itse georeferointi toteutetaan. Georeferoijan ikkunaan voidaan avata rasterikuva <strong>Avaa rasteri</strong>… -painikkeesta <img src="img/harjoitus_3/image27.png" />. Painikkeesta avautuu ikkuna, jonka avulla georeferoitavan kuvan voi valita koneen tiedostojärjestelmästä. Tuettuina on useita kymmeniä eri rasteriformaatteja aina perinteisistä JPEG- ja PNG-formaateista tehokkaisiin JPEG2000- ja ECW-formaatteihin.Voit georeferoida myös PDF:ää, mutta niiden laatu saattaa kärsiä georeferoinnissa.</p>
+<p>Kurssihakemistossa on kaksi eri kuvaa, ilmakuva Tampereelta vuodelta 1946 sekä peruskarttarasteri vuodelta 1953. Voit valita kumman vaan georeferoitavaksi. Kun haluttu kuva on valittu tiedostojärjestelmästä ja valinta vahvistettu Open-painikkeesta, avautuu käyttäjälle valittu rasteri näkyviin pienen latauksen jälkeen.</p>
+<p>Vanhemmissa versioissa tässä kohtaa avautuu käyttäjälle Coordinate Reference System Selector -ikkuna. Tähän ikkunaan syötetään tieto siitä koordinaattijärjestelmästä, johon georeferoitava rasterikuva halutaan saattaa. Tässä esimerkissä käytettäväksi koordinaattijärjestelmäksi valitaan <strong>ETRS89-TM35FIN (EPSG:3067)</strong>, mutta yhtä hyvin koordinaattijärjestelmäksi voidaan valita mikä tahansa QGIS:n tukema koordinaattijärjestelmä.</p>
+<p>Tämän vaiheen jälkeen määritellään georeferoinnissa käytettävät asetukset. Tämä tapahtuu avaamalla <strong>Asetukset</strong>-valikosta <strong>Muunnoksen asetukset</strong> -ikkuna (kuva 4). Saman ikkunan saa avattua myös työkaluriviltä keltaisesta ratassymbolista.</p>
+<div class="figure">
+<img src="img/harjoitus_3/image28.png" alt="" />
+<p class="caption">Kuva 4. Georeferoinnin asetukset määritellään Asetukset-valikosta löytyvän Muunnoksen asetukset-painikkeen takaa</p>
+</div>
+<p><strong>Muunnoksen asetukset</strong> -ikkunassa määritellään muunnoksessa käytettävät asetukset (kuva 5). Toteutettavan muunnoksen osalta Muunnos parametrit -kohta) valittavissa on muunnoksen tyyppi, interpoloinnissa käytettävä menetelmä ja koordinaattijärjestelmä. Muunnoksessa syntyvän tiedoston osalta ikkunassa voidaan määritellä syntyvän tiedoston nimi, tallennussijainti sekä pakkausmenetelmä.</p>
+<p>Tarkista, että muunnoksen tyyppi on <strong>Lineaarinen</strong>, menetelmä <strong>Nearest Neighbour</strong> ja aseta koordinaattijärjestelmäksi <strong>EPSG:3067</strong>.</p>
+<p>Ikkunassa on täpättävät kohdat (Output Settings -kohta) myös vastinpisteiden (GCP-pisteet) tallentamiseksi, ns. ESRI World -tiedoston luomiseksi varsinaisen georeferoinnin toteuttamisen sijaan ja nolla-arvojen määrittämiseksi läpinäkyviksi. Lisäksi valittavissa on kohta oman vapaavalintaisen spatiaalisen resoluution asettamiseksi muunnoksen yhteydessä luotavalle kuvalle.</p>
+<p>Muunnoksesta on mahdollista saada ulos myös kartta ja raportti (Reports-kohta); näiden tallennuspaikat määritellään tarvittaessa. Varmista myös, että ikkunan alareunasta löytyvä "Avaa tulosrasteri QGISissä kun valmis" täppä on aktiivisena. Näin saat suoraan valmiin georeferoidun rasterin auki QGISin karttaikkunaan georeferoinnin jälkeen.</p>
+<div class="figure">
+<img src="img/harjoitus_3/image29.png" alt="" />
+<p class="caption">Kuva 5. Muunnoksen asetukset -ikkuna halutuilla asetuksilla (Transformation Settings)</p>
+</div>
+</div>
+<div id="panosta-vastinpisteisiin" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Panosta vastinpisteisiin</h2>
+<p>Kun muunnoksen asetukset on onnistuneesti määritelty, paina asetusikkunasta "OK". Nyt voidaan siirtyä määrittelemään vastinpisteitä. Valitse työkaluriviltä löytyvä Add Point -työkalu (kuva 6). Tämän painikkeen vierestä oikealta löytyvät tarvittaessa painikkeet jo määriteltyjen vastinpisteiden poistamiseen ja muokkaamiseen. Lisää piste -painikkeen painaminen aktivoi työkalun, jolla osoitetaan georeferoitavalta kuvalta piste.</p>
+<div class="figure">
+<img src="img/harjoitus_3/image30.png" alt="" />
+<p class="caption">Kuva 6: Georeferointi aloitetaan lisäämällä rasterukuvalle oikaisupisteitä</p>
+</div>
+<p>Kun Lisää piste -työkalulla on osoitettu piste georeferoitavalta kuvalta, avautuu Kirjoita karttakoordinaatit (Enter Map Coordinates) -ikkuna (kuva 7). Ikkunaan voi halutessaan syöttää koordinaattitiedot käsin, mutta huomattavasti kätevämpi tapa on poimia ne QGIS-paikkatietosovelluksen pääikkunasta painamalla "Karttaikkunasta"-painiketta.</p>
+<p>Usean näyttöruudun käsittävä setup helpottaa merkittävästi vastinpisteiden napsuttelua. Mikäli tällaista järjestelyä ei ole käytettävissä (esim. operoitaessa pienellä kannettavan ruudulla), voidaan elämää helpottaa täppäämällä "Piilota goereferoinnin ikkuna automaattisesti" -kohta. Tällöin Georeferencer sukeltaa automaattisesti piiloon Karttaikkunasta -painiketta painettaessa.</p>
+<div class="figure">
+<img src="img/harjoitus_3/image31.png" alt="" />
+<p class="caption">Kuva 7: Oikaisupisteen tiedot annetaan Kirjoita karttakoordinaatit -ikkunassa</p>
+</div>
+<p>Kun pisteelle on koordinaatit (joko QGIS-pääikkunasta osoittaen tai käsin syöttämällä), nähdään kentissä X / Itä ja Y / Pohjoinen numeroarvot (kuva 8). Tässä esimerkissä käytetään ETRS89-TM35FIN-koordinaattijärjestelmää (EPSG:3067), jonka koordinaatit ovat kuvassa. Vaihtoehtoisesti voit valita alasvetovalikosta toisen käytettävän koordinaattijärjestelmän (valittava siis samaksi kuin pääkanvaasi näkymässä)</p>
+<p>Onnistunut ja laadukas georeferointi vaatii useiden vastinpisteiden määrittelyn. Kuten aiemmin todettiin, vastinpisteiksi kannattaa valita esimerkiksi rakennusten kulmia, kiinteistörajoja ja muita helposti ja yksiselitteisesti tukiaineistosta tulkittavia kohteita. Vastinpisteet kannattaa lisäksi pyrkiä osoittamaan huolellisesti ja tarkasti sekä eri puolille georeferoitavaa kuvaa.</p>
+<p>Tarkkuus korostuu etenkin silloin, kun vastinpisteitä osoitetaan ainoastaan muutamia. Mitä enemmän vastinpisteitä voidaan osoittaa, sen pienempi on yksittäisestä pisteestä aiheutuva vaikutus muunnokseen.</p>
+<p>Kun vastinpisteen tiedot ovat Kirjoita karttakoordinaatit -ikkunassa ja oikea koordinaattijärjestelmä valittu, voidaan vastinpiste tallentaa painamalla OK-painiketta. Tällöin vastinpiste tallentuu ns. vastinpistetauluun (GCP-taulu) ja ikkuna sulkeutuu. Uuden pisteet saa lisättyä Lisää piste -painikkeesta.</p>
+<div class="figure">
+<img src="img/harjoitus_3/image32.png" alt="" />
+<p class="caption">Kuva 8: Oikaisupisteen tiedot syötetty</p>
+</div>
+<div class="figure">
+<img src="img/harjoitus_3/image33.png" alt="" />
+<p class="caption">Kuva 9: Jos huomaat että haluat poistaa jonkun vastinpisteen, voit sen tehdä Poista piste -työkalulla. Aktivoi työkalu ja klikkaa sillä georeferoint-ikkunassa näkyvää pientä punaista pistettä (vastinpiste)</p>
+</div>
+<div class="figure">
+<img src="img/harjoitus_3/image34.png" alt="" />
+<p class="caption">Kuva 10: Poistaminen voidaan tehdä myös muunnospistetaulussa klikkaamalla haluttua riviä hiiren oikealla ja valitsemalla "Poista"</p>
+</div>
+</div>
+<div id="vastinpisteiden-tarkastelu-ja-varsinainen-georeferointi" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Vastinpisteiden tarkastelu ja varsinainen georeferointi</h2>
+<p>Kun tarvittava määrä vastinpisteitä on syötetty, voidaan niitä tarkastella vastinpistetaulun (GCP-taulu) avulla. Mikäli vastinpistetaulu ei näy automaattisesti alareunassa paneelina, sen voi avata Näytä-valikosta löytyvän Paneelit-valikon alta.</p>
+<p>Vastinpistetaulussa on nähtävillä kaikki osoitetut vastinpisteet (kuva 10). Tässä esimerkissä on määritelty kymmenen vastinpistettä. Jokaisella vastinpisteelle esitetään taulussa sijainti georeferoitavalla kuvalla (Lähtö X ja Lähtö Y) ja sijainti tukiaineistossa (Kohde. X ja Kohde. Y). Muista valita vastinpisteitä ympäri georeferoitavaa kuvaa georeferoinnin laadun varmistamiseksi.</p>
+<div class="figure">
+<img src="img/harjoitus_3/image38.png" alt="" />
+<p class="caption">Kuva 11: Esimerkki vastinpisteiden sijainnista ilmakuvassa. Vastinpisteet näkyy punaisella</p>
+</div>
+<p>Koordinaattien lisäksi okaiselle pisteelle lasketaan virhe X- ja Y-suunnassa. X- ja Y-suuntaisten virhelukujen lisäksi jokaiselle pisteelle on laskettu residuaali, joka kuvaa ko. pisteen kokonaisvirhettä. Ideaalitilanteessa residuaaliarvo olisi mahdollisimman lähellä nollaa.</p>
+<p>Huomaa, että virhearvot esitetään pikseleinä. Mikäli jokin vastinpiste eroaa virhearvojen (Residuals/Residuaalit) osalta muista, kannattaa se poistaa ja määritellä uudelleen. Mitä suurempi residuaaliarvo pikselillä on, sitä suurempia virheitä se voi aiheuttaa georeferoinnissa. Tässä esimerkissä voisi siirtää tai määritellä uudelleen pisteet, joiden residuaali on esimerkiksi yli 3. Residuaalit lasketaan uudelleen aina kun teet uusia vastinpisteitä, joten panosta pisteiden sijoittamisen laatuun.</p>
+<div class="figure">
+<img src="img/harjoitus_3/image36.png" alt="" />
+<p class="caption">Kuva 12: GCP-taulussa nähdään kaikki syötetyt vastinpisteet</p>
+</div>
+<p>Kun tarvittava määrä vastinpisteitä on määritelty ja ne on todettu hyviksi vastinpistetaulua tarkastelemalla, voidaan käynnistää varsinainen georeferointi. Tämä tapahtuu Georeferencer-ikkunan <strong>Start Georeferencing</strong> -painikkeesta (kuva 13).</p>
+<div class="figure">
+<img src="img/harjoitus_3/image37.png" alt="" />
+<p class="caption">Kuva 13: Georeferointi käynnistetään Start Georeferencing -painikkeesta</p>
+</div>
+<p>Mikäli muunnoksen asetukset (Transformation Settings) -ikkunassa on laitettu täppä kohtaan "Load in QGIS when done", avautuu georeferoitu kuva automaattisesti QGISiin georeferoinnin jälkeen. Mikäli täppää ei ole laitettu, voi kuvan lisätä myös manuaalisesti Open Data Source Manager -toiminnon kautta.</p>
+<p>Miten alue on muuttunut? Voit verrata taustakarttaa tai uudempaa ilmakuvaa tai satelliittikuvaa vuoden 1946 ilmakuvaan esimerkiksi säätämällä tason läpinäkyvyyttä. Voit myös hyödyntää lisäosaa <strong>MapSwipe</strong>, jonka avulla voit tarkastella karttaa vierekkäin. MapSwipen voi ladata lisäosavalikon kautta.</p>
+<p>Jos on aikaa ja haluat harjoitella, voit georeferoida myös toisen kartan alueelta ja verrata niitä keskenään.</p>
+<p>Kun olet valmis, tallenna projektitiedosto kurssihakemistoon pikanäppäimellä <strong>CTRL + T</strong> (englanninkielisessä QGISissä <strong>CTRL + S</strong>) tai päävalikosta <strong>Projekti &gt; Tallenna</strong>.</p>
+<div class="hint-box">
+<p><strong>Psst! Koulutuksen jälkeen saat henkilökohtaista tukea Gispon tukipalvelusta. Lähetä kysymyksesi tai kommenttisi osoitteeseen <a href="mailto:koulutustuki@gispo.fi" class="email">koulutustuki@gispo.fi</a>!</strong></p>
+</div>
+
+</div>
+</div>
+<p style="text-align: center;">
+<a href="index.html"><button class="btn btn-default">Previous</button></a>
+<a href="3-harjoitus-2-digitoinnin-perusteet.html"><button class="btn btn-default">Next</button></a>
+</p>
+</div>
+</div>
+
+<footer class="footer text-center">
+
+<div class="footer-container text-center">
+
+<div class="footer-info">
+<h5 class="footer-title">Suunnittelu ja editointi QGISillä</h5>
+<span class="footer-version">v2026-08-31</span>
+<div class="license"><img src="img/by-nd.svg" width="80px" alt="CC-BY-ND"></div>
+</div>
+
+<div class="footer-info">
+<h5 class="footer-title footer-company">Gispo Suomi Oy.
+<span class="footer-copyright-year">© 2026</span></h5>
+<span class="footer-contact-info">Kyllikinportti 2
+<br>00240 Helsinki, Finland
+<br>info@gispo.fi
+</span>
+</div>
+
+</div>
+</div>
+</footer>
+</div>
+
+
+<script src="js/nav-script.js"></script>
+<script src="js/answer-key.js"></script>
+
+</body>
+</html>
