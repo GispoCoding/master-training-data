@@ -156,16 +156,9 @@ Muun muassa pgAdmin käyttää näitä sisäisesti.
 
 SQL-komentoja voi suorittaa pgAdminin (ja QGISin Tietokannan hallinta
 -lisäosan) lisäksi myös psql-komentorivin kautta. Avaa selaimessa uusi välilehti. Ota sama etuosa pgAdmin-osoitteestasi mutta laita siihen sen sijaan **/wetty**, jotta pääset käyttämään
-psql-komentorivityökalua. Alla olevassa esimerkissä on eri numero kuin omassa osoitteessasi.
+psql-komentorivityökalua.
 
-:::{.note-box}
-https://postgresql-ja-postgis-perusteet-999.gispocoding.fi/wetty
-:::
-
-Kirjaudu ensin sisään WeTTY- terminaaliemulaattoriin:
-
-- Kirjoita käyttäjänimi **student** ja paina Enter
-- Kirjoita salasana **gispotraining** ja paina Enter
+Kirjaudu ensin sisään WeTTY- terminaaliemulaattoriin kouluttajan antamalla kirjautumistiedoilla.
 
 
 Ota yhteys omaan tietokantaklusteriisi
