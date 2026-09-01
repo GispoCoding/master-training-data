@@ -1,4 +1,4 @@
-# HARJOITUS 2.5: PÄÄSYNHALLINTA
+# HARJOITUS 12: PÄÄSYNHALLINTA
 
 **Harjoituksen sisältö**
 
