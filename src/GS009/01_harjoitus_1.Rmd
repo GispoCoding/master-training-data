@@ -6,17 +6,9 @@
 
 ## Harjoitus 1.1: pgAdmin 4
 
-Käynnistä pgAdmin 4 -ohjelmisto menemällä osoitteeseen, minkä kouluttaja on antanut. Jokaisella kurssiosallistujalla on henkilökohtainen harjoitusympäristö mihin kuuluu pääsy pgAdminin selainohjelmistoon. Alla olevassa esimerkissä on eri numero kuin omassa osoitteessasi.
+Käynnistä pgAdmin 4 -ohjelmisto menemällä osoitteeseen, minkä kouluttaja on antanut. Jokaisella kurssiosallistujalla on henkilökohtainen harjoitusympäristö mihin kuuluu pääsy pgAdminin selainohjelmistoon.
 
-:::{.note-box}
-https://postgresql-ja-postgis-perusteet-999.gispocoding.fi/pgadmin
-:::
-
-Pääset kirjautumaan etäpalvelimen pgAdminiin
-seuraavilla tunnuksilla:
-
-- Sähköpostiosoite: **student@gispocoding.fi**
-- Salasana: **gispotraining**
+Pääset kirjautumaan etäpalvelimen pgAdminiin kouluttajan antamilla kirjautumistiedoilla.
 
 ![pgAdmin- kirjautuminen](img/pgadmin_splash.png)
 
@@ -164,16 +156,9 @@ Muun muassa pgAdmin käyttää näitä sisäisesti.
 
 SQL-komentoja voi suorittaa pgAdminin (ja QGISin Tietokannan hallinta
 -lisäosan) lisäksi myös psql-komentorivin kautta. Avaa selaimessa uusi välilehti. Ota sama etuosa pgAdmin-osoitteestasi mutta laita siihen sen sijaan **/wetty**, jotta pääset käyttämään
-psql-komentorivityökalua. Alla olevassa esimerkissä on eri numero kuin omassa osoitteessasi.
+psql-komentorivityökalua.
 
-:::{.note-box}
-https://postgresql-ja-postgis-perusteet-999.gispocoding.fi/wetty
-:::
-
-Kirjaudu ensin sisään WeTTY- terminaaliemulaattoriin:
-
-- Kirjoita käyttäjänimi **student** ja paina Enter
-- Kirjoita salasana **gispotraining** ja paina Enter
+Kirjaudu ensin sisään WeTTY- terminaaliemulaattoriin kouluttajan antamalla kirjautumistiedoilla.
 
 
 Ota yhteys omaan tietokantaklusteriisi
