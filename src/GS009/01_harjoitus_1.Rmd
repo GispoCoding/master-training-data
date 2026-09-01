@@ -6,11 +6,9 @@
 
 ## Harjoitus 1.1: pgAdmin 4
 
-Käynnistä pgAdmin 4 -ohjelmisto menemällä osoitteeseen
-[/pgadmin](/pgadmin). Pääset kirjautumaan etäpalvelimen pgAdminiin
-seuraavilla tunnuksilla:
+Käynnistä pgAdmin 4 -ohjelmisto menemällä osoitteeseen, minkä kouluttaja on antanut. Jokaisella kurssiosallistujalla on henkilökohtainen harjoitusympäristö mihin kuuluu pääsy pgAdminin selainohjelmistoon.
 
-TODO: päivitä ohjeet kirjautumiseen
+Pääset kirjautumaan etäpalvelimen pgAdminiin kouluttajan antamilla kirjautumistiedoilla.
 
 ![pgAdmin- kirjautuminen](img/pgadmin_splash.png)
 
@@ -19,8 +17,6 @@ TODO: päivitä ohjeet kirjautumiseen
 Liitä pgAdmin-ohjelmaan koulutusympäristön tietokanta klikkaamalla
 hiiren oikealla kohdasta **Servers** ja valitsemalla **Register \>
 Server...**
-
-TODO: päivitä ohjeet kirjautumiseen
 
 Syötä seuraavat tiedot:
 
@@ -159,11 +155,11 @@ Muun muassa pgAdmin käyttää näitä sisäisesti.
 ## Harjoitus 1.2: psql
 
 SQL-komentoja voi suorittaa pgAdminin (ja QGISin Tietokannan hallinta
--lisäosan) lisäksi myös psql-komentorivin kautta. Avaa
-[komentorivi](/wetty), jotta pääset käyttämään
-psql-komentorivityökalua. Kirjaudu ensin sisään WeTTY- terminaaliemulaattoriin:
+-lisäosan) lisäksi myös psql-komentorivin kautta. Avaa selaimessa uusi välilehti. Ota sama etuosa pgAdmin-osoitteestasi mutta laita siihen sen sijaan **/wetty**, jotta pääset käyttämään
+psql-komentorivityökalua.
 
-TODO: päivitä ohjeet kirjautumiseen
+Kirjaudu ensin sisään WeTTY- terminaaliemulaattoriin kouluttajan antamalla kirjautumistiedoilla.
+
 
 Ota yhteys omaan tietokantaklusteriisi
 komennolla:
