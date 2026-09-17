@@ -59,3 +59,19 @@ Edit the template files to change the layout and appearance of the output.
 Always preview the affect of changes to template files before committing changes.
 This can be done by rendering the output HTML locally using [render.sh](render.sh).
 After rendering, navigate to the out directory, start a http server (`python -m http.server`), and open [http://localhost:8000](http://localhost:8000). -->
+
+## Workflows
+
+### Releasing PDF versions of courses
+
+[`render-release-pdf.yaml`](./.github/workflows/render-release-pdf.yaml) renders
+and releases a PDF of all changed courses on the main branch. **Note** that the
+action reuses previous releases, and simply replaces the PDF. This is done to
+maintain stable URLs that always point to the latest PDF of a course. This way a
+course can include a link to a PDF version of itself, and the link will always
+point to an up to date PDF.
+
+The downside of this approach is that any given release is of little semantic
+value. I.e. the source will be outdated, and the referenced commit will not
+reflect what the PDF is built from. In short, **think of the releases only as
+places to host the PDF files**, nothing more.
