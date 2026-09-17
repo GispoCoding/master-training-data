@@ -10,7 +10,9 @@ output:
         theme: null
         template: custom.html
         css: custom.css
-        split_by: chapter+number
+        split_by: rmd
+#        split_by: chapter+number
+#        number_sections: false
 documentclass: book
 ---
 
