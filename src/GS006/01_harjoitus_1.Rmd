@@ -1,4 +1,4 @@
-# HARJOITUS 1.1: ASENNUS JA KÄYTTÖÖNOTTO
+# HARJOITUS 1: ASENNUS JA KÄYTTÖÖNOTTO
 
 **Harjoituksen sisältö**
 
