@@ -379,7 +379,7 @@ table td {
 }
 
 .note-box {
-    background: #ffffff;
+    background: #ffffffe8;
     padding: 10px;
     border: none;
     margin-bottom: 1rem;
@@ -408,6 +408,7 @@ table td {
 
 code span {
     font-family: 'Source Code Pro', monospace;
+    color: #202020
 }
 
 .code-box p {

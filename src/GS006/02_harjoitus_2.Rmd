@@ -20,8 +20,7 @@ Edellisessä harjoituksessa kävimme läpi osan GeoServerin web-käyttöliittym�
 
 Tähän asti käyttöliittymällä on ollut näkyvissä vain kaikille avoimet toiminnallisuudet ja aineistot (ilman tunnistautumista). Näitä voidaan rajoittaa käyttäjäkohtaisesti eri pääsynhallinta-asetusten kautta. Pääsynhallinnan perusteisiin tutustutaan myöhemmin kurssilla.
 
-Kirjaudu nyt palvelimeen käyttäen tunnuksena **admin** ja salasanana **gispo**.
-
+Kirjaudu nyt palvelimeen käyttäen tunnuksena **admin** ja salasanana **gispo** (varmista kouluttajalta tunnus ja salasana)
 
 Ylläpitäjän näkymä muistuttaa äsken nähtyä käyttöliittymää. Sen rakenne on sama, mutta toiminnallisuuksia ja nähtävillä olevia tietoja on huomattavasti enemmän.
 
@@ -203,7 +202,7 @@ Yksi taso vastaa yhtä aineistoa. Aineisto voidaan julkaista useisiin eri tasoih
 
 **Layers**-näkymässä on mahdollista muokata, lisätä tai poistaa tasoja. **Layers**-näkymän taulukossa on nähtävissä muutama taso ja niiden nimet (**Name**). Taulukossa lukee myös tason otsikko (**Title**) ja missä **Store**ssa aineistot sijaitsevat.
 
-Sarake **Enabled** näyttää tiedon siitä, onko taso käytettävissä palvelimelta vai ei. Huomaa, että käytettävyyden voi määritellä koko storelle (eli aineistolähteelle) tai erikseen tasoille (aineiston näkymille). Myös tason alkuperäinen koordinaattijärjestelmä on ilmoitettu taulukossa, **Native SRS**.
+Sarake **Enabled** näyttää tiedon siitä, onko taso käytettävissä palvelimelta vai ei. Huomaa, että käytettävyyden voi määritellä koko storelle (eli aineistolähteelle) tai erikseen tasoille (aineiston näkymille). Myös tason alkuperäinen koordinaattijärjestelmä on ilmoitettu taulukossa (**Native SRS**).
 
 ![](img/harjoitus_2/image20.png)
 

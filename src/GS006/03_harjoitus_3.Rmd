@@ -43,9 +43,9 @@ Valitse Shapefile aineiston formaatiksi **New data source** -näkymässä, **Vec
 
 Seuraavassa näkymässä pääset määrittelemään juuri luomasi storen muut asetukset, kuten nimen ja tiedoston sijainnit. Nimeä ne seuraavalla tavalla:
 
--   **Valitse** workspaceksi helsinki
+-   **Valitse** workspaceksi `helsinki`
 
--   **Nimeä** aineisto hki_rakennukset
+-   **Nimeä** aineisto `hki_rakennukset`
 
 -   **Lisää** halutessasi aineistolle kuvaus, esimerkiksi "Helsingin OpenStreetMap-rakennukset"
 
@@ -93,9 +93,9 @@ Keskitytään nyt **Data**-välilehdessä oleviin valintoihin. Määrittele ylei
 
 -   **Pidä** Enabled ja Advertised rastitettuna
 
--   **Nimeä** aineisto rakennukset
+-   **Nimeä** aineisto `rakennukset`
 
--   **Otsikoi** Helsingin OpenStreetMap rakennukset
+-   **Otsikoi** `Helsingin OpenStreetMap rakennukset`
 
 **Lisää** halutessasi selitystä tasosta ja tasoon liittyviä avainsanoja (keywords). Avainsanojen avulla sekä GeoServerin ylläpitäjien ja käyttäjien on helpompi löytää heille tarpeellisia paikkatietoaineistoja.
 

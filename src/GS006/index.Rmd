@@ -80,7 +80,7 @@ Ohessa muutamia web-sivustoja, joista saat lisätietoja:
 
 ## Virheet
 
-Jos havaitset materiaalissa virheitä, pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi-osoitteeseen](mailto:info@gispo.fi-osoitteeseen){.email}.
+Jos havaitset materiaalissa virheitä, pyydämme ilmoittamaan niistä kouluttajalle tai sähköpostilla [info\@gispo.fi](mailto:info@gispo.fi-osoitteeseen){.email}-osoitteeseen.
 
 ## Lisenssi ja oikeudet
 

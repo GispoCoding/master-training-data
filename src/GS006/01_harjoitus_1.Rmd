@@ -10,7 +10,7 @@ Harjoituksen jälkeen opiskelija osaa kirjautua ylläpitäjänä GeoServeriin ja
 
 **Arvioitu kesto**
 
-40 minuuttia.
+20 minuuttia.
 
 ## **Valmistautuminen**
 
@@ -78,7 +78,11 @@ Kokeile erilaisten kyselyjen (toiminnallisuuksien) tuloksia ja näe, mitä kukin
 
 GeoServerin eri toiminnot ja operaatiot muodostuvat URL:n liittyvistä parametreistä. Parametrit ohjaavat GeoServerin rajapintapalveluita: mitä karttatasoa kysytään, miltä alueelta tietoja haetaan tai kuva muodostetaan, vastauksen koordinaattijärjestelmä jne.
 
-Muokkaa kyselyn parametrejä BBOX, WIDTH ja HEIGHT. Mitä vaikutuksia muutoksilla on vastaukseen?
+Muokkaa kyselyn parametrejä BBOX, WIDTH ja HEIGHT. 
+
+::: hint-box
+Mitä vaikutuksia muutoksilla on vastaukseen?
+::: 
 
 ## **SRS List ja Reprojection console**
 
