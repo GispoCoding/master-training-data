@@ -115,13 +115,13 @@ Voit nyt testata SLD-koodia **Validate-**toiminnolla. Voit esikatsella karttamer
 
 Muokkaa vielä monikulmion SLD-tyyli seuraavasti:
 
--   **Täyteväri** (PolygonSymbolizer → FILL) vaaleanpunaiseksi (#FFCC99)
+-   **Täyteväri** (PolygonSymbolizer → FILL) vaaleanpunaiseksi (`#FFCC99`)
 
--   **Reunaviivan väri** (PolygonSymbolizer → Stroke) mustaksi (#000000)
+-   **Reunaviivan väri** (PolygonSymbolizer → Stroke) mustaksi (`#000000`)
 
--   **Reunaviivan paksuudeksi** 0.5
+-   **Reunaviivan paksuudeksi** `0.5`
 
--   **Aseta** ensimmäisellä rivillä encoding="UTF-8"
+-   **Aseta** ensimmäisellä rivillä `encoding="UTF-8"`
 
 ::: hint-box
 Psst! Huomaa, että GeoServerissä desimaalierottimena toimii ainoastaan piste ".". Tämä pätee kaikissa GeoServerin asetuksissa.

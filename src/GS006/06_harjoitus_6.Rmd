@@ -26,7 +26,7 @@ Ensin meidän pitää luoda viitereferenssi aineistoon, jotta GeoServer tietäis
 
 Luo uusi store valitsemalla **Stores → Add new Store**. Paina sitten **ArcGrid** storen formaatiksi.
 
-Valitse taas **helsinki**-workspace ja nimeä uusi store: **hki_korkeusmalli_L4133A**.
+Valitse taas **helsinki**-workspace ja nimeä uusi store: `hki_korkeusmalli_L4133A`.
 
 Selaa sitten kansioon **/koulutus/korkeusmalli_2m/** ja valitse tiedosto **L4133A.asc**.\
 ![](img/harjoitus_6/image1.png)
@@ -35,7 +35,8 @@ Paina sitten **Save** ja sen jälkeen **Publish**.
 
 Kuten aiemmin vektoriaineistojen luomisen yhteydessä, pääset nyt tason editointinäkymään. Tarkista yleisasetukset niin, että sekä **Enabled** että **Advertised** ovat valittuna.
 
-Laita nimeksi **korkeusmalli** ja otsikoksi **Helsingin korkeusmalli** ja lisätiedoksi **Korkeusmalli 2m -- Maanmittauslaitos.**
+Laita nimeksi `korkeusmalli` ja otsikoksi `Helsingin korkeusmalli` ja lisätiedoksi **Korkeusmalli 2m -- Maanmittauslaitos**.
+
 ![](img/harjoitus_6/image2.png)
 
 Huomaa, että **Coordinate Reference Systems** -kohdassa, koordinaattijärjestelmä on määritelty väärin. Aineiston oikea järjestelmä on **ETRS89 / ETRS-TM35FIN** (**EPSG:3067**). Korjaa sitä käsin **Declared SRS** -kentässä ja valitse **SRS handling** kentästä **Force declared**. Käytä sen jälkeen pikalinkkejä määrittääksesi aineiston laajuuden.
